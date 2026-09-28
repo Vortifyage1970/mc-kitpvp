@@ -1,0 +1,186 @@
+# 05 · 骨架缺口对照（按最新文件树重写）
+
+> 依据：01-file-structure.md 目录树 + 当前各文件内容（本次检查）
+> 结论速览：一局"选职业 → 死亡 → 淘汰 → 结算 → 回大厅状态"链路可跑通；
+>          "大厅施工 / 地图 / 技能 / 突然死亡"四大块均未实现。
+
+## 一、模块状态总表
+
+### 1.1 根级 / 生命周期
+
+| 文件 | 状态 | 说明 |
+|---|---|---|
+| functions/load.mcfunction           | 完成   | 计分板、tag、gamerule 均已就位 |
+| functions/tick.mcfunction           | 完成   | 见 §三.1、§三.2 顺序可优化 |
+| functions/debug/death_check.mcfunction | 未展示 | 未纳入本次检查 |
+
+### 1.2 game/
+
+| 文件 | 状态 | 说明 / 阻塞 |
+|---|---|---|
+| game/check_winner.mcfunction | 完成 | 依赖 #test / #state / #survivors，均在 load 已初始化 |
+| game/end.mcfunction          | 完成 | schedule 200t → reset；`..0` 与 `2..` 分支仅供手动调用 |
+| game/start.mcfunction        | 骨架 | 缺：传送、切模式、发装备、spawnpoint、5 秒无敌、8 分钟倒计时启动、人数 < 2 阻断 |
+| game/reset.mcfunction        | 部分 | 玩家清场 + 状态归零 OK；`kill @e` 与 `map/restore` 仍注释 |
+
+### 1.3 lobby/
+
+| 文件 | 状态 | 说明 / 阻塞 |
+|---|---|---|
+| lobby/build.mcfunction     | 空     | 大厅不存在 |
+| lobby/destroy.mcfunction   | 空（仅注释） | 无法拆除 |
+| lobby/enter.mcfunction     | 骨架   | 只打 in_lobby tag；gamemode/clear/effect/spawn 全注释 |
+| lobby/exit.mcfunction      | 完成   | 清 in_lobby tag |
+| lobby/reset_self.mcfunction| 完成   | 依赖 util/clear_player |
+| lobby/spawn.mcfunction     | 空     | 无法传送进大厅 |
+
+### 1.4 map/
+
+| 文件 | 状态 | 说明 / 阻塞 |
+|---|---|---|
+| map/random.mcfunction     | 占位 | 硬编码 #global kitpvp.map = 0 |
+| map/distribute.mcfunction | 占位 | 空注释 |
+| map/restore.mcfunction    | 占位 | 空注释 |
+
+### 1.5 kit/
+
+| 文件 | 状态 | 说明 / 阻塞 |
+|---|---|---|
+| kit/warrior.mcfunction | 完成 | 装备 + 属性 + tag |
+| kit/select.mcfunction  | 不存在 | 旧 05 提到的条目已过时；如需"先列后选"的入口，需新建 |
+
+### 1.6 player/
+
+| 文件 | 状态 | 说明 / 阻塞 |
+|---|---|---|
+| player/join.mcfunction           | 完成 | 依赖 lobby/enter |
+| player/on_death.mcfunction       | 完成 | 大厅死亡不计 |
+| player/death_dispatch.mcfunction | 完成 | deathCount → on_death |
+| player/after_death.mcfunction    | 完成 | 重生后处理（消费 respawn_pending） |
+| player/invincible.mcfunction     | 完成 | resistance 6s（抗性 V） |
+| player/end_invincible.mcfunction | 完成 | 只清 resistance |
+| player/eliminate.mcfunction      | 完成 | 淘汰 → 旁观，末尾调 check_winner |
+| player/on_kill.mcfunction        | 不存在 | kills 分数永远为 0 |
+| player/on_respawn.mcfunction     | 不存在 | 已由 after_death 覆盖，可选 |
+
+### 1.7 skill/
+
+| 文件 | 状态 | 说明 / 阻塞 |
+|---|---|---|
+| skill/* | 目录不存在 | 所有职业技能无实现；cd / cd2 递减已就绪但无消费者 |
+
+### 1.8 util/
+
+| 文件 | 状态 | 说明 / 阻塞 |
+|---|---|---|
+| util/clear_player.mcfunction | 完成 | 维护方多，见 §三.3 |
+| util/give_kit.mcfunction     | 完成但未调用 | 会清空背包后重发，慎用 |
+| util/say.mcfunction          | 空     | 无引用，可删 |
+| util/title.mcfunction        | 空     | 无引用，可删 |
+
+### 1.9 debug/test/
+
+| 文件 | 状态 |
+|---|---|
+| debug/test/status.mcfunction | 完成 |
+| debug/test/on, off, build, play, solo_start, force_end, force_reset, force_select_list | 未展示，未纳入本次检查 |
+
+## 二、阻塞清单（按优先级）
+
+### P0 —— 玩家体验断档
+
+1. `lobby/build` 与 `lobby/spawn` 空：玩家加入服务器后原地挂机，无法进入大厅。
+2. `game/start` 骨架：开局不传送、不发装备、不切生存、不给无敌、不设 spawnpoint。
+3. tick 里没有 `#global kitpvp.timer` 递减 → 8 分钟倒计时永远不启动，突然死亡永不触发。
+
+### P1 —— 技能系统不可用
+
+4. `skill/` 目录不存在，所有职业技能无实现。
+5. `kitpvp.cd` / `cd2` 递减已在 tick 完成，但没有消费者。
+
+### P2 —— 结算不完整
+
+6. `game/reset` 里 `kill @e` 白名单未定（画 / 物品展示框 / 装饰实体）。
+7. `game/reset` 里 `map/restore` 方案未定。
+
+### P3 —— 计分板缺口
+
+8. `player/on_kill` 不存在 → `kills` 永远为 0。
+
+### P4 —— 卫生问题
+
+9. `util/say`、`util/title` 空文件。
+10. 旧 05 表格提到的 `kit/select.mcfunction` 不存在。
+
+## 三、需注意的实现细节
+
+### 3.1 tick 顺序（respawn_pending 与死亡检测）
+
+当前顺序：
+
+    1) join 检测
+    2) cd  -1
+    3) cd2 -1
+    4) inv 补 0
+    5) inv -1
+    6) end_invincible 检测
+    7) respawn_pending → after_death
+    8) 虚空 kill
+    9) death_detect → death_dispatch
+    10) #tick 递增 + 20 刻 check_winner
+
+第 7 步在第 9 步之前 → 死亡打 tag 后要到下一 tick 才被消费，5 秒无敌晚 1 tick。建议把第 7 步挪到第 9 步之后。
+
+### 3.2 同 tick 多人淘汰
+
+`eliminate` 末尾直接调 `check_winner`。若 A、B 同 tick 归零，先处理的 A 会看到 survivors=1（B 尚未淘汰）并触发 `end`，结果 B 被宣布胜利但随后也被淘汰。要么在 `end` 前复查 survivor 的 alive=1，要么延迟一拍宣布。
+
+### 3.3 `clear_player` 里 lives=3 是硬编码
+
+任何职业函数必须显式 `scoreboard players set @s kitpvp.lives <N>`，否则会被 clear_player 拉回 3。`warrior` 已显式写过，属冗余但安全。
+
+### 3.4 `lobby/enter` 职责分裂
+
+它同时被 `player/join` 和 `game/reset` 调用。建议：
+
+- `lobby/enter` 只负责：打 `kitpvp.in_lobby` + `function kitpvp:lobby/spawn`
+- clear / gamemode / effect clear 交给 `player/join`，避免 reset 时重复清场
+
+### 3.5 重载数据包会打断进行中的局
+
+`load` 里清 `kitpvp.joined` 和 `kitpvp.in_lobby`，之后 tick 重新触发 `join → lobby/enter`，把正在游戏的玩家打上"大厅"标记。规避手段二选一：
+
+- 文档约定：局内不 reload；
+- 在 `player/join` 里加保护：若 `#state kitpvp.game` 为 1 则跳过 `lobby/enter`。
+
+### 3.6 `util/give_kit` 语义
+
+它内部走 `kit/warrior`，会先 `clear_player` 再发装备。适合"重选 / 补发"场景，不适用于"死亡后保留背包"的重生路径（重生走 `after_death`，不重发装备）。
+
+### 3.7 未确认项（需实测）
+
+- 音效 `minecraft:ui.toast.challenge_complete` 在 1.20.1 的确切 ID。
+- 虚空兜底 `y=-1024,dy=950` 的末端开闭区间是否为闭区间。
+
+以上两条我**不确定**，请用 `/help` 或实测验证，不要照抄。
+
+## 四、与设计文档的偏差（需回填）
+
+| 位置 | 差异 |
+|---|---|
+| 设计文档 2.8 | 说"死亡掉落默认掉落"，load 里是 `keepInventory=true`，`kitpvp.keep_inventory` tag 无处写入 |
+| 设计文档 §6 计分板列表 | 缺 `kitpvp.game`、`kitpvp.inv`、`kitpvp.death_detect`、`kitpvp.death_seen` |
+| 设计文档 §7 tag 列表 | 缺 `kitpvp.joined`、`kitpvp.respawn_pending`、`kitpvp.death_immune`、`kitpvp.keep_inventory` |
+| 设计文档 2.10 突然死亡 | 未实现（`sudden_death` tag 只在 load 里清，无写入点） |
+| 设计文档 2.12 地图重生点 | `map/distribute` 未实现，`game/start` 里也未写 `spawnpoint` |
+
+## 五、建议动手顺序
+
+1. 用 `debug/test/status` 确认 `#test=0`、`#state=0`。
+2. 补 `lobby/build` 与 `lobby/spawn`（先定大厅坐标），玩家才能真正"进大厅"。
+3. 补 `game/start`：传送、切模式、发装备、写 spawnpoint、5 秒无敌、启动 timer。
+4. 在 tick 里加 `#global kitpvp.timer` 递减，并在到 0 时触发 sudden_death。
+5. 建 `skill/` 目录，先补 `warrior` 的"补给"。
+6. 补 `player/on_kill`（或在 `eliminate` 里加 kills 计数）。
+7. 定 `kill @e` 白名单与 `map/restore` 方案。
+8. 清理 `util/say`、`util/title` 空文件。

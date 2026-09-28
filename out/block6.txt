@@ -1,0 +1,7 @@
+
+相关约定：
+
+- `suggest_command` 的 `value` 是填进聊天输入框的内容，也建议带 `/`。
+- `copy_to_clipboard` 的 `value` 是纯文本，是否带 `/` 按用途决定；想让玩家粘贴即可执行，就必须带。
+- `hoverEvent` 用 `contents`，不要写成 `value`。
+- 生成这些 JSON 时留意转义：外层用单引号包住整段 JSON 时，内部全部用双引号。

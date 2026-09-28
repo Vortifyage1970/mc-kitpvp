@@ -1,0 +1,11 @@
+src/data/kitpvp/functions/kit/
+├── info/
+│   └── warrior.mcfunction      （已存在，未改动）
+└── list/                        ← 新建
+    ├── classic.mcfunction
+    ├── classic_evil.mcfunction
+    ├── classic_chaos.mcfunction
+    ├── astral.mcfunction
+    ├── operator.mcfunction
+    ├── meme.mcfunction
+    └── history.mcfunction
