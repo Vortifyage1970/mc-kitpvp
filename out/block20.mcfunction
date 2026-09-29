@@ -1,0 +1,1 @@
+tellraw @s [{"text":"[调试]","color":"dark_red","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/menu"},"hoverEvent":{"action":"show_text","contents":[{"text":"打开调试控制台","color":"gray"}]}}]
