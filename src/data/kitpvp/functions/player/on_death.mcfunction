@@ -17,3 +17,5 @@ execute unless entity @s[tag=kitpvp.in_lobby] unless entity @s[tag=kitpvp.death_
 
 # 命数归 0 → 淘汰（alive=1 守卫防止旁观者被 /kill 时重复淘汰）
 execute unless entity @s[tag=kitpvp.in_lobby] if score @s kitpvp.lives matches ..0 if score @s kitpvp.alive matches 1 run function kitpvp:player/eliminate
+
+execute if entity @s[tag=kitpvp.in_lobby] run function kitpvp:lobby/enter

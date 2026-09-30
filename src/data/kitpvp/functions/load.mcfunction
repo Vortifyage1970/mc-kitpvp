@@ -65,7 +65,8 @@
  scoreboard players set @a kitpvp.inv 0                                                                                        
  scoreboard players set @a kitpvp.death_detect 0                                                                               
  scoreboard players set @a kitpvp.death_seen 0
- scoreboard players set @a kitpvp.item 0                                                                                 
+ scoreboard players set @a kitpvp.item 0
+                                                                                  
                                                                                                                                
  # 六、全局假玩家数据                                                                                                          
  scoreboard players set #global kitpvp.map 0                                                                                   
@@ -73,7 +74,7 @@
  scoreboard players set #state kitpvp.game 0                                                                                   
  scoreboard players set #survivors kitpvp.game 0                                                                               
  scoreboard players set #tick kitpvp.game 0                                                                                    
- scoreboard players set #test kitpvp.game 0                                                                                    
+ scoreboard players set #test kitpvp.game 0                                                                                                                                                               
                                                                                                                                
  # 七、清空 storage                                                                                                            
  data remove storage kitpvp:main temp                                                                                          

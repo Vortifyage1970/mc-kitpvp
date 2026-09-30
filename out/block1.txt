@@ -1,5 +1,2 @@
-1. kit/list（职业选择菜单）        ← 不依赖坐标，立刻能做
-2. game 开始入口（调用 start）      ← 不依赖坐标，立刻能做
-3. 定坐标 + 补全 game/start        ← 需要决策
-4. tick 加 timer + 突然死亡        ← 不依赖坐标
-5. reset 白名单 + 地图回滚方案      ← 需要决策
+scoreboard players set @s kitpvp.death_detect 0
+scoreboard players set @s kitpvp.death_seen 0

@@ -1,5 +1,1 @@
-gamemode adventure @s
-clear @s
-effect clear @s
-function kitpvp:lobby/spawn
-function kitpvp:lobby/menu
+execute if entity @s[tag=kitpvp.in_lobby] run function kitpvp:lobby/enter

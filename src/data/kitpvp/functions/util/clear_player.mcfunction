@@ -43,8 +43,7 @@
  scoreboard players set @s kitpvp.cd 0                                                                                         
  scoreboard players set @s kitpvp.cd2 0                                                                                        
  scoreboard players set @s kitpvp.inv 0                                                                                        
- scoreboard players set @s kitpvp.death_detect 0                                                                               
- scoreboard players set @s kitpvp.death_seen 0
+ scoreboard players operation @s kitpvp.death_seen = @s kitpvp.death_detect
  scoreboard players set @s kitpvp.item 0                                                                                 
  scoreboard players set @s kitpvp.lives 3                                                                                      
  scoreboard players set @s kitpvp.kills 0                                                                                      

@@ -1,23 +1,22 @@
- # 玩家加入服务器                                                                                                                
- # ===== 玩家生命周期起点 =====                                                                                                  
- # 由根 tick 通过 [tag=!kitpvp.joined] 检测触发，每会话各跑一次                                                                  
+# 玩家加入服务器                                                                                                                
+# ===== 玩家生命周期起点 =====                                                                                                  
+# 由根 tick 通过 [tag=!kitpvp.joined] 检测触发，每会话各跑一次                                                                  
                                                                                                                                  
- # 登记已加入，防止 tick 每刻重复触发                                                                                            
- tag @s add kitpvp.joined                                                                                                        
+# 登记已加入，防止 tick 每刻重复触发                                                                                            
+tag @s add kitpvp.joined                                                                                                        
                                                                                                                                  
- # 基础状态初始化                                                                                                                
- scoreboard players set @s kitpvp.kit 0                                                                                          
- scoreboard players set @s kitpvp.cd 0                                                                                           
- scoreboard players set @s kitpvp.cd2 0                                                                                          
- scoreboard players set @s kitpvp.alive 1                                                                                        
- scoreboard players set @s kitpvp.lives 3                                                                                        
- scoreboard players set @s kitpvp.kills 0                                                                                        
- scoreboard players set @s kitpvp.deaths 0                                                                                       
- scoreboard players set @s kitpvp.inv 0      
- scoreboard players set @s kitpvp.death_detect 0                                                                                 
- scoreboard players set @s kitpvp.death_seen 0
- scoreboard players set @s kitpvp.item 0
- scoreboard players operation @s kitpvp.gapple_last = @s kitpvp.gapple_used                                                                                            
+# 基础状态初始化                                                                                                                
+scoreboard players set @s kitpvp.kit 0                                                                                          
+scoreboard players set @s kitpvp.cd 0                                                                                           
+scoreboard players set @s kitpvp.cd2 0                                                                                          
+scoreboard players set @s kitpvp.alive 1                                                                                        
+scoreboard players set @s kitpvp.lives 3                                                                                        
+scoreboard players set @s kitpvp.kills 0                                                                                        
+scoreboard players set @s kitpvp.deaths 0                                                                                       
+scoreboard players set @s kitpvp.inv 0      
+scoreboard players operation @s kitpvp.death_seen = @s kitpvp.death_detect
+scoreboard players set @s kitpvp.item 0
+scoreboard players operation @s kitpvp.gapple_last = @s kitpvp.gapple_used                                                                                            
                                                                                                                                  
- # 进入主大厅（负责 add kitpvp.in_lobby）                                                                                        
- function kitpvp:lobby/enter                                                 
+# 进入主大厅（负责 add kitpvp.in_lobby）                                                                                        
+function kitpvp:lobby/enter                                                 

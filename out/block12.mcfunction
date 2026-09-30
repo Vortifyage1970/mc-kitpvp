@@ -1,1 +1,1 @@
-tp @s 0 64 0
+scoreboard players add @s kitpvp.death_detect 1

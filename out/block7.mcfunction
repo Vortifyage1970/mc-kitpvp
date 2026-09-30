@@ -1,2 +1,2 @@
-# 同步金苹果统计快照（统计型只读，只能在这里对齐快照）
-scoreboard players operation @s kitpvp.gapple_last = @s kitpvp.gapple_used
+title @s subtitle {"text":"准备战斗","color":"yellow"}
+title @s title {"text":"重生","color":"red","bold":true}

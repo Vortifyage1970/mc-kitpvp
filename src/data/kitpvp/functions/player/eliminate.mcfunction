@@ -12,6 +12,7 @@ tag @s add kitpvp.spectator
 gamemode spectator @s
 clear @s
 effect clear @s
+tag @s remove kitpvp.selected
 
 title @s times 5 40 10
 title @s title {"text":"你死完了！","color":"red","bold":true}

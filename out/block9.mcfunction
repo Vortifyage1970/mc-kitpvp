@@ -1,1 +1,1 @@
-function kitpvp:util/clear_player
+tag @s remove kitpvp.selected

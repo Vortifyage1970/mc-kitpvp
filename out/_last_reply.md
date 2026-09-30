@@ -1,193 +1,205 @@
-下面按文件逐个给出。**修改**的文件直接整份替换；**新建**的文件放到对应目录。
+我先说清楚前提：**`load.mcfunction` 没有贴出来**，所以下面关于 `kitpvp.death_detect` 的性质是**推断**（从 `on_death` 里只有 `add deaths`、没有 `add death_detect` 这一点倒推，它极可能是 `minecraft.custom:minecraft.deaths` 统计类 objective）。如果实际不是统计类，请看我在第 1 条里的标注。
+
+下面按严重程度排序。
 
 ---
 
-## 1. `src/data/kitpvp/functions/tick.mcfunction`（修改）
+## 一、严重 bug
 
-新增一段"清除落地箭"。其余内容保持原样。
+### Bug 1：`death_detect` 被当成普通分归零，会触发假死亡
+
+**位置：** `util/clear_player.mcfunction` 与 `player/join.mcfunction`，都有这两行：
+
+```
+scoreboard players set @s kitpvp.death_detect 0
+scoreboard players set @s kitpvp.death_seen 0
+```
+
+**为什么是 bug：**
+
+`tick.mcfunction` 的死亡检测是 `if score @s kitpvp.death_detect > @s kitpvp.death_seen`。这套写法要求 `death_detect` 是**统计类 objective**（`minecraft.custom:minecraft.deaths`），因为 `on_death` 里并没有 `add death_detect`，全靠原版在玩家死时 +1。
+
+统计类 objective 的分数**每刻会被原版刷回真实值**，`scoreboard players set` 是改不掉的。所以：
+
+1. `clear_player` 把 `death_detect` 写 0，本刻看确实是 0；
+2. 下一刻原版把它刷回玩家真实的死亡数（例如 2）；
+3. 此时 `death_detect(2) > death_seen(0)` 成立 → 触发 `death_dispatch` → `on_death` → **扣 1 条命**。
+
+**触发场景（都很常见）：**
+- 玩家在大厅死过几次（自杀、掉虚空），再去选职业 → 每个职业函数第一行都会调 `clear_player` → 进局第一刻就被白扣一条命。
+- 主大厅 `[初始化我]` → `lobby/reset_self` → `clear_player`，同样中招。
+- 管理员重载数据包（`load` 会清 `kitpvp.joined`），`join` 重跑，同样中招。
+- 一局结束后 `game/reset` 里对所有玩家跑 `clear_player`，下一局开局时集中爆假死亡。
+
+**对照参考：** `gapple_last` 在 `join` 和 `clear_player` 里用的是 `scoreboard players operation @s kitpvp.gapple_last = @s kitpvp.gapple_used`，而不是 `set 0`。`death_seen` 应该照抄这套写法。
+
+**修复：** 把两处的那两行删掉，换成下面一行：
 
 ```mcfunction
-# 每游戏刻执行
-# 玩家接入检测：未登记的玩家 → 走 join 流程
-execute as @a[tag=!kitpvp.joined] run function kitpvp:player/join
+scoreboard players operation @s kitpvp.death_seen = @s kitpvp.death_detect
+```
 
-# 冷却递减
-execute as @a[scores={kitpvp.cd=1..}] run scoreboard players remove @s kitpvp.cd 1
-execute as @a[scores={kitpvp.cd2=1..}] run scoreboard players remove @s kitpvp.cd2 1
+> 如果 `death_detect` 其实是 dummy 而不是统计 objective（那就是另一套 bug，见第五节），这一行的写法也依然正确，可以放心替换。
 
-# ===== 战士金苹果消耗检测 =====
-# 统计 objective：吃掉金苹果的瞬间 used 自动 +1
-# 本刻 used 比 last 大 → 刚吃掉，转交 warrior_consume
-# 必须在"冷却递减"之后再跑，避免 cd 被本 tick 的递减覆盖
-execute as @a[scores={kitpvp.kit=1,kitpvp.alive=1}] if score @s kitpvp.gapple_used > @s kitpvp.gapple_last run function kitpvp:skill/warrior_consume
+---
 
-# ===== 职业技能结算（统一入口）=====
-# 只筛"有职业、活着、主技能冷却归零"的玩家，转交 dispatch；
-# 具体哪个职业发什么，由 skill/dispatch 按 kitpvp.kit 分派。
-# 新增职业请改 skill/dispatch，不要在这里加行。
-execute as @a[scores={kitpvp.kit=1..,kitpvp.alive=1}] if score @s kitpvp.cd matches ..0 run function kitpvp:skill/dispatch
+### Bug 2：无敌状态下的玩家掉虚空杀不死
 
-# ===== 弓箭手：清除落地的箭 =====
-# 弓箭手射出的箭一落地（inGround:1b）就清除，
-# 防止"射出去 → 换弹 → 再捡回来"把箭数刷过 12 支上限。
-# 副作用：会一并清掉其它来源（如骷髅）落地的箭。
-kill @e[type=minecraft:arrow,nbt={inGround:1b}]
+**位置：** `tick.mcfunction`
 
-# 兼容中途加入的玩家：没有 inv 分数就补 0
-scoreboard players add @a kitpvp.inv 0
-
-# 无敌倒计时（每刻 -1）
-execute as @a[scores={kitpvp.inv=1..}] run scoreboard players remove @s kitpvp.inv 1
-
-# 无敌结束
-execute as @a[tag=kitpvp.invincible,scores={kitpvp.inv=0}] run function kitpvp:player/end_invincible
-
-# 虚空兜底：Y < -74 直接判死（阈值可调）
-# y=-1024 配合 dy=950 覆盖 y ∈ [-1024, -74]
+```
 execute as @a[tag=kitpvp.selected,tag=!kitpvp.spectator,gamemode=!spectator] if entity @s[y=-1024,dy=950] run damage @s 1000 minecraft:generic
+```
 
-# 死亡检测
-execute as @a[tag=!kitpvp.spectator] if score @s kitpvp.death_detect > @s kitpvp.death_seen run function kitpvp:player/death_dispatch
+**为什么是 bug：**
 
-# 重生后处理（由 on_death 打 tag，本 tick 消费）
-execute as @a[tag=kitpvp.respawn_pending,tag=!kitpvp.spectator] run function kitpvp:player/after_death
+`player/invincible.mcfunction` 给的是 `resistance 5 4 true`，即抗性提升 V = **100% 减伤**。`minecraft:generic` 不带 `bypasses_resistance`，伤害会被算成 `1000 × 0 = 0`，玩家**在虚空里站着不掉血**。
 
-# ===== 胜负兜底轮询（每 20 刻一次）=====
-# 覆盖"玩家中途退出服务器导致幸存者减少，但没人触发 eliminate"的情况
-scoreboard players add #tick kitpvp.game 1
-execute if score #tick kitpvp.game matches 20.. run scoreboard players set #tick kitpvp.game 0
-execute if score #tick kitpvp.game matches 0 if score #state kitpvp.game matches 1 run function kitpvp:game/check_winner
+也就是说：复活无敌 5 秒内的玩家如果直接跳进虚空，这 5 秒里兜底机制是失效的，玩家会悬浮在 y<-74 的位置。等 5 秒后无敌结束才会死。虽然只有 5 秒，但如果有人能在这 5 秒里反复利用（例如配合位移技能反复进出），会变成"卡虚空"。
+
+**修复（二选一）：**
+
+方案 A（最稳，推荐）：
+
+```mcfunction
+execute as @a[tag=kitpvp.selected,tag=!kitpvp.spectator,gamemode=!spectator] if entity @s[y=-1024,dy=950] run kill @s
+```
+
+`kill` 无视抗性、无视护甲，直达死亡链路，`death_detect` 照样 +1，下游完全不用改。
+
+方案 B（保留"掉出世界"这个死因）：
+
+```mcfunction
+execute as @a[tag=kitpvp.selected,tag=!kitpvp.spectator,gamemode=!spectator] if entity @s[y=-1024,dy=950] run damage @s 1000 minecraft:out_of_world
+```
+
+**⚠ 我不确定 `minecraft:out_of_world` 在 1.20.1 里是否带 `bypasses_resistance`**，这条请在游戏里实测（给玩家 `effect give @s minecraft:resistance 100 4 true` 后手动跑一次）确认能掉血再上线。无法确认就退回方案 A。
+
+---
+
+### Bug 3：`after_death` 设置了 title times，但没有任何 title 文本
+
+**位置：** `player/after_death.mcfunction`
+
+```
+title @s times 5 30 10
+playsound minecraft:block.note_block.pling master @s ~ ~ ~ 1 1.2
+```
+
+`/title times` 只是设置淡入/停留/淡出的时长，**不显示任何东西**。单独用等于什么都没发生。设计文档 2.7 要求"重生提示"，这里显然漏了 `title` / `subtitle` / `actionbar` 的实际文本。
+
+**修复：** `title @s times ...` 之后、`playsound` 之前补上：
+
+```mcfunction
+title @s subtitle {"text":"准备战斗","color":"yellow"}
+title @s title {"text":"重生","color":"red","bold":true}
+```
+
+（文本内容按你自己的口味改。）
+
+---
+
+## 二、中等 bug
+
+### Bug 4：`kill @e[type=minecraft:arrow,nbt={inGround:1b}]` 每刻都在跑
+
+**位置：** `tick.mcfunction`
+
+每 tick 全服扫一遍所有箭实体，代价高、且会误清**所有来源**的落地的箭（骷髅射的、地图上本来就有的）。两边都被你写在注释里承认了，但作为正式版本每刻跑一次代价太大。
+
+**建议：**
+- 挪到一个 `schedule function ... 5t replace` 的循环里，改成每 5 刻一次；
+- 或者写 predicate 精确匹配（`nbt` 匹配本身就慢，predicate 不一定更快，所以更推荐降频）。
+
+这条不是功能错误，是性能与副作用问题。
+
+---
+
+### Bug 5：淘汰后 `kitpvp.selected` 没清
+
+**位置：** `player/eliminate.mcfunction`
+
+`eliminate` 会摘掉 `invincible`、`respawn_pending`，也会打上 `spectator`，但**没有摘掉 `kitpvp.selected`**。而 `map/distribute.mcfunction` 第一行就是：
+
+```
+tag @a[tag=kitpvp.selected] remove kitpvp.spawn_assigned
+```
+
+下一局 `game/start` → `map/distribute` 时，上一局被淘汰的旁观者如果还在服里、还带着 `kitpvp.selected`，就会被算进"参战玩家"里一起重置 `spawn_assigned`，然后被 `@a[tag=kitpvp.selected]` 之类的地方算存活/算参战。
+
+**建议修复：** 在 `eliminate.mcfunction` 末尾补一行：
+
+```mcfunction
+tag @s remove kitpvp.selected
 ```
 
 ---
 
-## 2. `src/data/kitpvp/functions/skill/archer_pickup.mcfunction`（修改）
+### Bug 6：大厅死亡后没有任何复位
+
+**位置：** `player/on_death.mcfunction`
+
+只有在 `tag=!kitpvp.in_lobby` 时才做死亡处理；大厅死亡时全部跳过，**也不打 `respawn_pending`、也不补无敌、也不重新传送回大厅**。
+
+如果大厅是安全屋不会死人，这条无所谓。但只要大厅里出现过任何死因（其它玩家的攻击、管理员 `/kill`、地图设计里的陷阱、掉出大厅边缘），玩家就会原地重生（`spawnpoint` 未必落在安全位置），还可能被反复打死。
+
+**建议：** `on_death` 里的 in_lobby 分支补一个兜底：
 
 ```mcfunction
-# ===== 弓箭手：拾弓触发入口 =====
-# 触发器：minecraft:thrown_item_picked_up_by_player
-#   条件：被捡起的物品是带 KitBow:1b 标记的 minecraft:bow
-# @s = 捡起弓的玩家
-#
-# 分流：
-#   本人是弓箭手（kit=2）→ 换弹
-#   其他职业             → 弓被没收，30 秒后归还
-
-# 弓箭手本人 → 换弹
-execute if score @s kitpvp.kit matches 2 run function kitpvp:skill/archer_refill
-
-# 非弓箭手 → 没收弓 + 启动 30 秒归还计时
-execute unless score @s kitpvp.kit matches 2 run function kitpvp:skill/archer_steal
-
-# 一次性触发器：必须 revoke，否则下一次捡弓不会再触发
-advancement revoke @s only kitpvp:player/archer_pickup
+execute if entity @s[tag=kitpvp.in_lobby] run function kitpvp:lobby/enter
 ```
+
+（`lobby/enter` 会重新 add `kitpvp.in_lobby` 并做传送，具体看你 `lobby/enter.mcfunction` 的正文；思路是"大厅死 → 直接重进大厅"。）
 
 ---
 
-## 3. `src/data/kitpvp/functions/skill/archer_steal.mcfunction`（新建）
+## 三、需要你自己确认的点
 
-```mcfunction
-# ===== 非弓箭手捡到弓箭手之弓：没收 + 30 秒后归还 =====
-# @s = 捡起弓的非弓箭手
-# 调用方：skill/archer_pickup
+### 3.1 `load.mcfunction` 没贴，以下无法验证
 
-# 1. 直接从背包里清除这把弓
-clear @s minecraft:bow{KitBow:1b}
+- `kitpvp.death_detect` 到底是不是 `minecraft.custom:minecraft.deaths`；
+- 全部 objective 是否都建过（尤其 `kitpvp.item`）；
+- `#global` / `#tick` / `#state` 的初始值；
+- `doImmediateRespawn`、`keepInventory`、`sendCommandFeedback` 等 gamerule 有没有按设计文档 2.1 设好。
 
-# 2. 本机提示
-title @s actionbar {"text":"这把弓不属于你，已没收","color":"red"}
-playsound minecraft:entity.item.break master @s ~ ~ ~ 0.8 1.0
+Bug 1 的修复建议是按"它是统计类"给的，请对照 `load.mcfunction` 里 `scoreboard objectives add kitpvp.death_detect ...` 的 criterion 确认一次。
 
-# 3. 全服公告
-tellraw @a [{"text":"[!] ","color":"red","bold":true},{"selector":"@s","color":"white"},{"text":" 捡走了弓箭手的弓，30 秒后归还","color":"gray"}]
+### 3.2 弓的 NBT 必须两处一致
 
-# 4. 30 秒（600 刻）后归还
-#    replace 模式：多次被捡只保留最后一次计时，不会叠出多把弓
-schedule function kitpvp:skill/archer_return 600t replace
+`skill/archer_give_bow.mcfunction` 用的是：
+
 ```
-
----
-
-## 4. `src/data/kitpvp/functions/skill/archer_return.mcfunction`（新建）
-
-```mcfunction
-# ===== 30 秒到：把弓归还给弓箭手 =====
-# 触发：schedule function kitpvp:skill/archer_return 600t replace
-# 说明：本函数会顺手把"已经拿着弓"的弓箭手也刷新一遍
-#       （同类弓全局只有一种，刷新无副作用；代价是该玩家若正在拉弓会被打断）
-
-# 1. 清掉所有弓箭手手上的 KitBow 弓，防止归还后叠加成多把
-execute as @a[scores={kitpvp.kit=2}] run clear @s minecraft:bow{KitBow:1b}
-
-# 2. 每个仍在局内的弓箭手重新发一把
-execute as @a[scores={kitpvp.kit=2,kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/archer_give_bow
-
-# 3. 公告
-tellraw @a [{"text":"[!] ","color":"green","bold":true},{"text":"弓箭手的弓已归还","color":"gray"}]
-```
-
----
-
-## 5. `src/data/kitpvp/functions/skill/archer_give_bow.mcfunction`（新建）
-
-```mcfunction
-# ===== 发放一把"弓箭手之弓" =====
-# 调用方：
-#   kit/archer.mcfunction      （选职业时）
-#   skill/archer_return        （30 秒归还）
-#
-# ⚠ 这里的弓 NBT 必须与 kit/archer.mcfunction 里那一串完全一致，
-#   否则归还回来的弓可能被 archer_pickup.json 的触发器条件认不出来。
-#   如果 kit/archer 里只写了 {KitBow:1b}，就把下面 Unbreakable 去掉。
-
 give @s minecraft:bow{KitBow:1b,Unbreakable:1b} 1
 ```
 
+而 `skill/dispatch.mcfunction` 的注释里写着"如果 `kit/archer` 里只写了 `{KitBow:1b}`"。请把 `kit/archer.mcfunction` 里那把弓的 NBT **逐字对齐**（要么两边都带 `Unbreakable:1b`，要么都不带），否则 `advancement` 的 `thrown_item_picked_up_by_player` 条件可能匹配不到，弓箭手的换弹就永远不触发。
+
+同理，`archer_steal.mcfunction` 里的 `clear @s minecraft:bow{KitBow:1b}`、`archer_return.mcfunction` 里的 `clear @s minecraft:bow{KitBow:1b}`，都要和发弓时的 NBT **完全一致**。
+
+### 3.3 `git / 格式`（无关功能，但会干扰 review）
+
+- `map/random.mcfunction` 最后一行 `scoreboard players set #global kitpvp.map 1  ` 后面有两个尾随空格。
+- 多个文件（`player/join`、`skill/dispatch`、`skill/warrior*`、`tick` 等）每行前面有一堆 `#` 前的缩进空格，写 `.mcfunction` 时没影响，但如果以后要 grep 或者 diff 会很难看。
+
 ---
 
-## 6. `src/data/kitpvp/functions/skill/archer_refill.mcfunction`（修改）
+## 四、顺带肯定一下的几处
+
+既然你要挑 bug，我把已经做对的也点一下，免得你误改成错的方向：
+
+- `warrior_consume` 第一行 `operation @s kitpvp.gapple_last = @s kitpvp.gapple_used` —— 正确，不要动。
+- `tick.mcfunction` 里"先 `cd--`、再判 `used > last`"的顺序 —— 正确，不要改。
+- `gapple_last` 在 `join` 与 `clear_player` 两处都做了 `operation =` 快照 —— 正确，`death_seen` 应按这个模板一起修。
+- `archer_steal` 里 `schedule function kitpvp:skill/archer_return 600t replace` 用 `replace` —— 正确，防叠加弓。
+
+---
+
+## 五、`death_detect` 的另一种可能（如果你看完 load 发现它不是 statistical）
+
+如果 `death_detect` 其实是 dummy，那问题就反过来了：**没有任何地方 `add death_detect 1`**（`on_death` 里只 add `deaths`），`tick.mcfunction` 的死亡检测永远不会触发，整套死亡链路走不通。所以要做的不是改两行 set，而是在 `on_death.mcfunction` 里补一行：
 
 ```mcfunction
-# ===== 弓箭手：换弹 =====
-# 设计文档：丢出自己的弓并捡起，箭数重置为 12
-# @s = 弓箭手本人
-
-# 1. 清空背包里所有箭（包括地图上捡的、别人给的）
-clear @s minecraft:arrow
-
-# 2. 清掉地上散落的箭物品
-#    防止"丢出一支箭 → 换弹 → 再捡回来"把箭数刷过 12
-#    注意：会一并清掉地图上其它来源的箭物品
-kill @e[type=minecraft:item,nbt={Item:{id:"minecraft:arrow"}}]
-
-# 3. 补满 12 支
-give @s minecraft:arrow 12
-
-title @s actionbar {"text":"换弹完成：12 支箭","color":"gold"}
-playsound minecraft:item.crossbow.loading_end master @s ~ ~ ~ 0.8 1.3
+scoreboard players add @s kitpvp.death_detect 1
 ```
 
----
-
-## 改动说明与注意事项
-
-**归还链路**
-
-1. 非弓箭手捡到弓 → `archer_steal` 立刻 `clear` 掉背包里的弓。
-2. 同时 `schedule ... 600t replace` 排一次 30 秒后的归还。
-3. `archer_return` 清掉所有弓箭手手上的同类弓再重发，保证"弓箭手手上恰好 1 把"。
-
-**为什么用"清光重发"而不是"只补缺的玩家"**
-
-1.20.1 没有 `execute if items`（那是 1.20.5+），也没有办法在执行期把"弓的拥有者名字"动态塞进选择器。要精确判定"哪个弓箭手丢了弓"只能靠 `clear <target> <item> <maxCount>` 的返回值思路，而 `<maxCount>` 是否接受 `0`（表示"只计数不清除"）我不确定——**请用 `/help clear` 或实测验证**。稳妥起见这里改用"清光重发"，语义等价，无语法风险。
-
-**尚未覆盖的边界**
-
-- 玩家把箭存进箱子/末影箱，换弹后再取回来，仍会超过 12 支。要堵这个口子只能走"物品带标记 NBT + 定期扫描背包槽位"的 predicate 方案，成本高，暂不做。
-- 落地箭的清除是**全局**的，会连带清掉骷髅等其它来源落地的箭。地图上如果以后有"需要保留落地箭"的设计，需改为按 `Owner` UUID 匹配（1.20.1 做不到动态匹配玩家 UUID，得换思路）。
-- `game/reset.mcfunction` 里建议补一行 `schedule clear kitpvp:skill/archer_return`，避免结算期间还留着一个归还定时器。该文件正文我没有，未改动。
-
-**需要你核对的地方**
-
-`kit/archer.mcfunction` 里弓的 NBT 我没有拿到正文，`archer_give_bow` 里写的是 `{KitBow:1b,Unbreakable:1b}`。请打开 `kit/archer.mcfunction` 对比，把这一行改成与它完全一致（`archer_pickup.json` 的 `nbt` 条件也要能匹配上归还的这把弓）。
+请先确认 criterion，再决定走哪条修法。

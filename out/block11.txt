@@ -1,2 +1,1 @@
-# 1.20.1 无 /heal，用 instant_health 代替；等级 5 治疗 24 HP，足以回满 20
-effect give @s minecraft:instant_health 1 5 true
+give @s minecraft:bow{KitBow:1b,Unbreakable:1b} 1

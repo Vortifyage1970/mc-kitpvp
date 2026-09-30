@@ -1,0 +1,1 @@
+tag @a[tag=kitpvp.selected] remove kitpvp.spawn_assigned

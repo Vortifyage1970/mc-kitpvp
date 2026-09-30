@@ -9,5 +9,4 @@ tag @s remove kitpvp.respawn_pending
 function kitpvp:player/invincible
 
 # 提示
-title @s times 5 30 10
 playsound minecraft:block.note_block.pling master @s ~ ~ ~ 1 1.2

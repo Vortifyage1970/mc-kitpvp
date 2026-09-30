@@ -1,6 +1,6 @@
- # ===== 从已注册地图中随机选一张 =====                                                                                          
- # 依赖：storage kitpvp:maps.list（尚未建立）                                                                                    
- # TODO: 正式实现后，把选中的 id 写到 #global kitpvp.map                                                                         
-                                                                                                                                 
- # 占位：暂时固定为 0，后续替换                                                                                                  
- scoreboard players set #global kitpvp.map 0     
+# ===== 从已注册地图中随机选一张 =====
+# 当前只有沙漠（id=1），直接选它。
+# 新增地图时，改为「用 predicate random_chance 按概率掷骰」或「用入参索引」，
+# 并把 id 保持连续（0 = 未选，1..N = 已注册地图）。
+
+scoreboard players set #global kitpvp.map 1
