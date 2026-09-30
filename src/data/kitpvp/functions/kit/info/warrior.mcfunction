@@ -1,25 +1,16 @@
-# ===== 战士（kit id = 1）=====
-# 入口：/function kitpvp:kit/warrior
-# 顺序不可调：先清场（clear_player 会把 kit 归零），再写回本职业 id，最后发装备
+# ===== 战士 · 职业介绍卡片 =====
+# 由 kit/list/* 里点击战士条目时调用，@s = 查看者
 
-# --- 头三行：每个职业函数完全一致，只改数字 ---
-function kitpvp:util/clear_player
-scoreboard players set @s kitpvp.kit 1
-tag @s add kitpvp.selected
-
-# --- 本职业配置 ---
-scoreboard players set @s kitpvp.alive 1
-scoreboard players set @s kitpvp.lives 3
-
-attribute @s minecraft:generic.max_health base set 20
-attribute @s minecraft:generic.movement_speed base set 0.1
-
-item replace entity @s armor.head with minecraft:iron_helmet{Unbreakable:1b}
-item replace entity @s armor.chest with minecraft:iron_chestplate{Unbreakable:1b}
-item replace entity @s armor.legs with minecraft:iron_leggings{Unbreakable:1b}
-item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b}
-item replace entity @s hotbar.0 with minecraft:iron_sword{Unbreakable:1b}
-item replace entity @s hotbar.1 with minecraft:cooked_beef 16
-
-tellraw @s [{"text":"[已选择] ","color":"green","bold":true},{"text":"战士","color":"yellow","bold":true}]
-function kitpvp:skill/warrior_ready
+tellraw @s [{"text":"┌──────────────────────────────","color":"dark_gray"}]
+tellraw @s [{"text":"│ 职业名：","color":"gray"},{"text":"战士","color":"red","bold":true}]
+tellraw @s [{"text":"│ 分类：","color":"gray"},{"text":"经典（表）","color":"white"}]
+tellraw @s [{"text":"│ 简介：","color":"gray"},{"text":"铁甲冲锋的正面战士","color":"white"}]
+tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"7","color":"white"}]
+tellraw @s [{"text":"│ 武器攻击速度：","color":"gray"},{"text":"1.6","color":"white"}]
+tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"15","color":"white"}]
+tellraw @s [{"text":"│ 总护甲韧性：","color":"gray"},{"text":"0","color":"white"}]
+tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"—","color":"dark_gray"}]
+tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"补给","color":"yellow"},{"text":" —— 每 40 秒获得 1 个金苹果（上限 1）","color":"white"}]
+tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"40 秒","color":"white"}]
+tellraw @s [{"text":"└──────────────────────────────","color":"dark_gray"}]
+tellraw @s [{"text":"[ 确认选择 ]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/warrior"},"hoverEvent":{"action":"show_text","contents":[{"text":"以战士参战","color":"gray"}]}},{"text":"  "},{"text":"[ 返回 ]","color":"yellow","clickEvent":{"action":"run_command","value":"/function kitpvp:lobby/menu"},"hoverEvent":{"action":"show_text","contents":[{"text":"回到主大厅菜单","color":"gray"}]}}]

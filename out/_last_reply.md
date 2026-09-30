@@ -1,218 +1,193 @@
-下面是新增的 debug 功能集。全部放在 `src/data/kitpvp/functions/debug/` 下，命名空间沿用 `kitpvp`，全部使用 1.20.1 语法。
+下面按文件逐个给出。**修改**的文件直接整份替换；**新建**的文件放到对应目录。
 
-说明：
-- 打开调试菜单：`/function kitpvp:debug/menu`
-- 所有 `tellraw` 里的 `clickEvent` 都带前导 `/`，`hoverEvent` 用 `contents`
-- 生成的怪物都会带 tag `kitpvp.debug_mob`，便于 `kill_mobs` 一键收拾
-- 生成 NBT 使用 1.20.1 旧版字段名（`CustomName` / `HandItems` / `Count:1b` 等）
+---
 
-src/data/kitpvp/functions/debug/menu.mcfunction
+## 1. `src/data/kitpvp/functions/tick.mcfunction`（修改）
+
+新增一段"清除落地箭"。其余内容保持原样。
+
 ```mcfunction
-# ===== 调试主菜单 =====
-# 调用：/function kitpvp:debug/menu
+# 每游戏刻执行
+# 玩家接入检测：未登记的玩家 → 走 join 流程
+execute as @a[tag=!kitpvp.joined] run function kitpvp:player/join
 
-tellraw @s [{"text":"═══════ 调试控制台 ═══════","color":"dark_red","bold":true}]
-tellraw @s [{"text":"[ 打开大厅菜单 ]","color":"green","clickEvent":{"action":"run_command","value":"/function kitpvp:lobby/menu"},"hoverEvent":{"action":"show_text","contents":[{"text":"打开主大厅菜单","color":"gray"}]}}]
-tellraw @s [{"text":"[ 打开职业列表 ]","color":"green","clickEvent":{"action":"run_command","value":"/function kitpvp:kit/list"},"hoverEvent":{"action":"show_text","contents":[{"text":"打开职业分类列表","color":"gray"}]}}]
-tellraw @s [{"text":"[ 查看我的状态 ]","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/status"},"hoverEvent":{"action":"show_text","contents":[{"text":"显示分数、标签、全局状态","color":"gray"}]}}]
-tellraw @s [{"text":"───── 自身 ─────","color":"gray"}]
-tellraw @s [{"text":"[ 回满血 ]","color":"light_purple","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/heal"},"hoverEvent":{"action":"show_text","contents":[{"text":"立即回满血量","color":"gray"}]}}]
-tellraw @s [{"text":"[ 加 1 命 ]","color":"light_purple","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/add_lives"},"hoverEvent":{"action":"show_text","contents":[{"text":"命数 +1","color":"gray"}]}}]
-tellraw @s [{"text":"[ 减 1 命 ]","color":"dark_purple","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/remove_lives"},"hoverEvent":{"action":"show_text","contents":[{"text":"命数 -1","color":"gray"}]}}]
-tellraw @s [{"text":"[ 无敌 开/关 ]","color":"dark_purple","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/god_toggle"},"hoverEvent":{"action":"show_text","contents":[{"text":"切换抗性 V 调试无敌","color":"gray"}]}}]
-tellraw @s [{"text":"[ 自杀（测死亡流程） ]","color":"dark_red","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/kill_self"},"hoverEvent":{"action":"show_text","contents":[{"text":"走正常死亡结算","color":"gray"}]}}]
-tellraw @s [{"text":"[ 传送回大厅 ]","color":"yellow","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/tp_lobby"},"hoverEvent":{"action":"show_text","contents":[{"text":"走 lobby/enter 流程","color":"gray"}]}}]
-tellraw @s [{"text":"───── 冷却 ─────","color":"gray"}]
-tellraw @s [{"text":"[ 冷却清零（自己） ]","color":"yellow","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/reset_cd"},"hoverEvent":{"action":"show_text","contents":[{"text":"只清自己的 cd / cd2","color":"gray"}]}}]
-tellraw @s [{"text":"[ 冷却清零（所有人） ]","color":"gold","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/reset_cd_all"},"hoverEvent":{"action":"show_text","contents":[{"text":"清所有玩家的 cd / cd2","color":"gray"}]}}]
-tellraw @s [{"text":"───── 实体 ─────","color":"gray"}]
-tellraw @s [{"text":"[ 生成调试怪物 ]","color":"red","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/spawn"},"hoverEvent":{"action":"show_text","contents":[{"text":"打开怪物生成菜单","color":"gray"}]}}]
-tellraw @s [{"text":"[ 清除调试怪物 ]","color":"dark_red","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/kill_mobs"},"hoverEvent":{"action":"show_text","contents":[{"text":"清除全部 kitpvp.debug_mob","color":"gray"}]}}]
-tellraw @s [{"text":"───── 游戏控制 ─────","color":"gray"}]
-tellraw @s [{"text":"[ 开始游戏 ]","color":"yellow","clickEvent":{"action":"run_command","value":"/function kitpvp:game/start"},"hoverEvent":{"action":"show_text","contents":[{"text":"立即开始一局","color":"gray"}]}}]
-tellraw @s [{"text":"[ 强制结算 ]","color":"gold","clickEvent":{"action":"run_command","value":"/function kitpvp:game/end"},"hoverEvent":{"action":"show_text","contents":[{"text":"进入结算流程","color":"gray"}]}}]
-tellraw @s [{"text":"[ 强制重置 ]","color":"red","clickEvent":{"action":"run_command","value":"/function kitpvp:game/reset"},"hoverEvent":{"action":"show_text","contents":[{"text":"立即重置回大厅","color":"gray"}]}}]
-tellraw @s [{"text":"[ 强制跑胜负判定 ]","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/check_winner"},"hoverEvent":{"action":"show_text","contents":[{"text":"手动触发 game/check_winner","color":"gray"}]}}]
-tellraw @s [{"text":"═════════════════════","color":"dark_red","bold":true}]
+# 冷却递减
+execute as @a[scores={kitpvp.cd=1..}] run scoreboard players remove @s kitpvp.cd 1
+execute as @a[scores={kitpvp.cd2=1..}] run scoreboard players remove @s kitpvp.cd2 1
+
+# ===== 战士金苹果消耗检测 =====
+# 统计 objective：吃掉金苹果的瞬间 used 自动 +1
+# 本刻 used 比 last 大 → 刚吃掉，转交 warrior_consume
+# 必须在"冷却递减"之后再跑，避免 cd 被本 tick 的递减覆盖
+execute as @a[scores={kitpvp.kit=1,kitpvp.alive=1}] if score @s kitpvp.gapple_used > @s kitpvp.gapple_last run function kitpvp:skill/warrior_consume
+
+# ===== 职业技能结算（统一入口）=====
+# 只筛"有职业、活着、主技能冷却归零"的玩家，转交 dispatch；
+# 具体哪个职业发什么，由 skill/dispatch 按 kitpvp.kit 分派。
+# 新增职业请改 skill/dispatch，不要在这里加行。
+execute as @a[scores={kitpvp.kit=1..,kitpvp.alive=1}] if score @s kitpvp.cd matches ..0 run function kitpvp:skill/dispatch
+
+# ===== 弓箭手：清除落地的箭 =====
+# 弓箭手射出的箭一落地（inGround:1b）就清除，
+# 防止"射出去 → 换弹 → 再捡回来"把箭数刷过 12 支上限。
+# 副作用：会一并清掉其它来源（如骷髅）落地的箭。
+kill @e[type=minecraft:arrow,nbt={inGround:1b}]
+
+# 兼容中途加入的玩家：没有 inv 分数就补 0
+scoreboard players add @a kitpvp.inv 0
+
+# 无敌倒计时（每刻 -1）
+execute as @a[scores={kitpvp.inv=1..}] run scoreboard players remove @s kitpvp.inv 1
+
+# 无敌结束
+execute as @a[tag=kitpvp.invincible,scores={kitpvp.inv=0}] run function kitpvp:player/end_invincible
+
+# 虚空兜底：Y < -74 直接判死（阈值可调）
+# y=-1024 配合 dy=950 覆盖 y ∈ [-1024, -74]
+execute as @a[tag=kitpvp.selected,tag=!kitpvp.spectator,gamemode=!spectator] if entity @s[y=-1024,dy=950] run damage @s 1000 minecraft:generic
+
+# 死亡检测
+execute as @a[tag=!kitpvp.spectator] if score @s kitpvp.death_detect > @s kitpvp.death_seen run function kitpvp:player/death_dispatch
+
+# 重生后处理（由 on_death 打 tag，本 tick 消费）
+execute as @a[tag=kitpvp.respawn_pending,tag=!kitpvp.spectator] run function kitpvp:player/after_death
+
+# ===== 胜负兜底轮询（每 20 刻一次）=====
+# 覆盖"玩家中途退出服务器导致幸存者减少，但没人触发 eliminate"的情况
+scoreboard players add #tick kitpvp.game 1
+execute if score #tick kitpvp.game matches 20.. run scoreboard players set #tick kitpvp.game 0
+execute if score #tick kitpvp.game matches 0 if score #state kitpvp.game matches 1 run function kitpvp:game/check_winner
 ```
 
-src/data/kitpvp/functions/debug/status.mcfunction
-```mcfunction
-# ===== 显示自己的调试状态 =====
-# 调用：/function kitpvp:debug/status
+---
 
-tellraw @s [{"text":"═══════ 我的状态 ═══════","color":"gold","bold":true}]
-tellraw @s [{"text":"职业ID: ","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.kit"},"color":"yellow"},{"text":"   命数: ","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.lives"},"color":"red"},{"text":"   存活: ","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.alive"},"color":"green"}]
-tellraw @s [{"text":"冷却: ","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.cd"},"color":"aqua"},{"text":"   第二冷却: ","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.cd2"},"color":"aqua"}]
-tellraw @s [{"text":"击杀: ","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.kills"},"color":"light_purple"},{"text":"   死亡: ","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.deaths"},"color":"dark_red"}]
-tellraw @s [{"text":"无敌剩余: ","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.inv"},"color":"gold"},{"text":"   死亡检测: ","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.death_detect"},"color":"red"}]
-tellraw @s [{"text":"金苹果 used/last: ","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.gapple_used"},"color":"gold"},{"text":" / ","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.gapple_last"},"color":"gold"}]
-tellraw @s [{"text":"全局 state: ","color":"gray"},{"score":{"name":"#state","objective":"kitpvp.game"},"color":"aqua"},{"text":"   幸存者: ","color":"gray"},{"score":{"name":"#survivors","objective":"kitpvp.game"},"color":"green"},{"text":"   地图ID: ","color":"gray"},{"score":{"name":"#global","objective":"kitpvp.map"},"color":"yellow"},{"text":"   倒计时: ","color":"gray"},{"score":{"name":"#global","objective":"kitpvp.timer"},"color":"gold"},{"text":"   test: ","color":"gray"},{"score":{"name":"#test","objective":"kitpvp.game"},"color":"red"}]
-tellraw @s [{"text":"标签: ","color":"gray"},{"nbt":"Tags","entity":"@s","color":"yellow"}]
-tellraw @s [{"text":"═════════════════════","color":"gold","bold":true}]
+## 2. `src/data/kitpvp/functions/skill/archer_pickup.mcfunction`（修改）
+
+```mcfunction
+# ===== 弓箭手：拾弓触发入口 =====
+# 触发器：minecraft:thrown_item_picked_up_by_player
+#   条件：被捡起的物品是带 KitBow:1b 标记的 minecraft:bow
+# @s = 捡起弓的玩家
+#
+# 分流：
+#   本人是弓箭手（kit=2）→ 换弹
+#   其他职业             → 弓被没收，30 秒后归还
+
+# 弓箭手本人 → 换弹
+execute if score @s kitpvp.kit matches 2 run function kitpvp:skill/archer_refill
+
+# 非弓箭手 → 没收弓 + 启动 30 秒归还计时
+execute unless score @s kitpvp.kit matches 2 run function kitpvp:skill/archer_steal
+
+# 一次性触发器：必须 revoke，否则下一次捡弓不会再触发
+advancement revoke @s only kitpvp:player/archer_pickup
 ```
 
-src/data/kitpvp/functions/debug/heal.mcfunction
-```mcfunction
-# ===== 回满血 =====
-# 1.20.1 无 /heal，用 instant_health amplifier 5 (level 6) 回满
-# saturation amplifier 10 顺带补饱食度
+---
 
-effect give @s minecraft:instant_health 1 5 true
-effect give @s minecraft:saturation 1 10 true
-tellraw @s [{"text":"[调试] 已回满血","color":"green"}]
+## 3. `src/data/kitpvp/functions/skill/archer_steal.mcfunction`（新建）
+
+```mcfunction
+# ===== 非弓箭手捡到弓箭手之弓：没收 + 30 秒后归还 =====
+# @s = 捡起弓的非弓箭手
+# 调用方：skill/archer_pickup
+
+# 1. 直接从背包里清除这把弓
+clear @s minecraft:bow{KitBow:1b}
+
+# 2. 本机提示
+title @s actionbar {"text":"这把弓不属于你，已没收","color":"red"}
+playsound minecraft:entity.item.break master @s ~ ~ ~ 0.8 1.0
+
+# 3. 全服公告
+tellraw @a [{"text":"[!] ","color":"red","bold":true},{"selector":"@s","color":"white"},{"text":" 捡走了弓箭手的弓，30 秒后归还","color":"gray"}]
+
+# 4. 30 秒（600 刻）后归还
+#    replace 模式：多次被捡只保留最后一次计时，不会叠出多把弓
+schedule function kitpvp:skill/archer_return 600t replace
 ```
 
-src/data/kitpvp/functions/debug/add_lives.mcfunction
-```mcfunction
-# ===== 命数 +1 =====
+---
 
-scoreboard players add @s kitpvp.lives 1
-tellraw @s [{"text":"[调试] 命数 +1，当前：","color":"green"},{"score":{"name":"@s","objective":"kitpvp.lives"},"color":"yellow"}]
+## 4. `src/data/kitpvp/functions/skill/archer_return.mcfunction`（新建）
+
+```mcfunction
+# ===== 30 秒到：把弓归还给弓箭手 =====
+# 触发：schedule function kitpvp:skill/archer_return 600t replace
+# 说明：本函数会顺手把"已经拿着弓"的弓箭手也刷新一遍
+#       （同类弓全局只有一种，刷新无副作用；代价是该玩家若正在拉弓会被打断）
+
+# 1. 清掉所有弓箭手手上的 KitBow 弓，防止归还后叠加成多把
+execute as @a[scores={kitpvp.kit=2}] run clear @s minecraft:bow{KitBow:1b}
+
+# 2. 每个仍在局内的弓箭手重新发一把
+execute as @a[scores={kitpvp.kit=2,kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/archer_give_bow
+
+# 3. 公告
+tellraw @a [{"text":"[!] ","color":"green","bold":true},{"text":"弓箭手的弓已归还","color":"gray"}]
 ```
 
-src/data/kitpvp/functions/debug/remove_lives.mcfunction
-```mcfunction
-# ===== 命数 -1 =====
+---
 
-scoreboard players remove @s kitpvp.lives 1
-tellraw @s [{"text":"[调试] 命数 -1，当前：","color":"red"},{"score":{"name":"@s","objective":"kitpvp.lives"},"color":"yellow"}]
+## 5. `src/data/kitpvp/functions/skill/archer_give_bow.mcfunction`（新建）
+
+```mcfunction
+# ===== 发放一把"弓箭手之弓" =====
+# 调用方：
+#   kit/archer.mcfunction      （选职业时）
+#   skill/archer_return        （30 秒归还）
+#
+# ⚠ 这里的弓 NBT 必须与 kit/archer.mcfunction 里那一串完全一致，
+#   否则归还回来的弓可能被 archer_pickup.json 的触发器条件认不出来。
+#   如果 kit/archer 里只写了 {KitBow:1b}，就把下面 Unbreakable 去掉。
+
+give @s minecraft:bow{KitBow:1b,Unbreakable:1b} 1
 ```
 
-src/data/kitpvp/functions/debug/reset_cd.mcfunction
-```mcfunction
-# ===== 清零自己的冷却 =====
+---
 
-scoreboard players set @s kitpvp.cd 0
-scoreboard players set @s kitpvp.cd2 0
-tellraw @s [{"text":"[调试] 自己的冷却已清零","color":"green"}]
+## 6. `src/data/kitpvp/functions/skill/archer_refill.mcfunction`（修改）
+
+```mcfunction
+# ===== 弓箭手：换弹 =====
+# 设计文档：丢出自己的弓并捡起，箭数重置为 12
+# @s = 弓箭手本人
+
+# 1. 清空背包里所有箭（包括地图上捡的、别人给的）
+clear @s minecraft:arrow
+
+# 2. 清掉地上散落的箭物品
+#    防止"丢出一支箭 → 换弹 → 再捡回来"把箭数刷过 12
+#    注意：会一并清掉地图上其它来源的箭物品
+kill @e[type=minecraft:item,nbt={Item:{id:"minecraft:arrow"}}]
+
+# 3. 补满 12 支
+give @s minecraft:arrow 12
+
+title @s actionbar {"text":"换弹完成：12 支箭","color":"gold"}
+playsound minecraft:item.crossbow.loading_end master @s ~ ~ ~ 0.8 1.3
 ```
 
-src/data/kitpvp/functions/debug/reset_cd_all.mcfunction
-```mcfunction
-# ===== 清零所有玩家的冷却 =====
+---
 
-scoreboard players set @a kitpvp.cd 0
-scoreboard players set @a kitpvp.cd2 0
-tellraw @a [{"text":"[调试] 所有人的冷却已清零","color":"yellow"}]
-```
+## 改动说明与注意事项
 
-src/data/kitpvp/functions/debug/god_toggle.mcfunction
-```mcfunction
-# ===== 切换调试无敌 =====
-# 用 tag kitpvp.debug_god 记住状态，命令里用 execute if/unless 分派
+**归还链路**
 
-execute if entity @s[tag=kitpvp.debug_god] run function kitpvp:debug/god_off
-execute unless entity @s[tag=kitpvp.debug_god] run function kitpvp:debug/god_on
-```
+1. 非弓箭手捡到弓 → `archer_steal` 立刻 `clear` 掉背包里的弓。
+2. 同时 `schedule ... 600t replace` 排一次 30 秒后的归还。
+3. `archer_return` 清掉所有弓箭手手上的同类弓再重发，保证"弓箭手手上恰好 1 把"。
 
-src/data/kitpvp/functions/debug/god_on.mcfunction
-```mcfunction
-# ===== 开启调试无敌 =====
-# 抗性 V = amplifier 4，时长给一个很大的秒数
+**为什么用"清光重发"而不是"只补缺的玩家"**
 
-tag @s add kitpvp.debug_god
-effect give @s minecraft:resistance 999999 4 true
-tellraw @s [{"text":"[调试] 无敌已开启（抗性 V）","color":"green"}]
-```
+1.20.1 没有 `execute if items`（那是 1.20.5+），也没有办法在执行期把"弓的拥有者名字"动态塞进选择器。要精确判定"哪个弓箭手丢了弓"只能靠 `clear <target> <item> <maxCount>` 的返回值思路，而 `<maxCount>` 是否接受 `0`（表示"只计数不清除"）我不确定——**请用 `/help clear` 或实测验证**。稳妥起见这里改用"清光重发"，语义等价，无语法风险。
 
-src/data/kitpvp/functions/debug/god_off.mcfunction
-```mcfunction
-# ===== 关闭调试无敌 =====
+**尚未覆盖的边界**
 
-tag @s remove kitpvp.debug_god
-effect clear @s minecraft:resistance
-tellraw @s [{"text":"[调试] 无敌已关闭","color":"red"}]
-```
+- 玩家把箭存进箱子/末影箱，换弹后再取回来，仍会超过 12 支。要堵这个口子只能走"物品带标记 NBT + 定期扫描背包槽位"的 predicate 方案，成本高，暂不做。
+- 落地箭的清除是**全局**的，会连带清掉骷髅等其它来源落地的箭。地图上如果以后有"需要保留落地箭"的设计，需改为按 `Owner` UUID 匹配（1.20.1 做不到动态匹配玩家 UUID，得换思路）。
+- `game/reset.mcfunction` 里建议补一行 `schedule clear kitpvp:skill/archer_return`，避免结算期间还留着一个归还定时器。该文件正文我没有，未改动。
 
-src/data/kitpvp/functions/debug/kill_self.mcfunction
-```mcfunction
-# ===== 自杀（测试死亡处理流程） =====
+**需要你核对的地方**
 
-kill @s
-```
-
-src/data/kitpvp/functions/debug/tp_lobby.mcfunction
-```mcfunction
-# ===== 传送回大厅 =====
-# 直接走 lobby/enter 流程，保证 tag / 模式 / 菜单与正常进入一致
-
-function kitpvp:lobby/enter
-```
-
-src/data/kitpvp/functions/debug/check_winner.mcfunction
-```mcfunction
-# ===== 手动跑一次胜负判定 =====
-# 用于调试过程中快速触发 game/check_winner 里的逻辑
-
-function kitpvp:game/check_winner
-```
-
-src/data/kitpvp/functions/debug/spawn.mcfunction
-```mcfunction
-# ===== 生成调试怪物（子菜单） =====
-# 所有生成出来的实体都带 tag kitpvp.debug_mob，便于一键清理
-
-tellraw @s [{"text":"═══════ 生成怪物 ═══════","color":"red","bold":true}]
-tellraw @s [{"text":"[ 假人靶子（无 AI 僵尸） ]","color":"gray","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/spawn_dummy"},"hoverEvent":{"action":"show_text","contents":[{"text":"静音、无 AI、不动但可打","color":"gray"}]}}]
-tellraw @s [{"text":"[ 攻击僵尸（铁剑） ]","color":"green","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/spawn_zombie"},"hoverEvent":{"action":"show_text","contents":[{"text":"持铁剑的僵尸","color":"gray"}]}}]
-tellraw @s [{"text":"[ 攻击骷髅（弓） ]","color":"green","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/spawn_skeleton"},"hoverEvent":{"action":"show_text","contents":[{"text":"持弓的骷髅","color":"gray"}]}}]
-tellraw @s [{"text":"[ 苦力怕 ]","color":"green","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/spawn_creeper"},"hoverEvent":{"action":"show_text","contents":[{"text":"受 mobGriefing=false 保护","color":"gray"}]}}]
-tellraw @s [{"text":"[ 清空调试怪物 ]","color":"dark_red","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/kill_mobs"},"hoverEvent":{"action":"show_text","contents":[{"text":"kill 所有 kitpvp.debug_mob","color":"gray"}]}}]
-tellraw @s [{"text":"[ 返回 ]","color":"yellow","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/menu"},"hoverEvent":{"action":"show_text","contents":[{"text":"回到调试菜单","color":"gray"}]}}]
-```
-
-src/data/kitpvp/functions/debug/spawn_dummy.mcfunction
-```mcfunction
-# ===== 生成假人靶子（无 AI 僵尸） =====
-# 站在 @s 朝向 3 格外；静音、无 AI、可被打、不掉装备
-
-execute at @s run summon minecraft:zombie ~ ~ ~3 {Tags:["kitpvp.debug_mob"],CustomName:'{"text":"调试靶子","color":"gray","italic":true}',CustomNameVisible:1b,Silent:1b,NoAI:1b,PersistenceRequired:1b,CanPickUpLoot:0b,HandItems:[{},{}],ArmorItems:[{},{},{},{}]}
-tellraw @s [{"text":"[调试] 已生成假人靶子","color":"green"}]
-```
-
-src/data/kitpvp/functions/debug/spawn_zombie.mcfunction
-```mcfunction
-# ===== 生成攻击僵尸（持铁剑） =====
-# HandItems: [主手, 副手]，HandDropChances 设为 0 掉率
-
-execute at @s run summon minecraft:zombie ~ ~ ~3 {Tags:["kitpvp.debug_mob"],CustomName:'{"text":"调试僵尸","color":"red"}',CustomNameVisible:1b,PersistenceRequired:1b,HandItems:[{id:"minecraft:iron_sword",Count:1b},{}],HandDropChances:[0.0f,0.0f]}
-tellraw @s [{"text":"[调试] 已生成攻击僵尸","color":"green"}]
-```
-
-src/data/kitpvp/functions/debug/spawn_skeleton.mcfunction
-```mcfunction
-# ===== 生成攻击骷髅（持弓） =====
-
-execute at @s run summon minecraft:skeleton ~ ~ ~3 {Tags:["kitpvp.debug_mob"],CustomName:'{"text":"调试骷髅","color":"red"}',CustomNameVisible:1b,PersistenceRequired:1b,HandItems:[{id:"minecraft:bow",Count:1b},{}],HandDropChances:[0.0f,0.0f]}
-tellraw @s [{"text":"[调试] 已生成攻击骷髅","color":"green"}]
-```
-
-src/data/kitpvp/functions/debug/spawn_creeper.mcfunction
-```mcfunction
-# ===== 生成苦力怕 =====
-# 地形破坏由 gamerule mobGriefing=false 兜底
-
-execute at @s run summon minecraft:creeper ~ ~ ~3 {Tags:["kitpvp.debug_mob"],CustomName:'{"text":"调试苦力怕","color":"red"}',CustomNameVisible:1b,PersistenceRequired:1b}
-tellraw @s [{"text":"[调试] 已生成苦力怕","color":"green"}]
-```
-
-src/data/kitpvp/functions/debug/kill_mobs.mcfunction
-```mcfunction
-# ===== 清除调试怪物 =====
-# 只清打了 tag kitpvp.debug_mob 的实体，不影响其他生物
-
-kill @e[tag=kitpvp.debug_mob]
-tellraw @s [{"text":"[调试] 已清除所有调试怪物","color":"red"}]
-```
-
-几点提醒：
-
-1. 全部文件都用旧的 `functions`（复数）路径，命名空间 `kitpvp`。
-2. `debug/tp_lobby` 走的是 `lobby/enter`，会顺带 `gamemode adventure` + `clear` + 弹菜单，跟正常进入一致；若你希望"只传送不动状态"，告诉我，我再拆一份。
-3. `debug/status` 用到了 `#survivors`、`#test`、`#state`、`#global` 这些假玩家分数，它们都已在 `load.mcfunction` 中初始化；若以后新增假玩家，同样按红线要求先在 `load` 里 `set` 一份。
-4. 想更方便调出，可以在 `lobby/menu.mcfunction` 末尾追加：
-```mcfunction
-tellraw @s [{"text":"[调试]","color":"dark_red","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/menu"},"hoverEvent":{"action":"show_text","contents":[{"text":"打开调试控制台","color":"gray"}]}}]
-```
-5. 生成怪物用 `summon` + 旧版 NBT（`HandItems`、`Count:1b`、`CustomName: '...'`），没有使用 1.20.5+ 的 components 或 1.20.2+ 的宏。
+`kit/archer.mcfunction` 里弓的 NBT 我没有拿到正文，`archer_give_bow` 里写的是 `{KitBow:1b,Unbreakable:1b}`。请打开 `kit/archer.mcfunction` 对比，把这一行改成与它完全一致（`archer_pickup.json` 的 `nbt` 条件也要能匹配上归还的这把弓）。

@@ -351,10 +351,10 @@
 简介: 远程消耗的射手
 
 装备:
-  头盔: minecraft:iron_helmet
-  胸甲: minecraft:iron_chestplate
-  护腿: minecraft:leather_leggings
-  靴子: minecraft:leather_boots
+  头盔: minecraft:leather_helmet
+  胸甲: minecraft:leather_chestplate
+  护腿: minecraft:iron_leggings
+  靴子: minecraft:iron_boots
   主手: minecraft:stone_sword
   副手: minecraft:bow
   食物: minecraft:cooked_beef x 16

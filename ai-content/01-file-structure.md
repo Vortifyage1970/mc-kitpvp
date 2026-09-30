@@ -4,149 +4,120 @@
 
 \## 目录树
 
-D:\\MC-KITPVP\\SRC
-
-|   pack.mcmeta
-
-|
-
-\\---data
-
-&#x20;   +---kitpvp
-
-&#x20;   |   +---advancements
-
-&#x20;   |   |   \\---player
-
-&#x20;   |   +---functions
-
-&#x20;   |   |   |   load.mcfunction
-
-&#x20;   |   |   |   tick.mcfunction
-
-&#x20;   |   |   |
-
-&#x20;   |   |   +---debug
-
-&#x20;   |   |   |   |   death\_check.mcfunction
-
-&#x20;   |   |   |   |
-
-&#x20;   |   |   |   \\---test
-
-&#x20;   |   |   |           build.mcfunction
-
-&#x20;   |   |   |           force\_end.mcfunction
-
-&#x20;   |   |   |           force\_reset.mcfunction
-
-&#x20;   |   |   |           force\_select\_list.mcfunction
-
-&#x20;   |   |   |           off.mcfunction
-
-&#x20;   |   |   |           on.mcfunction
-
-&#x20;   |   |   |           play.mcfunction
-
-&#x20;   |   |   |           solo\_start.mcfunction
-
-&#x20;   |   |   |           status.mcfunction
-
-&#x20;   |   |   |
-
-&#x20;   |   |   +---game
-
-&#x20;   |   |   |       check\_winner.mcfunction
-
-&#x20;   |   |   |       end.mcfunction
-
-&#x20;   |   |   |       reset.mcfunction
-
-&#x20;   |   |   |       start.mcfunction
-
-&#x20;   |   |   |
-
-&#x20;   |   |   +---kit
-
-&#x20;   |   |   |       warrior.mcfunction
-
-&#x20;   |   |   |
-
-&#x20;   |   |   +---lobby
-
-&#x20;   |   |   |       build.mcfunction
-
-&#x20;   |   |   |       destroy.mcfunction
-
-&#x20;   |   |   |       enter.mcfunction
-
-&#x20;   |   |   |       exit.mcfunction
-
-&#x20;   |   |   |       reset\_self.mcfunction
-
-&#x20;   |   |   |       spawn.mcfunction
-
-&#x20;   |   |   |
-
-&#x20;   |   |   +---map
-
-&#x20;   |   |   |       distribute.mcfunction
-
-&#x20;   |   |   |       random.mcfunction
-
-&#x20;   |   |   |       restore.mcfunction
-
-&#x20;   |   |   |
-
-&#x20;   |   |   +---player
-
-&#x20;   |   |   |       after\_death.mcfunction
-
-&#x20;   |   |   |       death\_dispatch.mcfunction
-
-&#x20;   |   |   |       eliminate.mcfunction
-
-&#x20;   |   |   |       end\_invincible.mcfunction
-
-&#x20;   |   |   |       invincible.mcfunction
-
-&#x20;   |   |   |       join.mcfunction
-
-&#x20;   |   |   |       on\_death.mcfunction
-
-&#x20;   |   |   |
-
-&#x20;   |   |   +---skill
-
-&#x20;   |   |   \\---util
-
-&#x20;   |   |           clear\_player.mcfunction
-
-&#x20;   |   |           give\_kit.mcfunction
-
-&#x20;   |   |           say.mcfunction
-
-&#x20;   |   |           title.mcfunction
-
-&#x20;   |   |
-
-&#x20;   |   +---item\_modifiers
-
-&#x20;   |   +---loot\_tables
-
-&#x20;   |   +---predicates
-
-&#x20;   |   \\---tags
-
-&#x20;   |       \\---functions
-
-&#x20;   \\---minecraft
-
-&#x20;       \\---tags
-
-&#x20;           \\---functions
-
-&#x20;                   load.json
-
-&#x20;                   tick.json
-
+D:\MC-KITPVP\SRC
+│  pack.mcmeta
+│
+└─data
+    ├─kitpvp
+    │  ├─advancements
+    │  │  └─player
+    │  │          archer_pickup.json
+    │  │
+    │  ├─functions
+    │  │  │  load.mcfunction
+    │  │  │  tick.mcfunction
+    │  │  │
+    │  │  ├─debug
+    │  │  │  │  add_lives.mcfunction
+    │  │  │  │  check_winner.mcfunction
+    │  │  │  │  death_check.mcfunction
+    │  │  │  │  god_off.mcfunction
+    │  │  │  │  god_on.mcfunction
+    │  │  │  │  god_toggle.mcfunction
+    │  │  │  │  heal.mcfunction
+    │  │  │  │  kill_mobs.mcfunction
+    │  │  │  │  kill_self.mcfunction
+    │  │  │  │  menu.mcfunction
+    │  │  │  │  remove_lives.mcfunction
+    │  │  │  │  reset_cd.mcfunction
+    │  │  │  │  reset_cd_all.mcfunction
+    │  │  │  │  spawn.mcfunction
+    │  │  │  │  spawn_creeper.mcfunction
+    │  │  │  │  spawn_dummy.mcfunction
+    │  │  │  │  spawn_skeleton.mcfunction
+    │  │  │  │  spawn_zombie.mcfunction
+    │  │  │  │  status.mcfunction
+    │  │  │  │  tp_lobby.mcfunction
+    │  │  │  │
+    │  │  │  └─test
+    │  │  │          build.mcfunction
+    │  │  │          force_end.mcfunction
+    │  │  │          force_reset.mcfunction
+    │  │  │          force_select_list.mcfunction
+    │  │  │          off.mcfunction
+    │  │  │          on.mcfunction
+    │  │  │          play.mcfunction
+    │  │  │          solo_start.mcfunction
+    │  │  │          status.mcfunction
+    │  │  │
+    │  │  ├─game
+    │  │  │      check_winner.mcfunction
+    │  │  │      end.mcfunction
+    │  │  │      reset.mcfunction
+    │  │  │      start.mcfunction
+    │  │  │
+    │  │  ├─kit
+    │  │  │  │  archer.mcfunction
+    │  │  │  │  list.mcfunction
+    │  │  │  │  warrior.mcfunction
+    │  │  │  │
+    │  │  │  ├─info
+    │  │  │  │      archer.mcfunction
+    │  │  │  │      warrior.mcfunction
+    │  │  │  │
+    │  │  │  └─list
+    │  │  │          astral.mcfunction
+    │  │  │          classic.mcfunction
+    │  │  │          classic_chaos.mcfunction
+    │  │  │          classic_tainted.mcfunction
+    │  │  │          history.mcfunction
+    │  │  │          meme.mcfunction
+    │  │  │          operator.mcfunction
+    │  │  │
+    │  │  ├─lobby
+    │  │  │      build.mcfunction
+    │  │  │      destroy.mcfunction
+    │  │  │      enter.mcfunction
+    │  │  │      exit.mcfunction
+    │  │  │      menu.mcfunction
+    │  │  │      reset_self.mcfunction
+    │  │  │      spawn.mcfunction
+    │  │  │
+    │  │  ├─map
+    │  │  │      distribute.mcfunction
+    │  │  │      random.mcfunction
+    │  │  │      restore.mcfunction
+    │  │  │
+    │  │  ├─player
+    │  │  │      after_death.mcfunction
+    │  │  │      death_dispatch.mcfunction
+    │  │  │      eliminate.mcfunction
+    │  │  │      end_invincible.mcfunction
+    │  │  │      invincible.mcfunction
+    │  │  │      join.mcfunction
+    │  │  │      on_death.mcfunction
+    │  │  │
+    │  │  ├─skill
+    │  │  │      archer_pickup.mcfunction
+    │  │  │      archer_refill.mcfunction
+    │  │  │      dispatch.mcfunction
+    │  │  │      warrior.mcfunction
+    │  │  │      warrior_consume.mcfunction
+    │  │  │      warrior_ready.mcfunction
+    │  │  │
+    │  │  └─util
+    │  │          clear_player.mcfunction
+    │  │          give_kit.mcfunction
+    │  │          say.mcfunction
+    │  │          title.mcfunction
+    │  │
+    │  ├─item_modifiers
+    │  ├─loot_tables
+    │  ├─predicates
+    │  └─tags
+    │      └─functions
+    └─minecraft
+        └─tags
+            └─functions
+                    load.json
+                    tick.json

@@ -1,0 +1,3 @@
+tag @a remove kitpvp.in_lobby
+...
+tag @a remove kitpvp.joined

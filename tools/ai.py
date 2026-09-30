@@ -350,6 +350,7 @@ HELP_TEXT = """[bold]可用命令[/bold]
   [cyan]/read[/cyan]               列出可读文件（带编号）
   [cyan]/read 3 7[/cyan]           按编号读取多个文件进上下文
   [cyan]/read foo.mcfunction[/cyan] 按文件名 / 相对路径 / 模糊匹配读取
+  [cyan]/read all[/cyan]           一次性读取 src/ 下所有文件
   [cyan]/reload[/cyan]             重新读取 ai-content/ 下的 .md
   [cyan]/context[/cyan]            查看当前已加载的上下文与历史条数
   [cyan]/clear[/cyan]              清空对话历史（保留 system 与上下文）
@@ -462,10 +463,23 @@ def main():
                     continue
                 if not arg:
                     console.print("可用文件（[cyan]/read <编号>[/cyan]，"
-                                  "可一次多个，如 [cyan]/read 1 3 5[/cyan]）：")
+                                  "可一次多个，如 [cyan]/read 1 3 5[/cyan]；"
+                                  "或 [cyan]/read all[/cyan] 读取全部）：")
                     for i, f in enumerate(files, 1):
                         console.print(f"  [cyan]{i:>3}[/cyan]  {f.relative_to(ROOT)}")
                     continue
+
+                # ---- 新增：/read all ----
+                if arg.lower() == "all":
+                    total = 0
+                    for p in files:
+                        read_file_into_msgs(p, msgs)
+                        total += 1
+                    console.print(f"已载入 [green]{total}[/green] 个文件"
+                                  f"（历史共 {len(msgs) - 1} 条消息）")
+                    continue
+                # --------------------------
+
                 try:
                     tokens = shlex.split(arg)
                 except ValueError as e:

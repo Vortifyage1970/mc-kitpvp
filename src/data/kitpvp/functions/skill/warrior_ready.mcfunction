@@ -7,8 +7,7 @@
  # 冷却期间不会补发），而是靠在冷却 + tag 上的互斥保证。                                                                       
                                                                                                                                
  give @s minecraft:golden_apple 1                                                                                              
- tag @s add kitpvp.skill_ready                                                                                                 
- scoreboard players set @s kitpvp.cd 0                                                                                         
+ tag @s add kitpvp.skill_ready                                                                                                                                                                                          
                                                                                                                                
  title @s actionbar {"text":"补给：获得 1 个金苹果","color":"gold"}                                                            
  playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.6 1.4

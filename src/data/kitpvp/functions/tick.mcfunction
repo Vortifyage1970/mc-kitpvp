@@ -10,8 +10,14 @@
  # 统计 objective：吃掉金苹果的瞬间 used 自动 +1                                                                               
  # 本刻 used 比 last 大 → 刚吃掉，转交 warrior_consume                                                                         
  # 必须在"冷却递减"之后再跑，避免 cd 被本 tick 的递减覆盖                                                                      
- execute as @a[scores={kitpvp.kit=1..,kitpvp.alive=1}] if score @s kitpvp.gapple_used > @s kitpvp.gapple_last run function kitpvp:skill/warrior_consume                                          
-                                                                                                                               
+ execute as @a[scores={kitpvp.kit=1,kitpvp.alive=1}] if score @s kitpvp.gapple_used > @s kitpvp.gapple_last run function kitpvp:skill/warrior_consume                                          
+
+ # ===== 弓箭手：清除落地的箭 =====
+# 弓箭手射出的箭一落地（inGround:1b）就清除，
+# 防止"射出去 → 换弹 → 再捡回来"把箭数刷过 12 支上限。
+# 副作用：会一并清掉其它来源（如骷髅）落地的箭。
+kill @e[type=minecraft:arrow,nbt={inGround:1b}]
+                                                                                                                              
  # ===== 职业技能结算（统一入口）=====                                                                                         
  # 只筛"有职业、活着、主技能冷却归零"的玩家，转交 dispatch；                                                                   
  # 具体哪个职业发什么，由 skill/dispatch 按 kitpvp.kit 分派。                                                                  
@@ -29,13 +35,13 @@
                                                                                                                                
  # 虚空兜底：Y < -74 直接判死（阈值可调）                                                                                      
  # y=-1024 配合 dy=950 覆盖 y ∈ [-1024, -74]                                                                                   
- execute as @a[tag=kitpvp.selected,tag=!kitpvp.spectator,gamemode=!spectator] if entity @s[y=-1024,dy=950] run kill @s         
+ execute as @a[tag=kitpvp.selected,tag=!kitpvp.spectator,gamemode=!spectator] if entity @s[y=-1024,dy=950] run damage @s 1000 minecraft:generic         
                                                                                                                                
  # 死亡检测                                                                                                                    
- execute as @a if score @s kitpvp.death_detect > @s kitpvp.death_seen run function kitpvp:player/death_dispatch                
+ execute as @a[tag=!kitpvp.spectator] if score @s kitpvp.death_detect > @s kitpvp.death_seen run function kitpvp:player/death_dispatch                
                                                                                                                                
  # 重生后处理（由 on_death 打 tag，本 tick 消费）                                                                              
- execute as @a[tag=kitpvp.respawn_pending] run function kitpvp:player/after_death                                              
+ execute as @a[tag=kitpvp.respawn_pending,tag=!kitpvp.spectator] run function kitpvp:player/after_death                                              
                                                                                                                                
  # ===== 胜负兜底轮询（每 20 刻一次）=====                                                                                     
  # 覆盖"玩家中途退出服务器导致幸存者减少，但没人触发 eliminate"的情况                                                          

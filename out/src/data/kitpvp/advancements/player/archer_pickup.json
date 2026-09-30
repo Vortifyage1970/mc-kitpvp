@@ -1,0 +1,19 @@
+{
+  "criteria": {
+    "pickup": {
+      "trigger": "minecraft:thrown_item_picked_up_by_player",
+      "conditions": {
+        "item": {
+          "items": ["minecraft:bow"],
+          "nbt": "{KitBow:1b}"
+        }
+      }
+    }
+  },
+  "requirements": [
+    ["pickup"]
+  ],
+  "rewards": {
+    "function": "kitpvp:skill/archer_pickup"
+  }
+}
