@@ -1,0 +1,16 @@
+{
+  "criteria": {
+    "drink": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": ["minecraft:potion"],
+          "nbt": "{KitAssassinToken:1b}"
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "kitpvp:skill/assassin_cast"
+  }
+}

@@ -8,6 +8,7 @@ tag @s remove kitpvp.invincible
 tag @s remove kitpvp.shield_held
 tag @s remove kitpvp.skill_ready
 tag @s remove kitpvp.skill_consume
+tag @s remove kitpvp.assassin_hidden
 
 scoreboard players set @s kitpvp.lives 0
 scoreboard players set @s kitpvp.alive 0

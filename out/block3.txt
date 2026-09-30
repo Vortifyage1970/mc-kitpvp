@@ -1,1 +1,2 @@
-execute as @a[tag=kitpvp.selected,tag=!kitpvp.spectator,gamemode=!spectator] if entity @s[y=-1024,dy=950] run damage @s 1000 minecraft:generic
+execute as @a[scores={kitpvp.kit=3}] at @s run kill @e[type=iron_golem,distance=..16]
+execute as @a[scores={kitpvp.kit=4}] at @s run kill @e[type=enderman,distance=..16]

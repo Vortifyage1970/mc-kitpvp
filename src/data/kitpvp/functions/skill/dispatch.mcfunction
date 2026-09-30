@@ -33,6 +33,7 @@ execute if score @s kitpvp.kit matches 1 run function kitpvp:skill/warrior
 # 链路：minecraft.used:minecraft.iron_golem_spawn_egg > kitpvp.tank_last
 #       → skill/tank_cast → skill/tank_fire
 
-# kit = 4 刺客 · 隐匿（未实装）
-# execute if score @s kitpvp.kit matches 4 run function kitpvp:skill/assassin
+# kit = 4 刺客 · 隐匿（主动技能，由统计 objective 驱动，不进 dispatch）
+# 链路：minecraft.used:minecraft.enderman_spawn_egg > kitpvp.assassin_last
+#       → skill/assassin_cast → skill/assassin_fire
  

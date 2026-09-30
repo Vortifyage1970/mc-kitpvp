@@ -1,2 +1,4 @@
-scoreboard players set @s kitpvp.death_detect 0
-scoreboard players set @s kitpvp.death_seen 0
+scoreboard objectives add kitpvp.tank_used minecraft.used:minecraft.iron_golem_spawn_egg
+scoreboard objectives add kitpvp.tank_last dummy
+scoreboard objectives add kitpvp.assassin_used minecraft.used:minecraft.enderman_spawn_egg
+scoreboard objectives add kitpvp.assassin_last dummy

@@ -1,1 +1,1 @@
-… inv 递减 → end_invincible 检测 → respawn_pending→after_death → 虚空 kill → death_detect→death_dispatch
+effect give @s minecraft:resistance 5 4 true

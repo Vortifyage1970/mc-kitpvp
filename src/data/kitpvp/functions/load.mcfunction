@@ -32,6 +32,8 @@ scoreboard objectives add kitpvp.gapple_used minecraft.used:minecraft.golden_app
 scoreboard objectives add kitpvp.gapple_last dummy "金苹果快照"
 scoreboard objectives add kitpvp.tank_used minecraft.used:minecraft.iron_golem_spawn_egg
 scoreboard objectives add kitpvp.tank_last dummy "坦克技能快照"
+scoreboard objectives add kitpvp.assassin_used minecraft.used:minecraft.enderman_spawn_egg                                             
+scoreboard objectives add kitpvp.assassin_last dummy "刺客技能快照"
 
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
 scoreboard objectives modify kitpvp.lives displayname {"text":"命数","color":"red"}
@@ -56,6 +58,7 @@ tag @a remove kitpvp.joined
 tag @a remove kitpvp.skill_ready
 tag @a remove kitpvp.skill_consume
 tag @a remove kitpvp.shield_held
+tag @a remove kitpvp.assassin_hidden
 
 # 五、玩家状态归零
 scoreboard players set @a kitpvp.kit 0

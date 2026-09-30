@@ -1,3 +1,1 @@
-tag @a remove kitpvp.in_lobby
-...
-tag @a remove kitpvp.joined
+tag @a remove kitpvp.assassin_hidden
