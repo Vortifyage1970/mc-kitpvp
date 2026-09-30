@@ -55,6 +55,10 @@ D:\MC-KITPVP\SRC
     │  │  │      end.mcfunction
     │  │  │      reset.mcfunction
     │  │  │      start.mcfunction
+    │  │  │      start_impl.mcfunction
+    │  │  │      sudden_death_start.mcfunction
+    │  │  │      sudden_drop.mcfunction
+    │  │  │      timer_tick.mcfunction
     │  │  │
     │  │  ├─kit
     │  │  │  │  archer.mcfunction
@@ -84,9 +88,23 @@ D:\MC-KITPVP\SRC
     │  │  │      spawn.mcfunction
     │  │  │
     │  │  ├─map
-    │  │  │      distribute.mcfunction
-    │  │  │      random.mcfunction
-    │  │  │      restore.mcfunction
+    │  │  │  │  distribute.mcfunction
+    │  │  │  │  random.mcfunction
+    │  │  │  │  restore.mcfunction
+    │  │  │  │  select_desert.mcfunction
+    │  │  │  │  select_menu.mcfunction
+    │  │  │  │
+    │  │  │  └─desert
+    │  │  │          distribute.mcfunction
+    │  │  │          spawn_1.mcfunction
+    │  │  │          spawn_2.mcfunction
+    │  │  │          spawn_3.mcfunction
+    │  │  │          spawn_4.mcfunction
+    │  │  │          spawn_5.mcfunction
+    │  │  │          spawn_6.mcfunction
+    │  │  │          spawn_7.mcfunction
+    │  │  │          spawn_8.mcfunction
+    │  │  │          spawn_9.mcfunction
     │  │  │
     │  │  ├─player
     │  │  │      after_death.mcfunction
@@ -98,8 +116,11 @@ D:\MC-KITPVP\SRC
     │  │  │      on_death.mcfunction
     │  │  │
     │  │  ├─skill
+    │  │  │      archer_give_bow.mcfunction
     │  │  │      archer_pickup.mcfunction
     │  │  │      archer_refill.mcfunction
+    │  │  │      archer_return.mcfunction
+    │  │  │      archer_steal.mcfunction
     │  │  │      dispatch.mcfunction
     │  │  │      warrior.mcfunction
     │  │  │      warrior_consume.mcfunction

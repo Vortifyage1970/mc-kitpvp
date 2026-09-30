@@ -35,4 +35,3 @@ execute if score @s kitpvp.kit matches 1 run function kitpvp:skill/warrior
 
 # kit = 4 刺客 · 隐匿（未实装）
 # execute if score @s kitpvp.kit matches 4 run function kitpvp:skill/assassin
- 

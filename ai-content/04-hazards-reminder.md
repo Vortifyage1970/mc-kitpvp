@@ -144,3 +144,5 @@
 - **`load.mcfunction` 里那一大段 `tag @a remove` 是刻意为之，但 `kitpvp.joined` 与 `kitpvp.in_lobby` 不能在 `util/clear_player` 里清。** `kitpvp.joined` 一清，`tick.mcfunction` 的接入检测会重复触发 `player/join`；`kitpvp.in_lobby` 一清，`player/on_death.mcfunction` 的"大厅死亡不计"判定会失效。
 - **`gamerule sendCommandFeedback false` 会吞掉大量命令反馈。** 调试时"没报错 ≠ 命令真的执行了"。写调试函数时优先配合 `tellraw` / `say` 显式输出，别靠默认反馈判断成败。
 - **`tick.mcfunction` 里"虚空判死"用的是 `if entity @s[y=-1024,dy=950]`**，覆盖 y ∈ [-1024, -74]。若地图要改判定阈值，**只改 `dy`**（`y + dy - 1` 是上界），不要动 `y`，否则会漏掉更低的位置。
+- **主动技能的通用模式（1.20.1）**：主动技能不能挂 `tick → dispatch`，必须靠"检测玩家操作"来触发。当前项目里用**统计 objective**（如 `minecraft.used:minecraft.iron_golem_spawn_egg`）检测"用掉了专属物品"，tick 里比对 `used > last` 后转交 `skill/xxx_cast`。触发物默认选**颜色贴主题的刷怪蛋**（坦克用铁傀儡），生成物由 tick 立刻 `kill`。函数入口首行必须是快照推进（`operation last = used`），否则每刻重复触发。令牌的快照变量要在 `player/join` 与 `util/clear_player` 都初始化。
+- 被动药水效果均需要在重生时重新给予。

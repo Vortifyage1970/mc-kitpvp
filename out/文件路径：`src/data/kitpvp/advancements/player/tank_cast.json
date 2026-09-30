@@ -1,0 +1,16 @@
+{
+  "criteria": {
+    "cast": {
+      "trigger": "minecraft:using_item",
+      "conditions": {
+        "item": {
+          "items": ["minecraft:carrot_on_a_stick"],
+          "nbt": "{KitShieldToken:1b}"
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "kitpvp:skill/tank_cast"
+  }
+}

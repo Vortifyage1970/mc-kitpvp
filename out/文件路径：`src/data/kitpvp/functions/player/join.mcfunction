@@ -21,4 +21,4 @@ scoreboard players operation @s kitpvp.gapple_last = @s kitpvp.gapple_used
 scoreboard players operation @s kitpvp.tank_last = @s kitpvp.tank_used
 
 # 进入主大厅（负责 add kitpvp.in_lobby）
-function kitpvp:lobby/enter                                              
+function kitpvp:lobby/enter
