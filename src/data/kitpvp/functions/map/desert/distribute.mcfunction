@@ -1,18 +1,34 @@
-# ===== 沙漠地图：9 个出生点随机分配给参战玩家 =====
-# 逻辑：每次 @r 从"参战 + 未分配"的玩家集合里抽一个，依次放进各出生点
-#   - 用 @s 把抽中的玩家传进 spawn_N，蹲点函数内 tp + spawnpoint + 打 tag
-#   - @r[...] 在集合为空时静默跳过，不会报错
-#   - 参战人数 < 9 时，只有前 N 个出生活点被占用，其余空置（预期）
+# ===== 沙漠地图：把参战玩家随机分到 9 个出生点 =====
+# 思路：先随机一个「起始出生点」#cur ∈ 1..9，
+#       再反复遍历 1..9，谁等于 #cur 谁就领走一个玩家。
+#       领走玩家后 #cur +1（超过 9 归 1），所以真实分配顺序是
+#       起始点, 起始点+1, 起始点+2, ... 环绕一圈。
+#       玩家不足 9 人时，被占用的出生点是「随机的一段环」，
+#       而不是固定从 1 号开始 —— 9 个点都有机会被用到。
+#       同一个出生点在一局内不会被分配两次。
+#
+# 依赖：objective kitpvp.tmp（在 load.mcfunction 中创建）
+# 调用方：kitpvp:map/distribute
 
-execute as @r[tag=kitpvp.selected,tag=!kitpvp.spawn_assigned,tag=!kitpvp.spectator] run function kitpvp:map/desert/spawn_1
-execute as @r[tag=kitpvp.selected,tag=!kitpvp.spawn_assigned,tag=!kitpvp.spectator] run function kitpvp:map/desert/spawn_2
-execute as @r[tag=kitpvp.selected,tag=!kitpvp.spawn_assigned,tag=!kitpvp.spectator] run function kitpvp:map/desert/spawn_3
-execute as @r[tag=kitpvp.selected,tag=!kitpvp.spawn_assigned,tag=!kitpvp.spectator] run function kitpvp:map/desert/spawn_4
-execute as @r[tag=kitpvp.selected,tag=!kitpvp.spawn_assigned,tag=!kitpvp.spectator] run function kitpvp:map/desert/spawn_5
-execute as @r[tag=kitpvp.selected,tag=!kitpvp.spawn_assigned,tag=!kitpvp.spectator] run function kitpvp:map/desert/spawn_6
-execute as @r[tag=kitpvp.selected,tag=!kitpvp.spawn_assigned,tag=!kitpvp.spectator] run function kitpvp:map/desert/spawn_7
-execute as @r[tag=kitpvp.selected,tag=!kitpvp.spawn_assigned,tag=!kitpvp.spectator] run function kitpvp:map/desert/spawn_8
-execute as @r[tag=kitpvp.selected,tag=!kitpvp.spawn_assigned,tag=!kitpvp.spectator] run function kitpvp:map/desert/spawn_9
+# --- 1. 清掉上一局的分配标记 ---
+tag @a[tag=kitpvp.selected] remove kitpvp.spawn_assigned
 
-# 兜底：若还有没分完的玩家（>9 人，正常不会发生），塞到出生点 1
+# --- 2. 随机起始出生点 #cur ∈ 1..9（逐级 1/n 判定，结果均匀） ---
+scoreboard players set #cur kitpvp.tmp 0
+execute if score #cur kitpvp.tmp matches 0 if predicate kitpvp:random/1in9 run scoreboard players set #cur kitpvp.tmp 1
+execute if score #cur kitpvp.tmp matches 0 if predicate kitpvp:random/1in8 run scoreboard players set #cur kitpvp.tmp 2
+execute if score #cur kitpvp.tmp matches 0 if predicate kitpvp:random/1in7 run scoreboard players set #cur kitpvp.tmp 3
+execute if score #cur kitpvp.tmp matches 0 if predicate kitpvp:random/1in6 run scoreboard players set #cur kitpvp.tmp 4
+execute if score #cur kitpvp.tmp matches 0 if predicate kitpvp:random/1in5 run scoreboard players set #cur kitpvp.tmp 5
+execute if score #cur kitpvp.tmp matches 0 if predicate kitpvp:random/1in4 run scoreboard players set #cur kitpvp.tmp 6
+execute if score #cur kitpvp.tmp matches 0 if predicate kitpvp:random/1in3 run scoreboard players set #cur kitpvp.tmp 7
+execute if score #cur kitpvp.tmp matches 0 if predicate kitpvp:random/1in2 run scoreboard players set #cur kitpvp.tmp 8
+execute if score #cur kitpvp.tmp matches 0 run scoreboard players set #cur kitpvp.tmp 9
+
+# --- 3. 反复扫描，直到所有人都有落点（最坏 2 轮即可分完，写 3 轮保险） ---
+function kitpvp:map/desert/pass
+function kitpvp:map/desert/pass
+function kitpvp:map/desert/pass
+
+# --- 4. 兜底：参战人数 > 9 时（正常不会发生），剩下的堆到出生点 1 ---
 execute as @a[tag=kitpvp.selected,tag=!kitpvp.spawn_assigned,tag=!kitpvp.spectator] run function kitpvp:map/desert/spawn_1

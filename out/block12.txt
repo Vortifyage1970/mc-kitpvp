@@ -1,1 +1,6 @@
-execute as @a[tag=kitpvp.selected,tag=!kitpvp.spectator,gamemode=!spectator] if entity @s[y=-1024,dy=950] run kill @s
+- `scoreboard players add <target> <obj> 0` —— 补零惯用法，给没分数的玩家初始化，不改变已有分数
+- `clear <target> <item>{<nbt>}` —— 带 NBT 条件清物品（1.20.1 旧格式直接挂物品 id 后）
+- `kill @e[type=<type>,nbt={<nbt>}]` / `kill @e[type=<type>,name="<字符串>"]`
+- `damage <target> <amount> minecraft:out_of_world` —— 绕过抗性判死，用于虚空兜底
+- `ride <target> dismount` —— 下坐骑
+- `effect give <target> <effect> <秒> <amplifier> true` —— amplifier 0 是 I 级，5 是 VI 级

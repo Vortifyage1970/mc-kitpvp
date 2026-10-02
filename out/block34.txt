@@ -1,0 +1,12 @@
+九·六、永久效果的重挂时机
+
+职业的永久药水效果（如刺客的 speed I、坦克的 mining_fatigue + slowness）
+必须在以下四处重挂：
+
+1. 选职业时（kit/xxx 函数内）
+2. 重生后（player/after_death）
+3. 临时高等级效果到期后（skill/xxx_expire）
+4. 回合开始（game/start_impl）
+
+实现方式：把永久效果抽成独立函数 kit/<职业>_passive，
+各处需要时调用它，不要在多个函数里重复写 effect give 行。

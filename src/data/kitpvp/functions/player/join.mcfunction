@@ -20,6 +20,9 @@ scoreboard players operation @s kitpvp.gapple_last = @s kitpvp.gapple_used
 # 坦克统计快照：把 last 推到当前 used，防止老玩家一进服被误判"刚用掉令牌"
 scoreboard players operation @s kitpvp.tank_last = @s kitpvp.tank_used
 scoreboard players operation @s kitpvp.assassin_last = @s kitpvp.assassin_used
+# 主大厅准备钓竿快照：老玩家身上的历史钓鱼竿右键不会被算成"点了一次准备"
+scoreboard players operation @s kitpvp.ready_last = @s kitpvp.ready_used
 
 # 进入主大厅（负责 add kitpvp.in_lobby）
-function kitpvp:lobby/enter                                              
+function kitpvp:lobby/enter
+                                           

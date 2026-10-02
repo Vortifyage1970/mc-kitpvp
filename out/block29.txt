@@ -1,0 +1,12 @@
+
+- `schedule ... replace` 的语义是"同 id 只保留最后一次"，适合全局唯一计时器。
+- `attribute ... base set` 是修改基础值，`clear_player` 里复位属性时用。
+- 1.20.1 无 `/heal`、无 `/extinguish`。
+
+---
+
+## 九、gamerule 与调试反馈
+
+- 所有 gamerule 在 `load.mcfunction` 里设置（按需开启/关闭）。
+- 建议设置 `gamerule sendCommandFeedback false`，但注意：**它会吞掉大量命令反馈**。
+- 写调试函数时用 `tellraw` / `say` 显式输出，别靠默认反馈判断成败。

@@ -1,0 +1,10 @@
+
+- 用小驼峰 `clickEvent` / `hoverEvent`，不用 `click_event`。
+- `run_command` 的 `value` **必须**以 `/` 开头。
+- `hoverEvent` 字段是 `contents`，不是 `value`。
+- 外层单引号包 JSON 时，**内部全部用双引号**。
+
+---
+
+## 八、其它
+

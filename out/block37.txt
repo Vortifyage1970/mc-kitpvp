@@ -1,0 +1,7 @@
+- **`scoreboard players add <target> <obj> 0` 是补零，`set` 是归零**，两者不能互换。
+  tick 里给"中途加入的玩家"补 `inv` 用的是 `add ... 0`。
+- **1.20.1 盾牌最大耐久固定 336**，没有 MaxDurability 字段。
+  要"剩余耐久 80"就写 `Damage:256`（336 - 80 = 256）。
+  这种盾**不要加 Unbreakable**，否则"用完即碎"的设计失效。
+- **刷怪蛋的 `display.Name` 会成为生成生物的 CustomName**（已实测）。
+  所以令牌生成的生物可以直接用 `name="举盾令牌"` 匹配清除，不必额外打 tag。

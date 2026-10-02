@@ -91,6 +91,19 @@ AI 容易凭训练数据本能写出这些，必须主动避免。
 - `worldborder` / `forceload`
 - `particle` / `playsound` / `effect` / `xp` / `gamemode`
 - `tellraw` / `title` / `bossbar`
+- `scoreboard players add <target> <obj> 0` —— 补零惯用法，给没分数的玩家初始化，不改变已有分数
+- `clear <target> <item>{<nbt>}` —— 带 NBT 条件清物品（1.20.1 旧格式直接挂物品 id 后）
+- `kill @e[type=<type>,nbt={<nbt>}]` / `kill @e[type=<type>,name="<字符串>"]`
+- `damage <target> <amount> minecraft:out_of_world` —— 绕过抗性判死，用于虚空兜底
+- `ride <target> dismount` —— 下坐骑
+- `effect give <target> <effect> <秒> <amplifier> true` —— amplifier 0 是 I 级，5 是 VI 级
+## 统计类 objective（1.20.1 可用）
+
+- `scoreboard objectives add <name> minecraft.used:minecraft.<item>` —— 该物品被"使用"一次即 +1
+- 可用于检测：吃食物、右键刷怪蛋、右键钓竿、投掷物、放置方块等原版行为
+- **只覆盖原版物品，且不分来源**：地图上野生刷出的同种物品、其它职业发的同种物品，
+  都会算进同一个统计。用之前必须确认该物品在本服只有一个来源
+- 配合快照变量 `*_last` 使用：`if score @s <obj>_used > @s <obj>_last`
 
 ### 函数机制
 
@@ -124,3 +137,11 @@ AI 容易凭训练数据本能写出这些，必须主动避免。
 - `.mcfunction` 每行一条命令，行尾无分号，`#` 开头是注释
 - 命名空间只允许小写字母、数字、下划线：`kitpvp` ✅，`KitPvP` ❌，`kit-pvp` ❌
 - `data get` / `data modify` 的路径用点号分隔（`SelectedItem.tag.xxx`），数组用方括号（`Inventory[0]`）
+## 物品耐久只能反推（1.20.1）
+
+- 1.20.1 没有 MaxDurability 字段，每个物品的最大耐久是固定的
+- 盾牌最大耐久 = 336，要"剩余耐久 80"就写 Damage:256（336 - 80 = 256）
+- 要"剩余耐久 N"就写 Damage:(最大耐久 - N)
+- 不要给这种"一次性耐久物品"加 
+## advancement 使用红线
+- 1.20.1的advancement使用自由度相当中等，在使用advancement时先确认，本项目当前唯一在用的 advancement 是 `kitpvp:player/archer_pickup`。

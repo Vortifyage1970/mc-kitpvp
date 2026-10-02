@@ -1,4 +1,6 @@
-# 沙漠出生点 2
+# 沙漠出生点 2（改坐标只改下面这行）
 tp @s -346 88 -75
-spawnpoint @s -346 88 -75
+spawnpoint @s
 tag @s add kitpvp.spawn_assigned
+scoreboard players add #cur kitpvp.tmp 1
+execute if score #cur kitpvp.tmp matches 10.. run scoreboard players set #cur kitpvp.tmp 1

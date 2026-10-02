@@ -39,6 +39,8 @@ tag @s remove kitpvp.skill_ready
 tag @s remove kitpvp.skill_consume
 tag @s remove kitpvp.shield_held
 tag @s remove kitpvp.assassin_hidden
+tag @s remove kitpvp.ready
+tag @s remove kitpvp.ready_pending
 
 # --- 四、分数归零（含 kit）---
 scoreboard players set @s kitpvp.kit 0
@@ -55,6 +57,8 @@ scoreboard players operation @s kitpvp.gapple_last = @s kitpvp.gapple_used
 # 坦克统计快照：清场时把 last 推到 used，避免清场后下一刻误判
 scoreboard players operation @s kitpvp.tank_last = @s kitpvp.tank_used
 scoreboard players operation @s kitpvp.assassin_last = @s kitpvp.assassin_used
+# 主大厅准备钓竿快照：同上
+scoreboard players operation @s kitpvp.ready_last = @s kitpvp.ready_used
 
 # --- 五、属性复位到原版默认 ---
 attribute @s minecraft:generic.max_health base set 20

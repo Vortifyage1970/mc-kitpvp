@@ -1,1 +1,1 @@
-scoreboard players set #bowid_counter kitpvp.game 0
+scoreboard objectives add kitpvp.tmp dummy

@@ -1,0 +1,9 @@
+
+- 路径用点号分隔，数组用方括号：`Inventory[...]`、`SelectedItem.tag.xxx`。
+- **1.20.1 是旧版 NBT**：`Enchantments:[{id,lvl}]`、`display:{Name}`、`Unbreakable:1b`、`Damage:256`。
+- `clear <target> <item>{<nbt>}` 只清背包。
+
+---
+
+## 五、判定与伤害
+

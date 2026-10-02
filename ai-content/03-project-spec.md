@@ -437,33 +437,71 @@
 
 ---
 
-## 六、初始计分板设计，后期可能加入新值，记得初始化
+## 六、计分板登记表
 
-| 名称 | 类型 | 用途 |
-|---|---|---|
-| `kitpvp.kit` | dummy | 职业 ID（0=未选） |
-| `kitpvp.cd` | dummy | 通用技能冷却（刻） |
-| `kitpvp.cd2` | dummy | 第二技能冷却（如有） |
-| `kitpvp.alive` | dummy | 存活（1=活，0=旁观） |
-| `kitpvp.lives` | dummy | 剩余命数 |
-| `kitpvp.kills` | dummy | 击杀数 |
-| `kitpvp.deaths` | dummy | 死亡数 |
-| `kitpvp.map` | dummy | 当前地图 ID |
-| `kitpvp.timer` | dummy | 全局倒计时（秒） |
+> 新增任何 objective，必须同步本表 + `load.mcfunction` + `util/clear_player.mcfunction`。
+> dummy 类型用于编号/计数/快照；统计类型用于"使用事件"检测。
 
-> 计分板名只允许小写字母、数字、点、下划线。不能有大写。
+| 名称 | 类型 | 用途 | 初始化于 | 消费者 |
+|---|---|---|---|---|
+| `kitpvp.kit` | dummy | 职业 ID（0=未选） | load / clear_player | dispatch、tick 各检测行 |
+| `kitpvp.cd` | dummy | 主技能冷却（刻） | load / clear_player | tick 递减、dispatch 闸门 |
+| `kitpvp.cd2` | dummy | 第二技能冷却（刻，预留） | load / clear_player | tick 递减 |
+| `kitpvp.alive` | dummy | 存活（1=活 0=旁观） | load / clear_player | tick 各检测行 |
+| `kitpvp.lives` | dummy | 剩余命数 | load / clear_player | 死亡结算 |
+| `kitpvp.kills` | dummy | 击杀数 | load / clear_player | 结算 |
+| `kitpvp.deaths` | dummy | 死亡数 | load / clear_player | 结算 |
+| `kitpvp.map` | dummy | 当前地图 ID（预留） | load | 地图选择 |
+| `kitpvp.timer` | dummy | 全局倒计时（秒） | load | timer_tick |
+| `kitpvp.inv` | dummy | 无敌剩余刻数 | tick 补零 / clear_player | 无敌结束判定 |
+| `kitpvp.death_detect` | dummy | 死亡计数器（写入方未定，待补） | — | death_dispatch |
+| `kitpvp.death_seen` | dummy | 死亡快照 | load / join / clear_player | death_dispatch |
+| `kitpvp.game` | dummy | 游戏状态 | load | check_winner |
+| `kitpvp.item` | dummy | 预留 | load / clear_player | — |
+| `kitpvp.gapple_used` | `minecraft.used:minecraft.golden_apple` | 战士金苹果使用 | load | tick |
+| `kitpvp.gapple_last` | dummy | 战士快照 | load / join / clear_player | tick |
+| `kitpvp.tank_used` | `minecraft.used:minecraft.iron_golem_spawn_egg` | 坦克令牌使用 | load | tick |
+| `kitpvp.tank_last` | dummy | 坦克快照 | load / join / clear_player | tick |
+| `kitpvp.assassin_used` | `minecraft.used:minecraft.enderman_spawn_egg` | 刺客令牌使用 | load | tick |
+| `kitpvp.assassin_last` | dummy | 刺客快照 | load / join / clear_player | tick |
+| `kitpvp.ready_used` | `minecraft.used:minecraft.carrot_on_a_stick` | 大厅准备钓竿使用 | load | tick |
+| `kitpvp.ready_last` | dummy | 准备快照 | load / lobby/enter / clear_player | tick |
+
+假玩家：
+
+| 名称 | 用途 |
+|---|---|
+| `#state kitpvp.game` | 游戏状态机（0=待机 1=进行中 2=结算中） |
+| `#tick kitpvp.game` | 胜负轮询节流计数器 |
+| `#test kitpvp.game` | 测试模式开关（1=自动判定胜利关闭） |
+
+> 计分板名只允许小写字母、数字、点、下划线，不能有大写。
+
 
 ---
 
-## 七、初始标签设计，后期可能加入新值，记得初始化
+## 七、tag 登记表
 
-| tag | 用途 |
-|---|---|
-| `kitpvp.selected` | 已选职业 |
-| `kitpvp.invincible` | 无敌中 |
-| `kitpvp.sudden_death` | 突然死亡模式激活 |
-| `kitpvp.in_lobby` | 在大厅 |
-| `kitpvp.spectator` | 旁观者 |
+> 新增任何 tag，必须同步本表 + `load.mcfunction` + `util/clear_player.mcfunction`。
+> 最后一个字段写"clear_player 是否清"，是新增 tag 时必须回答的问题。
+
+| tag | 用途 | add 于 | remove 于 | clear_player 清 |
+|---|---|---|---|---|
+| `kitpvp.joined` | 已登记接入 | player/join | — | ❌ 刻意不清 |
+| `kitpvp.in_lobby` | 在大厅 | lobby/enter | lobby/exit | ❌ 刻意不清 |
+| `kitpvp.selected` | 已选职业 | kit/xxx | clear_player | ✅ |
+| `kitpvp.invincible` | 无敌中 | player/invincible | player/end_invincible / clear_player | ✅ |
+| `kitpvp.sudden_death` | 突然死亡激活 | game/sudden_death_start | clear_player | ✅ |
+| `kitpvp.spectator` | 旁观者 | player/eliminate | clear_player | ✅ |
+| `kitpvp.respawn_pending` | 待重生处理 | player/on_death | player/after_death / clear_player | ✅ |
+| `kitpvp.death_immune` | 死亡不计 | 职业专属 | clear_player | ✅ |
+| `kitpvp.keep_inventory` | 保留背包 | 职业专属 | clear_player | ✅ |
+| `kitpvp.skill_ready` | 战士持有补给 | warrior_ready | warrior_consume / clear_player | ✅ |
+| `kitpvp.skill_consume` | 预留 | — | clear_player | ✅ |
+| `kitpvp.shield_held` | 坦克持盾中 | tank_fire | tank_expire / clear_player | ✅ |
+| `kitpvp.assassin_hidden` | 刺客隐匿中 | assassin_fire | assassin_unhide / clear_player | ✅ |
+| `kitpvp.ready` | 已准备 | lobby/ready_on | lobby/ready_off / clear_player | ✅ |
+| `kitpvp.ready_pending` | 准备待处理 | lobby/ready_toggle | clear_player | ✅ |
 
 > tag 只用于"有/没有"的二值判断。编号、计数、冷却用计分板。
 
@@ -477,6 +515,23 @@
 
 ---
 
+## 九·五、kit 编号对照
+
+> 必须与 `util/give_kit.mcfunction`、`skill/dispatch.mcfunction` 三处保持一致。
+
+| 编号 | 职业 | 技能类型 | 令牌物品 |
+|---|---|---|---|
+| 0 | （未选） | — | — |
+| 1 | 战士 | 自动 | 无（给金苹果本体） |
+| 2 | 弓箭手 | 触发器驱动（advancement） | 无（给弓） |
+| 3 | 坦克 | 主动 | `iron_golem_spawn_egg` |
+| 4 | 刺客 | 主动 | `enderman_spawn_egg` |
+| 5+ | 后续职业顺延 | | |
+
+新增职业时，同步更新：本表 + `util/give_kit.mcfunction` + `skill/dispatch.mcfunction`。
+
+---
+
 ## 十、待办清单
 
 - [ ] 补全所有职业卡片（79 个，不含混沌）
@@ -484,4 +539,3 @@
 - [ ] 确定地图清单和每张地图的特性
 - [ ] 确定突然死亡的魂石清单
 - [ ] 设计地图复原方案
-- [ ] 设计地图重生算法

@@ -1,2 +1,17 @@
-execute as @a[scores={kitpvp.kit=3}] at @s run kill @e[type=iron_golem,distance=..16]
-execute as @a[scores={kitpvp.kit=4}] at @s run kill @e[type=enderman,distance=..16]
+
+- 用 `Inventory[{tag:{...}}]` 检查背包里是否已存在该标记的物品。
+- 已存在时不重复发放，避免堆叠。
+
+---
+
+## 三、主动技能：三层函数结构（强制）
+
+| 函数 | 职责 | 调用方 |
+|---|---|---|
+| `skill/<职业>_give_egg` | 幂等发令牌 | `kit/<职业>`、`tick`、`player/after_death` |
+| `skill/<职业>_cast` | 入口：推快照 + 判 `cd` | `tick` |
+| `skill/<职业>_fire` | 给效果 + 给物品 + `set cd` | `<职业>_cast` |
+| `skill/<职业>_expire` | 到期清理（可选） | `tick` |
+
+### 3.1 `<职业>_cast.mcfunction` 骨架
+

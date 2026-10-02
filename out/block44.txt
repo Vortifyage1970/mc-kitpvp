@@ -1,0 +1,18 @@
+### 4.5 新增"发物品"技能时，先列出该物品的所有来源
+
+`minecraft.used:<item>` 只覆盖原版物品，且**不分来源**。
+上线任何一个 `*_used` 统计前，必须先回答：
+
+- 这个物品在本服还有没有别的来源？（其它职业发？地图野生刷出？箱子战利品？）
+- 如果有第二个来源，这套统计会被污染，必须退回方案 2（发放即冷却）。
+
+现有前提（新增职业时逐一复核）：
+
+| objective | 物品 | 当前唯一来源 |
+|---|---|---|
+| `gapple_used` | `golden_apple` | 战士技能 |
+| `tank_used` | `iron_golem_spawn_egg` | 坦克令牌 |
+| `assassin_used` | `enderman_spawn_egg` | 刺客令牌 |
+| `ready_used` | `carrot_on_a_stick` | 大厅准备钓竿 |
+
+**若新职业也发 `golden_apple` 或同种刷怪蛋，必须立刻重审对应前提。**

@@ -1,0 +1,14 @@
+九·五、kit 编号对照
+
+> 必须与 `util/give_kit.mcfunction`、`skill/dispatch.mcfunction` 三处保持一致。
+
+| 编号 | 职业 | 技能类型 | 令牌物品 |
+|---|---|---|---|
+| 0 | （未选） | — | — |
+| 1 | 战士 | 自动 | 无（给金苹果本体） |
+| 2 | 弓箭手 | 触发器驱动（advancement） | 无（给弓） |
+| 3 | 坦克 | 主动 | `iron_golem_spawn_egg` |
+| 4 | 刺客 | 主动 | `enderman_spawn_egg` |
+| 5+ | 后续职业顺延 | | |
+
+新增职业时，同步更新：本表 + `util/give_kit.mcfunction` + `skill/dispatch.mcfunction`。

@@ -1,127 +1,134 @@
-版本红线
-目标
-Minecraft Java Edition 1.20.1
+# 命令手册（1.20.1）
 
-纯数据包（datapack），无模组、无插件，实现职业战争
+> 本文件写"能用的、易错的"，不重复 `00-version.md` 的禁止项。
+> 禁止项以 `00-version.md` 为准。
 
-命名空间：kitpvp
+---
 
-pack_format：15
+## 一、玩家筛选
 
-输出内容需要便于直接复制粘贴至.json文件内，故不要以markdown格式输出，将可直接复制粘贴的代码清晰输出，与注释说明清晰分开。
+```mcfunction
+execute as @a[tag=!kitpvp.joined] run function kitpvp:player/join
+execute as @a[scores={kitpvp.kit=1,kitpvp.alive=1}] run ...
+execute as @a[scores={kitpvp.cd=1..}] run scoreboard players remove @s kitpvp.cd 1
+execute as @a[scores={kitpvp.cd=..300},tag=kitpvp.shield_held] run ...
+```
 
-绝对禁止的语法（1.20.2+ 才有，出现即报错）01-datapack-structure.md
-AI 容易凭训练数据本能写出这些，必须主动避免。
+- `scores={obj=1..}` 是"≥ 1"；`scores={obj=..300}` 是"≤ 300"；`scores={obj=0}` 是精确等于。
+- **服务端可能跳刻**：到期判定一律用 `..N` 而不是 `=N`。
+- 所有 tick 里的玩家筛选都要显式加 `tag=!kitpvp.spectator`。
 
-命令
-禁止	引入版本	1.20.1 替代
-return / return run	1.20.2	用 execute if ... run 控制流程
-tick 命令	1.20.2	用 schedule function xxx 1t 循环
-random 命令	1.20.2	用 predicate random_chance
-execute if items	1.20.5	用 execute if data entity @s Inventory[...] 或 predicate
-dialog 命令	1.21.6	用 tellraw + clickEvent
-waypoint 命令	1.21.6	无
-function xxx with {...}	1.20.2	不支持，用 storage + data modify
-function #tag 调用函数标签	1.20.2	不支持，只能调用单个函数
-函数
-禁止	说明
-宏 $()	1.20.2+ 才有
-函数带参	1.20.1 不支持，用 storage 或计分板变通
-物品 NBT
-1.20.1 用旧版 NBT 格式，1.20.5+ 才改成组件（components）格式。
+---
 
-禁止（1.20.5+）	1.20.1 正确写法
-{enchantments:{sharpness:5}}	{Enchantments:[{id:"minecraft:sharpness",lvl:5}]}
-{custom_name:'...'}	{display:{Name:'...'}}
-{unbreakable:{}}	{Unbreakable:1b}
-{damage:100}	{Damage:100}
-{components:{...}}	不存在，直接写顶层
-{attribute_modifiers:[...]}（新格式）	{AttributeModifiers:[...]}（旧格式，字段名不同）
-文本组件
-禁止（1.21.5+）	1.20.1 正确写法
-"click_event"	"clickEvent"（小驼峰）
-"hover_event"	"hoverEvent"（小驼峰）
-"action":"show_text","value":"..."	"action":"show_text","contents":"..."
-强制检查项
-在使用新计分项时，千万记得在 load.mcfunction 中初始化。所有 scoreboard objectives add 必须在加载阶段统一创建；需要初始分数的玩家或常量也要在 load.mcfunction 中初始化，不要等到运行逻辑里临时创建。
+## 二、补零、递增、递减、快照
 
-1.20.1 没有 death 等 advancement 接口。在使用 advancement 时千万要审慎，反复确认；不确定的直接保留，不要臆造 1.20.2+ 的触发器、条件或奖励格式。
+```mcfunction
+scoreboard players add @a kitpvp.inv 0
+scoreboard players remove @s kitpvp.cd 1
+scoreboard players set @s kitpvp.cd 800
+scoreboard players operation @s kitpvp.gapple_last = @s kitpvp.gapple_used
+```
 
-1.20.1 可用的核心能力
-命令
-execute 全套子命令
+- `add ... 0` 是补零惯用法：给没分数的玩家建一个 0，**不改动已有分数**。
+- `set` 会归零已有分数，不能拿来补零。
+- `operation A = B` 是复制 B 到 A，用于快照推进。
 
-scoreboard objectives / players
+---
 
-tag / team
+## 三、统计 objective
 
-data get / modify / merge / remove
+```mcfunction
+scoreboard objectives add kitpvp.tank_used minecraft.used:minecraft.iron_golem_spawn_egg
+scoreboard objectives add kitpvp.gapple_used minecraft.used:minecraft.golden_apple
+scoreboard objectives add kitpvp.ready_used minecraft.used:minecraft.carrot_on_a_stick
+```
 
-item replace / modify
+- 检测方式：本刻 `used > last` → 刚使用过一次。
+- **只覆盖原版物品，且不分来源**。
+- 必须在 `load.mcfunction` 里统一创建。
 
-advancement grant / revoke
+---
 
-schedule function
+## 四、NBT 与背包检测
 
-damage
+```mcfunction
+execute unless data entity @s Inventory[{tag:{KitTankEgg:1b}}] run ...
+clear @s minecraft:shield{KitShield:1b}
+give @s minecraft:iron_golem_spawn_egg{KitTankEgg:1b,display:{Name:'{"text":"举盾令牌","color":"aqua","bold":true}'}} 1
+give @s minecraft:shield{KitShield:1b,Damage:256} 1
+```
 
-attribute
+- 路径用点号分隔，数组用方括号：`Inventory[...]`、`SelectedItem.tag.xxx`。
+- **1.20.1 是旧版 NBT**：`Enchantments:[{id,lvl}]`、`display:{Name}`、`Unbreakable:1b`、`Damage:256`。
+- `clear <target> <item>{<nbt>}` 只清背包。
 
-worldborder / forceload
+---
 
-particle / playsound / effect / xp / gamemode
+## 五、判定与伤害
 
-tellraw / title / bossbar
+```mcfunction
+execute as @a[tag=kitpvp.selected,gamemode=!spectator] if entity @s[y=-1024,dy=950] run damage @s 1000 minecraft:out_of_world
+kill @e[type=minecraft:arrow,nbt={inGround:1b}]
+execute as @a[scores={kitpvp.kit=3}] at @s run kill @e[type=iron_golem,distance=..16,name="举盾令牌"]
+```
 
-函数机制
-function kitpvp:xxx 直接调用
+- **虚空判死**：`y=-1024,dy=950` 覆盖 y ∈ [-1024, -74]。
+  改阈值**只改 `dy`**（上界 = y + dy - 1），不要动 `y`。
+- `damage ... minecraft:out_of_world` 绕过抗性，适合做"强制判死"。
+- `distance=..16` 以执行点为圆心，半径 16 格。
+- `name="..."` 匹配生物 CustomName 纯文本。
+- **任何全局 `kill @e` 都要在注释里写明可能误杀什么**。
 
-execute 与函数组合
+---
 
-schedule function 延时 / 循环
+## 六、药水效果
 
-storage 数据存储（kitpvp:main 这种命名空间）
+```mcfunction
+effect give @s minecraft:instant_health 1 5 true
+effect give @s minecraft:invisibility 5 0 true
+effect give @s minecraft:speed 5 2 true
+effect clear @s
+```
 
-不支持函数参数、宏、return
+- 参数顺序：`effect give <target> <effect> <持续秒> <amplifier> <隐藏粒子>`
+- amplifier 0 = I 级，2 = III 级，5 = VI 级。
+- `instant_health` 治疗量 = 4 × 2^amp 点。amp 5 = 128 点，足够回满。
+- **同效果高等级会顶替低等级**，不叠加。
 
-数据包文件类型
-functions/*.mcfunction
+---
 
-predicates/*.json
+## 七、文本组件
 
-advancements/*.json
+```mcfunction
+title @s actionbar {"text":"补给进入冷却：40 秒","color":"gray"}
+tellraw @a {"text":"[开始游戏]","color":"green","clickEvent":{"action":"run_command","value":"/function kitpvp:game/start"}}
+```
 
-loot_tables/*.json
+- 用小驼峰 `clickEvent` / `hoverEvent`，不用 `click_event`。
+- `run_command` 的 `value` **必须**以 `/` 开头。
+- `hoverEvent` 字段是 `contents`，不是 `value`。
+- 外层单引号包 JSON 时，**内部全部用双引号**。
 
-item_modifiers/*.json
+---
 
-tags/functions/*.json
+## 八、其它
 
-文本组件
-类型：text / translate / keybind / score / selector / nbt
+```mcfunction
+ride @s dismount
+schedule function kitpvp:game/reset 200t replace
+xp set @s 0 points
+xp set @s 0 levels
+attribute @s minecraft:generic.max_health base set 20
+```
 
-样式：color / bold / italic / underlined / strikethrough / obfuscated
+- `schedule ... replace` 的语义是"同 id 只保留最后一次"，适合全局唯一计时器。
+- `attribute ... base set` 是修改基础值，`clear_player` 里复位属性时用。
+- 1.20.1 无 `/heal`、无 `/extinguish`。
 
-clickEvent：run_command / suggest_command / open_url / copy_to_clipboard / change_page
+---
 
-hoverEvent：show_text / show_item / show_entity，字段名是 contents
+## 九、gamerule 与调试反馈
 
-常见混淆点（务必记住）
-文件夹名是 functions（复数），不是 function
-
-加载钩子在 data/minecraft/tags/functions/load.json
-
-每刻钩子在 data/minecraft/tags/functions/tick.json
-
-.mcfunction 每行一条命令，行尾无分号，# 开头是注释
-
-命名空间只允许小写字母、数字、下划线：kitpvp ✅，KitPvP ❌，kit-pvp ❌
-
-data get / data modify 的路径用点号分隔（SelectedItem.tag.xxx），数组用方括号（Inventory[0]）
-
-新计分项必须在 load.mcfunction 中初始化，包括 objective 创建和必要初始分数。
-
-1.20.1 没有 death 等 advancement 接口；使用 advancement 时必须反复确认，不确定的直接保留。
-
-
-
+- 所有 gamerule 在 `load.mcfunction` 里设置（按需开启/关闭）。
+- 建议设置 `gamerule sendCommandFeedback false`，但注意：**它会吞掉大量命令反馈**。
+- 写调试函数时用 `tellraw` / `say` 显式输出，别靠默认反馈判断成败。

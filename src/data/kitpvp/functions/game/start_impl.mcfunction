@@ -1,5 +1,10 @@
 # ===== 开局实现 =====
 # 由 game/start 调用，此处不再做人数检查
+# 收回大厅物品 + 摘准备状态（防止带进局内）
+clear @a minecraft:carrot_on_a_stick{KitLobbyRod:1b}
+clear @a minecraft:stone_sword{KitLobbySword:1b}
+tag @a remove kitpvp.ready
+tag @a remove kitpvp.ready_pending
 
 # 1. 地图兜底：未选地图（#global <= 0）则随机/选默认
 execute unless score #global kitpvp.map matches 1.. run function kitpvp:map/random

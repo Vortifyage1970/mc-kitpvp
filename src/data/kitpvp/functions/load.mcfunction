@@ -33,7 +33,10 @@ scoreboard objectives add kitpvp.gapple_last dummy "金苹果快照"
 scoreboard objectives add kitpvp.tank_used minecraft.used:minecraft.iron_golem_spawn_egg
 scoreboard objectives add kitpvp.tank_last dummy "坦克技能快照"
 scoreboard objectives add kitpvp.assassin_used minecraft.used:minecraft.enderman_spawn_egg                                             
-scoreboard objectives add kitpvp.assassin_last dummy "刺客技能快照"
+scoreboard objectives add kitpvp.assassin_last dummy "刺客技能快照"                                                                                                                                                                          
+scoreboard objectives add kitpvp.ready_used minecraft.used:minecraft.carrot_on_a_stick
+scoreboard objectives add kitpvp.ready_last dummy "大厅准备快照"
+scoreboard objectives add kitpvp.tmp dummy
 
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
 scoreboard objectives modify kitpvp.lives displayname {"text":"命数","color":"red"}

@@ -1,0 +1,7 @@
+## 统计类 objective（1.20.1 可用）
+
+- `scoreboard objectives add <name> minecraft.used:minecraft.<item>` —— 该物品被"使用"一次即 +1
+- 可用于检测：吃食物、右键刷怪蛋、右键钓竿、投掷物、放置方块等原版行为
+- **只覆盖原版物品，且不分来源**：地图上野生刷出的同种物品、其它职业发的同种物品，
+  都会算进同一个统计。用之前必须确认该物品在本服只有一个来源
+- 配合快照变量 `*_last` 使用：`if score @s <obj>_used > @s <obj>_last`

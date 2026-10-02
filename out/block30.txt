@@ -1,0 +1,39 @@
+六、计分板登记表
+
+> 新增任何 objective，必须同步本表 + `load.mcfunction` + `util/clear_player.mcfunction`。
+> dummy 类型用于编号/计数/快照；统计类型用于"使用事件"检测。
+
+| 名称 | 类型 | 用途 | 初始化于 | 消费者 |
+|---|---|---|---|---|
+| `kitpvp.kit` | dummy | 职业 ID（0=未选） | load / clear_player | dispatch、tick 各检测行 |
+| `kitpvp.cd` | dummy | 主技能冷却（刻） | load / clear_player | tick 递减、dispatch 闸门 |
+| `kitpvp.cd2` | dummy | 第二技能冷却（刻，预留） | load / clear_player | tick 递减 |
+| `kitpvp.alive` | dummy | 存活（1=活 0=旁观） | load / clear_player | tick 各检测行 |
+| `kitpvp.lives` | dummy | 剩余命数 | load / clear_player | 死亡结算 |
+| `kitpvp.kills` | dummy | 击杀数 | load / clear_player | 结算 |
+| `kitpvp.deaths` | dummy | 死亡数 | load / clear_player | 结算 |
+| `kitpvp.map` | dummy | 当前地图 ID（预留） | load | 地图选择 |
+| `kitpvp.timer` | dummy | 全局倒计时（秒） | load | timer_tick |
+| `kitpvp.inv` | dummy | 无敌剩余刻数 | tick 补零 / clear_player | 无敌结束判定 |
+| `kitpvp.death_detect` | dummy | 死亡计数器（写入方未定，待补） | — | death_dispatch |
+| `kitpvp.death_seen` | dummy | 死亡快照 | load / join / clear_player | death_dispatch |
+| `kitpvp.game` | dummy | 游戏状态 | load | check_winner |
+| `kitpvp.item` | dummy | 预留 | load / clear_player | — |
+| `kitpvp.gapple_used` | `minecraft.used:minecraft.golden_apple` | 战士金苹果使用 | load | tick |
+| `kitpvp.gapple_last` | dummy | 战士快照 | load / join / clear_player | tick |
+| `kitpvp.tank_used` | `minecraft.used:minecraft.iron_golem_spawn_egg` | 坦克令牌使用 | load | tick |
+| `kitpvp.tank_last` | dummy | 坦克快照 | load / join / clear_player | tick |
+| `kitpvp.assassin_used` | `minecraft.used:minecraft.enderman_spawn_egg` | 刺客令牌使用 | load | tick |
+| `kitpvp.assassin_last` | dummy | 刺客快照 | load / join / clear_player | tick |
+| `kitpvp.ready_used` | `minecraft.used:minecraft.carrot_on_a_stick` | 大厅准备钓竿使用 | load | tick |
+| `kitpvp.ready_last` | dummy | 准备快照 | load / lobby/enter / clear_player | tick |
+
+假玩家：
+
+| 名称 | 用途 |
+|---|---|
+| `#state kitpvp.game` | 游戏状态机（0=待机 1=进行中 2=结算中） |
+| `#tick kitpvp.game` | 胜负轮询节流计数器 |
+| `#test kitpvp.game` | 测试模式开关（1=自动判定胜利关闭） |
+
+> 计分板名只允许小写字母、数字、点、下划线，不能有大写。

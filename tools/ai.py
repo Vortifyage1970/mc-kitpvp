@@ -3,8 +3,7 @@
 KitPvP AI 助手（终端 Markdown 渲染版）
 
 - 启动时自动读取 ai-content/ 下所有 .md（递归）
-- /files    列出 src/ 下所有文件
-- /read     读取指定文件进上下文（支持编号 / 相对路径 / 文件名 / 模糊匹配）
+- /read     读取指定文件进上下文（支持编号 / 范围 a-b / 相对路径 / 文件名 / 模糊匹配）
 - /reload   重新读取 ai-content（改了 md 不用重启）
 - /context  查看当前已加载的上下文摘要
 - /clear    清空对话历史（保留 system 与上下文）
@@ -126,16 +125,35 @@ def read_file_into_msgs(p: pathlib.Path, msgs: list) -> None:
     console.print(f"已载入 [green]{p.relative_to(ROOT)}[/green] ({len(txt)} 字符)")
 
 
+RANGE_RE = re.compile(r"^(\d+)\s*-\s*(\d+)$")
+
+
 def resolve_read(tokens: list[str], files: list[pathlib.Path]) -> list[pathlib.Path]:
     """把 /read 的参数解析成一堆文件路径。
-    支持：编号、精确相对路径、唯一文件名、子串模糊匹配。
+    支持：编号、范围 a-b（含两端，可反写自动纠正）、精确相对路径、唯一文件名、子串模糊匹配。
+    可以混用，如：/read 1 3 4-9 12
     """
     results: list[pathlib.Path] = []
+    n = len(files)
+
     for tok in tokens:
+        # 0) 范围 a-b（含两端）
+        m = RANGE_RE.match(tok)
+        if m:
+            a, b = int(m.group(1)), int(m.group(2))
+            if a > b:
+                a, b = b, a
+            if a < 1 or b > n:
+                console.print(f"[yellow]⚠️  范围超出: {tok}（有效编号 1-{n}）[/yellow]")
+                continue
+            for i in range(a, b + 1):
+                results.append(files[i - 1])
+            continue
+
         # 1) 纯数字 -> 编号
         if tok.isdigit():
             idx = int(tok)
-            if 1 <= idx <= len(files):
+            if 1 <= idx <= n:
                 results.append(files[idx - 1])
             else:
                 console.print(f"[yellow]⚠️  编号超出范围: {tok}[/yellow]")
@@ -346,15 +364,15 @@ def trim_msgs(msgs: list) -> None:
 # ---------------------------------------------------------------- 主程序
 
 HELP_TEXT = """[bold]可用命令[/bold]
-  [cyan]/files[/cyan]              列出 src/ 下所有文件
-  [cyan]/read[/cyan]               列出可读文件（带编号）
-  [cyan]/read 3 7[/cyan]           按编号读取多个文件进上下文
+  [cyan]/read[/cyan]                列出可读文件（带编号）
+  [cyan]/read 3 7[/cyan]            按编号读取多个文件进上下文
+  [cyan]/read 4-9[/cyan]            按范围读取（含 4 和 9）
+  [cyan]/read 1 3 4-9 12[/cyan]     编号与范围混用
   [cyan]/read foo.mcfunction[/cyan] 按文件名 / 相对路径 / 模糊匹配读取
-  [cyan]/read all[/cyan]           一次性读取 src/ 下所有文件
-  [cyan]/reload[/cyan]             重新读取 ai-content/ 下的 .md
-  [cyan]/context[/cyan]            查看当前已加载的上下文与历史条数
-  [cyan]/clear[/cyan]              清空对话历史（保留 system 与上下文）
-  [cyan]/help[/cyan]               显示本帮助
+  [cyan]/reload[/cyan]              重新读取 ai-content/ 下的 .md
+  [cyan]/context[/cyan]             查看当前已加载的上下文与历史条数
+  [cyan]/clear[/cyan]               清空对话历史（保留 system 与上下文）
+  [cyan]/help[/cyan]                显示本帮助
   [cyan]exit[/cyan] / [cyan]quit[/cyan]  退出
 
 [bold]输入技巧[/bold]
@@ -388,7 +406,7 @@ def main():
         console.print("[yellow]⚠️  上下文为空！AI 不知道 1.20.1 版本红线。[/yellow]")
     console.print(f"模型: [cyan]{MODEL}[/cyan]    输出目录: [cyan]{OUT.relative_to(ROOT)}/[/cyan]")
     console.rule()
-    console.print("命令: [cyan]/files[/cyan] | [cyan]/read[/cyan] | "
+    console.print("命令: [cyan]/read[/cyan] | "
                   "[cyan]/reload[/cyan] | [cyan]/context[/cyan] | "
                   "[cyan]/clear[/cyan] | [cyan]/help[/cyan] | [cyan]exit[/cyan]")
 
@@ -424,18 +442,6 @@ def main():
             if cmd == "/help":
                 console.print(HELP_TEXT)
 
-            elif cmd == "/files":
-                if not SRC.exists():
-                    console.print("[yellow]⚠️  src/ 不存在[/yellow]")
-                    continue
-                found = False
-                for p in sorted(SRC.rglob("*")):
-                    if p.is_file():
-                        console.print(f"  {p.relative_to(ROOT)}")
-                        found = True
-                if not found:
-                    console.print("  (空)")
-
             elif cmd == "/reload":
                 context, names = load_context()
                 msgs[0]["content"] = SYSTEM + "\n\n<上下文>\n" + context
@@ -464,21 +470,11 @@ def main():
                 if not arg:
                     console.print("可用文件（[cyan]/read <编号>[/cyan]，"
                                   "可一次多个，如 [cyan]/read 1 3 5[/cyan]；"
-                                  "或 [cyan]/read all[/cyan] 读取全部）：")
+                                  "支持范围 [cyan]/read 4-9[/cyan]（含两端）；"
+                                  "可混用 [cyan]/read 1 3 4-9 12[/cyan]）：")
                     for i, f in enumerate(files, 1):
                         console.print(f"  [cyan]{i:>3}[/cyan]  {f.relative_to(ROOT)}")
                     continue
-
-                # ---- 新增：/read all ----
-                if arg.lower() == "all":
-                    total = 0
-                    for p in files:
-                        read_file_into_msgs(p, msgs)
-                        total += 1
-                    console.print(f"已载入 [green]{total}[/green] 个文件"
-                                  f"（历史共 {len(msgs) - 1} 条消息）")
-                    continue
-                # --------------------------
 
                 try:
                     tokens = shlex.split(arg)

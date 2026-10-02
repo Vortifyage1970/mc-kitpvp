@@ -15,7 +15,7 @@
 #      战士用的就是这个模式：吃到金苹果后下一刻立刻补发。
 #   3) 主动技能不进本函数。主动技能靠"检测玩家操作"接：
 #      坦克的举盾 → 统计 objective kitpvp.tank_used（铁傀儡刷怪蛋被使用）
-#                 → ticp.mcfunction 检测 used > last
+#                 → tick.mcfunction 检测 used > last
 #                 → skill/tank_cast → skill/tank_fire
 #      新增主动技能时，按同样模式：一个统计 objective + 一个 xxx_cast 入口。
 #

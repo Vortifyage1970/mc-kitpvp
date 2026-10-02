@@ -1,0 +1,7 @@
+
+## 变动说明（相对上一版）
+
+- `predicates/` 从 `advancements/` 下移出，正确的位置是 `data/kitpvp/predicates/`。
+- 删除空的 `data/kitpvp/item_modifiers/`（无文件）。
+- 删除空的 `data/kitpvp/advancements/predicates/` 与 `data/kitpvp/advancements/tags/`。
+- `predicates/random/` 下 8 个概率 predicate 全部登记。

@@ -1,0 +1,10 @@
+## advancement 使用红线
+
+- 1.20.1 **没有** `minecraft:death`、`minecraft:player_killed_entity` 之外的常用触发器
+- 本项目当前唯一在用的 advancement 是 `kitpvp:player/archer_pickup`
+  （触发器 `minecraft:inventory_changed`），已被弓箭手技能依赖
+- **不允许新增 advancement**，除非：
+  1. 先在文档里贴出 `archer_pickup.json` 的完整正文作为模板；
+  2. 用 /help 或实测确认目标触发器在 1.20.1 存在、字段名正确；
+  3. 确认 reward 格式不是 1.20.2+ 的新写法
+- 任何不确定的 advancement 写法，一律改为"统计 objective + 快照变量"方案

@@ -1,1 +1,6 @@
-execute as @a[tag=kitpvp.selected,tag=!kitpvp.spectator,gamemode=!spectator] if entity @s[y=-1024,dy=950] run damage @s 1000 minecraft:out_of_world
+
+- 首行快照推进是**铁律**：不推进，下一刻 `used > last` 依旧成立，技能每刻触发。
+- `cd<=0` → 释放；`cd>0` → 仅提示（玩家捡起旧令牌又右键的兜底）。
+
+### 3.2 `<职业>_fire.mcfunction` 骨架
+

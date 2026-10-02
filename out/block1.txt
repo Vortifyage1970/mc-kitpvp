@@ -1,4 +1,38 @@
-scoreboard objectives add kitpvp.tank_used minecraft.used:minecraft.iron_golem_spawn_egg
-scoreboard objectives add kitpvp.tank_last dummy
-scoreboard objectives add kitpvp.assassin_used minecraft.used:minecraft.enderman_spawn_egg
-scoreboard objectives add kitpvp.assassin_last dummy
+# 技能实现模板（Skill Patterns）
+
+> 本文件是新增职业技能的"照抄模板"。
+> 版本红线：Minecraft Java Edition 1.20.1 数据包（pack_format 15）。
+> 任何 1.20.2+ 语法出现即报错，详见 `00-version.md`。
+> 现有参照实现：战士（补给·自动）、弓箭手（换弹·触发器驱动）、坦克（举盾·主动）、刺客（隐匿·主动）。
+
+---
+
+## 一、技能分两类
+
+| 类型 | 触发方式 | 入口函数 | 是否进 `skill/dispatch` |
+|---|---|---|---|
+| 自动技能 | 冷却归零即自动结算 | `skill/<职业>` | 进 |
+| 主动技能 | 玩家右键消耗令牌 | `skill/<职业>_cast` | 不进 |
+
+- 自动技能链路：`tick` → `skill/dispatch`（筛 `cd<=0`）→ `skill/<职业>`。
+- 主动技能链路：`tick` 检测 `used > last` → `skill/<职业>_cast` → `skill/<职业>_fire`。
+- 两种技能共用同一个冷却变量 `kitpvp.cd`（第二技能用 `kitpvp.cd2`）。
+- 两种技能都必须经过 `cd` 闸门，不允许绕过。
+
+---
+
+## 二、主动技能：令牌机制
+
+### 2.1 令牌 = 刷怪蛋
+
+1.20.1 没有自定义物品，主动技能的"施法按钮"用**刷怪蛋**充当。
+
+- 选颜色贴主题的刷怪蛋：
+  - 坦克 → `minecraft:iron_golem_spawn_egg`（铁傀儡）
+  - 刺客 → `minecraft:enderman_spawn_egg`（末影人）
+  - 新增职业时按"颜色 + 形象贴主题"选，不要随便挑。
+- 右键刷怪蛋的瞬间，原版 `minecraft.used:minecraft.<egg>` 统计自动 +1，这就是"按下右键"的信号。
+- 令牌本体不带任何技能效果，效果全部由 `<职业>_fire` 给。
+
+### 2.2 令牌 NBT
+
