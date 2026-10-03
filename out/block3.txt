@@ -1,17 +1,12 @@
-
-- 用 `Inventory[{tag:{...}}]` 检查背包里是否已存在该标记的物品。
-- 已存在时不重复发放，避免堆叠。
-
----
-
-## 三、主动技能：三层函数结构（强制）
-
-| 函数 | 职责 | 调用方 |
-|---|---|---|
-| `skill/<职业>_give_egg` | 幂等发令牌 | `kit/<职业>`、`tick`、`player/after_death` |
-| `skill/<职业>_cast` | 入口：推快照 + 判 `cd` | `tick` |
-| `skill/<职业>_fire` | 给效果 + 给物品 + `set cd` | `<职业>_cast` |
-| `skill/<职业>_expire` | 到期清理（可选） | `tick` |
-
-### 3.1 `<职业>_cast.mcfunction` 骨架
-
+游戏内玩家死亡
+   ↓ deathCount +1
+tick 检测到 → death_dispatch → on_death
+   ↓
+on_death 最后一行判断：玩家身上有 kitpvp.in_lobby？
+   ↓ 是（← 这里出问题）
+lobby/enter
+   ↓
+spawnpoint @s 0 64 0        ← 复活点被改成大厅、且是空中
++ lobby/spawn（tp 到大厅）
+   ↓
+原版按新 spawnpoint 重生 → 0 64 0，脚下无方块 → 从高空落下

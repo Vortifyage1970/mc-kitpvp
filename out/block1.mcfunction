@@ -1,2 +1,7 @@
-     execute unless data entity @s Inventory[{tag:{KitTankEgg:1b}}] run give @s minecraft:iron_golem_spawn_egg{KitTankEgg:1b,display:{Name:'{"text":"举盾令牌","color":"aqua","bold":true}'}} 1
-     
+tellraw @a ["",{"text":"[DBG] spawn_1 被执行了","color":"light_purple"}]
+# 沙漠出生点 1（改坐标只改下面这行）
+tp @s -363 90 -81
+spawnpoint @s -363 90 -81
+tag @s add kitpvp.spawn_assigned
+scoreboard players add #cur kitpvp.tmp 1
+execute if score #cur kitpvp.tmp matches 10.. run scoreboard players set #cur kitpvp.tmp 1

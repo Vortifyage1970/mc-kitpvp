@@ -17,6 +17,9 @@ execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] run function kitpvp:lob
 # ===== 主大厅：补充饱食度=====
  execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] run effect give @s minecraft:saturation 1 1 true
 
+# ===== 主大厅：传送执行=====
+execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] at @s run function kitpvp:lobby/teleport
+
 # ===== 主大厅：准备 / 取消准备（右键准备钓竿）=====
 # 统计 objective：右键胡萝卜钓竿的瞬间 used 自动 +1
 # ready_last 快照在 lobby/enter 里被推到当前值，

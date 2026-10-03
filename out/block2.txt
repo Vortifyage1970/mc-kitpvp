@@ -1,8 +1,1 @@
-
-- `Kit<职业>Egg:1b` 是本职业技能识别令牌的私有标记。
-- `display.Name` 是 1.20.1 旧版文本组件 JSON，内层双引号要转义。
-- **刷怪蛋的 `display.Name` 会成为生成生物的 CustomName**（原版行为，已实测确认）。
-  所以 tick 清怪可以用 `name="举盾令牌"` 精确匹配，不必再给生物单独打 tag。
-
-### 2.3 幂等发放
-
+execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] at @s run function kitpvp:lobby/teleport

@@ -28,4 +28,4 @@ execute unless entity @s[tag=kitpvp.ready] unless data entity @s Inventory[{tag:
 # AttributeModifiers 是 1.20.1 旧版 NBT 格式（不要写 1.20.5+ 的 attribute_modifiers）
 #   Operation:0 = 加法；Slot:"mainhand" = 只在主手生效
 #   UUID 是本 modifier 的私有不冲突标识
-execute unless data entity @s Inventory[{tag:{KitLobbySword:1b}}] run give @s minecraft:stone_sword{KitLobbySword:1b,Unbreakable:1b,display:{Name:'{"text":"大厅剑","color":"gray","italic":false}'},AttributeModifiers:[{AttributeName:"minecraft:generic.movement_speed",Name:"kitpvp.lobby_speed",Amount:0.1,Operation:0,UUID:[I;1,2,3,4],Slot:"mainhand"}]} 1
+execute unless data entity @s Inventory[{tag:{KitLobbySword:1b}}] run give @s minecraft:stone_sword{KitLobbySword:1b,Unbreakable:1b,display:{Name:'{"text":"大厅剑","color":"gray","italic":false}'},AttributeModifiers:[{AttributeName:"minecraft:generic.movement_speed",Name:"kitpvp.lobby_speed",Amount:0.2,Operation:0,UUID:[I;1,2,3,4],Slot:"mainhand"}]} 1

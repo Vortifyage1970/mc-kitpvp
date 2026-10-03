@@ -1,2 +1,1 @@
-     execute as @a[scores={kitpvp.kit=3}] at @s run kill @e[type=iron_golem,distance=..16,name="举盾令牌"]
-     
+x=0,y=66,z=30,dx=1,dy=1,dz=1
