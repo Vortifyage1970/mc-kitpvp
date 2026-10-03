@@ -5,13 +5,14 @@ gamerule doMobSpawning false
 gamerule mobGriefing false
 gamerule doFireTick false
 gamerule doInsomnia false
+gamerule doWeatherCycle false
 gamerule naturalRegeneration true
 gamerule fallDamage true
 gamerule announceAdvancements false
 gamerule doImmediateRespawn true
-gamerule sendCommandFeedback false
 gamerule logAdminCommands false
 gamerule commandBlockOutput false
+#gamerule sendCommandFeedback false
 
 # 二、计分板
 scoreboard objectives add kitpvp.kit dummy "职业"
@@ -37,6 +38,12 @@ scoreboard objectives add kitpvp.assassin_last dummy "刺客技能快照"
 scoreboard objectives add kitpvp.ready_used minecraft.used:minecraft.carrot_on_a_stick
 scoreboard objectives add kitpvp.ready_last dummy "大厅准备快照"
 scoreboard objectives add kitpvp.tmp dummy
+scoreboard objectives add kitpvp.soul_rand dummy "魂石随机数"
+scoreboard objectives add kitpvp.soul_bow_timer dummy "魂石弓倒计时"
+scoreboard objectives add kitpvp.soul_warrior_used minecraft.used:minecraft.blaze_spawn_egg
+scoreboard objectives add kitpvp.soul_archer_used minecraft.used:minecraft.skeleton_spawn_egg
+scoreboard objectives add kitpvp.soul_warrior_last dummy "战士魂石快照"
+scoreboard objectives add kitpvp.soul_archer_last dummy "弓箭手魂石快照"
 
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
 scoreboard objectives modify kitpvp.lives displayname {"text":"命数","color":"red"}
@@ -62,6 +69,9 @@ tag @a remove kitpvp.skill_ready
 tag @a remove kitpvp.skill_consume
 tag @a remove kitpvp.shield_held
 tag @a remove kitpvp.assassin_hidden
+tag @a remove kitpvp.soul_bow_held
+tag @a remove kitpvp.soul_transit
+tag @a remove kitpvp.on_pad
 
 # 五、玩家状态归零
 scoreboard players set @a kitpvp.kit 0
@@ -83,9 +93,17 @@ scoreboard players set #state kitpvp.game 0
 scoreboard players set #survivors kitpvp.game 0
 scoreboard players set #tick kitpvp.game 0
 scoreboard players set #test kitpvp.game 0
+scoreboard players set #soul_count kitpvp.game 4
 
 # 七、清空 storage
 data remove storage kitpvp:main temp
 data remove storage kitpvp:main player
+
+# 八、给所有盔甲架和物品框加上标签
+tag @e[type=minecraft:armor_stand] add kitpvp.displayitem
+tag @e[type=minecraft:item_frame] add kitpvp.displayitem
+tag @e[type=minecraft:glow_item_frame] add kitpvp.displayitem
+
+execute as @e[tag=kitpvp.displayitem] run data merge entity @s {Invulnerable:1b}
 
 say Kitpvp loaded

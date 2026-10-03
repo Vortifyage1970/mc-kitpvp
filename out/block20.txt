@@ -1,0 +1,49 @@
+请修改 03-project-spec.md，共 4 处：
+
+【1】把 "2.10 突然死亡" 整段替换为：
+
+### 2.10 突然死亡（8 分钟后）
+触发：开局满 8 分钟（#global kitpvp.timer 从 480 归零）。
+发放节奏：进入瞬间发第 1 颗；之后每 20 秒 1 颗；每个存活玩家独立掷骰。
+魂石形态：
+- 一次性刷怪蛋，右键即用，用后消失
+- 可囤积（每轮无条件发一颗）
+- 可同时使用（分别右键，无冷却）
+- 检测机制：minecraft.used:<egg> 抓"谁右键"（100% 准），
+  生成的生物 CustomName 抓"用的是什么"（100% 准）。
+  tick 每刻清生物，不残留。
+当前已实现 4 种：
+
+| 魂石 | 蛋类型 | 效果（均 20 秒） |
+|---|---|---|
+| 战士魂石 | blaze_spawn_egg | 力量 II |
+| 弓箭手魂石 | skeleton_spawn_egg | 1 支箭 + 无限 I 冲击 I 的弓；20 秒后清弓 |
+| 坦克魂石 | iron_golem_spawn_egg（与坦克令牌共用） | 缓慢 III + 抗性提升 III |
+| 刺客魂石 | enderman_spawn_egg（与刺客令牌共用） | 传送到最近玩家 + 速度 II + 隐身 I |
+
+随机抽取：位随机（1in2 谓词连掷 10 次）+ 取模。
+加新魂石 = 追加 1 行 give + #soul_count +1。
+目的：加速比赛进程。
+待定：全部 79+ 职业的魂石清单；加权随机。
+
+【2】计分板登记表追加：
+| kitpvp.soul_rand | dummy | 魂石位随机中间值 | load/clear_player | skill/soul/give |
+| kitpvp.soul_bow_timer | dummy | 魂石弓剩余刻数 | load/clear_player | tick / skill/soul/bow_expire |
+| kitpvp.soul_warrior_used | minecraft.used:minecraft.blaze_spawn_egg | 战士魂石右键统计 | load | tick |
+| kitpvp.soul_archer_used | minecraft.used:minecraft.skeleton_spawn_egg | 弓箭手魂石右键统计 | load | tick |
+| kitpvp.soul_warrior_last | dummy | 战士魂石快照 | load/join/clear_player | tick |
+| kitpvp.soul_archer_last | dummy | 弓箭手魂石快照 | load/join/clear_player | tick |
+
+假玩家追加：#soul_count kitpvp.game = 魂石种类数
+
+【3】tag 登记表追加：
+| kitpvp.soul_bow_held | 持有魂石之弓中 | soul/use_archer | soul/bow_expire / clear_player | 是 |
+| kitpvp.soul_transit | 刺客魂石传送中 | soul/use_assassin | soul/use_assassin 末尾 | 否（自清） |
+
+【4】新开一节"十一、魂石机制约束"，内容：
+- 魂石是刷怪蛋，靠"used 统计（谁用）+ CustomName（用的是什么）"双条件定位，
+  100% 精确，不依赖 @p 就近匹配。
+- 一种刷怪蛋可服务多个用途：只要 CustomName 不同，就能在同一 used 统计上分流。
+  例如 iron_golem_spawn_egg 同时服务"举盾令牌"和"坦克魂石"。
+- 新增魂石时同步：skill/soul/give 追加 1 行 + #soul_count +1 +
+  新建 skill/soul/use_<名字> + tick 里追加检测行（若复用蛋则改 dispatch 分流）

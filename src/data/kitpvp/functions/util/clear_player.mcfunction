@@ -59,6 +59,11 @@ scoreboard players operation @s kitpvp.tank_last = @s kitpvp.tank_used
 scoreboard players operation @s kitpvp.assassin_last = @s kitpvp.assassin_used
 # 主大厅准备钓竿快照：同上
 scoreboard players operation @s kitpvp.ready_last = @s kitpvp.ready_used
+scoreboard players set @s kitpvp.soul_rand 0
+scoreboard players set @s kitpvp.soul_bow_timer 0
+scoreboard players operation @s kitpvp.soul_warrior_last = @s kitpvp.soul_warrior_used
+scoreboard players operation @s kitpvp.soul_archer_last = @s kitpvp.soul_archer_used
+tag @s remove kitpvp.soul_bow_held
 
 # --- 五、属性复位到原版默认 ---
 attribute @s minecraft:generic.max_health base set 20

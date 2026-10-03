@@ -1,12 +1,2 @@
-游戏内玩家死亡
-   ↓ deathCount +1
-tick 检测到 → death_dispatch → on_death
-   ↓
-on_death 最后一行判断：玩家身上有 kitpvp.in_lobby？
-   ↓ 是（← 这里出问题）
-lobby/enter
-   ↓
-spawnpoint @s 0 64 0        ← 复活点被改成大厅、且是空中
-+ lobby/spawn（tp 到大厅）
-   ↓
-原版按新 spawnpoint 重生 → 0 64 0，脚下无方块 → 从高空落下
+tp @s -226 70 94
+execute at @s run playsound ... master @s ~ ~ ~ 0.8 1.4

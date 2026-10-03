@@ -1,10 +1,80 @@
-## advancement 使用红线
+请修改 03-project-spec.md，共 5 处：
 
-- 1.20.1 **没有** `minecraft:death`、`minecraft:player_killed_entity` 之外的常用触发器
-- 本项目当前唯一在用的 advancement 是 `kitpvp:player/archer_pickup`
-  （触发器 `minecraft:inventory_changed`），已被弓箭手技能依赖
-- **不允许新增 advancement**，除非：
-  1. 先在文档里贴出 `archer_pickup.json` 的完整正文作为模板；
-  2. 用 /help 或实测确认目标触发器在 1.20.1 存在、字段名正确；
-  3. 确认 reward 格式不是 1.20.2+ 的新写法
-- 任何不确定的 advancement 写法，一律改为"统计 objective + 快照变量"方案
+【1】把 "2.10 突然死亡（8 分钟后）" 整段替换为：
+
+### 2.10 突然死亡（8 分钟后）
+
+**触发**：开局满 8 分钟（`#global kitpvp.timer` 从 480 归零触发）。
+
+**发放节奏**：
+- 进入突然死亡瞬间发第 1 个（不延迟）
+- 之后每 20 秒发 1 个，直到游戏结束
+- 每个存活玩家独立掷骰，不绑定自己的职业
+
+**魂石形态**：
+- 一次性物品，**玩家按 Q 键丢出即触发**，用后消失
+- 本体是 `minecraft:paper` + NBT 标记，**不占用刷怪蛋**（刷怪蛋类型有限，
+  与其它职业技能的令牌会互相污染 `used` 统计）
+- 可囤积（每轮无条件发一张，不做幂等检查）
+- 可同时使用（分别丢出即可，无冷却）
+- 检测机制：`minecraft.dropped:minecraft.paper` 统计，比对快照后
+  读玩家附近的同标记掉落物确定种类
+- 用 `display.Name` 做辨识（战士/弓箭手/坦克/刺客魂石四色显示）
+
+**当前已实现 4 种魂石**：
+
+| 魂石 | 效果（均 20 秒） |
+|---|---|
+| 战士魂石 | 力量 II |
+| 弓箭手魂石 | 1 支箭 + 无限 I 冲击 I 的弓；弓 20 秒后清除 |
+| 坦克魂石 | 缓慢 III + 抗性提升 III |
+| 刺客魂石 | 传送到最近玩家 + 速度 II + 隐身 I |
+
+**随机抽取**：位随机（同一 1in2 谓词连掷 10 次得 0..1023）+ 对 `#soul_count`
+取模。加新魂石 = 追加 1 行 give + `#soul_count` +1，不需要新增谓词文件。
+
+**目的**：加速比赛进程。
+
+**待定**：全部 79+ 职业的魂石清单；加权随机（当前是等概率）。
+
+【2】在"六、计分板登记表"末尾追加：
+
+| 名称 | 类型 | 用途 | 初始化于 | 消费者 |
+|---|---|---|---|---|
+| `kitpvp.soul_rand` | dummy | 魂石位随机中间值（0..1023） | load / clear_player | skill/soul/give |
+| `kitpvp.soul_bow_timer` | dummy | 魂石之弓剩余刻数（400→0） | load / clear_player | tick 递减、skill/soul/bow_expire |
+| `kitpvp.soul_dropped` | `minecraft.dropped:minecraft.paper` | 玩家 Q 丢出纸的累计次数 | load | tick |
+| `kitpvp.soul_last` | dummy | soul_dropped 快照 | load / player/join / clear_player | tick |
+
+假玩家追加：
+
+| 名称 | 用途 |
+|---|---|
+| `#soul_count kitpvp.game` | 当前魂石种类数（= 分派表行数），load 里设为 4 |
+
+【3】在"七、tag 登记表"末尾追加：
+
+| tag | 用途 | add 于 | remove 于 | clear_player 清 |
+|---|---|---|---|---|
+| `kitpvp.soul_bow_held` | 持有魂石之弓中 | skill/soul/use_archer | skill/soul/bow_expire / clear_player | 是 |
+| `kitpvp.soul_transit` | 刺客魂石传送中（内部临时） | skill/soul/use_assassin | skill/soul/use_assassin 末尾 | 否（自清） |
+
+【4】把第十节待办清单中的：
+
+- [ ] 确定突然死亡的魂石清单
+
+改为：
+
+- [ ] 补全突然死亡魂石清单（每个职业一个魂石，共 79+，当前已做 4 个）
+- [ ] 决定魂石是等概率还是加权随机（若加权，skill/soul/give 需从"取模"改成"区间匹配"）
+
+【5】新开一节"十一、魂石机制约束"，内容：
+
+- 魂石是 `paper` + 私有 NBT 标记，**不占用刷怪蛋**。
+- 原因是 1.20.1 的 `minecraft.used:<item>` 只按物品类型统计、不区分 NBT，
+  一种刷怪蛋只能服务一个"右键触发"逻辑，而 1.20.1 可用于右键触发的
+  物品类型总数不足以覆盖 79 职业 × (主令牌 + 魂石)。
+- 魂石使用动作改为 Q 键丢出（`minecraft.dropped:minecraft.paper`），
+  只占 `paper` 一种物品类型，与其它职业技能彻底隔离。
+- 新增魂石时同步：`skill/soul/give` 追加 1 行 give + `#soul_count` +1 +
+  新建 `skill/soul/use_<名字>` + `skill/soul/on_drop` 追加 1 行分派。

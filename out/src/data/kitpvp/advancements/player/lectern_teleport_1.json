@@ -1,0 +1,15 @@
+{
+  "criteria": {
+    "use_lectern": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "location": [
+          {}
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "function": "kitpvp:lobby/lectern_teleport_1"
+  }
+}

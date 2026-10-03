@@ -1,0 +1,2 @@
+tp @s 0 64 0
+execute at @s run playsound minecraft:entity.enderman.teleport master @s ~ ~ ~ 0.8 1.4

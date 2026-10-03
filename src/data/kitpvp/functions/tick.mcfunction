@@ -20,17 +20,23 @@ execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] run function kitpvp:lob
 # ===== 主大厅：传送执行=====
 execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] at @s run function kitpvp:lobby/teleport
 
+# ==== 主大厅：显示锁定 =====
+function kitpvp:lobby/display_lock
+
+# ===== 主大厅：踩压力板弹出职业介绍 =====                                                                                                       
+# 只动 tag=kitpvp.in_lobby 的玩家；防重复逻辑在 lobby/pad 内部                                                                                   
+function kitpvp:lobby/pad
+
 # ===== 主大厅：准备 / 取消准备（右键准备钓竿）=====
 # 统计 objective：右键胡萝卜钓竿的瞬间 used 自动 +1
 # ready_last 快照在 lobby/enter 里被推到当前值，
 # 保证"进大厅之前"的历史右键不会在进大厅那一刻被误判
 execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] if score @s kitpvp.ready_used > @s kitpvp.ready_last run function kitpvp:lobby/ready_toggle
 
-# ===== 坦克：举盾令牌使用检测 =====
-# 统计 objective：右键铁傀儡刷怪蛋的瞬间 used 自动 +1
-# 本刻 used 比 last 大 → 刚用掉令牌，转交 skill/tank_cast
-# 必须在"冷却递减"之后再跑，避免 cd 被本 tick 的递减覆盖
-execute as @a[scores={kitpvp.kit=3,kitpvp.alive=1}] if score @s kitpvp.tank_used > @s kitpvp.tank_last run function kitpvp:skill/tank_cast
+# ===== 坦克蛋：令牌 / 魂石 共用 iron_golem_spawn_egg，靠 CustomName 分流 =====
+# 去掉 kit=3 限制：坦克魂石是通用奖励，任何职业捡到都能用
+# 分流在 tank_dispatch 内部：举盾令牌只对坦克本人且 cd 归零时生效
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.tank_used > @s kitpvp.tank_last run function kitpvp:skill/tank_dispatch
 
 # ===== 坦克：护盾 15 秒到期 =====
 # cd 记 600（30 秒）：前 300 刻持盾，后 300 刻纯冷却。
@@ -65,11 +71,8 @@ execute as @a[scores={kitpvp.kit=1,kitpvp.alive=1}] if score @s kitpvp.gapple_us
 # 副作用：会一并清掉其它来源（如骷髅）落地的箭。
 kill @e[type=minecraft:arrow,nbt={inGround:1b}]
 
-# ===== 刺客：隐匿令牌使用检测 =====
-# 统计 objective：右键末影人刷怪蛋的瞬间 used 自动 +1
-# 本刻 used 比 last 大 → 刚用掉令牌，转交 skill/assassin_cast
-# 必须在"冷却递减"之后再跑，避免 cd 被本 tick 的递减覆盖
-execute as @a[scores={kitpvp.kit=4,kitpvp.alive=1}] if score @s kitpvp.assassin_used > @s kitpvp.assassin_last run function kitpvp:skill/assassin_cast
+# ===== 刺客蛋：令牌 / 魂石 共用 enderman_spawn_egg，靠 CustomName 分流 =====
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.assassin_used > @s kitpvp.assassin_last run function kitpvp:skill/assassin_dispatch
 
 # ===== 刺客：隐匿 5 秒到期 =====
 # cd 记 600（30 秒）：前 100 刻隐身+速度 III，后 500 刻纯冷却。
@@ -90,12 +93,22 @@ execute as @a[scores={kitpvp.kit=4}] at @s run kill @e[type=enderman,distance=..
 # 判据：Inventory 里存在任一带 KitAssassinEgg:1b 标记的物品
 execute as @a[scores={kitpvp.kit=4,kitpvp.alive=1,kitpvp.cd=0},tag=!kitpvp.spectator] unless data entity @s Inventory[{tag:{KitAssassinEgg:1b}}] run function kitpvp:skill/assassin_give_item
 
+# ===== 魂石：战士（blaze_spawn_egg 专用）=====
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_warrior_used > @s kitpvp.soul_warrior_last run function kitpvp:skill/soul/use_warrior
+
+# ===== 魂石：弓箭手（skeleton_spawn_egg 专用）=====
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_archer_used > @s kitpvp.soul_archer_last run function kitpvp:skill/soul/use_archer
+
 # ===== 职业技能结算（统一入口）=====
 # 只筛"有职业、活着、主技能冷却归零"的玩家，转交 dispatch；
 # 具体哪个职业发什么，由 skill/dispatch 按 kitpvp.kit 分派。
 # 新增自动技能请改 skill/dispatch，不要在这里加行。
 # 主动技能不经过本行——它们由各自的触发器接（参见坦克）。
 execute as @a[scores={kitpvp.kit=1..,kitpvp.alive=1}] if score @s kitpvp.cd matches ..0 run function kitpvp:skill/dispatch
+
+# ===== 魂石之弓：20 秒到期 =====
+execute as @a[tag=kitpvp.soul_bow_held,scores={kitpvp.soul_bow_timer=1..}] run scoreboard players remove @s kitpvp.soul_bow_timer 1
+execute as @a[tag=kitpvp.soul_bow_held,scores={kitpvp.soul_bow_timer=..0}] run function kitpvp:skill/soul/bow_expire
 
 # 兼容中途加入的玩家：没有 inv 分数就补 0
 scoreboard players add @a kitpvp.inv 0

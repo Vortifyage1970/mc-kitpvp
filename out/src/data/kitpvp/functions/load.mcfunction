@@ -1,1 +1,1 @@
-tag @a remove kitpvp.assassin_hidden
+scoreboard players set #soul_count kitpvp.game 4

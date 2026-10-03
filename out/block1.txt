@@ -1,1 +1,2 @@
-box.minX < entity.maxX  &&  box.maxX > entity.minX
+playsound ... 0 63.5 98 0.8 1.4    ← 声音在 z=98 响
+tp @s 0 63 98                       ← 然后才 tp 到 z=98

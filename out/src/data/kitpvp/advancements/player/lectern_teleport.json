@@ -1,0 +1,38 @@
+{
+  "criteria": {
+    "use_lectern": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "position": {
+                "x": {
+                  "min": -20.0,
+                  "max": -19.0
+                },
+                "y": {
+                  "min": 64.0,
+                  "max": 65.0
+                },
+                "z": {
+                  "min": 98.0,
+                  "max": 99.0
+                }
+              },
+              "block": {
+                "blocks": [
+                  "minecraft:lectern"
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "function": "kitpvp:player/lectern_teleport"
+  }
+}

@@ -1,1 +1,1 @@
-scoreboard players operation @s kitpvp.ghost_damage_last = @s kitpvp.ghost_damage
+tag @a remove kitpvp.soul_given

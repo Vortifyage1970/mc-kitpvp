@@ -1,5 +1,1 @@
-
-- 到期判定条件写 `cd=..N`（不是 `=N`）。
-  用 `..N` 是因为服务端卡顿可能跳刻，`=N` 会漏触发。
-- 配一个 tag（`kitpvp.<职业>_active`）保证每个技能效果只清一次：
-
+/advancement grant @s only kitpvp:player/lectern_test

@@ -130,21 +130,43 @@ execute as @a[scores={kitpvp.cd=..N},tag=kitpvp.<职业>_active,tag=!kitpvp.spec
 
 ---
 
-## 五、临时高等级效果会顶掉永久效果（高频坑）
+## 五、临时效果与永久效果的关系（已实测确认）
 
-Minecraft 中"同一效果的更高等级会**替换**低等级，而不是叠加"。
+**实测结论**：同一种状态效果，临时高等级与永久低等级**可以共存**。
+临时高等级到期后，低等级会**自动继续生效**，不需要手动补挂。
 
-- 刺客案例：隐匿给 speed III(amp 2)，会把刺客的永久 speed I(amp 0) 顶掉。
-  5 秒后 speed III 消失，**speed I 不会自动回来**。
-- 处理方式：在 `<职业>_expire` 里重新挂回永久效果。
+- 例：刺客常驻 speed I，隐匿期间给 speed III。
+  5 秒后 speed III 到期，speed I 自动恢复，**不需要在 `assassin_unhide` 里重挂**。
+- 例：坦克常驻 slowness I，若某技能给 slowness III，到期后同样自动回落。
 
-```mcfunction
-function kitpvp:kit/<职业>_passive
-```
+### 5.1 由此得出的三条约定
 
-- 同理，**隐身效果本身不要主动 `effect clear`**，交给原版计时器。
-  这样即使玩家中途死亡重生，也不会残留"隐身碎片"。
-- 新增"临时给高等级效果"的技能时，必问：这个效果会不会顶掉职业的永久效果？
+1. **`<职业>_expire` 不负责重挂永久效果。**
+   到期清理只做三件事：清物品、摘 `*_active` tag、提示玩家。
+   禁止在 `_expire` 里写 `function kitpvp:kit/<职业>_passive`。
+
+2. **临时技能永远不要用 `effect clear @s`。**
+   `effect clear @s` 不带参数时清掉全部效果，带 `@s <效果>` 时清掉该效果的**所有等级**——
+   两种用法都会把职业永久效果一并抹掉。
+   临时效果交给原版计时器自然到点即可。
+
+3. **重生 / 清场后仍需重挂永久效果。**
+   `util/clear_player.mcfunction` 里的 `effect clear @s` 是无差别清空，
+   所以"重生后重挂被动"这件事仍然要做，位置在 `player/after_death` 或 `kit/<职业>` 里。
+   （`player/join` 也走 `kit/*`，所以新玩家同样能拿到。）
+
+### 5.2 自动回落不改变 `_expire` 的必要性
+
+`<职业>_expire` 仍然必须存在，因为它的职责是清**物品**（坦克的盾、刺客的令牌），
+与效果无关。tag 配对规则（`cd=..N` + `*_active`）也不变。
+
+### 5.3 现有两套参照
+
+| 职业 | 总 cd | 效果期 | 到期阈值 | tag | `_expire` 是否重挂被动 |
+|---|---|---|---|---|---|
+| 坦克 | 600（30 秒） | 300（15 秒持盾） | `..300` | `kitpvp.shield_held` | 否（技能不涉及效果） |
+| 刺客 | 600（30 秒） | 100（5 秒隐身） | `..500` | `kitpvp.assassin_hidden` | **否**（实测后删除，原方案作废） |
+
 
 ---
 
@@ -232,7 +254,8 @@ execute as @a[scores={kitpvp.kit=<N>,kitpvp.alive=1,kitpvp.cd=0},tag=!kitpvp.spe
 - [ ] `<职业>_cast` 首行是否为 `operation last = used`？
 - [ ] `<职业>_fire` 的 `set cd` 是否在最后一步？
 - [ ] 到期判定是否用 `cd=..N` 而非 `=N`？是否有配对的 `*_active` tag？
-- [ ] 临时高等级效果会不会顶掉职业永久效果？`<职业>_expire` 是否重挂？
+- [ ] 临时技能是否误用了 `effect clear @s`？（不带参数清全部效果，带参数清该效果所有等级，都会抹掉职业永久效果）
+- [ ] `<职业>_expire` 里是否残留了 `function kitpvp:kit/<职业>_passive`？有就删掉——高等级到期后低等级会自动回落。
 - [ ] 令牌生成物是否有 tick 清怪行？清怪范围与误杀是否写进注释？
 - [ ] 兜底补发行是否只在 `cd=0` 时生效？
 - [ ] tick 检测行是否按固定顺序放置（见 `04-hazards-reminder.md` 第六节）？

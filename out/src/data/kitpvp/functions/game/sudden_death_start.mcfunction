@@ -3,9 +3,9 @@
 
 tellraw @a [{"text":"[!] ","color":"red","bold":true},{"text":"8 分钟已到，进入突然死亡！","color":"red","bold":true}]
 playsound minecraft:entity.wither.spawn master @a ~ ~ ~ 1 1.5
+effect give @a minecraft:glowing 10 0 true
 
-# 给所有存活玩家打上标记（供后续逻辑判断）
 execute as @a[scores={kitpvp.alive=1},tag=kitpvp.selected] run tag @s add kitpvp.sudden_death
 
-# 启动 20 秒（400 刻）发放循环
-schedule function kitpvp:game/sudden_drop 400t replace
+# 立即发放第一轮；此后由 sudden_drop 自我调度
+function kitpvp:game/sudden_drop

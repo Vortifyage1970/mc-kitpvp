@@ -1,1 +1,1 @@
-execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] at @s run function kitpvp:lobby/teleport
+Δ = sqrt( (66-63.5)² + (30-98)² ) ≈ 68 格
