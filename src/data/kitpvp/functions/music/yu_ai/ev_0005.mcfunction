@@ -1,0 +1,4 @@
+# tick 105 | 音符 1
+execute as @a at @s run playsound minecraft:block.note_block.harp master @s ~ ~ ~ 0.6669 1.3348
+schedule function kitpvp:music/yu_ai/ev_0006 4t replace
+tellraw @a {"text":"♪ 就像是 ♪","color":"light_purple","bold":true}

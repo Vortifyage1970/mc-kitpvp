@@ -1,28 +1,3 @@
-# MIDI → playsound mcfunction 转换脚本
-
-## 一、整体思路
-
-1. MIDI 的时间轴是**秒**，MC 是 **tick**（1 tick = 50ms，20 ticks/s）。
-2. MIDI 的音符事件是**稀疏**的，不是每刻都有音。所以**每个有音符的 tick 生成一个函数文件**，函数之间用 `schedule function ... Nt` 串联，中间的空档用差值跳过。
-3. 每个事件函数做两件事：铺本 tick 的所有 `playsound`，然后排下一个事件函数。
-4. `start.mcfunction` 手动 `/function kitpvp:music/<歌名>/start` 启动。
-5. 音高按全曲中位数自动移调，再 clamp 到 `[0.5, 2.0]`；力度线性映射到 `[0.1, 1.0]`。
-
-## 二、输出结构
-
-```
-<out>/kitpvp/functions/music/<歌名>/
-  start.mcfunction     # 手动 call 这个开始播放
-  ev_0000.mcfunction   # 第 1 个事件 tick
-  ev_0001.mcfunction   # 第 2 个事件 tick
-  ...
-```
-
-## 三、脚本
-
-`midi2mcfunction.py`
-
-```python
 #!/usr/bin/env python3
 """
 midi2mcfunction
@@ -61,25 +36,42 @@ def parse_midi(path):
     mid = mido.MidiFile(path)
     ticks_per_beat = mid.ticks_per_beat
 
-    notes = []
-    active = {}
-    current_sec = 0.0
-    tempo = 500000  # 微秒/四分音符，默认 120 BPM
+    # 1) 显式合并所有轨道，记录 (绝对tick, msg)
+    abs_events = []
+    for track in mid.tracks:
+        t = 0
+        for msg in track:
+            t += msg.time
+            abs_events.append((t, msg))
+    # 稳定排序：同一 tick 的事件保留原顺序
+    abs_events.sort(key=lambda x: x[0])
 
-    for msg in mid:
-        current_sec += mido.tick2second(msg.time, ticks_per_beat, tempo)
+    notes = []
+    # note -> [(start_sec, velocity), ...]  用 list 防止同音重叠被覆盖
+    active = defaultdict(list)
+    current_sec = 0.0
+    last_tick = 0
+    tempo = 500000  # 默认 120 BPM
+
+    for tick, msg in abs_events:
+        # 按“上一事件 -> 当前事件”的 tick 差和当前 tempo 推进时间
+        current_sec += mido.tick2second(tick - last_tick, ticks_per_beat, tempo)
+        last_tick = tick
+
         if msg.type == "set_tempo":
             tempo = msg.tempo
         elif msg.type == "note_on" and msg.velocity > 0:
-            active[msg.note] = (current_sec, msg.velocity)
+            active[msg.note].append((current_sec, msg.velocity))
         elif msg.type == "note_off" or (msg.type == "note_on" and msg.velocity == 0):
-            if msg.note in active:
-                start, vel = active.pop(msg.note)
+            stack = active.get(msg.note)
+            if stack:
+                start, vel = stack.pop(0)
                 notes.append((start, current_sec - start, msg.note, vel))
 
-    # 兜底：收尾时还没配对的 note_on
-    for note, (start, vel) in active.items():
-        notes.append((start, current_sec - start, note, vel))
+    # 兜底：没配对的 note_on
+    for note, stack in active.items():
+        for start, vel in stack:
+            notes.append((start, current_sec - start, note, vel))
 
     return notes
 
@@ -142,7 +134,9 @@ def build(midi_path, out_dir, song, sound, ns):
         for note, vel in group:
             pitch = fmt(midi_to_pitch(note, anchor))
             volume = fmt(vel_to_volume(vel))
-            lines.append(f"playsound {sound} master @a ~ ~ ~ {volume} {pitch}")
+            lines.append(
+    f"execute as @a at @s run playsound {sound} master @s ~ ~ ~ {volume} {pitch}"
+)
 
         if i + 1 < total:
             next_tick = events[i + 1][0]
@@ -187,35 +181,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-```
-
-## 四、生成的函数长这样
-
-假设歌曲名是 `my_song`，命名空间是 `kitpvp`：
-
-`src/data/kitpvp/functions/music/my_song/start.mcfunction`
-
-```mcfunction
-# 播放: my_song（5 个事件 tick，共 12 个音符）
-schedule function kitpvp:music/my_song/ev_0000 1t replace
-tellraw @a {"text":"[音乐] my_song","color":"aqua"}
-```
-
-`src/data/kitpvp/functions/music/my_song/ev_0000.mcfunction`
-
-```mcfunction
-# tick 0 | 音符 3
-playsound minecraft:block.note_block.harp master @a ~ ~ ~ 0.9 1
-playsound minecraft:block.note_block.harp master @a ~ ~ ~ 0.75 1.1892
-playsound minecraft:block.note_block.harp master @a ~ ~ ~ 0.6 0.7071
-schedule function kitpvp:music/my_song/ev_0001 5t replace
-```
-
-## 五、1.20.1 相关坑
-
-1. **`playsound` 没有"延迟播放"参数**。要按时间轴铺音只能靠 `schedule function ... Nt`，不能用其他手段。
-2. **`schedule function <f> <N>t replace`** 的 `N` 是"从现在起 N 刻"。脚本用的是**事件差值**而不是绝对时间，这一点必须保证——写成绝对时间会变成"每刻都在重排整首歌"。
-3. **`playsound` 只控制起点，不控制尾音**。脚本不处理"音符时值"，长音会随音效自然衰减。要精确控制时值需要 `stopsound`，本脚本不做。
-4. **`minVolume` 没写**。默认 `0.0`，远处玩家听不到。如果想要"全图可闻"，需要在每条 `playsound` 末尾追加 ` 1`（把 `minVolume` 拉满）。这一点未在本脚本中默认开启，视需求自行改模板。
-5. **重复调用 `start` 的语义**：`schedule ... replace` 只保证"同名函数只保留最后一次调度"。如果音乐播放到一半再次 `start`，旧链路上**尚未被调度**的事件不会被清除，会与新链路叠加。目前接受该行为；要彻底停播需要额外写一个 stop 开关（用 tag 挡住 ev_* 的入口）。
-6. **`2.0` 以上/`0.5` 以下的音高会被 clamp**。宽音域 MIDI 会出现"高低两头被压平"的听感，这是本脚本的已知简化。
