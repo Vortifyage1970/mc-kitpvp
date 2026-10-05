@@ -20,12 +20,19 @@ item replace entity @s weapon.mainhand with minecraft:wooden_sword{Unbreakable:1
 give @s minecraft:cooked_beef 16
 
 # 4. 永久效果：减速 I + 挖掘疲劳 I（infinite，死亡不清，会一直挂着）
+effect give @s minecraft:speed 1 0 true
 effect give @s minecraft:slowness infinite 0 true
 effect give @s minecraft:mining_fatigue infinite 0 true
 
 # 5. 命数
 scoreboard players set @s kitpvp.lives 3
 
-# 6. 反馈
+# 6. 技能初发：发一枚举盾令牌，cd 保持 0。
+#    不要在这里调 tank_fire！tank_fire 会给盾并把 cd 设成 600，
+#    等于开局白送一次技能，cd 归零后补发闸门会立刻判定"该补令牌"，
+#    玩家一次没按也会多拿到一枚令牌。
+function kitpvp:skill/tank_give_egg
+
+# 7. 反馈
 tellraw @s [{"text":"[职业] ","color":"aqua","bold":true},{"text":"已选择 ","color":"gray"},{"text":"坦克","color":"yellow","bold":true}]
 playsound minecraft:ui.button.click master @s ~ ~ ~ 1 1.2

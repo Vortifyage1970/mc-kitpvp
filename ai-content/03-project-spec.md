@@ -210,7 +210,7 @@
 - [x] 坦克
 - [x] 刺客
 - [ ] 矿工
-- [ ] 纵火狂
+- [x] 纵火狂
 - [ ] 幽灵
 - [ ] 海盗
 - [ ] 驯兽师
@@ -458,6 +458,10 @@
 | `kitpvp.assassin_last` | dummy | 刺客快照 | load / join / clear_player | tick |
 | `kitpvp.ready_used` | `minecraft.used:minecraft.carrot_on_a_stick` | 大厅准备钓竿使用 | load | tick |
 | `kitpvp.ready_last` | dummy | 准备快照 | load / lobby/enter / clear_player | tick |
+| `kitpvp.arsonist_used` | `minecraft.used:minecraft.splash_potion` | 燃烧瓶投掷 | load | tick |
+| `kitpvp.arsonist_last` | dummy | 投掷快照 | load / join / clear_player | tick |
+| `kitpvp.arsonist_ammo` | dummy | 剩余燃烧瓶数量（上限 2） | load / kit/arsonist / join / clear_player | dispatch、cast |
+| `kitpvp.fire_timer` | dummy | 火焰守护剩余刻数（挂在 marker 上） | arsonist_place | arsonist_flame_tick |
 
 假玩家：
 
@@ -494,6 +498,9 @@
 | `kitpvp.assassin_hidden` | 刺客隐匿中 | assassin_fire | assassin_unhide / clear_player | ✅ |
 | `kitpvp.ready` | 已准备 | lobby/ready_on | lobby/ready_off / clear_player | ✅ |
 | `kitpvp.ready_pending` | 准备待处理 | lobby/ready_toggle | clear_player | ✅ |
+| `kitpvp.arsonist_burst` | 药水落地已触发 | arsonist_burst | 随药水实体消失 | ❌ 挂实体上 |
+| `kitpvp.arsonist_fire` | 火焰守护 marker | arsonist_place_one | 随 marker 被 kill | ❌ 挂实体上 |
+| `kitpvp.arsonist_new` | 本批未初始化 marker | arsonist_place_one | arsonist_place | ❌ 挂实体上 |
 
 > tag 只用于"有/没有"的二值判断。编号、计数、冷却用计分板。
 
@@ -514,11 +521,12 @@
 | 编号 | 职业 | 技能类型 | 令牌物品 |
 |---|---|---|---|
 | 0 | （未选） | — | — |
-| 1 | 战士 | 自动 | 无（给金苹果本体） |
+| 1 | 战士 | - | - |
 | 2 | 弓箭手 | 触发器驱动（advancement） | 无（给弓） |
 | 3 | 坦克 | 主动 | `iron_golem_spawn_egg` |
-| 4 | 刺客 | 主动 | `enderman_spawn_egg` |
-| 5+ | 后续职业顺延 | | |
+| 4 | 刺客 | 主动 | `enderman_spawn_egg` |-
+| 5 | 纵火狂 | 主动（投掷）+ 自动（补货） | `splash_potion{KitFireBomb:1b}` |
+| + | 后续职业顺延 | | |
 
 新增职业时，同步更新：本表 + `util/give_kit.mcfunction` + `skill/dispatch.mcfunction`。
 

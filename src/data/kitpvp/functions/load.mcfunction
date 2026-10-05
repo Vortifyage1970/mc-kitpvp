@@ -42,6 +42,10 @@ scoreboard objectives add kitpvp.soul_warrior_used minecraft.used:minecraft.blaz
 scoreboard objectives add kitpvp.soul_archer_used minecraft.used:minecraft.skeleton_spawn_egg
 scoreboard objectives add kitpvp.soul_warrior_last dummy "战士魂石快照"
 scoreboard objectives add kitpvp.soul_archer_last dummy "弓箭手魂石快照"
+scoreboard objectives add kitpvp.arsonist_used minecraft.used:minecraft.splash_potion
+scoreboard objectives add kitpvp.arsonist_last dummy
+scoreboard objectives add kitpvp.arsonist_ammo dummy
+scoreboard objectives add kitpvp.fire_timer dummy
 
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
 scoreboard objectives modify kitpvp.lives displayname {"text":"命数","color":"red"}

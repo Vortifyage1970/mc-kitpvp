@@ -26,8 +26,8 @@ effect give @s minecraft:mining_fatigue infinite 0 true
 # 5. 命数
 scoreboard players set @s kitpvp.lives 3
 
-# 6. 技能初发：立刻发一面盾并进入 30 秒冷却，不依赖下一 tick 的自动分发
-function kitpvp:skill/tank
+# 6. 技能初发
+function kitpvp:skill/tank_give_egg
 
 # 7. 反馈
 tellraw @s [{"text":"[职业] ","color":"aqua","bold":true},{"text":"已选择 ","color":"gray"},{"text":"坦克","color":"yellow","bold":true}]

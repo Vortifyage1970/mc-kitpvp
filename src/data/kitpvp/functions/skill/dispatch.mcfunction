@@ -36,4 +36,7 @@
 # kit = 4 刺客 · 隐匿（主动技能，由统计 objective 驱动，不进 dispatch）
 # 链路：minecraft.used:minecraft.enderman_spawn_egg > kitpvp.assassin_last
 #       → skill/assassin_cast → skill/assassin_fire
+
+# kit = 5 纵火狂 · 燃烧瓶补给（自动技能，进 dispatch）
+execute if score @s kitpvp.kit matches 5 run function kitpvp:skill/arsonist
  

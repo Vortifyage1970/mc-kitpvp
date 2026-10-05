@@ -1,0 +1,27 @@
+职业名: 纵火狂
+分类: 经典（表）
+简介: 靠燃烧瓶把战场烧成灰烬的纵火者
+
+装备:
+  头盔: minecraft:leather_helmet（红）  火焰保护 III
+  胸甲: minecraft:leather_chestplate（红） 火焰保护 III
+  护腿: minecraft:iron_leggings        火焰保护 III
+  靴子: minecraft:iron_boots           火焰保护 III
+  主手: minecraft:stone_sword（火焰附加 II）
+  食物: minecraft:cooked_beef x 16
+  工具: minecraft:flint_and_steel x 1
+
+属性:
+  护甲: 11（皮革头 1 + 皮革胸 3 + 铁腿 5 + 铁靴 2）
+  护甲韧性: 0
+
+技能:
+  名称: 燃烧瓶
+  初始: 2 瓶
+  冷却: 45 秒（投掷 / 补货都会重置）
+  上限: 2 瓶
+  效果: 投掷喷溅药水（无药水效果），落地以落点为中心生成 4x4 火，
+        这 16 格火在 5 秒内被手动打灭会立刻复燃
+
+命数: 3
+kit 编号: 5

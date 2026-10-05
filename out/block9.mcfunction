@@ -1,1 +1,1 @@
-scoreboard players operation @s kitpvp.ghost_damage_last = @s kitpvp.ghost_damage
+execute as @a[scores={kitpvp.kit=4,kitpvp.alive=1,kitpvp.cd=0},tag=kitpvp.assassin_refill,tag=!kitpvp.spectator] unless data entity @s Inventory[{tag:{KitAssassinEgg:1b}}] run function kitpvp:skill/assassin_give_item

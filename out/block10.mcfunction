@@ -1,1 +1,1 @@
-execute as @s[scores={kitpvp.kit=5}] run function kitpvp:kit/ghost_passive
+scoreboard players set @s kitpvp.arsonist_ammo 2

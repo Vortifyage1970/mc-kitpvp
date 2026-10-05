@@ -1,1 +1,1 @@
-tag @a remove kitpvp.on_pad
+scoreboard players operation @s kitpvp.arsonist_last = @s kitpvp.arsonist_used

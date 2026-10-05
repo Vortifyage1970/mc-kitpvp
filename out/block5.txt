@@ -1,1 +1,1 @@
-copy archer_pickup.json lectern_test.json
+if score @s kitpvp.arsonist_used > @s kitpvp.arsonist_last

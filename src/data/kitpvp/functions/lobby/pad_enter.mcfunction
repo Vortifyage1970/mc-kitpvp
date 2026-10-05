@@ -27,4 +27,7 @@ execute if entity @s[x=-234,y=71,z=98,dx=1,dy=1,dz=1] run function kitpvp:kit/in
 # --- 刺客 ---
 execute if entity @s[x=-238,y=71,z=98,dx=1,dy=1,dz=1] run function kitpvp:kit/info/assassin
 
+# --- 纵火狂 ---
+execute if entity @s[x=-242,y=71,z=98,dx=1,dy=1,dz=1] run function kitpvp:kit/info/arsonist
+
 # …… 新增职业时按同格式追加

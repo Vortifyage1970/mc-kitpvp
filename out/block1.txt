@@ -1,5 +1,1 @@
-<out>/kitpvp/functions/music/<歌名>/
-  start.mcfunction     # 手动 call 这个开始播放
-  ev_0000.mcfunction   # 第 1 个事件 tick
-  ev_0001.mcfunction   # 第 2 个事件 tick
-  ...
+scoreboard players operation @s kitpvp.arsonist_last = @s kitpvp.arsonist_used/
