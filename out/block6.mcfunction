@@ -1,5 +1,6 @@
-# --- 初始 2 瓶燃烧瓶 ---
-# 药水本体是普通喷溅水瓶（无任何效果），只靠 display.Name 与颜色区分
-scoreboard players set @s kitpvp.arsonist_ammo 2
-scoreboard players set @s kitpvp.cd 0
-give @s minecraft:splash_potion{KitFireBomb:1b,CustomPotionColor:16750848,display:{Name:'{"text":"燃烧瓶","color":"gold","bold":true}'}} 2
+# 药剂师（假设 kit=6、药水标记 KitPotionAlch:1b）
+tag @a remove kitpvp.hold_pa_prev
+tag @a[tag=kitpvp.hold_pa] add kitpvp.hold_pa_prev
+tag @a remove kitpvp.hold_pa
+execute as @a if data entity @s SelectedItem.tag.KitPotionAlch run tag @s add kitpvp.hold_pa
+execute as @a[scores={kitpvp.kit=6,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.potion_used > @s kitpvp.potion_last run function kitpvp:skill/alchemist_cast
