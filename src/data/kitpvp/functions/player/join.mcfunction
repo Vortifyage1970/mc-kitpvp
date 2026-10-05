@@ -16,7 +16,6 @@ scoreboard players set @s kitpvp.deaths 0
 scoreboard players set @s kitpvp.inv 0
 scoreboard players operation @s kitpvp.death_seen = @s kitpvp.death_detect
 scoreboard players set @s kitpvp.item 0
-scoreboard players operation @s kitpvp.gapple_last = @s kitpvp.gapple_used
 # 坦克统计快照：把 last 推到当前 used，防止老玩家一进服被误判"刚用掉令牌"
 scoreboard players operation @s kitpvp.tank_last = @s kitpvp.tank_used
 scoreboard players operation @s kitpvp.assassin_last = @s kitpvp.assassin_used

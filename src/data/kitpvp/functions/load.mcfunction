@@ -29,12 +29,10 @@ scoreboard objectives add kitpvp.death_detect deathCount
 scoreboard objectives add kitpvp.death_seen dummy
 scoreboard objectives add kitpvp.game dummy "游戏状态"
 scoreboard objectives add kitpvp.item dummy "物品计数"
-scoreboard objectives add kitpvp.gapple_used minecraft.used:minecraft.golden_apple
-scoreboard objectives add kitpvp.gapple_last dummy "金苹果快照"
 scoreboard objectives add kitpvp.tank_used minecraft.used:minecraft.iron_golem_spawn_egg
 scoreboard objectives add kitpvp.tank_last dummy "坦克技能快照"
-scoreboard objectives add kitpvp.assassin_used minecraft.used:minecraft.enderman_spawn_egg                                             
-scoreboard objectives add kitpvp.assassin_last dummy "刺客技能快照"                                                                                                                                                                          
+scoreboard objectives add kitpvp.assassin_used minecraft.used:minecraft.enderman_spawn_egg
+scoreboard objectives add kitpvp.assassin_last dummy "刺客技能快照"
 scoreboard objectives add kitpvp.ready_used minecraft.used:minecraft.carrot_on_a_stick
 scoreboard objectives add kitpvp.ready_last dummy "大厅准备快照"
 scoreboard objectives add kitpvp.tmp dummy

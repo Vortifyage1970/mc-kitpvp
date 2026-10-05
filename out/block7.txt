@@ -1,2 +1,1 @@
-D:\MC-KITPVP\SRC\DATA\...        ← 编辑的地方
-<世界>\datapacks\<包名>\data\...  ← 游戏读的地方
+execute if score @s kitpvp.kit matches 1 run function kitpvp:skill/warrior

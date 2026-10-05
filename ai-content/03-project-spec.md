@@ -50,8 +50,7 @@
 │ 总护甲值：15
 │ 总护甲韧性：0
 │ 被动：—
-│ 技能：每 40 秒获得 1 个金苹果（上限 1）
-│ 技能冷却：40 秒
+│ 技能：无
 └──────────────────────────────
 [ 确认选择 ]  [ 返回 ]
 ```
@@ -169,6 +168,7 @@
   主手: minecraft:iron_sword
   副手: 无
   食物: minecraft:cooked_beef x 16
+       minecraft:golden_apple x 2
 
 属性:
   最大生命: 20
@@ -180,11 +180,7 @@
 
 被动: 无
 
-技能:
-  名称: 补给
-  冷却: 40 秒
-  效果: 获得 1 个金苹果
-  上限: 同时最多持有 1 个
+技能: 无
 
 命数: 3
 特殊: 无
@@ -330,15 +326,13 @@
   靴子: minecraft:iron_boots
   主手: minecraft:iron_sword
   食物: minecraft:cooked_beef x 16
+        minecraft:golden_apple x 2
 
 属性:
   护甲: 15
   护甲韧性: 0
 
-技能:
-  名称: 补给
-  冷却: 40 秒
-  效果: 获得 1 个金苹果（上限 1）
+技能: -
 
 命数: 3
 ```
@@ -458,8 +452,6 @@
 | `kitpvp.death_seen` | dummy | 死亡快照 | load / join / clear_player | death_dispatch |
 | `kitpvp.game` | dummy | 游戏状态 | load | check_winner |
 | `kitpvp.item` | dummy | 预留 | load / clear_player | — |
-| `kitpvp.gapple_used` | `minecraft.used:minecraft.golden_apple` | 战士金苹果使用 | load | tick |
-| `kitpvp.gapple_last` | dummy | 战士快照 | load / join / clear_player | tick |
 | `kitpvp.tank_used` | `minecraft.used:minecraft.iron_golem_spawn_egg` | 坦克令牌使用 | load | tick |
 | `kitpvp.tank_last` | dummy | 坦克快照 | load / join / clear_player | tick |
 | `kitpvp.assassin_used` | `minecraft.used:minecraft.enderman_spawn_egg` | 刺客令牌使用 | load | tick |

@@ -53,7 +53,6 @@ scoreboard players set @s kitpvp.lives 3
 scoreboard players set @s kitpvp.kills 0
 scoreboard players set @s kitpvp.deaths 0
 scoreboard players set @s kitpvp.alive 1
-scoreboard players operation @s kitpvp.gapple_last = @s kitpvp.gapple_used
 # 坦克统计快照：清场时把 last 推到 used，避免清场后下一刻误判
 scoreboard players operation @s kitpvp.tank_last = @s kitpvp.tank_used
 scoreboard players operation @s kitpvp.assassin_last = @s kitpvp.assassin_used

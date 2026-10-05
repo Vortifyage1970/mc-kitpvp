@@ -14,17 +14,17 @@ execute as @a[scores={kitpvp.cd2=1..}] run scoreboard players remove @s kitpvp.c
 # 只动 tag=kitpvp.in_lobby 的玩家，局内玩家不受影响。
 execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] run function kitpvp:lobby/give_items
 
-# ===== 主大厅：补充饱食度=====
- execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] run effect give @s minecraft:saturation 1 1 true
+# ===== 主大厅：补充饱食度 =====
+execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] run effect give @s minecraft:saturation 1 1 true
 
-# ===== 主大厅：传送执行=====
+# ===== 主大厅：传送执行 =====
 execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] at @s run function kitpvp:lobby/teleport
 
 # ==== 主大厅：显示锁定 =====
 function kitpvp:lobby/display_lock
 
-# ===== 主大厅：踩压力板弹出职业介绍 =====                                                                                                       
-# 只动 tag=kitpvp.in_lobby 的玩家；防重复逻辑在 lobby/pad 内部                                                                                   
+# ===== 主大厅：踩压力板弹出职业介绍 =====
+# 只动 tag=kitpvp.in_lobby 的玩家；防重复逻辑在 lobby/pad 内部
 function kitpvp:lobby/pad
 
 # ===== 主大厅：准备 / 取消准备（右键准备钓竿）=====
@@ -58,12 +58,6 @@ execute as @a[scores={kitpvp.kit=3}] at @s run kill @e[type=iron_golem,distance=
 # 判据：Inventory 里存在任一带 KitTankEgg:1b 标记的物品
 # 玩家"丢令牌"会形成物品堆积，但每个令牌只相当于一次技能使用，不放大技能次数
 execute as @a[scores={kitpvp.kit=3,kitpvp.alive=1,kitpvp.cd=0},tag=!kitpvp.spectator] unless data entity @s Inventory[{tag:{KitTankEgg:1b}}] run function kitpvp:skill/tank_give_egg
-
-# ===== 战士金苹果消耗检测 =====
-# 统计 objective：吃掉金苹果的瞬间 used 自动 +1
-# 本刻 used 比 last 大 → 刚吃掉，转交 warrior_consume
-# 必须在"冷却递减"之后再跑，避免 cd 被本 tick 的递减覆盖
-execute as @a[scores={kitpvp.kit=1,kitpvp.alive=1}] if score @s kitpvp.gapple_used > @s kitpvp.gapple_last run function kitpvp:skill/warrior_consume
 
 # ===== 弓箭手：清除落地的箭 =====
 # 弓箭手射出的箭一落地（inGround:1b）就清除，

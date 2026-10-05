@@ -23,8 +23,8 @@
 #   1 战士   2 弓箭手   3 坦克   4 刺客
 #   后续每 1 个职业顺延 1 号
 
-# kit = 1 战士 · 补给（自动）
-execute if score @s kitpvp.kit matches 1 run function kitpvp:skill/warrior
+# kit = 1 战士（技能已删除）
+# execute if score @s kitpvp.kit matches 1 run function kitpvp:skill/warrior
 
 # kit = 2 弓箭手 · 换弹（触发器驱动，见 advancement archer_pickup）
 # execute if score @s kitpvp.kit matches 2 run function kitpvp:skill/archer

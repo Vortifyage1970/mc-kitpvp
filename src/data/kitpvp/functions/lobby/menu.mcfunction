@@ -7,6 +7,5 @@ tellraw @s [{"text":"[ 选择职业 ]","color":"green","bold":true,"clickEvent":
 tellraw @s [{"text":"[ 选择地图 ]","color":"aqua","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:map/select_menu"},"hoverEvent":{"action":"show_text","contents":[{"text":"选择本局对战地图","color":"gray"}]}}]
 tellraw @s [{"text":"[ 开始游戏 ]","color":"yellow","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:game/start"},"hoverEvent":{"action":"show_text","contents":[{"text":"开始一局游戏","color":"gray"}]}}]
 tellraw @s [{"text":"[ 初始化我 ]","color":"red","clickEvent":{"action":"run_command","value":"/function kitpvp:lobby/reset_self"},"hoverEvent":{"action":"show_text","contents":[{"text":"清空背包并重置自身状态","color":"gray"}]}}]
-tellraw @s [{"text":"[(暂 时)调试]","color":"dark_red","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/menu"},"hoverEvent":{"action":"show_text","contents":[{"text":"打开调试控制台","color":"gray"}]}}]
 
 tellraw @s [{"text":"═════════════════════","color":"gold","bold":true}]

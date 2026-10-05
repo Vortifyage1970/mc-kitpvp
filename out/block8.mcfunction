@@ -1,1 +1,1 @@
-tag @a remove kitpvp.soul_given
+give @s minecraft:golden_apple 2

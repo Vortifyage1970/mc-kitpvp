@@ -74,7 +74,7 @@
 
 **目标：保证进入冷却的唯一依据是"玩家真的使用了这个物品"。**
 
-### 4.2 当前战士怎么做（可照抄）
+### 4.2 初版本战士怎么做（目前基本已删除，逻辑无误，可参考）
 
 战士的"补给"用 `minecraft.used:minecraft.golden_apple` 这个**统计类 objective** 作为"真正吃掉了"的唯一判据：
 
@@ -135,7 +135,7 @@
 - **文件夹是 `functions`（复数）**，不是 `function`。加载钩子在 `data/minecraft/tags/functions/load.json`，每刻钩子在 `data/minecraft/tags/functions/tick.json`。
 - **`.mcfunction` 每行一条命令，行尾无分号**，`#` 开头是注释，**不要写行号**。
 - **命名空间只允许小写字母、数字、下划线**：`kitpvp` ✅，`KitPvP` ❌，`kit-pvp` ❌。
-- **`scoreboard objectives add` 必须在 `load.mcfunction` 里统一创建。** 需要初始分数的玩家/假玩家也在 `load` 里初始化。新增 objective 时同步补进 `load`（当前工程在 `load` 里已经建了 `kitpvp.kit / cd / cd2 / alive / lives / kills / deaths / map / timer / inv / death_detect / death_seen / game / item / gapple_used / gapple_last`）。
+- **`scoreboard objectives add` 必须在 `load.mcfunction` 里统一创建。** 需要初始分数的玩家/假玩家也在 `load` 里初始化。新增 objective 时同步补进 `load`（当前工程在 `load` 里已经建了 `kitpvp.kit / cd / cd2 / alive / lives / kills / deaths / map / timer / inv / death_detect / death_seen / game / item`）。
 - **1.20.1 无 `/heal`**，用 `effect give @s minecraft:instant_health 1 5 true` 代替（见 `util/clear_player.mcfunction`）。
 - **1.20.1 没有以下语法，出现即报错**：`return` / `return run`、`tick` 命令、`random` 命令、`execute if items`、`dialog`、`waypoint`、`function xxx with {...}`、`function #tag`（调用函数标签）、宏 `$()`、函数参数。这些全都是 1.20.2+ 才有的。
 - **1.20.1 物品 NBT 是旧版格式**：`{Enchantments:[{id:"minecraft:sharpness",lvl:5}]}`、`{display:{Name:'...'}}`、`{Unbreakable:1b}`。**不要**写 `components` / `enchantments` / `custom_name` / `unbreakable:{}`（那都是 1.20.5+）。
