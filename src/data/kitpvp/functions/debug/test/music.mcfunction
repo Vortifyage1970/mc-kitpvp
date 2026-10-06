@@ -1,0 +1,6 @@
+tellraw @a [{"text":"alice_in_wonderland","color":"red","clickEvent":{"action":"run_command","value":"/execute as @a run function touhoumusic:alice_in_wonderland/play"},"hoverEvent":{"action":"show_text","contents":"不可思议之国的爱丽丝"}}]
+tellraw @a [{"text":"broken_moon","color":"black","clickEvent":{"action":"run_command","value":"/execute as @a run function touhoumusic:broken_moon/play"},"hoverEvent":{"action":"show_text","contents":"碎月"}}]
+tellraw @a [{"text":"far_field_fantasy_story","color":"gold","clickEvent":{"action":"run_command","value":"/execute as @a run function touhoumusic:far_field_fantasy_story/play"},"hoverEvent":{"action":"show_text","contents":"远野幻想物语"}}]
+tellraw @a [{"text":"flower_of_japan","color":"light_purple","clickEvent":{"action":"run_command","value":"/execute as @a run function touhoumusic:flower_of_japan/play"},"hoverEvent":{"action":"show_text","contents":"樱花之恋塚"}}]
+tellraw @a [{"text":"hartmann_youkai_girl","color":"green","clickEvent":{"action":"run_command","value":"/execute as @a run function touhoumusic:hartmann_youkai_girl/play"},"hoverEvent":{"action":"show_text","contents":"哈德曼的妖怪少女"}}]
+tellraw @a [{"text":"lost_dream","color":"gray","clickEvent":{"action":"run_command","value":"/execute as @a run function touhoumusic:lost_dream/play"},"hoverEvent":{"action":"show_text","contents":"梦消失"}}]

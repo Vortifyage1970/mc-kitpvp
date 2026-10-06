@@ -11,5 +11,6 @@ say ===== 测试模式 已开启 =====
  tellraw @a [{"text":"▶ force_reset","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/test/force_reset"},"hoverEvent":{"action":"show_text","contents":"立刻重置（不等 10 秒）"}}]                       
  tellraw @a [{"text":"▶ build","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/test/build"},"hoverEvent":{"action":"show_text","contents":"建造模式（创造+退出游戏统计）"}}]                      
  tellraw @a [{"text":"▶ play","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/test/play"},"hoverEvent":{"action":"show_text","contents":"游玩模式（生存+参与游戏统计）"}}]                       
- tellraw @a [{"text":"▶ status","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/test/status"},"hoverEvent":{"action":"show_text","contents":"打印测试状态"}}]                                      
+ tellraw @a [{"text":"▶ status","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/test/status"},"hoverEvent":{"action":"show_text","contents":"打印测试状态"}}]        
+ tellraw @a [{"text":"▶ music","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/test/music"},"hoverEvent":{"action":"show_text","contents":"放点轻松音乐"}}]                              
  tellraw @a [{"text":"▶ off","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/test/off"},"hoverEvent":{"action":"show_text","contents":"关闭测试模式"}}]             
