@@ -11,15 +11,16 @@
 
 function kitpvp:util/clear_player
 scoreboard players set @s kitpvp.kit 7
+scoreboard players set @s kitpvp.fisher_no_tri 0
 tag @s add kitpvp.selected
 
-# --- 一、护甲：皮革三件 + 鞘翅，护甲值逐件对齐铁甲 ---
+# --- 一、护甲：皮革三件 + 鞘翅，护甲值++ ---
 # head：皮革头盔默认 1，覆盖为 2
 item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"generic.armor",Amount:2,Operation:0,UUID:[I;7,0,0,1],Slot:"head"}]} 1
-# chest：鞘翅默认 0，覆盖为 6；保护 V
+# chest：保护 V
 item replace entity @s armor.chest with minecraft:elytra{Unbreakable:1b,Enchantments:[{id:"minecraft:protection",lvl:5}]} 1
-# legs：皮革护腿默认 2，覆盖为 5
-item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"generic.armor",Amount:5,Operation:0,UUID:[I;7,0,0,3],Slot:"legs"}]} 1
+# legs：皮革护腿默认 2，覆盖为 4
+item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"generic.armor",Amount:4,Operation:0,UUID:[I;7,0,0,3],Slot:"legs"}]} 1
 # feet：皮革靴默认 1，覆盖为 2；深海探索者 III
 item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,Enchantments:[{id:"minecraft:depth_strider",lvl:3}],AttributeModifiers:[{AttributeName:"generic.armor",Name:"generic.armor",Amount:2,Operation:0,UUID:[I;7,0,0,4],Slot:"feet"}]} 1
 
@@ -40,4 +41,3 @@ function kitpvp:skill/fisher_give_egg
 # --- 五、提示 ---
 title @s actionbar {"text":"已选择：渔夫","color":"blue"}
 playsound minecraft:block.note_block.pling master @s ~ ~ ~ 1 1.5
-

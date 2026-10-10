@@ -71,6 +71,7 @@ tag @s remove kitpvp.soul_ghost_active
 scoreboard players set @s kitpvp.soul_ghost_timer 0
 scoreboard players set @s kitpvp.ghost_minion_cd 0
 scoreboard players operation @s kitpvp.soul_ghost_last = @s kitpvp.soul_ghost_used
+scoreboard players set @a kitpvp.fisher_no_tri 0
 
 # --- 五、属性复位到原版默认 ---
 attribute @s minecraft:generic.max_health base set 20

@@ -43,5 +43,7 @@ tag @e remove kitpvp.ghost_minion_new
 # 5 秒召唤冷却（100 刻）
 scoreboard players set @s kitpvp.ghost_minion_cd 100
 
+execute as @s run playsound minecraft:entity.warden.attack_impact master @a[distance=..9] ~ ~ ~ 0.8 1.2
+
 title @s actionbar {"text":"阴兵已现（20 秒）","color":"dark_aqua"}
 

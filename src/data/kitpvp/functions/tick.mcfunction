@@ -124,6 +124,18 @@ function kitpvp:skill/arsonist_flame_tick
 #   距离 16 覆盖刷怪蛋最大右键射程（约 4.5 格）并留余量。
 execute as @a[scores={kitpvp.kit=7}] at @s run kill @e[type=minecraft:drowned,distance=..16,name="寻戟令牌"]
 
+# ----- 无戟计时器（防刷） -----
+# 目的：防止"三叉戟投出（背包变空）→ 立刻补一把 → 掷出的那把握回 = 两把"。
+# 判据：背包内没有带 KitFisherTrident:1b 的三叉戟，持续 8 秒（160 刻）才允许补发。
+#   每刻：无戟 +1，有戟归零。
+# 已知取舍（接受的简化）：
+#   - 只看自己的背包，不看末影箱 / 地面掉落物 / 掷出的实体。
+#   - 玩家有意"丢地 → 等 8 秒 → 拾回"仍可变成两把。
+#     8 秒足够长，正常投掷（忠诚回旋）远不到 8 秒，日常不受影响。
+#   - 补发阈值 160 的判定在 skill/fisher_fire。
+scoreboard players add @a[scores={kitpvp.kit=7,kitpvp.alive=1}] kitpvp.fisher_no_tri 1
+execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1}] if data entity @s Inventory[{tag:{KitFisherTrident:1b}}] run scoreboard players set @s kitpvp.fisher_no_tri 0
+
 # 主动技能入口：任何溺尸蛋被使用都进 cast，cd 分流在 cast 内部做
 execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.fisher_used > @s kitpvp.fisher_last run function kitpvp:skill/fisher_cast
 
