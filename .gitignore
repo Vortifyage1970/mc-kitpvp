@@ -15,7 +15,7 @@ build/
 .env
 .env.*
 !.env.example
-.ai_history
+..ai_history
 ai-content/
 out/
 tools/
