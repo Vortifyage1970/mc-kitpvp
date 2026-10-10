@@ -7,4 +7,5 @@ tag @a[tag=kitpvp.selected] remove kitpvp.spawn_assigned
 
 # 2. 按地图 id 分发
 execute if score #global kitpvp.map matches 1 run function kitpvp:map/desert/distribute
+execute if score #global kitpvp.map matches 2 run function kitpvp:map/arena/distribute
 execute if score #global kitpvp.map matches 7 run function kitpvp:map/earth/distribute

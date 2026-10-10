@@ -33,4 +33,4 @@
  execute if score #test kitpvp.game matches 1 run title @a title {"text":"[测试] 开局","color":"light_purple","bold":true}       
  execute if score #test kitpvp.game matches 1 run title @a subtitle {"text":"记得先选职业","color":"gray"}                       
                                                                                                                                  
-function kitpvp:map/distribute
+ execute if score #test kitpvp.game matches 1 run function kitpvp:game/start_impl
