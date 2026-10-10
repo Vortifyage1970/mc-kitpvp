@@ -2,7 +2,6 @@
 # 由根 tick.mcfunction 在玩家重生于 spawnpoint 之后调用
 # 此时原版已经把玩家放到 spawnpoint 上（doImmediateRespawn=true）
 
-tellraw @a ["",{"text":"[DBG] 重生坐标=","color":"light_purple"},{"nbt":"Pos","entity":"@s"},{"text":"  spawnpoint=(","color":"gray"},{"nbt":"SpawnX","entity":"@s"},{"text":",","color":"gray"},{"nbt":"SpawnY","entity":"@s"},{"text":",","color":"gray"},{"nbt":"SpawnZ","entity":"@s"},{"text":")","color":"gray"}]
 # 消费标记
 tag @s remove kitpvp.respawn_pending
 tag @s remove kitpvp.assassin_hidden

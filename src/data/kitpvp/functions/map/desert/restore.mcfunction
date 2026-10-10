@@ -10,4 +10,4 @@
 # 下面这条是骨架：默认在函数执行位置以默认参数放置。
 # 如果你要指定绝对坐标，把 pos 补在模板名之后即可。
 
-place template kitpvp:desert/main
+#place template kitpvp:desert/main

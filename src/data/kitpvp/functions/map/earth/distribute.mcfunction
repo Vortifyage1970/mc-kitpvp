@@ -28,3 +28,4 @@ function kitpvp:map/earth/pass
 
 # --- 4. 兜底：参战人数 > 9 时（正常不会发生），剩下的堆到出生点 1 ---
 execute as @a[tag=kitpvp.selected,tag=!kitpvp.spawn_assigned,tag=!kitpvp.spectator] run function kitpvp:map/earth/spawn_1
+

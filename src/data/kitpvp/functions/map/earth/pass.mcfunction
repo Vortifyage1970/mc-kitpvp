@@ -1,6 +1,6 @@
 # ===== 地球出生点：一轮顺序扫描 =====
-# 按 1..9 顺序检查，编号等于当前游标 #cur 的出生点才去领一个玩家。
-# @r 集合为空时该行整条命令不执行，游标也不前进 —— 这正是我们要的。
+# 与沙漠 pass 同构。按 1..9 顺序检查，编号等于当前游标 #cur 的出生点才领玩家。
+# @r 集合为空时该行整条命令不执行，游标也不会前进 —— 这正是我们要的。
 # 由 kitpvp:map/earth/distribute 反复调用。
 
 execute if score #cur kitpvp.tmp matches 1 as @r[tag=kitpvp.selected,tag=!kitpvp.spawn_assigned,tag=!kitpvp.spectator] run function kitpvp:map/earth/spawn_1

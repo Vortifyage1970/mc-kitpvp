@@ -23,8 +23,9 @@ execute as @a run function kitpvp:lobby/enter
 # kill @e[type=!player,type=!item_frame,type=!painting]
 
 # --- 四、地图方块回滚 ---
-# TODO: 方案待定（结构方块 or 差异记录），见设计文档第九节
-# function kitpvp:map/restore
+# 各图自己的 restore 用 place template 覆盖回初始地形
+# 依赖：#global kitpvp.map（1 = 沙漠，7 = 地球）
+function kitpvp:map/restore
 
 # --- 五、全局状态归零，允许下一局 ---
 scoreboard players set #survivors kitpvp.game 0

@@ -1,11 +1,3 @@
 
-## 给队友的说明
+**复用语法**：如果某职业和另一个职业大部分相同，只写差异：
 
-- 命名空间固定为 `kitpvp`，只允许小写字母、数字、下划线
-- 物品 NBT 用 1.20.1 的旧版格式（`display.Name`、`Enchantments:[{id,lvl}]`、`Unbreakable:1b`）
-- 不要使用 1.20.2+ 的语法（`return`、宏、函数参数、`execute if items` 等）
-- 加了新函数记得同步更新 `game/start`、`game/reset`、`util/clear_player` 等牵连处
-
-## 说明
-
-本项目仅供朋友之间自娱自乐，不保证平衡性与兼容性。

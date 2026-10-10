@@ -1,2 +1,19 @@
-/scoreboard objectives remove kitpvp.gapple_used
-/scoreboard objectives remove kitpvp.gapple_last
+
+> 本卡片尚未按 `03` 第三节的完整模板填写。补全时以 `kit/arsonist.mcfunction`
+> 与 `skill/arsonist_*.mcfunction` 的实际实现为准。
+
+---
+
+## 四、职业私有命名
+
+> 每个职业**自己独占**的命名（私有 NBT 标记的名称、函数前缀）在此登记，方便一眼看全。
+> 全局账本（objective / tag / 物品标记的实际占用）在 `07-objectives-tags.md`，本节不重复。
+
+| 编号 | 职业 | 私有 NBT 标记前缀 | 私有函数前缀 |
+|---|---|---|---|
+| 2 | 弓箭手 | `KitArcher*` | `archer_*` |
+| 3 | 坦克 | `KitTankEgg` / `KitShield` | `tank_*` |
+| 4 | 刺客 | `KitAssassin*` | `assassin_*` |
+| 5 | 纵火狂 | `KitFireBomb` | `arsonist_*` |
+
+> 标记的实际字符串与使用位置以 `skill/*` 代码为准。

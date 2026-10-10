@@ -1,1 +1,1 @@
-execute as @a[scores={kitpvp.kit=1..,kitpvp.alive=1}] if score @s kitpvp.cd matches ..0 run function kitpvp:skill/dispatch
+tellraw @a {"text":"[debug] 起始出生点 = ","color":"gray","extra":[{"score":{"name":"#cur","objective":"kitpvp.tmp"},"color":"yellow"}]}

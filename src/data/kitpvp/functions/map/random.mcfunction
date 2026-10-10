@@ -1,6 +1,7 @@
 # ===== 从已注册地图中随机选一张 =====
-# 当前只有沙漠（id=1），直接选它。
-# 新增地图时，改为「用 predicate random_chance 按概率掷骰」或「用入参索引」，
-# 并把 id 保持连续（0 = 未选，1..N = 已注册地图）。
+# 已注册：沙漠（id=1）、地球（id=7）
+# 两张图时 50/50：先默认 1，再 1/2 概率切到 7。
+# 新增第三张图时改成逐级判定：1in3 未命中 → 1in2 未命中 → 最终落到第三个 id。
 
 scoreboard players set #global kitpvp.map 1
+execute if predicate kitpvp:random/1in2 run scoreboard players set #global kitpvp.map 7

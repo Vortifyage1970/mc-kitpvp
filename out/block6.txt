@@ -1,1 +1,3 @@
-/advancement grant @s only kitpvp:player/lectern_test
+
+### 2 · 弓箭手 · 经典（表）
+

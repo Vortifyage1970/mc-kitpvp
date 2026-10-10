@@ -1,1 +1,3 @@
-scoreboard players operation @s kitpvp.gapple_last = @s kitpvp.gapple_used
+
+### 5 · 纵火狂 · 经典（表）
+

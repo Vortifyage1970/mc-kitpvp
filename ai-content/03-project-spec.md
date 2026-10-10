@@ -1,7 +1,29 @@
 # KitPvP 项目设计文档
 
-> 本文档是 AI 理解项目需求的唯一依据。描述"玩家体验到什么"，不描述"代码怎么写"。
+> **定位**：本文件是**设计意图与规则**的唯一依据——描述"玩家体验到什么"，不描述"代码怎么写"。
 > 任何与本文档冲突的实现方案，以本文档为准。
+>
+> **收录判据（硬性）**：一条信息只要在"新增一个职业 / 一个技能"时必须被修改，就**不属于**本文件。
+>
+> 本文件只在**改了游戏规则**时才动：加一条判定、改一次胜利条件、调一次时间、改一次分类配额。
+> "又做完一个职业"不该碰它。
+
+---
+
+## 零、文档地图
+
+| 文件 | 收录什么 | 何时动 | 何时读 |
+|---|---|---|---|
+| `00-version.md` | 版本红线、禁止语法 | 版本变更时 | 动任何语法前 |
+| `01-file-structure.md` | 函数/文件清单 | 每次改代码（扫描生成） | 想知道"有哪些函数" |
+| `02-available-functions-1.20.1.md` | 命令手册、所获经验 | 发现新易错点 / 新可用方法时 | 写命令前 |
+| `03-project-spec.md` | 设计意图、规则、判据、模板 | 改规则时 | 决定"该做成什么样" |
+| `04-hazards-reminder.md` | 已知坑位与约定 | 踩到新坑时 | 写易错逻辑前 |
+| `05-skill-patterns.md` | 技能实现模板 | 出现新类型技能时 | 实现技能时 |
+| `06-kit-registry.md` | 职业实例：编号 / 分类 / 状态 / 卡片 | 每加一个职业 | 加职业、查编号 |
+| `07-objectives-tags.md` | objective / tag / 物品标记 索引 | 每加一个名字 | 加名字、查重名 |
+
+一句话：**规则在 03，实例在 06，账本在 07。**
 
 ---
 
@@ -12,9 +34,12 @@
 | 版本 | Minecraft Java Edition 1.20.1 |
 | 类型 | 纯数据包，无模组、无插件 |
 | 命名空间 | `kitpvp` |
+| pack_format | 15 |
 | 人数 | 3-6 人小规模联机 |
 | 形式 | 与自定义地图配套的职业战争 |
-| 职业总数 | 79（不含混沌）；约 94-101（含混沌） |
+| 职业规模 | 79（不含混沌）+ 混沌若干，配额见 §2.4 |
+
+"已实现几个职业"不在本文件追踪，看 `06-kit-registry.md` 总表。
 
 ---
 
@@ -57,17 +82,20 @@
 
 点击"确认选择"后 → 设 `kit` 分 → 发放装备 → 聊天栏提示"已选择战士"。
 
-### 2.4 职业分类
+### 2.4 职业分类与配额
 
-| 分类 | 说明 |
-|---|---|
-| 经典（表） | 标准职业，平衡 |
-| 经典（里） | 经典职业的黑暗强化版 |
-| 经典（混沌） | 多职业杂糅，机制复杂 |
-| 星象 | 基于星座/天象设计 |
-| 职业职业 | 参考明日方舟，机制较复杂 |
-| 抽象 | 梗向、搞笑向 |
-| 历史 | 基于历史人物/事件 |
+配额是**设计决策**，不随实现进度变化；"已完成多少"去 `06-kit-registry.md` 看。
+
+| 分类 | 说明 | 配额 |
+|---|---|---|
+| 经典（表） | 标准职业，平衡 | 22 |
+| 经典（里） | 经典职业的黑暗强化版 | 22 |
+| 经典（混沌） | 多职业杂糅，机制复杂 | 待定 |
+| 星象 | 基于星座 / 天象设计 | 12 |
+| 职业职业 | 参考明日方舟，机制较复杂 | 10 |
+| 抽象 | 梗向、搞笑向 | 10 |
+| 历史 | 基于历史人物 / 事件 | 3 |
+| 合计 | — | 79 + 混沌 |
 
 ### 2.5 重合职业处理
 
@@ -101,7 +129,7 @@
 ### 2.8 战斗规则
 
 - 无阵营，所有人互为敌人
-- 允许有限度放置/破坏方块（不破坏平衡为前提）
+- 允许有限度放置 / 破坏方块（不破坏平衡为前提）
 - 大部分装备无法破坏（`Unbreakable:1b`）
 - 食物受限：每个职业食物种类和数量不同
 - 死亡不掉落
@@ -155,6 +183,8 @@
 
 写每个职业时按模板填。没写的项按默认值处理。
 
+**本模板是"怎么填"，不是"填了什么"。填好的实例放 `06-kit-registry.md`。**
+
 ```yaml
 职业名: 战士
 分类: 经典（表）
@@ -201,341 +231,90 @@
 
 ---
 
-## 四、职业清单
+## 四、设计决策记录
 
-### 4.1 经典（表）—— 22 个
 
-- [x] 战士
-- [x] 弓箭手
-- [x] 坦克
-- [x] 刺客
-- [ ] 矿工
-- [x] 纵火狂
-- [ ] 幽灵
-- [ ] 海盗
-- [ ] 驯兽师
-- [ ] 史莱姆
-- [ ] 末影人
-- [ ] 附魔师
-- [ ] 药剂师
-- [ ] 文明小子
-- [ ] 渔夫
-- [ ] 炸弹兵
-- [ ] 李朱俊泽
-- [ ] 蜘蛛侠
-- [ ] 僵尸
-- [ ] 时间领主
-- [ ] 农夫
-- [ ] 狼人
-
-### 4.2 经典（里）—— 22 个
-
-所有表职业均有里版本，命名规则待定。
-
-- [ ] 矿工·里
-- [ ] 战士·里
-- [ ] 弓箭手·里
-- [ ] 坦克·里
-- [ ] 刺客·里
-- [ ] 纵火狂·里
-- [ ] 幽灵·里
-- [ ] 海盗·里
-- [ ] 驯兽师·里
-- [ ] 史莱姆·里
-- [ ] 末影人·里
-- [ ] 附魔师·里
-- [ ] 药剂师·里
-- [ ] 文明小子·里
-- [ ] 渔夫·里
-- [ ] 炸弹兵·里
-- [ ] 李朱俊泽·里
-- [ ] 蜘蛛侠·里
-- [ ] 僵尸·里
-- [ ] 时间领主·里
-- [ ] 农夫·里
-- [ ] 狼人·里
-
-### 4.3 经典（混沌）—— 待补全
-
-大部分表职业均有混沌版本，具体名单待定。
-
-- [ ] 待补充
-
-### 4.4 星象 —— 12 个
-
-- [ ] 太阳
-- [ ] 地球
-- [ ] 哈雷彗星
-- [ ] 月球
-- [ ] 水星
-- [ ] 金星
-- [ ] 火星
-- [ ] 木星
-- [ ] 土星
-- [ ] 天王星
-- [ ] 海王星
-- [ ] 冥王星
-
-### 4.5 职业职业 —— 10 个
-
-- [ ] 处决者（凋灵）
-- [ ] 教官
-- [ ] 陷阱师
-- [ ] 中坚术师
-- [ ] 武者
-- [ ] 斗士
-- [ ] 无畏者
-- [ ] 冲锋者
-- [ ] 傀儡师
-- [ ] 驭法铁卫
-
-### 4.6 抽象 —— 10 个
-
-- [ ] 胖子（小卖部）
-- [ ] 烛之武
-- [ ] 真烦人
-- [ ] 电棍otto
-- [ ] 汉堡小子
-- [ ] 爆裂魔法师（惠惠）
-- [ ] 如意馄饨
-- [ ] 如来
-- [ ] 教练
-- [ ] 排长
-
-### 4.7 历史 —— 3 个
-
-- [ ] 渔父
-- [ ] 忽必烈
-- [ ] 李将军
+（由于注释几乎均已涉及设计过程中的决策，具体内容以现有文件为准）
 
 ---
 
-## 五、已完成的职业卡片
+## 五、跨职业待办
 
-### 战士
+> 只登记**跨职业、跨模块**的待办。
+> "某个职业还没做"这种待办不在此列——去 `06-kit-registry.md` 总表看那行的状态列。
 
-```yaml
-职业名: 战士
-分类: 经典（表）
-简介: 铁甲冲锋的正面战士
-
-装备:
-  头盔: minecraft:iron_helmet
-  胸甲: minecraft:iron_chestplate
-  护腿: minecraft:iron_leggings
-  靴子: minecraft:iron_boots
-  主手: minecraft:iron_sword
-  食物: minecraft:cooked_beef x 16
-        minecraft:golden_apple x 2
-
-属性:
-  护甲: 15
-  护甲韧性: 0
-
-技能: -
-
-命数: 3
-```
-
-### 弓箭手
-
-```yaml
-职业名: 弓箭手
-分类: 经典（表）
-简介: 远程消耗的射手
-
-装备:
-  头盔: minecraft:leather_helmet
-  胸甲: minecraft:leather_chestplate
-  护腿: minecraft:iron_leggings
-  靴子: minecraft:iron_boots
-  主手: minecraft:stone_sword
-  副手: minecraft:bow
-  食物: minecraft:cooked_beef x 16
-  其他: minecraft:arrow x 12
-
-属性:
-  护甲: 9
-  护甲韧性: 0
-
-技能:
-  名称: 换弹
-  冷却: 无（拾取即重置）
-  效果: |
-    丢出自己的弓并捡起，箭数重置为 12。
-    若弓被其他人捡起，进入 30 秒冷却，
-    期间其他人无法获得此弓，30 秒后归还。
-
-命数: 3
-特殊: 只能识别自己起始获得的弓
-```
-
-### 坦克
-
-```yaml
-职业名: 坦克
-分类: 经典（表）
-简介: 高护甲低速的肉盾
-
-装备:
-  头盔: minecraft:diamond_helmet
-  胸甲: minecraft:diamond_chestplate
-  护腿: minecraft:diamond_leggings
-  靴子: minecraft:diamond_boots
-  主手: minecraft:wooden_sword
-  食物: minecraft:cooked_beef x 16
-
-属性:
-  护甲: 20
-  护甲韧性: 8
-  永久效果:
-    - minecraft:mining_fatigue 等级 I
-    - minecraft:slowness 等级 I
-
-技能:
-  名称: 举盾
-  冷却: 30 秒
-  效果: 获得一个持续 15 秒、耐久 80 的盾
-
-命数: 3
-```
-
-### 刺客
-
-```yaml
-职业名: 刺客
-分类: 经典（表）
-简介: 高速突进的暗杀者
-
-装备:
-  头盔: minecraft:leather_helmet（黑色）
-  胸甲: minecraft:leather_chestplate（黑色）
-  护腿: minecraft:leather_leggings（黑色）
-  靴子: minecraft:leather_boots（黑色）
-  主手: minecraft:diamond_sword{锋利 II}
-  食物: minecraft:cooked_beef x 16
-
-属性:
-  护甲: 7
-  护甲韧性: 0
-  永久效果:
-    - minecraft:speed 等级 I
-
-技能:
-  名称: 隐匿
-  冷却: 30 秒
-  效果: 获得 5 秒隐身 + 速度 III
-
-命数: 3
-```
-
----
-
-## 六、计分板登记表
-
-> 新增任何 objective，必须同步本表 + `load.mcfunction` + `util/clear_player.mcfunction`。
-> dummy 类型用于编号/计数/快照；统计类型用于"使用事件"检测。
-
-| 名称 | 类型 | 用途 | 初始化于 | 消费者 |
-|---|---|---|---|---|
-| `kitpvp.kit` | dummy | 职业 ID（0=未选） | load / clear_player | dispatch、tick 各检测行 |
-| `kitpvp.cd` | dummy | 主技能冷却（刻） | load / clear_player | tick 递减、dispatch 闸门 |
-| `kitpvp.cd2` | dummy | 第二技能冷却（刻，预留） | load / clear_player | tick 递减 |
-| `kitpvp.alive` | dummy | 存活（1=活 0=旁观） | load / clear_player | tick 各检测行 |
-| `kitpvp.lives` | dummy | 剩余命数 | load / clear_player | 死亡结算 |
-| `kitpvp.kills` | dummy | 击杀数 | load / clear_player | 结算 |
-| `kitpvp.deaths` | dummy | 死亡数 | load / clear_player | 结算 |
-| `kitpvp.map` | dummy | 当前地图 ID（预留） | load | 地图选择 |
-| `kitpvp.timer` | dummy | 全局倒计时（秒） | load | timer_tick |
-| `kitpvp.inv` | dummy | 无敌剩余刻数 | tick 补零 / clear_player | 无敌结束判定 |
-| `kitpvp.death_detect` | dummy | 死亡计数器（写入方未定，待补） | — | death_dispatch |
-| `kitpvp.death_seen` | dummy | 死亡快照 | load / join / clear_player | death_dispatch |
-| `kitpvp.game` | dummy | 游戏状态 | load | check_winner |
-| `kitpvp.item` | dummy | 预留 | load / clear_player | — |
-| `kitpvp.tank_used` | `minecraft.used:minecraft.iron_golem_spawn_egg` | 坦克令牌使用 | load | tick |
-| `kitpvp.tank_last` | dummy | 坦克快照 | load / join / clear_player | tick |
-| `kitpvp.assassin_used` | `minecraft.used:minecraft.enderman_spawn_egg` | 刺客令牌使用 | load | tick |
-| `kitpvp.assassin_last` | dummy | 刺客快照 | load / join / clear_player | tick |
-| `kitpvp.ready_used` | `minecraft.used:minecraft.carrot_on_a_stick` | 大厅准备钓竿使用 | load | tick |
-| `kitpvp.ready_last` | dummy | 准备快照 | load / lobby/enter / clear_player | tick |
-| `kitpvp.arsonist_used` | `minecraft.used:minecraft.splash_potion` | 燃烧瓶投掷 | load | tick |
-| `kitpvp.arsonist_last` | dummy | 投掷快照 | load / join / clear_player | tick |
-| `kitpvp.arsonist_ammo` | dummy | 剩余燃烧瓶数量（上限 2） | load / kit/arsonist / join / clear_player | dispatch、cast |
-| `kitpvp.fire_timer` | dummy | 火焰守护剩余刻数（挂在 marker 上） | arsonist_place | arsonist_flame_tick |
-
-假玩家：
-
-| 名称 | 用途 |
-|---|---|
-| `#state kitpvp.game` | 游戏状态机（0=待机 1=进行中 2=结算中） |
-| `#tick kitpvp.game` | 胜负轮询节流计数器 |
-| `#test kitpvp.game` | 测试模式开关（1=自动判定胜利关闭） |
-
-> 计分板名只允许小写字母、数字、点、下划线，不能有大写。
-
-
----
-
-## 七、tag 登记表
-
-> 新增任何 tag，必须同步本表 + `load.mcfunction` + `util/clear_player.mcfunction`。
-> 最后一个字段写"clear_player 是否清"，是新增 tag 时必须回答的问题。
-
-| tag | 用途 | add 于 | remove 于 | clear_player 清 |
-|---|---|---|---|---|
-| `kitpvp.joined` | 已登记接入 | player/join | — | ❌ 刻意不清 |
-| `kitpvp.in_lobby` | 在大厅 | lobby/enter | lobby/exit | ❌ 刻意不清 |
-| `kitpvp.selected` | 已选职业 | kit/xxx | clear_player | ✅ |
-| `kitpvp.invincible` | 无敌中 | player/invincible | player/end_invincible / clear_player | ✅ |
-| `kitpvp.sudden_death` | 突然死亡激活 | game/sudden_death_start | clear_player | ✅ |
-| `kitpvp.spectator` | 旁观者 | player/eliminate | clear_player | ✅ |
-| `kitpvp.respawn_pending` | 待重生处理 | player/on_death | player/after_death / clear_player | ✅ |
-| `kitpvp.death_immune` | 死亡不计 | 职业专属 | clear_player | ✅ |
-| `kitpvp.keep_inventory` | 保留背包 | 职业专属 | clear_player | ✅ |
-| `kitpvp.skill_ready` | 战士持有补给 | warrior_ready | warrior_consume / clear_player | ✅ |
-| `kitpvp.skill_consume` | 预留 | — | clear_player | ✅ |
-| `kitpvp.shield_held` | 坦克持盾中 | tank_fire | tank_expire / clear_player | ✅ |
-| `kitpvp.assassin_hidden` | 刺客隐匿中 | assassin_fire | assassin_unhide / clear_player | ✅ |
-| `kitpvp.ready` | 已准备 | lobby/ready_on | lobby/ready_off / clear_player | ✅ |
-| `kitpvp.ready_pending` | 准备待处理 | lobby/ready_toggle | clear_player | ✅ |
-| `kitpvp.arsonist_burst` | 药水落地已触发 | arsonist_burst | 随药水实体消失 | ❌ 挂实体上 |
-| `kitpvp.arsonist_fire` | 火焰守护 marker | arsonist_place_one | 随 marker 被 kill | ❌ 挂实体上 |
-| `kitpvp.arsonist_new` | 本批未初始化 marker | arsonist_place_one | arsonist_place | ❌ 挂实体上 |
-
-> tag 只用于"有/没有"的二值判断。编号、计数、冷却用计分板。
-
----
-
-## 八、01-file-structure为每次更改后通过cmd读取文件目录得到的所有文件，如要参考目前有哪些函数可参考
-
----
-
-## 九、设计决策记录，具体请参照已完成代码
-
----
-
-## 九·五、kit 编号对照
-
-> 必须与 `util/give_kit.mcfunction`、`skill/dispatch.mcfunction` 三处保持一致。
-
-| 编号 | 职业 | 技能类型 | 令牌物品 |
-|---|---|---|---|
-| 0 | （未选） | — | — |
-| 1 | 战士 | - | - |
-| 2 | 弓箭手 | 触发器驱动（advancement） | 无（给弓） |
-| 3 | 坦克 | 主动 | `iron_golem_spawn_egg` |
-| 4 | 刺客 | 主动 | `enderman_spawn_egg` |-
-| 5 | 纵火狂 | 主动（投掷）+ 自动（补货） | `splash_potion{KitFireBomb:1b}` |
-| + | 后续职业顺延 | | |
-
-新增职业时，同步更新：本表 + `util/give_kit.mcfunction` + `skill/dispatch.mcfunction`。
-
----
-
-## 十、待办清单
-
-- [ ] 补全所有职业卡片（79 个，不含混沌）
 - [ ] 确定混沌版本名单
 - [ ] 确定地图清单和每张地图的特性
 - [ ] 确定突然死亡的魂石清单
 - [ ] 设计地图复原方案
+
+---
+
+## 六、维护契约
+
+> 本节回答一个问题：**下次加东西时，我该动哪个文件。**
+> 目的是让本文件不再因为"又做了一个职业"而膨胀。
+
+### 6.1 什么放哪
+
+| 信息 | 放哪 |
+|---|---|
+| 版本红线、禁止语法 | `00` |
+| 函数 / 文件清单 | `01`（扫描生成，不手写） |
+| 命令语法、易错写法 | `02` |
+| 玩家体验、判定、时间、胜利条件、分类配额、模板 | `03` |
+| 坑位、约定、已踩过的错 | `04` |
+| 技能实现模板（主动 / 自动 / 投掷） | `05` |
+| 职业编号、分类归属、状态、职业卡片 | `06` |
+| objective / tag / 物品标记 的实际占用 | `07` |
+
+### 6.2 加东西时动什么
+
+**加一个职业：**
+
+1. `06` 总表加一行（编号 = 现有最大编号 + 1）
+2. `06` 卡片加一节
+3. `util/give_kit.mcfunction` + `skill/dispatch.mcfunction` 同步编号
+4. 若占用了新的 objective / tag / 物品标记 → `07` 补行
+5. **不碰 `03`**
+
+**加一条规则**（改命数上限、改倒计时、改胜利条件、改分类配额）：
+
+- 只改 `03`
+- 改完检查 `06` / `07` 里有没有需要跟进的实例
+
+**改一个职业的数值：**
+
+- 改 `06` 卡片 + 对应 `kit/*.mcfunction`
+- 不动 `03`
+
+**加一个新技能：**
+
+- 按 `05` 的模板选类型实现
+- `07` 补 objective / tag / 物品标记
+- 若产生了新的通用坑位 → 补 `04`
+- 只有"规则本身变了"才动 `03`
+
+**得到新的经验，如经测试可用的advancement策略、函数逻辑：**
+
+- 加入到 `02` 的经验清单中
+
+### 6.3 派生文件的权威顺序
+
+`01` 与 `07` 是**账本**，代码是**事实**。二者冲突时：
+
+- **以代码为准**，修正账本。
+- 账本允许暂时滞后，但**不允许写与代码相反的内容**。
+- 这条约定是刻意的：它免除"每次改代码必须同步文档"的负担，只要求在**发现不一致时**修账本。
+
+### 6.4 编号铁律
+
+职业编号只增不复用。编号一旦发出，就是该职业的永久身份；职业被删除，编号作废，不还给后来者。
+详见 `06-kit-registry.md` 第一节。
+
+### 6.5 未来可能新增的注册表
+
+若某类信息开始具备"实例层"特征（每加一项就改一次），按同样模式外置，不往 `03` 塞：
+
+- 地图注册表（每加一张地图就改一次）
+- 魂石注册表（每加一个职业的魂石就改一次）
