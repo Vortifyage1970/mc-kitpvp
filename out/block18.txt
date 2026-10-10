@@ -1,7 +1,0 @@
-- `scoreboard players add <target> <obj> 0` 是补零，`set` 是归零，两者不能互换
-- 同效果的更高等级会顶替低等级，不会叠加
-- `clear` 只清背包，清不掉地上的物品
-- `name=<字符串>` 选择器匹配生物的 CustomName（纯文本），不是匹配 NBT
-- `schedule function <id> <t> replace` 的语义是"同 id 只保留最后一次"，适合"全局唯一计时器"场景
-- 1.20.1 无 `/heal`，用 `effect give @s minecraft:instant_health 1 5 true` 代替
-  （instant_health 每级回 4×2^amp 点，amp 5 已是 128 点，足够回满 20 血，无需再调高）

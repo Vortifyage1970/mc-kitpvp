@@ -15,4 +15,8 @@ build/
 .env
 .env.*
 !.env.example
+.ai_history
+ai-content/
+out/
+tools/
 "@ | Add-Content .gitignore

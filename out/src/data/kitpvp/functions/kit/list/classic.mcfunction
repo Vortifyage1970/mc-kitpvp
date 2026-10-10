@@ -1,1 +1,0 @@
-tellraw @s [{"text":"[ 刺客 ] ","color":"dark_purple","clickEvent":{"action":"run_command","value":"/function kitpvp:kit/assassin"},"hoverEvent":{"action":"show_text","contents":[{"text":"高速突进的暗杀者","color":"gray"}]}},{"text":"高速突进的暗杀者","color":"dark_gray"}]

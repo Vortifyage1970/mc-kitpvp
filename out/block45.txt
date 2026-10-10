@@ -1,2 +1,0 @@
-- `util/say.mcfunction` 与 `util/title.mcfunction` 目前是**空占位**（只有注释）。
-  调用合法但无效果。实现前不要把逻辑依赖它们。
