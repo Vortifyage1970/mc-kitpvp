@@ -13,6 +13,7 @@ function kitpvp:player/invincible
 # 其他职业有被动时，在此按同格式追加
 execute if score @s kitpvp.kit matches 3 run function kitpvp:kit/tank_passive
 execute if score @s kitpvp.kit matches 4 run function kitpvp:kit/assassin_passive
+execute if score @s kitpvp.kit matches 6 run function kitpvp:kit/ghost_passive
 
 # 提示
 playsound minecraft:block.note_block.pling master @s ~ ~ ~ 1 1.2

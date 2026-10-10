@@ -136,6 +136,19 @@ execute as @a[scores={kitpvp.kit=1..,kitpvp.alive=1}] if score @s kitpvp.cd matc
 execute as @a[tag=kitpvp.soul_bow_held,scores={kitpvp.soul_bow_timer=1..}] run scoreboard players remove @s kitpvp.soul_bow_timer 1
 execute as @a[tag=kitpvp.soul_bow_held,scores={kitpvp.soul_bow_timer=..0}] run function kitpvp:skill/soul/bow_expire
 
+# ===== 魂石：幽灵（vex_spawn_egg 专用）=====
+# 右键蛋 → used 增长 → use_ghost
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_ghost_used > @s kitpvp.soul_ghost_last run function kitpvp:skill/soul/use_ghost
+
+# ===== 魂石·幽影：使用者 20 秒激活倒计时 =====
+execute as @a[scores={kitpvp.soul_ghost_timer=1..}] run scoreboard players remove @s kitpvp.soul_ghost_timer 1
+execute as @a[tag=kitpvp.soul_ghost_active,scores={kitpvp.soul_ghost_timer=..0}] run function kitpvp:skill/soul/ghost_expire
+
+# ===== 魂石·阴兵：5 秒召唤冷却递减 =====
+execute as @a[scores={kitpvp.ghost_minion_cd=1..}] run scoreboard players remove @s kitpvp.ghost_minion_cd 1
+
+
+
 # 兼容中途加入的玩家：没有 inv 分数就补 0
 scoreboard players add @a kitpvp.inv 0
 

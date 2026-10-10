@@ -22,3 +22,4 @@ execute if score @s kitpvp.soul_rand matches 0 run give @s minecraft:blaze_spawn
 execute if score @s kitpvp.soul_rand matches 1 run give @s minecraft:skeleton_spawn_egg{KitSoul:1b,KitSoulArcher:1b,display:{Name:'{"text":"弓箭手魂石","color":"green","bold":true}'}} 1
 execute if score @s kitpvp.soul_rand matches 2 run give @s minecraft:iron_golem_spawn_egg{KitSoul:1b,KitSoulTank:1b,display:{Name:'{"text":"坦克魂石","color":"aqua","bold":true}'}} 1
 execute if score @s kitpvp.soul_rand matches 3 run give @s minecraft:enderman_spawn_egg{KitSoul:1b,KitSoulAssassin:1b,display:{Name:'{"text":"刺客魂石","color":"dark_purple","bold":true}'}} 1
+execute if score @s kitpvp.soul_rand matches 4 run give @s minecraft:vex_spawn_egg{KitSoul:1b,KitSoulGhost:1b,display:{Name:'{"text":"幽灵魂石","color":"dark_aqua","bold":true}'}} 1

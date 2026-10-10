@@ -17,7 +17,7 @@ item replace entity @s armor.chest with minecraft:diamond_chestplate{Unbreakable
 item replace entity @s armor.legs with minecraft:diamond_leggings{Unbreakable:1b}
 item replace entity @s armor.feet with minecraft:diamond_boots{Unbreakable:1b}
 item replace entity @s weapon.mainhand with minecraft:wooden_sword{Unbreakable:1b}
-give @s minecraft:cooked_beef 16
+give @s minecraft:cooked_beef 24
 
 # 4. 永久效果：减速 I + 挖掘疲劳 I（infinite，死亡不清，会一直挂着）
 effect give @s minecraft:slowness infinite 0 true

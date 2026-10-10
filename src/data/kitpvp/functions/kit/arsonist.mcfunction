@@ -19,7 +19,7 @@ item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b,Encha
 item replace entity @s weapon.mainhand with minecraft:stone_sword{Unbreakable:1b,Enchantments:[{id:"minecraft:fire_aspect",lvl:2}]}
 
 # --- 食物 / 工具 ---
-give @s minecraft:cooked_beef 16
+give @s minecraft:cooked_beef 24
 give @s minecraft:flint_and_steel 1
 
 # --- 初始 2 瓶燃烧瓶 ---

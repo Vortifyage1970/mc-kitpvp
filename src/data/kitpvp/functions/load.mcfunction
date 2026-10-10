@@ -1,5 +1,3 @@
-# 数据包加载时执行一次
-# 一、游戏规则
 gamerule keepInventory true
 gamerule doMobSpawning false
 gamerule mobGriefing false
@@ -46,6 +44,12 @@ scoreboard objectives add kitpvp.arsonist_used minecraft.used:minecraft.splash_p
 scoreboard objectives add kitpvp.arsonist_last dummy
 scoreboard objectives add kitpvp.arsonist_ammo dummy
 scoreboard objectives add kitpvp.fire_timer dummy
+scoreboard objectives add kitpvp.soul_ghost_used minecraft.used:minecraft.vex_spawn_egg
+scoreboard objectives add kitpvp.soul_ghost_last dummy "幽灵魂石快照"
+scoreboard objectives add kitpvp.soul_ghost_timer dummy "幽灵魂石倒计时"
+scoreboard objectives add kitpvp.ghost_minion_cd dummy "阴兵召唤冷却"
+scoreboard objectives add kitpvp.minion_timer dummy "阴兵倒计时"
+scoreboard objectives add kitpvp.tid dummy "队槽编号"
 
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
 scoreboard objectives modify kitpvp.lives displayname {"text":"命数","color":"red"}
@@ -56,6 +60,16 @@ scoreboard objectives setdisplay sidebar kitpvp.lives
 # 三、队伍
 # 设计文档 2.8：无阵营，所有人互为敌人，此处不创建红/蓝阵营队伍。
 # 若后续某张地图需要队伍机制，在此追加 team add / team modify。
+#
+# 幽灵阴兵队：每位使用者一个独立队伍，关闭友伤。
+# tid 由 summon/ghost_minion_pair 惰性分配，上限 6 人（超出复用队槽）。
+# team add 对已存在的队伍会失败但无副作用；team modify 保证配置总是被应用。
+team add ghost_1
+team add ghost_2
+team add ghost_3
+team add ghost_4
+team add ghost_5
+team add ghost_6
 
 # 四、标签清理
 tag @a remove kitpvp.selected
@@ -73,6 +87,7 @@ tag @a remove kitpvp.shield_held
 tag @a remove kitpvp.assassin_hidden
 tag @a remove kitpvp.soul_bow_held
 tag @a remove kitpvp.soul_transit
+tag @a remove kitpvp.soul_ghost_active
 tag @a remove kitpvp.on_pad
 
 # 五、玩家状态归零
@@ -95,7 +110,9 @@ scoreboard players set #state kitpvp.game 0
 scoreboard players set #survivors kitpvp.game 0
 scoreboard players set #tick kitpvp.game 0
 scoreboard players set #test kitpvp.game 0
-scoreboard players set #soul_count kitpvp.game 4
+scoreboard players set #soul_count kitpvp.game 5
+scoreboard players set #ghost_tid kitpvp.game 0
+scoreboard players set #ghost_need_new kitpvp.game 0
 
 # 七、清空 storage
 data remove storage kitpvp:main temp

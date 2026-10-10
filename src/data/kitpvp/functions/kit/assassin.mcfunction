@@ -19,7 +19,7 @@ item replace entity @s armor.chest with minecraft:leather_chestplate{display:{co
 item replace entity @s armor.legs with minecraft:leather_leggings{display:{color:1908001},Unbreakable:1b}
 item replace entity @s armor.feet with minecraft:leather_boots{display:{color:1908001},Unbreakable:1b}
 item replace entity @s hotbar.0 with minecraft:diamond_sword{Enchantments:[{id:"minecraft:sharpness",lvl:1}],Unbreakable:1b}
-item replace entity @s hotbar.1 with minecraft:cooked_beef 16
+item replace entity @s hotbar.1 with minecraft:cooked_beef 24
 
 # 4. 永久效果：速度 I（死亡会清空药水效果，重生由 after_death 重新挂）
 function kitpvp:kit/assassin_passive

@@ -25,7 +25,7 @@
  item replace entity @s weapon.offhand with minecraft:bow{KitBow:1b,Unbreakable:1b} 1                                          
                                                                                                                                
  # 消耗品                                                                                                                      
- give @s minecraft:cooked_beef 16                                                                                              
+ give @s minecraft:cooked_beef 24                                                                                              
  give @s minecraft:arrow 12                                                                                                    
                                                                                                                                
  # 标记"已选职业"                                                                                                              

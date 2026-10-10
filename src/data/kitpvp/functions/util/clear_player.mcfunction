@@ -64,6 +64,12 @@ scoreboard players set @s kitpvp.soul_bow_timer 0
 scoreboard players operation @s kitpvp.soul_warrior_last = @s kitpvp.soul_warrior_used
 scoreboard players operation @s kitpvp.soul_archer_last = @s kitpvp.soul_archer_used
 tag @s remove kitpvp.soul_bow_held
+# 幽灵魂石状态：摘激活标记、清零倒计时与召唤冷却、推快照
+# tid 刻意不清：下次用魂石复用同一队槽，避免队槽碎片化
+tag @s remove kitpvp.soul_ghost_active
+scoreboard players set @s kitpvp.soul_ghost_timer 0
+scoreboard players set @s kitpvp.ghost_minion_cd 0
+scoreboard players operation @s kitpvp.soul_ghost_last = @s kitpvp.soul_ghost_used
 
 # --- 五、属性复位到原版默认 ---
 attribute @s minecraft:generic.max_health base set 20
