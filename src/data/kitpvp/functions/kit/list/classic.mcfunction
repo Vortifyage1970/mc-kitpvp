@@ -1,6 +1,5 @@
-# ===== 职业列表：经典（表） =====
 # 由 kit/list 的 [经典（表）] 按钮触发
-# 新增职业时，在 [返回] 之前按同格式追加一行
+# 新增职业时，在 [随机] / [返回] 之前按同格式追加一行
 
 tellraw @s [{"text":"═══ 经典（表） ═══","color":"green","bold":true}]
 tellraw @s [{"text":"[战士] ","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/info/warrior"},"hoverEvent":{"action":"show_text","contents":[{"text":"铁甲冲锋的正面战士","color":"gray"}]}},{"text":"铁甲冲锋的正面战士","color":"dark_gray"}]
@@ -10,4 +9,5 @@ tellraw @s [{"text":"[刺客] ","color":"green","bold":true,"clickEvent":{"actio
 tellraw @s [{"text":"[纵火狂] ","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/info/arsonist"},"hoverEvent":{"action":"show_text","contents":[{"text":"把战场烧成灰烬的纵火者","color":"gray"}]}},{"text":"把战场烧成灰烬的纵火者","color":"dark_gray"}]
 tellraw @s [{"text":"[幽灵] ","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/info/ghost"},"hoverEvent":{"action":"show_text","contents":[{"text":"脆弱而靠速度与隐身周旋的潜行者","color":"gray"}]}},{"text":"脆弱而靠速度与隐身周旋的潜行者","color":"dark_gray"}]
 tellraw @s [{"text":"[渔夫] ","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/info/fisher"},"hoverEvent":{"action":"show_text","contents":[{"text":"以三叉戟与水流作战的猎手","color":"gray"}]}},{"text":"以三叉戟与水流作战的猎手","color":"dark_gray"}]
+tellraw @s [{"text":"[随机] ","color":"light_purple","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/random"},"hoverEvent":{"action":"show_text","contents":[{"text":"从已实装职业中随机一个并直接确认","color":"gray"}]}},{"text":"随机选一个职业并直接确认","color":"dark_gray"}]
 tellraw @s [{"text":"[返回]","color":"yellow","clickEvent":{"action":"run_command","value":"/function kitpvp:kit/list"},"hoverEvent":{"action":"show_text","contents":[{"text":"回到分类列表","color":"gray"}]}}]

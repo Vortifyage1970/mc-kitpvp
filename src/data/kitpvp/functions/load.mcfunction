@@ -31,6 +31,8 @@ scoreboard objectives add kitpvp.tank_used minecraft.used:minecraft.iron_golem_s
 scoreboard objectives add kitpvp.tank_last dummy "坦克技能快照"
 scoreboard objectives add kitpvp.assassin_used minecraft.used:minecraft.enderman_spawn_egg
 scoreboard objectives add kitpvp.assassin_last dummy "刺客技能快照"
+scoreboard objectives add kitpvp.fisher_used minecraft.used:minecraft.drowned_spawn_egg 
+scoreboard objectives add kitpvp.fisher_last dummy "渔夫技能快照"
 scoreboard objectives add kitpvp.ready_used minecraft.used:minecraft.carrot_on_a_stick
 scoreboard objectives add kitpvp.ready_last dummy "大厅准备快照"
 scoreboard objectives add kitpvp.tmp dummy
@@ -50,6 +52,7 @@ scoreboard objectives add kitpvp.soul_ghost_timer dummy "幽灵魂石倒计时"
 scoreboard objectives add kitpvp.ghost_minion_cd dummy "阴兵召唤冷却"
 scoreboard objectives add kitpvp.minion_timer dummy "阴兵倒计时"
 scoreboard objectives add kitpvp.tid dummy "队槽编号"
+scoreboard objectives add kitpvp.rng dummy
 
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
 scoreboard objectives modify kitpvp.lives displayname {"text":"命数","color":"red"}
@@ -102,6 +105,7 @@ scoreboard players set @a kitpvp.inv 0
 scoreboard players set @a kitpvp.death_detect 0
 scoreboard players set @a kitpvp.death_seen 0
 scoreboard players set @a kitpvp.item 0
+scoreboard players set @a kitpvp.tid 0
 
 # 六、全局假玩家数据
 scoreboard players set #global kitpvp.map 0
@@ -122,6 +126,7 @@ data remove storage kitpvp:main player
 tag @e[type=minecraft:armor_stand] add kitpvp.displayitem
 tag @e[type=minecraft:item_frame] add kitpvp.displayitem
 tag @e[type=minecraft:glow_item_frame] add kitpvp.displayitem
+tag @e[type=minecraft:painting] add kitpvp.displayitem
 
 execute as @e[tag=kitpvp.displayitem] run data merge entity @s {Invulnerable:1b}
 

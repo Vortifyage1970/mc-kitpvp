@@ -24,6 +24,7 @@ scoreboard players operation @s kitpvp.ready_last = @s kitpvp.ready_used
 scoreboard players operation @s kitpvp.soul_warrior_last = @s kitpvp.soul_warrior_used
 scoreboard players operation @s kitpvp.soul_archer_last = @s kitpvp.soul_archer_used
 scoreboard players operation @s kitpvp.arsonist_last = @s kitpvp.arsonist_used
+scoreboard players operation @s kitpvp.fisher_last = @s kitpvp.fisher_used
 scoreboard players set @s kitpvp.arsonist_ammo 0
 
 # 进入主大厅（负责 add kitpvp.in_lobby）

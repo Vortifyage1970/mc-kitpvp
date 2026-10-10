@@ -9,8 +9,6 @@
 #   全程沿用当前执行位置（= 被攻击者）+ `positioned ^x` 表达"左右"。
 #   ^x 正值 = 视线左侧 1 格；^x 负值 = 视线右侧 1 格。
 
-tag @e remove kitpvp.ghost_minion_new
-
 # 被攻击者左侧 1.5 格
 execute positioned ^1 ^ ^ run function kitpvp:summon/ghost_minion
 

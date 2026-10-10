@@ -118,6 +118,18 @@ kill @e[type=minecraft:potion,nbt={Item:{tag:{KitFireBomb:1b}}},y=-100,dy=100]
 # 火焰 5 秒保护（保持原样）
 function kitpvp:skill/arsonist_flame_tick
 
+# ===== 渔夫 =====
+# 清掉寻戟令牌右键生成的溺尸（只清该渔夫 16 格内、CustomName 为"寻戟令牌"的）
+# ⚠ 副作用：地图自带装饰性溺尸若落在该玩家 16 格内，会被一并清掉。
+#   距离 16 覆盖刷怪蛋最大右键射程（约 4.5 格）并留余量。
+execute as @a[scores={kitpvp.kit=7}] at @s run kill @e[type=minecraft:drowned,distance=..16,name="寻戟令牌"]
+
+# 主动技能入口：任何溺尸蛋被使用都进 cast，cd 分流在 cast 内部做
+execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.fisher_used > @s kitpvp.fisher_last run function kitpvp:skill/fisher_cast
+
+# 兜底补发令牌（cd=0 且背包无令牌）
+execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1,kitpvp.cd=0},tag=!kitpvp.spectator] unless data entity @s Inventory[{tag:{KitFisherEgg:1b}}] run function kitpvp:skill/fisher_give_egg
+
 
 # ===== 魂石：战士（blaze_spawn_egg 专用）=====
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_warrior_used > @s kitpvp.soul_warrior_last run function kitpvp:skill/soul/use_warrior
