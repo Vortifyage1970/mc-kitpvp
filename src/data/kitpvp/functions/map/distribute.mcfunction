@@ -1,6 +1,6 @@
 # ===== 将玩家随机分布到当前地图的出生点 =====
 # 调用方：game/start_impl
-# 依赖：#global kitpvp.map 指向当前地图（0 = 未选，1 = 沙漠）
+# 依赖：#global kitpvp.map 指向当前地图（0 = 未选，1 = 沙漠，2 = 竞技场，7 = 地球，8 = 西安）
 
 # 1. 清掉所有参战玩家的"已分配"标记
 tag @a[tag=kitpvp.selected] remove kitpvp.spawn_assigned
@@ -9,3 +9,4 @@ tag @a[tag=kitpvp.selected] remove kitpvp.spawn_assigned
 execute if score #global kitpvp.map matches 1 run function kitpvp:map/desert/distribute
 execute if score #global kitpvp.map matches 2 run function kitpvp:map/arena/distribute
 execute if score #global kitpvp.map matches 7 run function kitpvp:map/earth/distribute
+execute if score #global kitpvp.map matches 8 run function kitpvp:map/xian/distribute
