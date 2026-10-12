@@ -136,12 +136,30 @@ execute as @a[scores={kitpvp.kit=7}] at @s run kill @e[type=minecraft:drowned,di
 scoreboard players add @a[scores={kitpvp.kit=7,kitpvp.alive=1}] kitpvp.fisher_no_tri 1
 execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1}] if data entity @s Inventory[{tag:{KitFisherTrident:1b}}] run scoreboard players set @s kitpvp.fisher_no_tri 0
 
+# ===== 末影人 =====
+# 末影珍珠在本服可能有多个来源（地图野刷、未来魂石/其它职业），
+# minecraft.used:minecraft.ender_pearl 只能当粗筛信号。
+# A. 推进 prev（引用上一刻的 hold_ep）
+tag @a remove kitpvp.hold_ep_prev
+tag @a[tag=kitpvp.hold_ep] add kitpvp.hold_ep_prev
+
+# B. 重建当前刻 hold_ep
+tag @a remove kitpvp.hold_ep
+execute as @a if data entity @s SelectedItem.tag.KitEnderPearl run tag @s add kitpvp.hold_ep
+
+# C. 投掷入口（无条件调用，由 cast 内部用 hold_ep_prev 分流）
+# ⚠ 调用条件里绝对不能加 hold_ep_prev
+execute as @a[scores={kitpvp.kit=8,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.ender_used > @s kitpvp.ender_last run function kitpvp:skill/enderman_cast
+
+
 # 主动技能入口：任何溺尸蛋被使用都进 cast，cd 分流在 cast 内部做
 execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.fisher_used > @s kitpvp.fisher_last run function kitpvp:skill/fisher_cast
 
 # 兜底补发令牌（cd=0 且背包无令牌）
 execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1,kitpvp.cd=0},tag=!kitpvp.spectator] unless data entity @s Inventory[{tag:{KitFisherEgg:1b}}] run function kitpvp:skill/fisher_give_egg
 
+
+# 魂石
 
 # ===== 魂石：战士（blaze_spawn_egg 专用）=====
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_warrior_used > @s kitpvp.soul_warrior_last run function kitpvp:skill/soul/use_warrior

@@ -8,5 +8,7 @@ execute if score @s kitpvp.kit matches 4 run function kitpvp:kit/assassin
 execute if score @s kitpvp.kit matches 5 run function kitpvp:kit/arsonist
 execute if score @s kitpvp.kit matches 6 run function kitpvp:kit/ghost
 execute if score @s kitpvp.kit matches 7 run function kitpvp:kit/fisher
+execute if score @s kitpvp.kit matches 8 run function kitpvp:kit/enderman
+execute if score @s kitpvp.kit matches 9 run function kitpvp:kit/pirate
 # …… 新增职业时按同格式追加
 # ……

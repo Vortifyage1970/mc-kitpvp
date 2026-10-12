@@ -55,6 +55,9 @@ scoreboard objectives add kitpvp.minion_timer dummy "阴兵倒计时"
 scoreboard objectives add kitpvp.tid dummy "队槽编号"
 scoreboard objectives add kitpvp.rng dummy
 scoreboard objectives add kitpvp.fisher_no_tri dummy "渔夫无戟计时器"
+scoreboard objectives add kitpvp.ender_used minecraft.used:minecraft.ender_pearl
+scoreboard objectives add kitpvp.ender_last dummy
+scoreboard objectives add kitpvp.ender_ammo dummy
 
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
 scoreboard objectives modify kitpvp.lives displayname {"text":"命数","color":"red"}

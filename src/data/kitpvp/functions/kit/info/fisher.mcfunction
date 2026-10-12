@@ -10,7 +10,7 @@ tellraw @s [{"text":"│ 武器攻击速度：","color":"gray"},{"text":"1.0","c
 tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"15","color":"white"}]
 tellraw @s [{"text":"│ 总护甲韧性：","color":"gray"},{"text":"0","color":"white"}]
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"—","color":"dark_gray"}]
-tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"寻回三叉戟（冷却 60 秒）","color":"blue"}]
+tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"寻回三叉戟（冷却 30 秒）","color":"blue"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"white"}]
 tellraw @s [{"text":"└──────────────────────────────","color":"dark_gray"}]
 tellraw @s [{"text":"[ 确认选择 ]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/fisher"},"hoverEvent":{"action":"show_text","contents":"以渔夫参战"}},{"text":"  "},{"text":"[ 返回 ]","color":"yellow","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/list/classic"},"hoverEvent":{"action":"show_text","contents":"回到「经典（表）」职业列表"}}]

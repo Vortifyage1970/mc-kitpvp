@@ -39,4 +39,7 @@
 
 # kit = 5 纵火狂 · 燃烧瓶补给（自动技能，进 dispatch）
 execute if score @s kitpvp.kit matches 5 run function kitpvp:skill/arsonist
+
+# kit = 8 末影人 · 末影之珠补货（自动技能，进 dispatch）
+execute if score @s kitpvp.kit matches 8 run function kitpvp:skill/enderman
  

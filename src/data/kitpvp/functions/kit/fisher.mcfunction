@@ -19,8 +19,8 @@ tag @s add kitpvp.selected
 item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"generic.armor",Amount:2,Operation:0,UUID:[I;7,0,0,1],Slot:"head"}]} 1
 # chest：保护 V
 item replace entity @s armor.chest with minecraft:elytra{Unbreakable:1b,Enchantments:[{id:"minecraft:protection",lvl:5}]} 1
-# legs：皮革护腿默认 2，覆盖为 4
-item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"generic.armor",Amount:4,Operation:0,UUID:[I;7,0,0,3],Slot:"legs"}]} 1
+# legs：皮革护腿默认 2，覆盖为 5
+item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"generic.armor",Amount:5,Operation:0,UUID:[I;7,0,0,3],Slot:"legs"}]} 1
 # feet：皮革靴默认 1，覆盖为 2；深海探索者 III
 item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,Enchantments:[{id:"minecraft:depth_strider",lvl:3}],AttributeModifiers:[{AttributeName:"generic.armor",Name:"generic.armor",Amount:2,Operation:0,UUID:[I;7,0,0,4],Slot:"feet"}]} 1
 

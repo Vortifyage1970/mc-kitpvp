@@ -1,0 +1,19 @@
+{
+  "criteria": {
+    "pickup": {
+      "trigger": "minecraft:thrown_item_picked_up_by_player",
+      "conditions": {
+        "item": {
+          "items": ["minecraft:crossbow"],
+          "nbt": "{KitCrossbow:1b}"
+        }
+      }
+    }
+  },
+  "requirements": [
+    ["pickup"]
+  ],
+  "rewards": {
+    "function": "kitpvp:skill/pirate_pickup"
+  }
+}

@@ -33,4 +33,10 @@ execute if entity @s[x=-242,y=71,z=98,dx=1,dy=1,dz=1] run function kitpvp:kit/in
 # --- 幽灵 ---
 execute if entity @s[x=-246,y=71,z=98,dx=1,dy=1,dz=1] run function kitpvp:kit/info/ghost
 
+# --- 海盗 ---
+execute if entity @s[x=-250,y=71,z=98,dx=1,dy=1,dz=1] run function kitpvp:kit/info/pirate
+
+# --- 末影人 ---
+execute if entity @s[x=-254,y=71,z=98,dx=1,dy=1,dz=1] run function kitpvp:kit/info/enderman
+
 # …… 新增职业时按同格式追加
