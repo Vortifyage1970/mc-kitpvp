@@ -13,4 +13,4 @@ tag @s remove kitpvp.ready_pending
 scoreboard players operation @s kitpvp.ready_last = @s kitpvp.ready_used
 function kitpvp:lobby/give_items
 
-title @s actionbar {"text":"右键钓竿准备 · 点聊天栏菜单选职业与地图","color":"gray"}
+title @s actionbar {"text":"右键钓竿准备","color":"gray"}
