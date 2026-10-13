@@ -14,6 +14,6 @@
      ["pickup"]                                                                                                                
    ],                                                                                                                          
    "rewards": {                                                                                                                
-     "function": "kitpvp:skill/archer_pickup"                                                                                  
+     "function": "kitpvp:skill/archer/pickup"                                                                                  
    }                                                                                                                           
 }

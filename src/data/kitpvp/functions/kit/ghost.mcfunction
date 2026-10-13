@@ -9,6 +9,6 @@ give @s minecraft:player_head{SkullOwner:"Ghost",Enchantments:[{id:"minecraft:pr
 give @s minecraft:golden_chestplate{Unbreakable:1b} 1
 give @s minecraft:cooked_beef 24
 
-function kitpvp:kit/ghost_passive
+function kitpvp:skill/ghost/passive
 
 tag @s add kitpvp.selected

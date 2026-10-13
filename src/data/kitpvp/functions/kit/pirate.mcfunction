@@ -11,7 +11,7 @@ item replace entity @s armor.legs with minecraft:iron_leggings{Unbreakable:1b} 1
 item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,display:{color:13158}} 1
 
 # 1.20.1：写了 AttributeModifiers 就整体取代该物品默认修饰符，攻伤与攻速必须写全
-# （玩家基础 1 + 7 = 8 伤害；基础攻速 4.0 - 3.0 = 1.0）
+# 主手斧：攻击力 8 / 攻速 1.0（海盗的武器伤害定为 8）
 give @s minecraft:diamond_axe{KitPirateAxe:1b,Unbreakable:1b,AttributeModifiers:[{AttributeName:"minecraft:generic.attack_damage",Name:"kitpvp.pirate_axe_damage",Amount:8.0,Operation:0,UUID:[I;91,92,93,94],Slot:"mainhand"},{AttributeName:"minecraft:generic.attack_speed",Name:"kitpvp.pirate_axe_speed",Amount:-3.0,Operation:0,UUID:[I;91,92,93,95],Slot:"mainhand"}]} 1
 
 # 手炮：give 不指定槽位，落首个空槽；拾取/清除按全背包扫 NBT，不依赖槽位

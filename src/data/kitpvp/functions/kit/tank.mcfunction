@@ -16,7 +16,7 @@ effect give @s minecraft:mining_fatigue infinite 0 true
 
 scoreboard players set @s kitpvp.lives 3
 
-function kitpvp:skill/tank_give_egg
+function kitpvp:skill/tank/give_egg
 
 tellraw @s [{"text":"[职业] ","color":"aqua","bold":true},{"text":"已选择 ","color":"gray"},{"text":"坦克","color":"yellow","bold":true}]
 playsound minecraft:ui.button.click master @s ~ ~ ~ 1 1.2

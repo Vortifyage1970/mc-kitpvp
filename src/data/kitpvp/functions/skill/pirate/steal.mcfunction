@@ -6,4 +6,4 @@ playsound minecraft:entity.item.break master @s ~ ~ ~ 0.8 1.0
 
 tellraw @a [{"text":"[!] ","color":"red","bold":true},{"selector":"@s","color":"white"},{"text":" 捡走了海盗的手炮，30 秒后归还","color":"gray"}]
 
-schedule function kitpvp:skill/pirate_return 600t replace
+schedule function kitpvp:skill/pirate/return 600t replace

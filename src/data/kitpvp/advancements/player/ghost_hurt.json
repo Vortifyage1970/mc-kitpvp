@@ -5,6 +5,6 @@
     }
   },
   "rewards": {
-    "function": "kitpvp:skill/ghost_hurt"
+    "function": "kitpvp:skill/ghost/hurt"
   }
 }

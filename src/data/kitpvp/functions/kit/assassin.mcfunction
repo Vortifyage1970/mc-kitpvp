@@ -12,11 +12,11 @@ item replace entity @s armor.feet with minecraft:leather_boots{display:{color:19
 item replace entity @s hotbar.0 with minecraft:diamond_sword{Enchantments:[{id:"minecraft:sharpness",lvl:1}],Unbreakable:1b}
 item replace entity @s hotbar.1 with minecraft:cooked_beef 24
 
-function kitpvp:kit/assassin_passive
+function kitpvp:skill/assassin/passive
 
 scoreboard players set @s kitpvp.lives 3
 
-function kitpvp:skill/assassin_give_item
+function kitpvp:skill/assassin/give_item
 
 tellraw @s [{"text":"[职业] ","color":"aqua","bold":true},{"text":"已选择 ","color":"gray"},{"text":"刺客","color":"yellow","bold":true}]
 playsound minecraft:ui.button.click master @s ~ ~ ~ 1 1.2

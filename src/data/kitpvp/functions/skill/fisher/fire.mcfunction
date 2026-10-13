@@ -3,4 +3,4 @@ execute if data entity @s Inventory[{tag:{KitFisherTrident:1b}}] run title @s ac
 
 execute unless data entity @s Inventory[{tag:{KitFisherTrident:1b}}] unless score @s kitpvp.fisher_no_tri matches 160.. run title @s actionbar {"text":"三叉戟尚未离场","color":"gray"}
 
-execute unless data entity @s Inventory[{tag:{KitFisherTrident:1b}}] if score @s kitpvp.fisher_no_tri matches 160.. run function kitpvp:skill/fisher_refill
+execute unless data entity @s Inventory[{tag:{KitFisherTrident:1b}}] if score @s kitpvp.fisher_no_tri matches 160.. run function kitpvp:skill/fisher/refill

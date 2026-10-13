@@ -6,7 +6,7 @@
 # execute if score @s kitpvp.kit matches 1 run function kitpvp:skill/warrior
 
 # kit = 5 纵火狂：燃烧瓶补给
-execute if score @s kitpvp.kit matches 5 run function kitpvp:skill/arsonist
+execute if score @s kitpvp.kit matches 5 run function kitpvp:skill/arsonist/auto
 
 # kit = 8 末影人：末影之珠补货
-execute if score @s kitpvp.kit matches 8 run function kitpvp:skill/enderman
+execute if score @s kitpvp.kit matches 8 run function kitpvp:skill/enderman/auto

@@ -17,7 +17,7 @@ give @s minecraft:fishing_rod{Unbreakable:1b,Enchantments:[{id:"minecraft:knockb
 give @s minecraft:water_bucket 1
 give @s minecraft:cooked_beef 24
 
-function kitpvp:skill/fisher_give_egg
+function kitpvp:skill/fisher/give_egg
 
 title @s actionbar {"text":"已选择：渔夫","color":"blue"}
 playsound minecraft:block.note_block.pling master @s ~ ~ ~ 1 1.5
