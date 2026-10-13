@@ -1,4 +1,4 @@
-@"
+# Python
 .venv/
 venv/
 env/
@@ -12,11 +12,12 @@ __pycache__/
 *.egg-info/
 dist/
 build/
+
+# 本地开发资产（不随仓库分发，权威规则以 src/ 为唯一内容）
 .env
 .env.*
 !.env.example
-..ai_history
+.ai_history
 ai-content/
-out/
 tools/
-"@ | Add-Content .gitignore
+out/
