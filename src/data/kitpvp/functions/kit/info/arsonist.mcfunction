@@ -6,6 +6,7 @@ tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"5","col
 tellraw @s [{"text":"│ 武器攻击速度：","color":"gray"},{"text":"1.6","color":"white"}]
 tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"11","color":"white"}]
 tellraw @s [{"text":"│ 总护甲韧性：","color":"gray"},{"text":"0","color":"white"}]
+tellraw @s [{"text":"│ 护甲附魔：","color":"gray"},{"text":"全套 火焰保护 III","color":"white"}]
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"—","color":"dark_gray"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"燃烧瓶","color":"yellow"},{"text":" —— 投掷喷溅药水，落地生成 4x4 火焰，5 秒内无法手动熄灭","color":"white"}]
 tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"45 秒（开局 2 瓶，上限 2 瓶）","color":"white"}]

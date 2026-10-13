@@ -1,8 +1,5 @@
 # 随机起始出生点 #cur ∈ 1..9，再由 pass 环绕分配：#cur, #cur+1, ... 环一圈。
 # 9 个点都有机会被用到，且同一局不重复；人数不足时占用的是一段随机的环。
-# 依赖 objective kitpvp.tmp（load 中创建）
-tag @a[tag=kitpvp.selected] remove kitpvp.spawn_assigned
-
 scoreboard players set #cur kitpvp.tmp 0
 execute if score #cur kitpvp.tmp matches 0 if predicate kitpvp:random/1in9 run scoreboard players set #cur kitpvp.tmp 1
 execute if score #cur kitpvp.tmp matches 0 if predicate kitpvp:random/1in8 run scoreboard players set #cur kitpvp.tmp 2

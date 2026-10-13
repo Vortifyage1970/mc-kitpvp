@@ -1,1 +1,2 @@
+# 阴兵本局内不会自行消失（PersistenceRequired:1b，设计如此），由 game/reset 统一清理
 summon minecraft:skeleton ~ ~ ~ {Tags:["kitpvp.ghost_minion","kitpvp.ghost_minion_new"],CustomName:'{"text":"阴兵"}',CustomNameVisible:0b,Silent:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:5.0f,HandItems:[{},{}],ArmorItems:[{},{},{},{id:"minecraft:chain",Count:1b}],ActiveEffects:[{Id:11b,Amplifier:4b,Duration:400,ShowParticles:0b},{Id:14b,Amplifier:0b,Duration:400,ShowParticles:0b}]}

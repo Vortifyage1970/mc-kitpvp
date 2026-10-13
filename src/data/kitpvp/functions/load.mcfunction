@@ -52,11 +52,11 @@ scoreboard objectives add kitpvp.soul_ghost_timer dummy "幽灵魂石倒计时"
 scoreboard objectives add kitpvp.ghost_minion_cd dummy "阴兵召唤冷却"
 scoreboard objectives add kitpvp.tid dummy "队槽编号"
 scoreboard objectives add kitpvp.rng dummy
-scoreboard objectives add kitpvp.fisher_no_tri dummy "渔夫无戟计时器"
 scoreboard objectives add kitpvp.ender_used minecraft.used:minecraft.ender_pearl
 scoreboard objectives add kitpvp.ender_last dummy
 scoreboard objectives add kitpvp.ender_ammo dummy
 
+# 预留（暂无消费者，刻意保留）：cd2 = 第二技能冷却；item = 物品计数
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
 scoreboard objectives modify kitpvp.lives displayname {"text":"命数","color":"red"}
 scoreboard objectives modify kitpvp.kills displayname {"text":"击杀","color":"aqua"}

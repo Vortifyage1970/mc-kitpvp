@@ -4,7 +4,7 @@
  tellraw @s [{"text":"│ 简介：","color":"gray"},{"text":"远程消耗的射手","color":"white"}]                                     
  tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"5","color":"white"}]                                          
  tellraw @s [{"text":"│ 武器攻击速度：","color":"gray"},{"text":"1.6","color":"white"}]                                        
- tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"9","color":"white"}]                                              
+ tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"11","color":"white"}]                                              
  tellraw @s [{"text":"│ 总护甲韧性：","color":"gray"},{"text":"0","color":"white"}]                                            
  tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"—","color":"dark_gray"}]                                              
  tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"换弹","color":"yellow"},{"text":" —— 丢出自己的弓并捡回，箭数重置为12","color":"white"}]                                                                                                         

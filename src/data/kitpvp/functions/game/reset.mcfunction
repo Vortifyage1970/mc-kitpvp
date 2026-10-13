@@ -4,11 +4,9 @@ execute as @a run function kitpvp:util/clear_player
 # tp @a <x> <y> <z>  ← 大厅坐标待定
 execute as @a run function kitpvp:lobby/enter
 
-# TODO: 非玩家实体清理白名单待定，未验证前不要取消注释（会误伤画 / 物品展示框）
-# kill @e[type=item]
-# kill @e[type=arrow]
-# kill @e[type=area_effect_cloud]
-# kill @e[type=!player,type=!item_frame,type=!painting]
+# 非玩家实体：只清"我们自己召唤出来的"东西，避免误伤画 / 物品展示框 / 地图装饰。
+# 约定：每新增一种召唤物，就在这里追加一行对应的 kill（A2）。
+kill @e[tag=kitpvp.ghost_minion]
 
 function kitpvp:map/restore
 

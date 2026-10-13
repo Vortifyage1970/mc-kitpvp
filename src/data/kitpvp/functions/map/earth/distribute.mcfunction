@@ -1,6 +1,4 @@
 # 随机起始出生点 #cur ∈ 1..9，再由 pass 环绕分配（9 个点都有机会，同一局不重复）
-tag @a[tag=kitpvp.selected] remove kitpvp.spawn_assigned
-
 scoreboard players set #cur kitpvp.tmp 0
 execute if score #cur kitpvp.tmp matches 0 if predicate kitpvp:random/1in9 run scoreboard players set #cur kitpvp.tmp 1
 execute if score #cur kitpvp.tmp matches 0 if predicate kitpvp:random/1in8 run scoreboard players set #cur kitpvp.tmp 2
