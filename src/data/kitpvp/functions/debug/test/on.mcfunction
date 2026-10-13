@@ -1,6 +1,3 @@
-# ===== 开启测试模式 =====
-# 效果：check_winner 不再自动结算，单人可正常测试，开启命令输出反馈
-# 用法：/function kitpvp:debug/test/on
 gamerule sendCommandFeedback true
 scoreboard players set #test kitpvp.game 1
 

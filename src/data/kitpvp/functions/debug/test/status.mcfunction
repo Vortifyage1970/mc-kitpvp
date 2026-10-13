@@ -1,6 +1,3 @@
-# ===== 显示自己的调试状态 =====
-# 调用：/function kitpvp:debug/status
-
 tellraw @s [{"text":"═══════ 我的状态 ═══════","color":"gold","bold":true}]
 tellraw @s [{"text":"职业ID: ","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.kit"},"color":"yellow"},{"text":"   命数: ","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.lives"},"color":"red"},{"text":"   存活: ","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.alive"},"color":"green"}]
 tellraw @s [{"text":"冷却: ","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.cd"},"color":"aqua"},{"text":"   第二冷却: ","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.cd2"},"color":"aqua"}]

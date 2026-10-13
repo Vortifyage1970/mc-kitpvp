@@ -1,4 +1,3 @@
-# 沙漠出生点 8（改坐标改下面两行）
 tp @s -372 92 -46
 spawnpoint @s -372 92 -46
 tag @s add kitpvp.spawn_assigned

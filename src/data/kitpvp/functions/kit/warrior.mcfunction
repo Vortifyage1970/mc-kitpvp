@@ -1,13 +1,8 @@
-# ===== 战士（kit id = 1）=====
-# 入口：/function kitpvp:kit/warrior
-# 顺序不可调：先清场（clear_player 会把 kit 归零），再写回本职业 id，最后发装备
-
-# --- 头三行：每个职业函数完全一致，只改数字 ---
+# 战士（kit = 1）：先清场再写回 kit，顺序不可调
 function kitpvp:util/clear_player
 scoreboard players set @s kitpvp.kit 1
 tag @s add kitpvp.selected
 
-# --- 本职业配置 ---
 scoreboard players set @s kitpvp.alive 1
 scoreboard players set @s kitpvp.lives 3
 
@@ -23,4 +18,3 @@ item replace entity @s hotbar.1 with minecraft:cooked_beef 24
 give @s minecraft:golden_apple 2
 
 tellraw @s [{"text":"[已选择] ","color":"green","bold":true},{"text":"战士","color":"yellow","bold":true}]
-function kitpvp:skill/warrior_ready

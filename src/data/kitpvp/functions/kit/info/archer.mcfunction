@@ -1,6 +1,3 @@
-# ===== 弓箭手 · 职业介绍卡片 =====                                                                                           
- # 由 kit/list/* 里点击弓箭手条目时调用，@s = 查看者                                                                           
-                                                                                                                               
  tellraw @s [{"text":"┌──────────────────────────────","color":"dark_gray"}]                                                   
  tellraw @s [{"text":"│ 职业名：","color":"gray"},{"text":"弓箭手","color":"aqua","bold":true}]                                
  tellraw @s [{"text":"│ 分类：","color":"gray"},{"text":"经典（表）","color":"white"}]                                         

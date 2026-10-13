@@ -1,13 +1,4 @@
-# ===== 幽灵魂石：右键 → 使用者隐身 20 秒，期间攻击玩家召阴兵 =====
-# 调用方：tick.mcfunction 检测到 soul_ghost_used > soul_ghost_last
-# @s = 使用者
-#
-# 本函数做四件事：
-#   1. 推进 last 快照（铁律，漏写会每刻重复触发）
-#   2. 清掉右键生成的凋灵骷髅
-#   3. 给使用者隐身 20 秒 + 激活标记 + 倒计时归零
-#   4. 队槽与队成员在第一次召唤阴兵时才处理（惰性分配）
-
+# 首行推进 last，漏写会每刻重复触发（铁律）
 scoreboard players operation @s kitpvp.soul_ghost_last = @s kitpvp.soul_ghost_used
 
 execute at @s run kill @e[type=vex,name="幽灵魂石"]

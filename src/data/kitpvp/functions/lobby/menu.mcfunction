@@ -1,7 +1,3 @@
-# ===== 主大厅菜单 =====
-# @s = 点开菜单的玩家
-# 所有按钮都给"本人"看，所以 tellraw 用 @s
-
 tellraw @s [{"text":"═══════ 职业战争 ═══════","color":"gold","bold":true}]
 tellraw @s [{"text":"[ 选择职业 ]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/list"},"hoverEvent":{"action":"show_text","contents":[{"text":"查看职业介绍并选择","color":"gray"}]}}]
 tellraw @s [{"text":"[ 选择地图 ]","color":"aqua","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:map/select_menu"},"hoverEvent":{"action":"show_text","contents":[{"text":"选择本局对战地图","color":"gray"}]}}]

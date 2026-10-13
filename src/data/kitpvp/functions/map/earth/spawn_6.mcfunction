@@ -1,4 +1,3 @@
-# 地球出生点 6（改坐标改下面两行）
 tp @s -690 101 -639
 spawnpoint @s -690 101 -639
 tag @s add kitpvp.spawn_assigned

@@ -1,4 +1,3 @@
-# ===== 魂石·弓箭手：20 秒到期 =====
 clear @s minecraft:bow{KitSoulBow:1b}
 clear @s minecraft:arrow{KitSoulArrow:1b}
 kill @e[type=minecraft:item,nbt={Item:{id:"minecraft:bow",tag:{KitSoulBow:1b}}}]

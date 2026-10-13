@@ -1,8 +1,6 @@
-# ===== 魂石·战士：右键 → 力量 II，20 秒 =====
-# 首行必须是快照推进，漏写会每刻重复触发
+# 首行推进快照，漏写会每刻重复触发
 scoreboard players operation @s kitpvp.soul_warrior_last = @s kitpvp.soul_warrior_used
 
-# 清掉右键生成的烈焰人（CustomName = "战士魂石"）
 execute at @s run kill @e[type=minecraft:blaze,name="战士魂石"]
 
 effect give @s minecraft:strength 20 0 true

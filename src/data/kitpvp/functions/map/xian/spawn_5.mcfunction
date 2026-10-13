@@ -1,4 +1,3 @@
-# 西安出生点 5（改坐标改下面两行）
 tp @s -1200 64 -700
 spawnpoint @s -1200 64 -700
 tag @s add kitpvp.spawn_assigned

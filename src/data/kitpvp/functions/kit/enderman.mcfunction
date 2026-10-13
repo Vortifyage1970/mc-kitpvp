@@ -1,10 +1,6 @@
-# ===== 末影人：发放装备（kit=8） =====
-# 调用方：util/give_kit
-
-# 1. 清到干净初始状态（会清掉 kit，紧接着写回）
+# 末影人（kit = 8）
 function kitpvp:util/clear_player
 
-# 2. 登记职业
 scoreboard players set @s kitpvp.kit 8
 tag @s add kitpvp.selected
 scoreboard players set @s kitpvp.alive 1

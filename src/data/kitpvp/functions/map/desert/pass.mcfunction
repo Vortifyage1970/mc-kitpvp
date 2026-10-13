@@ -1,9 +1,4 @@
-# ===== 沙漠出生点：一轮顺序扫描 =====
-# 按 1..9 顺序检查：编号等于当前游标 #cur 的出生点，才去领一个玩家。
-# @r 集合为空时该行整条命令不执行，游标也不会前进 —— 这正是我们要的
-# （人分完了自然就空转）。
-# 由 kitpvp:map/desert/distribute 反复调用。
-
+# 一轮顺序扫描：编号等于游标 #cur 的出生点领一个玩家；@r 为空则整行不执行、游标不前进
 execute if score #cur kitpvp.tmp matches 1 as @r[tag=kitpvp.selected,tag=!kitpvp.spawn_assigned,tag=!kitpvp.spectator] run function kitpvp:map/desert/spawn_1
 execute if score #cur kitpvp.tmp matches 2 as @r[tag=kitpvp.selected,tag=!kitpvp.spawn_assigned,tag=!kitpvp.spectator] run function kitpvp:map/desert/spawn_2
 execute if score #cur kitpvp.tmp matches 3 as @r[tag=kitpvp.selected,tag=!kitpvp.spawn_assigned,tag=!kitpvp.spectator] run function kitpvp:map/desert/spawn_3

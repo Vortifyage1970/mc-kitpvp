@@ -1,217 +1,81 @@
-# 每游戏刻执行
-# 玩家接入检测：未登记的玩家 → 走 join 流程
 execute as @a[tag=!kitpvp.joined] run function kitpvp:player/join
 
-# 冷却递减
 execute as @a[scores={kitpvp.cd=1..}] run scoreboard players remove @s kitpvp.cd 1
 execute as @a[scores={kitpvp.cd2=1..}] run scoreboard players remove @s kitpvp.cd2 1
 
-# ===== 主大厅：兜底补发大厅物品 =====
-# 场景一：玩家选职业时 clear_player 清空背包，但人还在大厅（in_lobby 不清），
-#         这段每刻检测，缺钓竿或缺大厅剑就补回。
-# 场景二：玩家把物品丢地上，下一刻也会补一份（不阻塞玩法）。
-# 幂等由 give_items 内部 Inventory 检测保证，不会重复堆叠。
-# 只动 tag=kitpvp.in_lobby 的玩家，局内玩家不受影响。
+# 主大厅
 execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] run function kitpvp:lobby/give_items
-
-# ===== 主大厅：补充饱食度 =====
 execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] run effect give @s minecraft:saturation 1 1 true
-
-# ===== 主大厅：传送执行 =====
 execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] at @s run function kitpvp:lobby/teleport
-
-# ==== 主大厅：显示锁定 =====
 function kitpvp:lobby/display_lock
-
-# ===== 主大厅：踩压力板弹出职业介绍 =====
-# 只动 tag=kitpvp.in_lobby 的玩家；防重复逻辑在 lobby/pad 内部
 function kitpvp:lobby/pad
-
-# ===== 主大厅：准备 / 取消准备（右键准备钓竿）=====
-# 统计 objective：右键胡萝卜钓竿的瞬间 used 自动 +1
-# ready_last 快照在 lobby/enter 里被推到当前值，
-# 保证"进大厅之前"的历史右键不会在进大厅那一刻被误判
 execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] if score @s kitpvp.ready_used > @s kitpvp.ready_last run function kitpvp:lobby/ready_toggle
 
-# ===== 坦克蛋：令牌 / 魂石 共用 iron_golem_spawn_egg，靠 CustomName 分流 =====
-# 去掉 kit=3 限制：坦克魂石是通用奖励，任何职业捡到都能用
-# 分流在 tank_dispatch 内部：举盾令牌只对坦克本人且 cd 归零时生效
+# 坦克：令牌与魂石共用 iron_golem_spawn_egg，靠 CustomName 分流（skill/tank_dispatch）
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.tank_used > @s kitpvp.tank_last run function kitpvp:skill/tank_dispatch
-
-# ===== 坦克：护盾 15 秒到期 =====
-# cd 记 600（30 秒）：前 300 刻持盾，后 300 刻纯冷却。
-# 用 ..300（不是精确 =300）：即使服务端卡顿跳过某刻，也会被下一轮捕捉，不漏。
-# tag=kitpvp.shield_held 保证每个盾只会被清一次，不会重复触发。
-# 必须排在"坦克使用检测"之后：否则坦克刚给盾（cd=600），本行同一刻就可能被算进去。
+# 到期用 ..300 而非 =300：跳刻时不漏触发
 execute as @a[scores={kitpvp.cd=..300},tag=kitpvp.shield_held,tag=!kitpvp.spectator] run function kitpvp:skill/tank_expire
-
-# ===== 坦克：清除令牌生成的铁傀儡 =====
-# 令牌是铁傀儡刷怪蛋，右键会在玩家附近生成一只铁傀儡。
-# 本行把它立刻清掉：只保留"按下右键"这个信号，不留残局生物。
-# distance=..16 覆盖刷怪蛋的最大右键射程（约 4.5 格），
-# 且避免误杀远处其它来源的铁傀儡。
-# ⚠ 若某张地图自带装饰性铁傀儡且落在坦克 16 格内，会被一并清掉。
+# distance 16 覆盖刷怪蛋右键射程；会误杀该范围内同名的装饰性生物
 execute as @a[scores={kitpvp.kit=3}] at @s run kill @e[type=iron_golem,distance=..16,name="举盾令牌"]
-
-# ===== 坦克：举盾令牌兜底补发 =====
-# 冷却结束、背包里又没有令牌时，补发一个，让坦克能继续施法
-# 判据：Inventory 里存在任一带 KitTankEgg:1b 标记的物品
-# 玩家"丢令牌"会形成物品堆积，但每个令牌只相当于一次技能使用，不放大技能次数
 execute as @a[scores={kitpvp.kit=3,kitpvp.alive=1,kitpvp.cd=0},tag=!kitpvp.spectator] unless data entity @s Inventory[{tag:{KitTankEgg:1b}}] run function kitpvp:skill/tank_give_egg
 
-# ===== 弓箭手：清除落地的箭 =====
-# 弓箭手射出的箭一落地（inGround:1b）就清除，
-# 防止"射出去 → 换弹 → 再捡回来"把箭数刷过 12 支上限。
-# 副作用：会一并清掉其它来源（如骷髅）落地的箭。
+# 箭一落地即清，防"射出→换弹→捡回"刷过 12 支上限
 kill @e[type=minecraft:arrow,nbt={inGround:1b}]
 
-# ===== 刺客蛋：令牌 / 魂石 共用 enderman_spawn_egg，靠 CustomName 分流 =====
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.assassin_used > @s kitpvp.assassin_last run function kitpvp:skill/assassin_dispatch
-
-# ===== 刺客：隐匿 5 秒到期 =====
-# cd 记 600（30 秒）：前 100 刻隐身+速度 III，后 500 刻纯冷却。
-# 用 ..500（不是精确 =500）：即使服务端卡顿跳过某刻，也会被下一轮捕捉，不漏。
-# tag=kitpvp.assassin_hidden 保证每次隐匿只触发一次，不会重复挂效果。
 execute as @a[scores={kitpvp.cd=..500},tag=kitpvp.assassin_hidden,tag=!kitpvp.spectator] run function kitpvp:skill/assassin_unhide
-
-# ===== 刺客：清除令牌生成的末影人 =====
-# 令牌是末影人刷怪蛋，右键会在玩家附近生成一只末影人。
-# 本行把它立刻清掉：只保留"按下右键"这个信号，不留残局生物。
-# distance=..16 覆盖刷怪蛋的最大右键射程（约 4.5 格），
-# 且避免误杀远处其它来源的末影人。
-# ⚠ 若某张地图自带装饰性末影人且落在刺客 16 格内，会被一并清掉。
 execute as @a[scores={kitpvp.kit=4}] at @s run kill @e[type=enderman,distance=..16,name="隐匿令牌"]
-
-# ===== 刺客：隐匿令牌兜底补发 =====
-# 冷却结束、背包里又没有令牌时，补发一个，让刺客能继续施法
-# 判据：Inventory 里存在任一带 KitAssassinEgg:1b 标记的物品
 execute as @a[scores={kitpvp.kit=4,kitpvp.alive=1,kitpvp.cd=0},tag=!kitpvp.spectator] unless data entity @s Inventory[{tag:{KitAssassinEgg:1b}}] run function kitpvp:skill/assassin_give_item
 
-# ===== 纵火狂 =====
-# 喷溅药水本服有多个来源（纵火狂本体、后续药剂师、魂石、野刷），
-# minecraft.used:splash_potion 只能当粗筛信号，不能单独作为施法依据。
-# 分流方式：
-#   A. 每刻把"上一刻手持燃烧瓶"记进 kitpvp.hold_fb_prev
-#   B. 每刻重建"当前手持燃烧瓶"= kitpvp.hold_fb
-#   C. 只要有喷溅药水投掷（used 增长）就调 arsonist_cast；
-#      "是不是燃烧瓶"由 cast 内部用 hold_fb_prev 决定
-# ⚠ C 的调用条件里绝对不能加 hold_fb_prev：否则投其它药水时 last 不推进，
-#   之后切到燃烧瓶会把历史投掷当成新投掷，误触发一次施法。
-
-# A. 推进 prev（引用上一刻的 hold_fb）
+# 纵火狂、末影人：投掷入口的调用条件里绝不能加 hold_*_prev，
+# 否则投其它同种物品时 last 不推进，之后切到本职业投掷物会误触发（见 05 §12）
 tag @a remove kitpvp.hold_fb_prev
 tag @a[tag=kitpvp.hold_fb] add kitpvp.hold_fb_prev
-
-# B. 重建当前刻 hold_fb
 tag @a remove kitpvp.hold_fb
 execute as @a if data entity @s SelectedItem.tag.KitFireBomb run tag @s add kitpvp.hold_fb
-
-# C. 投掷入口（无条件调用，由 cast 内部用 hold_fb_prev 分流）
 execute as @a[scores={kitpvp.kit=5,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.arsonist_used > @s kitpvp.arsonist_last run function kitpvp:skill/arsonist_cast
-
-# 燃烧瓶即将落地 → 铺火（保持原样）
 execute as @e[type=minecraft:potion,nbt={Item:{tag:{KitFireBomb:1b}}},tag=!kitpvp.arsonist_burst] at @s unless block ~ ~-0.5 ~ air unless block ~ ~-0.5 ~ cave_air unless block ~ ~-0.5 ~ void_air run function kitpvp:skill/arsonist_burst
-
-# 掉进虚空的燃烧瓶（保持原样）
 kill @e[type=minecraft:potion,nbt={Item:{tag:{KitFireBomb:1b}}},y=-100,dy=100]
-
-# 火焰 5 秒保护（保持原样）
 function kitpvp:skill/arsonist_flame_tick
 
-# ===== 渔夫 =====
-# 清掉寻戟令牌右键生成的溺尸（只清该渔夫 16 格内、CustomName 为"寻戟令牌"的）
-# ⚠ 副作用：地图自带装饰性溺尸若落在该玩家 16 格内，会被一并清掉。
-#   距离 16 覆盖刷怪蛋最大右键射程（约 4.5 格）并留余量。
+# 渔夫：无戟计时器，背包无戟持续 160 刻（8 秒）才允许补发，防"投出即补"刷两把
 execute as @a[scores={kitpvp.kit=7}] at @s run kill @e[type=minecraft:drowned,distance=..16,name="寻戟令牌"]
-
-# ----- 无戟计时器（防刷） -----
-# 目的：防止"三叉戟投出（背包变空）→ 立刻补一把 → 掷出的那把握回 = 两把"。
-# 判据：背包内没有带 KitFisherTrident:1b 的三叉戟，持续 8 秒（160 刻）才允许补发。
-#   每刻：无戟 +1，有戟归零。
-# 已知取舍（接受的简化）：
-#   - 只看自己的背包，不看末影箱 / 地面掉落物 / 掷出的实体。
-#   - 玩家有意"丢地 → 等 8 秒 → 拾回"仍可变成两把。
-#     8 秒足够长，正常投掷（忠诚回旋）远不到 8 秒，日常不受影响。
-#   - 补发阈值 160 的判定在 skill/fisher_fire。
 scoreboard players add @a[scores={kitpvp.kit=7,kitpvp.alive=1}] kitpvp.fisher_no_tri 1
 execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1}] if data entity @s Inventory[{tag:{KitFisherTrident:1b}}] run scoreboard players set @s kitpvp.fisher_no_tri 0
 
-# ===== 末影人 =====
-# 末影珍珠在本服可能有多个来源（地图野刷、未来魂石/其它职业），
-# minecraft.used:minecraft.ender_pearl 只能当粗筛信号。
-# A. 推进 prev（引用上一刻的 hold_ep）
 tag @a remove kitpvp.hold_ep_prev
 tag @a[tag=kitpvp.hold_ep] add kitpvp.hold_ep_prev
-
-# B. 重建当前刻 hold_ep
 tag @a remove kitpvp.hold_ep
 execute as @a if data entity @s SelectedItem.tag.KitEnderPearl run tag @s add kitpvp.hold_ep
-
-# C. 投掷入口（无条件调用，由 cast 内部用 hold_ep_prev 分流）
-# ⚠ 调用条件里绝对不能加 hold_ep_prev
 execute as @a[scores={kitpvp.kit=8,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.ender_used > @s kitpvp.ender_last run function kitpvp:skill/enderman_cast
 
-
-# 主动技能入口：任何溺尸蛋被使用都进 cast，cd 分流在 cast 内部做
 execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.fisher_used > @s kitpvp.fisher_last run function kitpvp:skill/fisher_cast
-
-# 兜底补发令牌（cd=0 且背包无令牌）
 execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1,kitpvp.cd=0},tag=!kitpvp.spectator] unless data entity @s Inventory[{tag:{KitFisherEgg:1b}}] run function kitpvp:skill/fisher_give_egg
 
-
-# 魂石
-
-# ===== 魂石：战士（blaze_spawn_egg 专用）=====
+# 魂石：右键对应的刷怪蛋 → used 增长 → 触发一次性效果
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_warrior_used > @s kitpvp.soul_warrior_last run function kitpvp:skill/soul/use_warrior
-
-# ===== 魂石：弓箭手（skeleton_spawn_egg 专用）=====
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_archer_used > @s kitpvp.soul_archer_last run function kitpvp:skill/soul/use_archer
 
-# ===== 职业技能结算（统一入口）=====
-# 只筛"有职业、活着、主技能冷却归零"的玩家，转交 dispatch；
-# 具体哪个职业发什么，由 skill/dispatch 按 kitpvp.kit 分派。
-# 新增自动技能请改 skill/dispatch，不要在这里加行。
-# 主动技能不经过本行——它们由各自的触发器接（参见坦克）。
+# 自动技能统一入口（按 kit 分派；主动技能与触发器驱动技能不走这里）
 execute as @a[scores={kitpvp.kit=1..,kitpvp.alive=1}] if score @s kitpvp.cd matches ..0 run function kitpvp:skill/dispatch
 
-# ===== 魂石之弓：20 秒到期 =====
 execute as @a[tag=kitpvp.soul_bow_held,scores={kitpvp.soul_bow_timer=1..}] run scoreboard players remove @s kitpvp.soul_bow_timer 1
 execute as @a[tag=kitpvp.soul_bow_held,scores={kitpvp.soul_bow_timer=..0}] run function kitpvp:skill/soul/bow_expire
-
-# ===== 魂石：幽灵（vex_spawn_egg 专用）=====
-# 右键蛋 → used 增长 → use_ghost
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_ghost_used > @s kitpvp.soul_ghost_last run function kitpvp:skill/soul/use_ghost
-
-# ===== 魂石·幽影：使用者 20 秒激活倒计时 =====
 execute as @a[scores={kitpvp.soul_ghost_timer=1..}] run scoreboard players remove @s kitpvp.soul_ghost_timer 1
 execute as @a[tag=kitpvp.soul_ghost_active,scores={kitpvp.soul_ghost_timer=..0}] run function kitpvp:skill/soul/ghost_expire
-
-# ===== 魂石·阴兵：5 秒召唤冷却递减 =====
 execute as @a[scores={kitpvp.ghost_minion_cd=1..}] run scoreboard players remove @s kitpvp.ghost_minion_cd 1
 
-
-
-# 兼容中途加入的玩家：没有 inv 分数就补 0
+# 无敌 / 虚空 / 死亡
 scoreboard players add @a kitpvp.inv 0
-
-# 无敌倒计时（每刻 -1）
 execute as @a[scores={kitpvp.inv=1..}] run scoreboard players remove @s kitpvp.inv 1
-
-# 无敌结束
 execute as @a[tag=kitpvp.invincible,scores={kitpvp.inv=0}] run function kitpvp:player/end_invincible
-
-# 虚空兜底：Y < -74 直接判死（阈值可调）
-# y=-1024 配合 dy=950 覆盖 y ∈ [-1024, -74]
+# 虚空兜底：y=-1024 配 dy=950 覆盖 y ∈ [-1024,-74]；改阈值只改 dy
 execute as @a[tag=kitpvp.selected,tag=!kitpvp.spectator,gamemode=!spectator] if entity @s[y=-1024,dy=950] run damage @s 1000 minecraft:out_of_world
-
-# 死亡检测
 execute as @a[tag=!kitpvp.spectator,tag=!kitpvp.respawn_pending] if score @s kitpvp.death_detect > @s kitpvp.death_seen run function kitpvp:player/death_dispatch
-
-# 重生后处理（由 on_death 打 tag，本 tick 消费）
 execute as @a[tag=kitpvp.respawn_pending,tag=!kitpvp.spectator] run function kitpvp:player/after_death
 
-# ===== 胜负兜底轮询（每 20 刻一次）=====
-# 覆盖"玩家中途退出服务器导致幸存者减少，但没人触发 eliminate"的情况
+# 胜负兜底轮询（每 20 刻），覆盖"掉线减员但无人触发 eliminate"
 scoreboard players add #tick kitpvp.game 1
 execute if score #tick kitpvp.game matches 20.. run scoreboard players set #tick kitpvp.game 0
 execute if score #tick kitpvp.game matches 0 if score #state kitpvp.game matches 1 run function kitpvp:game/check_winner

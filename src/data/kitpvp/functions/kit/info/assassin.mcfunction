@@ -1,18 +1,3 @@
-# ===== 职业介绍：刺客（kit = 4） =====
-# 调用方：kit/list/classic.mcfunction 点击「刺客」
-# 版式对齐 03-project-spec.md 2.3「职业选择界面」
-#
-# 底部两个按钮：
-#   [ 确认选择 ] → /function kitpvp:kit/assassin
-#   [ 返回 ]     → /function kitpvp:kit/list/classic
-#
-# 数值口径：
-#   武器单次伤害 8 = 钻石剑 7 + 锋利 II（+1）
-#   武器攻击速度 1.6 = 钻石剑默认攻速
-#   总护甲值 7 = 皮革四件套 1 + 3 + 2 + 1
-#   总护甲韧性 0
-# 若本工程其它 info 页用的是"不含附魔"的口径，把 8 改回 7 即可。
-
 tellraw @s [{"text":"┌──────────────────────────────","color":"dark_gray"}]
 tellraw @s [{"text":"│ 职业名：","color":"gray"},{"text":"刺客","color":"dark_purple","bold":true}]
 tellraw @s [{"text":"│ 分类：","color":"gray"},{"text":"经典（表）","color":"white"}]

@@ -1,7 +1,3 @@
-# ===== 末影人：补 1 颗末影之珠 + 进冷却 =====
-# 调用方：skill/enderman（已确认 ammo < 3）
-# @s = 末影人
-
 give @s minecraft:ender_pearl{KitEnderPearl:1b} 1
 
 scoreboard players add @s kitpvp.ender_ammo 1

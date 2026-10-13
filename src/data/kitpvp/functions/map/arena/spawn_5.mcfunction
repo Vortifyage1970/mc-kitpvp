@@ -1,4 +1,3 @@
-# 竞技场出生点 5（改坐标改下面两行）
 tp @s 554 76 554
 spawnpoint @s 554 76 554
 tag @s add kitpvp.spawn_assigned

@@ -1,7 +1,4 @@
-# ===== 魂石·刺客：右键 → 传送到最近玩家 + 速度 II + 隐身 I，20 秒 =====
-# 由 assassin_dispatch 调用，快照已在 dispatch 首行推进
-
-# 先清生物，必须在 tp 之前（tp 后位置变了会漏清）
+# 由 assassin_dispatch 调用（快照已在 dispatch 首行推进）；tp 后位置会变，故先清生物
 execute at @s run kill @e[type=minecraft:enderman,name="刺客魂石"]
 
 effect give @s minecraft:speed 20 1 true
