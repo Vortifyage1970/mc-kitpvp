@@ -110,6 +110,7 @@ scoreboard players set #test kitpvp.game 0
 scoreboard players set #soul_count kitpvp.game 5
 scoreboard players set #ghost_tid kitpvp.game 0
 scoreboard players set #ghost_need_new kitpvp.game 0
+scoreboard players set #lobby kitpvp.game 0
 
 data remove storage kitpvp:main temp
 data remove storage kitpvp:main player

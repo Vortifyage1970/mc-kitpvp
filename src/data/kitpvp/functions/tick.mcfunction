@@ -3,8 +3,10 @@ execute as @a[tag=!kitpvp.joined] run function kitpvp:player/join
 execute as @a[scores={kitpvp.cd=1..}] run scoreboard players remove @s kitpvp.cd 1
 execute as @a[scores={kitpvp.cd2=1..}] run scoreboard players remove @s kitpvp.cd2 1
 
-# 主大厅
-execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] run function kitpvp:lobby/give_items
+# 主大厅：大厅物品兜底补发（60 刻节流，牺牲 3 秒延迟换掉每刻全背包扫描）
+scoreboard players add #lobby kitpvp.game 1
+execute if score #lobby kitpvp.game matches 60.. run scoreboard players set #lobby kitpvp.game 0
+execute if score #lobby kitpvp.game matches 0 as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] run function kitpvp:lobby/give_items
 execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] run effect give @s minecraft:saturation 1 1 true
 execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] at @s run function kitpvp:lobby/teleport
 function kitpvp:lobby/display_lock
@@ -19,8 +21,9 @@ execute as @a[scores={kitpvp.cd=..300},tag=kitpvp.shield_held,tag=!kitpvp.specta
 execute as @a[scores={kitpvp.kit=3}] at @s run kill @e[type=iron_golem,distance=..16,name="举盾令牌"]
 execute as @a[scores={kitpvp.kit=3,kitpvp.alive=1,kitpvp.cd=0},tag=!kitpvp.spectator] unless data entity @s Inventory[{tag:{KitTankEgg:1b}}] run function kitpvp:skill/tank_give_egg
 
-# 箭一落地即清，防"射出→换弹→捡回"刷过 12 支上限
-kill @e[type=minecraft:arrow,nbt={inGround:1b}]
+# 箭一落地即清，防"射出→换弹→捡回"刷过 12 支上限。
+# 20 刻节流 + 无弓箭手时整行不执行（原为每刻全图扫描）
+execute if entity @a[scores={kitpvp.kit=2}] if score #tick kitpvp.game matches 0 run kill @e[type=minecraft:arrow,nbt={inGround:1b}]
 
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.assassin_used > @s kitpvp.assassin_last run function kitpvp:skill/assassin_dispatch
 execute as @a[scores={kitpvp.cd=..500},tag=kitpvp.assassin_hidden,tag=!kitpvp.spectator] run function kitpvp:skill/assassin_unhide
