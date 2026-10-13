@@ -2,7 +2,7 @@ tellraw @s [{"text":"┌──────────────────�
 tellraw @s [{"text":"│ 职业名：","color":"gray"},{"text":"弓箭手","color":"aqua","bold":true}]
 tellraw @s [{"text":"│ 分类：","color":"gray"},{"text":"经典（表）","color":"white"}]
 tellraw @s [{"text":"│ 简介：","color":"gray"},{"text":"远程消耗的射手","color":"white"}]
-tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"5","color":"white"},{"text":"（悬停查看详情）","color":"dark_gray"}]
+tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"5","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:stone_sword","Count":1}}},{"text":"（悬停查看详情）","color":"dark_gray","hoverEvent":{"action":"show_text","contents":[{"text":"武器：石剑\n单次伤害：5    攻击速度：1.6\n附魔：—","color":"white"}]}}]
 tellraw @s [{"text":"│ 武器攻击速度：","color":"gray"},{"text":"1.6","color":"white"}]
 tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"11","color":"white"}]
 tellraw @s [{"text":"│ 总护甲韧性：","color":"gray"},{"text":"0","color":"white"}]
