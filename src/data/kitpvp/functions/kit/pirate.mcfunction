@@ -4,11 +4,11 @@ function kitpvp:util/clear_player
 scoreboard players set @s kitpvp.kit 9
 tag @s add kitpvp.selected
 
-# 深蓝皮革 13158 = 0x003366
-item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,display:{color:13158}} 1
-item replace entity @s armor.chest with minecraft:iron_chestplate{Unbreakable:1b} 1
+# 深蓝皮革 2302862 = 0x23238E
+item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,display:{color:2302862}} 1
+item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:2302862}} 1
 item replace entity @s armor.legs with minecraft:iron_leggings{Unbreakable:1b} 1
-item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,display:{color:13158}} 1
+item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b} 1
 
 # 1.20.1：写了 AttributeModifiers 就整体取代该物品默认修饰符，攻伤与攻速必须写全
 # 主手斧：攻击力 8 / 攻速 1.0（海盗的武器伤害定为 8）

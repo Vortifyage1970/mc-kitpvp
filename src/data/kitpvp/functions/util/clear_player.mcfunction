@@ -17,6 +17,7 @@ tag @s remove kitpvp.death_immune
 tag @s remove kitpvp.keep_inventory
 tag @s remove kitpvp.shield_held
 tag @s remove kitpvp.assassin_hidden
+tag @s remove kitpvp.pirate_reload_cd
 tag @s remove kitpvp.ready
 tag @s remove kitpvp.ready_pending
 

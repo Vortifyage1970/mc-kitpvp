@@ -4,6 +4,7 @@ tag @s remove kitpvp.invincible
 
 tag @s remove kitpvp.shield_held
 tag @s remove kitpvp.assassin_hidden
+tag @s remove kitpvp.pirate_reload_cd
 
 scoreboard players set @s kitpvp.lives 0
 scoreboard players set @s kitpvp.alive 0

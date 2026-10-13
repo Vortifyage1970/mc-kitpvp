@@ -82,6 +82,7 @@ tag @a remove kitpvp.respawn_pending
 tag @a remove kitpvp.joined
 tag @a remove kitpvp.shield_held
 tag @a remove kitpvp.assassin_hidden
+tag @a remove kitpvp.pirate_reload_cd
 tag @a remove kitpvp.soul_bow_held
 tag @a remove kitpvp.soul_transit
 tag @a remove kitpvp.soul_ghost_active
@@ -121,6 +122,7 @@ tag @e[type=minecraft:armor_stand] add kitpvp.displayitem
 tag @e[type=minecraft:item_frame] add kitpvp.displayitem
 tag @e[type=minecraft:glow_item_frame] add kitpvp.displayitem
 tag @e[type=minecraft:painting] add kitpvp.displayitem
+tag @e[type=minecraft:chest_minecart] add kitpvp.displayitem
 
 execute as @e[tag=kitpvp.displayitem] run data merge entity @s {Invulnerable:1b}
 
