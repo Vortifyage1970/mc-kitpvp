@@ -20,5 +20,3 @@ title @s title {"text":"你死完了！","color":"red","bold":true}
 playsound minecraft:entity.villager.death master @s ~ ~ ~ 1 0.6
 
 tellraw @a [{"text":"[淘汰] ","color":"dark_red","bold":true},{"selector":"@s","color":"white"},{"text":" 已死完","color":"red"}]
-
-function kitpvp:game/check_winner

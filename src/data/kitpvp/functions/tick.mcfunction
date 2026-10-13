@@ -78,7 +78,10 @@ execute as @a[tag=kitpvp.selected,tag=!kitpvp.spectator,gamemode=!spectator] if 
 execute as @a[tag=!kitpvp.spectator,tag=!kitpvp.respawn_pending] if score @s kitpvp.death_detect > @s kitpvp.death_seen run function kitpvp:player/death_dispatch
 execute as @a[tag=kitpvp.respawn_pending,tag=!kitpvp.spectator] run function kitpvp:player/after_death
 
-# 胜负兜底轮询（每 20 刻），覆盖"掉线减员但无人触发 eliminate"
+# 胜负判定：必须排在死亡处理之后——同刻互杀要等两人都淘汰完再统计，
+# 否则会先看到"幸存者=1"而误判胜者；同时覆盖掉线减员的兜底
+execute if score #state kitpvp.game matches 1 run function kitpvp:game/check_winner
+
+# 20 刻节拍（箭矢清理等节流复用）
 scoreboard players add #tick kitpvp.game 1
 execute if score #tick kitpvp.game matches 20.. run scoreboard players set #tick kitpvp.game 0
-execute if score #tick kitpvp.game matches 0 if score #state kitpvp.game matches 1 run function kitpvp:game/check_winner

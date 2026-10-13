@@ -11,8 +11,8 @@ execute if score #survivors kitpvp.game matches 1 as @a[tag=kitpvp.selected,tag=
 execute if score #survivors kitpvp.game matches ..0 run tellraw @a [{"text":"[平局]","color":"gray","bold":true},{"text":"本局无幸存者","color":"gray"}]
 execute if score #survivors kitpvp.game matches 2.. run tellraw @a [{"text":"[结束]","color":"red","bold":true},{"text":"本局被管理员终止","color":"gray"}]
 
-# TODO: 结算期"禁止再交战"方案未定（设计文档第九节），定案前不启用
-# execute as @a run function kitpvp:player/invincible
+# 结算期封锁：10 秒内给全体抗性 V（100% 减伤），避免结算期间还有人被打死
+effect give @a minecraft:resistance 10 4 true
 
 # 200 刻 = 10 秒；replace 保证重复调用不叠定时器
 schedule function kitpvp:game/reset 200t replace

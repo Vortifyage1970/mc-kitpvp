@@ -2,7 +2,7 @@ tellraw @s [{"text":"┌──────────────────�
 tellraw @s [{"text":"│ 职业名：","color":"gray"},{"text":"末影人","color":"aqua","bold":true}]
 tellraw @s [{"text":"│ 分类：","color":"gray"},{"text":"经典（表）","color":"white"}]
 tellraw @s [{"text":"│ 简介：","color":"gray"},{"text":"瞬移作战的远程刺客","color":"white"}]
-tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"6","color":"white"}]
+tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"6","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:iron_sword","Count":1}}}]
 tellraw @s [{"text":"│ 武器攻击速度：","color":"gray"},{"text":"1.6","color":"white"}]
 tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"11","color":"white"}]
 tellraw @s [{"text":"│ 总护甲韧性：","color":"gray"},{"text":"0","color":"white"}]

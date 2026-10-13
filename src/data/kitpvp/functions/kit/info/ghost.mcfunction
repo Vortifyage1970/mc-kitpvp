@@ -2,7 +2,7 @@ tellraw @s [{"text":"┌──────────────────�
 tellraw @s [{"text":"│ 职业名：","color":"gray"},{"text":"幽灵","color":"dark_aqua","bold":true}]
 tellraw @s [{"text":"│ 分类：","color":"gray"},{"text":"经典（表）","color":"white"}]
 tellraw @s [{"text":"│ 简介：","color":"gray"},{"text":"只有一次生命，靠速度与隐身周旋的潜行者","color":"white"}]
-tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"8","color":"white"}]
+tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"8","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:golden_axe","Count":1}}}]
 tellraw @s [{"text":"│ 武器攻击速度：","color":"gray"},{"text":"1.0","color":"white"}]
 tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"5","color":"white"}]
 tellraw @s [{"text":"│ 总护甲韧性：","color":"gray"},{"text":"0","color":"white"}]

@@ -2,7 +2,7 @@ tellraw @s [{"text":"┌──────────────────�
 tellraw @s [{"text":"│ 职业名：","color":"gray"},{"text":"海盗","color":"dark_blue","bold":true}]
 tellraw @s [{"text":"│ 分类：","color":"gray"},{"text":"经典（表）","color":"white"}]
 tellraw @s [{"text":"│ 简介：","color":"gray"},{"text":"依托斧头与手炮的强夺者","color":"white"}]
-tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"9","color":"white"}]
+tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"9","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:diamond_axe","Count":1}}}]
 tellraw @s [{"text":"│ 武器攻击速度：","color":"gray"},{"text":"1.0","color":"white"}]
 tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"13","color":"white"}]
 tellraw @s [{"text":"│ 总护甲韧性：","color":"gray"},{"text":"0","color":"white"}]
