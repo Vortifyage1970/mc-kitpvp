@@ -2,7 +2,7 @@ tellraw @s [{"text":"┌──────────────────�
 tellraw @s [{"text":"│ 职业名：","color":"gray"},{"text":"纵火狂","color":"gold","bold":true}]
 tellraw @s [{"text":"│ 分类：","color":"gray"},{"text":"经典（表）","color":"white"}]
 tellraw @s [{"text":"│ 简介：","color":"gray"},{"text":"把战场烧成灰烬的纵火者","color":"white"}]
-tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"5","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:stone_sword","Count":1}}},{"text":"（悬停查看详情）","color":"dark_gray"}]
+tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"5","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:stone_sword","Count":1,"tag":"{Enchantments:[{id:\"minecraft:fire_aspect\",lvl:2}]}"}}},{"text":"（悬停查看详情）","color":"dark_gray"}]
 tellraw @s [{"text":"│ 武器附魔：","color":"gray"},{"text":"火焰附加 II","color":"white"}]
 tellraw @s [{"text":"│ 武器攻击速度：","color":"gray"},{"text":"1.6","color":"white"}]
 tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"11","color":"white"}]

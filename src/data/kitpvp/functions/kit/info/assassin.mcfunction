@@ -2,7 +2,7 @@ tellraw @s [{"text":"┌──────────────────�
 tellraw @s [{"text":"│ 职业名：","color":"gray"},{"text":"刺客","color":"dark_purple","bold":true}]
 tellraw @s [{"text":"│ 分类：","color":"gray"},{"text":"经典（表）","color":"white"}]
 tellraw @s [{"text":"│ 简介：","color":"gray"},{"text":"高速突进的暗杀者","color":"white"}]
-tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"8","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:diamond_sword","Count":1}}},{"text":"（悬停查看详情）","color":"dark_gray"}]
+tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"8","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:diamond_sword","Count":1,"tag":"{Enchantments:[{id:\"minecraft:sharpness\",lvl:1}]}"}}},{"text":"（悬停查看详情）","color":"dark_gray"}]
 tellraw @s [{"text":"│ 武器附魔：","color":"gray"},{"text":"锋利 I","color":"white"}]
 tellraw @s [{"text":"│ 武器攻击速度：","color":"gray"},{"text":"1.6","color":"white"}]
 tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"7","color":"white"}]
