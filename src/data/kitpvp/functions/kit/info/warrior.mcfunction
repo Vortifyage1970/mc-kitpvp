@@ -10,6 +10,7 @@ tellraw @s [{"text":"│ 头盔：","color":"gray"},{"text":"铁头盔","color":
 tellraw @s [{"text":"│ 胸甲：","color":"gray"},{"text":"铁胸甲","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:iron_chestplate","Count":1}}}]
 tellraw @s [{"text":"│ 护腿：","color":"gray"},{"text":"铁护腿","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:iron_leggings","Count":1}}}]
 tellraw @s [{"text":"│ 靴子：","color":"gray"},{"text":"铁靴子","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:iron_boots","Count":1}}}]
+tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"熟牛排 x24","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:cooked_beef","Count":1}}},{"text":"、"},{"text":"金苹果 x2","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:golden_apple","Count":1}}}]
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"开局具有 2 个金苹果","color":"white"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"无","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"white"}]

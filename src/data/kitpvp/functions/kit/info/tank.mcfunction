@@ -10,6 +10,7 @@ tellraw @s [{"text":"│ 头盔：","color":"gray"},{"text":"钻石头盔","colo
 tellraw @s [{"text":"│ 胸甲：","color":"gray"},{"text":"钻石胸甲","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:diamond_chestplate","Count":1}}}]
 tellraw @s [{"text":"│ 护腿：","color":"gray"},{"text":"钻石护腿","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:diamond_leggings","Count":1}}}]
 tellraw @s [{"text":"│ 靴子：","color":"gray"},{"text":"钻石靴子","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:diamond_boots","Count":1}}}]
+tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"熟牛排 x24","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:cooked_beef","Count":1}}}]
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"缓慢 I、挖掘疲劳 I","color":"yellow"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"举盾","color":"yellow"},{"text":" —— 右键「举盾令牌」，获得 1 个持续 15 秒、剩余耐久 80 的盾","color":"white"}]
 tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"30 秒","color":"white"}]
