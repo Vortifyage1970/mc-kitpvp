@@ -1,7 +1,7 @@
 # 结算清理：game/end 用 schedule 在 200 刻后调用（设计文档 2.11 第 3~7 步）
 execute as @a run function kitpvp:util/clear_player
 
-# tp @a <x> <y> <z>  ← 大厅坐标待定
+# 回大厅（坐标见 lobby/spawn 顶部的坐标注册表）
 execute as @a run function kitpvp:lobby/enter
 
 # 非玩家实体：清掉落物 + 我们自己召唤出来的东西，避免误伤画 / 物品展示框 / 地图装饰。

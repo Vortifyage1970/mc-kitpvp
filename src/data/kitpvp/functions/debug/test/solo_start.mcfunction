@@ -1,4 +1,4 @@
-# 测试模式（#test=1）专用单人开局；坐标 TODO，不传送
+# 测试模式（#test=1）专用单人开局；不传送，玩家留在原位（要回大厅用 lobby/enter）
 execute if score #test kitpvp.game matches 0 run title @s times 5 40 10
 execute if score #test kitpvp.game matches 0 run title @s title {"text":"请先开启测试模式","color":"red","bold":true}
 execute if score #test kitpvp.game matches 0 run tellraw @s [{"text":"[测试] 先执行 /function kitpvp:debug/test/on","color":"red"}]
