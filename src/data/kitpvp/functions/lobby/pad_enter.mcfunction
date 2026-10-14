@@ -13,3 +13,4 @@ execute if entity @s[x=-254,y=71,z=98,dx=1,dy=1,dz=1] run function kitpvp:kit/in
 execute if entity @s[x=-258,y=71,z=98,dx=1,dy=1,dz=1] run function kitpvp:kit/info/slime
 execute if entity @s[x=227,y=68,z=93,dx=1,dy=1,dz=1] run function kitpvp:kit/info/warrior_tainted
 execute if entity @s[x=231,y=68,z=93,dx=1,dy=1,dz=1] run function kitpvp:kit/info/taint_archer
+execute if entity @s[x=235,y=68,z=93,dx=1,dy=1,dz=1] run function kitpvp:kit/info/taint_tank
