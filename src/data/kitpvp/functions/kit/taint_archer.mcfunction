@@ -15,7 +15,7 @@ item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,di
 # 小锤40：实际伤害 4.4 / 攻速 1.3（玩家基础值 1 / 4，故写 3.4 / -2.7，见 04 §九）
 item replace entity @s weapon.mainhand with minecraft:stone_axe{KitTaintAxe:1b,Unbreakable:1b,AttributeModifiers:[{AttributeName:"minecraft:generic.attack_damage",Name:"kitpvp.taint_axe_damage",Amount:3.4,Operation:0,UUID:[I;24,0,0,1],Slot:"mainhand"},{AttributeName:"minecraft:generic.attack_speed",Name:"kitpvp.taint_axe_speed",Amount:-2.7,Operation:0,UUID:[I;24,0,0,2],Slot:"mainhand"}],display:{Name:'{"text":"小锤40","color":"gold"}'}} 1
 
-give @s minecraft:cooked_beef 24
+give @s minecraft:cooked_beef 18
 function kitpvp:skill/taint_archer/give_bow
 give @s minecraft:arrow 4
 

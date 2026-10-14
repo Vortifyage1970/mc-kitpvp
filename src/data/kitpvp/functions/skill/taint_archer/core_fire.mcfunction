@@ -4,7 +4,7 @@ scoreboard players set @s kitpvp.molten_core_timer 600
 
 function kitpvp:skill/taint_archer/core_refresh
 
-scoreboard players set @s kitpvp.cd 2400
+scoreboard players set @s kitpvp.cd2 2400
 
 title @s actionbar {"text":"熔火核心：7 格内的炮台进入熔火形态（30 秒）","color":"gold"}
 playsound minecraft:entity.blaze.shoot master @s ~ ~ ~ 0.8 1.0
