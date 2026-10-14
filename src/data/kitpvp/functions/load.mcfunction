@@ -70,6 +70,7 @@ scoreboard objectives add kitpvp.ttid dummy "炮台队槽编号"
 scoreboard objectives add kitpvp.turret_owner dummy
 scoreboard objectives add kitpvp.turret_seq dummy
 scoreboard objectives add kitpvp.turret_molten_timer dummy
+scoreboard objectives add kitpvp.turret_heal_cd dummy "炮台回血冷却"
 
 # 预留（暂无消费者，刻意保留）：cd2 = 第二技能冷却；item = 物品计数
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
@@ -127,6 +128,7 @@ scoreboard players set @a kitpvp.item 0
 scoreboard players set @a kitpvp.tid 0
 scoreboard players set @a kitpvp.ttid 0
 scoreboard players set @a kitpvp.fisher_no_tri 0
+scoreboard players set @a kitpvp.turret_heal_cd 0
 # 换过 criterion 的快照要重新对齐，否则 old 的快照值会一直压着新计数不触发
 execute as @a run scoreboard players operation @s kitpvp.taint_core_last = @s kitpvp.taint_core_used
 

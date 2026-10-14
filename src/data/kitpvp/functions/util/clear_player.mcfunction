@@ -45,6 +45,7 @@ scoreboard players operation @s kitpvp.soul_archer_last = @s kitpvp.soul_archer_
 scoreboard players operation @s kitpvp.soul_pirate_last = @s kitpvp.soul_pirate_used
 scoreboard players operation @s kitpvp.taint_turret_last = @s kitpvp.taint_turret_used
 scoreboard players operation @s kitpvp.taint_core_last = @s kitpvp.taint_core_used
+scoreboard players set @s kitpvp.turret_heal_cd 0
 tag @s remove kitpvp.soul_bow_held
 tag @s remove kitpvp.soul_pirate_held
 tag @s remove kitpvp.arrow_user
