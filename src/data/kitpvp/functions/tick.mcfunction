@@ -46,13 +46,7 @@ execute as @a[tag=kitpvp.pirate_charged_prev,tag=!kitpvp.pirate_charged,scores={
 # 里·弓箭手：两个令牌（炮台 / 熔火核心）
 # ⚠ 必须带 at @s：tick 函数的执行位置是世界出生点，技能里所有 ~ 相对坐标都靠这一步锚定
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.taint_turret_used > @s kitpvp.taint_turret_last run function kitpvp:skill/taint_archer/turret_cast
-execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.taint_core_used > @s kitpvp.taint_core_last run function kitpvp:skill/taint_archer/core_cast
-# 岩浆怪兜底清扫：令牌刷出来的岩浆怪是纯副作用（技能本身也会清，这里管"技能没跑到"和
-# "它在我们处理之前自己掉进水里死了"两种情况，也包括旧版本留下的残留）。
-# ⚠ 必须先压最小体型再杀：尺寸 >1 被击杀会分裂，分裂体再被杀还会再分一层
-# ⚠ 只在"对局进行中"清（#state 1..），免得误删建造模式里摆的装饰；四张地图模板里都没有岩浆怪
-execute if score #state kitpvp.game matches 1.. as @e[type=minecraft:magma_cube] run data merge entity @s {Size:1}
-execute if score #state kitpvp.game matches 1.. run kill @e[type=minecraft:magma_cube]
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.taint_core_used > @s kitpvp.taint_core_last run function kitpvp:skill/taint_archer/dispatch
 # 令牌兜底补发：炮台上限 4（cd 节流）、熔火核心上限 1（cd2 节流）；数量按背包真实值算
 # ⚠ 补货必须自己置冷却，否则 count 一直 <= 上限就会每刻给一个
 execute as @a[scores={kitpvp.kit=24,kitpvp.alive=1,kitpvp.cd=0},tag=!kitpvp.spectator] run scoreboard players set @s kitpvp.tmp 0
@@ -62,16 +56,12 @@ execute as @a[scores={kitpvp.kit=24,kitpvp.alive=1,kitpvp.cd=0,kitpvp.tmp=..3},t
 execute as @a[scores={kitpvp.kit=24,kitpvp.alive=1,kitpvp.cd=0,kitpvp.tmp=..3},tag=!kitpvp.spectator] run title @s actionbar {"text":"炮台令牌 +1","color":"dark_red"}
 execute as @a[scores={kitpvp.kit=24,kitpvp.alive=1,kitpvp.cd=0,kitpvp.tmp=..3},tag=!kitpvp.spectator] run playsound minecraft:entity.item.pickup master @s ~ ~ ~ 0.6 1.4
 execute as @a[scores={kitpvp.kit=24,kitpvp.alive=1,kitpvp.cd2=0},tag=!kitpvp.spectator] run scoreboard players set @s kitpvp.tmp 0
-execute as @a[scores={kitpvp.kit=24,kitpvp.alive=1,kitpvp.cd2=0},tag=!kitpvp.spectator] store result score @s kitpvp.tmp run clear @s minecraft:magma_cube_spawn_egg{KitTaintCoreEgg:1b} 0
+execute as @a[scores={kitpvp.kit=24,kitpvp.alive=1,kitpvp.cd2=0},tag=!kitpvp.spectator] store result score @s kitpvp.tmp run clear @s minecraft:blaze_spawn_egg{KitTaintCoreEgg:1b} 0
 execute as @a[scores={kitpvp.kit=24,kitpvp.alive=1,kitpvp.cd2=0,kitpvp.tmp=..0},tag=!kitpvp.spectator] run function kitpvp:skill/taint_archer/give_token_core
 execute as @a[scores={kitpvp.kit=24,kitpvp.alive=1,kitpvp.cd2=0,kitpvp.tmp=..0},tag=!kitpvp.spectator] run scoreboard players set @s kitpvp.cd2 2400
 execute as @a[scores={kitpvp.kit=24,kitpvp.alive=1,kitpvp.cd2=0,kitpvp.tmp=..0},tag=!kitpvp.spectator] run title @s actionbar {"text":"熔火核心已就绪","color":"gold"}
 execute as @a[scores={kitpvp.kit=24,kitpvp.alive=1,kitpvp.cd2=0,kitpvp.tmp=..0},tag=!kitpvp.spectator] run playsound minecraft:entity.blaze.ambient master @s ~ ~ ~ 0.6 1.2
-# 熔火核心窗口：每 20 刻刷新一次 7 格内自己的炮台；窗口结束即复原
-execute as @a[tag=kitpvp.molten_core,scores={kitpvp.molten_core_timer=1..}] run scoreboard players remove @s kitpvp.molten_core_timer 1
-execute if score #tick kitpvp.game matches 0 as @a[tag=kitpvp.molten_core] at @s run function kitpvp:skill/taint_archer/core_refresh
-execute as @a[tag=kitpvp.molten_core,scores={kitpvp.molten_core_timer=..0}] run function kitpvp:skill/taint_archer/core_expire
-# 炮台熔火形态：形态计时归零就复原（窗口内的刷新会续期，所以窗口期间不会掉）
+# 炮台熔火形态：只在使用瞬间变一次（core_fire），之后各自计时 30 秒，计时归零就复原
 execute as @e[tag=kitpvp.turret_molten,scores={kitpvp.turret_molten_timer=1..}] run scoreboard players remove @s kitpvp.turret_molten_timer 1
 execute as @e[tag=kitpvp.turret_molten,scores={kitpvp.turret_molten_timer=..0}] run function kitpvp:skill/taint_archer/turret_from_molten
 

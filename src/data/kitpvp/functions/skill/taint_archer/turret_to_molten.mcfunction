@@ -10,8 +10,8 @@ item replace entity @s armor.legs with minecraft:golden_leggings{Enchantments:[{
 item replace entity @s armor.feet with minecraft:golden_boots{Enchantments:[{id:"minecraft:unbreaking",lvl:3}]}
 item replace entity @s weapon.mainhand with minecraft:bow{Enchantments:[{id:"minecraft:power",lvl:2},{id:"minecraft:punch",lvl:1},{id:"minecraft:flame",lvl:2}]}
 
-# 抗性提升 IV（amplifier 3）；窗口每 20 刻续期一次，所以给足 35 秒
-effect give @s minecraft:resistance 35 3 true
+# 抗性提升 IV（amplifier 3）：形态 30 秒，直接给满 30 秒（不再刷新续期）
+effect give @s minecraft:resistance 30 3 true
 
 tag @s add kitpvp.turret_molten
 scoreboard players set @s kitpvp.turret_molten_timer 600

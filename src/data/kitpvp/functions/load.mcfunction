@@ -60,13 +60,12 @@ scoreboard objectives add kitpvp.ender_last dummy
 scoreboard objectives add kitpvp.ender_ammo dummy
 scoreboard objectives add kitpvp.taint_turret_used minecraft.used:minecraft.stray_spawn_egg
 scoreboard objectives add kitpvp.taint_turret_last dummy "炮台令牌快照"
-scoreboard objectives add kitpvp.taint_core_used minecraft.used:minecraft.magma_cube_spawn_egg
+scoreboard objectives add kitpvp.taint_core_used minecraft.used:minecraft.blaze_spawn_egg
 scoreboard objectives add kitpvp.taint_core_last dummy "熔火核心快照"
 scoreboard objectives add kitpvp.ttid dummy "炮台队槽编号"
 scoreboard objectives add kitpvp.turret_owner dummy
 scoreboard objectives add kitpvp.turret_seq dummy
 scoreboard objectives add kitpvp.turret_molten_timer dummy
-scoreboard objectives add kitpvp.molten_core_timer dummy
 
 # 预留（暂无消费者，刻意保留）：cd2 = 第二技能冷却；item = 物品计数
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
@@ -108,7 +107,6 @@ tag @a remove kitpvp.soul_transit
 tag @a remove kitpvp.soul_ghost_active
 tag @a remove kitpvp.soul_pirate_held
 tag @a remove kitpvp.arrow_user
-tag @a remove kitpvp.molten_core
 tag @a remove kitpvp.on_pad
 
 scoreboard players set @a kitpvp.kit 0
