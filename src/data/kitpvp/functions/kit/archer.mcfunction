@@ -1,6 +1,7 @@
 # 弓箭手（kit = 2）；弓的 KitBow:1b 是换弹技能的识别标记，不要摘
 function kitpvp:util/clear_player
 scoreboard players set @s kitpvp.kit 2
+tag @s add kitpvp.arrow_user
 scoreboard players set @s kitpvp.lives 3
 
 item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b} 1

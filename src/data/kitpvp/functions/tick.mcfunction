@@ -23,9 +23,10 @@ execute as @a[scores={kitpvp.cd=..300},tag=kitpvp.shield_held,tag=!kitpvp.specta
 execute as @a[scores={kitpvp.kit=3}] at @s run kill @e[type=iron_golem,distance=..16,name="举盾令牌"]
 execute as @a[scores={kitpvp.kit=3,kitpvp.alive=1,kitpvp.cd=0},tag=!kitpvp.spectator] unless data entity @s Inventory[{tag:{KitTankEgg:1b}}] run function kitpvp:skill/tank/give_egg
 
-# 箭一落地即清，防"射出→换弹→捡回"刷过 12 支上限。
-# 20 刻节流 + 无弓箭手时整行不执行（原为每刻全图扫描）
-execute if entity @a[scores={kitpvp.kit=2}] if score #tick kitpvp.game matches 0 run kill @e[type=minecraft:arrow,nbt={inGround:1b}]
+# 箭一落地即清，防"射出→换弹→捡回"刷过上箭上限。
+# 20 刻节流 + 场上没有用箭的职业时整行不执行（原为每刻全图扫描）
+# tag kitpvp.arrow_user 由 kit/archer 与 kit/taint_archer 打上——新增用箭职业时同步加 tag（见 04 §五）
+execute if entity @a[tag=kitpvp.arrow_user] if score #tick kitpvp.game matches 0 run kill @e[type=minecraft:arrow,nbt={inGround:1b}]
 
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.assassin_used > @s kitpvp.assassin_last run function kitpvp:skill/assassin/dispatch
 execute as @a[scores={kitpvp.cd=..500},tag=kitpvp.assassin_hidden,tag=!kitpvp.spectator] run function kitpvp:skill/assassin/unhide
@@ -41,6 +42,17 @@ scoreboard players set @a[scores={kitpvp.kit=9}] kitpvp.tmp 0
 execute as @a[scores={kitpvp.kit=9}] if data entity @s SelectedItem.tag.KitCrossbow store result score @s kitpvp.tmp run data get entity @s SelectedItem.tag.Charged
 execute as @a[scores={kitpvp.kit=9,kitpvp.tmp=1..}] run tag @s add kitpvp.pirate_charged
 execute as @a[tag=kitpvp.pirate_charged_prev,tag=!kitpvp.pirate_charged,scores={kitpvp.kit=9,kitpvp.alive=1},tag=!kitpvp.spectator] if data entity @s SelectedItem.tag.KitCrossbow run function kitpvp:skill/pirate/fire
+
+# 里·弓箭手：两个令牌（炮台 / 熔火核心）
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.taint_turret_used > @s kitpvp.taint_turret_last run function kitpvp:skill/taint_archer/turret_cast
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.taint_core_used > @s kitpvp.taint_core_last run function kitpvp:skill/taint_archer/core_cast
+# 熔火核心窗口：每 20 刻刷新一次 7 格内自己的炮台；窗口结束即复原
+execute as @a[tag=kitpvp.molten_core,scores={kitpvp.molten_core_timer=1..}] run scoreboard players remove @s kitpvp.molten_core_timer 1
+execute if score #tick kitpvp.game matches 0 as @a[tag=kitpvp.molten_core] at @s run function kitpvp:skill/taint_archer/core_refresh
+execute as @a[tag=kitpvp.molten_core,scores={kitpvp.molten_core_timer=..0}] run function kitpvp:skill/taint_archer/core_expire
+# 炮台熔火形态：形态计时归零就复原（窗口内的刷新会续期，所以窗口期间不会掉）
+execute as @e[tag=kitpvp.turret_molten,scores={kitpvp.turret_molten_timer=1..}] run scoreboard players remove @s kitpvp.turret_molten_timer 1
+execute as @e[tag=kitpvp.turret_molten,scores={kitpvp.turret_molten_timer=..0}] run function kitpvp:skill/taint_archer/turret_from_molten
 
 # 纵火狂、末影人：投掷入口的调用条件里绝不能加 hold_*_prev，
 # 否则投其它同种物品时 last 不推进，之后切到本职业投掷物会误触发（见 05 §12）

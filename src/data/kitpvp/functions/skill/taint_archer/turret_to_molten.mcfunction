@@ -1,0 +1,12 @@
+# 熔火形态：装备按"强化形态"给，与 turret_from_molten 成对
+item replace entity @s armor.head with minecraft:magma_block
+item replace entity @s armor.chest with minecraft:golden_chestplate{Enchantments:[{id:"minecraft:unbreaking",lvl:3}]}
+item replace entity @s armor.legs with minecraft:golden_leggings{Enchantments:[{id:"minecraft:unbreaking",lvl:3}]}
+item replace entity @s armor.feet with minecraft:golden_boots{Enchantments:[{id:"minecraft:unbreaking",lvl:3}]}
+item replace entity @s weapon.mainhand with minecraft:bow{Enchantments:[{id:"minecraft:power",lvl:2},{id:"minecraft:punch",lvl:1},{id:"minecraft:flame",lvl:1}]}
+
+# 抗性提升 IV（amplifier 3）；窗口每 20 刻续期一次，所以给足 35 秒
+effect give @s minecraft:resistance 35 3 true
+
+tag @s add kitpvp.turret_molten
+scoreboard players set @s kitpvp.turret_molten_timer 600
