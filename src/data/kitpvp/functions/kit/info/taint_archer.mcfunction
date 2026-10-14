@@ -14,7 +14,7 @@ tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"弓（换弹 4 支�
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"—","color":"dark_gray"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"放置炮台","color":"yellow"},{"text":" —— 右键「炮台令牌」在落点部署炮台（开局 4 个令牌、上限 4，每 30 秒补 1 个；炮台存在上限 4，第 5 个会杀掉最早那个；被石斧击打可回血；免击退）","color":"white"}]
 tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"30 秒补 1 个令牌","color":"white"}]
-tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"熔火核心","color":"yellow"},{"text":" —— 右键「熔火核心」，7 格内自己的炮台进入熔火形态 30 秒（岩浆块头、金甲、抗性提升 IV、弓改力量 II 冲击 I 火矢 I）","color":"white"}]
+tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"熔火核心","color":"yellow"},{"text":" —— 右键「熔火核心」，7 格内自己的炮台进入熔火形态 30 秒（岩浆块头、金甲、抗性提升 IV、弓改力量 II 冲击 I 火矢 II）","color":"white"}]
 tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"120 秒补 1 个令牌","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"white"}]
 tellraw @s [{"text":"└──────────────────────────────","color":"dark_gray"}]
