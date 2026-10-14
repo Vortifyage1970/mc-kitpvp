@@ -37,6 +37,7 @@ scoreboard objectives add kitpvp.ready_used minecraft.used:minecraft.carrot_on_a
 scoreboard objectives add kitpvp.ready_last dummy "大厅准备快照"
 scoreboard objectives add kitpvp.tmp dummy
 scoreboard objectives add kitpvp.soul_rand dummy "魂石随机数"
+scoreboard objectives add kitpvp.soul_next dummy "下次魂石倒计时"
 scoreboard objectives add kitpvp.soul_bow_timer dummy "魂石弓倒计时"
 scoreboard objectives add kitpvp.soul_warrior_used minecraft.used:minecraft.blaze_spawn_egg
 scoreboard objectives add kitpvp.soul_archer_used minecraft.used:minecraft.skeleton_spawn_egg
@@ -129,6 +130,7 @@ scoreboard players set @a kitpvp.tid 0
 scoreboard players set @a kitpvp.ttid 0
 scoreboard players set @a kitpvp.fisher_no_tri 0
 scoreboard players set @a kitpvp.turret_heal_cd 0
+scoreboard players set @a kitpvp.soul_next 0
 # 换过 criterion 的快照要重新对齐，否则 old 的快照值会一直压着新计数不触发
 execute as @a run scoreboard players operation @s kitpvp.taint_core_last = @s kitpvp.taint_core_used
 

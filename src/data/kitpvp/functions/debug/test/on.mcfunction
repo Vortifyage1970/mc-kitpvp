@@ -10,6 +10,6 @@ tellraw @a [{"text":"▶ build","color":"aqua","clickEvent":{"action":"run_comma
 tellraw @a [{"text":"▶ play","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/test/play"},"hoverEvent":{"action":"show_text","contents":"游玩模式（生存+参与游戏统计）"}}]
 tellraw @a [{"text":"▶ status","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/test/status"},"hoverEvent":{"action":"show_text","contents":"打印测试状态"}}]
 tellraw @a [{"text":"▶ music","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/test/music"},"hoverEvent":{"action":"show_text","contents":"放点轻松音乐"}}]
-tellraw @a [{"text":"▶ sudden_death","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:game/sudden_death_start"},"hoverEvent":{"action":"show_text","contents":"立刻进入突然死亡（每 20 秒给存活玩家发魂石）"}}]
+tellraw @a [{"text":"▶ sudden_death","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:game/sudden_death_start"},"hoverEvent":{"action":"show_text","contents":"立刻进入突然死亡（魂石间隔按剩余命数：3 命 45 秒 / 2 命 35 秒 / 1 命 25 秒）"}}]
 tellraw @a [{"text":"▶ soul_stone_give","color":"aqua","clickEvent":{"action":"run_command","value":"/execute as @a run function kitpvp:skill/soul/give"},"hoverEvent":{"action":"show_text","contents":"给所有存活玩家发魂石"}}]
 tellraw @a [{"text":"▶ off","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/test/off"},"hoverEvent":{"action":"show_text","contents":"关闭测试模式"}}]

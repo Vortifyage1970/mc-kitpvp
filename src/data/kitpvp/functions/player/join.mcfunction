@@ -23,6 +23,7 @@ scoreboard players operation @s kitpvp.taint_core_last = @s kitpvp.taint_core_us
 scoreboard players operation @s kitpvp.arsonist_last = @s kitpvp.arsonist_used
 scoreboard players operation @s kitpvp.fisher_last = @s kitpvp.fisher_used
 scoreboard players set @s kitpvp.arsonist_ammo 0
+scoreboard players set @s kitpvp.soul_next 0
 scoreboard players operation @s kitpvp.ender_last = @s kitpvp.ender_used
 scoreboard players set @s kitpvp.ender_ammo 0
 

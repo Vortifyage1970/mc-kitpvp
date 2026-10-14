@@ -38,6 +38,7 @@ scoreboard players operation @s kitpvp.arsonist_last = @s kitpvp.arsonist_used
 scoreboard players operation @s kitpvp.fisher_last = @s kitpvp.fisher_used
 scoreboard players operation @s kitpvp.ready_last = @s kitpvp.ready_used
 scoreboard players set @s kitpvp.soul_rand 0
+scoreboard players set @s kitpvp.soul_next 0
 scoreboard players set @s kitpvp.soul_bow_timer 0
 scoreboard players set @s kitpvp.soul_pirate_timer 0
 scoreboard players operation @s kitpvp.soul_warrior_last = @s kitpvp.soul_warrior_used
