@@ -20,6 +20,9 @@ function kitpvp:skill/taint_archer/give_bow
 give @s minecraft:arrow 4
 
 function kitpvp:skill/taint_archer/give_token_turret
+function kitpvp:skill/taint_archer/give_token_turret
+function kitpvp:skill/taint_archer/give_token_turret
+function kitpvp:skill/taint_archer/give_token_turret
 function kitpvp:skill/taint_archer/give_token_core
 
 # 炮台队槽惰性分配：拿到本局第一个未占用的槽（游标循环 1..6）
