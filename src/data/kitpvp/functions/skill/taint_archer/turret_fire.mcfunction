@@ -1,9 +1,10 @@
 # 就地生成：刷怪蛋已经按玩家的瞄点刷出一只流浪者，炮台就起在它那个位置（找不到才退化到脚下）
+# 靠蛋的 EntityTag 打的 tag 认它，不用生物名字
 scoreboard players set #tfound kitpvp.game 0
-execute if entity @e[type=minecraft:stray,name="炮台令牌"] run scoreboard players set #tfound kitpvp.game 1
-execute at @e[type=minecraft:stray,name="炮台令牌",sort=nearest,limit=1] run function kitpvp:summon/turret
+execute if entity @e[tag=kitpvp.token_turret] run scoreboard players set #tfound kitpvp.game 1
+execute at @e[tag=kitpvp.token_turret,sort=nearest,limit=1] run function kitpvp:summon/turret
 execute if score #tfound kitpvp.game matches 0 at @s run function kitpvp:summon/turret
-kill @e[type=minecraft:stray,name="炮台令牌"]
+kill @e[tag=kitpvp.token_turret]
 
 # 归属与排序：队槽只用于"不攻击主人"，主人编号与序号用分数记（选择器里比不了变量）
 # ⚠ 必须把**玩家和炮台都** join 进同一队：只 join 炮台的话玩家不在队里，骷髅照样打他

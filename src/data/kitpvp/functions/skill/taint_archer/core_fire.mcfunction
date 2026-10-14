@@ -1,12 +1,9 @@
 # 冷却从"使用时"起算 2400 刻（120 秒），走第二技能槽 cd2；窗口 600 刻（30 秒）
 # 令牌会把岩浆怪刷出来：先压成最小体型（尺寸没有 0，Size:1 就是最小）再杀，否则击杀时会分裂
 # ⚠ data merge entity 要求选择器在加载期就能确定是单个实体，@e[...] 不带 limit=1 会让本文件整个不加载（见 04 §十）
-execute as @e[type=minecraft:magma_cube,name="熔火核心"] run data merge entity @s {Size:1}
-kill @e[type=minecraft:magma_cube,name="熔火核心"]
-# 兜底：那颗岩浆怪可能在上面两行之前就自己死了（比如刷进水里），分裂体没有自定义名，
-# 按"附近未被命名的岩浆怪"再清一遍（同样先压尺寸，否则又分一层）
-execute as @e[type=minecraft:magma_cube,distance=..16] unless data entity @s CustomName run data merge entity @s {Size:1}
-execute as @e[type=minecraft:magma_cube,distance=..16] unless data entity @s CustomName run kill @s
+# tag 来自蛋的 EntityTag（见 04 §五），所以不会误伤地图装饰生物
+execute as @e[tag=kitpvp.token_core] run data merge entity @s {Size:1}
+kill @e[tag=kitpvp.token_core]
 
 tag @s add kitpvp.molten_core
 scoreboard players set @s kitpvp.molten_core_timer 600
