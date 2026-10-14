@@ -39,9 +39,12 @@ scoreboard players operation @s kitpvp.fisher_last = @s kitpvp.fisher_used
 scoreboard players operation @s kitpvp.ready_last = @s kitpvp.ready_used
 scoreboard players set @s kitpvp.soul_rand 0
 scoreboard players set @s kitpvp.soul_bow_timer 0
+scoreboard players set @s kitpvp.soul_pirate_timer 0
 scoreboard players operation @s kitpvp.soul_warrior_last = @s kitpvp.soul_warrior_used
 scoreboard players operation @s kitpvp.soul_archer_last = @s kitpvp.soul_archer_used
+scoreboard players operation @s kitpvp.soul_pirate_last = @s kitpvp.soul_pirate_used
 tag @s remove kitpvp.soul_bow_held
+tag @s remove kitpvp.soul_pirate_held
 tag @s remove kitpvp.soul_ghost_active
 scoreboard players set @s kitpvp.soul_ghost_timer 0
 scoreboard players set @s kitpvp.ghost_minion_cd 0

@@ -49,6 +49,9 @@ scoreboard objectives add kitpvp.fire_timer dummy
 scoreboard objectives add kitpvp.soul_ghost_used minecraft.used:minecraft.vex_spawn_egg
 scoreboard objectives add kitpvp.soul_ghost_last dummy "幽灵魂石快照"
 scoreboard objectives add kitpvp.soul_ghost_timer dummy "幽灵魂石倒计时"
+scoreboard objectives add kitpvp.soul_pirate_used minecraft.used:minecraft.pillager_spawn_egg
+scoreboard objectives add kitpvp.soul_pirate_last dummy "海盗魂石快照"
+scoreboard objectives add kitpvp.soul_pirate_timer dummy "魂石手炮倒计时"
 scoreboard objectives add kitpvp.ghost_minion_cd dummy "阴兵召唤冷却"
 scoreboard objectives add kitpvp.tid dummy "队槽编号"
 scoreboard objectives add kitpvp.rng dummy
@@ -86,6 +89,7 @@ tag @a remove kitpvp.pirate_reload_cd
 tag @a remove kitpvp.soul_bow_held
 tag @a remove kitpvp.soul_transit
 tag @a remove kitpvp.soul_ghost_active
+tag @a remove kitpvp.soul_pirate_held
 tag @a remove kitpvp.on_pad
 
 scoreboard players set @a kitpvp.kit 0
@@ -108,7 +112,7 @@ scoreboard players set #state kitpvp.game 0
 scoreboard players set #survivors kitpvp.game 0
 scoreboard players set #tick kitpvp.game 0
 scoreboard players set #test kitpvp.game 0
-scoreboard players set #soul_count kitpvp.game 5
+scoreboard players set #soul_count kitpvp.game 6
 scoreboard players set #ghost_tid kitpvp.game 0
 scoreboard players set #ghost_need_new kitpvp.game 0
 scoreboard players set #lobby kitpvp.game 0
