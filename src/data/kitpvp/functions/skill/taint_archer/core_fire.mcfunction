@@ -1,6 +1,7 @@
 # 冷却从"使用时"起算 2400 刻（120 秒），走第二技能槽 cd2；窗口 600 刻（30 秒）
 # 令牌会把岩浆怪刷出来：先压成最小体型再杀，否则击杀时会分裂成一堆小的
-data merge entity @e[type=minecraft:magma_cube,name="熔火核心"] {Size:1}
+# ⚠ data merge entity 要求选择器在加载期就能确定是单个实体，@e[...] 不带 limit=1 会让本文件整个不加载（见 04 §十）
+execute as @e[type=minecraft:magma_cube,name="熔火核心"] run data merge entity @s {Size:1}
 kill @e[type=minecraft:magma_cube,name="熔火核心"]
 
 tag @s add kitpvp.molten_core
