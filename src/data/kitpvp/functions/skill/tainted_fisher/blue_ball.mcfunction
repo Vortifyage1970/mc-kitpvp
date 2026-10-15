@@ -1,23 +1,14 @@
-# 以执行位置为球心铺一颗半径 3 的水球，球心取脚下 +1（覆盖脚到头）。
-# 形状 = "欧氏距离 ≤ 3" 的那 123 个方块，按水平切片逐层铺（fill 只能填长方体，故每层拆成矩形 + 长条）：
-#   球心 +3 层 1 格；+2 层 3x5 加两侧 1x3；+1 层 5x5；中心层 5x5 加十字两条 7 格；下方三层镜像
+# 以执行位置为球心铺一颗直径 3 的水球（球心取脚下 +1，覆盖脚到头）。
+# 形状 = "欧氏距离 ≤ 1.5" 的那 19 个方块：中间一层 3x3，上下各一个十字（5 格），三个方向都是 3 格宽。
 # replace air：只把空气换成水，已有方块（地形 / 别人的水）一概不动 —— 这就是"不破坏方块"。
-fill ~ ~4 ~ ~ ~4 ~ minecraft:water replace air
-fill ~-1 ~3 ~-2 ~1 ~3 ~2 minecraft:water replace air
-fill ~-2 ~3 ~-1 ~-2 ~3 ~1 minecraft:water replace air
-fill ~2 ~3 ~-1 ~2 ~3 ~1 minecraft:water replace air
-fill ~-2 ~2 ~-2 ~2 ~2 ~2 minecraft:water replace air
-fill ~-2 ~1 ~-2 ~2 ~1 ~2 minecraft:water replace air
-fill ~-3 ~1 ~ ~3 ~1 ~ minecraft:water replace air
-fill ~ ~1 ~-3 ~ ~1 ~3 minecraft:water replace air
-fill ~-2 ~ ~-2 ~2 ~ ~2 minecraft:water replace air
-fill ~-1 ~-1 ~-2 ~1 ~-1 ~2 minecraft:water replace air
-fill ~-2 ~-1 ~-1 ~-2 ~-1 ~1 minecraft:water replace air
-fill ~2 ~-1 ~-1 ~2 ~-1 ~1 minecraft:water replace air
-fill ~ ~-2 ~ ~ ~-2 ~ minecraft:water replace air
+fill ~-1 ~1 ~-1 ~1 ~1 ~1 minecraft:water replace air
+fill ~ ~2 ~-1 ~ ~2 ~1 minecraft:water replace air
+fill ~-1 ~2 ~ ~1 ~2 ~ minecraft:water replace air
+fill ~ ~ ~-1 ~ ~ ~1 minecraft:water replace air
+fill ~-1 ~ ~ ~1 ~ ~ minecraft:water replace air
 
-# 注意：fill 出来的是水源方块，水会顺着空处向外流（半径 3 的球外溢范围更大），本包不额外封边（见 04 §五）
-particle minecraft:splash ~ ~1 ~ 2.6 2.6 2.6 0.1 300
+# 注意：fill 出来的是水源方块，水会顺着空处向外流（最外圈仍能外溢约 7 格），本包不额外封边（见 04 §五）
+particle minecraft:splash ~ ~1 ~ 1.2 1.2 1.2 0.1 150
 
 # 落地重音效（比报幕那几发重得多）：爆炸声 + 三叉戟惊雷两层叠加。
 # 声源在球心（施术者最远 10 格也听得见），播给"自己 + 受影响的人"——
