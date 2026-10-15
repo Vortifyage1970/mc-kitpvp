@@ -18,6 +18,10 @@ tag @s remove kitpvp.keep_inventory
 tag @s remove kitpvp.shield_held
 tag @s remove kitpvp.assassin_hidden
 tag @s remove kitpvp.pirate_reload_cd
+tag @s remove kitpvp.tainted_fisher_cang
+tag @s remove kitpvp.tainted_fisher_domain
+tag @s remove kitpvp.tainted_fisher_self
+tag @s remove kitpvp.in_water
 tag @s remove kitpvp.ready
 tag @s remove kitpvp.ready_pending
 
@@ -61,6 +65,10 @@ scoreboard players operation @s kitpvp.ender_last = @s kitpvp.ender_used
 scoreboard players operation @s kitpvp.werewolf_last = @s kitpvp.werewolf_used
 scoreboard players operation @s kitpvp.tamer_last = @s kitpvp.tamer_used
 scoreboard players set @s kitpvp.werewolf_hit_cd 0
+scoreboard players operation @s kitpvp.tainted_fisher_blue_last = @s kitpvp.tainted_fisher_blue_used
+scoreboard players operation @s kitpvp.tainted_fisher_domain_last = @s kitpvp.tainted_fisher_domain_used
+scoreboard players set @s kitpvp.tainted_fisher_cang_timer 0
+scoreboard players set @s kitpvp.tainted_fisher_domain_timer 0
 
 attribute @s minecraft:generic.max_health base set 20
 attribute @s minecraft:generic.movement_speed base set 0.1

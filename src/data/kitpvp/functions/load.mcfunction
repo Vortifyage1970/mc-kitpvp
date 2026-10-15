@@ -84,6 +84,14 @@ scoreboard objectives add kitpvp.turret_seq dummy
 scoreboard objectives add kitpvp.turret_molten_timer dummy
 scoreboard objectives add kitpvp.turret_heal_cd dummy "炮台回血冷却"
 
+# 里·渔夫：两个技能各一个令牌（发光鱿鱼蛋 / 鱿鱼蛋），共用一把锁（cd 与 cd2 就是两个技能自身的冷却）
+scoreboard objectives add kitpvp.tainted_fisher_blue_used minecraft.used:minecraft.glow_squid_spawn_egg
+scoreboard objectives add kitpvp.tainted_fisher_blue_last dummy "里·渔夫苍快照"
+scoreboard objectives add kitpvp.tainted_fisher_domain_used minecraft.used:minecraft.squid_spawn_egg
+scoreboard objectives add kitpvp.tainted_fisher_domain_last dummy "里·渔夫领域快照"
+scoreboard objectives add kitpvp.tainted_fisher_cang_timer dummy "里·渔夫苍前摇计时"
+scoreboard objectives add kitpvp.tainted_fisher_domain_timer dummy "里·渔夫领域计时"
+
 # 预留（暂无消费者，刻意保留）：cd2 = 第二技能冷却；item = 物品计数
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
 scoreboard objectives modify kitpvp.lives displayname {"text":"命数","color":"red"}

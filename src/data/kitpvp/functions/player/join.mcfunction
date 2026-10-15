@@ -28,5 +28,7 @@ scoreboard players operation @s kitpvp.ender_last = @s kitpvp.ender_used
 scoreboard players set @s kitpvp.ender_ammo 0
 scoreboard players operation @s kitpvp.werewolf_last = @s kitpvp.werewolf_used
 scoreboard players operation @s kitpvp.tamer_last = @s kitpvp.tamer_used
+scoreboard players operation @s kitpvp.tainted_fisher_blue_last = @s kitpvp.tainted_fisher_blue_used
+scoreboard players operation @s kitpvp.tainted_fisher_domain_last = @s kitpvp.tainted_fisher_domain_used
 
 function kitpvp:lobby/enter

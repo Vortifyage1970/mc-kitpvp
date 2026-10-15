@@ -67,6 +67,22 @@ execute as @a[scores={kitpvp.turret_heal_cd=1..}] run scoreboard players remove 
 execute as @e[tag=kitpvp.turret_molten,scores={kitpvp.turret_molten_timer=1..}] run scoreboard players remove @s kitpvp.turret_molten_timer 1
 execute as @e[tag=kitpvp.turret_molten,scores={kitpvp.turret_molten_timer=..0}] run function kitpvp:skill/tainted_archer/turret_from_molten
 
+# 里·渔夫（kit 29）：两个技能令牌（苍 / 领域展开）。cd 与 cd2 就是两个技能自身的冷却，
+# 且互相锁死（放苍 → 两个都锁 60 秒；放领域展开 → 两个都锁 240 秒，属 03 §2.13 的"真冷却"例外）
+# ⚠ 必须带 at @s：水球球心、"10 格内最近玩家"的距离、清令牌生物的距离都靠这一步锚定
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.tainted_fisher_blue_used > @s kitpvp.tainted_fisher_blue_last run function kitpvp:skill/tainted_fisher/blue_cast
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.tainted_fisher_domain_used > @s kitpvp.tainted_fisher_domain_last run function kitpvp:skill/tainted_fisher/domain_cast
+# 前摇 / 领域计时必须排在 cast 之后：cast 刚写进去的计时器下一刻才该开始走，否则整体少 1 刻
+execute as @a[tag=kitpvp.tainted_fisher_cang] at @s run function kitpvp:skill/tainted_fisher/cang_tick
+execute as @a[tag=kitpvp.tainted_fisher_domain] at @s run function kitpvp:skill/tainted_fisher/domain_tick
+# 令牌补发：整把锁（cd 与 cd2）同时归零才一起发回，缺哪个补哪个
+# ⚠ 必须同时判 cd 与 cd2：否则刚放完苍（cd=30 占位、cd2=0）就会把刚收走的领域令牌立刻发回去
+# ⚠ 也必须排在 cast 之后，否则刚用掉/刚收走的那一个会在同刻被补回来
+execute as @a[scores={kitpvp.kit=29,kitpvp.alive=1,kitpvp.cd=0,kitpvp.cd2=0},tag=!kitpvp.spectator] unless data entity @s Inventory[{tag:{KitTaintedFisherBlue:1b}}] run function kitpvp:skill/tainted_fisher/give_blue
+execute as @a[scores={kitpvp.kit=29,kitpvp.alive=1,kitpvp.cd=0,kitpvp.cd2=0},tag=!kitpvp.spectator] unless data entity @s Inventory[{tag:{KitTaintedFisherDomain:1b}}] run function kitpvp:skill/tainted_fisher/give_domain
+# 水中被动：力量 I
+execute as @a[scores={kitpvp.kit=29,kitpvp.alive=1},tag=!kitpvp.spectator] at @s run function kitpvp:skill/tainted_fisher/water_passive
+
 # 纵火狂、末影人：投掷入口的调用条件里绝不能加 hold_*_prev，
 # 否则投其它同种物品时 last 不推进，之后切到本职业投掷物会误触发（见 05 §12）
 tag @a remove kitpvp.hold_fb_prev

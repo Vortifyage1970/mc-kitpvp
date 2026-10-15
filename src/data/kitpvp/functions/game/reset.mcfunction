@@ -17,6 +17,16 @@ kill @e[tag=kitpvp.token_core]
 kill @e[tag=kitpvp.werewolf_token]
 kill @e[type=wolf]
 
+# 里·渔夫的两个令牌生物（发光鱿鱼 / 鱿鱼）：按 tag 清，不碰地图里的鱿鱼
+kill @e[tag=kitpvp.tainted_fisher_blue_token]
+kill @e[tag=kitpvp.tainted_fisher_domain_token]
+
+# 测试用召唤物（summon/zombie_iron_helmet、summon/zombie_iron_armor）：按 tag 清，不碰地图里的僵尸
+kill @e[tag=kitpvp.test_dummy]
+
+# 领域展开的雨：load 关了 doWeatherCycle，雨不会自己停 —— domain_end 之外的兜底（见 04 §五）
+weather clear
+
 # 驯兽师（kit 11）放出的动物是本职业的产品，不当场清，改在这里按类型清。
 # 必须按类型而不是按 tag：繁殖出的后代不带 tag，认不出来（见 04 §五）。
 # tag=!kitpvp.displayitem 护住模板里的装饰动物（见 04 §七）。
