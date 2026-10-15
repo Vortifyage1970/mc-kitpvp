@@ -16,5 +16,3 @@ give @s minecraft:cooked_beef 24
 give @s minecraft:arrow 12
 
 tag @s add kitpvp.selected
-
-tellraw @s [{"text":"已选择：","color":"gray"},{"text":"弓箭手","color":"aqua","bold":true}]

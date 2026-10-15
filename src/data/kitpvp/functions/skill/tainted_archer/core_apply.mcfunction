@@ -3,4 +3,4 @@
 scoreboard players operation #ttid kitpvp.game = @s kitpvp.ttid
 scoreboard players set #buffcnt kitpvp.game 0
 
-execute as @e[tag=kitpvp.turret,distance=..7] if score @s kitpvp.turret_owner = #ttid kitpvp.game at @s run function kitpvp:skill/taint_archer/turret_to_molten
+execute as @e[tag=kitpvp.turret,distance=..7] if score @s kitpvp.turret_owner = #ttid kitpvp.game at @s run function kitpvp:skill/tainted_archer/turret_to_molten

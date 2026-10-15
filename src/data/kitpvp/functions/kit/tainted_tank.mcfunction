@@ -13,9 +13,8 @@ item replace entity @s armor.feet with minecraft:diamond_boots{Unbreakable:1b,En
 item replace entity @s hotbar.0 with minecraft:wooden_sword{Unbreakable:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:3}]}
 item replace entity @s hotbar.1 with minecraft:cooked_beef 10
 
-function kitpvp:skill/taint_tank/passive
+function kitpvp:skill/tainted_tank/passive
 
 scoreboard players set @s kitpvp.lives 3
 
-tellraw @s [{"text":"[职业] ","color":"dark_red","bold":true},{"text":"已选择 ","color":"gray"},{"text":"里·坦克","color":"yellow","bold":true}]
 playsound minecraft:ui.button.click master @s ~ ~ ~ 1 1.2

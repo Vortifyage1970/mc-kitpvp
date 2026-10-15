@@ -59,8 +59,13 @@ scoreboard objectives add kitpvp.rng dummy
 scoreboard objectives add kitpvp.ender_used minecraft.used:minecraft.ender_pearl
 scoreboard objectives add kitpvp.ender_last dummy
 scoreboard objectives add kitpvp.ender_ammo dummy
-scoreboard objectives add kitpvp.taint_turret_used minecraft.used:minecraft.stray_spawn_egg
-scoreboard objectives add kitpvp.taint_turret_last dummy "炮台令牌快照"
+# 旧名 kitpvp.taint_* 已随里职业统一改名（→ kitpvp.tainted_*）：老世界里残留的是空目标，在这里清掉
+scoreboard objectives remove kitpvp.taint_turret_used
+scoreboard objectives remove kitpvp.taint_turret_last
+scoreboard objectives remove kitpvp.taint_core_used
+scoreboard objectives remove kitpvp.taint_core_last
+scoreboard objectives add kitpvp.tainted_turret_used minecraft.used:minecraft.stray_spawn_egg
+scoreboard objectives add kitpvp.tainted_turret_last dummy "炮台令牌快照"
 scoreboard objectives add kitpvp.werewolf_used minecraft.used:minecraft.wolf_spawn_egg
 scoreboard objectives add kitpvp.werewolf_last dummy "狼人令牌快照"
 scoreboard objectives add kitpvp.werewolf_hit_cd dummy "狼人命中冷却"
@@ -70,9 +75,9 @@ scoreboard objectives add kitpvp.tamer_last dummy "驯兽师狼蛋快照"
 # ⚠ 改过 criterion 的统计目标：objectives add 对**已存在**的目标不会更新 criterion，
 #   老世界里它会继续记旧物品 ⇒ 新令牌用了也不涨计数、技能静默不触发。
 #   统计目标是只读的（值由统计实时给出），所以 remove 再 add 不会丢数据，只是重建注册。
-scoreboard objectives remove kitpvp.taint_core_used
-scoreboard objectives add kitpvp.taint_core_used minecraft.used:minecraft.blaze_spawn_egg
-scoreboard objectives add kitpvp.taint_core_last dummy "熔火核心快照"
+scoreboard objectives remove kitpvp.tainted_core_used
+scoreboard objectives add kitpvp.tainted_core_used minecraft.used:minecraft.blaze_spawn_egg
+scoreboard objectives add kitpvp.tainted_core_last dummy "熔火核心快照"
 scoreboard objectives add kitpvp.ttid dummy "炮台队槽编号"
 scoreboard objectives add kitpvp.turret_owner dummy
 scoreboard objectives add kitpvp.turret_seq dummy
@@ -139,7 +144,7 @@ scoreboard players set @a kitpvp.turret_heal_cd 0
 scoreboard players set @a kitpvp.werewolf_hit_cd 0
 scoreboard players set @a kitpvp.soul_next 0
 # 换过 criterion 的快照要重新对齐，否则 old 的快照值会一直压着新计数不触发
-execute as @a run scoreboard players operation @s kitpvp.taint_core_last = @s kitpvp.taint_core_used
+execute as @a run scoreboard players operation @s kitpvp.tainted_core_last = @s kitpvp.tainted_core_used
 
 scoreboard players set #global kitpvp.map 0
 scoreboard players set #global kitpvp.timer 0

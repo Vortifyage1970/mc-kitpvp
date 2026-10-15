@@ -9,6 +9,6 @@ scoreboard players set @s kitpvp.cd2 2400
 particle minecraft:lava ~ ~1 ~ 1.0 1.0 1.0 0.0 60
 playsound minecraft:entity.blaze.shoot master @s ~ ~ ~ 1.0 0.9
 
-function kitpvp:skill/taint_archer/core_apply
+function kitpvp:skill/tainted_archer/core_apply
 
 title @s actionbar [{"text":"熔火核心：","color":"gold"},{"score":{"name":"#buffcnt","objective":"kitpvp.game"},"color":"white"},{"text":" 个炮台进入熔火形态（30 秒）","color":"gold"}]

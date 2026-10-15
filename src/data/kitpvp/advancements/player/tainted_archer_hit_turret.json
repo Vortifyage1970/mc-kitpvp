@@ -14,6 +14,6 @@
     ["hit"]
   ],
   "rewards": {
-    "function": "kitpvp:skill/taint_archer/turret_hit"
+    "function": "kitpvp:skill/tainted_archer/turret_hit"
   }
 }

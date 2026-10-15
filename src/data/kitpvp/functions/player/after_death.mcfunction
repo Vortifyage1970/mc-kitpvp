@@ -10,6 +10,6 @@ execute if score @s kitpvp.kit matches 3 run function kitpvp:skill/tank/passive
 execute if score @s kitpvp.kit matches 4 run function kitpvp:skill/assassin/passive
 execute if score @s kitpvp.kit matches 6 run function kitpvp:skill/ghost/passive
 execute if score @s kitpvp.kit matches 10 run function kitpvp:skill/slime/passive
-execute if score @s kitpvp.kit matches 25 run function kitpvp:skill/taint_tank/passive
+execute if score @s kitpvp.kit matches 25 run function kitpvp:skill/tainted_tank/passive
 
 playsound minecraft:block.note_block.pling master @s ~ ~ ~ 1 1.2

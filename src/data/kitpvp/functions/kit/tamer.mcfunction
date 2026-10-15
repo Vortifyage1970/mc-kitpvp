@@ -34,5 +34,4 @@ function kitpvp:skill/tamer/give_egg
 function kitpvp:skill/tamer/give_egg
 function kitpvp:skill/tamer/give_egg
 
-tellraw @s [{"text":"[职业] ","color":"aqua","bold":true},{"text":"已选择 ","color":"gray"},{"text":"驯兽师","color":"yellow","bold":true}]
 playsound minecraft:ui.button.click master @s ~ ~ ~ 1 1.2
