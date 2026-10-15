@@ -18,3 +18,4 @@ function kitpvp:map/desert/pass
 
 # 兜底：参战人数 > 9（正常不发生）时剩下的堆到出生点 1
 execute as @a[tag=kitpvp.selected,tag=!kitpvp.spawn_assigned,tag=!kitpvp.spectator] run function kitpvp:map/desert/spawn_1
+schedule function kitpvp:util/clear_item 100t

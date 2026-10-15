@@ -7,7 +7,7 @@ tag @s add kitpvp.selected
 
 item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"generic.armor",Amount:2,Operation:0,UUID:[I;7,0,0,1],Slot:"head"}]} 1
 item replace entity @s armor.chest with minecraft:elytra{Unbreakable:1b,Enchantments:[{id:"minecraft:protection",lvl:5}]} 1
-item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"generic.armor",Amount:5,Operation:0,UUID:[I;7,0,0,3],Slot:"legs"}]} 1
+item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"generic.armor",Amount:4,Operation:0,UUID:[I;7,0,0,3],Slot:"legs"}]} 1
 item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,Enchantments:[{id:"minecraft:depth_strider",lvl:3}],AttributeModifiers:[{AttributeName:"generic.armor",Name:"generic.armor",Amount:2,Operation:0,UUID:[I;7,0,0,4],Slot:"feet"}]} 1
 
 # 三叉戟的 NBT 必须与 skill/fisher_refill 补发的那把完全一致

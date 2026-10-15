@@ -4,9 +4,13 @@ scoreboard players set #state kitpvp.game 2
 
 execute if score #survivors kitpvp.game matches 1 run title @a times 10 60 20
 execute if score #survivors kitpvp.game matches 1 run title @a title {"text":"游戏结束","color":"gold","bold":true}
-execute if score #survivors kitpvp.game matches 1 run title @a subtitle [{"text":"胜者：","color":"yellow"},{"selector":"@a[tag=kitpvp.selected,tag=!kitpvp.spectator,gamemode=!spectator]","color":"white","bold":true}]
-execute if score #survivors kitpvp.game matches 1 run tellraw @a [{"text":"[胜利]","color":"gold","bold":true},{"selector":"@a[tag=kitpvp.selected,tag=!kitpvp.spectator,gamemode=!spectator]","color":"yellow"},{"text":" 赢了！","color":"yellow"}]
-execute if score #survivors kitpvp.game matches 1 as @a[tag=kitpvp.selected,tag=!kitpvp.spectator,gamemode=!spectator] run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 1 1
+execute if score #survivors kitpvp.game matches 1 run title @a subtitle [{"text":"胜者：","color":"yellow"},{"selector":"@a[tag=kitpvp.selected,tag=!kitpvp.spectator]","color":"white","bold":true}]
+execute if score #survivors kitpvp.game matches 1 run tellraw @a [{"text":"[胜利]","color":"gold","bold":true},{"selector":"@a[tag=kitpvp.selected,tag=!kitpvp.spectator]","color":"yellow"},{"text":" 赢了！","color":"yellow"}]
+execute if score #survivors kitpvp.game matches 1 as @a[tag=kitpvp.selected,tag=!kitpvp.spectator] run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 1 1
+
+# 胜者是 Queen 时的专属 MVP 凯歌
+execute if score #survivors kitpvp.game matches 1 if entity @a[name="Queen",tag=kitpvp.selected,tag=!kitpvp.spectator] run tellraw @a [{"text":"✦ ","color":"light_purple"},{"text":"正在向所有玩家高奏 ","color":"aqua"},{"text":"Queen","color":"gold","bold":true},{"text":" 的MVP凯歌：","color":"aqua"},{"text":"ISOxo - 非人类","color":"light_purple","bold":true,"italic":true},{"text":" ✦","color":"light_purple"}]
+execute if score #survivors kitpvp.game matches 1 if entity @a[name="Queen",tag=kitpvp.selected,tag=!kitpvp.spectator] as @a run function mvpmusic:inhuman/play
 
 execute if score #survivors kitpvp.game matches ..0 run tellraw @a [{"text":"[平局]","color":"gray","bold":true},{"text":"本局无幸存者","color":"gray"}]
 execute if score #survivors kitpvp.game matches 2.. run tellraw @a [{"text":"[结束]","color":"red","bold":true},{"text":"本局被管理员终止","color":"gray"}]
