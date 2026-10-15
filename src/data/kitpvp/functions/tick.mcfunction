@@ -21,7 +21,8 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator]
 execute as @a[scores={kitpvp.cd=..300},tag=kitpvp.shield_held,tag=!kitpvp.spectator] run function kitpvp:skill/tank/expire
 # distance 16 覆盖刷怪蛋右键射程；会误杀该范围内同名的装饰性生物
 execute as @a[scores={kitpvp.kit=3}] at @s run kill @e[type=iron_golem,distance=..16,name="举盾令牌"]
-execute as @a[scores={kitpvp.kit=3,kitpvp.alive=1,kitpvp.cd=0},tag=!kitpvp.spectator] unless data entity @s Inventory[{tag:{KitTankEgg:1b}}] run function kitpvp:skill/tank/give_egg
+# 令牌只在"真的用过"（cast 开的窗口）且冷却走完时发回，不拿"背包里没有"当依据（见 04 §四）
+execute as @a[scores={kitpvp.kit=3,kitpvp.alive=1,kitpvp.cd=0},tag=kitpvp.tank_handout,tag=!kitpvp.spectator] run function kitpvp:skill/tank/handout
 
 # 箭一落地即清，防"射出→换弹→捡回"刷过上箭上限。
 # 20 刻节流 + 场上没有用箭的职业时整行不执行（原为每刻全图扫描）
@@ -31,7 +32,7 @@ execute if entity @a[tag=kitpvp.arrow_user] if score #tick kitpvp.game matches 0
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.assassin_used > @s kitpvp.assassin_last run function kitpvp:skill/assassin/dispatch
 execute as @a[scores={kitpvp.cd=..500},tag=kitpvp.assassin_hidden,tag=!kitpvp.spectator] run function kitpvp:skill/assassin/unhide
 execute as @a[scores={kitpvp.kit=4}] at @s run kill @e[type=enderman,distance=..16,name="隐匿令牌"]
-execute as @a[scores={kitpvp.kit=4,kitpvp.alive=1,kitpvp.cd=0},tag=!kitpvp.spectator] unless data entity @s Inventory[{tag:{KitAssassinEgg:1b}}] run function kitpvp:skill/assassin/give_item
+execute as @a[scores={kitpvp.kit=4,kitpvp.alive=1,kitpvp.cd=0},tag=kitpvp.assassin_handout,tag=!kitpvp.spectator] run function kitpvp:skill/assassin/handout
 
 # 海盗：射击即进冷却——检测"手持的手炮从已装填翻到未装填"
 # Charged 是字节，射击后键还在、值变 0b，所以必须取"值"（判路径会把 0b 也算成已装填）
@@ -75,11 +76,9 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator]
 # 前摇 / 领域计时必须排在 cast 之后：cast 刚写进去的计时器下一刻才该开始走，否则整体少 1 刻
 execute as @a[tag=kitpvp.tainted_fisher_cang] at @s run function kitpvp:skill/tainted_fisher/cang_tick
 execute as @a[tag=kitpvp.tainted_fisher_domain] at @s run function kitpvp:skill/tainted_fisher/domain_tick
-# 令牌补发：整把锁（cd 与 cd2）同时归零才一起发回，缺哪个补哪个
-# ⚠ 必须同时判 cd 与 cd2：否则刚放完苍（cd=30 占位、cd2=0）就会把刚收走的领域令牌立刻发回去
-# ⚠ 也必须排在 cast 之后，否则刚用掉/刚收走的那一个会在同刻被补回来
-execute as @a[scores={kitpvp.kit=29,kitpvp.alive=1,kitpvp.cd=0,kitpvp.cd2=0},tag=!kitpvp.spectator] unless data entity @s Inventory[{tag:{KitTaintedFisherBlue:1b}}] run function kitpvp:skill/tainted_fisher/give_blue
-execute as @a[scores={kitpvp.kit=29,kitpvp.alive=1,kitpvp.cd=0,kitpvp.cd2=0},tag=!kitpvp.spectator] unless data entity @s Inventory[{tag:{KitTaintedFisherDomain:1b}}] run function kitpvp:skill/tainted_fisher/give_domain
+# 令牌发回：只认"技能刚放完、整把锁走完"这一个窗口（tag 由 blue_cast / domain_cast 打开）
+# ⚠ 不能改成"背包里没有就补"：那样拖动物品 / 丢地上 / 塞箱子都会凭空多出一个（04 §四）
+execute as @a[scores={kitpvp.kit=29,kitpvp.alive=1,kitpvp.cd=0,kitpvp.cd2=0},tag=kitpvp.tainted_fisher_handout,tag=!kitpvp.spectator] run function kitpvp:skill/tainted_fisher/handout
 # 水中被动：力量 I
 execute as @a[scores={kitpvp.kit=29,kitpvp.alive=1},tag=!kitpvp.spectator] at @s run function kitpvp:skill/tainted_fisher/water_passive
 
@@ -106,7 +105,7 @@ execute as @a if data entity @s SelectedItem.tag.KitEnderPearl run tag @s add ki
 execute as @a[scores={kitpvp.kit=8,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.ender_used > @s kitpvp.ender_last run function kitpvp:skill/enderman/cast
 
 execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.fisher_used > @s kitpvp.fisher_last run function kitpvp:skill/fisher/cast
-execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1,kitpvp.cd=0},tag=!kitpvp.spectator] unless data entity @s Inventory[{tag:{KitFisherEgg:1b}}] run function kitpvp:skill/fisher/give_egg
+execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1,kitpvp.cd=0},tag=kitpvp.fisher_handout,tag=!kitpvp.spectator] run function kitpvp:skill/fisher/handout
 
 # 狼人 / 驯兽师：都用 wolf_spawn_egg（嗅闻令牌 / 狼蛋），各自靠 EntityTag 认自己那只、按 kit 分闸门，互不触发
 execute as @a[scores={kitpvp.kit=18,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.werewolf_used > @s kitpvp.werewolf_last run function kitpvp:skill/werewolf/cast

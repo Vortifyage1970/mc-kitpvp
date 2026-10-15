@@ -18,8 +18,12 @@ tag @s remove kitpvp.keep_inventory
 tag @s remove kitpvp.shield_held
 tag @s remove kitpvp.assassin_hidden
 tag @s remove kitpvp.pirate_reload_cd
+tag @s remove kitpvp.tank_handout
+tag @s remove kitpvp.assassin_handout
+tag @s remove kitpvp.fisher_handout
 tag @s remove kitpvp.tainted_fisher_cang
 tag @s remove kitpvp.tainted_fisher_domain
+tag @s remove kitpvp.tainted_fisher_handout
 tag @s remove kitpvp.tainted_fisher_self
 tag @s remove kitpvp.in_water
 tag @s remove kitpvp.ready

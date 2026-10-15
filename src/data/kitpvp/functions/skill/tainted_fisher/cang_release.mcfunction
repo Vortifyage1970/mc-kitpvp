@@ -14,4 +14,5 @@ tag @s remove kitpvp.tainted_fisher_cang
 scoreboard players set @s kitpvp.tainted_fisher_cang_timer 0
 scoreboard players set @s kitpvp.cd 1200
 scoreboard players set @s kitpvp.cd2 1200
+# 令牌发回窗口在 blue_cast 就开好了；这里只置真冷却（窗口要等整把锁走完才发回）
 title @s actionbar {"text":"术式顺转·「苍」：两个技能各冷却 60 秒","color":"aqua"}

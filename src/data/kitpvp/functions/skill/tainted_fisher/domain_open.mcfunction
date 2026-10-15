@@ -9,4 +9,5 @@ function kitpvp:music/yu_ai/start
 
 scoreboard players set @s kitpvp.cd 4800
 scoreboard players set @s kitpvp.cd2 4800
+# 令牌发回窗口在 domain_cast 就开好了；240 秒后整把锁走完，两个令牌一起发回
 title @s actionbar {"text":"领域展开：无量空渔（60 秒）","color":"dark_aqua"}
