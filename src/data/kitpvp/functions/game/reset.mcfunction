@@ -16,6 +16,20 @@ kill @e[tag=kitpvp.token_turret]
 kill @e[tag=kitpvp.token_core]
 kill @e[tag=kitpvp.werewolf_token]
 
+# 驯兽师（kit 11）放出的动物是本职业的产品，不当场清，改在这里按类型清。
+# 必须按类型而不是按 tag：繁殖出的后代不带 tag，认不出来（见 04 §五）。
+# tag=!kitpvp.displayitem 护住模板里的装饰动物（见 04 §七）。
+kill @e[type=minecraft:wolf,tag=!kitpvp.displayitem]
+kill @e[type=minecraft:horse,tag=!kitpvp.displayitem]
+kill @e[type=minecraft:parrot,tag=!kitpvp.displayitem]
+kill @e[type=minecraft:dolphin,tag=!kitpvp.displayitem]
+kill @e[type=minecraft:fox,tag=!kitpvp.displayitem]
+kill @e[type=minecraft:frog,tag=!kitpvp.displayitem]
+kill @e[type=minecraft:tadpole,tag=!kitpvp.displayitem]
+kill @e[type=minecraft:turtle,tag=!kitpvp.displayitem]
+kill @e[type=minecraft:goat,tag=!kitpvp.displayitem]
+kill @e[type=minecraft:salmon,tag=!kitpvp.displayitem]
+
 scoreboard players set #survivors kitpvp.game 0
 scoreboard players set #tick kitpvp.game 0
 scoreboard players set #state kitpvp.game 0

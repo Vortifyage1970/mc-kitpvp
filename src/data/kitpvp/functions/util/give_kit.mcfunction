@@ -9,6 +9,7 @@ execute if score @s kitpvp.kit matches 7 run function kitpvp:kit/fisher
 execute if score @s kitpvp.kit matches 8 run function kitpvp:kit/enderman
 execute if score @s kitpvp.kit matches 9 run function kitpvp:kit/pirate
 execute if score @s kitpvp.kit matches 10 run function kitpvp:kit/slime
+execute if score @s kitpvp.kit matches 11 run function kitpvp:kit/tamer
 execute if score @s kitpvp.kit matches 18 run function kitpvp:kit/werewolf
 execute if score @s kitpvp.kit matches 23 run function kitpvp:kit/warrior_tainted
 execute if score @s kitpvp.kit matches 24 run function kitpvp:kit/taint_archer
