@@ -36,7 +36,9 @@ scoreboard players set #tmin kitpvp.game 2147483647
 execute if score #tcnt kitpvp.game matches 4.. as @e[tag=kitpvp.turret] if score @s kitpvp.turret_owner = #ttid kitpvp.game run scoreboard players operation #tmin kitpvp.game < @s kitpvp.turret_seq
 execute if score #tcnt kitpvp.game matches 4.. as @e[tag=kitpvp.turret] if score @s kitpvp.turret_owner = #ttid kitpvp.game if score @s kitpvp.turret_seq = #tmin kitpvp.game run kill @s
 
-# 令牌是消耗品：部署不等冷却、也不碰 cd。cd 只由 tick 的补货闸门写（见 03 §2.13）
-
 title @s actionbar {"text":"炮台已部署（存在上限 3）","color":"dark_red"}
 playsound minecraft:block.piston.extend master @s ~ ~ ~ 0.8 1.0
+
+# 部署一个就进补货计时：满仓部署也要等满 60 秒才补回令牌。
+# ..0 守卫：计时中再部署不重置，否则连续部署会把补货推得越来越远（见 03 §2.13）
+execute if score @s kitpvp.cd matches ..0 run scoreboard players set @s kitpvp.cd 1200

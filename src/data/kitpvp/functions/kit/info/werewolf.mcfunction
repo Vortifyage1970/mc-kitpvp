@@ -13,7 +13,7 @@ tellraw @s [{"text":"│ 靴子：","color":"gray"},{"text":"铁靴子","color":
 tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"生羊排 x10","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:mutton","Count":1}}},{"text":"、"},{"text":"嗅闻令牌 x2","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:wolf_spawn_egg","Count":1}}}]
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"主武器击中玩家：生命恢复 II 2 秒 + 饱和 I 2 秒（0.8 秒内置冷却）；击杀玩家：饱和 I 5 秒 + 力量 I 5 秒","color":"gray"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"嗅闻","color":"yellow"},{"text":" —— 右键「嗅闻令牌」，自身 5 秒速度 I，并让其他玩家发光 5 秒","color":"white"}]
-tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"25 秒补 1 个（上限 2 个；用掉不等冷却，也不重置该计时）","color":"white"}]
+tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"25 秒补 1 个（上限 2 个；用掉即开始计时，计时中再用不重置）","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"white"}]
 tellraw @s [{"text":"└──────────────────────────────","color":"dark_gray"}]
 tellraw @s [{"text":"[ 确认选择 ]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/werewolf"},"hoverEvent":{"action":"show_text","contents":[{"text":"以狼人参战","color":"gray"}]}},{"text":"  "},{"text":"[ 返回 ]","color":"yellow","clickEvent":{"action":"run_command","value":"/function kitpvp:lobby/menu"},"hoverEvent":{"action":"show_text","contents":[{"text":"回到主大厅菜单","color":"gray"}]}}]

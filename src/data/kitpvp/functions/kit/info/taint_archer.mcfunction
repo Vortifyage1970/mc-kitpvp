@@ -13,7 +13,7 @@ tellraw @s [{"text":"│ 靴子：","color":"gray"},{"text":"皮革靴子（暗�
 tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"弓（换弹 4 支）","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:bow","Count":1}}},{"text":"、"},{"text":"箭 x4","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:arrow","Count":1}}},{"text":"、"},{"text":"熟牛排 x24","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:cooked_beef","Count":1}}},{"text":"、"},{"text":"炮台令牌","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:stray_spawn_egg","Count":1}}},{"text":"、"},{"text":"熔火核心","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:blaze_spawn_egg","Count":1}}}]
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"石斧击打自家炮台可回血（每次 2 颗心，1 秒冷却）","color":"green"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"放置炮台","color":"yellow"},{"text":" —— 右键「炮台令牌」在落点部署炮台（开局 3 个令牌、上限 3，每 60 秒补 1 个；炮台存在上限 3，第 4 个会杀掉最早那个；免击退）","color":"white"}]
-tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"60 秒补 1 个令牌（上限 3 个；部署不等冷却，也不重置该计时）","color":"white"}]
+tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"60 秒补 1 个令牌（上限 3 个；部署即开始计时，计时中再部署不重置）","color":"white"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"熔火核心","color":"yellow"},{"text":" —— 右键「熔火核心」，施放瞬间 7 格内自己的炮台进入熔火形态，持续 30 秒（岩浆块头、金甲、抗性提升 IV、弓改力量 II 冲击 I 火矢 II）；期间不会再更新附近炮台，新放的炮台不变","color":"white"}]
 tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"120 秒补 1 个令牌","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"white"}]

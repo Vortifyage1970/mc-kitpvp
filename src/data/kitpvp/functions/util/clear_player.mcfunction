@@ -59,6 +59,7 @@ scoreboard players set @s kitpvp.ender_ammo 0
 scoreboard players set @s kitpvp.arsonist_ammo 0
 scoreboard players operation @s kitpvp.ender_last = @s kitpvp.ender_used
 scoreboard players operation @s kitpvp.werewolf_last = @s kitpvp.werewolf_used
+scoreboard players operation @s kitpvp.tamer_last = @s kitpvp.tamer_used
 scoreboard players set @s kitpvp.werewolf_hit_cd 0
 
 attribute @s minecraft:generic.max_health base set 20

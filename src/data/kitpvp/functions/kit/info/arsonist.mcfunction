@@ -13,7 +13,7 @@ tellraw @s [{"text":"│ 靴子：","color":"gray"},{"text":"铁靴子（火焰�
 tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"打火石","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:flint_and_steel","Count":1}}},{"text":"、"},{"text":"熟牛排 x24","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:cooked_beef","Count":1}}}]
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"—","color":"dark_gray"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"燃烧瓶","color":"yellow"},{"text":" —— 投掷喷溅药水，落地生成 4x4 火焰，5 秒内无法手动熄灭","color":"white"}]
-tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"45 秒补 1 瓶（开局 2 瓶，上限 2 瓶；投出不等冷却，也不重置该计时）","color":"white"}]
+tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"45 秒补 1 瓶（开局 2 瓶，上限 2 瓶；投出即开始计时，计时中再投不重置）","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"white"}]
 tellraw @s [{"text":"└──────────────────────────────","color":"dark_gray"}]
 tellraw @s [{"text":"[ 确认选择 ]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/arsonist"},"hoverEvent":{"action":"show_text","contents":[{"text":"以纵火狂参战","color":"gray"}]}},{"text":"  "},{"text":"[ 返回 ]","color":"yellow","clickEvent":{"action":"run_command","value":"/function kitpvp:lobby/menu"},"hoverEvent":{"action":"show_text","contents":[{"text":"回到主大厅菜单","color":"gray"}]}}]

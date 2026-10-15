@@ -13,7 +13,7 @@ tellraw @s [{"text":"│ 靴子：","color":"gray"},{"text":"铁靴子（摔落�
 tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"紫颂果 x16","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:chorus_fruit","Count":1}}},{"text":"、"},{"text":"末影珍珠 x3","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:ender_pearl","Count":1}}},{"text":"、"},{"text":"熟牛排 x16","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:cooked_beef","Count":1}}}]
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"—","color":"dark_gray"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"末影珍珠","color":"yellow"},{"text":" —— 投出后自动补货，每 25 秒 1 颗、上限 3 颗","color":"white"}]
-tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"25 秒补 1 颗（上限 3 颗；投出不等冷却，也不重置该计时）","color":"white"}]
+tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"25 秒补 1 颗（上限 3 颗；投出即开始计时，计时中再投不重置）","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"white"}]
 tellraw @s [{"text":"└──────────────────────────────","color":"dark_gray"}]
 tellraw @s [{"text":"[ 确认选择 ]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/enderman"},"hoverEvent":{"action":"show_text","contents":[{"text":"以末影人参战","color":"gray"}]}},{"text":"  "},{"text":"[ 返回 ]","color":"yellow","clickEvent":{"action":"run_command","value":"/function kitpvp:lobby/menu"},"hoverEvent":{"action":"show_text","contents":[{"text":"回到主大厅菜单","color":"gray"}]}}]
