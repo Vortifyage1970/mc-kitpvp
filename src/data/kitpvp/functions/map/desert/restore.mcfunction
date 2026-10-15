@@ -5,4 +5,4 @@ place template kitpvp:desert1 -382 72 -97
 place template kitpvp:desert2 -382 72 -49
 place template kitpvp:desert3 -334 73 -97
 place template kitpvp:desert4 -334 72 -49
-schedule function kitpvp:util/clear_item 160t
+schedule function kitpvp:util/clear_item 200t
