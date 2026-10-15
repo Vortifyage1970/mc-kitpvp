@@ -14,6 +14,7 @@ kill @e[tag=kitpvp.ghost_minion]
 kill @e[tag=kitpvp.turret]
 kill @e[tag=kitpvp.token_turret]
 kill @e[tag=kitpvp.token_core]
+kill @e[tag=kitpvp.werewolf_token]
 
 scoreboard players set #survivors kitpvp.game 0
 scoreboard players set #tick kitpvp.game 0

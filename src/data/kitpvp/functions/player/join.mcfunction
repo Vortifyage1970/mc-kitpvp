@@ -26,5 +26,6 @@ scoreboard players set @s kitpvp.arsonist_ammo 0
 scoreboard players set @s kitpvp.soul_next 0
 scoreboard players operation @s kitpvp.ender_last = @s kitpvp.ender_used
 scoreboard players set @s kitpvp.ender_ammo 0
+scoreboard players operation @s kitpvp.werewolf_last = @s kitpvp.werewolf_used
 
 function kitpvp:lobby/enter

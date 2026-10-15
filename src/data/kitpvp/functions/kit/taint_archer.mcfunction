@@ -19,7 +19,7 @@ give @s minecraft:cooked_beef 18
 function kitpvp:skill/taint_archer/give_bow
 give @s minecraft:arrow 4
 
-function kitpvp:skill/taint_archer/give_token_turret
+# 开局 3 个令牌（持有上限 3，与 tick 的补货闸门一致）
 function kitpvp:skill/taint_archer/give_token_turret
 function kitpvp:skill/taint_archer/give_token_turret
 function kitpvp:skill/taint_archer/give_token_turret

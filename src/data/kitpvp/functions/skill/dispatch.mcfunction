@@ -10,3 +10,6 @@ execute if score @s kitpvp.kit matches 5 run function kitpvp:skill/arsonist/auto
 
 # kit = 8 末影人：末影之珠补货
 execute if score @s kitpvp.kit matches 8 run function kitpvp:skill/enderman/auto
+
+# kit = 18 狼人：嗅闻令牌补货（上限 2，25 秒节流）
+execute if score @s kitpvp.kit matches 18 run function kitpvp:skill/werewolf/auto

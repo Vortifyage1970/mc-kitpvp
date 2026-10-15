@@ -28,15 +28,15 @@ execute if score @s kitpvp.ttid matches 6 run team join turret_6 @e[tag=kitpvp.t
 
 tag @e remove kitpvp.turret_new
 
-# 存在上限 4：超过就杀掉自己序号最小（最早）的那个；新炮台序号最大，不会被自己杀掉
+# 存在上限 3：超过就杀掉自己序号最小（最早）的那个；新炮台序号最大，不会被自己杀掉
 scoreboard players operation #ttid kitpvp.game = @s kitpvp.ttid
 scoreboard players set #tcnt kitpvp.game 0
 execute as @e[tag=kitpvp.turret] if score @s kitpvp.turret_owner = #ttid kitpvp.game run scoreboard players add #tcnt kitpvp.game 1
 scoreboard players set #tmin kitpvp.game 2147483647
-execute if score #tcnt kitpvp.game matches 5.. as @e[tag=kitpvp.turret] if score @s kitpvp.turret_owner = #ttid kitpvp.game run scoreboard players operation #tmin kitpvp.game < @s kitpvp.turret_seq
-execute if score #tcnt kitpvp.game matches 5.. as @e[tag=kitpvp.turret] if score @s kitpvp.turret_owner = #ttid kitpvp.game if score @s kitpvp.turret_seq = #tmin kitpvp.game run kill @s
+execute if score #tcnt kitpvp.game matches 4.. as @e[tag=kitpvp.turret] if score @s kitpvp.turret_owner = #ttid kitpvp.game run scoreboard players operation #tmin kitpvp.game < @s kitpvp.turret_seq
+execute if score #tcnt kitpvp.game matches 4.. as @e[tag=kitpvp.turret] if score @s kitpvp.turret_owner = #ttid kitpvp.game if score @s kitpvp.turret_seq = #tmin kitpvp.game run kill @s
 
-scoreboard players set @s kitpvp.cd 600
+# 令牌是消耗品：部署不等冷却、也不碰 cd。cd 只由 tick 的补货闸门写（见 03 §2.13）
 
-title @s actionbar {"text":"炮台已部署（存在上限 4）","color":"dark_red"}
+title @s actionbar {"text":"炮台已部署（存在上限 3）","color":"dark_red"}
 playsound minecraft:block.piston.extend master @s ~ ~ ~ 0.8 1.0
