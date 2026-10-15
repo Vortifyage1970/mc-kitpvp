@@ -14,3 +14,4 @@ execute if score @s kitpvp.kit matches 18 run function kitpvp:kit/werewolf
 execute if score @s kitpvp.kit matches 23 run function kitpvp:kit/warrior_tainted
 execute if score @s kitpvp.kit matches 24 run function kitpvp:kit/taint_archer
 execute if score @s kitpvp.kit matches 25 run function kitpvp:kit/taint_tank
+execute if score @s kitpvp.kit matches 27 run function kitpvp:kit/taint_arsonist
