@@ -68,16 +68,14 @@ execute as @a[scores={kitpvp.turret_heal_cd=1..}] run scoreboard players remove 
 execute as @e[tag=kitpvp.turret_molten,scores={kitpvp.turret_molten_timer=1..}] run scoreboard players remove @s kitpvp.turret_molten_timer 1
 execute as @e[tag=kitpvp.turret_molten,scores={kitpvp.turret_molten_timer=..0}] run function kitpvp:skill/tainted_archer/turret_from_molten
 
-# 里·渔夫（kit 29）：两个技能令牌（苍 / 领域展开）。cd 与 cd2 就是两个技能自身的冷却，
-# 且互相锁死（放苍 → 两个都锁 60 秒；放领域展开 → 两个都锁 240 秒，属 03 §2.13 的"真冷却"例外）
-# ⚠ 必须带 at @s：水球球心、"10 格内最近玩家"的距离、清令牌生物的距离都靠这一步锚定
+# 里·渔夫（kit 29）：两个令牌，cd / cd2 互为对方的锁（放苍两个都锁 60 秒，放领域展开都锁 240 秒）
+# ⚠ 必须带 at @s：水球球心与距离判定都靠它锚定
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.tainted_fisher_blue_used > @s kitpvp.tainted_fisher_blue_last run function kitpvp:skill/tainted_fisher/blue_cast
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.tainted_fisher_domain_used > @s kitpvp.tainted_fisher_domain_last run function kitpvp:skill/tainted_fisher/domain_cast
-# 前摇 / 领域计时必须排在 cast 之后：cast 刚写进去的计时器下一刻才该开始走，否则整体少 1 刻
+# 计时排在 cast 之后：cast 写进去的计时器下一刻才该开始走
 execute as @a[tag=kitpvp.tainted_fisher_cang] at @s run function kitpvp:skill/tainted_fisher/cang_tick
 execute as @a[tag=kitpvp.tainted_fisher_domain] at @s run function kitpvp:skill/tainted_fisher/domain_tick
-# 令牌发回：只认"技能刚放完、整把锁走完"这一个窗口（tag 由 blue_cast / domain_cast 打开）
-# ⚠ 不能改成"背包里没有就补"：那样拖动物品 / 丢地上 / 塞箱子都会凭空多出一个（04 §四）
+# 令牌发回：只认"技能刚放完、整把锁走完"的窗口（04 §四：不能改成"背包里没有就补"）
 execute as @a[scores={kitpvp.kit=29,kitpvp.alive=1,kitpvp.cd=0,kitpvp.cd2=0},tag=kitpvp.tainted_fisher_handout,tag=!kitpvp.spectator] run function kitpvp:skill/tainted_fisher/handout
 # 水中被动：力量 I
 execute as @a[scores={kitpvp.kit=29,kitpvp.alive=1},tag=!kitpvp.spectator] at @s run function kitpvp:skill/tainted_fisher/water_passive
