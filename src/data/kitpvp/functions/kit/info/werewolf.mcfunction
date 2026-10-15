@@ -11,7 +11,7 @@ tellraw @s [{"text":"│ 胸甲：","color":"gray"},{"text":"锁链胸甲","colo
 tellraw @s [{"text":"│ 护腿：","color":"gray"},{"text":"灰色皮革护腿","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:leather_leggings","Count":1,"tag":"{display:{color:8421504}}"}}}]
 tellraw @s [{"text":"│ 靴子：","color":"gray"},{"text":"铁靴子","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:iron_boots","Count":1}}}]
 tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"生羊排 x8","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:mutton","Count":1}}},{"text":"、"},{"text":"嗅闻令牌 x2","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:wolf_spawn_egg","Count":1}}}]
-tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"主武器击中玩家：饱和 I 2 秒（0.9 秒内置冷却）；击杀玩家：饱和 I 5 秒 + 力量 I 10 秒","color":"gray"}]
+tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"主武器击中玩家：饱和 I 2 刻（+2 饱食 +4 饱和），内置冷却 0.9 秒；击杀玩家：饱和 I 5 刻（+5 饱食 +10 饱和）+ 力量 I 10 秒","color":"gray"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"嗅闻","color":"yellow"},{"text":" —— 右键「嗅闻令牌」，自身 5 秒速度 I，并让其他玩家发光 5 秒","color":"white"}]
 tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"40 秒补 1 个（上限 2 个；用掉即开始计时，计时中再用不重置）","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"white"}]
