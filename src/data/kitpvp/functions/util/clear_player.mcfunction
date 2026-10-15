@@ -49,14 +49,17 @@ scoreboard players set @s kitpvp.soul_rand 0
 scoreboard players set @s kitpvp.soul_next 0
 scoreboard players set @s kitpvp.soul_bow_timer 0
 scoreboard players set @s kitpvp.soul_pirate_timer 0
+scoreboard players set @s kitpvp.soul_fisher_timer 0
 scoreboard players operation @s kitpvp.soul_warrior_last = @s kitpvp.soul_warrior_used
 scoreboard players operation @s kitpvp.soul_archer_last = @s kitpvp.soul_archer_used
 scoreboard players operation @s kitpvp.soul_pirate_last = @s kitpvp.soul_pirate_used
+scoreboard players operation @s kitpvp.soul_fisher_last = @s kitpvp.soul_fisher_used
 scoreboard players operation @s kitpvp.tainted_turret_last = @s kitpvp.tainted_turret_used
 scoreboard players operation @s kitpvp.tainted_core_last = @s kitpvp.tainted_core_used
 scoreboard players set @s kitpvp.turret_heal_cd 0
 tag @s remove kitpvp.soul_bow_held
 tag @s remove kitpvp.soul_pirate_held
+tag @s remove kitpvp.soul_fisher_active
 tag @s remove kitpvp.arrow_user
 tag @s remove kitpvp.soul_ghost_active
 scoreboard players set @s kitpvp.soul_ghost_timer 0

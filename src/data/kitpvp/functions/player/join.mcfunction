@@ -18,6 +18,7 @@ scoreboard players operation @s kitpvp.ready_last = @s kitpvp.ready_used
 scoreboard players operation @s kitpvp.soul_warrior_last = @s kitpvp.soul_warrior_used
 scoreboard players operation @s kitpvp.soul_archer_last = @s kitpvp.soul_archer_used
 scoreboard players operation @s kitpvp.soul_pirate_last = @s kitpvp.soul_pirate_used
+scoreboard players operation @s kitpvp.soul_fisher_last = @s kitpvp.soul_fisher_used
 scoreboard players operation @s kitpvp.tainted_turret_last = @s kitpvp.tainted_turret_used
 scoreboard players operation @s kitpvp.tainted_core_last = @s kitpvp.tainted_core_used
 scoreboard players operation @s kitpvp.arsonist_last = @s kitpvp.arsonist_used

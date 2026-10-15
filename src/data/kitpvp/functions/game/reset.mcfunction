@@ -24,6 +24,9 @@ kill @e[tag=kitpvp.tainted_fisher_domain_token]
 # 测试用召唤物（summon/zombie_iron_helmet、summon/zombie_iron_armor）：按 tag 清，不碰地图里的僵尸
 kill @e[tag=kitpvp.test_dummy]
 
+# 渔夫魂石的令牌生物（鳕鱼）：按 tag 清，不碰地图里的鱼
+kill @e[tag=kitpvp.soul_fisher_token]
+
 # 领域展开的雨：load 关了 doWeatherCycle，雨不会自己停 —— domain_end 之外的兜底（见 04 §五）
 weather clear
 
