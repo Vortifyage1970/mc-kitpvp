@@ -32,4 +32,5 @@ execute if score @s kitpvp.ttid matches 0 run scoreboard players operation @s ki
 
 scoreboard players set @s kitpvp.lives 3
 
+tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"里·弓箭手","color":"dark_red","bold":true}]
 playsound minecraft:ui.button.click master @s ~ ~ ~ 1 1.2

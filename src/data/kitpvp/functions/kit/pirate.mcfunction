@@ -23,4 +23,5 @@ give @s minecraft:cooked_beef 24
 
 scoreboard players set @s kitpvp.lives 3
 
+tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"海盗","color":"dark_blue","bold":true}]
 playsound minecraft:item.armor.equip_leather master @s ~ ~ ~ 0.8 1.0

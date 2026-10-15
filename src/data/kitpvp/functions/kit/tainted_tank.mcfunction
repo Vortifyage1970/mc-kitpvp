@@ -17,4 +17,5 @@ function kitpvp:skill/tainted_tank/passive
 
 scoreboard players set @s kitpvp.lives 3
 
+tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"里·坦克","color":"dark_red","bold":true}]
 playsound minecraft:ui.button.click master @s ~ ~ ~ 1 1.2

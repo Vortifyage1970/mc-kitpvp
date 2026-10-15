@@ -21,4 +21,5 @@ item replace entity @s hotbar.1 with minecraft:mutton 8
 function kitpvp:skill/werewolf/give_egg
 function kitpvp:skill/werewolf/give_egg
 
+tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"狼人","color":"gray","bold":true}]
 playsound minecraft:ui.button.click master @s ~ ~ ~ 1 1.2

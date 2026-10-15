@@ -16,3 +16,4 @@ give @s minecraft:chorus_fruit 16
 
 scoreboard players set @s kitpvp.ender_ammo 3
 give @s minecraft:ender_pearl{KitEnderPearl:1b} 3
+tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"末影人","color":"aqua","bold":true}]

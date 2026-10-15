@@ -16,3 +16,4 @@ item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b}
 item replace entity @s hotbar.0 with minecraft:iron_sword{Unbreakable:1b}
 item replace entity @s hotbar.1 with minecraft:cooked_beef 24
 give @s minecraft:golden_apple 2
+tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"战士","color":"red","bold":true}]

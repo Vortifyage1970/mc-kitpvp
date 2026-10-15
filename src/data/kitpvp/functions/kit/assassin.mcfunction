@@ -18,4 +18,5 @@ scoreboard players set @s kitpvp.lives 3
 
 function kitpvp:skill/assassin/give_item
 
+tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"刺客","color":"dark_purple","bold":true}]
 playsound minecraft:ui.button.click master @s ~ ~ ~ 1 1.2

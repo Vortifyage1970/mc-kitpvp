@@ -13,3 +13,4 @@ give @s minecraft:cooked_beef 24
 function kitpvp:skill/ghost/passive
 
 tag @s add kitpvp.selected
+tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"幽灵","color":"dark_aqua","bold":true}]

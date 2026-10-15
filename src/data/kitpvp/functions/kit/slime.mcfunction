@@ -16,4 +16,5 @@ function kitpvp:skill/slime/passive
 
 scoreboard players set @s kitpvp.lives 3
 
+tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"史莱姆","color":"green","bold":true}]
 playsound minecraft:entity.slime.jump master @s ~ ~ ~ 0.8 1.0

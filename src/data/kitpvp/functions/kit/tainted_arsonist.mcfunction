@@ -17,4 +17,5 @@ item replace entity @s hotbar.1 with minecraft:cooked_beef 16
 
 give @s minecraft:flint_and_steel{Unbreakable:1b} 1
 
+tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"里·纵火狂","color":"dark_red","bold":true}]
 playsound minecraft:ui.button.click master @s ~ ~ ~ 1 1.2

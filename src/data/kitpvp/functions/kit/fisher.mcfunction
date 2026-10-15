@@ -19,4 +19,5 @@ give @s minecraft:cooked_beef 24
 
 function kitpvp:skill/fisher/give_egg
 
+tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"渔夫","color":"blue","bold":true}]
 playsound minecraft:block.note_block.pling master @s ~ ~ ~ 1 1.5

@@ -16,4 +16,5 @@ item replace entity @s hotbar.1 with minecraft:cooked_beef 12
 
 give @s minecraft:potion{CustomPotionColor:9643043,CustomPotionEffects:[{Id:5b,Amplifier:1b,Duration:300}],display:{Name:'{"text":"狂战士药水","color":"red","bold":true}'}} 3
 
+tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"里·战士","color":"dark_red","bold":true}]
 playsound minecraft:ui.button.click master @s ~ ~ ~ 1 1.2
