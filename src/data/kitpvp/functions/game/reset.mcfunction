@@ -45,7 +45,6 @@ kill @e[type=minecraft:goat,tag=!kitpvp.displayitem]
 kill @e[type=minecraft:salmon,tag=!kitpvp.displayitem]
 
 scoreboard players set #survivors kitpvp.game 0
-scoreboard players set #tick kitpvp.game 0
 scoreboard players set #state kitpvp.game 0
 
 tellraw @a [{"text":"[系统] ","color":"gray","bold":true},{"text":"本局已重置，回到主大厅","color":"gray"}]

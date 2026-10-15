@@ -95,7 +95,7 @@ scoreboard objectives add kitpvp.tainted_fisher_domain_last dummy "里·渔夫�
 scoreboard objectives add kitpvp.tainted_fisher_cang_timer dummy "里·渔夫苍前摇计时"
 scoreboard objectives add kitpvp.tainted_fisher_domain_timer dummy "里·渔夫领域计时"
 
-# 预留（暂无消费者，刻意保留）：cd2 = 第二技能冷却；item = 物品计数
+# 预留（暂无消费者，刻意保留）：item = 物品计数
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
 scoreboard objectives modify kitpvp.lives displayname {"text":"命数","color":"red"}
 scoreboard objectives modify kitpvp.kills displayname {"text":"击杀","color":"aqua"}
@@ -161,7 +161,6 @@ scoreboard players set #global kitpvp.map 0
 scoreboard players set #global kitpvp.timer 0
 scoreboard players set #state kitpvp.game 0
 scoreboard players set #survivors kitpvp.game 0
-scoreboard players set #tick kitpvp.game 0
 scoreboard players set #test kitpvp.game 0
 scoreboard players set #soul_count kitpvp.game 7
 scoreboard players set #ghost_tid kitpvp.game 0

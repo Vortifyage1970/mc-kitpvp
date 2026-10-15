@@ -24,10 +24,9 @@ execute as @a[scores={kitpvp.kit=3}] at @s run kill @e[type=iron_golem,distance=
 # 令牌只在"真的用过"（cast 开的窗口）且冷却走完时发回，不拿"背包里没有"当依据（见 04 §四）
 execute as @a[scores={kitpvp.kit=3,kitpvp.alive=1,kitpvp.cd=0},tag=kitpvp.tank_handout,tag=!kitpvp.spectator] run function kitpvp:skill/tank/handout
 
-# 箭一落地即清，防"射出→换弹→捡回"刷过上箭上限。
-# 20 刻节流 + 场上没有用箭的职业时整行不执行（原为每刻全图扫描）
-# tag kitpvp.arrow_user 由 kit/archer 与 kit/tainted_archer 打上——新增用箭职业时同步加 tag（见 04 §五）
-execute if entity @a[tag=kitpvp.arrow_user] if score #tick kitpvp.game matches 0 run kill @e[type=minecraft:arrow,nbt={inGround:1b}]
+# 箭一落地即清，防"射出→换弹→捡回"刷过上箭上限。必须每刻轮询：20 刻一次的话，落地到清理之间有窗口能捡回
+# 只有场上存在用箭职业时才扫描；tag kitpvp.arrow_user 由 kit/archer 与 kit/tainted_archer 打上（见 04 §五）
+execute if entity @a[tag=kitpvp.arrow_user] run kill @e[type=minecraft:arrow,nbt={inGround:1b}]
 
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.assassin_used > @s kitpvp.assassin_last run function kitpvp:skill/assassin/dispatch
 execute as @a[scores={kitpvp.cd=..500},tag=kitpvp.assassin_hidden,tag=!kitpvp.spectator] run function kitpvp:skill/assassin/unhide
@@ -145,7 +144,3 @@ execute as @a[tag=kitpvp.respawn_pending,tag=!kitpvp.spectator] unless entity @s
 # 胜负判定：必须排在死亡处理之后——同刻互杀要等两人都淘汰完再统计，
 # 否则会先看到"幸存者=1"而误判胜者；同时覆盖掉线减员的兜底
 execute if score #state kitpvp.game matches 1 run function kitpvp:game/check_winner
-
-# 20 刻节拍（箭矢清理等节流复用）
-scoreboard players add #tick kitpvp.game 1
-execute if score #tick kitpvp.game matches 20.. run scoreboard players set #tick kitpvp.game 0
