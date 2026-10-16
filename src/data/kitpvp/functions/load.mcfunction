@@ -10,7 +10,7 @@ gamerule announceAdvancements false
 gamerule doImmediateRespawn true
 gamerule logAdminCommands false
 gamerule commandBlockOutput false
-#gamerule sendCommandFeedback false
+gamerule sendCommandFeedback false
 
 scoreboard objectives add kitpvp.kit dummy "职业"
 scoreboard objectives add kitpvp.cd dummy "技能冷却"
