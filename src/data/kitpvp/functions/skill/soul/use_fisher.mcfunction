@@ -4,10 +4,10 @@ scoreboard players operation @s kitpvp.soul_fisher_last = @s kitpvp.soul_fisher_
 # 清掉刷怪蛋刷出的那条鳕鱼
 execute at @s run kill @e[type=minecraft:cod,tag=kitpvp.soul_fisher_token,distance=..16]
 
-# 发一把与里·渔夫逐字一致的激流三叉戟（实际伤害 6，见 04 §九），多一个结束回收的标记；先清再发。
+# 发一把与里·渔夫逐字一致的激流三叉戟（实际伤害 5 / 攻速 0.9，见 04 §九），多一个结束回收的标记；先清再发。
 # 鳕鱼蛋在本服只有这里发，used 统计不会被污染
 clear @s minecraft:trident{KitSoulFisherTrident:1b}
-give @s minecraft:trident{KitSoulFisherTrident:1b,Unbreakable:1b,Enchantments:[{id:"minecraft:riptide",lvl:1}],AttributeModifiers:[{AttributeName:"generic.attack_damage",Name:"generic.attack_damage",Amount:5,Operation:0,UUID:[I;29,0,0,5],Slot:"mainhand"},{AttributeName:"generic.attack_speed",Name:"generic.attack_speed",Amount:-3,Operation:0,UUID:[I;29,0,0,6],Slot:"mainhand"}]} 1
+give @s minecraft:trident{KitSoulFisherTrident:1b,Unbreakable:1b,Enchantments:[{id:"minecraft:riptide",lvl:1}],AttributeModifiers:[{AttributeName:"generic.attack_damage",Name:"generic.attack_damage",Amount:4,Operation:0,UUID:[I;29,0,0,5],Slot:"mainhand"},{AttributeName:"generic.attack_speed",Name:"generic.attack_speed",Amount:-3.1,Operation:0,UUID:[I;29,0,0,6],Slot:"mainhand"}]} 1
 
 tag @s add kitpvp.soul_fisher_active
 scoreboard players set @s kitpvp.soul_fisher_timer 400
