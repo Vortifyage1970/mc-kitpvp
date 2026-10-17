@@ -1,0 +1,141 @@
+scoreboard players set #noise_count kitpvp.game 128
+title @s times 2 6 2
+
+scoreboard players set @s kitpvp.rng 0
+execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 1
+execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 2
+execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 4
+execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 8
+execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 16
+execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 32
+execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 64
+scoreboard players operation @s kitpvp.rng %= #noise_count kitpvp.game
+
+execute if score @s kitpvp.rng matches 0 run function kitpvp:skill/sun/noise/1
+execute if score @s kitpvp.rng matches 1 run function kitpvp:skill/sun/noise/2
+execute if score @s kitpvp.rng matches 2 run function kitpvp:skill/sun/noise/3
+execute if score @s kitpvp.rng matches 3 run function kitpvp:skill/sun/noise/4
+execute if score @s kitpvp.rng matches 4 run function kitpvp:skill/sun/noise/5
+execute if score @s kitpvp.rng matches 5 run function kitpvp:skill/sun/noise/6
+execute if score @s kitpvp.rng matches 6 run function kitpvp:skill/sun/noise/7
+execute if score @s kitpvp.rng matches 7 run function kitpvp:skill/sun/noise/8
+execute if score @s kitpvp.rng matches 8 run function kitpvp:skill/sun/noise/9
+execute if score @s kitpvp.rng matches 9 run function kitpvp:skill/sun/noise/10
+execute if score @s kitpvp.rng matches 10 run function kitpvp:skill/sun/noise/11
+execute if score @s kitpvp.rng matches 11 run function kitpvp:skill/sun/noise/12
+execute if score @s kitpvp.rng matches 12 run function kitpvp:skill/sun/noise/13
+execute if score @s kitpvp.rng matches 13 run function kitpvp:skill/sun/noise/14
+execute if score @s kitpvp.rng matches 14 run function kitpvp:skill/sun/noise/15
+execute if score @s kitpvp.rng matches 15 run function kitpvp:skill/sun/noise/16
+execute if score @s kitpvp.rng matches 16 run function kitpvp:skill/sun/noise/17
+execute if score @s kitpvp.rng matches 17 run function kitpvp:skill/sun/noise/18
+execute if score @s kitpvp.rng matches 18 run function kitpvp:skill/sun/noise/19
+execute if score @s kitpvp.rng matches 19 run function kitpvp:skill/sun/noise/20
+execute if score @s kitpvp.rng matches 20 run function kitpvp:skill/sun/noise/21
+execute if score @s kitpvp.rng matches 21 run function kitpvp:skill/sun/noise/22
+execute if score @s kitpvp.rng matches 22 run function kitpvp:skill/sun/noise/23
+execute if score @s kitpvp.rng matches 23 run function kitpvp:skill/sun/noise/24
+execute if score @s kitpvp.rng matches 24 run function kitpvp:skill/sun/noise/25
+execute if score @s kitpvp.rng matches 25 run function kitpvp:skill/sun/noise/26
+execute if score @s kitpvp.rng matches 26 run function kitpvp:skill/sun/noise/27
+execute if score @s kitpvp.rng matches 27 run function kitpvp:skill/sun/noise/28
+execute if score @s kitpvp.rng matches 28 run function kitpvp:skill/sun/noise/29
+execute if score @s kitpvp.rng matches 29 run function kitpvp:skill/sun/noise/30
+execute if score @s kitpvp.rng matches 30 run function kitpvp:skill/sun/noise/31
+execute if score @s kitpvp.rng matches 31 run function kitpvp:skill/sun/noise/32
+execute if score @s kitpvp.rng matches 32 run function kitpvp:skill/sun/noise/33
+execute if score @s kitpvp.rng matches 33 run function kitpvp:skill/sun/noise/34
+execute if score @s kitpvp.rng matches 34 run function kitpvp:skill/sun/noise/35
+execute if score @s kitpvp.rng matches 35 run function kitpvp:skill/sun/noise/36
+execute if score @s kitpvp.rng matches 36 run function kitpvp:skill/sun/noise/37
+execute if score @s kitpvp.rng matches 37 run function kitpvp:skill/sun/noise/38
+execute if score @s kitpvp.rng matches 38 run function kitpvp:skill/sun/noise/39
+execute if score @s kitpvp.rng matches 39 run function kitpvp:skill/sun/noise/40
+execute if score @s kitpvp.rng matches 40 run function kitpvp:skill/sun/noise/41
+execute if score @s kitpvp.rng matches 41 run function kitpvp:skill/sun/noise/42
+execute if score @s kitpvp.rng matches 42 run function kitpvp:skill/sun/noise/43
+execute if score @s kitpvp.rng matches 43 run function kitpvp:skill/sun/noise/44
+execute if score @s kitpvp.rng matches 44 run function kitpvp:skill/sun/noise/45
+execute if score @s kitpvp.rng matches 45 run function kitpvp:skill/sun/noise/46
+execute if score @s kitpvp.rng matches 46 run function kitpvp:skill/sun/noise/47
+execute if score @s kitpvp.rng matches 47 run function kitpvp:skill/sun/noise/48
+execute if score @s kitpvp.rng matches 48 run function kitpvp:skill/sun/noise/49
+execute if score @s kitpvp.rng matches 49 run function kitpvp:skill/sun/noise/50
+execute if score @s kitpvp.rng matches 50 run function kitpvp:skill/sun/noise/51
+execute if score @s kitpvp.rng matches 51 run function kitpvp:skill/sun/noise/52
+execute if score @s kitpvp.rng matches 52 run function kitpvp:skill/sun/noise/53
+execute if score @s kitpvp.rng matches 53 run function kitpvp:skill/sun/noise/54
+execute if score @s kitpvp.rng matches 54 run function kitpvp:skill/sun/noise/55
+execute if score @s kitpvp.rng matches 55 run function kitpvp:skill/sun/noise/56
+execute if score @s kitpvp.rng matches 56 run function kitpvp:skill/sun/noise/57
+execute if score @s kitpvp.rng matches 57 run function kitpvp:skill/sun/noise/58
+execute if score @s kitpvp.rng matches 58 run function kitpvp:skill/sun/noise/59
+execute if score @s kitpvp.rng matches 59 run function kitpvp:skill/sun/noise/60
+execute if score @s kitpvp.rng matches 60 run function kitpvp:skill/sun/noise/61
+execute if score @s kitpvp.rng matches 61 run function kitpvp:skill/sun/noise/62
+execute if score @s kitpvp.rng matches 62 run function kitpvp:skill/sun/noise/63
+execute if score @s kitpvp.rng matches 63 run function kitpvp:skill/sun/noise/64
+execute if score @s kitpvp.rng matches 64 run function kitpvp:skill/sun/noise/65
+execute if score @s kitpvp.rng matches 65 run function kitpvp:skill/sun/noise/66
+execute if score @s kitpvp.rng matches 66 run function kitpvp:skill/sun/noise/67
+execute if score @s kitpvp.rng matches 67 run function kitpvp:skill/sun/noise/68
+execute if score @s kitpvp.rng matches 68 run function kitpvp:skill/sun/noise/69
+execute if score @s kitpvp.rng matches 69 run function kitpvp:skill/sun/noise/70
+execute if score @s kitpvp.rng matches 70 run function kitpvp:skill/sun/noise/71
+execute if score @s kitpvp.rng matches 71 run function kitpvp:skill/sun/noise/72
+execute if score @s kitpvp.rng matches 72 run function kitpvp:skill/sun/noise/73
+execute if score @s kitpvp.rng matches 73 run function kitpvp:skill/sun/noise/74
+execute if score @s kitpvp.rng matches 74 run function kitpvp:skill/sun/noise/75
+execute if score @s kitpvp.rng matches 75 run function kitpvp:skill/sun/noise/76
+execute if score @s kitpvp.rng matches 76 run function kitpvp:skill/sun/noise/77
+execute if score @s kitpvp.rng matches 77 run function kitpvp:skill/sun/noise/78
+execute if score @s kitpvp.rng matches 78 run function kitpvp:skill/sun/noise/79
+execute if score @s kitpvp.rng matches 79 run function kitpvp:skill/sun/noise/80
+execute if score @s kitpvp.rng matches 80 run function kitpvp:skill/sun/noise/81
+execute if score @s kitpvp.rng matches 81 run function kitpvp:skill/sun/noise/82
+execute if score @s kitpvp.rng matches 82 run function kitpvp:skill/sun/noise/83
+execute if score @s kitpvp.rng matches 83 run function kitpvp:skill/sun/noise/84
+execute if score @s kitpvp.rng matches 84 run function kitpvp:skill/sun/noise/85
+execute if score @s kitpvp.rng matches 85 run function kitpvp:skill/sun/noise/86
+execute if score @s kitpvp.rng matches 86 run function kitpvp:skill/sun/noise/87
+execute if score @s kitpvp.rng matches 87 run function kitpvp:skill/sun/noise/88
+execute if score @s kitpvp.rng matches 88 run function kitpvp:skill/sun/noise/89
+execute if score @s kitpvp.rng matches 89 run function kitpvp:skill/sun/noise/90
+execute if score @s kitpvp.rng matches 90 run function kitpvp:skill/sun/noise/91
+execute if score @s kitpvp.rng matches 91 run function kitpvp:skill/sun/noise/92
+execute if score @s kitpvp.rng matches 92 run function kitpvp:skill/sun/noise/93
+execute if score @s kitpvp.rng matches 93 run function kitpvp:skill/sun/noise/94
+execute if score @s kitpvp.rng matches 94 run function kitpvp:skill/sun/noise/95
+execute if score @s kitpvp.rng matches 95 run function kitpvp:skill/sun/noise/96
+execute if score @s kitpvp.rng matches 96 run function kitpvp:skill/sun/noise/97
+execute if score @s kitpvp.rng matches 97 run function kitpvp:skill/sun/noise/98
+execute if score @s kitpvp.rng matches 98 run function kitpvp:skill/sun/noise/99
+execute if score @s kitpvp.rng matches 99 run function kitpvp:skill/sun/noise/100
+execute if score @s kitpvp.rng matches 100 run function kitpvp:skill/sun/noise/101
+execute if score @s kitpvp.rng matches 101 run function kitpvp:skill/sun/noise/102
+execute if score @s kitpvp.rng matches 102 run function kitpvp:skill/sun/noise/103
+execute if score @s kitpvp.rng matches 103 run function kitpvp:skill/sun/noise/104
+execute if score @s kitpvp.rng matches 104 run function kitpvp:skill/sun/noise/105
+execute if score @s kitpvp.rng matches 105 run function kitpvp:skill/sun/noise/106
+execute if score @s kitpvp.rng matches 106 run function kitpvp:skill/sun/noise/107
+execute if score @s kitpvp.rng matches 107 run function kitpvp:skill/sun/noise/108
+execute if score @s kitpvp.rng matches 108 run function kitpvp:skill/sun/noise/109
+execute if score @s kitpvp.rng matches 109 run function kitpvp:skill/sun/noise/110
+execute if score @s kitpvp.rng matches 110 run function kitpvp:skill/sun/noise/111
+execute if score @s kitpvp.rng matches 111 run function kitpvp:skill/sun/noise/112
+execute if score @s kitpvp.rng matches 112 run function kitpvp:skill/sun/noise/113
+execute if score @s kitpvp.rng matches 113 run function kitpvp:skill/sun/noise/114
+execute if score @s kitpvp.rng matches 114 run function kitpvp:skill/sun/noise/115
+execute if score @s kitpvp.rng matches 115 run function kitpvp:skill/sun/noise/116
+execute if score @s kitpvp.rng matches 116 run function kitpvp:skill/sun/noise/117
+execute if score @s kitpvp.rng matches 117 run function kitpvp:skill/sun/noise/118
+execute if score @s kitpvp.rng matches 118 run function kitpvp:skill/sun/noise/119
+execute if score @s kitpvp.rng matches 119 run function kitpvp:skill/sun/noise/120
+execute if score @s kitpvp.rng matches 120 run function kitpvp:skill/sun/noise/121
+execute if score @s kitpvp.rng matches 121 run function kitpvp:skill/sun/noise/122
+execute if score @s kitpvp.rng matches 122 run function kitpvp:skill/sun/noise/123
+execute if score @s kitpvp.rng matches 123 run function kitpvp:skill/sun/noise/124
+execute if score @s kitpvp.rng matches 124 run function kitpvp:skill/sun/noise/125
+execute if score @s kitpvp.rng matches 125 run function kitpvp:skill/sun/noise/126
+execute if score @s kitpvp.rng matches 126 run function kitpvp:skill/sun/noise/127
+execute if score @s kitpvp.rng matches 127 run function kitpvp:skill/sun/noise/128

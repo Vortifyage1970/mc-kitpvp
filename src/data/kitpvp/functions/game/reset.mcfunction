@@ -1,14 +1,10 @@
 # 结算清理：game/end 用 schedule 在 200 刻后调用（设计文档 2.11 第 3~7 步）
 execute as @a run function kitpvp:util/clear_player
 
-# 回大厅（坐标见 lobby/spawn 顶部的坐标注册表）
-execute as @a run function kitpvp:lobby/enter
-
 # 非玩家实体：清掉落物 + 我们自己召唤出来的东西，避免误伤画 / 物品展示框 / 地图装饰。
 # 约定：每新增一种召唤物，就在这里追加一行对应的 kill（A2）。
-
-function kitpvp:map/restore
-
+# ⚠ 这一整段必须排在下面"回大厅"之前：玩家一走，地图区块随时可能卸下、实体随之离开世界实体列表，
+#   这些 kill 会静默什么也清不掉（驯兽师留在旧地图里的狼就是这么活到下一局的，见 04 §五）。
 kill @e[type=item]
 kill @e[tag=kitpvp.ghost_minion]
 kill @e[tag=kitpvp.turret]
@@ -21,11 +17,18 @@ kill @e[type=wolf]
 kill @e[tag=kitpvp.tainted_fisher_blue_token]
 kill @e[tag=kitpvp.tainted_fisher_domain_token]
 
+# 太阳的两个令牌生物（蜜蜂 / 蝙蝠）：按 tag 清，不碰地图里的蜜蜂与蝙蝠
+kill @e[tag=kitpvp.sun_flare_token]
+kill @e[tag=kitpvp.sun_spot_token]
+
 # 测试用召唤物（summon/zombie_iron_helmet、summon/zombie_iron_armor）：按 tag 清，不碰地图里的僵尸
 kill @e[tag=kitpvp.test_dummy]
 
 # 渔夫魂石的令牌生物（鳕鱼）：按 tag 清，不碰地图里的鱼
 kill @e[tag=kitpvp.soul_fisher_token]
+
+# 出生点锚点（重生兜底，见 04 §十一）：每局重建，不能留到下一局地图
+kill @e[tag=kitpvp.spawn_anchor]
 
 # 领域展开的雨：load 关了 doWeatherCycle，雨不会自己停 —— domain_end 之外的兜底（见 04 §五）
 weather clear
@@ -43,6 +46,11 @@ kill @e[type=minecraft:tadpole,tag=!kitpvp.displayitem]
 kill @e[type=minecraft:turtle,tag=!kitpvp.displayitem]
 kill @e[type=minecraft:goat,tag=!kitpvp.displayitem]
 kill @e[type=minecraft:salmon,tag=!kitpvp.displayitem]
+
+# 回大厅（坐标见 lobby/spawn 顶部的坐标注册表）—— 只能在上面把实体清完之后走人
+execute as @a run function kitpvp:lobby/enter
+
+function kitpvp:map/restore
 
 scoreboard players set #survivors kitpvp.game 0
 scoreboard players set #state kitpvp.game 0

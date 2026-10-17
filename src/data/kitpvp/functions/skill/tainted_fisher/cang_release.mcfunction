@@ -11,6 +11,6 @@ tag @s remove kitpvp.tainted_fisher_self
 
 tag @s remove kitpvp.tainted_fisher_cang
 scoreboard players set @s kitpvp.tainted_fisher_cang_timer 0
-scoreboard players set @s kitpvp.cd 1200
-scoreboard players set @s kitpvp.cd2 1200
-title @s actionbar {"text":"术式顺转·「苍」：冷却 60 秒","color":"aqua"}
+scoreboard players set @s kitpvp.cd 900
+scoreboard players set @s kitpvp.cd2 900
+title @s actionbar {"text":"术式顺转·「苍」：冷却 45 秒","color":"aqua"}

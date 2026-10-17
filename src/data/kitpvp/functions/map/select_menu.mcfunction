@@ -2,6 +2,7 @@
 tellraw @s [{"text":"═══════ 选择地图 ═══════","color":"gold","bold":true}]
 tellraw @s [{"text":"[ 沙漠 ]","color":"yellow","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:map/select_desert"},"hoverEvent":{"action":"show_text","contents":[{"text":"经典沙漠地图","color":"gray"}]}}]
 tellraw @s [{"text":"[ 竞技场 ]","color":"red","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:map/select_arena"},"hoverEvent":{"action":"show_text","contents":[{"text":"对称竞技场地图","color":"gray"}]}}]
+tellraw @s [{"text":"[ 雪原 ]","color":"white","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:map/select_snow"},"hoverEvent":{"action":"show_text","contents":[{"text":"积雪覆盖的雪原地图","color":"gray"}]}}]
 tellraw @s [{"text":"[ 地球 ]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:map/select_earth"},"hoverEvent":{"action":"show_text","contents":[{"text":"围绕地球的地图","color":"gray"}]}}]
 tellraw @s [{"text":"[ 西安 ]","color":"gold","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:map/select_xian"},"hoverEvent":{"action":"show_text","contents":[{"text":"围绕西安的地图","color":"gray"}]}}]
 tellraw @s [{"text":"[ 随机 ]","color":"light_purple","bold":true,"clickEvent":{"action":"run_command","value":"/scoreboard players set #global kitpvp.map 0"},"hoverEvent":{"action":"show_text","contents":[{"text":"随机地图","color":"gray"}]}}]

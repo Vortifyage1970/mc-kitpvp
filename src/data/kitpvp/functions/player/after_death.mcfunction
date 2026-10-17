@@ -3,6 +3,9 @@
 tag @s remove kitpvp.respawn_pending
 tag @s remove kitpvp.assassin_hidden
 
+# 出生点被水/方块占住时原版会把人丢到主大厅出生点，这里按锚点送回自己的出生点（见 04 §十一）
+function kitpvp:player/spawn_anchor
+
 function kitpvp:player/invincible
 
 # 死亡清空了药水效果，重生后重挂职业被动（新增被动职业在此追加一行）

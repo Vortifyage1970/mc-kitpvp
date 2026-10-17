@@ -82,6 +82,8 @@ scoreboard objectives remove kitpvp.tainted_core_used
 scoreboard objectives add kitpvp.tainted_core_used minecraft.used:minecraft.blaze_spawn_egg
 scoreboard objectives add kitpvp.tainted_core_last dummy "熔火核心快照"
 scoreboard objectives add kitpvp.ttid dummy "炮台队槽编号"
+# 出生点编号：map/*/spawn_N 每局写入，重生兜底按它找回自己的锚点（见 04 §十一）
+scoreboard objectives add kitpvp.spawn_slot dummy "出生点编号"
 scoreboard objectives add kitpvp.turret_owner dummy
 scoreboard objectives add kitpvp.turret_seq dummy
 scoreboard objectives add kitpvp.turret_molten_timer dummy
@@ -94,6 +96,14 @@ scoreboard objectives add kitpvp.tainted_fisher_domain_used minecraft.used:minec
 scoreboard objectives add kitpvp.tainted_fisher_domain_last dummy "里·渔夫领域快照"
 scoreboard objectives add kitpvp.tainted_fisher_cang_timer dummy "里·渔夫苍前摇计时"
 scoreboard objectives add kitpvp.tainted_fisher_domain_timer dummy "里·渔夫领域计时"
+
+# 太阳（kit 65）：两个技能各一个令牌（蜜蜂蛋 / 蝙蝠蛋），各走各的冷却；换弹另有 kitpvp.sun_reload
+scoreboard objectives add kitpvp.sun_flare_used minecraft.used:minecraft.bee_spawn_egg
+scoreboard objectives add kitpvp.sun_flare_last dummy "太阳耀斑快照"
+scoreboard objectives add kitpvp.sun_spot_used minecraft.used:minecraft.bat_spawn_egg
+scoreboard objectives add kitpvp.sun_spot_last dummy "太阳黑子快照"
+scoreboard objectives add kitpvp.sun_flare_timer dummy "太阳耀斑干扰计时"
+scoreboard objectives add kitpvp.sun_reload dummy "太阳换弹冷却"
 
 # 预留（暂无消费者，刻意保留）：item = 物品计数
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
@@ -153,6 +163,7 @@ scoreboard players set @a kitpvp.ttid 0
 scoreboard players set @a kitpvp.fisher_no_tri 0
 scoreboard players set @a kitpvp.turret_heal_cd 0
 scoreboard players set @a kitpvp.werewolf_hit_cd 0
+scoreboard players set @a kitpvp.sun_reload 0
 scoreboard players set @a kitpvp.soul_next 0
 # 换过 criterion 的快照要重新对齐，否则 old 的快照值会一直压着新计数不触发
 execute as @a run scoreboard players operation @s kitpvp.tainted_core_last = @s kitpvp.tainted_core_used
@@ -177,6 +188,7 @@ tag @e[type=minecraft:item_frame] add kitpvp.displayitem
 tag @e[type=minecraft:glow_item_frame] add kitpvp.displayitem
 tag @e[type=minecraft:painting] add kitpvp.displayitem
 tag @e[type=minecraft:chest_minecart] add kitpvp.displayitem
+tag @e[name="海龟蛋"] add kitpvp.displayitem
 
 execute as @e[tag=kitpvp.displayitem] run data merge entity @s {Invulnerable:1b}
 

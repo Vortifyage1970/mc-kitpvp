@@ -31,5 +31,8 @@ scoreboard players operation @s kitpvp.werewolf_last = @s kitpvp.werewolf_used
 scoreboard players operation @s kitpvp.tamer_last = @s kitpvp.tamer_used
 scoreboard players operation @s kitpvp.tainted_fisher_blue_last = @s kitpvp.tainted_fisher_blue_used
 scoreboard players operation @s kitpvp.tainted_fisher_domain_last = @s kitpvp.tainted_fisher_domain_used
+scoreboard players operation @s kitpvp.sun_flare_last = @s kitpvp.sun_flare_used
+scoreboard players operation @s kitpvp.sun_spot_last = @s kitpvp.sun_spot_used
+scoreboard players set @s kitpvp.sun_reload 0
 
 function kitpvp:lobby/enter

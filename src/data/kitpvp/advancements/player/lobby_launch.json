@@ -1,0 +1,38 @@
+{
+  "criteria": {
+    "press_button": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "#minecraft:buttons"
+                ]
+              },
+              "position": {
+                "x": {
+                  "min": 0,
+                  "max": 0
+                },
+                "y": {
+                  "min": 63,
+                  "max": 63
+                },
+                "z": {
+                  "min": 98,
+                  "max": 98
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "function": "kitpvp:lobby/launch"
+  }
+}

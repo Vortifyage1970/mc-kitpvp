@@ -16,3 +16,4 @@ execute if score @s kitpvp.kit matches 24 run function kitpvp:kit/tainted_archer
 execute if score @s kitpvp.kit matches 25 run function kitpvp:kit/tainted_tank
 execute if score @s kitpvp.kit matches 27 run function kitpvp:kit/tainted_arsonist
 execute if score @s kitpvp.kit matches 29 run function kitpvp:kit/tainted_fisher
+execute if score @s kitpvp.kit matches 65 run function kitpvp:kit/sun

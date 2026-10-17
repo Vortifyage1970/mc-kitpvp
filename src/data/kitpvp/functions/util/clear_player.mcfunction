@@ -25,6 +25,8 @@ tag @s remove kitpvp.tainted_fisher_cang
 tag @s remove kitpvp.tainted_fisher_domain
 tag @s remove kitpvp.tainted_fisher_handout
 tag @s remove kitpvp.tainted_fisher_self
+tag @s remove kitpvp.sun_flare
+tag @s remove kitpvp.sun_self
 tag @s remove kitpvp.in_water
 tag @s remove kitpvp.ready
 tag @s remove kitpvp.ready_pending
@@ -39,6 +41,8 @@ scoreboard players set @s kitpvp.lives 3
 scoreboard players set @s kitpvp.kills 0
 scoreboard players set @s kitpvp.deaths 0
 scoreboard players set @s kitpvp.alive 1
+# 出生点编号每局由 map/*/spawn_N 重写，先归零（见 04 §十一）
+scoreboard players set @s kitpvp.spawn_slot 0
 # 所有 *_last 快照推到当前 used，避免清场后下一刻误判"刚用过"（见 05 §7）
 scoreboard players operation @s kitpvp.tank_last = @s kitpvp.tank_used
 scoreboard players operation @s kitpvp.assassin_last = @s kitpvp.assassin_used
@@ -76,6 +80,10 @@ scoreboard players operation @s kitpvp.tainted_fisher_blue_last = @s kitpvp.tain
 scoreboard players operation @s kitpvp.tainted_fisher_domain_last = @s kitpvp.tainted_fisher_domain_used
 scoreboard players set @s kitpvp.tainted_fisher_cang_timer 0
 scoreboard players set @s kitpvp.tainted_fisher_domain_timer 0
+scoreboard players set @s kitpvp.sun_flare_timer 0
+scoreboard players operation @s kitpvp.sun_flare_last = @s kitpvp.sun_flare_used
+scoreboard players operation @s kitpvp.sun_spot_last = @s kitpvp.sun_spot_used
+scoreboard players set @s kitpvp.sun_reload 0
 
 attribute @s minecraft:generic.max_health base set 20
 attribute @s minecraft:generic.movement_speed base set 0.1

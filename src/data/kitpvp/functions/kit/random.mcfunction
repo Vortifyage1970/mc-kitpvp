@@ -1,7 +1,7 @@
 # 1.20.1 无 /random：用 1in2 谓词连掷 7 次拼出 0..127，取模得到池内序号（0..pool_size-1）。
-# 序号到真实编号的映射写在末尾——表职业 1..11 与 18、里职业 23..25 与 27、29，编号不连续也能进池。
+# 序号到真实编号的映射写在末尾——表职业 1..11 与 18、里职业 23..25 与 27、29、星象 65，编号不连续也能进池。
 # 新增职业时改 #pool_size 并在末尾追加一行映射。
-scoreboard players set #pool_size kitpvp.game 17
+scoreboard players set #pool_size kitpvp.game 18
 
 scoreboard players set @s kitpvp.rng 0
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 1
@@ -31,5 +31,6 @@ execute if score @s kitpvp.rng matches 13 run scoreboard players set @s kitpvp.k
 execute if score @s kitpvp.rng matches 14 run scoreboard players set @s kitpvp.kit 25
 execute if score @s kitpvp.rng matches 15 run scoreboard players set @s kitpvp.kit 27
 execute if score @s kitpvp.rng matches 16 run scoreboard players set @s kitpvp.kit 29
+execute if score @s kitpvp.rng matches 17 run scoreboard players set @s kitpvp.kit 65
 
 function kitpvp:util/give_kit

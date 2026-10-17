@@ -7,4 +7,5 @@ execute as @a at @s run playsound minecraft:block.beacon.deactivate master @s ~ 
 tag @s remove kitpvp.tainted_fisher_domain
 scoreboard players set @s kitpvp.tainted_fisher_domain_timer 0
 effect give @s minecraft:weakness 60 0 true
-title @s actionbar {"text":"无量空渔已收束：虚弱 I 60 秒","color":"gray"}
+effect give @s minecraft:slowness 60 1 true
+title @s actionbar {"text":"无量空渔已收束：虚弱 I + 缓慢 II 60 秒","color":"gray"}

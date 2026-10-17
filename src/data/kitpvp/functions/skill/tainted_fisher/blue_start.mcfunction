@@ -1,4 +1,4 @@
-# 「苍」起手：1.5 秒前摇交给 cang_tick 计时器。cd 先占 30 刻（锁住再按与另一技能），释放时改写成 1200。
+# 「苍」起手：1.5 秒前摇交给 cang_tick 计时器。cd 先占 30 刻（锁住再按与另一技能），释放时改写成 900。
 # 不用 schedule：两人同时咏唱时同名 schedule 会互相顶掉
 scoreboard players set @s kitpvp.cd 30
 scoreboard players set @s kitpvp.tainted_fisher_cang_timer 30
