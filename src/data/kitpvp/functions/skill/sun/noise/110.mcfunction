@@ -1,5 +1,5 @@
-title @s title {"text":"🌙 21:40","color":"aqua","bold":true}
-title @s subtitle {"text":"楼里只剩我和保安","color":"light_purple"}
-title @s actionbar {"text":"今天第 3 次泡面","color":"yellow"}
-tellraw @s [{"text":"◇ ","color":"aqua"},{"text":"晚上九点四十我改完了第十七条意见我站起来走到窗边楼下只有两盏灯保安在门厅里看手机我想起早上我列的清单第一项完成第二项完成第三项待办第四项待办我回到座位把第三项划掉然后打开外卖软件我发现这个点只剩下两家店开着","color":"white"}]
+title @s title {"text":"多地出台教育改革举措应对学龄人口梯次达峰，高中阶段学龄人口预计2029年迎来峰值。嵊泗中考改革实现普高愿读尽读，多地试点十二年一贯制贯通培养；各地新建改扩建高中、新增大量普高学位，还探索“潮汐学校”动态调配学位，盘活教育资源，缓解普职分流压力。‌‌","color":"aqua","bold":true}
+title @s subtitle {"text":"学在校生规模在2023年达峰，初中阶段在2026年达峰，高中阶段将在2029年达峰，高等教育学龄人口将在2032年达峰。应对即将于2029年达峰的高中阶段学龄人口，加大教育资源的调配十分关键。为此，多地大力扩大普通高中资源。","color":"light_purple"}
+title @s actionbar {"text":"出生人口断崖危机即将烧到高中，不这样搞很多高中要倒闭","color":"yellow"}
+tellraw @s [{"text":"◇ ","color":"aqua"},{"text":"上学从来不是为了教育，是为了筛选，以前都是初中毕业，后来都是高中毕业，再后来大学扩招了，又都是本科毕业。再到00后，大部分人都是硕士毕业。然后呢？找到工作了吗？失业率多少？","color":"white"}]
 playsound minecraft:entity.player.attack.nodamage master @s ~ ~ ~ 1.6 1.0

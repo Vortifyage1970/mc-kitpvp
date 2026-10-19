@@ -1,5 +1,5 @@
-title @s title {"text":"💧 本月用量","color":"green","bold":true}
-title @s subtitle {"text":"比上月多了 3 倍","color":"yellow"}
-title @s actionbar {"text":"我：可能是我洗澡","color":"aqua"}
-tellraw @s [{"text":"◇ ","color":"green"},{"text":"账单发到手机上我打开看了一眼电费比上月多了三倍水费也是我立刻审查自己我洗澡洗多久我开空调开多久我充电充几次我算了半天最后我打电话给物业物业说上个月是估的这一个月是抄的我说那前几个月呢他说也是估的我说那你们估了多久他说大概半年我坐在沙发上突然觉得那半年的我过得非常轻","color":"white"}]
+title @s title {"text":"Manage, store, and create secure passwords with Google Password Manager and easily sign in to sites in your Chrome browser and …","color":"green","bold":true}
+title @s subtitle {"text":"Ready to upgrade your security? Keep your logins locked down with our 2025 best password manager apps for PC, Mac, …","color":"yellow"}
+title @s actionbar {"text":"Actress Hayden Panettiere was found in cardiac arrest prior to her death, the Greenville County Coroner's Office said in …","color":"aqua"}
+tellraw @s [{"text":"◇ ","color":"green"},{"text":"本体、ヘルプ、関連ファイルを1ファイルにまとめたインストーラおよび実行ファイルのzip圧縮ファイル。インストール後に最新実行ファイルで上書きしても正しく動作します。","color":"white"}]
 playsound minecraft:entity.frog.eat master @s ~ ~ ~ 1.6 1.0

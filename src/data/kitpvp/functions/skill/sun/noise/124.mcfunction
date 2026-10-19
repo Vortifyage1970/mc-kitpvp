@@ -1,5 +1,5 @@
-title @s title {"text":"🥡 楼下取餐","color":"red","bold":true}
-title @s subtitle {"text":"架上堆着 20 份无人认领","color":"gold"}
-title @s actionbar {"text":"我的那份在最下面","color":"yellow"}
-tellraw @s [{"text":"◇ ","color":"red"},{"text":"我下楼取餐架子上摞着二十份外卖我一份一份翻我看了眼数量最多的是同一种名字我猜那是一个办公室的人一起点的我翻了很久在最底下找到了我的它还是热的我拿着它上楼的时候回头看了一眼架子上面那些餐还没有人来拿我在想它们的主人现在在忙什么呢","color":"white"}]
+title @s title {"text":"我是cs新人，我坐好了，请问cs里面有没有什么门票巨贵，瑞士轮bo1也要圈钱，见面会虚假宣传，只让你做塑料椅子，电脑里没有游戏，第一天开赛就推迟一个半小时，全国营销但版权只在dy播比赛？","color":"red","bold":true}
+title @s subtitle {"text":"致敬梦限大最好的五个人:啥子，啥子，张雪峰，豆包，未入团","color":"gold"}
+title @s actionbar {"text":"你一句别怂，我就敢往前冲😄张雪峰老师，我还记得你😫一句一句把我拉出迷雾里🥶张雪峰老师，我还记得你😘那些年少的愁，你替我扛起😍粉笔灰落在肩上，像雪一样安静🌬️你笑着说前途远，别先把自己看清😟多少个深夜回家，我还在翻那页纸你说过的每句话都在我心里记起后来风吹过来，我也学会了不躲不退，往自己的山坡走张雪峰老师，我还记得你😁一句一句把我拉出迷雾里😭张雪峰你替我扛起🤓如果有一天我走得很远🙂也会想起那间教室的光线🤨桌子旁，说别怕吃苦😇说这条路总会有人走出去","color":"yellow"}
+tellraw @s [{"text":"◇ ","color":"red"},{"text":"The Service uses cookies to display content and advertisements adjusting to each customer, provide social media features, and measure the number of times that an ad appears or is clicked on. Cookies are also used to collect information on how Customers utilize the Service, and this information is shared with various social media, ad distributing, and data analysis partners. Each of our partners may use a combination of the information collected through these cookies, other information provided to each partner by Customers, as well as other information collected by our partners when Customers use the partners’ other services. Please see our "Cookie Policy" here.","color":"white"}]
 playsound minecraft:entity.slime.jump_small master @s ~ ~ ~ 1.6 1.0

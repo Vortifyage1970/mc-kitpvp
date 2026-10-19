@@ -1,5 +1,5 @@
-title @s title {"text":"📦 搬家第 1 天","color":"light_purple","bold":true}
-title @s subtitle {"text":"我有 4 个箱子 其中 3 个是线","color":"aqua"}
-title @s actionbar {"text":"胶带：已用 2 卷","color":"gold"}
-tellraw @s [{"text":"◇ ","color":"light_purple"},{"text":"我搬家我以为我东西不多我收拾的时候我发现我有一箱书一箱衣服还有三箱线缆我把它们摊在地上试图弄明白哪根是哪根的用途我收了一整天最后我把它们全都装进了一个新的箱子我在箱子上写下杂线我搬完家坐在新房间的地板上看着那个箱子突然觉得我搬的不是家我搬的是一个未解之谜","color":"white"}]
+title @s title {"text":"10月16日，陈奕迅宣布将于今年12月至明年2月在香港演艺学院歌剧院举行26场演唱会。该演唱会为其策划的大型唱片重录计划，每晚重唱不同专辑，每场约100分钟。为确保现场录音质量，观众进场前需封存手机，且不得跟唱、欢呼、鼓掌或交谈。‌‌","color":"light_purple","bold":true}
+title @s subtitle {"text":"被低咕咕嘎嘎的神作！被低咕咕嘎嘎的神作！被低咕咕嘎嘎的神作啊啊啊啊啊啊啊啊啊啊","color":"aqua"}
+title @s actionbar {"text":"被低咕咕嘎嘎的神作！被低咕咕嘎嘎的神作！被低咕咕嘎嘎的神作啊啊啊啊啊啊啊啊啊啊","color":"gold"}
+tellraw @s [{"text":"◇ ","color":"light_purple"},{"text":"从现有资料看，‌目前没有比全民K歌更火的专门K歌软件‌。它在多个排行榜里基本都排第一，比如应用宝称它是“国内最大的K歌平台”，还有榜单把它列为K歌软件第一名，并给出9.6亿下载量；百度百科也提到它在2016年底就登顶移动K歌类App榜首。‌‌","color":"white"}]
 playsound minecraft:entity.panda.bite master @s ~ ~ ~ 1.6 1.0

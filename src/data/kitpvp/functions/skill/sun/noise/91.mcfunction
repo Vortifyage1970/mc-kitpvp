@@ -1,5 +1,5 @@
-title @s title {"text":"🧺 洗衣机全满","color":"gold","bold":true}
-title @s subtitle {"text":"有人的衣服在里面泡了两小时","color":"yellow"}
-title @s actionbar {"text":"我端着盆站着","color":"aqua"}
-tellraw @s [{"text":"◇ ","color":"gold"},{"text":"我端着盆去洗衣房四台机器都在转我在门口等了二十分钟第一台停了主人没来第二台停了主人没来第三台第四台也停了主人全都没来我把盆放在地上坐在门口的长椅上开始阅读墙上的注意事项我突然觉得我不是来洗衣服的我是来参加一场关于等待的展览","color":"white"}]
+title @s title {"text":"老尼已经不知不觉1-5了🦐老尼你人头呢老尼😅对面这南村群童欺我老无力啊🙄18岁打29岁😫太赖了😭你让老尼19岁来试试😡","color":"gold","bold":true}
+title @s subtitle {"text":"【HLTV】twistzz使用甜甜圈攻击了我们的服务器，导致网页速度如NiKo的脚一样缓慢","color":"yellow"}
+title @s actionbar {"text":"@ropz：卧槽机器，箱子被我用八个木板合成出来了！","color":"aqua"}
+tellraw @s [{"text":"◇ ","color":"gold"},{"text":"主播，我看了5年你的直播，有个问题一直不好意思问你，这是什么游戏？","color":"white"}]
 playsound minecraft:entity.goat.eat master @s ~ ~ ~ 1.6 1.0
