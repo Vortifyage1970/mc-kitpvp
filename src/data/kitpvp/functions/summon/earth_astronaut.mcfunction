@@ -1,0 +1,2 @@
+# 地球·9 宇航员：白色染色玻璃头，常态跳跃提升 X + 缓降
+summon minecraft:zombie ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new"],CustomName:'{"text":"宇航员","color":"white"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,ArmorItems:[{},{},{},{id:"minecraft:white_stained_glass",Count:1b}],ActiveEffects:[{Id:8b,Amplifier:9b,Duration:-1,ShowParticles:0b},{Id:28b,Amplifier:0b,Duration:-1,ShowParticles:0b}]}

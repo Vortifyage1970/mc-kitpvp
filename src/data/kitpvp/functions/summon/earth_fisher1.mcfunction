@@ -1,0 +1,2 @@
+# 地球·18 渔夫：骑海豚、手持三叉戟、头戴海晶灯的溺尸
+summon minecraft:dolphin ~ ~ ~ {Tags:["kitpvp.earth_mount"],PersistenceRequired:1b,Passengers:[{id:"minecraft:drowned",Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new"],CustomName:'{"text":"渔夫","color":"aqua"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,HandItems:[{id:"minecraft:trident",Count:1b},{}],ArmorItems:[{},{},{},{id:"minecraft:sea_lantern",Count:1b}]}]}

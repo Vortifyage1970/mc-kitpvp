@@ -1,0 +1,2 @@
+# 地球·12 MC石头：头戴石头、手持石头，常态缓慢 IV + 抗性提升 IV
+summon minecraft:zombie ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new"],CustomName:'{"text":"MC石头","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,HandItems:[{id:"minecraft:stone",Count:1b},{}],ArmorItems:[{},{},{},{id:"minecraft:stone",Count:1b}],ActiveEffects:[{Id:2b,Amplifier:3b,Duration:-1,ShowParticles:0b},{Id:11b,Amplifier:3b,Duration:-1,ShowParticles:0b}]}

@@ -1,0 +1,2 @@
+# 地球·14 农民：皮革头盔 + 皮革胸甲、手持木锄，带专属 tag kitpvp.earth_farmer
+summon minecraft:zombie ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_farmer"],CustomName:'{"text":"农民","color":"yellow"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,HandItems:[{id:"minecraft:wooden_hoe",Count:1b},{}],ArmorItems:[{},{},{id:"minecraft:leather_chestplate",Count:1b},{id:"minecraft:leather_helmet",Count:1b}]}
