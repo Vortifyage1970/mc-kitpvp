@@ -20,6 +20,9 @@ execute if score @s kitpvp.kit matches 66 run function kitpvp:skill/mercury/pass
 execute if score @s kitpvp.kit matches 25 run function kitpvp:skill/tainted_tank/passive
 execute if score @s kitpvp.kit matches 28 run function kitpvp:skill/tainted_ghost/passive
 
+# 僵尸：重生后把"多一条血条"补回来（上限 40 + 5 秒生命恢复 V 填满第二条）
+execute if score @s kitpvp.kit matches 14 run function kitpvp:skill/zombie/passive
+
 # 药剂师的四条秘药是"每条命一套"：重生解锁并补满
 execute if score @s kitpvp.kit matches 12 run function kitpvp:skill/alchemist/restock_elixir
 
