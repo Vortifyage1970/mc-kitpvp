@@ -61,6 +61,7 @@ scoreboard objectives add kitpvp.soul_zombie_last dummy "僵尸魂石快照"
 scoreboard objectives add kitpvp.soul_zombie_timer dummy "僵尸魂石倒计时"
 scoreboard objectives add kitpvp.soul_earth_used minecraft.used:minecraft.villager_spawn_egg
 scoreboard objectives add kitpvp.soul_earth_last dummy "地球魂石快照"
+scoreboard objectives add kitpvp.soul_earth_team dummy "地球魂石认出的队编号（挂 marker：1..6 幽灵 / 7..12 炮台 / 13..18 里驯兽师 / 19..24 地球）"
 scoreboard objectives add kitpvp.soul_li_used minecraft.used:minecraft.pig_spawn_egg
 scoreboard objectives add kitpvp.soul_li_last dummy "李朱俊泽魂石快照"
 scoreboard objectives add kitpvp.ghost_minion_cd dummy "阴兵召唤冷却"
