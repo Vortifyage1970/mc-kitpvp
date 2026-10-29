@@ -1,0 +1,1 @@
+give @s minecraft:potion{KitAlchemistElixir:1b,KitAlchemistTurtle:1b,Potion:"minecraft:awkward",CustomPotionEffects:[{Id:2b,Amplifier:3b,Duration:800,ShowParticles:0b},{Id:11b,Amplifier:2b,Duration:800,ShowParticles:0b}],CustomPotionColor:2600544,display:{Name:'{"text":"神龟药水","color":"dark_green","bold":true}'}} 1

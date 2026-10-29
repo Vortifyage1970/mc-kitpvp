@@ -1,0 +1,1 @@
+give @s minecraft:potion{KitAlchemistElixir:1b,KitAlchemistFireRes:1b,Potion:"minecraft:awkward",CustomPotionEffects:[{Id:12b,Amplifier:0b,Duration:3600,ShowParticles:0b}],CustomPotionColor:16751164,display:{Name:'{"text":"抗火药水","color":"gold","bold":true}'}} 1

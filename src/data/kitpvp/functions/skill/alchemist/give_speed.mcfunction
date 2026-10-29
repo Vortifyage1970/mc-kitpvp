@@ -1,0 +1,1 @@
+give @s minecraft:splash_potion{KitAlchemistPotion:1b,KitAlchemistSpeed:1b,Potion:"minecraft:awkward",CustomPotionEffects:[{Id:1b,Amplifier:2b,Duration:300,ShowParticles:0b}],CustomPotionColor:3394815,display:{Name:'{"text":"迅捷药剂","color":"aqua","bold":true}'}} 1

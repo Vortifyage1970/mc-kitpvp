@@ -1,0 +1,1 @@
+give @s minecraft:splash_potion{KitAlchemistPotion:1b,KitAlchemistJump:1b,Potion:"minecraft:awkward",CustomPotionEffects:[{Id:8b,Amplifier:9b,Duration:200,ShowParticles:0b}],CustomPotionColor:9234010,display:{Name:'{"text":"跳跃药剂","color":"green","bold":true}'}} 1
