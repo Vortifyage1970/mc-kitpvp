@@ -1,6 +1,9 @@
 # 结算清理：game/end 用 schedule 在 200 刻后调用（设计文档 2.11 第 3~7 步）
 execute as @a run function kitpvp:util/clear_player
 
+# iLsacuL 再清一遍：结算到重置这 10 秒里玩家还可能把新蛋放出来（见 04 §十四）
+function kitpvp:game/li_purge
+
 # 非玩家实体：清掉落物 + 我们自己召唤出来的东西，避免误伤画 / 物品展示框 / 地图装饰。
 # 约定：每新增一种召唤物，就在这里追加一行对应的 kill（A2）。
 # ⚠ 这一整段必须排在下面"回大厅"之前：玩家一走，地图区块随时可能卸下、实体随之离开世界实体列表，
@@ -81,5 +84,9 @@ kill @e[tag=kitpvp.tamer_wolf]
 
 scoreboard players set #survivors kitpvp.game 0
 scoreboard players set #state kitpvp.game 0
+
+# 结算末尾补扫驯兽师狼：玩家回大厅后狼会跟着主人传送过去，上面那次 kill 早了一刻（见 04 §五）
+scoreboard players set #wolfsweep kitpvp.game 0
+schedule function kitpvp:game/wolf_sweep 20t replace
 
 tellraw @a [{"text":"[系统] ","color":"gray","bold":true},{"text":"本局已重置，回到主大厅","color":"gray"}]

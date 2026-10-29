@@ -257,7 +257,8 @@ scoreboard players set @a kitpvp.coldness 0
 scoreboard players set @a kitpvp.venus_cd3 0
 scoreboard players set @a kitpvp.venus_dog_timer 0
 scoreboard players set @a kitpvp.civil_demon_timer 0
-# vtid 用补零而不是置零：重载后保留已分配的编号，否则舔狗认不出主人
+# vtid 用补零而不是置零：重载后保留已分配的编号，重载前召出的舔狗才认得出主人
+# （编号在 kit/venus 里每次选职重新领取，所以重载不会造成两人同号，见 04 §十四）
 scoreboard players add @a kitpvp.vtid 0
 scoreboard players set @a kitpvp.soul_next 0
 # 换过 criterion 的快照要重新对齐，否则 old 的快照值会一直压着新计数不触发
@@ -280,7 +281,9 @@ scoreboard players set #litimer kitpvp.game 0
 scoreboard players set #li_active kitpvp.game 0
 scoreboard players set #licount kitpvp.game 0
 scoreboard players set #liapoc kitpvp.game 0
+scoreboard players set #lipurge kitpvp.game 0
 scoreboard players set #eslot kitpvp.game 0
+scoreboard players set #wolfsweep kitpvp.game 0
 
 data remove storage kitpvp:main temp
 data remove storage kitpvp:main player

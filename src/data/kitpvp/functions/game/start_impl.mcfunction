@@ -18,16 +18,20 @@ gamemode survival @a[tag=kitpvp.selected]
 
 function kitpvp:map/distribute
 
-# 地球队槽每局重建：先退出上局残留的 earth_*，再清空槽位
-# 否则上局留下的编号会让两名地球玩家落进同一队，召唤物从此互不攻击（见 04 §五）
-team leave @a[team=earth_1]
-team leave @a[team=earth_2]
-team leave @a[team=earth_3]
-team leave @a[team=earth_4]
-team leave @a[team=earth_5]
-team leave @a[team=earth_6]
+# 队槽每局重建：先退出上局残留的队伍，再清空槽位
+# 否则上局留下的编号会让两名同职业玩家落进同一队，召唤物从此互不攻击（见 04 §十四）
+# 地球 / 幽灵 / 炮台 / 里·驯兽师四套队槽各自独立，而一名玩家只可能在其中一套里，一次 team leave @a 就够
+team leave @a
 scoreboard players set @a kitpvp.etid 0
+scoreboard players set @a kitpvp.tid 0
+scoreboard players set @a kitpvp.ttid 0
+scoreboard players set @a kitpvp.ttamer_tid 0
 scoreboard players set #eslot kitpvp.game 0
+scoreboard players set #ghost_tid kitpvp.game 0
+scoreboard players set #ttamer kitpvp.game 0
+
+# 上一局留在没加载区块里的驯兽师狼：本局开头按 tag 再扫一次（见 04 §五）
+kill @e[tag=kitpvp.tamer_wolf]
 
 # 金星：舔狗跟着进图（原版自动跟随依赖区块 tick，跨区块传送后不保证）
 execute as @a[scores={kitpvp.kit=67}] at @s run function kitpvp:skill/venus/dog_follow

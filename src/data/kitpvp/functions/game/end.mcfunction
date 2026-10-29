@@ -4,6 +4,9 @@ scoreboard players set #state kitpvp.game 2
 # 结算刚开始就清驯兽师狼，避免 10 秒结算期间主人离开后狼随区块卸载而漏过 reset
 kill @e[tag=kitpvp.tamer_wolf]
 
+# iLsacuL 专用清除：此刻玩家全在图里、区块是加载的，猪抓得到（见 04 §十四）
+function kitpvp:game/li_purge
+
 execute if score #survivors kitpvp.game matches 1 run title @a times 10 60 20
 execute if score #survivors kitpvp.game matches 1 run title @a title {"text":"游戏结束","color":"gold","bold":true}
 execute if score #survivors kitpvp.game matches 1 run title @a subtitle [{"text":"胜者：","color":"yellow"},{"selector":"@a[tag=kitpvp.selected,tag=!kitpvp.spectator]","color":"white","bold":true}]
