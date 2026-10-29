@@ -165,6 +165,7 @@ scoreboard objectives add kitpvp.earth_cd_a dummy "地球召唤物技能计时"
 scoreboard objectives add kitpvp.earth_lev dummy "地球超凡升天计时"
 scoreboard objectives add kitpvp.earth_life dummy "地球召唤物寿命"
 scoreboard objectives add kitpvp.earth_grass_arm dummy "可疑草丛落地的迟钝计时"
+scoreboard objectives add kitpvp.earth_owner dummy "地球召唤物的归属编号（= 主人的 etid）"
 scoreboard objectives add kitpvp.etid dummy "地球召唤物队槽编号"
 
 # 预留（暂无消费者，刻意保留）：item = 物品计数

@@ -257,10 +257,11 @@ execute as @e[tag=kitpvp.earth_power_armed] run effect give @s minecraft:strengt
 execute as @e[tag=kitpvp.earth_power_armed] run tag @s add kitpvp.earth_powered
 execute as @e[tag=kitpvp.earth_power_armed] run tag @s remove kitpvp.earth_power_armed
 
-# 可疑草丛：落地 2 秒后才算蹲好；玩家贴到 3 格内、或血量掉到 20 以下（被打到）就爆开
-# popped 是防重入：kill 的移除在下一刻，同一刻两条判定会各调一次 pop，直接变四只
+# 可疑草丛：落地 2 秒后才算蹲好；敌人贴身（半径 1）或血量掉到 20 以下（被打到）就爆开
+# 贴身判定按玩家逐个查（见 skill/earth/grass_probe）：主人自己踩上去不算，草丛可以顶着主人走
+# popped 是防重入：kill 的移除在下一刻，同一刻几条判定会各调一次 pop，直接变好几只
 execute as @e[tag=kitpvp.earth_grass,tag=!kitpvp.earth_grass_popped,scores={kitpvp.earth_grass_arm=1..}] run scoreboard players remove @s kitpvp.earth_grass_arm 1
-execute as @e[tag=kitpvp.earth_grass,tag=!kitpvp.earth_grass_popped,scores={kitpvp.earth_grass_arm=..0}] at @s if entity @a[distance=..3] run function kitpvp:summon/earth_grass_pop
+execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.alive=1},tag=!kitpvp.spectator] at @s run function kitpvp:skill/earth/grass_probe
 execute as @e[tag=kitpvp.earth_grass,tag=!kitpvp.earth_grass_popped] store result score @s kitpvp.tmp run data get entity @s Health
 execute as @e[tag=kitpvp.earth_grass,tag=!kitpvp.earth_grass_popped,scores={kitpvp.tmp=..19}] at @s run function kitpvp:summon/earth_grass_pop
 

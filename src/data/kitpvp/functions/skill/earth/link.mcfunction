@@ -32,4 +32,7 @@ execute if score @s kitpvp.etid matches 4 run team join earth_4 @e[tag=kitpvp.ea
 execute if score @s kitpvp.etid matches 5 run team join earth_5 @e[tag=kitpvp.earth_minion_new,distance=..4]
 execute if score @s kitpvp.etid matches 6 run team join earth_6 @e[tag=kitpvp.earth_minion_new,distance=..4]
 
+# 记下"这是谁的召唤物"：队伍没法在命令里互相比较，可疑草丛要靠这个分数区分主人与敌人
+scoreboard players operation @e[tag=kitpvp.earth_minion_new,distance=..4] kitpvp.earth_owner = @s kitpvp.etid
+
 tag @e remove kitpvp.earth_minion_new
