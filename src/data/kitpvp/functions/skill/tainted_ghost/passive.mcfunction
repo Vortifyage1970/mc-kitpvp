@@ -1,0 +1,4 @@
+# 永久被动；失明是自己承受的代价。死亡会清空药水效果，重生由 player/after_death 重挂
+effect give @s minecraft:blindness infinite 0 true
+effect give @s minecraft:invisibility infinite 0 true
+effect give @s minecraft:speed infinite 0 true
