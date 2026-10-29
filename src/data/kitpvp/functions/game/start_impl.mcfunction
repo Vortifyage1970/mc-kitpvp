@@ -18,6 +18,20 @@ gamemode survival @a[tag=kitpvp.selected]
 
 function kitpvp:map/distribute
 
+# 地球队槽每局重建：先退出上局残留的 earth_*，再清空槽位
+# 否则上局留下的编号会让两名地球玩家落进同一队，召唤物从此互不攻击（见 04 §五）
+team leave @a[team=earth_1]
+team leave @a[team=earth_2]
+team leave @a[team=earth_3]
+team leave @a[team=earth_4]
+team leave @a[team=earth_5]
+team leave @a[team=earth_6]
+scoreboard players set @a kitpvp.etid 0
+scoreboard players set #eslot kitpvp.game 0
+
+# 金星：舔狗跟着进图（原版自动跟随依赖区块 tick，跨区块传送后不保证）
+execute as @a[scores={kitpvp.kit=67}] at @s run function kitpvp:skill/venus/dog_follow
+
 execute as @a[tag=kitpvp.selected] run function kitpvp:player/invincible
 
 title @a[tag=kitpvp.selected] times 5 40 10

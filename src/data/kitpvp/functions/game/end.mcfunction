@@ -1,6 +1,8 @@
 # 结算入口：锁状态 → 宣布胜者（或平局/管理员终止）→ 10 秒后 reset。
 # ..0 与 2.. 两个分支只供手动调用 end 时使用；自动路径恒为 matches 1。
 scoreboard players set #state kitpvp.game 2
+# 结算刚开始就清驯兽师狼，避免 10 秒结算期间主人离开后狼随区块卸载而漏过 reset
+kill @e[tag=kitpvp.tamer_wolf]
 
 execute if score #survivors kitpvp.game matches 1 run title @a times 10 60 20
 execute if score #survivors kitpvp.game matches 1 run title @a title {"text":"游戏结束","color":"gold","bold":true}

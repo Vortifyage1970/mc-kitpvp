@@ -105,6 +105,67 @@ scoreboard objectives add kitpvp.sun_spot_last dummy "太阳黑子快照"
 scoreboard objectives add kitpvp.sun_flare_timer dummy "太阳耀斑干扰计时"
 scoreboard objectives add kitpvp.sun_reload dummy "太阳换弹冷却"
 
+# 药剂师（kit 12）：技能组 1 与纵火狂共用 splash_potion 统计，只能当粗筛；技能组 2 用 potion 统计
+scoreboard objectives add kitpvp.alchemist_used minecraft.used:minecraft.splash_potion
+scoreboard objectives add kitpvp.alchemist_last dummy "药剂师投掷快照"
+scoreboard objectives add kitpvp.alchemist_drink_used minecraft.used:minecraft.potion
+scoreboard objectives add kitpvp.alchemist_drink_last dummy "药剂师秘药快照"
+scoreboard objectives add kitpvp.pa_type dummy "药剂师手持药剂类型"
+scoreboard objectives add kitpvp.pa_type_prev dummy "药剂师上一刻药剂类型"
+scoreboard objectives add kitpvp.pa_drink_type dummy "药剂师手持秘药类型"
+scoreboard objectives add kitpvp.pa_drink_type_prev dummy "药剂师上一刻秘药类型"
+
+# 里·驯兽师（kit 30）：七枚召唤蛋各一对 used/last（骷髅 / 恼鬼 / 烈焰人蛋与魂石共用同一统计）
+scoreboard objectives add kitpvp.ttamer_zombie_used minecraft.used:minecraft.zombie_spawn_egg
+scoreboard objectives add kitpvp.ttamer_zombie_last dummy "里·驯兽师亡灵快照"
+scoreboard objectives add kitpvp.ttamer_skeleton_used minecraft.used:minecraft.skeleton_spawn_egg
+scoreboard objectives add kitpvp.ttamer_skeleton_last dummy "里·驯兽师骸骨快照"
+scoreboard objectives add kitpvp.ttamer_creeper_used minecraft.used:minecraft.creeper_spawn_egg
+scoreboard objectives add kitpvp.ttamer_creeper_last dummy "里·驯兽师爆破快照"
+scoreboard objectives add kitpvp.ttamer_vindicator_used minecraft.used:minecraft.vindicator_spawn_egg
+scoreboard objectives add kitpvp.ttamer_vindicator_last dummy "里·驯兽师卫道快照"
+scoreboard objectives add kitpvp.ttamer_witch_used minecraft.used:minecraft.witch_spawn_egg
+scoreboard objectives add kitpvp.ttamer_witch_last dummy "里·驯兽师巫祝快照"
+scoreboard objectives add kitpvp.ttamer_vex_used minecraft.used:minecraft.vex_spawn_egg
+scoreboard objectives add kitpvp.ttamer_vex_last dummy "里·驯兽师怨灵快照"
+scoreboard objectives add kitpvp.ttamer_blaze_used minecraft.used:minecraft.blaze_spawn_egg
+scoreboard objectives add kitpvp.ttamer_blaze_last dummy "里·驯兽师灼炎快照"
+scoreboard objectives add kitpvp.ttamer_tid dummy "召唤物队槽编号"
+
+# 金星（kit 67）：三枚模块令牌 + 舔狗（归属 / 两个模块计时）+ 全局冷度
+scoreboard objectives add kitpvp.venus_chill_used minecraft.used:minecraft.polar_bear_spawn_egg
+scoreboard objectives add kitpvp.venus_chill_last dummy "金星制冷快照"
+scoreboard objectives add kitpvp.venus_arm_used minecraft.used:minecraft.evoker_spawn_egg
+scoreboard objectives add kitpvp.venus_arm_last dummy "金星武装快照"
+scoreboard objectives add kitpvp.venus_bomb_used minecraft.used:minecraft.silverfish_spawn_egg
+scoreboard objectives add kitpvp.venus_bomb_last dummy "金星自爆快照"
+scoreboard objectives add kitpvp.venus_cd3 dummy "第三技能冷却"
+scoreboard objectives add kitpvp.venus_dog_timer dummy "舔狗复活倒计时"
+scoreboard objectives add kitpvp.venus_chill_timer dummy "制冷模块计时"
+scoreboard objectives add kitpvp.venus_arm_timer dummy "武装模块计时"
+scoreboard objectives add kitpvp.dog_owner dummy "舔狗归属"
+scoreboard objectives add kitpvp.vtid dummy "舔狗队槽编号"
+scoreboard objectives add kitpvp.coldness dummy "冷度"
+
+# 文明小子（kit 87）：口水是喷溅药水（与纵火狂 / 药剂师共用统计），恶魔形态用独立令牌
+scoreboard objectives add kitpvp.civil_used minecraft.used:minecraft.splash_potion
+scoreboard objectives add kitpvp.civil_last dummy "文明小子口水快照"
+scoreboard objectives add kitpvp.civil_demon_used minecraft.used:minecraft.strider_spawn_egg
+scoreboard objectives add kitpvp.civil_demon_last dummy "文明小子恶魔快照"
+scoreboard objectives add kitpvp.civil_demon_timer dummy "恶魔形态计时"
+
+# 李朱俊泽（kit 88）：召唤蛋（猪蛋本服唯一来源）+ 内联循环计时器
+scoreboard objectives add kitpvp.li_pig_used minecraft.used:minecraft.pig_spawn_egg
+scoreboard objectives add kitpvp.li_pig_last dummy "李朱俊泽召唤快照"
+
+# 地球（kit 68）：召唤生灵（山羊蛋当载体），召唤物计时器都挂在实体上
+scoreboard objectives add kitpvp.earth_used minecraft.used:minecraft.goat_spawn_egg
+scoreboard objectives add kitpvp.earth_last dummy "地球召唤快照"
+scoreboard objectives add kitpvp.earth_cd_a dummy "地球召唤物技能计时"
+scoreboard objectives add kitpvp.earth_lev dummy "地球超凡升天计时"
+scoreboard objectives add kitpvp.earth_life dummy "地球召唤物寿命"
+scoreboard objectives add kitpvp.etid dummy "地球召唤物队槽编号"
+
 # 预留（暂无消费者，刻意保留）：item = 物品计数
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
 scoreboard objectives modify kitpvp.lives displayname {"text":"命数","color":"red"}
@@ -128,6 +189,22 @@ team add turret_4
 team add turret_5
 team add turret_6
 
+# 里·驯兽师的召唤物队：与阴兵 / 炮台两套分开，避免队槽复用把不同来源的召唤物串成一队
+team add ttamer_1
+team add ttamer_2
+team add ttamer_3
+team add ttamer_4
+team add ttamer_5
+team add ttamer_6
+
+# 地球的召唤物队：与阴兵 / 炮台 / 驯兽师三套分开
+team add earth_1
+team add earth_2
+team add earth_3
+team add earth_4
+team add earth_5
+team add earth_6
+
 tag @a remove kitpvp.selected
 tag @a remove kitpvp.invincible
 tag @a remove kitpvp.sudden_death
@@ -146,6 +223,11 @@ tag @a remove kitpvp.soul_ghost_active
 tag @a remove kitpvp.soul_pirate_held
 tag @a remove kitpvp.arrow_user
 tag @a remove kitpvp.on_pad
+tag @a remove kitpvp.alchemist_elixir_used
+tag @a remove kitpvp.hold_pa
+tag @a remove kitpvp.hold_pa_prev
+tag @a remove kitpvp.hold_pa_drink
+tag @a remove kitpvp.hold_pa_drink_prev
 
 scoreboard players set @a kitpvp.kit 0
 scoreboard players set @a kitpvp.cd 0
@@ -164,6 +246,19 @@ scoreboard players set @a kitpvp.fisher_no_tri 0
 scoreboard players set @a kitpvp.turret_heal_cd 0
 scoreboard players set @a kitpvp.werewolf_hit_cd 0
 scoreboard players set @a kitpvp.sun_reload 0
+scoreboard players set @a kitpvp.pa_type 0
+scoreboard players set @a kitpvp.pa_type_prev 0
+scoreboard players set @a kitpvp.pa_drink_type 0
+scoreboard players set @a kitpvp.pa_drink_type_prev 0
+scoreboard players set @a kitpvp.ttamer_tid 0
+# etid 不在这里清零：它必须和玩家所在的 earth_* 队保持一致，重载时清分不清队会重新撞槽
+scoreboard players add @a kitpvp.etid 0
+scoreboard players set @a kitpvp.coldness 0
+scoreboard players set @a kitpvp.venus_cd3 0
+scoreboard players set @a kitpvp.venus_dog_timer 0
+scoreboard players set @a kitpvp.civil_demon_timer 0
+# vtid 用补零而不是置零：重载后保留已分配的编号，否则舔狗认不出主人
+scoreboard players add @a kitpvp.vtid 0
 scoreboard players set @a kitpvp.soul_next 0
 # 换过 criterion 的快照要重新对齐，否则 old 的快照值会一直压着新计数不触发
 execute as @a run scoreboard players operation @s kitpvp.tainted_core_last = @s kitpvp.tainted_core_used
@@ -178,6 +273,14 @@ scoreboard players set #ghost_tid kitpvp.game 0
 scoreboard players set #ghost_need_new kitpvp.game 0
 scoreboard players set #lobby kitpvp.game 0
 scoreboard players set #unready kitpvp.game 0
+scoreboard players set #ttamer kitpvp.game 0
+scoreboard players add #vtid kitpvp.game 0
+scoreboard players set #vdog kitpvp.game 0
+scoreboard players set #litimer kitpvp.game 0
+scoreboard players set #li_active kitpvp.game 0
+scoreboard players set #licount kitpvp.game 0
+scoreboard players set #liapoc kitpvp.game 0
+scoreboard players set #eslot kitpvp.game 0
 
 data remove storage kitpvp:main temp
 data remove storage kitpvp:main player

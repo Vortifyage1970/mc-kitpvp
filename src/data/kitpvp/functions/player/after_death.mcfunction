@@ -13,6 +13,11 @@ execute if score @s kitpvp.kit matches 3 run function kitpvp:skill/tank/passive
 execute if score @s kitpvp.kit matches 4 run function kitpvp:skill/assassin/passive
 execute if score @s kitpvp.kit matches 6 run function kitpvp:skill/ghost/passive
 execute if score @s kitpvp.kit matches 10 run function kitpvp:skill/slime/passive
+execute if score @s kitpvp.kit matches 66 run function kitpvp:skill/mercury/passive
 execute if score @s kitpvp.kit matches 25 run function kitpvp:skill/tainted_tank/passive
+execute if score @s kitpvp.kit matches 28 run function kitpvp:skill/tainted_ghost/passive
+
+# 药剂师的四条秘药是"每条命一套"：重生解锁并补满
+execute if score @s kitpvp.kit matches 12 run function kitpvp:skill/alchemist/restock_elixir
 
 playsound minecraft:block.note_block.pling master @s ~ ~ ~ 1 1.2

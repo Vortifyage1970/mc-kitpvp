@@ -34,5 +34,33 @@ scoreboard players operation @s kitpvp.tainted_fisher_domain_last = @s kitpvp.ta
 scoreboard players operation @s kitpvp.sun_flare_last = @s kitpvp.sun_flare_used
 scoreboard players operation @s kitpvp.sun_spot_last = @s kitpvp.sun_spot_used
 scoreboard players set @s kitpvp.sun_reload 0
+scoreboard players operation @s kitpvp.alchemist_last = @s kitpvp.alchemist_used
+scoreboard players operation @s kitpvp.alchemist_drink_last = @s kitpvp.alchemist_drink_used
+scoreboard players set @s kitpvp.pa_type 0
+scoreboard players set @s kitpvp.pa_type_prev 0
+scoreboard players set @s kitpvp.pa_drink_type 0
+scoreboard players set @s kitpvp.pa_drink_type_prev 0
+scoreboard players operation @s kitpvp.ttamer_zombie_last = @s kitpvp.ttamer_zombie_used
+scoreboard players operation @s kitpvp.ttamer_skeleton_last = @s kitpvp.ttamer_skeleton_used
+scoreboard players operation @s kitpvp.ttamer_creeper_last = @s kitpvp.ttamer_creeper_used
+scoreboard players operation @s kitpvp.ttamer_vindicator_last = @s kitpvp.ttamer_vindicator_used
+scoreboard players operation @s kitpvp.ttamer_witch_last = @s kitpvp.ttamer_witch_used
+scoreboard players operation @s kitpvp.ttamer_vex_last = @s kitpvp.ttamer_vex_used
+scoreboard players operation @s kitpvp.ttamer_blaze_last = @s kitpvp.ttamer_blaze_used
+scoreboard players operation @s kitpvp.venus_chill_last = @s kitpvp.venus_chill_used
+scoreboard players operation @s kitpvp.venus_arm_last = @s kitpvp.venus_arm_used
+scoreboard players operation @s kitpvp.venus_bomb_last = @s kitpvp.venus_bomb_used
+scoreboard players set @s kitpvp.coldness 0
+scoreboard players set @s kitpvp.venus_cd3 0
+scoreboard players set @s kitpvp.venus_dog_timer 0
+scoreboard players set @s kitpvp.civil_demon_timer 0
+scoreboard players operation @s kitpvp.civil_last = @s kitpvp.civil_used
+scoreboard players operation @s kitpvp.civil_demon_last = @s kitpvp.civil_demon_used
+scoreboard players operation @s kitpvp.li_pig_last = @s kitpvp.li_pig_used
+scoreboard players operation @s kitpvp.earth_last = @s kitpvp.earth_used
+tag @s remove kitpvp.civil_demon
+tag @s remove kitpvp.hold_cb
+tag @s remove kitpvp.hold_cb_prev
+scoreboard players add @s kitpvp.vtid 0
 
 function kitpvp:lobby/enter

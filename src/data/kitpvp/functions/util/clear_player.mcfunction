@@ -27,9 +27,23 @@ tag @s remove kitpvp.tainted_fisher_handout
 tag @s remove kitpvp.tainted_fisher_self
 tag @s remove kitpvp.sun_flare
 tag @s remove kitpvp.sun_self
+tag @s remove kitpvp.alchemist_elixir_used
+tag @s remove kitpvp.venus_dog_dead
+tag @s remove kitpvp.civil_demon
+tag @s remove kitpvp.hold_cb
+tag @s remove kitpvp.hold_cb_prev
+tag @s remove kitpvp.hold_pa
+tag @s remove kitpvp.hold_pa_prev
+tag @s remove kitpvp.hold_pa_drink
+tag @s remove kitpvp.hold_pa_drink_prev
 tag @s remove kitpvp.in_water
 tag @s remove kitpvp.ready
 tag @s remove kitpvp.ready_pending
+
+# 只有正在离开金星职业的玩家才清理自己的舔狗；其他职业的 vtid 可能与金星玩家重合
+execute if score @s kitpvp.kit matches 67 run scoreboard players add @s kitpvp.vtid 0
+execute if score @s kitpvp.kit matches 67 run scoreboard players operation #vtid kitpvp.game = @s kitpvp.vtid
+execute if score @s kitpvp.kit matches 67 as @e[type=minecraft:wolf,tag=kitpvp.venus_dog] if score @s kitpvp.dog_owner = #vtid kitpvp.game run kill @s
 
 scoreboard players set @s kitpvp.kit 0
 scoreboard players set @s kitpvp.cd 0
@@ -84,6 +98,34 @@ scoreboard players set @s kitpvp.sun_flare_timer 0
 scoreboard players operation @s kitpvp.sun_flare_last = @s kitpvp.sun_flare_used
 scoreboard players operation @s kitpvp.sun_spot_last = @s kitpvp.sun_spot_used
 scoreboard players set @s kitpvp.sun_reload 0
+scoreboard players operation @s kitpvp.alchemist_last = @s kitpvp.alchemist_used
+scoreboard players operation @s kitpvp.alchemist_drink_last = @s kitpvp.alchemist_drink_used
+scoreboard players set @s kitpvp.pa_type 0
+scoreboard players set @s kitpvp.pa_type_prev 0
+scoreboard players set @s kitpvp.pa_drink_type 0
+scoreboard players set @s kitpvp.pa_drink_type_prev 0
+scoreboard players operation @s kitpvp.ttamer_zombie_last = @s kitpvp.ttamer_zombie_used
+scoreboard players operation @s kitpvp.ttamer_skeleton_last = @s kitpvp.ttamer_skeleton_used
+scoreboard players operation @s kitpvp.ttamer_creeper_last = @s kitpvp.ttamer_creeper_used
+scoreboard players operation @s kitpvp.ttamer_vindicator_last = @s kitpvp.ttamer_vindicator_used
+scoreboard players operation @s kitpvp.ttamer_witch_last = @s kitpvp.ttamer_witch_used
+scoreboard players operation @s kitpvp.ttamer_vex_last = @s kitpvp.ttamer_vex_used
+scoreboard players operation @s kitpvp.ttamer_blaze_last = @s kitpvp.ttamer_blaze_used
+scoreboard players operation @s kitpvp.venus_chill_last = @s kitpvp.venus_chill_used
+scoreboard players operation @s kitpvp.venus_arm_last = @s kitpvp.venus_arm_used
+scoreboard players operation @s kitpvp.venus_bomb_last = @s kitpvp.venus_bomb_used
+scoreboard players set @s kitpvp.coldness 0
+scoreboard players set @s kitpvp.venus_cd3 0
+scoreboard players set @s kitpvp.venus_dog_timer 0
+scoreboard players set @s kitpvp.civil_demon_timer 0
+scoreboard players operation @s kitpvp.civil_last = @s kitpvp.civil_used
+scoreboard players operation @s kitpvp.civil_demon_last = @s kitpvp.civil_demon_used
+scoreboard players operation @s kitpvp.li_pig_last = @s kitpvp.li_pig_used
+scoreboard players operation @s kitpvp.earth_last = @s kitpvp.earth_used
+
+
+# 水星常驻的 +0.2 移速是玩家身上的属性修饰符，不摘掉会跟着带到别的职业（不存在时该命令静默失败）
+attribute @s minecraft:generic.movement_speed modifier remove 00000000-0000-0000-0000-000000000066
 
 attribute @s minecraft:generic.max_health base set 20
 attribute @s minecraft:generic.movement_speed base set 0.1
