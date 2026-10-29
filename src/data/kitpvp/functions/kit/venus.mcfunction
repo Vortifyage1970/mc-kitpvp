@@ -23,11 +23,14 @@ scoreboard players set @s kitpvp.venus_dog_timer 0
 scoreboard players set @s kitpvp.coldness 0
 tag @s remove kitpvp.venus_dog_dead
 
-# 舔狗归属编号（1..6）：舔狗身上记同一个号，用来"认出自己的狗"和排除主人
-scoreboard players add @s kitpvp.vtid 0
-execute if score @s kitpvp.vtid matches 0 run scoreboard players add #vtid kitpvp.game 1
-execute if score @s kitpvp.vtid matches 0 if score #vtid kitpvp.game matches 7.. run scoreboard players set #vtid kitpvp.game 1
-execute if score @s kitpvp.vtid matches 0 run scoreboard players operation @s kitpvp.vtid = #vtid kitpvp.game
+# 舔狗归属编号：每选一次金星就领一个新号，旧号不复用——两人同号会让双方都认错狗（见 04 §十四）
+# 换号之前先把旧号那只清掉：首次选职时 kit 还不是 67，util/clear_player 那段不会替我们清
+scoreboard players operation #vtid kitpvp.game = @s kitpvp.vtid
+execute if score @s kitpvp.vtid matches 1.. as @e[type=minecraft:wolf,tag=kitpvp.venus_dog] if score @s kitpvp.dog_owner = #vtid kitpvp.game run kill @s
+
+scoreboard players set @s kitpvp.vtid 0
+scoreboard players add #vtid kitpvp.game 1
+scoreboard players operation @s kitpvp.vtid = #vtid kitpvp.game
 
 function kitpvp:skill/venus/summon_dog
 function kitpvp:skill/venus/give_chill
