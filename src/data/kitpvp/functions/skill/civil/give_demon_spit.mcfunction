@@ -1,0 +1,1 @@
+give @s minecraft:splash_potion{KitCivilDemonSpit:1b,Potion:"minecraft:awkward",CustomPotionEffects:[{Id:9b,Amplifier:1b,Duration:400,ShowParticles:0b},{Id:5b,Amplifier:0b,Duration:150,ShowParticles:0b}],CustomPotionColor:9109504,display:{Name:'{"text":"恶魔口水","color":"dark_red","bold":true}'}} 1
