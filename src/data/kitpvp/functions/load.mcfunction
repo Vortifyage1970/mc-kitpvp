@@ -164,6 +164,7 @@ scoreboard objectives add kitpvp.earth_last dummy "地球召唤快照"
 scoreboard objectives add kitpvp.earth_cd_a dummy "地球召唤物技能计时"
 scoreboard objectives add kitpvp.earth_lev dummy "地球超凡升天计时"
 scoreboard objectives add kitpvp.earth_life dummy "地球召唤物寿命"
+scoreboard objectives add kitpvp.earth_grass_arm dummy "可疑草丛落地的迟钝计时"
 scoreboard objectives add kitpvp.etid dummy "地球召唤物队槽编号"
 
 # 预留（暂无消费者，刻意保留）：item = 物品计数
@@ -282,6 +283,8 @@ scoreboard players set #li_active kitpvp.game 0
 scoreboard players set #licount kitpvp.game 0
 scoreboard players set #liapoc kitpvp.game 0
 scoreboard players set #lipurge kitpvp.game 0
+scoreboard players set #hacker_count kitpvp.game 0
+scoreboard players set #hacker_prev kitpvp.game 0
 scoreboard players set #eslot kitpvp.game 0
 scoreboard players set #wolfsweep kitpvp.game 0
 

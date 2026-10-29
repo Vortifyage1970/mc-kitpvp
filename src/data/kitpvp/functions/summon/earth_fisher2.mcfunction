@@ -1,2 +1,2 @@
-# 地球·19 渔夫：骑海龟、手持三叉戟、头戴海晶砖块的溺尸
-summon minecraft:turtle ~ ~ ~ {Tags:["kitpvp.earth_mount"],PersistenceRequired:1b,Passengers:[{id:"minecraft:drowned",Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new"],CustomName:'{"text":"渔夫","color":"aqua"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,HandItems:[{id:"minecraft:trident",Count:1b},{}],ArmorItems:[{},{},{},{id:"minecraft:prismarine_bricks",Count:1b}]}]}
+# 地球·19 渔夫：骑海龟、手持三叉戟、头戴海晶砖块的溺尸（本体 15 血）
+summon minecraft:turtle ~ ~ ~ {Tags:["kitpvp.earth_mount"],PersistenceRequired:1b,Passengers:[{id:"minecraft:drowned",Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new"],CustomName:'{"text":"渔夫","color":"aqua"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:15.0f,HandItems:[{id:"minecraft:trident",Count:1b},{}],ArmorItems:[{},{},{},{id:"minecraft:prismarine_bricks",Count:1b}],Attributes:[{Name:"minecraft:generic.max_health",Base:15.0}]}]}

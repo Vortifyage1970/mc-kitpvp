@@ -248,6 +248,28 @@ execute as @e[tag=kitpvp.earth_levitate,tag=kitpvp.earth_lifted,scores={kitpvp.e
 execute as @e[tag=kitpvp.earth_tracker,scores={kitpvp.earth_life=1..}] run scoreboard players remove @s kitpvp.earth_life 1
 execute as @e[tag=kitpvp.earth_tracker,scores={kitpvp.earth_life=..0}] run kill @s
 
+# 湿海绵船夫：只有还坐在自己的筏上时才有抗性提升 V，下筏 / 沉船就撤掉
+execute as @e[tag=kitpvp.earth_boatman1] at @s unless entity @e[tag=kitpvp.earth_boat1,distance=..2] run effect clear @s minecraft:resistance
+
+# 干海绵船夫：船被打掉（2 格内找不到自己的船）→ 一次性给 15 秒力量 II
+execute as @e[tag=kitpvp.earth_boatman2,tag=!kitpvp.earth_powered,tag=!kitpvp.earth_power_armed] at @s unless entity @e[tag=kitpvp.earth_boat2,distance=..2] run tag @s add kitpvp.earth_power_armed
+execute as @e[tag=kitpvp.earth_power_armed] run effect give @s minecraft:strength 15 1 true
+execute as @e[tag=kitpvp.earth_power_armed] run tag @s add kitpvp.earth_powered
+execute as @e[tag=kitpvp.earth_power_armed] run tag @s remove kitpvp.earth_power_armed
+
+# 可疑草丛：落地 2 秒后才算蹲好；玩家贴到 3 格内、或血量掉到 20 以下（被打到）就爆开
+# popped 是防重入：kill 的移除在下一刻，同一刻两条判定会各调一次 pop，直接变四只
+execute as @e[tag=kitpvp.earth_grass,tag=!kitpvp.earth_grass_popped,scores={kitpvp.earth_grass_arm=1..}] run scoreboard players remove @s kitpvp.earth_grass_arm 1
+execute as @e[tag=kitpvp.earth_grass,tag=!kitpvp.earth_grass_popped,scores={kitpvp.earth_grass_arm=..0}] at @s if entity @a[distance=..3] run function kitpvp:summon/earth_grass_pop
+execute as @e[tag=kitpvp.earth_grass,tag=!kitpvp.earth_grass_popped] store result score @s kitpvp.tmp run data get entity @s Health
+execute as @e[tag=kitpvp.earth_grass,tag=!kitpvp.earth_grass_popped,scores={kitpvp.tmp=..19}] at @s run function kitpvp:summon/earth_grass_pop
+
+# 黑客死亡播报：本刻存活数比上一刻少 => 刚有黑客被干掉（同一刻掉两只只播一次，够用）
+scoreboard players set #hacker_count kitpvp.game 0
+execute as @e[tag=kitpvp.earth_hacker] run scoreboard players add #hacker_count kitpvp.game 1
+execute if score #state kitpvp.game matches 1 if score #hacker_count kitpvp.game < #hacker_prev kitpvp.game run function kitpvp:summon/earth_hacker_death
+scoreboard players operation #hacker_prev kitpvp.game = #hacker_count kitpvp.game
+
 # 召唤蛋补货（自愈口径，同太阳）
 execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=68,kitpvp.alive=1,kitpvp.cd=..0},tag=!kitpvp.spectator] at @s run function kitpvp:skill/earth/auto
 # 山羊载体兜底清

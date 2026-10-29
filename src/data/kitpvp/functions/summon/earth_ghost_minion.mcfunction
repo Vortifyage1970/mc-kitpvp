@@ -1,2 +1,3 @@
 # 地球·1 阴兵：隐身骷髅，头上戴锁链
-summon minecraft:skeleton ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new"],CustomName:'{"text":"阴兵","color":"dark_aqua"}',CustomNameVisible:1b,Silent:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:5.0f,HandItems:[{},{}],ArmorItems:[{},{},{},{id:"minecraft:chain",Count:1b}],ActiveEffects:[{Id:11b,Amplifier:4b,Duration:-1,ShowParticles:0b},{Id:14b,Amplifier:0b,Duration:-1,ShowParticles:0b}]}
+# 隐身与抗性提升各 400 刻（20 秒）后自动解除，到期就变回普通骷髅
+summon minecraft:skeleton ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new"],CustomName:'{"text":"阴兵","color":"dark_aqua"}',CustomNameVisible:1b,Silent:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:5.0f,HandItems:[{},{}],ArmorItems:[{},{},{},{id:"minecraft:chain",Count:1b}],ActiveEffects:[{Id:11b,Amplifier:4b,Duration:400,ShowParticles:0b},{Id:14b,Amplifier:0b,Duration:400,ShowParticles:0b}]}

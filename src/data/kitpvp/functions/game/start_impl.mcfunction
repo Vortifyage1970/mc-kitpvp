@@ -29,6 +29,7 @@ scoreboard players set @a kitpvp.ttamer_tid 0
 scoreboard players set #eslot kitpvp.game 0
 scoreboard players set #ghost_tid kitpvp.game 0
 scoreboard players set #ttamer kitpvp.game 0
+scoreboard players set #hacker_prev kitpvp.game 0
 
 # 上一局留在没加载区块里的驯兽师狼：本局开头按 tag 再扫一次（见 04 §五）
 kill @e[tag=kitpvp.tamer_wolf]

@@ -1,7 +1,7 @@
 # 随机召唤一种生灵：1in2 连掷 7 次拼 0..127，再对"已实现的种类数"取模
-# ⚠ 取模用的是实现数（20），不是 32：空号只是给未来预留的编号位置，不能真的掷中，
-#   否则会白耗一枚蛋 + 白进 10 秒冷却。新增生灵时把数改成 21、22……并启用对应那行即可。
-scoreboard players set #pool_size kitpvp.game 20
+# ⚠ 取模用的是实现数（27），不是 32：空号只是给未来预留的编号位置，不能真的掷中，
+#   否则会白耗一枚蛋 + 白进 10 秒冷却。新增生灵时把数改成 28、29……并启用对应那行即可。
+scoreboard players set #pool_size kitpvp.game 27
 
 scoreboard players set @s kitpvp.rng 0
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 1
@@ -34,8 +34,15 @@ execute if score @s kitpvp.rng matches 16 run function kitpvp:summon/earth_disru
 execute if score @s kitpvp.rng matches 17 run function kitpvp:summon/earth_fisher1
 execute if score @s kitpvp.rng matches 18 run function kitpvp:summon/earth_fisher2
 execute if score @s kitpvp.rng matches 19 run function kitpvp:summon/earth_ascend2
+execute if score @s kitpvp.rng matches 20 run function kitpvp:summon/earth_boatman_wet
+execute if score @s kitpvp.rng matches 21 run function kitpvp:summon/earth_boatman_dry
+execute if score @s kitpvp.rng matches 22 run function kitpvp:summon/earth_hacker
+execute if score @s kitpvp.rng matches 23 run function kitpvp:summon/earth_retainer
+execute if score @s kitpvp.rng matches 24 run function kitpvp:summon/earth_grass
+execute if score @s kitpvp.rng matches 25 run function kitpvp:summon/earth_qin
+execute if score @s kitpvp.rng matches 26 run function kitpvp:summon/earth_target
 
-# 20..31 是给后续扩展预留的编号位置（目前不参与随机）：新增生灵时启用对应一行并把 #pool_size 加一
+# 27..31 是给后续扩展预留的编号位置（目前不参与随机）：新增生灵时启用对应一行并把 #pool_size 加一
 
 # 召唤物归属：队槽只用于"不攻击召唤者"，玩家与召唤物必须都进同一队（见 04 §五）
 function kitpvp:skill/earth/link
