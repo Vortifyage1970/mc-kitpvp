@@ -68,15 +68,22 @@ scoreboard players set @s kitpvp.soul_next 0
 scoreboard players set @s kitpvp.soul_bow_timer 0
 scoreboard players set @s kitpvp.soul_pirate_timer 0
 scoreboard players set @s kitpvp.soul_fisher_timer 0
+scoreboard players set @s kitpvp.soul_zombie_timer 0
 scoreboard players operation @s kitpvp.soul_warrior_last = @s kitpvp.soul_warrior_used
 scoreboard players operation @s kitpvp.soul_archer_last = @s kitpvp.soul_archer_used
 scoreboard players operation @s kitpvp.soul_pirate_last = @s kitpvp.soul_pirate_used
 scoreboard players operation @s kitpvp.soul_fisher_last = @s kitpvp.soul_fisher_used
+scoreboard players operation @s kitpvp.soul_zombie_last = @s kitpvp.soul_zombie_used
+scoreboard players operation @s kitpvp.soul_earth_last = @s kitpvp.soul_earth_used
+scoreboard players operation @s kitpvp.soul_li_last = @s kitpvp.soul_li_used
 scoreboard players operation @s kitpvp.tainted_turret_last = @s kitpvp.tainted_turret_used
 scoreboard players operation @s kitpvp.tainted_core_last = @s kitpvp.tainted_core_used
 scoreboard players set @s kitpvp.turret_heal_cd 0
 tag @s remove kitpvp.soul_bow_held
 tag @s remove kitpvp.soul_pirate_held
+# 僵尸魂石的 +20 生命上限是修饰符，不清掉会跟着带到别的职业 / 下一局（不存在时该命令静默失败）
+tag @s remove kitpvp.soul_zombie_active
+attribute @s minecraft:generic.max_health modifier remove 00000000-0000-0000-0000-000000000014
 tag @s remove kitpvp.soul_fisher_active
 tag @s remove kitpvp.arrow_user
 tag @s remove kitpvp.soul_ghost_active

@@ -48,6 +48,8 @@ kill @e[tag=kitpvp.earth_minion]
 kill @e[tag=kitpvp.earth_mount]
 kill @e[tag=kitpvp.earth_bomb]
 kill @e[tag=kitpvp.earth_token]
+# 地球魂石的落点标记（隐形 marker，不会自己消失）
+kill @e[tag=kitpvp.soul_earth_marker]
 
 # 测试用召唤物（summon/zombie_iron_helmet、summon/zombie_iron_armor）：按 tag 清，不碰地图里的僵尸
 kill @e[tag=kitpvp.test_dummy]

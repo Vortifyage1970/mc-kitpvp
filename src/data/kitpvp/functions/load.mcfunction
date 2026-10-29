@@ -56,6 +56,13 @@ scoreboard objectives add kitpvp.soul_pirate_timer dummy "魂石手炮倒计时"
 scoreboard objectives add kitpvp.soul_fisher_used minecraft.used:minecraft.cod_spawn_egg
 scoreboard objectives add kitpvp.soul_fisher_last dummy "渔夫魂石快照"
 scoreboard objectives add kitpvp.soul_fisher_timer dummy "渔夫魂石倒计时"
+scoreboard objectives add kitpvp.soul_zombie_used minecraft.used:minecraft.husk_spawn_egg
+scoreboard objectives add kitpvp.soul_zombie_last dummy "僵尸魂石快照"
+scoreboard objectives add kitpvp.soul_zombie_timer dummy "僵尸魂石倒计时"
+scoreboard objectives add kitpvp.soul_earth_used minecraft.used:minecraft.villager_spawn_egg
+scoreboard objectives add kitpvp.soul_earth_last dummy "地球魂石快照"
+scoreboard objectives add kitpvp.soul_li_used minecraft.used:minecraft.pig_spawn_egg
+scoreboard objectives add kitpvp.soul_li_last dummy "李朱俊泽魂石快照"
 scoreboard objectives add kitpvp.ghost_minion_cd dummy "阴兵召唤冷却"
 scoreboard objectives add kitpvp.tid dummy "队槽编号"
 scoreboard objectives add kitpvp.rng dummy
@@ -263,6 +270,7 @@ scoreboard players set @a kitpvp.civil_demon_timer 0
 # （编号在 kit/venus 里每次选职重新领取，所以重载不会造成两人同号，见 04 §十四）
 scoreboard players add @a kitpvp.vtid 0
 scoreboard players set @a kitpvp.soul_next 0
+scoreboard players set @a kitpvp.soul_zombie_timer 0
 # 换过 criterion 的快照要重新对齐，否则 old 的快照值会一直压着新计数不触发
 execute as @a run scoreboard players operation @s kitpvp.tainted_core_last = @s kitpvp.tainted_core_used
 
@@ -271,7 +279,7 @@ scoreboard players set #global kitpvp.timer 0
 scoreboard players set #state kitpvp.game 0
 scoreboard players set #survivors kitpvp.game 0
 scoreboard players set #test kitpvp.game 0
-scoreboard players set #soul_count kitpvp.game 7
+scoreboard players set #soul_count kitpvp.game 10
 scoreboard players set #ghost_tid kitpvp.game 0
 scoreboard players set #ghost_need_new kitpvp.game 0
 scoreboard players set #lobby kitpvp.game 0
@@ -286,6 +294,7 @@ scoreboard players set #liapoc kitpvp.game 0
 scoreboard players set #lipurge kitpvp.game 0
 scoreboard players set #hacker_count kitpvp.game 0
 scoreboard players set #hacker_prev kitpvp.game 0
+scoreboard players set #li_soul kitpvp.game -1
 scoreboard players set #eslot kitpvp.game 0
 scoreboard players set #wolfsweep kitpvp.game 0
 

@@ -227,6 +227,10 @@ execute as @a[scores={kitpvp.kit=88,kitpvp.alive=1},tag=!kitpvp.spectator] at @s
 scoreboard players set #li_active kitpvp.game 0
 execute if score #state kitpvp.game matches 1 if entity @a[scores={kitpvp.kit=88}] run scoreboard players set #li_active kitpvp.game 1
 execute if score #state kitpvp.game matches 1 if entity @e[tag=kitpvp.earth_ilsacul] run scoreboard players set #li_active kitpvp.game 1
+# 李朱俊泽魂石：计时开关（#li_soul 由 li_apply 置 400，20 秒后 li_expire 归一），与场上有没有 kit=88 无关
+execute if score #li_soul kitpvp.game matches 1.. run scoreboard players set #li_active kitpvp.game 1
+execute if score #li_soul kitpvp.game matches 1.. run scoreboard players remove #li_soul kitpvp.game 1
+execute if score #li_soul kitpvp.game matches 0 run function kitpvp:skill/soul/li_expire
 execute if score #li_active kitpvp.game matches 1 run function kitpvp:skill/li_zhujunze/timer
 execute if score #li_active kitpvp.game matches 0 run scoreboard players set #litimer kitpvp.game 0
 execute if score #li_active kitpvp.game matches 0 run scoreboard players set #liapoc kitpvp.game 0
@@ -319,6 +323,16 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator]
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_archer_used > @s kitpvp.soul_archer_last run function kitpvp:skill/soul/use_archer
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_pirate_used > @s kitpvp.soul_pirate_last run function kitpvp:skill/soul/use_pirate
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_fisher_used > @s kitpvp.soul_fisher_last run function kitpvp:skill/soul/use_fisher
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_zombie_used > @s kitpvp.soul_zombie_last run function kitpvp:skill/soul/use_zombie
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_earth_used > @s kitpvp.soul_earth_last run function kitpvp:skill/soul/use_earth
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_li_used > @s kitpvp.soul_li_last run function kitpvp:skill/soul/use_li
+
+# 地球魂石：标记处每 10 刻召一只（earth_cd_a 已由上面的实体计时器统一递减）
+execute as @e[tag=kitpvp.soul_earth_marker,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/soul/earth_step
+
+# 僵尸魂石：20 秒到就摘掉 +20 上限
+execute as @a[tag=kitpvp.soul_zombie_active,scores={kitpvp.soul_zombie_timer=1..}] run scoreboard players remove @s kitpvp.soul_zombie_timer 1
+execute as @a[tag=kitpvp.soul_zombie_active,scores={kitpvp.soul_zombie_timer=..0}] run function kitpvp:skill/soul/zombie_expire
 
 # 自动技能统一入口（按 kit 分派；主动技能与触发器驱动技能不走这里）
 execute as @a[scores={kitpvp.kit=1..,kitpvp.alive=1}] if score @s kitpvp.cd matches ..0 run function kitpvp:skill/dispatch

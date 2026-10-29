@@ -21,3 +21,6 @@ execute if score @s kitpvp.soul_rand matches 3 run give @s minecraft:enderman_sp
 execute if score @s kitpvp.soul_rand matches 4 run give @s minecraft:vex_spawn_egg{KitSoul:1b,KitSoulGhost:1b,display:{Name:'{"text":"幽灵魂石","color":"dark_aqua","bold":true}'}} 1
 execute if score @s kitpvp.soul_rand matches 5 run give @s minecraft:pillager_spawn_egg{KitSoul:1b,KitSoulPirate:1b,display:{Name:'{"text":"海盗魂石","color":"dark_blue","bold":true}'}} 1
 execute if score @s kitpvp.soul_rand matches 6 run give @s minecraft:cod_spawn_egg{KitSoul:1b,KitSoulFisher:1b,EntityTag:{Tags:["kitpvp.soul_fisher_token"]},display:{Name:'{"text":"渔夫魂石","color":"blue","bold":true}'}} 1
+execute if score @s kitpvp.soul_rand matches 7 run give @s minecraft:husk_spawn_egg{KitSoul:1b,KitSoulZombie:1b,display:{Name:'{"text":"僵尸魂石","color":"dark_green","bold":true}'}} 1
+execute if score @s kitpvp.soul_rand matches 8 run give @s minecraft:villager_spawn_egg{KitSoul:1b,KitSoulEarth:1b,display:{Name:'{"text":"地球魂石","color":"blue","bold":true}'}} 1
+execute if score @s kitpvp.soul_rand matches 9 run give @s minecraft:pig_spawn_egg{KitSoul:1b,KitSoulLi:1b,display:{Name:'{"text":"李朱俊泽魂石","color":"light_purple","bold":true}'}} 1
