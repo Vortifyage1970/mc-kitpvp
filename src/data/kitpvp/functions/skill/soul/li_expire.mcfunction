@@ -1,3 +1,3 @@
-# 20 秒到：收走没打出去的临时蛋（已经召出来的 iLsacuL 留着，它们已经在循环里）
-execute as @a run clear @s minecraft:pig_spawn_egg{KitSoulLiEgg:1b}
+# 20 秒到：清掉这只魂石召唤的 iLsacuL（抗性 V 让它炸不死，只能显式 kill）
+kill @e[tag=kitpvp.soul_li_pig]
 scoreboard players set #li_soul kitpvp.game -1
