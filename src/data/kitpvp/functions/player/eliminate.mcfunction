@@ -6,7 +6,7 @@ tag @s remove kitpvp.shield_held
 tag @s remove kitpvp.assassin_hidden
 tag @s remove kitpvp.pirate_reload_cd
 tag @s remove kitpvp.sun_flare
-execute if score @s kitpvp.kit matches 69 run function kitpvp:skill/pluto/despawn
+execute if score @s kitpvp.kit matches 76 run function kitpvp:skill/pluto/despawn
 
 scoreboard players set @s kitpvp.lives 0
 scoreboard players set @s kitpvp.alive 0

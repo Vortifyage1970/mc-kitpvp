@@ -17,6 +17,6 @@ execute if score @s kitpvp.rng matches 0 run scoreboard players set @s kitpvp.ki
 execute if score @s kitpvp.rng matches 1 run scoreboard players set @s kitpvp.kit 66
 execute if score @s kitpvp.rng matches 2 run scoreboard players set @s kitpvp.kit 67
 execute if score @s kitpvp.rng matches 3 run scoreboard players set @s kitpvp.kit 68
-execute if score @s kitpvp.rng matches 4 run scoreboard players set @s kitpvp.kit 69
+execute if score @s kitpvp.rng matches 4 run scoreboard players set @s kitpvp.kit 76
 
 function kitpvp:util/give_kit

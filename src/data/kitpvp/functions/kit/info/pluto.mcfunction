@@ -10,7 +10,7 @@ tellraw @s [{"text":"│ 头盔：","color":"gray"},{"text":"—","color":"dark_
 tellraw @s [{"text":"│ 胸甲：","color":"gray"},{"text":"—","color":"dark_gray"}]
 tellraw @s [{"text":"│ 护腿：","color":"gray"},{"text":"皮革护腿","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:leather_leggings","Count":1}}}]
 tellraw @s [{"text":"│ 靴子：","color":"gray"},{"text":"—","color":"dark_gray"}]
-tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"—","color":"white"}]
+tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"熟牛排 x24","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:cooked_beef","Count":1}}}]
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"永久隐身 + 抗性提升 V；鹦鹉分身「冥王星」一死，本体立刻跟着死","color":"dark_blue"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"无","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"white"}]
