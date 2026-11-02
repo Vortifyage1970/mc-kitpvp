@@ -149,6 +149,9 @@ scoreboard objectives add kitpvp.venus_bomb_used minecraft.used:minecraft.silver
 scoreboard objectives add kitpvp.venus_bomb_last dummy "金星自爆快照"
 scoreboard objectives add kitpvp.venus_cd3 dummy "第三技能冷却"
 scoreboard objectives add kitpvp.venus_dog_timer dummy "舔狗复活倒计时"
+# 冥王星（kit 69）：鹦鹉分身（归属编号 + 鹦鹉身上的归属）
+scoreboard objectives add kitpvp.ptid dummy "冥王星鹦鹉归属编号"
+scoreboard objectives add kitpvp.parrot_owner dummy "冥王星鹦鹉归属（挂鹦鹉）"
 scoreboard objectives add kitpvp.venus_chill_timer dummy "制冷模块计时"
 scoreboard objectives add kitpvp.venus_arm_timer dummy "武装模块计时"
 scoreboard objectives add kitpvp.dog_owner dummy "舔狗归属"
@@ -287,6 +290,8 @@ scoreboard players set #lobby kitpvp.game 0
 scoreboard players set #unready kitpvp.game 0
 scoreboard players set #ttamer kitpvp.game 0
 scoreboard players add #vtid kitpvp.game 0
+scoreboard players add #ptid kitpvp.game 0
+scoreboard players set #pparrot kitpvp.game 0
 scoreboard players set #vdog kitpvp.game 0
 scoreboard players set #litimer kitpvp.game 0
 scoreboard players set #li_active kitpvp.game 0

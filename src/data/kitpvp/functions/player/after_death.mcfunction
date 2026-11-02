@@ -23,6 +23,10 @@ execute if score @s kitpvp.kit matches 28 run function kitpvp:skill/tainted_ghos
 # 僵尸：重生后把"多一条血条"补回来（上限 40 + 5 秒生命恢复 V 填满第二条）
 execute if score @s kitpvp.kit matches 14 run function kitpvp:skill/zombie/passive
 
+# 冥王星：隐身 / 抗性 V 重生后被清掉了，重挂；鹦鹉没了就在身边补一只
+execute if score @s kitpvp.kit matches 69 run function kitpvp:skill/pluto/passive
+execute if score @s kitpvp.kit matches 69 run function kitpvp:skill/pluto/respawn
+
 # 药剂师的四条秘药是"每条命一套"：重生解锁并补满
 execute if score @s kitpvp.kit matches 12 run function kitpvp:skill/alchemist/restock_elixir
 

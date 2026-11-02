@@ -34,6 +34,9 @@ kill @e[tag=kitpvp.venus_dog]
 kill @e[tag=kitpvp.venus_token]
 kill @e[tag=kitpvp.venus_bomb_creeper]
 
+# 冥王星的鹦鹉分身：按 tag 清
+kill @e[tag=kitpvp.pluto_parrot]
+
 # 文明小子的令牌基础生物 / 还在飞的两种口水（一次性的投掷物，落地前也必须清干净）
 kill @e[tag=kitpvp.civil_token]
 kill @e[type=minecraft:potion,nbt={Item:{tag:{KitCivilSpit:1b}}}]

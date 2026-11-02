@@ -13,7 +13,7 @@ tellraw @s [{"text":"│ 靴子：","color":"gray"},{"text":"无","color":"dark_
 tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"iLsacuL 召唤蛋 x5","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:pig_spawn_egg","Count":1}}},{"text":"、"},{"text":"熟牛排 x24","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:cooked_beef","Count":1}}}]
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"—","color":"dark_gray"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"召唤 iLsacuL","color":"yellow"},{"text":" —— 右键放出名为 iLsacuL 的猪（20 血、不消失）；上限 5 个召唤蛋，每 10 秒补 1 个","color":"white"}]
-tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"补货 10 秒 1 个（放出即开始计时，计时中再放不重置）","color":"white"}]
+tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"补货 14 秒 1 个（放出即开始计时，计时中再放不重置）","color":"white"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"iLsacuL 循环","color":"yellow"},{"text":" —— 只要该职业在场就每 12 秒转一圈：第 3 秒所有 iLsacuL 原地复制一只 200 血个体；第 6 秒它们在原地以半径 5 自爆（苦力怕名为李朱俊泽）；第 9 秒无事；第 12 秒若场上 iLsacuL ≥14 只，则每刻以半径 8 自爆直到一只不剩","color":"white"}]
 tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"自动（不占冷却）","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"white"}]
