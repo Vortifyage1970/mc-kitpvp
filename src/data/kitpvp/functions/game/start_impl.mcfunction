@@ -37,6 +37,9 @@ kill @e[tag=kitpvp.tamer_wolf]
 # 金星：舔狗跟着进图（原版自动跟随依赖区块 tick，跨区块传送后不保证）
 execute as @a[scores={kitpvp.kit=67}] at @s run function kitpvp:skill/venus/dog_follow
 
+# 冥王星：鹦鹉跟着进图（同样是跨区块传送，必须当刻拉一把），并顺手回满血
+execute as @a[scores={kitpvp.kit=76}] at @s run function kitpvp:skill/pluto/enter_map
+
 execute as @a[tag=kitpvp.selected] run function kitpvp:player/invincible
 
 title @a[tag=kitpvp.selected] times 5 40 10
