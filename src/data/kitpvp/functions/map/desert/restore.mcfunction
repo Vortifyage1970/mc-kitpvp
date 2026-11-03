@@ -8,4 +8,3 @@ place template kitpvp:desert2 -382 72 -49
 place template kitpvp:desert3 -334 73 -97
 place template kitpvp:desert4 -334 72 -49
 function kitpvp:map/desert/decor
-schedule function kitpvp:util/clear_item 200t
