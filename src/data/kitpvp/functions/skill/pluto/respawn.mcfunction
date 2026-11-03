@@ -4,3 +4,4 @@ scoreboard players operation #ptid kitpvp.game = @s kitpvp.ptid
 scoreboard players set #pparrot kitpvp.game 0
 execute as @e[type=minecraft:parrot,tag=kitpvp.pluto_parrot] if score @s kitpvp.parrot_owner = #ptid kitpvp.game run scoreboard players set #pparrot kitpvp.game 1
 execute if score #pparrot kitpvp.game matches 0 at @s run function kitpvp:skill/pluto/spawn
+scoreboard players set @s kitpvp.parrot_miss 0

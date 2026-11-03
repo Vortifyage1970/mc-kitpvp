@@ -16,6 +16,7 @@ execute if score @s kitpvp.ptid matches 1.. run function kitpvp:skill/pluto/desp
 scoreboard players set @s kitpvp.ptid 0
 scoreboard players add #ptid kitpvp.game 1
 scoreboard players operation @s kitpvp.ptid = #ptid kitpvp.game
+scoreboard players set @s kitpvp.parrot_miss 0
 
 function kitpvp:skill/pluto/passive
 function kitpvp:skill/pluto/spawn

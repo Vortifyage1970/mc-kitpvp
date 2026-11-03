@@ -152,6 +152,7 @@ scoreboard objectives add kitpvp.venus_dog_timer dummy "舔狗复活倒计时"
 # 冥王星（kit 76）：鹦鹉分身（归属编号 + 鹦鹉身上的归属）
 scoreboard objectives add kitpvp.ptid dummy "冥王星鹦鹉归属编号"
 scoreboard objectives add kitpvp.parrot_owner dummy "冥王星鹦鹉归属（挂鹦鹉）"
+scoreboard objectives add kitpvp.parrot_miss dummy "冥王星鹦鹉缺失计时（缺 6 刻才判死，防跨区传送误杀）"
 scoreboard objectives add kitpvp.venus_chill_timer dummy "制冷模块计时"
 scoreboard objectives add kitpvp.venus_arm_timer dummy "武装模块计时"
 scoreboard objectives add kitpvp.dog_owner dummy "舔狗归属"
@@ -275,6 +276,7 @@ scoreboard players set @a kitpvp.civil_demon_timer 0
 scoreboard players add @a kitpvp.vtid 0
 scoreboard players set @a kitpvp.soul_next 0
 scoreboard players set @a kitpvp.soul_zombie_timer 0
+scoreboard players set @a kitpvp.parrot_miss 0
 # 换过 criterion 的快照要重新对齐，否则 old 的快照值会一直压着新计数不触发
 execute as @a run scoreboard players operation @s kitpvp.tainted_core_last = @s kitpvp.tainted_core_used
 

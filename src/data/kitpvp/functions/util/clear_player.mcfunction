@@ -45,6 +45,7 @@ execute if score @s kitpvp.kit matches 67 run scoreboard players add @s kitpvp.v
 execute if score @s kitpvp.kit matches 67 run scoreboard players operation #vtid kitpvp.game = @s kitpvp.vtid
 execute if score @s kitpvp.kit matches 67 as @e[type=minecraft:wolf,tag=kitpvp.venus_dog] if score @s kitpvp.dog_owner = #vtid kitpvp.game run kill @s
 execute if score @s kitpvp.kit matches 76 run function kitpvp:skill/pluto/despawn
+scoreboard players set @s kitpvp.parrot_miss 0
 
 scoreboard players set @s kitpvp.kit 0
 scoreboard players set @s kitpvp.cd 0
