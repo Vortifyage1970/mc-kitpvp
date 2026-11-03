@@ -1,5 +1,5 @@
-tp @s 6661 74 -14
-spawnpoint @s 6661 74 -14
+tp @s 6661 77 -14
+spawnpoint @s 6661 77 -14
 scoreboard players set @s kitpvp.spawn_slot 8
 execute at @s run summon minecraft:marker ~ ~ ~ {Tags:["kitpvp.spawn_anchor","kitpvp.spawn_anchor.8"]}
 tag @s add kitpvp.spawn_assigned

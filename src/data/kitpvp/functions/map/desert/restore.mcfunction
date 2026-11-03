@@ -1,5 +1,6 @@
-# 沙漠：4 张模板 2×2 拼回整图，各自原点在 x / z 上相距 48
-kill @e[tag=kitpvp.displayitem,x=-382,y=72,z=-97,dx=96,dy=96,dz=96]
+# 沙漠：4 张模板 2×2 拼回整图，各自原点在 x / z 上相隔 48
+# 模板只含方块（导出时关掉「包含实体」）；展示框等装饰在这张图里手动摆好，
+# 打了 invulnerable + kitpvp.displayitem，所以这里**不再按区域清实体**（见 04 §七.3）
 # These are all intended.
 place template kitpvp:desert1 -382 72 -97
 place template kitpvp:desert2 -382 72 -49

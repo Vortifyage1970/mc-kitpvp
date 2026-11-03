@@ -1,7 +1,8 @@
 # 名叫「海龟蛋」的实体（load 里按装饰保护的那批）每局复原前统一清掉
 kill @e[name="海龟蛋"]
 kill @e[tag=kitpvp.tamer_wolf]
-kill @e[type=wolf]
+# 按类型清狼时给装饰留口：手摆的狼打了 kitpvp.displayitem 就不会被这条误杀（见 04 §七.3）
+kill @e[type=wolf,tag=!kitpvp.displayitem]
 
 execute if score #global kitpvp.map matches 1 run function kitpvp:map/desert/restore
 execute if score #global kitpvp.map matches 2 run function kitpvp:map/arena/restore
