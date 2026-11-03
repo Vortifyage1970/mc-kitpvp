@@ -191,9 +191,12 @@ execute as @a[tag=kitpvp.venus_dog_dead,scores={kitpvp.alive=1,kitpvp.venus_dog_
 
 # ===== 冥王星（kit 76）=====
 # 鹦鹉跟随：每刻把 2 格外的鹦鹉拉到肩头
-execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=76,kitpvp.alive=1},tag=!kitpvp.spectator] at @s run function kitpvp:skill/pluto/follow
+# 大厅里也要跟（选职业时就在大厅，玩家会立刻走动）
+execute as @a[scores={kitpvp.kit=76,kitpvp.alive=1},tag=!kitpvp.spectator] at @s run function kitpvp:skill/pluto/follow
 # 鹦鹉一死 => 本体强制死亡；重生后由 player/after_death 补一只新鹦鹉
 execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=76,kitpvp.alive=1},tag=!kitpvp.spectator,tag=!kitpvp.respawn_pending] at @s run function kitpvp:skill/pluto/check
+# 大厅里没有 after_death 兜底（on_death 只在局内挂 respawn_pending）：鸟丢了就在大厅直接补一只
+execute if score #state kitpvp.game matches 0 as @a[scores={kitpvp.kit=76},tag=!kitpvp.spectator] at @s run function kitpvp:skill/pluto/respawn
 
 # 令牌刷出来的基础生物：蛋一用就会刷一只，兜底清（cast 里已当场清过一次）
 kill @e[tag=kitpvp.venus_token]
