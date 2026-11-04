@@ -268,6 +268,9 @@ execute as @e[tag=kitpvp.earth_tracker,scores={kitpvp.earth_life=..0}] run kill 
 execute as @e[tag=kitpvp.earth_ollama] store result score @s kitpvp.earth_hp_new run data get entity @s Health 10
 execute as @e[tag=kitpvp.earth_ollama] if score @s kitpvp.earth_hp_new < @s kitpvp.earth_hp run function kitpvp:skill/earth/ollama_cry
 execute as @e[tag=kitpvp.earth_ollama] run scoreboard players operation @s kitpvp.earth_hp = @s kitpvp.earth_hp_new
+# 流浪汉的细雪：marker 计时到点，把那格细雪还成空气（只有还是细雪才收，玩家换过就跳过）
+execute as @e[tag=kitpvp.earth_snow,scores={kitpvp.earth_snow=1..}] run scoreboard players remove @s kitpvp.earth_snow 1
+execute as @e[tag=kitpvp.earth_snow,scores={kitpvp.earth_snow=..0}] at @s run function kitpvp:skill/earth/vagrant_snow_clear
 
 # 湿海绵船夫：只有还坐在自己的筏上时才有抗性提升 V，下筏 / 沉船就撤掉
 execute as @e[tag=kitpvp.earth_boatman1] at @s unless entity @e[tag=kitpvp.earth_boat1,distance=..2] run effect clear @s minecraft:resistance
