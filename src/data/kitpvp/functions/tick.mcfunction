@@ -255,7 +255,7 @@ execute as @e[tag=kitpvp.earth_sheep,scores={kitpvp.earth_cd_a=..0}] at @s run f
 execute as @e[tag=kitpvp.earth_disruptor,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/disrupt
 # 变速器：8 格内没别人就提速，有敌人就变肉变慢（判定与效果都在 gearbox_aura 里）
 execute as @e[tag=kitpvp.earth_gearbox,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/gearbox_aura
-# 大蜜蜂：半径 10 格内的所有玩家和生物持续挖掘疲劳 I
+# 大蜜蜂：半径 10 格内的所有玩家和生物持续挖掘疲劳 II
 # 每刻直接跑、不再用 scores 节流：分数不存在时那个选择器不匹配，整条会静默失效（踩过一次）
 execute as @e[tag=kitpvp.earth_bigbee] at @s run function kitpvp:skill/earth/bigbee_aura
 # 木星：尸体在死亡动画那 20 刻里还留在世界上、Health 已经归零，就在这一刻原地劈雷
