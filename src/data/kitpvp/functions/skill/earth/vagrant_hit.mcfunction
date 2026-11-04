@@ -12,6 +12,4 @@ give @s minecraft:potion{Potion:"minecraft:water",CustomPotionEffects:[{Id:9b,Am
 give @s minecraft:flint 1
 give @s minecraft:wheat_seeds 1
 
-# 细雪糊脸：1.20.1 没有"冰冻"这个状态效果，只能真铺一格细雪让人站进去 5 秒（铺 / 收回在 vagrant_snow 两个函数里）
-# 只在脚下是空气时铺，不去覆盖地图上的方块
-execute at @s if block ~ ~ ~ #minecraft:air run function kitpvp:skill/earth/vagrant_snow
+# 不给细雪：流浪汉只管反胃 + 口水 + 燧石 + 种子（细雪那套留给术战士，回收逻辑仍是 skill/earth/snow_clear）
