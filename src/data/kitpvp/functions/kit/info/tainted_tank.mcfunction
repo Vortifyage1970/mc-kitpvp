@@ -10,7 +10,7 @@ tellraw @s [{"text":"│ 头盔：","color":"gray"},{"text":"钻石头盔（荆�
 tellraw @s [{"text":"│ 胸甲：","color":"gray"},{"text":"钻石胸甲（荆棘 V）","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:diamond_chestplate","Count":1,"tag":"{Enchantments:[{id:\"minecraft:thorns\",lvl:5}]}"}}}]
 tellraw @s [{"text":"│ 护腿：","color":"gray"},{"text":"钻石护腿（荆棘 V）","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:diamond_leggings","Count":1,"tag":"{Enchantments:[{id:\"minecraft:thorns\",lvl:5}]}"}}}]
 tellraw @s [{"text":"│ 靴子：","color":"gray"},{"text":"钻石靴子（荆棘 V）","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:diamond_boots","Count":1,"tag":"{Enchantments:[{id:\"minecraft:thorns\",lvl:5}]}"}}}]
-tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"熟牛排 x12","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:cooked_beef","Count":1}}}]
+tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"熟牛排 x14","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:cooked_beef","Count":1}}}]
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"永久 缓慢 I + 挖掘疲劳 I","color":"yellow"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"无","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"1","color":"red","bold":true}]

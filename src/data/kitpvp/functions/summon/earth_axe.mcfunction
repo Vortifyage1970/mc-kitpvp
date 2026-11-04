@@ -1,2 +1,2 @@
-# 地球·7 斧头哥：南瓜头 + 金斧，生命上限 40
-summon minecraft:zombie ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new"],CustomName:'{"text":"斧头哥","color":"gold"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:40.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:40.0}],HandItems:[{id:"minecraft:golden_axe",Count:1b},{}],ArmorItems:[{},{},{},{id:"minecraft:carved_pumpkin",Count:1b}]}
+# 地球·7 斧头哥：南瓜头 + 金斧，生命上限 25
+summon minecraft:zombie ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new"],CustomName:'{"text":"斧头哥","color":"gold"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:25.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:25.0}],HandItems:[{id:"minecraft:golden_axe",Count:1b},{}],ArmorItems:[{},{},{},{id:"minecraft:carved_pumpkin",Count:1b}]}

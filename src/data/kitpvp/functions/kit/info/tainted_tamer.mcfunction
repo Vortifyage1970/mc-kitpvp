@@ -14,7 +14,7 @@ tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"亡灵仆从蛋","c
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"—","color":"dark_gray"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"亡者召唤","color":"yellow"},{"text":" —— 右键投出三枚召唤蛋之一：亡灵仆从（铁头盔 + 铁剑僵尸）/ 骸骨仆从（铁头盔骷髅）/ 爆破仆从（苦力怕）；用掉任意一枚，其余两枚同时收走","color":"white"}]
 tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"30 秒（冷却走完补满整组）","color":"white"}]
-tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"魔物召唤","color":"yellow"},{"text":" —— 右键投出四枚召唤蛋之一：卫道仆从（卫道士，生命 20）/ 巫祝仆从（女巫，生命 30）/ 怨灵仆从（恼鬼，生命 20）/ 灼炎仆从（烈焰人，生命 30）；用掉任意一枚，其余三枚同时收走","color":"white"}]
+tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"魔物召唤","color":"yellow"},{"text":" —— 右键投出四枚召唤蛋之一：卫道仆从（卫道士，生命 16）/ 巫祝仆从（女巫，生命 25）/ 怨灵仆从（恼鬼，生命 20）/ 灼炎仆从（烈焰人，生命 30）；用掉任意一枚，其余三枚同时收走","color":"white"}]
 tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"60 秒（冷却走完补满整组）","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"white"}]
 tellraw @s [{"text":"└──────────────────────────────","color":"dark_gray"}]

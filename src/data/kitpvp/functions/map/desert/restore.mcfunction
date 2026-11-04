@@ -3,8 +3,8 @@
 # 最后用 summon 一条条把展示框 / 盔甲架 / 矿车摆回来（见 map/desert/decor 与 04 §七.3）
 kill @e[x=-382,y=72,z=-97,dx=96,dy=96,dz=96]
 # These are all intended.
-place template kitpvp:desert1 -382 72 -97
-place template kitpvp:desert2 -382 72 -49
-place template kitpvp:desert3 -334 73 -97
-place template kitpvp:desert4 -334 72 -49
+place template kitpvp:desert1 -382 69 -97
+place template kitpvp:desert2 -382 69 -49
+place template kitpvp:desert3 -334 69 -97
+place template kitpvp:desert4 -334 69 -49
 function kitpvp:map/desert/decor

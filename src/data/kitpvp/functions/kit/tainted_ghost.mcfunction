@@ -10,8 +10,8 @@ scoreboard players set @s kitpvp.lives 1
 item replace entity @s armor.head with minecraft:player_head{SkullOwner:"TaintedGhost",Enchantments:[{id:"minecraft:protection",lvl:10},{id:"minecraft:binding_curse",lvl:1}]}
 item replace entity @s armor.chest with minecraft:diamond_chestplate{Unbreakable:1b,Enchantments:[{id:"minecraft:protection",lvl:5},{id:"minecraft:binding_curse",lvl:1}]}
 
-# 金斧基础 7 伤害 / 攻速 1.0，锋利 X 再加 5.5（0.5 × 等级 + 0.5）
-item replace entity @s hotbar.0 with minecraft:golden_axe{Unbreakable:1b,Enchantments:[{id:"minecraft:sharpness",lvl:10}]}
+# 金斧基础 7 伤害 / 攻速 1.0，锋利 VIII 再加 4.5（0.5 × 等级 + 0.5）
+item replace entity @s hotbar.0 with minecraft:golden_axe{Unbreakable:1b,Enchantments:[{id:"minecraft:sharpness",lvl:8}]}
 item replace entity @s hotbar.1 with minecraft:cooked_beef 10
 
 function kitpvp:skill/tainted_ghost/passive

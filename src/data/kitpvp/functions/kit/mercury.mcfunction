@@ -1,4 +1,4 @@
-# 水星（kit = 66）：青色皮革套 + 石剑（持有时最大生命 -7.5），常态 +0.2 移速走 skill/mercury/passive
+# 水星（kit = 66）：青色皮革套 + 石剑（实际伤害 5 / 攻速 2.4），常态 +0.2 移速走 skill/mercury/passive
 function kitpvp:util/clear_player
 
 scoreboard players set @s kitpvp.kit 66
@@ -14,8 +14,8 @@ item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b
 item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,display:{color:1481884},Enchantments:[{id:"minecraft:protection",lvl:3},{id:"minecraft:depth_strider",lvl:10}]}
 
 # 写 AttributeModifiers 会整体取代默认修饰符，所以攻速也必须显式写：
-# 伤害 5（基础 1 + 4）、攻速 2.6（基础 4 - 1.4）、持有时最大生命 20 - 7.5（见 04 §九）
-item replace entity @s weapon.mainhand with minecraft:stone_sword{Unbreakable:1b,AttributeModifiers:[{AttributeName:"minecraft:generic.attack_damage",Name:"kitpvp.mercury_damage",Amount:4.0,Operation:0,UUID:[I;66,0,0,1],Slot:"mainhand"},{AttributeName:"minecraft:generic.attack_speed",Name:"kitpvp.mercury_attack_speed",Amount:-1.4,Operation:0,UUID:[I;66,0,0,2],Slot:"mainhand"},{AttributeName:"minecraft:generic.max_health",Name:"kitpvp.mercury_health",Amount:-7.5,Operation:0,UUID:[I;66,0,0,3],Slot:"mainhand"}]}
+# 伤害 5（基础 1 + 4）、攻速 2.4（基础 4 - 1.6）。最大生命 -7.5 改成**常态**，写在 skill/mercury/passive
+item replace entity @s weapon.mainhand with minecraft:stone_sword{Unbreakable:1b,AttributeModifiers:[{AttributeName:"minecraft:generic.attack_damage",Name:"kitpvp.mercury_damage",Amount:4.0,Operation:0,UUID:[I;66,0,0,1],Slot:"mainhand"},{AttributeName:"minecraft:generic.attack_speed",Name:"kitpvp.mercury_attack_speed",Amount:-1.6,Operation:0,UUID:[I;66,0,0,2],Slot:"mainhand"}]}
 
 # 幂等：先清掉背包里已有的水桶再发。重选职业 / 走随机池都可能让本函数再跑一遍，
 # 不清就会出现两个水桶（04 §五：发东西一律先清再发）

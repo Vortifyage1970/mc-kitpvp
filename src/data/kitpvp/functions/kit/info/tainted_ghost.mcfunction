@@ -2,7 +2,7 @@ tellraw @s [{"text":"┌──────────────────�
 tellraw @s [{"text":"│ 职业名：","color":"gray"},{"text":"里·幽灵","color":"dark_red","bold":true}]
 tellraw @s [{"text":"│ 分类：","color":"gray"},{"text":"经典（里）","color":"white"}]
 tellraw @s [{"text":"│ 简介：","color":"gray"},{"text":"失明但强大的怨念化身","color":"white"}]
-tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"12.5","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:golden_axe","Count":1,"tag":"{Enchantments:[{id:\"minecraft:sharpness\",lvl:10}]}"}}},{"text":"（悬停查看详情）","color":"dark_gray","hoverEvent":{"action":"show_text","contents":[{"text":"武器：金斧\n单次伤害：12.5    攻击速度：1.0\n附魔：锋利 X","color":"white"}]}}]
+tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"11.5","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:golden_axe","Count":1,"tag":"{Enchantments:[{id:\"minecraft:sharpness\",lvl:8}]}"}}},{"text":"（悬停查看详情）","color":"dark_gray","hoverEvent":{"action":"show_text","contents":[{"text":"武器：金斧\n单次伤害：11.5    攻击速度：1.0\n附魔：锋利 VIII","color":"white"}]}}]
 tellraw @s [{"text":"│ 武器攻击速度：","color":"gray"},{"text":"1.0","color":"white"}]
 tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"8","color":"white"}]
 tellraw @s [{"text":"│ 总护甲韧性：","color":"gray"},{"text":"2","color":"white"}]
