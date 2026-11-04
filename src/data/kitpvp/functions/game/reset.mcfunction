@@ -47,6 +47,8 @@ kill @e[tag=kitpvp.li_pig]
 kill @e[tag=kitpvp.li_bomb]
 
 # 地球的召唤物 / 坐骑 / 炸弹 / 令牌载体：按 tag 清，不碰地图原有的同类生物
+# 木星的锚点必须先于本体清掉，否则"本体消失"会被当成战死，结算时在世界里放一串雷
+kill @e[tag=kitpvp.earth_jupiter_anchor]
 kill @e[tag=kitpvp.earth_minion]
 kill @e[tag=kitpvp.earth_mount]
 kill @e[tag=kitpvp.earth_bomb]
