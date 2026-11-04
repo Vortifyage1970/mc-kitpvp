@@ -1,4 +1,4 @@
-# @s = 变速器：8 格内没有除召唤者以外的玩家就获得速度 VIII；有人靠近就改成抗性 II + 缓慢 V
+# @s = 变速器：8 格内没有除召唤者以外的玩家就获得速度 VI；有人靠近就改成抗性 II + 缓慢 V
 # 归属靠 earth_owner 比较（link 里写好的队槽编号）：召唤者有自己的 etid，别人一律算"靠近的敌人"
 # 先归零：魂石召出来的生灵没有 earth_owner 分，operation 会因源分缺失直接失败，不能留上一只的旧值
 scoreboard players set #gb_owner kitpvp.game 0
@@ -9,8 +9,8 @@ scoreboard players operation #gb_owner kitpvp.game = @s kitpvp.earth_owner
 scoreboard players set #gb_enemy kitpvp.game 0
 execute as @a[distance=..8,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #gb_owner kitpvp.game run scoreboard players add #gb_enemy kitpvp.game 1
 
-# 空旷：极速，同时清掉"变慢"的两条，否则两种状态会叠在一起
-execute if score #gb_enemy kitpvp.game matches 0 run effect give @s minecraft:speed 1 7 true
+# 空旷：极速（速度 VI），同时清掉"变慢"的两条，否则两种状态会叠在一起
+execute if score #gb_enemy kitpvp.game matches 0 run effect give @s minecraft:speed 1 5 true
 execute if score #gb_enemy kitpvp.game matches 0 run effect clear @s minecraft:resistance
 execute if score #gb_enemy kitpvp.game matches 0 run effect clear @s minecraft:slowness
 
