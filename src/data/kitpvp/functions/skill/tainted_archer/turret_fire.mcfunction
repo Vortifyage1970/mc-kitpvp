@@ -8,16 +8,11 @@ kill @e[tag=kitpvp.token_turret]
 
 # 归属与排序：队槽只用于"不攻击主人"，主人编号与序号用分数记（选择器里比不了变量）
 # ⚠ 必须把**玩家和炮台都** join 进同一队：只 join 炮台的话玩家不在队里，骷髅照样打他
+# ⚠ ttid 开局会被 start_impl 清零，所以这里要重新确认并 join 主人（team_slot 内部处理）
 scoreboard players add #turret_seq kitpvp.game 1
 scoreboard players operation @e[tag=kitpvp.turret_new] kitpvp.turret_seq = #turret_seq kitpvp.game
+function kitpvp:skill/tainted_archer/team_slot
 scoreboard players operation @e[tag=kitpvp.turret_new] kitpvp.turret_owner = @s kitpvp.ttid
-
-execute if score @s kitpvp.ttid matches 1 run team join turret_1 @s
-execute if score @s kitpvp.ttid matches 2 run team join turret_2 @s
-execute if score @s kitpvp.ttid matches 3 run team join turret_3 @s
-execute if score @s kitpvp.ttid matches 4 run team join turret_4 @s
-execute if score @s kitpvp.ttid matches 5 run team join turret_5 @s
-execute if score @s kitpvp.ttid matches 6 run team join turret_6 @s
 
 execute if score @s kitpvp.ttid matches 1 run team join turret_1 @e[tag=kitpvp.turret_new]
 execute if score @s kitpvp.ttid matches 2 run team join turret_2 @e[tag=kitpvp.turret_new]
