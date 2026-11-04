@@ -14,7 +14,7 @@ tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"迅捷药剂","colo
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"—","color":"dark_gray"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"药剂投掷","color":"yellow"},{"text":" —— 右键投出四瓶喷溅药剂之一：速度 III / 生命恢复 II / 隐身 I 各 15 秒，跳跃提升 X 10 秒；投出任意一瓶，其余三瓶同时收走","color":"white"}]
 tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"50 秒（冷却走完补满一套）","color":"white"}]
-tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"本命秘药","color":"yellow"},{"text":" —— 右键饮下四瓶秘药之一：抗火 3 分钟 / 力量 I 90 秒 / 缓降 90 秒 / 神龟（缓慢 IV + 抗性 III）40 秒；用过任意一瓶，其余三瓶收走，直到死亡才能再用","color":"white"}]
+tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"本命秘药","color":"yellow"},{"text":" —— 右键饮下四瓶秘药之一：抗火 3 分钟 / 力量 I 55 秒 / 缓降 90 秒 / 神龟（缓慢 IV + 抗性 III）40 秒；用过任意一瓶，其余三瓶收走，直到死亡才能再用","color":"white"}]
 tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"每条命一次（死亡重生后补满）","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"white"}]
 tellraw @s [{"text":"└──────────────────────────────","color":"dark_gray"}]
