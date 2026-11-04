@@ -12,7 +12,7 @@ tellraw @s [{"text":"│ 护腿：","color":"gray"},{"text":"钻石护腿","colo
 tellraw @s [{"text":"│ 靴子：","color":"gray"},{"text":"铁靴子","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:iron_boots","Count":1}}}]
 tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"召唤生灵 x3","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:goat_spawn_egg","Count":1}}},{"text":"、"},{"text":"熟猪排 x24","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:cooked_porkchop","Count":1}}}]
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"—","color":"dark_gray"}]
-tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"召唤生灵","color":"yellow"},{"text":" —— 右键投出召唤蛋，随机召来一种对召唤者友好的生灵（阴兵 / 炮台 / iLsacuL / Sheepass / 板砖哥 / 斧头哥 / 护林员 / 宇航员 / 炸弹 / 跟踪炸弹 / MC石头 / 发射器 / 农民 / 超凡升天 / 水星 / 扰动者 / 渔夫 / 变速器 / 交警 / 绅士 / Ollama / 流浪汉 / 术战士 …）；已有召唤蛋可继续使用，持有上限 3 个，每 14 秒补 1 个","color":"white"}]
+tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"召唤生灵","color":"yellow"},{"text":" —— 右键投出召唤蛋，随机召来一种对召唤者友好的生灵（阴兵 / 炮台 / iLsacuL / Sheepass / 板砖哥 / 斧头哥 / 护林员 / 宇航员 / 炸弹 / 跟踪炸弹 / MC石头 / 发射器 / 农民 / 超凡升天 / 水星 / 扰动者 / 渔夫 / 变速器 / 交警 / 绅士 / Ollama / 流浪汉 / 术战士 / 大蜜蜂 …）；已有召唤蛋可继续使用，持有上限 3 个，每 14 秒补 1 个","color":"white"}]
 tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"补货 14 秒 1 个（首次召唤启动计时；冷却只限制补货，不限制已有蛋，也不会被后续召唤重置）","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"white"}]
 tellraw @s [{"text":"└──────────────────────────────","color":"dark_gray"}]
