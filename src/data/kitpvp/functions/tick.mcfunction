@@ -255,8 +255,9 @@ execute as @e[tag=kitpvp.earth_sheep,scores={kitpvp.earth_cd_a=..0}] at @s run f
 execute as @e[tag=kitpvp.earth_disruptor,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/disrupt
 # 变速器：8 格内没别人就提速，有敌人就变肉变慢（判定与效果都在 gearbox_aura 里）
 execute as @e[tag=kitpvp.earth_gearbox,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/gearbox_aura
-# 大蜜蜂：半径 10 格内的玩家挂挖掘疲劳 I（每 0.5 秒补一次，走出范围 1 秒内恢复）
-execute as @e[tag=kitpvp.earth_bigbee,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/bigbee_aura
+# 大蜜蜂：半径 10 格内的所有玩家和生物持续挖掘疲劳 I
+# 每刻直接跑、不再用 scores 节流：分数不存在时那个选择器不匹配，整条会静默失效（踩过一次）
+execute as @e[tag=kitpvp.earth_bigbee] at @s run function kitpvp:skill/earth/bigbee_aura
 # 木星：尸体在死亡动画那 20 刻里还留在世界上、Health 已经归零，就在这一刻原地劈雷
 # 不靠"背上的锚点乘客"：armor_stand 当乘客并不可靠，锚点没生成就会一声不吭地失效
 # struck 标记防重复：尸体每刻都会被扫到，不标记会连着劈十几道
