@@ -257,6 +257,9 @@ execute as @e[tag=kitpvp.earth_disruptor,scores={kitpvp.earth_cd_a=..0}] at @s r
 execute as @e[tag=kitpvp.earth_gearbox,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/gearbox_aura
 # 大蜜蜂：半径 10 格内的玩家挂挖掘疲劳 I（每 0.5 秒补一次，走出范围 1 秒内恢复）
 execute as @e[tag=kitpvp.earth_bigbee,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/bigbee_aura
+# 木星：每刻读一次血量，掉到 0（尸体还在的那二十来刻）就当场劈雷；struck 挡住同刻与后续每刻的重复命中
+execute as @e[tag=kitpvp.earth_jupiter,tag=!kitpvp.earth_jupiter_struck] store result score @s kitpvp.earth_hp run data get entity @s Health
+execute as @e[tag=kitpvp.earth_jupiter,tag=!kitpvp.earth_jupiter_struck,scores={kitpvp.earth_hp=..0}] at @s run function kitpvp:skill/earth/jupiter_death
 # 交警：矿车只是出场载具，200 刻（10 秒）到点撤掉，人自己落地继续走
 execute as @e[tag=kitpvp.earth_cop_cart,scores={kitpvp.earth_cd_a=..0}] run kill @s
 # 超凡升天：60 刻后开始漂浮，300 刻后离场（tag 区分两个阶段）
