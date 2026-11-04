@@ -1,8 +1,8 @@
 # 随机召一只生灵：1in2 连掷 7 次拼 0..127，再对"已实现的种类数"取模
-# ⚠ 取模用的是实现数（29），不是 32：空号只是给未来预留的编号位置，不能真的掷中，
-#   否则会白耗一枚蛋 + 白进 10 秒冷却。新增生灵时把数改成 30、31……并启用对应那行即可。
+# ⚠ 取模用的是实现数（30），不是 32：空号只是给未来预留的编号位置，不能真的掷中，
+#   否则会白耗一枚蛋 + 白进 10 秒冷却。新增生灵时把数改成 31、32……并启用对应那行即可。
 # 只负责"掷 + 召"：归属（link）、补货冷却、播报由调用方决定（地球职业在 summon，魂石在 soul/earth_step）
-scoreboard players set #pool_size kitpvp.game 29
+scoreboard players set #pool_size kitpvp.game 30
 
 scoreboard players set @s kitpvp.rng 0
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 1
@@ -44,5 +44,6 @@ execute if score @s kitpvp.rng matches 25 run function kitpvp:summon/earth_qin
 execute if score @s kitpvp.rng matches 26 run function kitpvp:summon/earth_target
 execute if score @s kitpvp.rng matches 27 run function kitpvp:summon/earth_gearbox
 execute if score @s kitpvp.rng matches 28 run function kitpvp:summon/earth_cop
+execute if score @s kitpvp.rng matches 29 run function kitpvp:summon/earth_gentleman
 
-# 29..31 是给后续扩展预留的编号位置（目前不参与随机）：新增生灵时启用对应一行并把 #pool_size 加一
+# 30..31 是给后续扩展预留的编号位置（目前不参与随机）：新增生灵时启用对应一行并把 #pool_size 加一
