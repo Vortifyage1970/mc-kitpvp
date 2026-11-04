@@ -1,0 +1,21 @@
+{
+  "criteria": {
+    "hit": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "damage": {
+          "source_entity": {
+            "type": "minecraft:zombie",
+            "nbt": "{Tags:[\"kitpvp.earth_vagrant\"]}"
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    ["hit"]
+  ],
+  "rewards": {
+    "function": "kitpvp:skill/earth/vagrant_hit"
+  }
+}
