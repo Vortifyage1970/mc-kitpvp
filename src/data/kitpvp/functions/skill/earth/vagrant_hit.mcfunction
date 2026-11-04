@@ -1,9 +1,8 @@
-# 流浪汉打中人的结算（@s = 挨打的那个玩家，由 advancement kitpvp:player/vagrant_hit 触发）
-# 首行必须 revoke：advancement 的 rewards 只在"完成"那一刻发放一次，不 revoke 就只生效一次
-advancement revoke @s only kitpvp:player/vagrant_hit
-
-# 排查用计数：这个 advancement 每真触发一次就 +1（游戏里 /scoreboard players get @s kitpvp.earth_hit_hits 可查）
+# 流浪汉打中人的结算（@s = 挨打的那个玩家）
+# 触发在 tick.mcfunction 里：挨打那一帧 + 身边 3 格内有流浪汉。不再用 advancement（那套条件从没触发过）
+# 排查用计数：每次结算 +1，游戏里 /scoreboard players get @s kitpvp.earth_hit_hits 可查
 scoreboard players add @s kitpvp.earth_hit_hits 1
+title @s actionbar [{"text":"流浪汉 命中","color":"green"}]
 
 # 反胃 5 秒（时长单位是秒）
 effect give @s minecraft:nausea 5 0 true

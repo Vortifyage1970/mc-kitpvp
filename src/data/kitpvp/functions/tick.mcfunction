@@ -261,6 +261,11 @@ execute as @e[tag=kitpvp.earth_bigbee,scores={kitpvp.earth_cd_a=..0}] at @s run 
 # 不靠"背上的锚点乘客"：armor_stand 当乘客并不可靠，锚点没生成就会一声不吭地失效
 # struck 标记防重复：尸体每刻都会被扫到，不标记会连着劈十几道
 execute as @e[tag=kitpvp.earth_jupiter,nbt={Health:0.0f},tag=!kitpvp.earth_jupiter_struck] at @s run function kitpvp:skill/earth/jupiter_death
+# 术战士 / 流浪汉的"打中人"结算：不再走 advancement（那套 NBT 条件在这个版本上一直没触发过），
+# 改成抓挨打那一帧（HurtTime 9 = 伤害刚结算完的下一个 tick），再看身边 3 格内有没有对应的召唤物
+# 误判：被别的僵尸蹭一下、同时 3 格内正好站着一只术战士/流浪汉也会算数（单人自测就用这个特性）
+execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_spellblade,distance=..3] run function kitpvp:skill/earth/spellblade_hit
+execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_vagrant,distance=..3] run function kitpvp:skill/earth/vagrant_hit
 # 交警：矿车只是出场载具，200 刻（10 秒）到点撤掉，人自己落地继续走
 execute as @e[tag=kitpvp.earth_cop_cart,scores={kitpvp.earth_cd_a=..0}] run kill @s
 # 超凡升天：60 刻后开始漂浮，300 刻后离场（tag 区分两个阶段）
