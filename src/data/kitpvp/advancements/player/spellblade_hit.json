@@ -1,0 +1,21 @@
+{
+  "criteria": {
+    "hit": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "damage": {
+          "source_entity": {
+            "type": "minecraft:zombie",
+            "nbt": "{Tags:[\"kitpvp.earth_spellblade\"]}"
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    ["hit"]
+  ],
+  "rewards": {
+    "function": "kitpvp:skill/earth/spellblade_hit"
+  }
+}
