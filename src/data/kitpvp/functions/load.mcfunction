@@ -181,6 +181,7 @@ scoreboard objectives add kitpvp.earth_owner dummy "地球召唤物的归属编�
 scoreboard objectives add kitpvp.earth_hp dummy "Ollama 上一次的血量（Health x10）"
 scoreboard objectives add kitpvp.earth_hp_new dummy "Ollama 这一刻的血量（Health x10，比完就回写）"
 scoreboard objectives add kitpvp.earth_snow dummy "流浪汉口水铺下的细雪还剩多少刻"
+scoreboard objectives add kitpvp.earth_hit_hits dummy "地球生灵打中人的次数（排查 advancement 是否真的触发）"
 scoreboard objectives add kitpvp.etid dummy "地球召唤物队槽编号"
 
 # 预留（暂无消费者，刻意保留）：item = 物品计数
