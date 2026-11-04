@@ -1,3 +1,6 @@
+# 自检探针：每刻 +1。debug/selfcheck 会读它 —— 数值在涨就说明 tick 在跑，而且跑的是这一版代码
+scoreboard players add #tick_probe kitpvp.game 1
+
 execute as @a[tag=!kitpvp.joined] run function kitpvp:player/join
 
 execute as @a[scores={kitpvp.cd=1..}] run scoreboard players remove @s kitpvp.cd 1
