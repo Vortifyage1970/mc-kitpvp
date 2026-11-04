@@ -1,4 +1,4 @@
-# @s = 木星背上的隐形锚点：木星本体已经消失，锚点停在它倒下的那个位置
-# 先劈雷再删自己：锚点每刻都会被 tick 扫一遍，留着不动就会顺着同一点连劈
+# @s = 刚倒下的木星本体（尸体还在，Health 已经归零）
+# 先劈雷再打标记：尸体在动画结束前每刻都会被 tick 扫到，不打标记就会连着劈一串
 summon minecraft:lightning_bolt ~ ~ ~
-kill @s
+tag @s add kitpvp.earth_jupiter_struck

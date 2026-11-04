@@ -257,10 +257,10 @@ execute as @e[tag=kitpvp.earth_disruptor,scores={kitpvp.earth_cd_a=..0}] at @s r
 execute as @e[tag=kitpvp.earth_gearbox,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/gearbox_aura
 # 大蜜蜂：半径 10 格内的玩家挂挖掘疲劳 I（每 0.5 秒补一次，走出范围 1 秒内恢复）
 execute as @e[tag=kitpvp.earth_bigbee,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/bigbee_aura
-# 木星：背上的隐形锚点跟着它走，木星一消失（被打死 / 掉虚空 / 被清场）锚点就留在原地 → 在落点劈雷
-# 不用"每刻读 Health"那种写法：实体死后什么时候被移除、tick 和死亡结算谁先谁后都没有保证，
-# 能读到 Health=0 的窗口可能根本不存在（上一版就是这么漏掉的）。锚点只问一件事：本体还在不在
-execute as @e[tag=kitpvp.earth_jupiter_anchor] at @s unless entity @e[type=minecraft:zombie,tag=kitpvp.earth_jupiter,distance=..2] run function kitpvp:skill/earth/jupiter_death
+# 木星：尸体在死亡动画那 20 刻里还留在世界上、Health 已经归零，就在这一刻原地劈雷
+# 不靠"背上的锚点乘客"：armor_stand 当乘客并不可靠，锚点没生成就会一声不吭地失效
+# struck 标记防重复：尸体每刻都会被扫到，不标记会连着劈十几道
+execute as @e[tag=kitpvp.earth_jupiter,nbt={Health:0.0f},tag=!kitpvp.earth_jupiter_struck] at @s run function kitpvp:skill/earth/jupiter_death
 # 交警：矿车只是出场载具，200 刻（10 秒）到点撤掉，人自己落地继续走
 execute as @e[tag=kitpvp.earth_cop_cart,scores={kitpvp.earth_cd_a=..0}] run kill @s
 # 超凡升天：60 刻后开始漂浮，300 刻后离场（tag 区分两个阶段）
