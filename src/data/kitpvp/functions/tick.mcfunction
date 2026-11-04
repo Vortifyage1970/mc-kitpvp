@@ -289,6 +289,9 @@ execute as @e[tag=kitpvp.earth_power_armed] run tag @s remove kitpvp.earth_power
 # 随从：本体（小僵尸）一死，驮着它的悦灵也不该继续飘——2 格内找不到自己的小僵尸就清掉
 execute as @e[type=minecraft:allay,tag=kitpvp.earth_retainer_mount] at @s unless entity @e[type=minecraft:zombie,tag=kitpvp.earth_retainer,distance=..2] run kill @s
 
+# 矿车：蠹虫一死，它背上那条船会掉在地上——2 格内找不到自己的蠹虫就把船清掉
+execute as @e[type=minecraft:boat,tag=kitpvp.earth_minecart_boat] at @s unless entity @e[type=minecraft:silverfish,tag=kitpvp.earth_minecart,distance=..2] run kill @s
+
 # 可疑草丛：落地 2 秒后才算蹲好；敌人贴身（半径 1）或血量掉到 20 以下（被打到）就爆开
 # 贴身判定按玩家逐个查（见 skill/earth/grass_probe）：主人自己踩上去不算，草丛可以顶着主人走
 # popped 是防重入：kill 的移除在下一刻，同一刻几条判定会各调一次 pop，直接变好几只
