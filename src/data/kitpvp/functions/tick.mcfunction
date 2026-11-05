@@ -304,6 +304,8 @@ execute if entity @e[tag=kitpvp.earth_cyclic] run function kitpvp:skill/earth/ri
 execute as @e[tag=kitpvp.earth_oracle,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/oracle_speak
 # 磁铁：每刻吸掉落物、拽靠近的玩家
 execute if entity @e[tag=kitpvp.earth_magnet] run function kitpvp:skill/earth/magnet_pull
+# 隐匿者：每 5 秒放一枚黑色烟花
+execute as @e[tag=kitpvp.earth_hider,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/hider_firework
 
 # 术战士 / 流浪汉的"打中人"结算：不再走 advancement（那套 NBT 条件在这个版本上一直没触发过），
 # 改成抓挨打那一帧（HurtTime 9 = 伤害刚结算完的下一个 tick），再看身边 3 格内有没有对应的召唤物
