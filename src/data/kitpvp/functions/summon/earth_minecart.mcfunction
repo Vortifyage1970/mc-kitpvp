@@ -3,5 +3,9 @@
 # 船挂了三个标签：earth_mount（reset 统一清载具）、earth_minecart_boat（"这只矿车自己的船"，孤儿船判定用）、
 # earth_cart_boat（背上的船专用标记，谁想单独点名这份船就用它）
 # 虚弱 X 让蠹虫的近战彻底归零（每级 -4 点伤害，远超它那 1 点），速度 VI 让它跑得飞快但打不死人
+# ★ 效果用 effect give 发、不写进 NBT 的 ActiveEffects：写在召唤 NBT 里那套在这台机器上不显现（改了三次数值都"没感觉"），
+#   改成和交警一样"召唤之后再 effect give"，生效与否一眼能看见（头顶会有图标）
 # 船是"无法破坏"的：Invulnerable:1b 挡掉玩家/怪物对它的伤害；/kill 与 reset 里的按 tag 清除不受影响
-summon minecraft:silverfish ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_minecart"],CustomName:'{"text":"矿车","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,ActiveEffects:[{Id:1b,Amplifier:5b,Duration:-1,ShowParticles:0b},{Id:18b,Amplifier:9b,Duration:-1,ShowParticles:0b}],Passengers:[{id:"minecraft:boat",Type:"oak",Tags:["kitpvp.earth_mount","kitpvp.earth_minecart_boat","kitpvp.earth_cart_boat"],Invulnerable:1b,CustomName:'{"text":"矿车","color":"gray"}',CustomNameVisible:1b}]}
+summon minecraft:silverfish ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_minecart"],CustomName:'{"text":"矿车","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Passengers:[{id:"minecraft:boat",Type:"oak",Tags:["kitpvp.earth_mount","kitpvp.earth_minecart_boat","kitpvp.earth_cart_boat"],Invulnerable:1b,CustomName:'{"text":"矿车","color":"gray"}',CustomNameVisible:1b}]}
+effect give @e[tag=kitpvp.earth_minecart] minecraft:speed infinite 5 true
+effect give @e[tag=kitpvp.earth_minecart] minecraft:weakness infinite 9 true
