@@ -50,7 +50,9 @@ execute if score @s kitpvp.rng matches 31 run function kitpvp:summon/earth_vagra
 execute if score @s kitpvp.rng matches 32 run function kitpvp:summon/earth_spellblade
 execute if score @s kitpvp.rng matches 33 run function kitpvp:summon/earth_bigbee
 execute if score @s kitpvp.rng matches 34 run function kitpvp:summon/earth_jupiter
-execute if score @s kitpvp.rng matches 35 run function kitpvp:summon/earth_minecart
+# 35 = 矿车：这一号内部再掷一次 1in2，带速度 VI 的与原味各占一半（分配在 earth_minecart_pick 里）
+execute if score @s kitpvp.rng matches 35 run function kitpvp:summon/earth_minecart_pick
 execute if score @s kitpvp.rng matches 36 run function kitpvp:summon/earth_cop_cleaner
 
 # 0..36 已经全满：再加生灵就往下补一行，并把第 5 行的 #pool_size 一起加一
+# 若某个号要拆成两个变体（像矿车这样），保持这一号的行数为 1、把变体分发交给 <name>_pick 之类的子函数
