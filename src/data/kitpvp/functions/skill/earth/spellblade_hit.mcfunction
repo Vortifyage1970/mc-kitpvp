@@ -4,7 +4,10 @@
 scoreboard players add @s kitpvp.earth_hit_hits 1
 title @s actionbar [{"text":"术战士 命中","color":"aqua"}]
 
-# 每挨一刀就在脚下铺一格细雪，10 秒（200 刻）后由 tick 收回；只在脚下是空气时铺，不覆盖地图方块
-# 细雪冻伤在 140 刻（7 秒）开始、之后每 40 刻一下：被埋满 10 秒的人会吃到 1~2 下冰冻伤害
+# 每挨一刀就在脚下铺一格细雪，10 秒（200 刻）后由 tick 收回
+# 只铺"空气"位置：不能写成 #minecraft:air —— 那个方块标签不一定存在，标签不存在时整条命令静默失败
+# （sendCommandFeedback 是关的，连报错都看不见），所以这里把三种空气逐个点名
 scoreboard players set #snow_time kitpvp.game 200
-execute at @s if block ~ ~ ~ #minecraft:air run function kitpvp:skill/earth/snow_place
+execute at @s if block ~ ~ ~ minecraft:air run function kitpvp:skill/earth/snow_place
+execute at @s if block ~ ~ ~ minecraft:cave_air run function kitpvp:skill/earth/snow_place
+execute at @s if block ~ ~ ~ minecraft:void_air run function kitpvp:skill/earth/snow_place
