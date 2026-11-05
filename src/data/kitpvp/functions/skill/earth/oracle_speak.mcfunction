@@ -1,5 +1,5 @@
-# 预言家开口：15 秒一次，在五句里随机挑一句（4 位随机数 % 5，够均匀）
-scoreboard players set @s kitpvp.earth_cd_a 300
+# 预言家开口：10 秒一次，在五句里随机挑一句（4 位随机数 % 5，够均匀）
+scoreboard players set @s kitpvp.earth_cd_a 200
 
 # 说话前先现读一遍所有活着玩家的血量（Health × 100，20.0 血 = 2000）
 execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] store result score @s kitpvp.hp_x10 run data get entity @s Health 100
