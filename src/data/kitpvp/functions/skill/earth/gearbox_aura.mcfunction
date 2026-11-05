@@ -1,13 +1,13 @@
-# @s = 变速器：6 格内没有除召唤者以外的玩家就获得速度 V；有人靠近就改成抗性 II + 缓慢 IV + 急迫 I
+# @s = 变速器：5 格内没有除召唤者以外的玩家就获得速度 V；有人靠近就改成抗性 II + 缓慢 IV + 急迫 I
 # 归属靠 earth_owner 比较（link 里写好的队槽编号）：召唤者有自己的 etid，别人一律算"靠近的敌人"
 # 先归零：魂石召出来的生灵没有 earth_owner 分，operation 会因源分缺失直接失败，不能留上一只的旧值
 scoreboard players set #gb_owner kitpvp.game 0
 scoreboard players operation #gb_owner kitpvp.game = @s kitpvp.earth_owner
 
-# 数一数 6 格内除召唤者外还有几个玩家（观战者和躺在地上的尸体不算）
+# 数一数 5 格内除召唤者外还有几个玩家（观战者和躺在地上的尸体不算）
 # 数完的分数留在 #gb_enemy 上，游戏里可以 /scoreboard players get #gb_enemy kitpvp.game 直接读来排查
 scoreboard players set #gb_enemy kitpvp.game 0
-execute as @a[distance=..6,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #gb_owner kitpvp.game run scoreboard players add #gb_enemy kitpvp.game 1
+execute as @a[distance=..5,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #gb_owner kitpvp.game run scoreboard players add #gb_enemy kitpvp.game 1
 
 # 状态切换的那一下响一声（0 = 空旷极速、1 = 有人变慢）：只在切换瞬间响，不然每 0.5 秒响一次太吵
 execute if score #gb_enemy kitpvp.game matches 0 unless score @s kitpvp.gb_mode matches 0 run playsound minecraft:block.beacon.activate master @a[distance=..16] ~ ~ ~ 0.8 1.6
