@@ -4,7 +4,7 @@
 #   etid 也是 0（game/start_impl.mcfunction:25 每局清零），两个 0 相等 ⇒ 老写法把自己当成"主人"从而永不出手。
 #   所以有主人（1..6）才比 etid，没有主人（..0）就谁都打。
 # 手感：每 20 刻（1 秒）一下、5 点伤害、2 格内（停手距离是 1.5 格，2 格刚好够得着）；by 点名乘客僵尸 ⇒ 有击退、有击杀归属
-# ★ 要进随机池，summon 里的蠹虫还得带 kitpvp.earth_minion 与 kitpvp.earth_minion_new（link 才会赋 earth_owner）
+# ★ 已进随机池（54 号）：summon 里的蠹虫带了 earth_minion / earth_minion_new / earth_mount，link 会赋 earth_owner 并组队
 scoreboard players set #dl_owner kitpvp.game 0
 scoreboard players operation #dl_owner kitpvp.game = @s kitpvp.earth_owner
 scoreboard players set @s kitpvp.earth_cd_a 20
