@@ -1,4 +1,4 @@
-# 隐匿者放烟花：每 3 秒一枚黑色烟花，贴地炸开，炸完留下更短促的黑烟（约 1 秒）（烟雾弹那种）
+# 隐匿者放烟花：每 3 秒一枚黑色烟花，贴地炸开，炸完留下消散更快的黑烟（约 1.6 秒）（烟雾弹那种）
 # 烟不能只放一帧：玩家看得见的"浓"是"很多粒子在同一个地方反复补"——所以用标记 + 每 2 刻补一轮，共 20 轮
 scoreboard players set @s kitpvp.earth_cd_a 60
 
@@ -7,5 +7,5 @@ summon minecraft:firework_rocket ~ ~1 ~ {Tags:["kitpvp.earth_firework"],Silent:1
 
 # 2) 爆点埋标记 + 40 条命：4 刻后开始冒烟，每 2 刻减 1，减完自毁
 summon minecraft:marker ~ ~2 ~ {Tags:["kitpvp.earth_fw_mark"]}
-scoreboard players set @e[tag=kitpvp.earth_fw_mark] kitpvp.earth_fw_life 20
+scoreboard players set @e[tag=kitpvp.earth_fw_mark] kitpvp.earth_fw_life 32
 schedule function kitpvp:skill/earth/hider_smoke 4t replace
