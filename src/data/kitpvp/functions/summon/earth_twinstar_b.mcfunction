@@ -1,3 +1,3 @@
 # 双星 B：10 血、头戴绯红菌核。与 A 对称，只是名字、颜色、菌核和 tag 换成 b
-summon minecraft:zombie ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_twinstar_b"],CustomName:'{"text":"双星B","color":"red"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:10.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:10.0}],ArmorItems:[{},{},{},{id:"minecraft:crimson_fungus",Count:1b}]}
+summon minecraft:zombie ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_twinstar_b"],CustomName:'{"text":"双星B","color":"red"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:10.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:10.0}],ArmorItems:[{},{},{},{id:"minecraft:crimson_hyphae",Count:1b}]}
 summon minecraft:marker ~ ~ ~ {Tags:["kitpvp.earth_twinstar_guard_b"]}
