@@ -297,6 +297,10 @@ execute as @e[tag=kitpvp.earth_dublinn] at @s unless entity @e[type=minecraft:zo
 execute as @e[tag=kitpvp.earth_dublinn] at @s run scoreboard players remove @s kitpvp.earth_cd_a 1
 execute as @e[tag=kitpvp.earth_dublinn,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/dublinn_strike
 function kitpvp:skill/earth/nograv_chase
+
+# 环肽（地球·47，实验）：整圈每刻贴到最近的活玩家周围；#ring_spin=1 时四方位轮换（绕圈），=0 就固定方位跟着走
+execute if entity @e[tag=kitpvp.earth_cyclic] run function kitpvp:skill/earth/ring_follow
+
 # 术战士 / 流浪汉的"打中人"结算：不再走 advancement（那套 NBT 条件在这个版本上一直没触发过），
 # 改成抓挨打那一帧（HurtTime 9 = 伤害刚结算完的下一个 tick），再看身边 3 格内有没有对应的召唤物
 # 误判：被别的僵尸蹭一下、同时 3 格内正好站着一只术战士/流浪汉也会算数（单人自测就用这个特性）
