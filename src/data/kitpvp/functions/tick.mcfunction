@@ -276,10 +276,10 @@ execute as @e[tag=kitpvp.earth_mobilizer_guard] at @s unless entity @e[tag=kitpv
 execute as @e[tag=kitpvp.earth_mobilizer,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/mobilizer_prompt
 # 滑冰者：每秒在脚下铺一格细雪（10 秒后自化），本体是 stray 所以自己不怕冻
 execute as @e[tag=kitpvp.earth_skater,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/skater_ice
-# 追猎者：先把每个玩家的"这一刻速度"算成分（位移 x+z，格/刻 x100），再让跑得够快的人被贴脸
-execute as @a run function kitpvp:skill/earth/stalker_track
-execute as @e[tag=kitpvp.earth_stalker] at @s run scoreboard players remove @s kitpvp.earth_cd_a 1
-execute as @e[tag=kitpvp.earth_stalker,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/stalker_blink
+# 交警：先把每个玩家的"这一刻速度"算成分（位移 x+z，格/刻 x100），再让跑得够快的人被贴脸
+execute as @a run function kitpvp:skill/earth/cop_blink_track
+execute as @e[tag=kitpvp.earth_cop_blink] at @s run scoreboard players remove @s kitpvp.earth_cd_a 1
+execute as @e[tag=kitpvp.earth_cop_blink,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/cop_blink_jaunt
 # 深池飞行兵：蠹虫无敌、僵尸能被杀 —— 僵尸一没，蠹虫跟着自尽（kill 无视 Invulnerable）
 execute as @e[tag=kitpvp.earth_dublinn] at @s unless entity @e[type=minecraft:zombie,tag=kitpvp.earth_dublinn_zombie,distance=..3] run kill @s
 # 无重力召唤物（无重力僵尸、深池飞行兵）：自己不会走，靠 nograv_chase 每刻 tp 拖着追人
