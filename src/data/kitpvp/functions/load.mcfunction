@@ -183,7 +183,16 @@ scoreboard objectives add kitpvp.earth_hp_new dummy "Ollama 这一刻的血量�
 scoreboard objectives add kitpvp.earth_snow dummy "术战士细雪还剩多少刻"
 scoreboard objectives add kitpvp.earth_hit_hits dummy "地球生灵打中人的累计次数（排查触发用）"
 scoreboard objectives add kitpvp.mob_ready dummy "动员家那一轮的准备状态（0 没点 / 1 点了 / 2 已结算）"
+scoreboard objectives add kitpvp.px dummy "追猎者：玩家 x 坐标 x100（这一刻）"
+scoreboard objectives add kitpvp.pz dummy "追猎者：玩家 z 坐标 x100（这一刻）"
+scoreboard objectives add kitpvp.px_old dummy "追猎者：玩家 x 坐标 x100（上一刻）"
+scoreboard objectives add kitpvp.pz_old dummy "追猎者：玩家 z 坐标 x100（上一刻）"
+scoreboard objectives add kitpvp.pdx dummy "追猎者：x 位移绝对值（格/刻 x100）"
+scoreboard objectives add kitpvp.pdz dummy "追猎者：z 位移绝对值（格/刻 x100）"
+scoreboard objectives add kitpvp.pspd dummy "追猎者：玩家速度分（x+z 位移，格/刻 x100）"
 scoreboard objectives add kitpvp.etid dummy "地球召唤物队槽编号"
+# 取绝对值要用 -1 当乘数（scoreboard 没有 abs）
+scoreboard players set #neg kitpvp.game -1
 
 # 预留（暂无消费者，刻意保留）：item = 物品计数
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
