@@ -1,9 +1,11 @@
-# 地球·54 电磁炮（Sparky）：NoAI 的劫掠兽当炮台，10 秒充能、放电一次 14 点魔法伤害（magic 无视护甲）
-# NoAI：不挥爪、不自己追；位移交给 skill/earth/sparky_move 每刻 tp 0.05 格（≈1 格/秒，慢到能走位躲）
-# 充能用独立 objective kitpvp.sparky_charge，不占 earth_cd_a（那个被 tick 全局递减，共用会互相打架）
-# 血量 50：比原版劫掠兽（100）薄一半 —— 15 格射程换来的代价就是"能被几箭点掉"
+# 地球·54 电磁炮（Sparky）：10 秒充能（160 刻 = 8 秒）、放电一次 14 点魔法伤害（magic 无视护甲）
+# 恢复 AI：它会自己追人、也会挥爪（原版劫掠兽 3 点攻击），但挂着缓慢 V ⇒ 移动速度只有 25%
+# 50 血的上一版太薄，这版按原版 100 的三分之二给 66.67 血：能被集火点掉，但不至于一秒没
+# 缓慢 V 是常驻的（infinite）；它靠 AI 自己走，不再用 tp 推（tp 层已退役，见 tick 注释）
 # 劫掠兽不渲染护甲，所以没有 ArmorItems；外观靠金色名字 + 充能时的电弧与升调滴声
-summon minecraft:ravager ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_sparky"],CustomName:'{"text":"电磁炮","color":"gold"}',CustomNameVisible:1b,PersistenceRequired:1b,NoAI:1b,CanPickUpLoot:0b,Health:50.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:50.0},{Name:"minecraft:generic.movement_speed",Base:0.1}]}
+summon minecraft:ravager ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_sparky"],CustomName:'{"text":"电磁炮","color":"gold"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:66.67f,Attributes:[{Name:"minecraft:generic.max_health",Base:66.67}]}
+# 缓慢 V：每级 -15%，V 级只剩 25% 移动速度（劫掠兽基础 0.3 ⇒ 0.075，约玩家走路的 3/4、3 格/秒上下）
+effect give @e[tag=kitpvp.earth_sparky] minecraft:slowness infinite 4 true
 # 初值必须埋：scores={..0} 的选择器在"分数不存在"时压根不匹配，充能与滴声都会一声不吭地失效
 scoreboard players set @e[tag=kitpvp.earth_sparky] kitpvp.sparky_charge 0
 scoreboard players set @e[tag=kitpvp.earth_sparky] kitpvp.sparky_beep 20
