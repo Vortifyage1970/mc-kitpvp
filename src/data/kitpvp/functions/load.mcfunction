@@ -173,7 +173,7 @@ scoreboard objectives add kitpvp.li_pig_last dummy "李朱俊泽召唤快照"
 # 地球（kit 68）：召唤生灵（山羊蛋当载体），召唤物计时器都挂在实体上
 scoreboard objectives add kitpvp.earth_used minecraft.used:minecraft.goat_spawn_egg
 scoreboard players set #oracle_five kitpvp.game 5
-scoreboard objectives add kitpvp.hp_x10 dummy "玩家血量 ×100（预言家报点用）"
+scoreboard objectives add kitpvp.earth_fw_life dummy "隐匿者烟花烟团还能冒几轮"
 scoreboard objectives add kitpvp.earth_last dummy "地球召唤快照"
 scoreboard objectives add kitpvp.earth_cd_a dummy "地球召唤物技能计时"
 scoreboard objectives add kitpvp.earth_lev dummy "地球超凡升天计时"
