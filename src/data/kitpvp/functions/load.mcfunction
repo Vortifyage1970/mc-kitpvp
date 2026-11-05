@@ -189,7 +189,9 @@ scoreboard objectives add kitpvp.px_old dummy "交警（闪现版）：玩家 x 
 scoreboard objectives add kitpvp.pz_old dummy "交警（闪现版）：玩家 z 坐标 x100（上一刻）"
 scoreboard objectives add kitpvp.pdx dummy "交警（闪现版）：x 位移绝对值（格/刻 x100）"
 scoreboard objectives add kitpvp.pdz dummy "交警（闪现版）：z 位移绝对值（格/刻 x100）"
-scoreboard objectives add kitpvp.pspd dummy "交警（闪现版）：玩家速度分（x+z 位移，格/刻 x100）"
+scoreboard objectives add kitpvp.pdx2 dummy "交警（闪现版）：x 位移平方"
+scoreboard objectives add kitpvp.pdz2 dummy "交警（闪现版）：z 位移平方"
+scoreboard objectives add kitpvp.pspd dummy "交警（闪现版）：玩家速度分 = dx²+dz²（平方距离，免开方）"
 scoreboard objectives add kitpvp.etid dummy "地球召唤物队槽编号"
 # 取绝对值要用 -1 当乘数（scoreboard 没有 abs）
 scoreboard players set #neg kitpvp.game -1
