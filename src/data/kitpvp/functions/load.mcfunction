@@ -184,7 +184,7 @@ scoreboard objectives add kitpvp.earth_hp dummy "Ollama 上一次的血量（Hea
 scoreboard objectives add kitpvp.earth_hp_new dummy "Ollama 这一刻的血量（Health x10，比完就回写）"
 scoreboard objectives add kitpvp.earth_snow dummy "术战士细雪还剩多少刻"
 scoreboard objectives add kitpvp.skater_snd dummy "滑冰者滑行音效计时"
-scoreboard objectives add kitpvp.skater_call dummy "滑冰者寒带动静计时（3 次滑行一声）"
+scoreboard objectives add kitpvp.skater_call dummy "滑冰者寒带动静计时（2 次滑行一声）"
 scoreboard players set #skater_four kitpvp.game 4
 scoreboard objectives add kitpvp.gb_mode dummy "变速器当前模式（0 空旷 / 1 有人）"
 scoreboard objectives add kitpvp.earth_hit_hits dummy "地球生灵打中人的累计次数（排查触发用）"

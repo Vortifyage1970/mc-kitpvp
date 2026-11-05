@@ -8,4 +8,4 @@ effect give @e[tag=kitpvp.earth_skater] minecraft:slowness infinite 0 true
 scoreboard players set @e[tag=kitpvp.earth_skater] kitpvp.earth_cd_a 20
 # 滑行音效计时（2 秒一声；分数不存在的话 scores={..0} 选择器不匹配，会一直不响）
 scoreboard players set @e[tag=kitpvp.earth_skater] kitpvp.skater_snd 40
-scoreboard players set @e[tag=kitpvp.earth_skater] kitpvp.skater_call 3
+scoreboard players set @e[tag=kitpvp.earth_skater] kitpvp.skater_call 2
