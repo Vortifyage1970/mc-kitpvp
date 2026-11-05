@@ -1,4 +1,4 @@
-# 地球·47 赢家：出场的那一瞬间，把「游戏结束 / 胜者：Chincken_brothers 赢了！」整套结算播报原样打一遍
+# 地球·48 赢家：出场的那一瞬间，把「游戏结束 / 胜者：Chincken_brothers 赢了！」整套结算播报原样打一遍
 # 文案与音效照抄 game/end.mcfunction 的胜利分支，只把胜者名字写死成 Chincken_brothers（那位玩家赢下的效果）
 # 名字能不能显示取决于名字里有没有特殊字符；这里用 tellraw 的普通文本，不走 selector，所以不依赖玩家在线
 title @a times 10 60 20

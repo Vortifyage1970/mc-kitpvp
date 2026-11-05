@@ -1,4 +1,4 @@
-# 地球·30 绅士：被召唤时把天气调成雨，头戴英国国旗、全身黑色皮革甲、手里拿本书的僵尸
+# 地球·32 绅士：被召唤时把天气调成雨，头戴英国国旗、全身黑色皮革甲、手里拿本书的僵尸
 # 雨只下 10 秒：load 关了 doWeatherCycle（load.mcfunction:6），weather 的时长不会自己走完，
 # 所以除了 weather rain 10 之外，还要排一个 200 刻后的 weather clear 兜底（见 summon/earth_gentleman_rain_end）
 # 同一只雨伞只能排一个任务（schedule ... replace 按函数名去重）：连着召两只，雨会从后一只算满 10 秒
