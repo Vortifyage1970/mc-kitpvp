@@ -6,6 +6,8 @@ scoreboard players set @s kitpvp.earth_cd_a 60
 summon minecraft:firework_rocket ~ ~1 ~ {Tags:["kitpvp.earth_firework"],Silent:1b,Life:0,LifeTime:4,Fireworks:{Flight:1b,Explosions:[{Type:1b,Colors:[I;0],FadeColors:[I;0],Trail:1b,Twinkle:1b},{Type:1b,Colors:[I;0],FadeColors:[I;0],Trail:1b,Twinkle:1b},{Type:1b,Colors:[I;0],FadeColors:[I;0],Trail:1b,Twinkle:1b},{Type:1b,Colors:[I;0],FadeColors:[I;0],Trail:1b,Twinkle:1b},{Type:1b,Colors:[I;0],FadeColors:[I;0],Trail:1b,Twinkle:1b}]}}
 
 # 2) 爆点埋标记 + 40 条命：4 刻后开始冒烟，每 2 刻减 1，减完自毁
+# 低沉的闷响：监守者环境音 pitch 0.5 压到最低频，放烟花时一块响
+playsound minecraft:entity.warden.ambient master @a[distance=..24] ~ ~ ~ 1.0 0.5
 summon minecraft:marker ~ ~2 ~ {Tags:["kitpvp.earth_fw_mark"]}
 scoreboard players set @e[tag=kitpvp.earth_fw_mark] kitpvp.earth_fw_life 32
 schedule function kitpvp:skill/earth/dominion_smoke 4t replace
