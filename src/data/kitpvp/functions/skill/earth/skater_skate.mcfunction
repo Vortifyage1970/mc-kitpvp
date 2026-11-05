@@ -3,3 +3,6 @@
 playsound minecraft:block.powder_snow.step master @a[distance=..16] ~ ~ ~ 0.9 1.25
 playsound minecraft:block.powder_snow.break master @a[distance=..16] ~ ~ ~ 0.7 1.45
 scoreboard players set @s kitpvp.skater_snd 40
+# 数着滑了几次：减到 0 就来一声寒带动物的叫（见 skater_call），然后重置成 3
+scoreboard players remove @s kitpvp.skater_call 1
+execute if score @s kitpvp.skater_call matches ..0 run function kitpvp:skill/earth/skater_call

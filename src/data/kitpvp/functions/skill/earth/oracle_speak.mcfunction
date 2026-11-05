@@ -16,10 +16,18 @@ execute store success score #oracle_bit kitpvp.game if predicate kitpvp:random/1
 execute if score #oracle_bit kitpvp.game matches 1 run scoreboard players add #oracle_rng kitpvp.game 8
 scoreboard players operation #oracle_rng kitpvp.game %= #oracle_five kitpvp.game
 
+# 开口音：一声紫水晶，然后才是那句真话（五句各配一个专属尾音，靠听就能分辨它这次报的是哪句）
+playsound minecraft:block.amethyst_block.chime master @a[distance=..32] ~ ~ ~ 0.9 1.2
+
 execute if score #oracle_rng kitpvp.game matches 0 at @s run function kitpvp:skill/earth/oracle_say_1
 execute if score #oracle_rng kitpvp.game matches 1 at @s run function kitpvp:skill/earth/oracle_say_2
 execute if score #oracle_rng kitpvp.game matches 2 at @s run function kitpvp:skill/earth/oracle_say_3
 execute if score #oracle_rng kitpvp.game matches 3 at @s run function kitpvp:skill/earth/oracle_say_4
 execute if score #oracle_rng kitpvp.game matches 4 at @s run function kitpvp:skill/earth/oracle_say_5
 
-playsound minecraft:block.amethyst_block.chime master @a[distance=..32] ~ ~ ~ 1 0.6
+# 每句的尾音：五句各一个音色
+execute if score #oracle_rng kitpvp.game matches 0 run playsound minecraft:block.note_block.bell master @a[distance=..32] ~ ~ ~ 0.9 1.2
+execute if score #oracle_rng kitpvp.game matches 1 run playsound minecraft:block.note_block.flute master @a[distance=..32] ~ ~ ~ 0.9 1.4
+execute if score #oracle_rng kitpvp.game matches 2 run playsound minecraft:block.note_block.harp master @a[distance=..32] ~ ~ ~ 0.9 1.1
+execute if score #oracle_rng kitpvp.game matches 3 run playsound minecraft:block.note_block.chime master @a[distance=..32] ~ ~ ~ 0.9 1.6
+execute if score #oracle_rng kitpvp.game matches 4 run playsound minecraft:block.note_block.xylophone master @a[distance=..32] ~ ~ ~ 0.9 1.5
