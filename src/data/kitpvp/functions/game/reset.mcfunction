@@ -47,7 +47,8 @@ kill @e[tag=kitpvp.li_pig]
 kill @e[tag=kitpvp.li_bomb]
 
 # 地球的召唤物 / 坐骑 / 炸弹 / 令牌载体：按 tag 清，不碰地图原有的同类生物
-# 木星是"尸体 Health=0 那一帧劈雷"，/kill 是瞬间移除、不留尸体，所以清场不会放雷
+# 木星的守卫必须排在木星前面删：否则木星一消失，守卫就以为它战死、满场劈雷
+kill @e[tag=kitpvp.earth_jupiter_guard]
 kill @e[tag=kitpvp.earth_minion]
 kill @e[tag=kitpvp.earth_mount]
 kill @e[tag=kitpvp.earth_bomb]

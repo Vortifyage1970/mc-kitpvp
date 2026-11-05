@@ -261,15 +261,13 @@ execute as @e[tag=kitpvp.earth_gearbox,scores={kitpvp.earth_cd_a=..0}] at @s run
 # 大蜜蜂：半径 10 格内的所有玩家和生物持续挖掘疲劳 III
 # 每刻直接跑、不再用 scores 节流：分数不存在时那个选择器不匹配，整条会静默失效（踩过一次）
 execute as @e[tag=kitpvp.earth_bigbee] at @s run function kitpvp:skill/earth/bigbee_aura
-# 木星：尸体在死亡动画那 20 刻里还留在世界上、Health 已经归零，就在这一刻原地劈雷
-# 不靠"背上的锚点乘客"：armor_stand 当乘客并不可靠，锚点没生成就会一声不吭地失效
-# 血量先读成分数（×100 保精度），不再用 nbt={Health:0.0f} 直接比浮点：分数判定的行为可预测，
-#   而且能顺手写成 /scoreboard players get <实体> kitpvp.earth_hp 现场核对
-# struck 标记防重复：尸体每刻都会被扫到，不标记会连着劈十几道
-# ★ 只能用刀/箭/伤害指令打死它。/kill 是直接把实体抹掉（discard），没有死亡动画、也没有 Health=0 的那一帧，
-#   所以清场（reset）和被 /kill 的木星都不会劈雷 —— 这是设计，不是 bug
-execute as @e[tag=kitpvp.earth_jupiter] store result score @s kitpvp.earth_hp run data get entity @s Health 100
-execute as @e[tag=kitpvp.earth_jupiter,scores={kitpvp.earth_hp=..0}] at @s unless entity @s[tag=kitpvp.earth_jupiter_struck] run function kitpvp:skill/earth/jupiter_death
+# 木星：本体不驮乘客（armor_stand 当乘客不可靠），改由脚下那枚隐形 marker 守卫跟着它走
+# 顺序不能反：先把守卫拖到木星身上，再判"3 格内还有没有木星" —— 反过来守卫会在被传送时误劈
+execute as @e[tag=kitpvp.earth_jupiter] at @s run tp @e[tag=kitpvp.earth_jupiter_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~
+execute as @e[tag=kitpvp.earth_jupiter_guard] at @s unless entity @e[tag=kitpvp.earth_jupiter,distance=..3] run function kitpvp:skill/earth/jupiter_death
+# ★ 不用"读尸体 Health=0 那一帧"：实测被 /damage 打死的木星在第 1 刻就整个不见了，那一帧抓不到
+# ★ /kill 也照样炸（守卫只看木星在不在，不看怎么死的）；只有 game/reset 例外，它先删守卫再删木星
+# ★ 已知瑕疵：两只木星靠得极近（5 格内）时会共用一枚守卫，靠得远的那只死时不劈
 # 术战士 / 流浪汉的"打中人"结算：不再走 advancement（那套 NBT 条件在这个版本上一直没触发过），
 # 改成抓挨打那一帧（HurtTime 9 = 伤害刚结算完的下一个 tick），再看身边 3 格内有没有对应的召唤物
 # 误判：被别的僵尸蹭一下、同时 3 格内正好站着一只术战士/流浪汉也会算数（单人自测就用这个特性）
