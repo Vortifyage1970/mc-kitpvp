@@ -1,5 +1,5 @@
-# 烟雾弹：每 2 刻在标记处补一轮黑烟，共 16 轮（32 条命 / 每轮减 1 ≈ 1.6 秒）
-# 掉帧是"同时在场的粒子总数"决定的：这一版 60 粒/轮 × 16 轮 = 960 粒（上一版 98×40 = 3920，砍到 1/4）
+# 烟雾弹：每 2 刻在标记处补一轮黑烟，共 10 轮（20 条命 / 每轮减 1 ≈ 1 秒）
+# 掉帧是"同时在场的粒子总数"决定的：这一版 60 粒/轮 × 10 轮 = 600 粒（上一版 98×40 = 3920，砍到 1/4）
 # 散得快 = 速度参数调大（粒子尽快飞走消失），停留时间靠 earth_fw_life 控制
 execute as @e[tag=kitpvp.earth_fw_mark] at @s run particle minecraft:large_smoke ~ ~ ~ 2.4 1.2 2.4 0.05 24 normal
 execute as @e[tag=kitpvp.earth_fw_mark] at @s run particle minecraft:squid_ink ~ ~ ~ 2.6 1.4 2.6 0.045 16 normal
