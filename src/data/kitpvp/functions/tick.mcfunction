@@ -161,6 +161,8 @@ execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=30,kitpvp
 # 冷度：先重建"正在冷气里"的标记，再按标记分流——圈内每刻 +1、圈外每刻 -1
 tag @a remove kitpvp.venus_chilled
 execute as @e[tag=kitpvp.venus_chill] at @s run function kitpvp:skill/venus/chill_mark
+# 地球·53 金星（狐狸）：常驻冷气，复用下面 coldness 那套（+1/-1/封顶/上药）
+execute as @e[tag=kitpvp.earth_venus] at @s run function kitpvp:skill/earth/venus_chill_mark
 execute as @a[tag=kitpvp.venus_chilled] run scoreboard players add @s kitpvp.coldness 1
 execute as @a[tag=!kitpvp.venus_chilled,scores={kitpvp.coldness=1..}] run scoreboard players remove @s kitpvp.coldness 1
 execute as @a[scores={kitpvp.coldness=101..}] run scoreboard players set @s kitpvp.coldness 100
