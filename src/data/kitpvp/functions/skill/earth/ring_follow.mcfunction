@@ -1,12 +1,43 @@
-# 每刻把整圈重新摆到"最近的活玩家"周围（圈随人走）；@s 本身不需要是玩家
-# 旋转：#ring_spin=1 时先推进 #ring_rot（0..7 循环），再按状态分派到 ring_pos_0..7
+# 环肽驱动：每刻把 16 只重新摆到"圈心玩家"周围
+# 圈心优先认召唤者：link 给环上每只写了 earth_owner，玩家身上的 kitpvp.etid 与之相等者就是召唤者
+# 召唤者不在了（死了/退游戏/手动召唤没有归属分）就退化成"离圈最近的活玩家"
+scoreboard players set #ring_owner kitpvp.game 0
+execute as @e[tag=kitpvp.earth_cyclic,limit=1] run scoreboard players operation #ring_owner kitpvp.game = @s kitpvp.earth_owner
+scoreboard players set #ring_has_center kitpvp.game 0
+execute if score #ring_owner kitpvp.game matches 1.. as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game run scoreboard players set #ring_has_center kitpvp.game 1
+
 execute if score #ring_spin kitpvp.game matches 1 run scoreboard players add #ring_rot kitpvp.game 1
-execute if score #ring_rot kitpvp.game matches 8.. run scoreboard players set #ring_rot kitpvp.game 0
-execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},distance=..48,sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 0 run function kitpvp:skill/earth/ring_pos_0
-execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},distance=..48,sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 1 run function kitpvp:skill/earth/ring_pos_1
-execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},distance=..48,sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 2 run function kitpvp:skill/earth/ring_pos_2
-execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},distance=..48,sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 3 run function kitpvp:skill/earth/ring_pos_3
-execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},distance=..48,sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 4 run function kitpvp:skill/earth/ring_pos_4
-execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},distance=..48,sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 5 run function kitpvp:skill/earth/ring_pos_5
-execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},distance=..48,sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 6 run function kitpvp:skill/earth/ring_pos_6
-execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},distance=..48,sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 7 run function kitpvp:skill/earth/ring_pos_7
+execute if score #ring_rot kitpvp.game matches 16.. run scoreboard players set #ring_rot kitpvp.game 0
+
+execute if score #ring_has_center kitpvp.game matches 1 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game if score #ring_rot kitpvp.game matches 0 run function kitpvp:skill/earth/ring_pos_0
+execute if score #ring_has_center kitpvp.game matches 1 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game if score #ring_rot kitpvp.game matches 1 run function kitpvp:skill/earth/ring_pos_1
+execute if score #ring_has_center kitpvp.game matches 1 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game if score #ring_rot kitpvp.game matches 2 run function kitpvp:skill/earth/ring_pos_2
+execute if score #ring_has_center kitpvp.game matches 1 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game if score #ring_rot kitpvp.game matches 3 run function kitpvp:skill/earth/ring_pos_3
+execute if score #ring_has_center kitpvp.game matches 1 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game if score #ring_rot kitpvp.game matches 4 run function kitpvp:skill/earth/ring_pos_4
+execute if score #ring_has_center kitpvp.game matches 1 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game if score #ring_rot kitpvp.game matches 5 run function kitpvp:skill/earth/ring_pos_5
+execute if score #ring_has_center kitpvp.game matches 1 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game if score #ring_rot kitpvp.game matches 6 run function kitpvp:skill/earth/ring_pos_6
+execute if score #ring_has_center kitpvp.game matches 1 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game if score #ring_rot kitpvp.game matches 7 run function kitpvp:skill/earth/ring_pos_7
+execute if score #ring_has_center kitpvp.game matches 1 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game if score #ring_rot kitpvp.game matches 8 run function kitpvp:skill/earth/ring_pos_8
+execute if score #ring_has_center kitpvp.game matches 1 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game if score #ring_rot kitpvp.game matches 9 run function kitpvp:skill/earth/ring_pos_9
+execute if score #ring_has_center kitpvp.game matches 1 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game if score #ring_rot kitpvp.game matches 10 run function kitpvp:skill/earth/ring_pos_10
+execute if score #ring_has_center kitpvp.game matches 1 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game if score #ring_rot kitpvp.game matches 11 run function kitpvp:skill/earth/ring_pos_11
+execute if score #ring_has_center kitpvp.game matches 1 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game if score #ring_rot kitpvp.game matches 12 run function kitpvp:skill/earth/ring_pos_12
+execute if score #ring_has_center kitpvp.game matches 1 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game if score #ring_rot kitpvp.game matches 13 run function kitpvp:skill/earth/ring_pos_13
+execute if score #ring_has_center kitpvp.game matches 1 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game if score #ring_rot kitpvp.game matches 14 run function kitpvp:skill/earth/ring_pos_14
+execute if score #ring_has_center kitpvp.game matches 1 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game if score #ring_rot kitpvp.game matches 15 run function kitpvp:skill/earth/ring_pos_15
+execute if score #ring_has_center kitpvp.game matches 0 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 0 run function kitpvp:skill/earth/ring_pos_0
+execute if score #ring_has_center kitpvp.game matches 0 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 1 run function kitpvp:skill/earth/ring_pos_1
+execute if score #ring_has_center kitpvp.game matches 0 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 2 run function kitpvp:skill/earth/ring_pos_2
+execute if score #ring_has_center kitpvp.game matches 0 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 3 run function kitpvp:skill/earth/ring_pos_3
+execute if score #ring_has_center kitpvp.game matches 0 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 4 run function kitpvp:skill/earth/ring_pos_4
+execute if score #ring_has_center kitpvp.game matches 0 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 5 run function kitpvp:skill/earth/ring_pos_5
+execute if score #ring_has_center kitpvp.game matches 0 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 6 run function kitpvp:skill/earth/ring_pos_6
+execute if score #ring_has_center kitpvp.game matches 0 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 7 run function kitpvp:skill/earth/ring_pos_7
+execute if score #ring_has_center kitpvp.game matches 0 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 8 run function kitpvp:skill/earth/ring_pos_8
+execute if score #ring_has_center kitpvp.game matches 0 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 9 run function kitpvp:skill/earth/ring_pos_9
+execute if score #ring_has_center kitpvp.game matches 0 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 10 run function kitpvp:skill/earth/ring_pos_10
+execute if score #ring_has_center kitpvp.game matches 0 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 11 run function kitpvp:skill/earth/ring_pos_11
+execute if score #ring_has_center kitpvp.game matches 0 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 12 run function kitpvp:skill/earth/ring_pos_12
+execute if score #ring_has_center kitpvp.game matches 0 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 13 run function kitpvp:skill/earth/ring_pos_13
+execute if score #ring_has_center kitpvp.game matches 0 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 14 run function kitpvp:skill/earth/ring_pos_14
+execute if score #ring_has_center kitpvp.game matches 0 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest,limit=1] at @s if score #ring_rot kitpvp.game matches 15 run function kitpvp:skill/earth/ring_pos_15
