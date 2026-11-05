@@ -65,7 +65,7 @@ execute if score @s kitpvp.rng matches 45 run function kitpvp:summon/earth_polyp
 execute if score @s kitpvp.rng matches 46 run function kitpvp:summon/earth_winner
 execute if score @s kitpvp.rng matches 47 run function kitpvp:summon/earth_oracle
 execute if score @s kitpvp.rng matches 48 run function kitpvp:summon/earth_magnet
-execute if score @s kitpvp.rng matches 49 run function kitpvp:summon/earth_hider
+execute if score @s kitpvp.rng matches 49 run function kitpvp:summon/earth_dominion
 
 # 0..49 已经全满：再加生灵就往下补一行，并把第 5 行的 #pool_size 一起加一
 # 若某个号要拆成两个变体（像矿车这样），保持这一号的行数为 1、把变体分发交给 <name>_pick 之类的子函数

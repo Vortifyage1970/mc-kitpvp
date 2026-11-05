@@ -8,4 +8,4 @@ execute as @e[tag=kitpvp.earth_fw_mark] at @s run particle minecraft:smoke ~ ~ ~
 scoreboard players remove @e[tag=kitpvp.earth_fw_mark] kitpvp.earth_fw_life 1
 execute as @e[tag=kitpvp.earth_fw_mark,scores={kitpvp.earth_fw_life=..0}] run kill @s
 # 只要场上还有标记就继续循环；标记都清掉了就自然停下（不会空转）
-execute if entity @e[tag=kitpvp.earth_fw_mark] run schedule function kitpvp:skill/earth/hider_smoke 2t replace
+execute if entity @e[tag=kitpvp.earth_fw_mark] run schedule function kitpvp:skill/earth/dominion_smoke 2t replace
