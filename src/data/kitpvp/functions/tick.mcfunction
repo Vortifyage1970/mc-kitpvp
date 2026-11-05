@@ -263,8 +263,13 @@ execute as @e[tag=kitpvp.earth_gearbox,scores={kitpvp.earth_cd_a=..0}] at @s run
 execute as @e[tag=kitpvp.earth_bigbee] at @s run function kitpvp:skill/earth/bigbee_aura
 # 木星：尸体在死亡动画那 20 刻里还留在世界上、Health 已经归零，就在这一刻原地劈雷
 # 不靠"背上的锚点乘客"：armor_stand 当乘客并不可靠，锚点没生成就会一声不吭地失效
+# 血量先读成分数（×100 保精度），不再用 nbt={Health:0.0f} 直接比浮点：分数判定的行为可预测，
+#   而且能顺手写成 /scoreboard players get <实体> kitpvp.earth_hp 现场核对
 # struck 标记防重复：尸体每刻都会被扫到，不标记会连着劈十几道
-execute as @e[tag=kitpvp.earth_jupiter,nbt={Health:0.0f},tag=!kitpvp.earth_jupiter_struck] at @s run function kitpvp:skill/earth/jupiter_death
+# ★ 只能用刀/箭/伤害指令打死它。/kill 是直接把实体抹掉（discard），没有死亡动画、也没有 Health=0 的那一帧，
+#   所以清场（reset）和被 /kill 的木星都不会劈雷 —— 这是设计，不是 bug
+execute as @e[tag=kitpvp.earth_jupiter] store result score @s kitpvp.earth_hp run data get entity @s Health 100
+execute as @e[tag=kitpvp.earth_jupiter,scores={kitpvp.earth_hp=..0}] at @s unless entity @s[tag=kitpvp.earth_jupiter_struck] run function kitpvp:skill/earth/jupiter_death
 # 术战士 / 流浪汉的"打中人"结算：不再走 advancement（那套 NBT 条件在这个版本上一直没触发过），
 # 改成抓挨打那一帧（HurtTime 9 = 伤害刚结算完的下一个 tick），再看身边 3 格内有没有对应的召唤物
 # 误判：被别的僵尸蹭一下、同时 3 格内正好站着一只术战士/流浪汉也会算数（单人自测就用这个特性）
