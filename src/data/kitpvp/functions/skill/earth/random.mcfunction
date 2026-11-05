@@ -2,7 +2,7 @@
 # ⚠ 取模用的是实现数（40），不是 2 的幂：空号会让某些编号永远掷不中，所以这个数必须等于"已实现的行数"。
 #   新增生灵时把数加一并启用对应那行即可（现在 0..38 都满了，再加就要同时加行 + 加数）。
 # 只负责"掷 + 召"：归属（link）、补货冷却、播报由调用方决定（地球职业在 summon，魂石在 soul/earth_step）
-scoreboard players set #pool_size kitpvp.game 42
+scoreboard players set #pool_size kitpvp.game 43
 
 scoreboard players set @s kitpvp.rng 0
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 1
@@ -58,6 +58,7 @@ execute if score @s kitpvp.rng matches 38 run function kitpvp:summon/earth_skate
 execute if score @s kitpvp.rng matches 39 run function kitpvp:summon/earth_cop_blink
 execute if score @s kitpvp.rng matches 40 run function kitpvp:summon/earth_threshold
 execute if score @s kitpvp.rng matches 41 run function kitpvp:summon/earth_twinstar
+execute if score @s kitpvp.rng matches 42 run function kitpvp:summon/earth_coser
 
-# 0..41 已经全满：再加生灵就往下补一行，并把第 5 行的 #pool_size 一起加一
+# 0..42 已经全满：再加生灵就往下补一行，并把第 5 行的 #pool_size 一起加一
 # 若某个号要拆成两个变体（像矿车这样），保持这一号的行数为 1、把变体分发交给 <name>_pick 之类的子函数
