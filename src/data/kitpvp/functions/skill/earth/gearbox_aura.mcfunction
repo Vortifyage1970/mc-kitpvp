@@ -1,4 +1,4 @@
-# @s = 变速器：6 格内没有除召唤者以外的玩家就获得速度 V；有人靠近就改成抗性 II + 缓慢 III + 急迫 I
+# @s = 变速器：6 格内没有除召唤者以外的玩家就获得速度 V；有人靠近就改成抗性 II + 缓慢 IV + 急迫 I
 # 归属靠 earth_owner 比较（link 里写好的队槽编号）：召唤者有自己的 etid，别人一律算"靠近的敌人"
 # 先归零：魂石召出来的生灵没有 earth_owner 分，operation 会因源分缺失直接失败，不能留上一只的旧值
 scoreboard players set #gb_owner kitpvp.game 0
@@ -20,11 +20,11 @@ execute if score #gb_enemy kitpvp.game matches 0 run effect clear @s minecraft:r
 execute if score #gb_enemy kitpvp.game matches 0 run effect clear @s minecraft:slowness
 execute if score #gb_enemy kitpvp.game matches 0 run effect clear @s minecraft:haste
 
-# 有人：变肉变慢 + 急迫 I，并撤掉速度，否则靠速度 V 抵消缓慢 III 根本慢不下来
+# 有人：变肉变慢 + 急迫 I，并撤掉速度，否则靠速度 V 抵消缓慢 IV 根本慢不下来
 # 急迫只在"身边有玩家"时给（人的设计口径）：落单时只有速度
 # 召唤者自己走近不触发这一段（有人数已经把召唤者排除了），要试效果得让第二个玩家靠近
 execute if score #gb_enemy kitpvp.game matches 1.. run effect give @s minecraft:resistance 1 1 true
-execute if score #gb_enemy kitpvp.game matches 1.. run effect give @s minecraft:slowness 1 2 true
+execute if score #gb_enemy kitpvp.game matches 1.. run effect give @s minecraft:slowness 1 3 true
 execute if score #gb_enemy kitpvp.game matches 1.. run effect give @s minecraft:haste 1 0 true
 execute if score #gb_enemy kitpvp.game matches 1.. run effect clear @s minecraft:speed
 
