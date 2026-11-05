@@ -1,5 +1,7 @@
-# 泥土骑士（试验品，还没进随机池；移动由 skill/earth/nograv_chase 每刻 tp 拖着走）：无重力 + 打不死的蠹虫，背上一只头顶泥土块（普通泥土）的僵尸
-# 打不死的实现是 Invulnerable:1b（免疫一切伤害，但 /kill 与 reset 的按 tag 清场照样有效）
-# 唯一的下场：僵尸死 → tick 里那条「背上找不到僵尸」把蠹虫也 kill 掉（见 tick.mcfunction 地球段）
-# 反过来说，玩家想弄死这只蠹虫，只能先打死它背上那只僵尸
-summon minecraft:silverfish ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_dirtknight"],CustomName:'{"text":"泥土骑士","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Silent:1b,NoGravity:1b,Invulnerable:1b,Passengers:[{id:"minecraft:zombie",Tags:["kitpvp.earth_dirt_zombie"],CustomName:'{"text":"泥土头僵尸","color":"gold"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Silent:1b,ArmorItems:[{},{},{},{id:"minecraft:dirt",Count:1b}]}]}
+# 深池（Dublinn）飞行兵（试验品，还没进随机池）—— 由原来的"泥土骑士"改名改配色而来
+# 上下位：蠹虫是外层（NoGravity + Invulnerable 的载具），僵尸在 Passengers 里当乘客；移动由 skill/earth/nograv_chase 每刻 tp 拖着走
+# 僵尸死了蠹虫也死：tick 里每刻检查 distance=..3 内还有没有 earth_dirt_zombie，没有就 kill 载具（kill 无视 Invulnerable）
+# 配色：胸甲纯黑(0) / 护腿深红(0x8B0000) / 靴子灰(0x808080)；头盔槽被紫色旗帜占住，所以那件"淡灰色皮革甲"没地方戴
+# 全套保护 I：给四件皮革都挂 Enchantments，旗帜不是护甲，挂了也不生效
+summon minecraft:silverfish ~ ~ ~ {Tags:["kitpvp.earth_dirtknight"],CustomName:'{"text":"深池飞行兵","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,NoGravity:1b,Invulnerable:1b,Passengers:[{id:"minecraft:zombie",Tags:["kitpvp.earth_dirt_zombie"],CustomName:'{"text":"深池（Dublinn）飞行兵","color":"dark_purple"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,HandItems:[{},{}],ArmorItems:[{id:"minecraft:leather_boots",Count:1b,tag:{display:{color:8421504},Enchantments:[{id:"minecraft:protection",lvl:1}]}},{id:"minecraft:leather_leggings",Count:1b,tag:{display:{color:9109504},Enchantments:[{id:"minecraft:protection",lvl:1}]}},{id:"minecraft:leather_chestplate",Count:1b,tag:{display:{color:0},Enchantments:[{id:"minecraft:protection",lvl:1}]}},{id:"minecraft:purple_banner",Count:1b,tag:{Enchantments:[{id:"minecraft:protection",lvl:1}]}}]}]}
+effect give @e[tag=kitpvp.earth_dirt_zombie] minecraft:resistance infinite 1 true
