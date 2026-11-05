@@ -185,7 +185,7 @@ scoreboard objectives add kitpvp.earth_hp_new dummy "Ollama 这一刻的血量�
 scoreboard objectives add kitpvp.earth_snow dummy "术战士细雪还剩多少刻"
 scoreboard objectives add kitpvp.skater_snd dummy "滑冰者滑行音效计时"
 scoreboard objectives add kitpvp.bee_slow_snd dummy "被大蜜蜂减速的提示音冷却（刻）"
-scoreboard objectives add kitpvp.sparky_charge dummy "电磁炮充能（0..100，满 100 放电）"
+scoreboard objectives add kitpvp.sparky_charge dummy "电磁炮充能（0..300，满 300 放电 = 15 秒）"
 scoreboard objectives add kitpvp.skater_call dummy "滑冰者寒带动静计时（2 次滑行一声）"
 scoreboard players set #skater_four kitpvp.game 4
 scoreboard objectives add kitpvp.gb_mode dummy "变速器当前模式（0 空旷 / 1 有人）"

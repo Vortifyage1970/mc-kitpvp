@@ -1,4 +1,4 @@
-# 地球·54 电磁炮（Sparky）：NoAI 的劫掠兽当炮台，5 秒充能、放电一次 14 点魔法伤害（magic 无视护甲）
+# 地球·54 电磁炮（Sparky）：NoAI 的劫掠兽当炮台，15 秒充能、放电一次 14 点魔法伤害（magic 无视护甲）
 # NoAI：不挥爪、不自己追；位移交给 skill/earth/sparky_move 每刻 tp 0.05 格（≈1 格/秒，慢到能走位躲）
 # 充能用独立 objective kitpvp.sparky_charge，不占 earth_cd_a（那个被 tick 全局递减，共用会互相打架）
 # 劫掠兽不渲染护甲，所以没有 ArmorItems；外观靠名字金色 + 充能时的电弧粒子
