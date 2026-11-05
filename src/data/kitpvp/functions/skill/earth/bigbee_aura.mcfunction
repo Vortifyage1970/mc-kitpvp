@@ -11,9 +11,9 @@
 # 缓慢每级 -15%，没有"正好 50%"的整数级：III = 55%、IV = 40%，这里取更接近的 III
 execute as @a[distance=..20,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] run effect give @s minecraft:mining_fatigue 1 4 true
 execute as @a[distance=..20,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] run effect give @s minecraft:slowness 1 2 true
-# 被减速的人听一声"增益掉了"的下行和弦（beacon.deactivate）：不用看屏幕也知道自己慢了
+# 被减速的人听一声"机械掉线"的下滑音（conduit.deactivate）：不用看屏幕也知道自己慢了
 # 2 秒最多响一次；bee_slow_snd 的递减放在 tick 里统一做（多只蜜蜂各减一遍会把间隔压短）
-execute as @a[distance=..20,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s unless score @s kitpvp.bee_slow_snd matches 1.. run playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 0.8 0.85
+execute as @a[distance=..20,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s unless score @s kitpvp.bee_slow_snd matches 1.. run playsound minecraft:block.conduit.deactivate master @s ~ ~ ~ 0.8 0.9
 execute as @a[distance=..20,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.bee_slow_snd matches 1.. run scoreboard players set @s kitpvp.bee_slow_snd 40
 execute as @e[type=!minecraft:player,distance=..20,nbt=!{Health:0.0f}] run effect give @s minecraft:mining_fatigue 1 4 true
 execute as @e[type=!minecraft:player,distance=..20,nbt=!{Health:0.0f}] run effect give @s minecraft:slowness 1 2 true
