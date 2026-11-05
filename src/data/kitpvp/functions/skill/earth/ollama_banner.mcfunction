@@ -1,8 +1,40 @@
-# Ollama 挨打时的"命令行开场"：从三张标点图里随机挑一张打给全体看
-# 概率 1/2 围观体、1/4 新东方神兽、1/4 史诗之宠（每行的 if/unless 都是独立掷一次）
-# 掷骰子用仓库现成的 kitpvp:random/1in2（predicates/random/1in2.json，chance 0.5），别写成 kitpvp:1in2
-# 三张图在 ollama_banner_1/2/3，各自 16~19 行 tellraw，改图只改那三个文件
-# 想加第四张：新建 ollama_banner_4，把第三行拆成"再掷一次"，或者改成等概率的计数器写法
-execute if predicate kitpvp:random/1in2 run function kitpvp:skill/earth/ollama_banner_1
-execute unless predicate kitpvp:random/1in2 if predicate kitpvp:random/1in2 run function kitpvp:skill/earth/ollama_banner_2
-execute unless predicate kitpvp:random/1in2 unless predicate kitpvp:random/1in2 run function kitpvp:skill/earth/ollama_banner_3
+# Ollama 挨打时的输出：那套"・ェ・"羊驼脸大全，一行一条 tellraw
+# 37 行 = 一屏放不下（聊天框高度默认 10 行），嫌吵就把 ollama_cry 里的节流调大，或者只留其中几行
+# 颜色：版本名 gold、脸 gray、最后一行 ollama run 金色
+tellraw @a [{"text":"普通版","color":"gold"}]
+tellraw @a [{"text":"（　・ェ・）（・ェ・　）","color":"gray"}]
+tellraw @a [{"text":"煞氣a囧囧有神版!","color":"gold"}]
+tellraw @a [{"text":"(・´ｪ`・)","color":"gray"}]
+tellraw @a [{"text":"認真模式版","color":"gold"}]
+tellraw @a [{"text":"(・`ｪ´・)","color":"gray"}]
+tellraw @a [{"text":"XD版","color":"gold"}]
+tellraw @a [{"text":"(>´ｪ`<) (>`ｪ´<)","color":"gray"}]
+tellraw @a [{"text":"抸眼版","color":"gold"}]
+tellraw @a [{"text":"(>´ｪ`o) (o`ｪ´<)","color":"gray"}]
+tellraw @a [{"text":"兩眼無神版?","color":"gold"}]
+tellraw @a [{"text":"(o´ｪ`o) (o`ｪ´o)","color":"gray"}]
+tellraw @a [{"text":"兩眼瞪大版","color":"gold"}]
+tellraw @a [{"text":"(O´ｪ`O) (O`ｪ´O)","color":"gray"}]
+tellraw @a [{"text":"瞳孔放大版","color":"gold"}]
+tellraw @a [{"text":"(0´ｪ`0) (0`ｪ´0)","color":"gray"}]
+tellraw @a [{"text":"眼花版","color":"gold"}]
+tellraw @a [{"text":"(@´ｪ`@) (@`ｪ´@)","color":"gray"}]
+tellraw @a [{"text":"我很火大版","color":"gold"}]
+tellraw @a [{"text":"(ˋ´ｪ`ˊ) (ˋ`ｪ´ˊ)","color":"gray"}]
+tellraw @a [{"text":"我很鬱卒版","color":"gold"}]
+tellraw @a [{"text":"(ˊ´ｪ`ˋ) (ˊ`ｪ´ˋ)","color":"gray"}]
+tellraw @a [{"text":"哭哭版","color":"gold"}]
+tellraw @a [{"text":"(T´ｪ`T) (T`ｪ´T)","color":"gray"}]
+tellraw @a [{"text":"(Q´ｪ`Q) (Q`ｪ´Q)","color":"gray"}]
+tellraw @a [{"text":"= =版","color":"gold"}]
+tellraw @a [{"text":"(=´ｪ`=) (=`ｪ´=)","color":"gray"}]
+tellraw @a [{"text":"- -版","color":"gold"}]
+tellraw @a [{"text":"(-´ｪ`-) (-`ｪ´-)","color":"gray"}]
+tellraw @a [{"text":"(一´ｪ`一) (一`ｪ´一)","color":"gray"}]
+tellraw @a [{"text":"~ ~版","color":"gold"}]
+tellraw @a [{"text":"(~´ｪ`~) (~`ｪ´~)","color":"gray"}]
+tellraw @a [{"text":"愛睏版","color":"gold"}]
+tellraw @a [{"text":"(z´ｪ`z) (z`ｪ´z)","color":"gray"}]
+tellraw @a [{"text":"見錢眼開版","color":"gold"}]
+tellraw @a [{"text":"($´ｪ`$) ($`ｪ´$)","color":"gray"}]
+tellraw @a [{"text":"ollama run","color":"gold","bold":true}]
