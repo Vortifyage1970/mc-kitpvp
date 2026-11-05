@@ -4,3 +4,5 @@
 summon minecraft:zombie ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_mobilizer"],CustomName:'{"text":"动员家","color":"light_purple"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,HandItems:[{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{Enchantments:[{id:"minecraft:unbreaking",lvl:1}]}},{}],ArmorItems:[{},{},{},{id:"minecraft:magenta_glazed_terracotta",Count:1b}]}
 scoreboard players set @e[tag=kitpvp.earth_mobilizer] kitpvp.earth_cd_a 300
 summon minecraft:marker ~ ~ ~ {Tags:["kitpvp.earth_mobilizer_guard"]}
+# 出场：一声召集号，隔着半张图都听得见
+playsound minecraft:event.raid.horn master @a[distance=..48] ~ ~ ~ 1.0 0.9

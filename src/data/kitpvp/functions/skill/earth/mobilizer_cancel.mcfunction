@@ -2,3 +2,5 @@
 # 取消 = 这一轮不结算：不挨伤害、也不夸；只在 mob_ready=0（还没点过、也没结算过）时响应
 execute if score @s kitpvp.mob_ready matches 0 run tellraw @s [{"text":"动员家在你耳边悄悄说 ","color":"gray","italic":true},{"text":"你取消了准备。","color":"yellow","italic":true}]
 execute if score @s kitpvp.mob_ready matches 0 run scoreboard players set @s kitpvp.mob_ready 1
+# 取消成功：一声软木琴，比"你真棒"低一档
+execute if score @s kitpvp.mob_ready matches 0 run playsound minecraft:block.note_block.chime master @s ~ ~ ~ 0.8 0.9
