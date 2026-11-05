@@ -7,3 +7,8 @@ execute if entity @p[distance=1.5..6,sort=nearest] run tp @s ~ ~ ~ facing entity
 execute if entity @p[distance=1.5..6,sort=nearest] if block ^ ^ ^0.6 minecraft:air run tp @s ^ ^ ^0.12
 execute if entity @p[distance=1.5..6,sort=nearest] if block ^ ^ ^0.6 minecraft:cave_air run tp @s ^ ^ ^0.12
 execute if entity @p[distance=1.5..6,sort=nearest] if block ^ ^ ^0.6 minecraft:void_air run tp @s ^ ^ ^0.12
+
+# ★ 保底：万一还是落进方块里（低天花板、楼梯缝、玩家贴墙），把整只往上顶出去，别让乘客吃窒息伤害
+# 两遍是因为单次只抬 1.2 格，卡在两格深的夹缝里需要两次
+execute unless block ~ ~ ~ minecraft:air unless block ~ ~ ~ minecraft:cave_air unless block ~ ~ ~ minecraft:void_air run tp @s ~ ~1.2 ~
+execute unless block ~ ~ ~ minecraft:air unless block ~ ~ ~ minecraft:cave_air unless block ~ ~ ~ minecraft:void_air run tp @s ~ ~1.2 ~
