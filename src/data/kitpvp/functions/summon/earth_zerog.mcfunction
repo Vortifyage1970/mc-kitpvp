@@ -1,4 +1,4 @@
-# 地球·40 无重力僵尸（临时试验品，测完可以直接删）
+# 地球·40 无重力僵尸：NoGravity 让它悬空，自己不会走，追击由 skill/earth/zerog_chase 用 tp 硬拖
 # 删除方法：删掉本文件 + random.mcfunction 里 matches 39 那一行，再把 #pool_size 从 40 改回 39
 # NoGravity:1b 只关重力：它照样追人、砍人，只是会飘在原高度上，走出悬崖也不掉下去
 # Silent:1b 免得僵尸的呻吟一路响；PersistenceRequired:1b 不会因为跑远被清掉
