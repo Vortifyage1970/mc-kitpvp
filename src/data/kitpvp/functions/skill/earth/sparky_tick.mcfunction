@@ -24,3 +24,6 @@ execute if score @s kitpvp.sparky_charge matches 90..99 at @s run playsound mine
 # 充满：放电（按有没有主人分两支）
 execute if score @s kitpvp.sparky_charge matches 100 if score #spk_owner kitpvp.game matches ..0 at @s run function kitpvp:skill/earth/sparky_fire_any
 execute if score @s kitpvp.sparky_charge matches 100 if score #spk_owner kitpvp.game matches 1.. at @s run function kitpvp:skill/earth/sparky_fire_owned
+
+# 开火之后滚向目标（4~12 格才动，0.05 格/刻）
+execute if score #spk_on kitpvp.game matches 1 at @s run function kitpvp:skill/earth/sparky_move
