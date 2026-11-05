@@ -261,6 +261,8 @@ execute as @e[tag=kitpvp.earth_gearbox,scores={kitpvp.earth_cd_a=..0}] at @s run
 # 大蜜蜂：半径 10 格内的所有玩家和生物持续挖掘疲劳 III
 # 每刻直接跑、不再用 scores 节流：分数不存在时那个选择器不匹配，整条会静默失效（踩过一次）
 execute as @e[tag=kitpvp.earth_bigbee] at @s run function kitpvp:skill/earth/bigbee_aura
+# 大蜜蜂减速提示音的冷却：统一在 tick 减一次，避免多只蜜蜂各减一遍
+execute as @a[scores={kitpvp.bee_slow_snd=1..}] run scoreboard players remove @s kitpvp.bee_slow_snd 1
 # 木星：本体不驮乘客（armor_stand 当乘客不可靠），改由脚下那枚隐形 marker 守卫跟着它走
 # 顺序不能反：先把守卫拖到木星身上，再判"3 格内还有没有木星" —— 反过来守卫会在被传送时误劈
 execute as @e[tag=kitpvp.earth_jupiter] at @s run tp @e[tag=kitpvp.earth_jupiter_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~
