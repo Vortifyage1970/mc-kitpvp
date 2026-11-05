@@ -278,8 +278,8 @@ execute as @e[tag=kitpvp.earth_mobilizer,scores={kitpvp.earth_cd_a=..0}] at @s r
 execute as @e[tag=kitpvp.earth_skater,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/skater_ice
 # 泥土骑士：蠹虫无敌、僵尸能被杀 —— 僵尸一没，蠹虫跟着自尽（kill 无视 Invulnerable）
 execute as @e[tag=kitpvp.earth_dirtknight] at @s unless entity @e[type=minecraft:zombie,tag=kitpvp.earth_dirt_zombie,distance=..3] run kill @s
-# 无重力僵尸：自己不会走（onGround 永远 false ⇒ 寻路被跳过），靠 zerog_chase 用 tp 拖着追人
-function kitpvp:skill/earth/zerog_chase
+# 无重力召唤物（无重力僵尸、泥土骑士）：自己不会走，靠 nograv_chase 每刻 tp 拖着追人
+function kitpvp:skill/earth/nograv_chase
 # 术战士 / 流浪汉的"打中人"结算：不再走 advancement（那套 NBT 条件在这个版本上一直没触发过），
 # 改成抓挨打那一帧（HurtTime 9 = 伤害刚结算完的下一个 tick），再看身边 3 格内有没有对应的召唤物
 # 误判：被别的僵尸蹭一下、同时 3 格内正好站着一只术战士/流浪汉也会算数（单人自测就用这个特性）
