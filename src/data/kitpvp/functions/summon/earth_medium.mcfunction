@@ -10,3 +10,5 @@ summon minecraft:husk ~ ~2 ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_n
 effect give @e[tag=kitpvp.earth_medium] minecraft:weakness infinite 9 true
 effect give @e[tag=kitpvp.earth_medium] minecraft:resistance infinite 4 true
 effect give @e[tag=kitpvp.earth_medium] minecraft:slowness infinite 0 true
+# 永久隐身药水：NBT 的 Invisible:1b 之外再上一道保险（粒子关掉，否则一圈烟就是活靶子）
+effect give @e[tag=kitpvp.earth_medium] minecraft:invisibility infinite 0 true
