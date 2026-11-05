@@ -6,7 +6,10 @@ execute as @e[tag=kitpvp.earth_cyclic,limit=1] run scoreboard players operation 
 scoreboard players set #ring_has_center kitpvp.game 0
 execute if score #ring_owner kitpvp.game matches 1.. as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game run scoreboard players set #ring_has_center kitpvp.game 1
 
-execute if score #ring_spin kitpvp.game matches 1 run scoreboard players add #ring_rot kitpvp.game 1
+# 旋转：每 2 刻多转一格（22.5°），一圈 32 刻 ≈ 1.6 秒；想更快把 2.. 改 1..，更慢改 4..
+scoreboard players add #ring_spin_tick kitpvp.game 1
+execute if score #ring_spin_tick kitpvp.game matches 2.. run scoreboard players set #ring_spin_tick kitpvp.game 0
+execute if score #ring_spin kitpvp.game matches 1 if score #ring_spin_tick kitpvp.game matches 0 run scoreboard players add #ring_rot kitpvp.game 1
 execute if score #ring_rot kitpvp.game matches 16.. run scoreboard players set #ring_rot kitpvp.game 0
 
 execute if score #ring_has_center kitpvp.game matches 1 as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s if score @s kitpvp.etid = #ring_owner kitpvp.game if score #ring_rot kitpvp.game matches 0 run function kitpvp:skill/earth/ring_pos_0
