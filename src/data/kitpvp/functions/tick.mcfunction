@@ -279,6 +279,9 @@ execute as @e[tag=kitpvp.earth_skater,scores={kitpvp.earth_cd_a=..0}] at @s run 
 # 深池飞行兵：蠹虫无敌、僵尸能被杀 —— 僵尸一没，蠹虫跟着自尽（kill 无视 Invulnerable）
 execute as @e[tag=kitpvp.earth_dublinn] at @s unless entity @e[type=minecraft:zombie,tag=kitpvp.earth_dublinn_zombie,distance=..3] run kill @s
 # 无重力召唤物（无重力僵尸、深池飞行兵）：自己不会走，靠 nograv_chase 每刻 tp 拖着追人
+# 深池飞行兵：乘客僵尸被骑着挥不了刀，每 10 刻替它打一下（冷却分在 summon 里埋了初值）
+execute as @e[tag=kitpvp.earth_dublinn] at @s run scoreboard players remove @s kitpvp.earth_cd_a 1
+execute as @e[tag=kitpvp.earth_dublinn,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/dublinn_strike
 function kitpvp:skill/earth/nograv_chase
 # 术战士 / 流浪汉的"打中人"结算：不再走 advancement（那套 NBT 条件在这个版本上一直没触发过），
 # 改成抓挨打那一帧（HurtTime 9 = 伤害刚结算完的下一个 tick），再看身边 3 格内有没有对应的召唤物
