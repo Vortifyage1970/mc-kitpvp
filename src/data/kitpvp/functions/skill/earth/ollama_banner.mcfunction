@@ -1,6 +1,6 @@
-# Ollama 挨打时的输出：那套"・ェ・"羊驼脸大全（论坛盖楼版的完整清单），一行一条 tellraw
+# Ollama 挨打时的输出：那套"・ェ・"羊驼脸大全（论坛盖楼版的完整清单），固定顺序、每次全打一遍，不随机
 # 66 行 = 一屏根本放不下（聊天框默认只显示 10 行），嫌吵就在 ollama_cry 里把节流调大，或者删掉不喜欢的行
-# 颜色规则：# 版本名/吐槽行 gold、( 或（ 开头的脸 gray、最后一行 ollama run 金色加粗
+# 颜色规则：版本名/吐槽行 gold、( 或（ 开头的脸 gray、最后一行 ollama run 金色；全文不加粗
 tellraw @a [{"text":"普通版","color":"gold"}]
 tellraw @a [{"text":"（　・ェ・）（・ェ・　）","color":"gray"}]
 tellraw @a [{"text":"煞氣a囧囧有神版!","color":"gold"}]
@@ -66,4 +66,4 @@ tellraw @a [{"text":"(回´ｪ`回)","color":"gray"}]
 tellraw @a [{"text":"jaff79984 (☆×提拉米蘇°)","color":"gold"}]
 tellraw @a [{"text":"雪花版???(喝茫版???)","color":"gold"}]
 tellraw @a [{"text":"（＊´ｪ`＊）","color":"gray"}]
-tellraw @a [{"text":"ollama run","color":"gold","bold":true}]
+tellraw @a [{"text":"ollama run","color":"gold"}]
