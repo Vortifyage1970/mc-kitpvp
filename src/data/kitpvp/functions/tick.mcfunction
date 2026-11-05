@@ -268,6 +268,12 @@ execute as @e[tag=kitpvp.earth_jupiter_guard] at @s unless entity @e[tag=kitpvp.
 # ★ 不用"读尸体 Health=0 那一帧"：实测被 /damage 打死的木星在第 1 刻就整个不见了，那一帧抓不到
 # ★ /kill 也照样炸（守卫只看木星在不在，不看怎么死的）；只有 game/reset 例外，它先删守卫再删木星
 # ★ 已知瑕疵：两只木星靠得极近（5 格内）时会共用一枚守卫，靠得远的那只死时不劈
+
+# 动员家：每 15 秒（300 刻）催一次"准备"，5 秒后没人点就挨瞬间伤害（结算在 mobilizer_check）
+# 守卫与木星同一套：先拖到本体身上，再判"3 格内还有没有本体"，没了就播红色的"结束准备"
+execute as @e[tag=kitpvp.earth_mobilizer] at @s run tp @e[tag=kitpvp.earth_mobilizer_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~
+execute as @e[tag=kitpvp.earth_mobilizer_guard] at @s unless entity @e[tag=kitpvp.earth_mobilizer,distance=..3] run function kitpvp:skill/earth/mobilizer_end
+execute as @e[tag=kitpvp.earth_mobilizer,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/mobilizer_prompt
 # 术战士 / 流浪汉的"打中人"结算：不再走 advancement（那套 NBT 条件在这个版本上一直没触发过），
 # 改成抓挨打那一帧（HurtTime 9 = 伤害刚结算完的下一个 tick），再看身边 3 格内有没有对应的召唤物
 # 误判：被别的僵尸蹭一下、同时 3 格内正好站着一只术战士/流浪汉也会算数（单人自测就用这个特性）

@@ -47,8 +47,9 @@ kill @e[tag=kitpvp.li_pig]
 kill @e[tag=kitpvp.li_bomb]
 
 # 地球的召唤物 / 坐骑 / 炸弹 / 令牌载体：按 tag 清，不碰地图原有的同类生物
-# 木星的守卫必须排在木星前面删：否则木星一消失，守卫就以为它战死、满场劈雷
+# 守卫（木星劈雷 / 动员家喊话）必须排在各自本体前面删：否则本体一消失，守卫就以为它战死了
 kill @e[tag=kitpvp.earth_jupiter_guard]
+kill @e[tag=kitpvp.earth_mobilizer_guard]
 kill @e[tag=kitpvp.earth_minion]
 kill @e[tag=kitpvp.earth_mount]
 kill @e[tag=kitpvp.earth_bomb]
