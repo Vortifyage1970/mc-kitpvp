@@ -7,5 +7,5 @@ title @a subtitle [{"text":"胜者：","color":"yellow"},{"text":"Chincken_broth
 tellraw @a [{"text":"[胜利]","color":"gold","bold":true},{"text":"Chincken_brothers","color":"yellow"},{"text":" 赢了！","color":"yellow"}]
 execute as @a run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 1 1
 
-# 本体：金头盔当王冠的僵尸，20 血；不抢东西、不消失
-summon minecraft:zombie ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_winner"],CustomName:'{"text":"赢家","color":"gold"}',CustomNameVisible:0b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:20.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:20.0}],ArmorItems:[{},{},{},{id:"minecraft:golden_helmet",Count:1b}]}
+# 本体：头顶黄色带釉陶瓦当王冠、双手各举一支附魔（耐久 I，只为发光）的向日葵，20 血；不抢东西、不消失
+summon minecraft:zombie ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_winner"],CustomName:'{"text":"赢家","color":"gold"}',CustomNameVisible:0b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:20.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:20.0}],HandItems:[{id:"minecraft:sunflower",Count:1b,tag:{Enchantments:[{id:"minecraft:unbreaking",lvl:1}]}},{id:"minecraft:sunflower",Count:1b,tag:{Enchantments:[{id:"minecraft:unbreaking",lvl:1}]}}],ArmorItems:[{},{},{},{id:"minecraft:yellow_glazed_terracotta",Count:1b}]}
