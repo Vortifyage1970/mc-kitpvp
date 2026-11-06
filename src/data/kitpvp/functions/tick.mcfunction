@@ -281,6 +281,10 @@ execute as @e[tag=kitpvp.earth_hydrator_guard] at @s unless entity @e[tag=kitpvp
 # 资本家：守卫每刻被拖到本体脚下，本体一消失就在原地掉一张十万大刀乐
 execute as @e[tag=kitpvp.earth_capitalist] at @s run tp @e[tag=kitpvp.earth_capitalist_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~
 execute as @e[tag=kitpvp.earth_capitalist_guard] at @s unless entity @e[tag=kitpvp.earth_capitalist,distance=..3] run function kitpvp:skill/earth/capitalist_death
+# 资本家：血量比上一刻低就是挨了一下 —— 立刻掉一张纸（尸体帧抓不到，所以不用死亡判定）
+execute as @e[tag=kitpvp.earth_capitalist] store result score @s kitpvp.cap_hp run data get entity @s Health 100
+execute as @e[tag=kitpvp.earth_capitalist] if score @s kitpvp.cap_hp < @s kitpvp.cap_prev run function kitpvp:skill/earth/capitalist_drop
+execute as @e[tag=kitpvp.earth_capitalist] run scoreboard players operation @s kitpvp.cap_prev = @s kitpvp.cap_hp
 # 借调员工：冷却递减 → 玩家挨打时抢锅 → 每 30 秒自己认领一件不相干的事 → 守卫跟随 → 本体没了掉解雇通知
 # 泄露者：播报时钟递减；到点由 leaker_tick 从【还活着的那三个】里随机抽一个名字通报
 execute as @e[tag=kitpvp.earth_leaker_clock,scores={kitpvp.leaker_cd=1..}] run scoreboard players remove @s kitpvp.leaker_cd 1

@@ -212,6 +212,8 @@ scoreboard objectives add kitpvp.fire_left dummy "篝火剩余燃烧刻数（-1 
 scoreboard objectives add kitpvp.nb_hp dummy "音符盒当前血量 ×100（每刻读一次）"
 scoreboard objectives add kitpvp.nb_prev dummy "音符盒上一帧血量（掉了就说明挨打了）"
 scoreboard objectives add kitpvp.jan_unit dummy "保洁员清扫：单个掉落物的件数（按件计，不按堆）"
+scoreboard objectives add kitpvp.cap_hp dummy "资本家当前血量（×100，用来判断挨打）"
+scoreboard objectives add kitpvp.cap_prev dummy "资本家上一次的血量（×100）"
 
 scoreboard objectives add kitpvp.fire_hp dummy "篝火热血量 ×100（每刻读一次，用来判断这一帧有没有掉血）"
 scoreboard objectives add kitpvp.fire_prev dummy "篝火上一帧的血量（拿它和 fire_hp 比，掉血了就说明挨打了）"
