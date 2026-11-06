@@ -287,6 +287,9 @@ execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s
 execute as @e[tag=kitpvp.earth_scapegoat,scores={kitpvp.scapegoat_cd=..0}] at @s run function kitpvp:skill/earth/scapegoat_mutter
 execute as @e[tag=kitpvp.earth_scapegoat] at @s run tp @e[tag=kitpvp.earth_scapegoat_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~
 execute as @e[tag=kitpvp.earth_scapegoat_guard] at @s unless entity @e[tag=kitpvp.earth_scapegoat,distance=..3] run function kitpvp:skill/earth/scapegoat_death
+# 泄露者：播报时钟递减；到点由 leaker_tick 从【还活着的那三个】里随机抽一个名字通报
+execute as @e[tag=kitpvp.earth_leaker_clock,scores={kitpvp.leaker_cd=1..}] run scoreboard players remove @s kitpvp.leaker_cd 1
+execute as @e[tag=kitpvp.earth_leaker_clock,scores={kitpvp.leaker_cd=..0}] at @s run function kitpvp:skill/earth/leaker_tick
 # 双星：两只各带一个隐形 marker，本体没了就各自排 2 秒后的"复活还是放走"检查（先拖后判）
 execute as @e[tag=kitpvp.earth_twinstar_a] at @s run tp @e[tag=kitpvp.earth_twinstar_guard_a,distance=..5,limit=1,sort=nearest] ~ ~ ~
 execute as @e[tag=kitpvp.earth_twinstar_guard_a] at @s unless entity @e[tag=kitpvp.earth_twinstar_a,distance=..3] run function kitpvp:skill/earth/twinstar_died_a
