@@ -347,6 +347,8 @@ execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=1..}] at @s run
 execute as @e[tag=kitpvp.earth_noteblock] store result score @s kitpvp.nb_hp run data get entity @s Health 100
 execute as @e[tag=kitpvp.earth_noteblock] if score @s kitpvp.nb_hp < @s kitpvp.nb_prev run function kitpvp:skill/earth/noteblock_note
 execute as @e[tag=kitpvp.earth_noteblock] run scoreboard players operation @s kitpvp.nb_prev = @s kitpvp.nb_hp
+# 制图台：玩家挨打那一帧（HurtTime 9）+ 3 格内有制图台 ⇒ 刷一条"制图台提醒您 X"（10 刻冷却）
+execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_carto,distance=..3] unless score @s kitpvp.earth_cd_a matches 1.. run function kitpvp:skill/earth/carto_line
 execute as @e[tag=kitpvp.earth_noteblock] at @s run tp @e[tag=kitpvp.earth_noteblock_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~
 execute as @e[tag=kitpvp.earth_noteblock_guard] at @s unless entity @e[tag=kitpvp.earth_noteblock,distance=..3] run function kitpvp:skill/earth/noteblock_death
 
