@@ -529,6 +529,10 @@ execute as @e[tag=kitpvp.earth_tandem_a] at @s run tp @e[tag=kitpvp.earth_tandem
 execute as @e[tag=kitpvp.earth_tandem_a,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/tandem_apply
 execute as @e[tag=kitpvp.earth_tandem_a,scores={kitpvp.earth_cd_a=..0}] run scoreboard players set @s kitpvp.earth_cd_a 40
 # 同伴一没就立刻独活：清空效果 → 永久速度 II + 力量 I + 发光
-execute as @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone] at @s unless entity @e[tag=kitpvp.earth_tandem,distance=0.1..64] run function kitpvp:skill/earth/tandem_alone
+# ★ 独活判定不能靠"旁边还有没有同伴"的距离：传送后两只重叠在一起，距离 = 0.0，
+#   `distance=0.1..64` 会把贴着的那只排除掉 ⇒ 两边都以为自己落单 ⇒ 双双发光+力量
+# 改成数总数：场上只剩 1 只才独活（每次判定前重新数）
+execute store result score #td_n kitpvp.game if entity @e[tag=kitpvp.earth_tandem]
+execute as @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone] if score #td_n kitpvp.game matches ..1 run function kitpvp:skill/earth/tandem_alone
 # 串联体：一只死了 ⇒ 另一只永久速度 II + 力量 I（用 0.1..64 排除自己）
 # 串联体：同伴一没就立刻独活（每刻判定，不等 aura 的 1 秒节拍）；同伴死了它身上的 near 标记也要摘掉
