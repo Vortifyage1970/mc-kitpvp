@@ -21,6 +21,4 @@ execute as @e[tag=kitpvp.earth_dublinn_zombie] at @s facing entity @a[tag=kitpvp
 # 4) 结算：带来源的 3 点（有击退、击杀算在僵尸头上、死亡信息正常显示"被深池飞行兵 杀死了"）
 execute as @a[tag=kitpvp.dl_victim] run damage @s 3 minecraft:mob_attack by @e[tag=kitpvp.earth_dublinn_zombie,distance=..6,sort=nearest,limit=1]
 
-# 5) 挥刀声（只在真打到人时响；不弹任何文字提示）
-execute if entity @a[tag=kitpvp.dl_victim] at @e[tag=kitpvp.earth_dublinn_zombie,distance=..3,sort=nearest,limit=1] run playsound minecraft:entity.player.attack.sweep master @a[distance=..12] ~ ~ ~ 0.7 1.4
 tag @a remove kitpvp.dl_victim

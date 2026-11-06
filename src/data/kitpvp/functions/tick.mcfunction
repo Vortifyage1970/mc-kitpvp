@@ -318,6 +318,8 @@ execute as @e[tag=kitpvp.earth_dublinn] at @s unless entity @e[type=minecraft:zo
 # 深池飞行兵：乘客僵尸被骑着挥不了刀，每 10 刻替它打一下（冷却分在 summon 里埋了初值）
 execute as @e[tag=kitpvp.earth_dublinn] at @s run scoreboard players remove @s kitpvp.earth_cd_a 1
 execute as @e[tag=kitpvp.earth_dublinn,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/dublinn_strike
+# 深池跟着跑的时候也要"盯着"目标：乘客僵尸面朝 12 格内最近的可攻击玩家（tp 原地只改朝向）
+execute as @e[tag=kitpvp.earth_dublinn_zombie] at @s facing entity @p[distance=..12,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest] feet run tp @s ~ ~ ~ ~ ~
 function kitpvp:skill/earth/nograv_chase
 
 # 环肽（地球·47，实验）：整圈每刻贴到最近的活玩家周围；#ring_spin=1 时四方位轮换（绕圈），=0 就固定方位跟着走
