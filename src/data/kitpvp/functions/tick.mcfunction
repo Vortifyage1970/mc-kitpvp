@@ -518,3 +518,6 @@ execute as @a[tag=kitpvp.respawn_pending,tag=!kitpvp.spectator] unless entity @s
 # 胜负判定：必须排在死亡处理之后——同刻互杀要等两人都淘汰完再统计，
 # 否则会先看到"幸存者=1"而误判胜者；同时覆盖掉线减员的兜底
 execute if score #state kitpvp.game matches 1 run function kitpvp:game/check_winner
+
+# 串联体：每刻给"离每个玩家更近"的那一节挂缓慢 III
+execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s run function kitpvp:skill/earth/tanden_aura
