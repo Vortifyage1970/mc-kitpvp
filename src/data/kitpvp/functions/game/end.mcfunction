@@ -14,7 +14,7 @@ execute if score #survivors kitpvp.game matches 1 run tellraw @a [{"text":"[胜�
 execute if score #survivors kitpvp.game matches 1 as @a[tag=kitpvp.selected,tag=!kitpvp.spectator] run playsound minecraft:ui.toast.challenge_complete master @s ~ ~ ~ 1 1
 
 # 胜者是 Queen 时的专属 MVP 凯歌
-execute if score #survivors kitpvp.game matches 1 if entity @a[name="Queen",tag=kitpvp.selected,tag=!kitpvp.spectator] run tellraw @a [{"text":"✦ ","color":"light_purple"},{"text":"正在高奏 ","color":"aqua"},{"text":"Queen","color":"gold","bold":true},{"text":" 的MVP凯歌：","color":"aqua"},{"text":"ISOxo - 非人类","color":"light_purple","bold":true,"italic":t},{"text":" ✦","color":"light_purple"}]
+execute if score #survivors kitpvp.game matches 1 if entity @a[name="Queen",tag=kitpvp.selected,tag=!kitpvp.spectator] run tellraw @a [{"text":"✦ ","color":"light_purple"},{"text":"正在高奏 ","color":"aqua"},{"text":"Queen","color":"gold","bold":true},{"text":" 的MVP凯歌：","color":"aqua"},{"text":"ISOxo - 非人类","color":"light_purple","bold":true,"italic":true},{"text":" ✦","color":"light_purple"}]
 execute if score #survivors kitpvp.game matches 1 if entity @a[name="Queen",tag=kitpvp.selected,tag=!kitpvp.spectator] as @a run function mvpmusic:inhuman/play
 
 # 胜者是 Vortifyage1970 时的专属 MVP 凯歌
