@@ -4,6 +4,6 @@ effect clear @s minecraft:slowness
 effect clear @s minecraft:speed
 execute at @s run effect clear @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_near,tag=!kitpvp.tandem_alone] minecraft:slowness
 # 另一只：速度 II（24 格内都算，不用贴着）
-execute at @s run effect give @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_near,tag=!kitpvp.tandem_alone,distance=..24] minecraft:speed 2 1 true
+execute at @s run effect give @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_near,tag=!kitpvp.tandem_alone,distance=..24] minecraft:speed 3 1 true
 # 被标记的那只脚下冒紫粒子（排查期保留，稳定后可删）
 particle minecraft:end_rod ~ ~ ~ 0.2 0.1 0.2 0.02 6 normal
