@@ -10,6 +10,9 @@ scoreboard players operation #fl_own kitpvp.game = @s kitpvp.earth_owner
 tag @a[tag=kitpvp.flyer_target] remove kitpvp.flyer_target
 execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #fl_own kitpvp.game run tag @s add kitpvp.flyer_target
 execute unless entity @a[tag=kitpvp.flyer_target] as @a[gamemode=!spectator,tag=!kitpvp.spectator] run tag @s add kitpvp.flyer_target
+# 限高：母体最多比目标玩家高 10 格（原版幻翼盘旋时会一圈圈往上爬，爬太高绳子够不到、也看不清）
+# 写法：以玩家为原点看母体的 dy，超过 10 格就往下降 1 格/刻（幻翼自己上升只有 0.05/刻，压得住）
+execute at @p[tag=kitpvp.flyer_target] as @e[tag=kitpvp.earth_flyer_carrier,dy=10..] at @s run tp @s ~ ~-1 ~
 # 每 200 刻（10 秒）扑一次：先设 17 刻的俯冲倒计时，再冲 17 格（1 格/刻）
 execute if score @s kitpvp.earth_cd_a matches ..0 run scoreboard players set @s kitpvp.flyer_dive 17
 execute if score @s kitpvp.earth_cd_a matches ..0 run scoreboard players set @s kitpvp.earth_cd_a 200
