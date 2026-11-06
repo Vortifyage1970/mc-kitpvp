@@ -10,4 +10,6 @@ effect give @e[tag=kitpvp.earth_flyer_carrier,limit=1,sort=nearest] minecraft:we
 scoreboard players set @e[tag=kitpvp.earth_flyer_carrier] kitpvp.earth_cd_a 200
 # 宽限 10 刻：吊舱是下一帧才出生的，不加宽限母体第一刻就会判定"吊舱没了"而自杀
 scoreboard players set @e[tag=kitpvp.earth_flyer_carrier] kitpvp.flyer_grace 10
+scoreboard players set @e[tag=kitpvp.earth_flyer_carrier] kitpvp.flyer_bound 0
+scoreboard players set @e[tag=kitpvp.earth_flyer_carrier] kitpvp.flyer_dive 0
 schedule function kitpvp:summon/earth_flyer_b 1t replace

@@ -10,4 +10,6 @@ execute if score #fl_t kitpvp.game matches 3 as @e[tag=kitpvp.earth_flyer_body] 
 execute if score #fl_t kitpvp.game matches 4 as @e[tag=kitpvp.earth_flyer_body] run team join earth_4 @s
 execute if score #fl_t kitpvp.game matches 5 as @e[tag=kitpvp.earth_flyer_body] run team join earth_5 @s
 execute if score #fl_t kitpvp.game matches 6 as @e[tag=kitpvp.earth_flyer_body] run team join earth_6 @s
+tellraw @a [{"text":"[飞行器] 吊舱帧已执行","color":"yellow"}]
+execute unless entity @e[tag=kitpvp.earth_flyer_carrier] run tellraw @a [{"text":"[飞行器] 找不到母体（召唤失败或已被清）","color":"red"}]
 execute at @e[tag=kitpvp.earth_flyer_carrier,limit=1] run tellraw @a[distance=..32] [{"text":"[飞行器] 吊舱已挂上","color":"dark_gray"}]
