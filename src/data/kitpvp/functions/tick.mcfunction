@@ -526,4 +526,6 @@ execute if score #state kitpvp.game matches 1 run function kitpvp:game/check_win
 execute as @e[tag=kitpvp.earth_tandem,tag=kitpvp.tandem_near] at @s run tp @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_near,distance=12..,limit=1,sort=nearest] ~ ~ ~
 execute as @e[tag=kitpvp.earth_tandem,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/tandem_aura
 # 串联体：一只死了 ⇒ 另一只永久速度 II + 力量 I（用 0.1..64 排除自己）
+# 串联体：同伴一没就立刻独活（每刻判定，不等 aura 的 1 秒节拍）；同伴死了它身上的 near 标记也要摘掉
+execute as @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone] at @s unless entity @e[tag=kitpvp.earth_tandem,distance=0.1..64] run tag @s remove kitpvp.tandem_near
 execute as @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone] at @s unless entity @e[tag=kitpvp.earth_tandem,distance=0.1..64] run function kitpvp:skill/earth/tandem_alone
