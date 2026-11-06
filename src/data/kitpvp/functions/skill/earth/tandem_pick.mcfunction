@@ -1,7 +1,7 @@
-# 位置 = 玩家脚下（4 格内有这只串联体时才跑）
-# 近的那只：缓慢 II（4 秒一刷）；远的那只：速度 II（4 秒一刷）
-# ★ 全部排除 tag=kitpvp.tandem_alone：独活强化的那只不能被这里的 clear 抹掉永久速度
-effect clear @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone,distance=..4] minecraft:slowness
-effect clear @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone,distance=..4] minecraft:speed
-effect give @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone,distance=..4,sort=nearest,limit=1] minecraft:slowness 4 1 true
-effect give @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone,distance=..4,sort=furthest,limit=1] minecraft:speed 4 1 true
+# 位置 = 玩家脚下。★ 关键：不能用 sort=furthest 找"远的那只"——
+#   当一对里只有一只在 4 格内时，nearest 和 furthest 会选中同一只，于是它既+40%速度又-30%速度，等于没有差别
+# 正确做法：先给两只都挂速度 II，再把"最近那只"的速度清掉、换成缓慢 II
+effect clear @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone,distance=..24] minecraft:slowness
+effect give @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone,distance=..24] minecraft:speed 4 1 true
+effect give @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone,distance=..24,sort=nearest,limit=1] minecraft:slowness 4 1 true
+effect clear @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone,distance=..24,sort=nearest,limit=1] minecraft:speed
