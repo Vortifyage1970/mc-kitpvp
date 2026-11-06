@@ -14,3 +14,7 @@ execute if score @s kitpvp.rng matches 2 run item replace entity @s armor.head w
 execute if score @s kitpvp.rng matches 3 run item replace entity @s armor.head with minecraft:dirt_path
 execute if score @s kitpvp.rng matches 4 run item replace entity @s armor.head with minecraft:coarse_dirt
 execute if score @s kitpvp.rng matches 5 run item replace entity @s armor.head with minecraft:farmland
+
+# 变的时候出个声：草方块落地音 + 一点点泥土翻动声，音量压到 0.6（附近 16 格内听得见，不吵）
+execute as @s at @s run playsound minecraft:block.grass.place master @a[distance=..16] ~ ~ ~ 0.6 1.35
+execute as @s at @s run playsound minecraft:block.rooted_dirt.break master @a[distance=..16] ~ ~ ~ 0.35 0.9
