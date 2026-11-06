@@ -14,6 +14,5 @@ summon minecraft:silverfish ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_min
 effect give @e[tag=kitpvp.earth_dublinn_zombie] minecraft:resistance infinite 1 true
 scoreboard players set @e[tag=kitpvp.earth_dublinn] kitpvp.earth_cd_a 1
 #
-# ★ 手动 /function 召唤（不经过随机池与 cast）也要认主人：执行者是玩家就把自己挂上去
-#   以前这条路没有 link ⇒ earth_owner 为 0 ⇒ 深池/变速器/大蜜蜂一律"没有主人=不出手"，看着像不索敌
-execute if entity @s[type=minecraft:player] run function kitpvp:skill/earth/link
+# ★ 不用 link：手动 /function 是给测试用的 —— 没有主人 ⇒ 它谁近打谁（包括你自己）
+#   走随机池 / 魂石召唤时才由 link 写 earth_owner，那才是"不打召唤者"的正规路径
