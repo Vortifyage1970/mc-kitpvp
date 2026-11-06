@@ -285,6 +285,16 @@ execute as @e[tag=kitpvp.earth_capitalist_guard] at @s unless entity @e[tag=kitp
 execute as @e[tag=kitpvp.earth_capitalist] store result score @s kitpvp.cap_hp run data get entity @s Health 100
 execute as @e[tag=kitpvp.earth_capitalist] if score @s kitpvp.cap_hp < @s kitpvp.cap_prev run function kitpvp:skill/earth/capitalist_drop
 execute as @e[tag=kitpvp.earth_capitalist] run scoreboard players operation @s kitpvp.cap_prev = @s kitpvp.cap_hp
+# β转角竖链：把第 2..9 节每刻叠到第 1 节正上方（0.95 格一层，9 层约 7.6 格高）
+# 整根柱子跟着底座走：底座有 AI 会追人，其余各节 NoAI、位置全由这里决定
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_node1,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_node2,limit=1,sort=nearest] ~ ~0.95 ~
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_node1,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_node3,limit=1,sort=nearest] ~ ~1.9 ~
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_node1,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_node4,limit=1,sort=nearest] ~ ~2.85 ~
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_node1,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_node5,limit=1,sort=nearest] ~ ~3.8 ~
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_node1,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_node6,limit=1,sort=nearest] ~ ~4.75 ~
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_node1,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_node7,limit=1,sort=nearest] ~ ~5.7 ~
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_node1,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_node8,limit=1,sort=nearest] ~ ~6.65 ~
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_node1,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_node9,limit=1,sort=nearest] ~ ~7.6 ~
 # 多肽_β转角：把 5 节尾巴挂到主链最底下那颗氨基酸的正下方，并用 block_display 的锁链段把缝隙连起来
 # 每段先判"那一格是不是空气"：脚下是地面就不往地里塞（会窒息），此时这一段与它的锁链都不显示
 # 多肽_β转角：主链最底下那颗氨基酸下面挂着 5 节尾巴（肽键-氨基酸-肽键-氨基酸-肽键）
