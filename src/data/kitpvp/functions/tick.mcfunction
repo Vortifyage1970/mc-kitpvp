@@ -519,5 +519,5 @@ execute as @a[tag=kitpvp.respawn_pending,tag=!kitpvp.spectator] unless entity @s
 # 否则会先看到"幸存者=1"而误判胜者；同时覆盖掉线减员的兜底
 execute if score #state kitpvp.game matches 1 run function kitpvp:game/check_winner
 
-# 串联体：每刻给"离每个玩家更近"的那一节挂缓慢 III
-execute as @e[tag=kitpvp.earth_tanden_a] at @s run function kitpvp:skill/earth/tanden_aura
+# 串联体：每 3 秒（earth_cd_a 归零时）给"离玩家更近"的那一节挂缓慢 III
+execute as @e[tag=kitpvp.earth_tanden_a,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/tanden_aura
