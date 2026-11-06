@@ -523,9 +523,12 @@ execute if score #state kitpvp.game matches 1 run function kitpvp:game/check_win
 # 串联体隐形牵引：b 被甩开 3 格以上就拉回 a 身边（不做碰撞检查；两只都保留完整 AI）
 # 牵引：让"跑得快的那只"停下来等慢的 —— 慢的那只每 1 秒都在刷新，别去拽它（拽起来就是一卡一卡）
 # 牵引：不再向后传送（那看着像被硬拽）。12 格兜底只防丢失，正常靠下面 aura 里的"同步降速"
-execute as @e[tag=kitpvp.earth_tandem,tag=kitpvp.tandem_near] at @s run tp @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_near,distance=12..,limit=1,sort=nearest] ~ ~ ~
-execute as @e[tag=kitpvp.earth_tandem,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/tandem_aura
+# 串联体：两只相距超过 4 格就把 b 拉到 a 身边（只做这一件事，不判断谁离玩家近）
+execute as @e[tag=kitpvp.earth_tandem_a] at @s run tp @e[tag=kitpvp.earth_tandem_b,distance=4..,limit=1,sort=nearest] ~ ~ ~
+# 每 2 秒（earth_cd_a 40）轮换一次速度 II
+execute as @e[tag=kitpvp.earth_tandem_a,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/tandem_apply
+execute as @e[tag=kitpvp.earth_tandem_a,scores={kitpvp.earth_cd_a=..0}] run scoreboard players set @s kitpvp.earth_cd_a 40
+# 同伴一没就立刻独活：清空效果 → 永久速度 II + 力量 I + 发光
+execute as @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone] at @s unless entity @e[tag=kitpvp.earth_tandem,distance=0.1..64] run function kitpvp:skill/earth/tandem_alone
 # 串联体：一只死了 ⇒ 另一只永久速度 II + 力量 I（用 0.1..64 排除自己）
 # 串联体：同伴一没就立刻独活（每刻判定，不等 aura 的 1 秒节拍）；同伴死了它身上的 near 标记也要摘掉
-execute as @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone] at @s unless entity @e[tag=kitpvp.earth_tandem,distance=0.1..64] run tag @s remove kitpvp.tandem_near
-execute as @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone] at @s unless entity @e[tag=kitpvp.earth_tandem,distance=0.1..64] run function kitpvp:skill/earth/tandem_alone
