@@ -287,18 +287,18 @@ execute as @e[tag=kitpvp.earth_capitalist] if score @s kitpvp.cap_hp < @s kitpvp
 execute as @e[tag=kitpvp.earth_capitalist] run scoreboard players operation @s kitpvp.cap_prev = @s kitpvp.cap_hp
 # β转角尾巴：每刻摆到底座正后方 0.75 格一节的密集队列（吸附后不会散成稀疏的一挂）
 # 底座没了就整段不跑：尾巴留在原地，不会像竖链那样悬空
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail1,limit=1,sort=nearest] ~ ~-0.75 ~
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail2,limit=1,sort=nearest] ~ ~-1.5 ~
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail3,limit=1,sort=nearest] ~ ~-2.25 ~
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail4,limit=1,sort=nearest] ~ ~-3 ~
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail5,limit=1,sort=nearest] ~ ~-3.75 ~
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail6,limit=1,sort=nearest] ~ ~-4.5 ~
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail7,limit=1,sort=nearest] ~ ~-5.25 ~
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail8,limit=1,sort=nearest] ~ ~-6 ~
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail9,limit=1,sort=nearest] ~ ~-6.75 ~
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail10,limit=1,sort=nearest] ~ ~-7.5 ~
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail11,limit=1,sort=nearest] ~ ~-8.25 ~
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail12,limit=1,sort=nearest] ~ ~-9 ~
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail1,limit=1,sort=nearest] ~ ~ ~-0.75
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail2,limit=1,sort=nearest] ~ ~ ~-1.5
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail3,limit=1,sort=nearest] ~ ~ ~-2.25
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail4,limit=1,sort=nearest] ~ ~ ~-3
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail5,limit=1,sort=nearest] ~ ~ ~-3.75
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail6,limit=1,sort=nearest] ~ ~ ~-4.5
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail7,limit=1,sort=nearest] ~ ~ ~-5.25
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail8,limit=1,sort=nearest] ~ ~ ~-6
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail9,limit=1,sort=nearest] ~ ~ ~-6.75
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail10,limit=1,sort=nearest] ~ ~ ~-7.5
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail11,limit=1,sort=nearest] ~ ~ ~-8.25
+execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a,limit=1,sort=nearest] at @s run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail12,limit=1,sort=nearest] ~ ~ ~-9
 # β转角竖链：把第 2..9 节每刻叠到第 1 节正上方（0.95 格一层，9 层约 7.6 格高）
 # 整根柱子跟着底座走：底座有 AI 会追人，其余各节 NoAI、位置全由这里决定
 # 多肽_β转角：把 5 节尾巴挂到主链最底下那颗氨基酸的正下方，并用 block_display 的锁链段把缝隙连起来
