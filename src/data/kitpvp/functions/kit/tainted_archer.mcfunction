@@ -25,10 +25,8 @@ function kitpvp:skill/tainted_archer/give_token_turret
 function kitpvp:skill/tainted_archer/give_token_turret
 function kitpvp:skill/tainted_archer/give_token_core
 
-# 炮台队槽惰性分配：拿到本局第一个未占用的槽（游标循环 1..6）
-execute if score @s kitpvp.ttid matches 0 run scoreboard players add #ttid kitpvp.game 1
-execute if score @s kitpvp.ttid matches 0 if score #ttid kitpvp.game matches 7.. run scoreboard players set #ttid kitpvp.game 1
-execute if score @s kitpvp.ttid matches 0 run scoreboard players operation @s kitpvp.ttid = #ttid kitpvp.game
+# 炮台队槽：拿到本局一个槽并 join（开局被 start_impl 清零后，部署时会再跑一次同一个函数）
+function kitpvp:skill/tainted_archer/team_slot
 
 scoreboard players set @s kitpvp.lives 3
 

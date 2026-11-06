@@ -10,3 +10,4 @@ execute if score #global kitpvp.map matches 3 run function kitpvp:map/snow/distr
 execute if score #global kitpvp.map matches 7 run function kitpvp:map/earth/distribute
 execute if score #global kitpvp.map matches 8 run function kitpvp:map/xian/distribute
 execute if score #global kitpvp.map matches 9 run function kitpvp:map/mansion/distribute
+execute if score #global kitpvp.map matches 10 run function kitpvp:map/cobblestone/distribute

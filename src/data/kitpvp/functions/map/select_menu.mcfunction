@@ -6,6 +6,7 @@ tellraw @s [{"text":"[ 雪原 ]","color":"white","bold":true,"clickEvent":{"acti
 tellraw @s [{"text":"[ 地球 ]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:map/select_earth"},"hoverEvent":{"action":"show_text","contents":[{"text":"围绕地球的地图","color":"gray"}]}}]
 tellraw @s [{"text":"[ 西安 ]","color":"gold","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:map/select_xian"},"hoverEvent":{"action":"show_text","contents":[{"text":"围绕西安的地图","color":"gray"}]}}]
 tellraw @s [{"text":"[ 豪宅 ]","color":"dark_purple","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:map/select_mansion"},"hoverEvent":{"action":"show_text","contents":[{"text":"四层高的豪宅地图","color":"gray"}]}}]
+tellraw @s [{"text":"[ 君士坦丁堡 ]","color":"gray","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:map/select_cobblestone"},"hoverEvent":{"action":"show_text","contents":[{"text":"3×3 圆石城区地图","color":"gray"}]}}]
 tellraw @s [{"text":"[ 随机 ]","color":"light_purple","bold":true,"clickEvent":{"action":"run_command","value":"/scoreboard players set #global kitpvp.map 0"},"hoverEvent":{"action":"show_text","contents":[{"text":"随机地图","color":"gray"}]}}]
 tellraw @s [{"text":"[ 返回 ]","color":"gray","clickEvent":{"action":"run_command","value":"/function kitpvp:lobby/menu"},"hoverEvent":{"action":"show_text","contents":[{"text":"返回主菜单","color":"gray"}]}}]
 tellraw @s [{"text":"═════════════════════","color":"gold","bold":true}]
