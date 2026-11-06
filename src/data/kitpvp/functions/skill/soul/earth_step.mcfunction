@@ -28,7 +28,7 @@ execute if score @s kitpvp.soul_earth_team matches 23 run team join earth_5 @e[t
 execute if score @s kitpvp.soul_earth_team matches 24 run team join earth_6 @e[tag=kitpvp.earth_minion_new,distance=..4]
 # 把"谁召的"也写进去：深池/变速器/大蜜蜂这些认主人的光环全靠 earth_owner（以前魂石路径只组队、不写分 ⇒ 会被当成无主）
 scoreboard players set #soul_owner kitpvp.game 0
-execute if score @s kitpvp.soul_earth_team matches 19..24 run scoreboard players operation #soul_owner kitpvp.game = @s kitpvp.soul_earth_team kitpvp.game
+execute if score @s kitpvp.soul_earth_team matches 19..24 run scoreboard players operation #soul_owner kitpvp.game = @s kitpvp.soul_earth_team
 # 19..24 是 earth_1..6，减 18 就是那名玩家的 etid
 execute if score @s kitpvp.soul_earth_team matches 19..24 run scoreboard players remove #soul_owner kitpvp.game 18
 scoreboard players operation @e[tag=kitpvp.earth_minion_new,distance=..4] kitpvp.earth_owner = #soul_owner kitpvp.game
