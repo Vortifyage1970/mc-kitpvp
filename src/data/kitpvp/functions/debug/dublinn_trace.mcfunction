@@ -14,7 +14,8 @@ scoreboard players set #t4 kitpvp.game 0
 execute store result score #t4 kitpvp.game if entity @a[distance=..3.5,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}]
 tellraw @s [{"text":"④ 3.5 格内玩家（完整过滤）：","color":"gray"},{"score":{"name":"#t4","objective":"kitpvp.game"},"color":"yellow"},{"text":"（③有数④为 0 ⇒ 你在旁观/带 spectator 标签/血量为 0）","color":"dark_gray"}]
 tellraw @s [{"text":"⑤ 我的标签：","color":"gray"},{"nbt":"Tags","entity":"@s","color":"aqua"}]
-tellraw @s [{"text":"⑥ 我的血量 ×100：","color":"gray"},{"nbt":"Health","entity":"@s","color":"aqua"}]
+tellraw @s [{"text":"⑥ 我的血量：","color":"gray"},{"nbt":"Health","entity":"@s","color":"aqua"}]
+tellraw @s [{"text":"⑥b 我身上的效果：","color":"gray"},{"nbt":"ActiveEffects","entity":"@s","color":"aqua"},{"text":"（看到 Id:11b Amplifier:4b = 抗性 V ⇒ 任何 mob_attack 都会被压成 0，这就是不掉血的原因）","color":"dark_gray"}]
 # ⑦ 直接对自己下一次 7 点 mob_attack（不经过任何选择器），看伤害通道本身通不通
 damage @s 7 minecraft:mob_attack
 tellraw @s [{"text":"⑦ 已直接对你造成 7 点 mob_attack：掉了 ⇒ 伤害通道正常，问题在③④的过滤；没掉 ⇒ 你在创造/旁观模式","color":"gold"}]
