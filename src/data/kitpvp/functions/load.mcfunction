@@ -183,6 +183,7 @@ scoreboard objectives add kitpvp.earth_owner dummy "地球召唤物的归属编�
 scoreboard objectives add kitpvp.earth_hp dummy "Ollama 上一次的血量（Health x10）"
 scoreboard objectives add kitpvp.earth_hp_new dummy "Ollama 这一刻的血量（Health x10，比完就回写）"
 scoreboard objectives add kitpvp.earth_snow dummy "术战士细雪还剩多少刻"
+scoreboard objectives add kitpvp.minecart_life dummy "矿车还能跑多少刻（900 = 45 秒，到 0 熄火）"
 scoreboard objectives add kitpvp.skater_snd dummy "滑冰者滑行音效计时"
 scoreboard objectives add kitpvp.bee_slow_snd dummy "被大蜜蜂减速的提示音冷却（刻）"
 scoreboard objectives add kitpvp.sparky_charge dummy "电磁炮充能（0..200，满 200 放电 = 10 秒）"
