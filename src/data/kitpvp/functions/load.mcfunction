@@ -207,6 +207,8 @@ scoreboard objectives add kitpvp.pspd dummy "交警（闪现版）：玩家速�
 scoreboard objectives add kitpvp.etid dummy "地球召唤物队槽编号"
 # 取绝对值要用 -1 当乘数（scoreboard 没有 abs）
 scoreboard players set #neg kitpvp.game -1
+# 变色者换头用：3 位随机（0..7）对 6 取模 ⇒ 六种方块等概率
+scoreboard players set #six kitpvp.game 6
 
 # 预留（暂无消费者，刻意保留）：item = 物品计数
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
