@@ -6,7 +6,7 @@ scoreboard players set #jan kitpvp.game 0
 execute at @s as @e[type=minecraft:item,distance=..8] store result score @s kitpvp.jan_unit run data get entity @s Item.Count 1
 execute at @s as @e[type=minecraft:item,distance=..8] run scoreboard players operation #jan kitpvp.game += @s kitpvp.jan_unit
 
-# —— 载具另算：矿车六种 + 船两种
+# —— 载具另算：矿车六种 + 船两种（boat 含竹筏，chest_boat 就是运输船/运输竹筏）
 scoreboard players set #jan_v kitpvp.game 0
 execute at @s as @e[type=minecraft:minecart,distance=..8] run scoreboard players add #jan_v kitpvp.game 1
 execute at @s as @e[type=minecraft:chest_minecart,distance=..8] run scoreboard players add #jan_v kitpvp.game 1
@@ -16,6 +16,7 @@ execute at @s as @e[type=minecraft:tnt_minecart,distance=..8] run scoreboard pla
 execute at @s as @e[type=minecraft:command_block_minecart,distance=..8] run scoreboard players add #jan_v kitpvp.game 1
 execute at @s as @e[type=minecraft:boat,distance=..8] run scoreboard players add #jan_v kitpvp.game 1
 execute at @s as @e[type=minecraft:chest_boat,distance=..8] run scoreboard players add #jan_v kitpvp.game 1
+execute at @s as @e[type=minecraft:chest_raft,distance=..8] run scoreboard players add #jan_v kitpvp.game 1
 
 # —— 播报（0 件 0 载具就完全不吭声）
 execute if score #jan kitpvp.game matches 1.. run tellraw @a [{"text":"[保洁员]","color":"white","bold":true},{"text":" 收走了 ","color":"gray"},{"score":{"name":"#jan","objective":"kitpvp.game"},"color":"yellow"},{"text":" 件掉落物。","color":"gray"}]
@@ -34,3 +35,4 @@ execute at @s run kill @e[type=minecraft:tnt_minecart,distance=..8]
 execute at @s run kill @e[type=minecraft:command_block_minecart,distance=..8]
 execute at @s run kill @e[type=minecraft:boat,distance=..8]
 execute at @s run kill @e[type=minecraft:chest_boat,distance=..8]
+execute at @s run kill @e[type=minecraft:chest_raft,distance=..8]
