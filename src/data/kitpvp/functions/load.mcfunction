@@ -174,6 +174,7 @@ scoreboard objectives add kitpvp.li_pig_last dummy "李朱俊泽召唤快照"
 scoreboard objectives add kitpvp.earth_used minecraft.used:minecraft.goat_spawn_egg
 scoreboard players set #oracle_five kitpvp.game 5
 scoreboard objectives add kitpvp.earth_fw_life dummy "内卫烟花烟团还能冒几轮"
+scoreboard objectives add kitpvp.dominion_smoke_time dummy "内卫还能放烟多少刻（240 = 12 秒，减完只放烟花不留烟）"
 scoreboard objectives add kitpvp.earth_last dummy "地球召唤快照"
 scoreboard objectives add kitpvp.earth_cd_a dummy "地球召唤物技能计时"
 scoreboard objectives add kitpvp.earth_lev dummy "地球超凡升天计时"
