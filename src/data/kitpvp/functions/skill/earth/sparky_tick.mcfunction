@@ -4,10 +4,10 @@ scoreboard players set #spk_owner kitpvp.game 0
 scoreboard players operation #spk_owner kitpvp.game = @s kitpvp.earth_owner
 
 # 有主：15 格内存在不属于召唤者的活人 ⇒ #spk_on = 1
-# 无主：15 格内只要有人 ⇒ #spk_on = 1（手动召出来测试时照样开火）
+# 无主（魂石召出来时若没拿到队槽 / 手动 /function）：一律不开火 —— 以前这条会锁定"最近的玩家"，
 scoreboard players set #spk_on kitpvp.game 0
 execute if score #spk_owner kitpvp.game matches 1.. at @s as @a[distance=..15,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #spk_owner kitpvp.game run scoreboard players set #spk_on kitpvp.game 1
-execute if score #spk_owner kitpvp.game matches ..0 at @s if entity @a[distance=..15,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] run scoreboard players set #spk_on kitpvp.game 1
+#   ★ 而站在炮口前的往往就是召唤者本人，这就是"电磁炮误伤召唤者"的 bug；没有主人 = 没有敌人，只当摆设
 
 # 没目标：充能清零（像皇家战争里收不到目标的炮，线圈冷却下来）
 execute if score #spk_on kitpvp.game matches 0 run scoreboard players set @s kitpvp.sparky_charge 0
@@ -20,5 +20,5 @@ execute if score @s kitpvp.sparky_charge matches 161.. run scoreboard players se
 execute if score #spk_on kitpvp.game matches 1 at @s run function kitpvp:skill/earth/sparky_charge_sfx
 
 # 充满：放电（按有没有主人分两支）
-execute if score @s kitpvp.sparky_charge matches 160 if score #spk_owner kitpvp.game matches ..0 at @s run function kitpvp:skill/earth/sparky_fire_any
+# 无主不再放电：sparky_fire_any 已删除（它锁定的"最近玩家"就是误伤源）
 execute if score @s kitpvp.sparky_charge matches 160 if score #spk_owner kitpvp.game matches 1.. at @s run function kitpvp:skill/earth/sparky_fire_owned
