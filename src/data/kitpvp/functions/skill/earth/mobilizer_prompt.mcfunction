@@ -1,6 +1,6 @@
 # @s = 动员家本体（at 它身上）：15 秒到点，把全场参赛者的"准备"清零、弹绿色按钮、排 5 秒后的结算
 # 观战者和尸体既拿不到分数、也收不到这条公告（同 selector）；点按钮走 mobilizer_ready
-scoreboard players set @s kitpvp.earth_cd_a 300
+scoreboard players set @s kitpvp.earth_cd_a 400
 # 本轮是「准备」轮：5 秒没点的人挨罚时说「你没准备哦」
 scoreboard players set #mob_round kitpvp.game 0
 scoreboard players set @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] kitpvp.mob_ready 0

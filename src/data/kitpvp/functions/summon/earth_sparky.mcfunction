@@ -1,9 +1,9 @@
 # 地球·54 电磁炮（Sparky）：8 秒充能（160 刻）、放电一次 14 点魔法伤害（magic 无视护甲）
 # 恢复 AI：它会自己追人、也会挥爪（近战伤害已压成 0，只靠放电输出），挂着缓慢 V ⇒ 移动速度只有 25%
-# 血量回到原版劫掠兽的 100：射程 15 格 + 8 秒蓄力换来的坦度，靠"打得慢、必须站住"来平衡
+# 血量 30：它是远程炮台，被贴脸就该掉得快；一炮 8 点（4 颗心），蓄力 8 秒
 # 缓慢 V 是常驻的（infinite）；它靠 AI 自己走，不再用 tp 推（tp 层已退役，见 tick 注释）
 # 劫掠兽不渲染护甲，所以没有 ArmorItems；外观靠金色名字 + 充能时的电弧与升调滴声
-summon minecraft:ravager ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_sparky"],CustomName:'{"text":"电磁炮","color":"gold"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:100.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:100.0},{Name:"minecraft:generic.attack_damage",Base:0.0}]}
+summon minecraft:ravager ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_sparky"],CustomName:'{"text":"电磁炮","color":"gold"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:30.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:30.0},{Name:"minecraft:generic.attack_damage",Base:0.0}]}
 # 双保险把近战压成 0：① 属性 attack_damage 基值 0；② 虚弱 X（每级 -4 点，共 -40）—— 劫掠兽的挥爪如果走属性伤害，两条里任一条都够
 # 缓慢 V：每级 -15%，V 级只剩 25% 移动速度（劫掠兽基础 0.3 ⇒ 0.075，约玩家走路的 3/4、3 格/秒上下）
 effect give @e[tag=kitpvp.earth_sparky] minecraft:slowness infinite 4 true
