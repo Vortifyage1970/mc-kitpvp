@@ -258,7 +258,7 @@ execute as @a[scores={kitpvp.kit=68,kitpvp.alive=1},tag=!kitpvp.spectator] at @s
 execute as @e[scores={kitpvp.earth_cd_a=1..}] run scoreboard players remove @s kitpvp.earth_cd_a 1
 execute as @e[tag=kitpvp.earth_sheep,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/sheep_aura
 execute as @e[tag=kitpvp.earth_disruptor,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/disrupt
-# 变速器：5 格内没别人就提速，有敌人就变肉变慢并给急迫（判定与效果都在 gearbox_aura 里）
+# 变速器：6 格内没别人就提速，有敌人就变肉变慢并给急迫（判定与效果都在 gearbox_aura 里）
 execute as @e[tag=kitpvp.earth_gearbox,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/gearbox_aura
 # 大蜜蜂：半径 10 格内的所有玩家和生物持续挖掘疲劳 III
 # 每刻直接跑、不再用 scores 节流：分数不存在时那个选择器不匹配，整条会静默失效（踩过一次）
@@ -287,16 +287,16 @@ execute as @e[tag=kitpvp.earth_leaker_clock,scores={kitpvp.leaker_cd=1..}] run s
 execute as @e[tag=kitpvp.earth_leaker_clock,scores={kitpvp.leaker_cd=..0}] at @s run function kitpvp:skill/earth/leaker_tick
 # 双星：两只各带一个隐形 marker，本体没了就各自排 2 秒后的"复活还是放走"检查（先拖后判）
 execute as @e[tag=kitpvp.earth_twinstar_a] at @s run tp @e[tag=kitpvp.earth_twinstar_guard_a,distance=..5,limit=1,sort=nearest] ~ ~ ~
-execute as @e[tag=kitpvp.earth_twinstar_guard_a] at @s unless entity @e[tag=kitpvp.earth_twinstar_a,distance=..3] run function kitpvp:skill/earth/twinstar_died_a
+execute as @e[tag=kitpvp.earth_twinstar_guard_a] at @s run function kitpvp:skill/earth/twinstar_tick_a
 execute as @e[tag=kitpvp.earth_twinstar_b] at @s run tp @e[tag=kitpvp.earth_twinstar_guard_b,distance=..5,limit=1,sort=nearest] ~ ~ ~
-execute as @e[tag=kitpvp.earth_twinstar_guard_b] at @s unless entity @e[tag=kitpvp.earth_twinstar_b,distance=..3] run function kitpvp:skill/earth/twinstar_died_b
+execute as @e[tag=kitpvp.earth_twinstar_guard_b] at @s run function kitpvp:skill/earth/twinstar_tick_b
 # COSER：玩家刚挨打的那一帧（HurtTime=9）且 32 格内有 COSER，就给一张「物料」（箭伤同样触发）
 execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_coser,distance=..32] run function kitpvp:skill/earth/coser_paper
 # COSER 猫叫：每 4 秒一声（计时在 summon 里埋初值、函数里重置）
 execute as @e[tag=kitpvp.earth_coser,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/coser_meow
 # ★ 不用"读尸体 Health=0 那一帧"：实测被 /damage 打死的木星在第 1 刻就整个不见了，那一帧抓不到
 # ★ /kill 也照样炸（守卫只看木星在不在，不看怎么死的）；只有 game/reset 例外，它先删守卫再删木星
-# ★ 已知瑕疵：两只木星靠得极近（5 格内）时会共用一枚守卫，靠得远的那只死时不劈
+# ★ 已知瑕疵：两只木星靠得极近（6 格内）时会共用一枚守卫，靠得远的那只死时不劈
 
 # 动员家：每 15 秒（300 刻）催一次"准备"，5 秒后没人点就挨瞬间伤害（结算在 mobilizer_check）
 # 守卫与木星同一套：先拖到本体身上，再判"3 格内还有没有本体"，没了就播红色的"结束准备"
@@ -334,7 +334,7 @@ execute as @e[tag=kitpvp.earth_dominion,scores={kitpvp.earth_cd_a=..0}] at @s ru
 # 误判：被别的僵尸蹭一下、同时 3 格内正好站着一只术战士/流浪汉也会算数（单人自测就用这个特性）
 execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_spellblade,distance=..3] run function kitpvp:skill/earth/spellblade_hit
 execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_vagrant,distance=..3] run function kitpvp:skill/earth/vagrant_hit
-# 勺子：玩家挨打那一帧、1.5 格内贴着一只勺子，就把主手的物品塞进背包（判定的是"勺子打人"，不是"勺子被打"）
+# 勺子：玩家挨打那一帧、1.6 格内贴着一只勺子，就把主手的物品塞进背包（判定的是"勺子打人"，不是"勺子被打"）
 execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_spoon,distance=..1.5] run function kitpvp:skill/earth/spoon_hit
 # 交警：矿车只是出场载具，200 刻（10 秒）到点撤掉，人自己落地继续走
 execute as @e[tag=kitpvp.earth_cop_cart,scores={kitpvp.earth_cd_a=..0}] run kill @s

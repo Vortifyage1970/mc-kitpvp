@@ -7,10 +7,10 @@
 #   魂石路径现在也由 skill/soul/earth_step 写 earth_owner，所以两种召法都认得出主人
 scoreboard players set #dl_owner kitpvp.game 0
 scoreboard players operation #dl_owner kitpvp.game = @s kitpvp.earth_owner
-scoreboard players set @s kitpvp.earth_cd_a 20
+scoreboard players set @s kitpvp.earth_cd_a 15
 
 # ① 没有主人（魂石路径 / 手动 /function 召出来的）：不出手
 # ★ 这里以前写的是"见到就打"，结果魂石召的深池 earth_owner=0，会把自己召唤者当敌人打 —— 那条已经删掉
 
 # ② 有主人：只打"最近的那个玩家"，而且他不能是主人
-execute if score #dl_owner kitpvp.game matches 1.. at @e[tag=kitpvp.earth_dublinn_zombie,distance=..2,sort=nearest,limit=1] as @p[distance=..2,sort=nearest,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #dl_owner kitpvp.game run damage @s 5 minecraft:mob_attack by @e[tag=kitpvp.earth_dublinn_zombie,distance=..2,sort=nearest,limit=1]
+execute if score #dl_owner kitpvp.game matches 1.. at @e[tag=kitpvp.earth_dublinn_zombie,distance=..3,sort=nearest,limit=1] as @p[distance=..3,sort=nearest,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #dl_owner kitpvp.game run damage @s 7 minecraft:mob_attack by @e[tag=kitpvp.earth_dublinn_zombie,distance=..3,sort=nearest,limit=1]
