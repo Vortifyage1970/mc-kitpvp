@@ -335,6 +335,10 @@ execute as @e[tag=kitpvp.earth_dominion] run scoreboard players add @s kitpvp.do
 execute as @e[tag=kitpvp.earth_colorchanger,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/colorchanger_shift
 # 井盖：装填期（earth_cd_a，召唤后 2 秒）走完之后，头顶 2.5 格内有活人就破土（dy≈2 ⇒ 站在正上方即命中）
 execute as @e[tag=kitpvp.earth_manhole,scores={kitpvp.earth_cd_a=..0}] at @s if entity @a[distance=..2.5,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] run function kitpvp:skill/earth/manhole_pop
+# 篝火：挨打就点燃（HurtTime ≥ 1 且还没在烧）；烧 5 秒（100 刻）后由 campfire_out 熄火并复位
+execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=..0},nbt={HurtTime:1..}] at @s run function kitpvp:skill/earth/campfire_ignite
+execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=1..}] run scoreboard players remove @s kitpvp.fire_left 1
+execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=0}] at @s run function kitpvp:skill/earth/campfire_out
 
 # 术战士 / 流浪汉的"打中人"结算：不再走 advancement（那套 NBT 条件在这个版本上一直没触发过），
 # 改成抓挨打那一帧（HurtTime 9 = 伤害刚结算完的下一个 tick），再看身边 3 格内有没有对应的召唤物

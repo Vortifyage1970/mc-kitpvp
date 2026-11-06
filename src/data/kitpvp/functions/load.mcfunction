@@ -208,6 +208,7 @@ scoreboard objectives add kitpvp.etid dummy "地球召唤物队槽编号"
 # 取绝对值要用 -1 当乘数（scoreboard 没有 abs）
 scoreboard players set #neg kitpvp.game -1
 # 变色者换头用：3 位随机（0..7）对 6 取模 ⇒ 六种方块等概率
+scoreboard objectives add kitpvp.fire_left dummy "篝火剩余燃烧刻数（-1 = 待点火，0 = 刚烧完，1..100 = 燃烧中）"
 scoreboard players set #six kitpvp.game 6
 
 # 预留（暂无消费者，刻意保留）：item = 物品计数
