@@ -4,3 +4,5 @@
 summon minecraft:skeleton ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_campfire"],CustomName:'{"text":"篝火","color":"gold"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:20.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:20.0}],HandItems:[{},{}],ArmorItems:[{},{},{},{id:"minecraft:campfire",Count:1b}]}
 effect give @e[tag=kitpvp.earth_campfire] minecraft:resistance infinite 0 true
 scoreboard players set @e[tag=kitpvp.earth_campfire] kitpvp.fire_left -1
+scoreboard players set @e[tag=kitpvp.earth_campfire] kitpvp.fire_prev 2000
+execute as @e[tag=kitpvp.earth_campfire] store result score @s kitpvp.fire_hp run data get entity @s Health 100

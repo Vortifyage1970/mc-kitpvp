@@ -335,7 +335,14 @@ execute as @e[tag=kitpvp.earth_dominion] run scoreboard players add @s kitpvp.do
 execute as @e[tag=kitpvp.earth_colorchanger,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/colorchanger_shift
 # 井盖：装填期（earth_cd_a，召唤后 2 秒）走完之后，头顶 2.5 格内有活人就破土（dy≈2 ⇒ 站在正上方即命中）
 execute as @e[tag=kitpvp.earth_manhole,scores={kitpvp.earth_cd_a=..0}] at @s if entity @a[distance=..2.5,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] run function kitpvp:skill/earth/manhole_pop
-# 篝火：挨打就点燃（HurtTime ≥ 1 且还没在烧）；烧 5 秒（100 刻）后由 campfire_out 熄火并复位
+# 篝火：挨打就点燃。判据是"血量变少了"（每刻读一次 Health×100 与上一帧比）—— 比 nbt HurtTime 靠谱，任何来源的掉血都算
+execute as @e[tag=kitpvp.earth_campfire] store result score @s kitpvp.fire_hp run data get entity @s Health 100
+execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=..0}] if score @s kitpvp.fire_hp < @s kitpvp.fire_prev run function kitpvp:skill/earth/campfire_ignite
+execute as @e[tag=kitpvp.earth_campfire] run scoreboard players operation @s kitpvp.fire_prev = @s kitpvp.fire_hp
+execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=1..}] run scoreboard players remove @s kitpvp.fire_left 1
+execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=0}] at @s run function kitpvp:skill/earth/campfire_out
+# 燃烧中每刻冒火苗（NBT 的 Fire 只是让它真的着火，这里补粒子让"在烧"一眼可见）
+execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=1..}] at @s run particle minecraft:flame ~ ~1.2 ~ 0.35 0.5 0.35 0.01 4
 execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=..0},nbt={HurtTime:1..}] at @s run function kitpvp:skill/earth/campfire_ignite
 execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=1..}] run scoreboard players remove @s kitpvp.fire_left 1
 execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=0}] at @s run function kitpvp:skill/earth/campfire_out
