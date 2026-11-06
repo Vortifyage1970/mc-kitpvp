@@ -287,9 +287,9 @@ execute as @e[tag=kitpvp.earth_leaker_clock,scores={kitpvp.leaker_cd=1..}] run s
 execute as @e[tag=kitpvp.earth_leaker_clock,scores={kitpvp.leaker_cd=..0}] at @s run function kitpvp:skill/earth/leaker_tick
 # 双星：两只各带一个隐形 marker，本体没了就各自排 2 秒后的"复活还是放走"检查（先拖后判）
 execute as @e[tag=kitpvp.earth_twinstar_a] at @s run tp @e[tag=kitpvp.earth_twinstar_guard_a,distance=..5,limit=1,sort=nearest] ~ ~ ~
-execute as @e[tag=kitpvp.earth_twinstar_guard_a] at @s run function kitpvp:skill/earth/twinstar_tick_a
+execute as @e[tag=kitpvp.earth_twinstar_guard_a] at @s unless entity @e[tag=kitpvp.earth_twinstar_a,distance=..3] run function kitpvp:skill/earth/twinstar_died_a
 execute as @e[tag=kitpvp.earth_twinstar_b] at @s run tp @e[tag=kitpvp.earth_twinstar_guard_b,distance=..5,limit=1,sort=nearest] ~ ~ ~
-execute as @e[tag=kitpvp.earth_twinstar_guard_b] at @s run function kitpvp:skill/earth/twinstar_tick_b
+execute as @e[tag=kitpvp.earth_twinstar_guard_b] at @s unless entity @e[tag=kitpvp.earth_twinstar_b,distance=..3] run function kitpvp:skill/earth/twinstar_died_b
 # COSER：玩家刚挨打的那一帧（HurtTime=9）且 32 格内有 COSER，就给一张「物料」（箭伤同样触发）
 execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_coser,distance=..32] run function kitpvp:skill/earth/coser_paper
 # COSER 猫叫：每 4 秒一声（计时在 summon 里埋初值、函数里重置）
