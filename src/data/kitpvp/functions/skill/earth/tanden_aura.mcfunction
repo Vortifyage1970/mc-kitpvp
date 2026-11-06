@@ -1,4 +1,3 @@
-# @s = 玩家：把这一对串联体里离 @s 最近的那节上缓慢 III，另一节清掉
-# 用 sort=nearest / sort=furthest 分工，避免算距离；每刻刷新，效果只挂 1 秒所以离开范围会自然过期
-execute as @e[tag=kitpvp.earth_tanden,distance=..40,sort=nearest,limit=1] run effect give @s minecraft:slowness 1 2 true
-execute as @e[tag=kitpvp.earth_tanden,distance=..40,sort=furthest,limit=1] run effect clear @s minecraft:slowness
+# 串联体光环：以"每一对"为单位处理，保证一对里只有离玩家近的那节被减速
+# @s = 那一对的僵尸底座；先挑最近的活人，再在那个人的位置里挑最近的一节
+execute at @s at @p[distance=..40,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f},sort=nearest] run function kitpvp:skill/earth/tanden_pick

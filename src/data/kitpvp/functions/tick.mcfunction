@@ -520,4 +520,4 @@ execute as @a[tag=kitpvp.respawn_pending,tag=!kitpvp.spectator] unless entity @s
 execute if score #state kitpvp.game matches 1 run function kitpvp:game/check_winner
 
 # 串联体：每刻给"离每个玩家更近"的那一节挂缓慢 III
-execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s run function kitpvp:skill/earth/tanden_aura
+execute as @e[tag=kitpvp.earth_tanden_a] at @s run function kitpvp:skill/earth/tanden_aura
