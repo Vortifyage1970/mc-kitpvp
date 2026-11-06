@@ -81,4 +81,4 @@ execute if score @s kitpvp.rng matches 62 run function kitpvp:summon/earth_noteb
 execute if score @s kitpvp.rng matches 63 run function kitpvp:summon/earth_carto
 execute if score @s kitpvp.rng matches 64 run function kitpvp:summon/earth_explainer
 execute if score @s kitpvp.rng matches 65 run function kitpvp:summon/earth_janitor
-execute if score @s kitpvp.rng matches 66 run function kitpvp:summon/earth_betaturn
+execute if score @s kitpvp.rng matches 66 run function kitpvp:summon/earth_poly_betaturn
