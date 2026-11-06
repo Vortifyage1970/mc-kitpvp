@@ -9,3 +9,7 @@
 summon minecraft:silverfish ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_mount","kitpvp.earth_dublinn"],CustomName:'{"text":"深池飞行兵","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,NoGravity:1b,Invulnerable:1b,Passengers:[{id:"minecraft:zombie",Tags:["kitpvp.earth_minion","kitpvp.earth_dublinn_zombie"],CustomName:'{"text":"深池飞行兵","color":"dark_purple"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,HandItems:[{id:"minecraft:lightning_rod",Count:1b,tag:{Enchantments:[{id:"minecraft:sharpness",lvl:5}]}},{id:"minecraft:lightning_rod",Count:1b,tag:{Enchantments:[{id:"minecraft:sharpness",lvl:5}]}}],ArmorItems:[{id:"minecraft:leather_boots",Count:1b,tag:{display:{color:8421504},Enchantments:[{id:"minecraft:protection",lvl:1},{id:"minecraft:unbreaking",lvl:1}]}},{id:"minecraft:leather_leggings",Count:1b,tag:{display:{color:9109504},Enchantments:[{id:"minecraft:protection",lvl:1},{id:"minecraft:unbreaking",lvl:1}]}},{id:"minecraft:leather_chestplate",Count:1b,tag:{display:{color:0},Enchantments:[{id:"minecraft:protection",lvl:1},{id:"minecraft:unbreaking",lvl:1}]}},{id:"minecraft:smoker",Count:1b}]}]}
 effect give @e[tag=kitpvp.earth_dublinn_zombie] minecraft:resistance infinite 1 true
 scoreboard players set @e[tag=kitpvp.earth_dublinn] kitpvp.earth_cd_a 1
+#
+# ★ 手动 /function 召唤（不经过随机池与 cast）也要认主人：执行者是玩家就把自己挂上去
+#   以前这条路没有 link ⇒ earth_owner 为 0 ⇒ 深池/变速器/大蜜蜂一律"没有主人=不出手"，看着像不索敌
+execute if entity @s[type=minecraft:player] run function kitpvp:skill/earth/link
