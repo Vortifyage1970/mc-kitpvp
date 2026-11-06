@@ -282,11 +282,6 @@ execute as @e[tag=kitpvp.earth_hydrator_guard] at @s unless entity @e[tag=kitpvp
 execute as @e[tag=kitpvp.earth_capitalist] at @s run tp @e[tag=kitpvp.earth_capitalist_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~
 execute as @e[tag=kitpvp.earth_capitalist_guard] at @s unless entity @e[tag=kitpvp.earth_capitalist,distance=..3] run function kitpvp:skill/earth/capitalist_death
 # 借调员工：冷却递减 → 玩家挨打时抢锅 → 每 30 秒自己认领一件不相干的事 → 守卫跟随 → 本体没了掉解雇通知
-execute as @e[tag=kitpvp.earth_scapegoat,scores={kitpvp.scapegoat_cd=1..}] run scoreboard players remove @s kitpvp.scapegoat_cd 1
-execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_scapegoat,distance=..2] run function kitpvp:skill/earth/scapegoat_blame
-execute as @e[tag=kitpvp.earth_scapegoat,scores={kitpvp.scapegoat_cd=..0}] at @s run function kitpvp:skill/earth/scapegoat_mutter
-execute as @e[tag=kitpvp.earth_scapegoat] at @s run tp @e[tag=kitpvp.earth_scapegoat_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~
-execute as @e[tag=kitpvp.earth_scapegoat_guard] at @s unless entity @e[tag=kitpvp.earth_scapegoat,distance=..3] run function kitpvp:skill/earth/scapegoat_death
 # 泄露者：播报时钟递减；到点由 leaker_tick 从【还活着的那三个】里随机抽一个名字通报
 execute as @e[tag=kitpvp.earth_leaker_clock,scores={kitpvp.leaker_cd=1..}] run scoreboard players remove @s kitpvp.leaker_cd 1
 execute as @e[tag=kitpvp.earth_leaker_clock,scores={kitpvp.leaker_cd=..0}] at @s run function kitpvp:skill/earth/leaker_tick

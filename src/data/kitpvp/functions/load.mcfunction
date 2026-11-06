@@ -187,7 +187,6 @@ scoreboard objectives add kitpvp.skater_snd dummy "滑冰者滑行音效计时"
 scoreboard objectives add kitpvp.bee_slow_snd dummy "被大蜜蜂减速的提示音冷却（刻）"
 scoreboard objectives add kitpvp.sparky_charge dummy "电磁炮充能（0..200，满 200 放电 = 10 秒）"
 scoreboard objectives add kitpvp.sparky_beep dummy "电磁炮充能滴声计时（20 刻一响）"
-scoreboard objectives add kitpvp.scapegoat_cd dummy "借调员工的认领冷却（刻）"
 scoreboard objectives add kitpvp.leaker_cd dummy "泄露者的通报时钟（15 秒 = 300 刻）"
 scoreboard objectives add kitpvp.skater_call dummy "滑冰者寒带动静计时（2 次滑行一声）"
 scoreboard players set #skater_four kitpvp.game 4
