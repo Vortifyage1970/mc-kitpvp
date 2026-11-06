@@ -16,16 +16,16 @@ execute if score @s kitpvp.rng matches 4 run item replace entity @s armor.head w
 execute if score @s kitpvp.rng matches 5 run item replace entity @s armor.head with minecraft:farmland
 
 
-# 换头时叫一声：再掷 3 位（0..7 正好 8 种，不需要取模），随机换一种动物叫声 —— 又显眼又好定位
+# 换头时叫一声：再掷 3 位（0..7 正好 8 种，不需要取模），随机换一种动物叫声 —— 又显眼又好定位（音量 2.0 > 1 会把可听半径撑到约 48 格）
 scoreboard players set @s kitpvp.rng 0
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 1
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 2
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 4
-execute if score @s kitpvp.rng matches 0 at @s run playsound minecraft:entity.cat.ambient master @a[distance=..24] ~ ~ ~ 1.0 1.2
-execute if score @s kitpvp.rng matches 1 at @s run playsound minecraft:entity.sheep.ambient master @a[distance=..24] ~ ~ ~ 1.0 1.0
-execute if score @s kitpvp.rng matches 2 at @s run playsound minecraft:entity.cow.ambient master @a[distance=..24] ~ ~ ~ 1.0 1.1
-execute if score @s kitpvp.rng matches 3 at @s run playsound minecraft:entity.chicken.ambient master @a[distance=..24] ~ ~ ~ 1.0 1.15
-execute if score @s kitpvp.rng matches 4 at @s run playsound minecraft:entity.fox.ambient master @a[distance=..24] ~ ~ ~ 1.0 1.0
-execute if score @s kitpvp.rng matches 5 at @s run playsound minecraft:entity.wolf.howl master @a[distance=..24] ~ ~ ~ 1.0 1.05
-execute if score @s kitpvp.rng matches 6 at @s run playsound minecraft:entity.goat.screaming.ambient master @a[distance=..24] ~ ~ ~ 1.0 0.95
-execute if score @s kitpvp.rng matches 7 at @s run playsound minecraft:entity.parrot.ambient master @a[distance=..24] ~ ~ ~ 1.0 1.4
+execute if score @s kitpvp.rng matches 0 at @s run playsound minecraft:entity.cat.ambient master @a[distance=..24] ~ ~ ~ 2.0 1.2
+execute if score @s kitpvp.rng matches 1 at @s run playsound minecraft:entity.sheep.ambient master @a[distance=..24] ~ ~ ~ 2.0 1.0
+execute if score @s kitpvp.rng matches 2 at @s run playsound minecraft:entity.cow.ambient master @a[distance=..24] ~ ~ ~ 2.0 1.1
+execute if score @s kitpvp.rng matches 3 at @s run playsound minecraft:entity.chicken.ambient master @a[distance=..24] ~ ~ ~ 2.0 1.15
+execute if score @s kitpvp.rng matches 4 at @s run playsound minecraft:entity.fox.ambient master @a[distance=..24] ~ ~ ~ 2.0 1.0
+execute if score @s kitpvp.rng matches 5 at @s run playsound minecraft:entity.wolf.howl master @a[distance=..24] ~ ~ ~ 2.0 1.05
+execute if score @s kitpvp.rng matches 6 at @s run playsound minecraft:entity.goat.screaming.ambient master @a[distance=..24] ~ ~ ~ 2.0 0.95
+execute if score @s kitpvp.rng matches 7 at @s run playsound minecraft:entity.parrot.ambient master @a[distance=..24] ~ ~ ~ 2.0 1.4
