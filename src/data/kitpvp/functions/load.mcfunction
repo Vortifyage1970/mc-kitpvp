@@ -346,4 +346,4 @@ tag @e[name="海龟蛋"] add kitpvp.displayitem
 
 execute as @e[tag=kitpvp.displayitem] run data merge entity @s {Invulnerable:1b}
 
-say Kitpvp loaded
+say Kitpvp loaded · build 2026-11-06 深夜 3（内卫烟 ×3 / 深池 / 电磁炮 / 双星）
