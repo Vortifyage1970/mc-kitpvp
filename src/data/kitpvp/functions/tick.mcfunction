@@ -524,10 +524,12 @@ execute if score #state kitpvp.game matches 1 run function kitpvp:game/check_win
 # 牵引：让"跑得快的那只"停下来等慢的 —— 慢的那只每 1 秒都在刷新，别去拽它（拽起来就是一卡一卡）
 # 牵引：不再向后传送（那看着像被硬拽）。12 格兜底只防丢失，正常靠下面 aura 里的"同步降速"
 # 串联体：两只相距超过 4 格就把 b 拉到 a 身边（只做这一件事，不判断谁离玩家近）
+# 传送音效：只在"这一帧真的要拉"的时候响（拉完两只贴在一起，下一帧就不再响）
+execute as @e[tag=kitpvp.earth_tandem_a] at @s if entity @e[tag=kitpvp.earth_tandem_b,distance=4..] run playsound minecraft:entity.enderman.teleport master @a[distance=..24] ~ ~ ~ 0.8 1.2
 execute as @e[tag=kitpvp.earth_tandem_a] at @s run tp @e[tag=kitpvp.earth_tandem_b,distance=4..,limit=1,sort=nearest] ~ ~ ~
 # 每 2 秒（earth_cd_a 40）轮换一次速度 II
 execute as @e[tag=kitpvp.earth_tandem_a,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/tandem_apply
-execute as @e[tag=kitpvp.earth_tandem_a,scores={kitpvp.earth_cd_a=..0}] run scoreboard players set @s kitpvp.earth_cd_a 40
+execute as @e[tag=kitpvp.earth_tandem_a,scores={kitpvp.earth_cd_a=..0}] run scoreboard players set @s kitpvp.earth_cd_a 60
 # 同伴一没就立刻独活：清空效果 → 永久速度 II + 力量 I + 发光
 # ★ 独活判定不能靠"旁边还有没有同伴"的距离：传送后两只重叠在一起，距离 = 0.0，
 #   `distance=0.1..64` 会把贴着的那只排除掉 ⇒ 两边都以为自己落单 ⇒ 双双发光+力量
