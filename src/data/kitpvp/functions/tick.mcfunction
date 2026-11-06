@@ -325,9 +325,6 @@ execute if entity @e[tag=kitpvp.earth_cyclic] run function kitpvp:skill/earth/ri
 # 预言家：每 15 秒开口（靠 earth_cd_a 归零触发）
 execute as @e[tag=kitpvp.earth_oracle,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/oracle_speak
 # 磁铁：每刻吸掉落物、拽靠近的玩家
-# 磁铁牵引节拍：1..4 循环（每 4 刻才拉玩家一次，见 magnet_pull 的说明）
-scoreboard players add #mag_tick kitpvp.game 1
-execute if score #mag_tick kitpvp.game matches 5.. run scoreboard players set #mag_tick kitpvp.game 1
 execute if entity @e[tag=kitpvp.earth_magnet] run function kitpvp:skill/earth/magnet_pull
 # 内卫：每 3 秒放一枚黑色烟花
 execute as @e[tag=kitpvp.earth_dominion,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/dominion_firework
