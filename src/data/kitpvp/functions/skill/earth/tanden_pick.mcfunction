@@ -1,4 +1,7 @@
-# 位置 = 玩家脚下：先把这一对里的缓慢清干净，再只给最近的那节上缓慢 III
-# 每 3 秒判一次、效果挂 4 秒（留 1 秒冗余，不会一闪一闪） ⇒ 谁往前站谁被拖慢，换位时立刻交换；玩家跑出 40 格两边都会自然过期
-effect clear @e[tag=kitpvp.earth_tanden,distance=..40] minecraft:slowness
-effect give @e[tag=kitpvp.earth_tanden,distance=..40,sort=nearest,limit=1] minecraft:slowness 4 2 true
+# 位置 = 玩家脚下（4 格内有这只串联体时才跑）
+# 近的那只：缓慢 II（4 秒一刷）；远的那只：速度 II（4 秒一刷）
+# ★ 全部排除 tag=kitpvp.tanden_alone：独活强化的那只不能被这里的 clear 抹掉永久速度
+effect clear @e[tag=kitpvp.earth_tanden,tag=!kitpvp.tanden_alone,distance=..4] minecraft:slowness
+effect clear @e[tag=kitpvp.earth_tanden,tag=!kitpvp.tanden_alone,distance=..4] minecraft:speed
+effect give @e[tag=kitpvp.earth_tanden,tag=!kitpvp.tanden_alone,distance=..4,sort=nearest,limit=1] minecraft:slowness 4 1 true
+effect give @e[tag=kitpvp.earth_tanden,tag=!kitpvp.tanden_alone,distance=..4,sort=furthest,limit=1] minecraft:speed 4 1 true

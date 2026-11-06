@@ -522,4 +522,6 @@ execute if score #state kitpvp.game matches 1 run function kitpvp:game/check_win
 # 串联体：每 3 秒（earth_cd_a 归零时）给"离玩家更近"的那一节挂缓慢 III
 # 串联体隐形牵引：b 被甩开 3 格以上就拉回 a 身边（不做碰撞检查；两只都保留完整 AI）
 execute as @e[tag=kitpvp.earth_tanden_a] at @s run tp @e[tag=kitpvp.earth_tanden_b,distance=3..,limit=1,sort=nearest] ~ ~ ~
-execute as @e[tag=kitpvp.earth_tanden_a,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/tanden_aura
+execute as @e[tag=kitpvp.earth_tanden,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/tanden_aura
+# 串联体：一只死了 ⇒ 另一只永久速度 II + 力量 I（用 0.1..64 排除自己）
+execute as @e[tag=kitpvp.earth_tanden,tag=!kitpvp.tanden_alone] at @s unless entity @e[tag=kitpvp.earth_tanden,distance=0.1..64] run function kitpvp:skill/earth/tanden_alone
