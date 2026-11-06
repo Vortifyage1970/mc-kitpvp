@@ -1,8 +1,6 @@
 # 幻翼的"共生"守卫 + 强制俯冲（每 10 秒检测一次，一次扑 17 格）
 # 每刻检查（由 haunt_test_b 启动，靠自身 schedule 续命，不需要挂进 tick）
 execute unless entity @e[tag=kitpvp.debug_phantom_leashed] run kill @e[tag=kitpvp.debug_phantom_holder]
-# 骷髅绝对不吃摔落伤害：每刻把 FallDistance 刷回 0（比堆摔落保护更彻底，附魔怎么调都不会掉血）
-execute as @e[tag=kitpvp.debug_phantom_leashed] run data merge entity @s {FallDistance:0.0f}
 # ---- 强制俯冲：每 200 刻（10 秒）检测一次，触发就朝玩家方向直推 17 格（17 刻 × 1 格/刻）----
 scoreboard players add #ph_t kitpvp.game 1
 execute if score #ph_t kitpvp.game matches 200.. run scoreboard players set #ph_t kitpvp.game 0
