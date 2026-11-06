@@ -50,6 +50,7 @@ kill @e[tag=kitpvp.li_bomb]
 # 守卫（木星劈雷 / 动员家喊话）必须排在各自本体前面删：否则本体一消失，守卫就以为它战死了
 kill @e[tag=kitpvp.earth_jupiter_guard]
 kill @e[tag=kitpvp.earth_threshold_guard]
+kill @e[tag=kitpvp.earth_hydrator_guard]
 kill @e[tag=kitpvp.earth_twinstar_guard_a]
 kill @e[tag=kitpvp.earth_twinstar_guard_b]
 kill @e[tag=kitpvp.earth_mobilizer_guard]
