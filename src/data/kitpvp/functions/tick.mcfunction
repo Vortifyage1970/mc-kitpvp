@@ -288,21 +288,6 @@ execute as @e[tag=kitpvp.earth_capitalist] run scoreboard players operation @s k
 # 多肽_β转角：主链最底下那颗氨基酸下面挂着 5 节尾巴（肽键-氨基酸-肽键-氨基酸-肽键）
 # 1.20.1 用 /data modify 写 Leash 不会真牵引（实测报"没有这个数据"）⇒ 绳子靠 end_rod 粒子画、尾巴每刻 tp 挂到正下方
 # ★ 每段先判"那一格是不是空气"：脚下是地面时不往地里塞（塞进去会窒息），此时尾巴留在原地、绳子只剩可见的几段
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a] at @s if block ~ ~-1.1 ~ minecraft:air run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail1,distance=..24,limit=1,sort=nearest] ~ ~-1.1 ~
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a] at @s if block ~ ~-1.1 ~ minecraft:air run particle minecraft:end_rod ~ ~-0.8 ~ 0 0 0 0 1 normal
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a] at @s if block ~ ~-1.1 ~ minecraft:air run particle minecraft:end_rod ~ ~-0.3 ~ 0 0 0 0 1 normal
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a] at @s if block ~ ~-2.2 ~ minecraft:air run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail2,distance=..24,limit=1,sort=nearest] ~ ~-2.2 ~
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a] at @s if block ~ ~-2.2 ~ minecraft:air run particle minecraft:end_rod ~ ~-1.9 ~ 0 0 0 0 1 normal
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a] at @s if block ~ ~-2.2 ~ minecraft:air run particle minecraft:end_rod ~ ~-1.4 ~ 0 0 0 0 1 normal
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a] at @s if block ~ ~-3.3 ~ minecraft:air run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail3,distance=..24,limit=1,sort=nearest] ~ ~-3.3 ~
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a] at @s if block ~ ~-3.3 ~ minecraft:air run particle minecraft:end_rod ~ ~-3 ~ 0 0 0 0 1 normal
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a] at @s if block ~ ~-3.3 ~ minecraft:air run particle minecraft:end_rod ~ ~-2.5 ~ 0 0 0 0 1 normal
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a] at @s if block ~ ~-4.4 ~ minecraft:air run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail4,distance=..24,limit=1,sort=nearest] ~ ~-4.4 ~
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a] at @s if block ~ ~-4.4 ~ minecraft:air run particle minecraft:end_rod ~ ~-4.1 ~ 0 0 0 0 1 normal
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a] at @s if block ~ ~-4.4 ~ minecraft:air run particle minecraft:end_rod ~ ~-3.6 ~ 0 0 0 0 1 normal
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a] at @s if block ~ ~-5.5 ~ minecraft:air run tp @e[tag=kitpvp.earth_polypeptide_betaturn_tail5,distance=..24,limit=1,sort=nearest] ~ ~-5.5 ~
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a] at @s if block ~ ~-5.5 ~ minecraft:air run particle minecraft:end_rod ~ ~-5.2 ~ 0 0 0 0 1 normal
-execute as @e[tag=kitpvp.earth_polypeptide_betaturn_a] at @s if block ~ ~-5.5 ~ minecraft:air run particle minecraft:end_rod ~ ~-4.7 ~ 0 0 0 0 1 normal
 # 多肽_β转角：主链最底下那颗氨基酸下面挂着 5 节尾巴（肽键-氨基酸-肽键-氨基酸-肽键）
 # 1.20.1 用 /data modify 写 Leash 不会真牵引（实测报没有这个数据）⇒ 绳子靠 end_rod 粒子画、尾巴每刻 tp 挂到正下方
 # ★ 每段都先判"那一格是不是空气"：脚下是地面时不往地里塞（塞进去会窒息），此时尾巴留在原地、绳子只剩可见的几段
