@@ -1,3 +1,0 @@
-# β转角 尾巴 2（NoAI：自己不走路，间距由被拖拽的物理决定，链条才整齐划一）（20 血：原设计 1 血的肽键一碰就死，链会少一节）：拴在尾巴1 上（分刻召唤，持有者已进 UUID 索引）
-summon minecraft:zombie ~ ~ ~-1.5 {id:"minecraft:zombie",UUID:[I;1900001,3,1,1],Leash:{UUID:[I;1900001,2,1,1]},Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_polypeptide_betaturn","kitpvp.earth_amino","kitpvp.earth_polypeptide_betaturn_tail2"],Silent:1b,NoAI:1b,Health:5.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:5.0}],ArmorItems:[{},{},{},{id:"minecraft:smooth_stone",Count:1b}],CustomName:'{"text":"氨基酸","color":"green"}',CustomNameVisible:0b,PersistenceRequired:1b,CanPickUpLoot:0b}
-schedule function kitpvp:summon/earth_polypeptide_betaturn_tail3 1t replace

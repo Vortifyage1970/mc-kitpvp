@@ -1,3 +1,0 @@
-# β转角 尾巴 7（NoAI：自己不走路，间距由被拖拽的物理决定，链条才整齐划一）（肽键）：拴在前一节身上，比前一节晚 1 刻出生
-summon minecraft:silverfish ~ ~ ~-5.25 {id:"minecraft:silverfish",UUID:[I;1900001,8,1,1],Leash:{UUID:[I;1900001,7,1,1]},Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_polypeptide_betaturn","kitpvp.earth_peptide","kitpvp.earth_polypeptide_betaturn_tail7"],Silent:1b,NoAI:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}],CustomName:'{"text":"肽键","color":"aqua"}',CustomNameVisible:0b,PersistenceRequired:1b,CanPickUpLoot:0b}
-schedule function kitpvp:summon/earth_polypeptide_betaturn_tail8 1t replace
