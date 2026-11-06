@@ -1,5 +1,5 @@
 # @s = 音符盒：刚被打了（血量比上一帧少）⇒ 掷一个 0..7，八个乐器/音高组合里随机一个
-scoreboard players set @s kitpvp.earth_cd_a 6
+scoreboard players set @s kitpvp.earth_cd_a 3
 scoreboard players set @s kitpvp.rng 0
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 1
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 2
