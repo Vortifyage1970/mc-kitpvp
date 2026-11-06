@@ -6,3 +6,5 @@ execute as @e[tag=kitpvp.earth_noteblock] store result score @s kitpvp.nb_hp run
 # 血量快照：nb_hp 是这一帧的真实值，nb_prev 初值给满血（2000 = 20.0 ×100），两者相等 ⇒ 不会一出生就误触发
 execute as @e[tag=kitpvp.earth_noteblock] store result score @s kitpvp.nb_hp run data get entity @s Health 100
 scoreboard players set @e[tag=kitpvp.earth_noteblock] kitpvp.nb_prev 2000
+# 死亡守卫：隐形 marker 跟着它走，本体一消失（打死 / 被清场）就在原地播一段下落式连音
+summon minecraft:marker ~ ~ ~ {Tags:["kitpvp.earth_noteblock_guard"]}
