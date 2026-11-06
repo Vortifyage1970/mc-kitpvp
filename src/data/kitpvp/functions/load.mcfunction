@@ -220,6 +220,7 @@ scoreboard objectives add kitpvp.fire_hp dummy "篝火热血量 ×100（每刻�
 scoreboard objectives add kitpvp.fire_prev dummy "篝火上一帧的血量（拿它和 fire_hp 比，掉血了就说明挨打了）"
 scoreboard objectives add kitpvp.flyer_dive dummy "飞行器俯冲剩余刻数（17 = 正在扑）"
 scoreboard objectives add kitpvp.flyer_grace dummy "飞行器宽限刻数（吊舱晚一帧出生，先别判共生）"
+scoreboard objectives add kitpvp.flyer_bound dummy "飞行器的吊舱是否已经出生过（1=出生过，之后消失才算共生）"
 scoreboard players set #six kitpvp.game 6
 
 # 预留（暂无消费者，刻意保留）：item = 物品计数
