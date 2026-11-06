@@ -2,7 +2,7 @@
 # ⚠ 取模用的是实现数（54），不是 2 的幂：空号会让某些编号永远掷不中，所以这个数必须等于"已实现的行数"。
 #   新增生灵时把数加一并启用对应那行即可（现在 0..54 都满了，再加就要同时加行 + 加数）。
 # 只负责"掷 + 召"：归属（link）、补货冷却、播报由调用方决定（地球职业在 summon，魂石在 soul/earth_step）
-scoreboard players set #pool_size kitpvp.game 57
+scoreboard players set #pool_size kitpvp.game 58
 
 scoreboard players set @s kitpvp.rng 0
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 1
@@ -72,3 +72,4 @@ execute if score @s kitpvp.rng matches 53 run function kitpvp:summon/earth_spark
 execute if score @s kitpvp.rng matches 54 run function kitpvp:summon/earth_dublinn
 execute if score @s kitpvp.rng matches 55 run function kitpvp:summon/earth_spoon
 execute if score @s kitpvp.rng matches 56 run function kitpvp:summon/earth_hydrator
+execute if score @s kitpvp.rng matches 57 run function kitpvp:summon/earth_capitalist

@@ -278,6 +278,9 @@ execute as @e[tag=kitpvp.earth_threshold_guard] at @s unless entity @e[tag=kitpv
 # 补水兵：守卫每刻被拖到本体脚下，本体一消失就在原地灌水（砍死 / 烧死 / /kill 都会触发）
 execute as @e[tag=kitpvp.earth_hydrator] at @s run tp @e[tag=kitpvp.earth_hydrator_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~
 execute as @e[tag=kitpvp.earth_hydrator_guard] at @s unless entity @e[tag=kitpvp.earth_hydrator,distance=..3] run function kitpvp:skill/earth/hydrator_death
+# 资本家：守卫每刻被拖到本体脚下，本体一消失就在原地掉一张十万大刀乐
+execute as @e[tag=kitpvp.earth_capitalist] at @s run tp @e[tag=kitpvp.earth_capitalist_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~
+execute as @e[tag=kitpvp.earth_capitalist_guard] at @s unless entity @e[tag=kitpvp.earth_capitalist,distance=..3] run function kitpvp:skill/earth/capitalist_death
 # 双星：两只各带一个隐形 marker，本体没了就各自排 2 秒后的"复活还是放走"检查（先拖后判）
 execute as @e[tag=kitpvp.earth_twinstar_a] at @s run tp @e[tag=kitpvp.earth_twinstar_guard_a,distance=..5,limit=1,sort=nearest] ~ ~ ~
 execute as @e[tag=kitpvp.earth_twinstar_guard_a] at @s unless entity @e[tag=kitpvp.earth_twinstar_a,distance=..3] run function kitpvp:skill/earth/twinstar_died_a
