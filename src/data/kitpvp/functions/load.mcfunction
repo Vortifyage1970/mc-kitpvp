@@ -210,13 +210,15 @@ scoreboard players set #neg kitpvp.game -1
 # 变色者换头用：3 位随机（0..7）对 6 取模 ⇒ 六种方块等概率
 scoreboard objectives add kitpvp.fire_left dummy "篝火剩余燃烧刻数（-1 = 待点火，0 = 刚烧完，1..100 = 燃烧中）"
 scoreboard objectives add kitpvp.nb_hp dummy "音符盒当前血量 ×100（每刻读一次）"
-scoreboard objectives add kitpvp.nb_prev dummy "音符盒上一帧血量（掉了就说明挨打了）"
+scoreboard objectives add kitpvp.nb_prev dummy "音符盒上一帧血量（掉了就说明挨打了）"
+
 scoreboard objectives add kitpvp.jan_unit dummy "保洁员清扫：单个掉落物的件数（按件计，不按堆）"
 scoreboard objectives add kitpvp.cap_hp dummy "资本家当前血量（×100，用来判断挨打）"
 scoreboard objectives add kitpvp.cap_prev dummy "资本家上一次的血量（×100）"
 
 scoreboard objectives add kitpvp.fire_hp dummy "篝火热血量 ×100（每刻读一次，用来判断这一帧有没有掉血）"
 scoreboard objectives add kitpvp.fire_prev dummy "篝火上一帧的血量（拿它和 fire_hp 比，掉血了就说明挨打了）"
+scoreboard objectives add kitpvp.flyer_dive dummy "飞行器俯冲剩余刻数（17 = 正在扑）"
 scoreboard players set #six kitpvp.game 6
 
 # 预留（暂无消费者，刻意保留）：item = 物品计数
