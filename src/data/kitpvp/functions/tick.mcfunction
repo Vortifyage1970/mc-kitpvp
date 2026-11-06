@@ -345,12 +345,15 @@ execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=0}] at @s run f
 execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=1..}] at @s run particle minecraft:flame ~ ~1.2 ~ 0.35 0.5 0.35 0.01 4
 # 音符盒：血量掉了 = 挨打了 ⇒ 打一个随机音符（6 刻冷却，连击不会糊成一片）
 execute as @e[tag=kitpvp.earth_noteblock] store result score @s kitpvp.nb_hp run data get entity @s Health 100
+# 名字里那个 ❤ 后面显示的数字：整数血量（scale 1 = 20 而不是 2000）
+execute as @e[tag=kitpvp.earth_noteblock] store result score @s kitpvp.nb_hp1 run data get entity @s Health 1
 execute as @e[tag=kitpvp.earth_noteblock] if score @s kitpvp.nb_hp < @s kitpvp.nb_prev run function kitpvp:skill/earth/noteblock_note
 execute as @e[tag=kitpvp.earth_noteblock] run scoreboard players operation @s kitpvp.nb_prev = @s kitpvp.nb_hp
 # 制图台：玩家挨打那一帧（HurtTime 9）+ 3 格内有制图台 ⇒ 刷一条"制图台提醒您 X"（10 刻冷却）
 execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_carto,distance=..3] unless score @s kitpvp.earth_cd_a matches 1.. run function kitpvp:skill/earth/carto_line
 # 讲解石：掉一滴血就离场（不做任何减伤/免疫，一碰就没）
 execute as @e[tag=kitpvp.earth_explainer] store result score @s kitpvp.nb_hp run data get entity @s Health 100
+# 名字里那个 ❤ 后面显示的数字：整数血量（scale 1 = 20 而不是 2000）
 execute as @e[tag=kitpvp.earth_explainer] if score @s kitpvp.nb_hp < @s kitpvp.nb_prev run function kitpvp:skill/earth/explainer_leave
 # 保洁员：每 15 秒（earth_cd_a 300）扫一次 8 格内的掉落物
 execute as @e[tag=kitpvp.earth_janitor,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/janitor_sweep
