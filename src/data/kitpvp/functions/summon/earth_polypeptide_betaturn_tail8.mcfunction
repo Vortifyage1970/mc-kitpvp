@@ -1,0 +1,3 @@
+# β转角 尾巴 8（氨基酸）：拴在前一节身上，比前一节晚 1 刻出生
+summon minecraft:zombie ~ ~ ~ {id:"minecraft:zombie",UUID:[I;1900001,9,1,1],Leash:{UUID:[I;1900001,8,1,1]},Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_polypeptide_betaturn","kitpvp.earth_amino","kitpvp.earth_polypeptide_betaturn_tail8"],Silent:1b,Health:5.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:5.0}],CustomName:'{"text":"氨基酸","color":"green"}',CustomNameVisible:0b,PersistenceRequired:1b,CanPickUpLoot:0b,ArmorItems:[{},{},{},{id:"minecraft:smooth_stone",Count:1b}]}
+schedule function kitpvp:summon/earth_polypeptide_betaturn_tail9 1t replace
