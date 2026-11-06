@@ -14,4 +14,3 @@ playsound minecraft:block.gravel.break master @a[distance=..24] ~ ~ ~ 1.0 0.9
 playsound minecraft:block.rooted_dirt.break master @a[distance=..24] ~ ~ ~ 0.9 0.7
 particle minecraft:block minecraft:gravel ~ ~0.2 ~ 1.2 0.4 1.2 0.15 40
 particle minecraft:poof ~ ~0.6 ~ 1 0.4 1 0.05 12
-tellraw @a [{"text":"[井盖]","color":"gray","bold":true},{"text":" 有人踩空了，","color":"white"},{"text":"缓慢 III","color":"aqua"},{"text":" 6 秒。","color":"white"}]
