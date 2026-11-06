@@ -324,8 +324,8 @@ execute as @e[tag=kitpvp.earth_dominion,scores={kitpvp.earth_cd_a=..0}] at @s ru
 # 误判：被别的僵尸蹭一下、同时 3 格内正好站着一只术战士/流浪汉也会算数（单人自测就用这个特性）
 execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_spellblade,distance=..3] run function kitpvp:skill/earth/spellblade_hit
 execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_vagrant,distance=..3] run function kitpvp:skill/earth/vagrant_hit
-# 勺子：挨打那一帧身边 3 格内有勺子，就把主手的物品搬到另一格（1.20.1 没有交换槽位指令，只能找空格再搬）
-execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_spoon,distance=..3] run function kitpvp:skill/earth/spoon_hit
+# 勺子：玩家挨打那一帧、1.5 格内贴着一只勺子，就把主手的物品塞进背包（判定的是"勺子打人"，不是"勺子被打"）
+execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_spoon,distance=..1.5] run function kitpvp:skill/earth/spoon_hit
 # 交警：矿车只是出场载具，200 刻（10 秒）到点撤掉，人自己落地继续走
 execute as @e[tag=kitpvp.earth_cop_cart,scores={kitpvp.earth_cd_a=..0}] run kill @s
 # 超凡升天：60 刻后开始漂浮，300 刻后离场（tag 区分两个阶段）
