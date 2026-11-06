@@ -351,7 +351,7 @@ execute if entity @e[tag=kitpvp.earth_magnet] run function kitpvp:skill/earth/ma
 # 内卫：每 3 秒放一枚黑色烟花
 execute as @e[tag=kitpvp.earth_dominion,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/dominion_firework
 execute as @e[tag=kitpvp.earth_dominion] run scoreboard players add @s kitpvp.dominion_age 1
-# 飞行器（地球·69）：共生（吊舱死则母体死）+ 补绳 + 每 10 秒俯冲 17 格
+# 飞行器（地球·69）：共生（吊舱死则母体死）+ 补绳 + 每 10 秒俯冲 25 格
 execute as @e[tag=kitpvp.earth_flyer_carrier] at @s run function kitpvp:skill/earth/flyer_tick
 # 变色者：每 5 秒换一次头顶方块（earth_cd_a 由 tick 统一递减）
 execute as @e[tag=kitpvp.earth_colorchanger,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/colorchanger_shift
