@@ -521,7 +521,10 @@ execute if score #state kitpvp.game matches 1 run function kitpvp:game/check_win
 
 # 串联体：每 3 秒（earth_cd_a 归零时）给"离玩家更近"的那一节挂缓慢 III
 # 串联体隐形牵引：b 被甩开 3 格以上就拉回 a 身边（不做碰撞检查；两只都保留完整 AI）
-execute as @e[tag=kitpvp.earth_tandem_a] at @s run tp @e[tag=kitpvp.earth_tandem_b,distance=3..,limit=1,sort=nearest] ~ ~ ~
+# 牵引：让"跑得快的那只"停下来等慢的 —— 慢的那只每 1 秒都在刷新，别去拽它（拽起来就是一卡一卡）
+execute as @e[tag=kitpvp.earth_tandem,tag=kitpvp.tandem_near] at @s run tp @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_near,distance=4..,limit=1,sort=nearest] ~ ~ ~
+# 兜底：还没有 near 标记时（玩家在 8 格外、aura 没跑过），按老规则把 b 拉回 a 身边
+execute unless entity @e[tag=kitpvp.earth_tandem,tag=kitpvp.tandem_near] as @e[tag=kitpvp.earth_tandem_a] at @s run tp @e[tag=kitpvp.earth_tandem_b,distance=4..,limit=1,sort=nearest] ~ ~ ~
 execute as @e[tag=kitpvp.earth_tandem,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/tandem_aura
 # 串联体：一只死了 ⇒ 另一只永久速度 II + 力量 I（用 0.1..64 排除自己）
 execute as @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone] at @s unless entity @e[tag=kitpvp.earth_tandem,distance=0.1..64] run function kitpvp:skill/earth/tandem_alone
