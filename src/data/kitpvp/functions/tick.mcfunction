@@ -345,7 +345,7 @@ execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=0}] at @s run f
 execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=1..}] at @s run particle minecraft:flame ~ ~1.2 ~ 0.35 0.5 0.35 0.01 4
 # 音符盒：血量掉了 = 挨打了 ⇒ 打一个随机音符（6 刻冷却，连击不会糊成一片）
 execute as @e[tag=kitpvp.earth_noteblock] store result score @s kitpvp.nb_hp run data get entity @s Health 100
-execute as @e[tag=kitpvp.earth_noteblock,scores={kitpvp.earth_cd_a=..0}] if score @s kitpvp.nb_hp < @s kitpvp.nb_prev run function kitpvp:skill/earth/noteblock_note
+execute as @e[tag=kitpvp.earth_noteblock] if score @s kitpvp.nb_hp < @s kitpvp.nb_prev run function kitpvp:skill/earth/noteblock_note
 execute as @e[tag=kitpvp.earth_noteblock] run scoreboard players operation @s kitpvp.nb_prev = @s kitpvp.nb_hp
 execute as @e[tag=kitpvp.earth_noteblock] at @s run tp @e[tag=kitpvp.earth_noteblock_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~
 execute as @e[tag=kitpvp.earth_noteblock_guard] at @s unless entity @e[tag=kitpvp.earth_noteblock,distance=..3] run function kitpvp:skill/earth/noteblock_death
