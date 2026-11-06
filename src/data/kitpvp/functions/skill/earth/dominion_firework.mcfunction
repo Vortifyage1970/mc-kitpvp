@@ -10,6 +10,9 @@ summon minecraft:firework_rocket ~ ~1 ~ {Tags:["kitpvp.earth_firework"],Silent:1
 playsound minecraft:entity.warden.ambient master @a[distance=..24] ~ ~ ~ 1.0 0.5
 
 # 2) 爆点埋标记 + 40 条命：4 刻后开始冒烟，每 2 刻减 1，减完自毁
-execute if score #fw_mark_n kitpvp.game matches ..11 run summon minecraft:marker ~ ~2 ~ {Tags:["kitpvp.earth_fw_mark"]}
-execute if score #fw_mark_n kitpvp.game matches ..11 run scoreboard players set @e[tag=kitpvp.earth_fw_mark] kitpvp.earth_fw_life 40
+execute if score #fw_mark_n kitpvp.game matches ..11 run summon minecraft:marker ~ ~2 ~ {Tags:["kitpvp.earth_fw_mark","kitpvp.earth_fw_new"]}
+# ★ 只给"刚埋的那一颗"上发条：以前这条会把场上所有烟团一起重置成 40 刻，
+#   于是每次新烟花都会给旧烟续命，最后所有烟同时消失（作者观察到的"一起没"就是这个 bug）
+execute if score #fw_mark_n kitpvp.game matches ..11 run scoreboard players set @e[tag=kitpvp.earth_fw_new,distance=..1,limit=1,sort=nearest] kitpvp.earth_fw_life 40
+execute if score #fw_mark_n kitpvp.game matches ..11 run tag @e[tag=kitpvp.earth_fw_new] remove kitpvp.earth_fw_new
 execute if score #fw_mark_n kitpvp.game matches ..11 run schedule function kitpvp:skill/earth/dominion_smoke 4t replace
