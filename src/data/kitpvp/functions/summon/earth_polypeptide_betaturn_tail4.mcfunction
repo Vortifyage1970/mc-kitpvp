@@ -1,3 +1,3 @@
-# β转角 尾巴 4：拴在尾巴3 上（单独一刻召唤，保证持有者已在 UUID 索引里）
-summon minecraft:zombie ~4 ~ ~ {id:"minecraft:zombie",UUID:[I;1900001,5,1,1],Leash:[I;1900001,4,1,1],Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_polypeptide_betaturn","kitpvp.earth_amino","kitpvp.earth_polypeptide_betaturn_tail4"],Silent:1b,Health:5.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:5.0}],ArmorItems:[{},{},{},{id:"minecraft:smooth_stone",Count:1b}],CustomName:'{"text":"氨基酸","color":"green"}',CustomNameVisible:0b,PersistenceRequired:1b,CanPickUpLoot:0b}
+# β转角 尾巴 4：拴在尾巴3 上（分刻召唤，持有者已进 UUID 索引）
+summon minecraft:zombie ~4 ~ ~ {id:"minecraft:zombie",UUID:[I;1900001,5,1,1],Leash:{UUID:[I;1900001,4,1,1]},Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_polypeptide_betaturn","kitpvp.earth_amino","kitpvp.earth_polypeptide_betaturn_tail4"],Silent:1b,Health:5.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:5.0}],ArmorItems:[{},{},{},{id:"minecraft:smooth_stone",Count:1b}],CustomName:'{"text":"氨基酸","color":"green"}',CustomNameVisible:0b,PersistenceRequired:1b,CanPickUpLoot:0b}
 schedule function kitpvp:summon/earth_polypeptide_betaturn_tail5 1t replace

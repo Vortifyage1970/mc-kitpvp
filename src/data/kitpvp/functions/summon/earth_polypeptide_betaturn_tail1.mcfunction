@@ -1,3 +1,3 @@
-# β转角 尾巴 1：拴在底座 上（单独一刻召唤，保证持有者已在 UUID 索引里）
-summon minecraft:silverfish ~1 ~ ~ {id:"minecraft:silverfish",UUID:[I;1900001,2,1,1],Leash:[I;1900001,1,1,1],Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_polypeptide_betaturn","kitpvp.earth_peptide","kitpvp.earth_polypeptide_betaturn_tail1"],Silent:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}],CustomName:'{"text":"肽键","color":"aqua"}',CustomNameVisible:0b,PersistenceRequired:1b,CanPickUpLoot:0b}
+# β转角 尾巴 1：拴在底座 上（分刻召唤，持有者已进 UUID 索引）
+summon minecraft:silverfish ~1 ~ ~ {id:"minecraft:silverfish",UUID:[I;1900001,2,1,1],Leash:{UUID:[I;1900001,1,1,1]},Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_polypeptide_betaturn","kitpvp.earth_peptide","kitpvp.earth_polypeptide_betaturn_tail1"],Silent:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}],CustomName:'{"text":"肽键","color":"aqua"}',CustomNameVisible:0b,PersistenceRequired:1b,CanPickUpLoot:0b}
 schedule function kitpvp:summon/earth_polypeptide_betaturn_tail2 1t replace
