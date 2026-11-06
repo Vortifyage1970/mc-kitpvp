@@ -16,4 +16,7 @@ execute if score @s kitpvp.earth_cd_a matches ..0 run scoreboard players set @s 
 execute if score @s kitpvp.flyer_dive matches 1.. if entity @a[tag=kitpvp.flyer_target] facing entity @p[tag=kitpvp.flyer_target] feet run tp @s ^ ^ ^1
 # 兜底：一个人都没有（或全在旁观）时垂直往下冲，至少能看见它动
 execute if score @s kitpvp.flyer_dive matches 1.. unless entity @a[tag=kitpvp.flyer_target] run tp @s ~ ~-1 ~
+# ★ 俯冲这 17 刻里把吊舱一起搬走：原版"生物持绳"超过约 10 格必断，17 格冲刺不可能靠绳子拽住
+#   顺序很关键：先在上一行把母体挪到新位置，再让吊舱跟到"新位置的下方 2 格"，两者距离恒为 2 ⇒ 绳子全程不断
+execute if score @s kitpvp.flyer_dive matches 1.. at @s run tp @e[tag=kitpvp.earth_flyer_body,limit=1,sort=nearest] ~ ~-2 ~
 execute if score @s kitpvp.flyer_dive matches 1.. run scoreboard players remove @s kitpvp.flyer_dive 1
