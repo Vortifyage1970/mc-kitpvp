@@ -8,3 +8,6 @@ execute as @e[tag=kitpvp.earth_noteblock] store result score @s kitpvp.nb_hp run
 scoreboard players set @e[tag=kitpvp.earth_noteblock] kitpvp.nb_prev 2000
 # 死亡守卫：隐形 marker 跟着它走，本体一消失（打死 / 被清场）就在原地播一段下落式连音
 summon minecraft:marker ~ ~ ~ {Tags:["kitpvp.earth_noteblock_guard"]}
+# ★ 必须埋 earth_cd_a 初值：tick 里拿 scores={kitpvp.earth_cd_a=..0} 当冷却门，
+#   分数不存在时选择器根本不匹配 ⇒ 挨打也不会响（大蜜蜂当年就栽在这条上）
+scoreboard players set @e[tag=kitpvp.earth_noteblock] kitpvp.earth_cd_a 0
