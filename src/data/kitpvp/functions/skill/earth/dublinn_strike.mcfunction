@@ -13,4 +13,4 @@ scoreboard players set @s kitpvp.earth_cd_a 20
 # ★ 这里以前写的是"见到就打"，结果魂石召的深池 earth_owner=0，会把自己召唤者当敌人打 —— 那条已经删掉
 
 # ② 有主人：只打"最近的那个玩家"，而且他不能是主人
-execute if score #dl_owner kitpvp.game matches 1.. at @e[tag=kitpvp.earth_dublinn_zombie,distance=..2,sort=nearest,limit=1] as @p[distance=..2,sort=nearest] unless score @s kitpvp.etid = #dl_owner kitpvp.game run damage @s 5 minecraft:mob_attack by @e[tag=kitpvp.earth_dublinn_zombie,distance=..2,sort=nearest,limit=1]
+execute if score #dl_owner kitpvp.game matches 1.. at @e[tag=kitpvp.earth_dublinn_zombie,distance=..2,sort=nearest,limit=1] as @p[distance=..2,sort=nearest,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #dl_owner kitpvp.game run damage @s 5 minecraft:mob_attack by @e[tag=kitpvp.earth_dublinn_zombie,distance=..2,sort=nearest,limit=1]
