@@ -2,4 +2,4 @@
 effect give @s minecraft:speed infinite 1 true
 effect give @s minecraft:strength infinite 0 true
 playsound minecraft:entity.zombie.ambient master @a[distance=..16] ~ ~ ~ 1.0 0.6
-tag @s add kitpvp.tanden_alone
+tag @s add kitpvp.tandem_alone
