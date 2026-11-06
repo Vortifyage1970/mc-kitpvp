@@ -1,5 +1,5 @@
 # 串联体：两个半身轮流拿速度 II（每 3 秒换一边），与玩家位置无关
-# 先清掉两边的速度再只给轮到的那只，避免叠加成常驻加速；给 3 秒是为了盖住 3 秒的判定间隔
+# 先清掉两边的速度再只给轮到的那只，避免叠加成常驻加速；给 4 秒是为了盖住 3 秒的判定间隔（多 1 秒冗余，换边时不闪空）
 effect clear @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone] minecraft:speed
 scoreboard players add #td_alt kitpvp.game 1
 execute if score #td_alt kitpvp.game matches 2.. run scoreboard players set #td_alt kitpvp.game 0
