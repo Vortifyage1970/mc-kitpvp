@@ -4,3 +4,4 @@
 # 头槽被红树根占着，所以皮革套只穿三件（胸甲/护腿/靴子），没有皮革头盔
 summon minecraft:zombie ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_dominion"],CustomName:'{"text":"内卫","color":"dark_gray"}',CustomNameVisible:0b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:20.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:20.0}],HandItems:[{id:"minecraft:stone_sword",Count:1b},{id:"minecraft:firework_star",Count:1b,tag:{display:{Name:'{"text":"烟火之心","color":"dark_gray","italic":false}'}}}],ArmorItems:[{id:"minecraft:leather_boots",Count:1b,tag:{display:{color:0}}},{id:"minecraft:leather_leggings",Count:1b,tag:{display:{color:0}}},{id:"minecraft:leather_chestplate",Count:1b,tag:{display:{color:0}}},{id:"minecraft:mangrove_roots",Count:1b}]}
 scoreboard players set @e[tag=kitpvp.earth_dominion] kitpvp.earth_cd_a 40
+scoreboard players set @e[tag=kitpvp.earth_dominion] kitpvp.dominion_age 0
