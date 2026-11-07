@@ -9,6 +9,8 @@ execute as @e[tag=kitpvp.earth_flyer_body] at @s run kill @e[type=minecraft:item
 scoreboard players operation #fl_own kitpvp.game = @s kitpvp.earth_owner
 tag @a[tag=kitpvp.flyer_target] remove kitpvp.flyer_target
 execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #fl_own kitpvp.game run tag @s add kitpvp.flyer_target
+# 兜底：场上一共就自己一个人时，把召唤者也当靶子（不然单人测试永远看不到俯冲；有第二人时这条不生效）
+execute unless entity @a[tag=kitpvp.flyer_target] as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] run tag @s add kitpvp.flyer_target
 # 每 100 刻（5 秒）扑一次，上限 50 刻 × 1 格/刻；离目标 3 格内就收手（再贴下去会钻进地里）
 execute if score @s kitpvp.earth_cd_a matches ..0 run scoreboard players set @s kitpvp.flyer_dive 50
 execute if score @s kitpvp.earth_cd_a matches ..0 run scoreboard players set @s kitpvp.earth_cd_a 100
