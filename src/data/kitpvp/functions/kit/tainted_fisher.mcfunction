@@ -5,8 +5,8 @@ scoreboard players set @s kitpvp.kit 29
 tag @s add kitpvp.selected
 scoreboard players set @s kitpvp.alive 1
 
-# 不穿头盔与护腿：护甲全在鞘翅与靴子上（鞘翅没有自带护甲，靠修饰符补）
-item replace entity @s armor.chest with minecraft:elytra{Unbreakable:1b,Enchantments:[{id:"minecraft:protection",lvl:5}],AttributeModifiers:[{AttributeName:"generic.armor",Name:"generic.armor",Amount:2,Operation:0,UUID:[I;29,0,0,2],Slot:"chest"}]} 1
+# 不穿头盔与护腿：护甲全在鞘翅与靴子上（鞘翅没有自带护甲，靠修饰符补）——鞘翅 3 + 靴子 2 = 5
+item replace entity @s armor.chest with minecraft:elytra{Unbreakable:1b,Enchantments:[{id:"minecraft:protection",lvl:5}],AttributeModifiers:[{AttributeName:"generic.armor",Name:"generic.armor",Amount:3,Operation:0,UUID:[I;29,0,0,2],Slot:"chest"}]} 1
 item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,Enchantments:[{id:"minecraft:depth_strider",lvl:10}],AttributeModifiers:[{AttributeName:"generic.armor",Name:"generic.armor",Amount:2,Operation:0,UUID:[I;29,0,0,4],Slot:"feet"}]} 1
 
 # 三叉戟只带激流 I（不带忠诚）

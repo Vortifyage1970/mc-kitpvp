@@ -4,7 +4,7 @@ tellraw @s [{"text":"│ 分类：","color":"gray"},{"text":"经典（里）","c
 tellraw @s [{"text":"│ 简介：","color":"gray"},{"text":"用术式和领域掌控全场的水中猎手","color":"white"}]
 tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"5","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:trident","Count":1,"tag":"{Enchantments:[{id:\"minecraft:riptide\",lvl:1}],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Name:\"generic.attack_damage\",Amount:4,Operation:0,UUID:[I;29,0,0,5],Slot:\"mainhand\"},{AttributeName:\"generic.attack_speed\",Name:\"generic.attack_speed\",Amount:-3.0,Operation:0,UUID:[I;29,0,0,6],Slot:\"mainhand\"}]}"}}},{"text":"（悬停查看详情）","color":"dark_gray","hoverEvent":{"action":"show_text","contents":[{"text":"武器：三叉戟\n单次伤害：5    攻击速度：1.0\n附魔：激流 I","color":"white"}]}}]
 tellraw @s [{"text":"│ 武器攻击速度：","color":"gray"},{"text":"1.0","color":"white"}]
-tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"4","color":"white"}]
+tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"5","color":"white"}]
 tellraw @s [{"text":"│ 总护甲韧性：","color":"gray"},{"text":"0","color":"white"}]
 tellraw @s [{"text":"│ 头盔：","color":"gray"},{"text":"无","color":"dark_gray"}]
 tellraw @s [{"text":"│ 胸甲：","color":"gray"},{"text":"鞘翅（保护 V，护甲 2）","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:elytra","Count":1,"tag":"{Enchantments:[{id:\"minecraft:protection\",lvl:5}],AttributeModifiers:[{AttributeName:\"generic.armor\",Name:\"generic.armor\",Amount:2,Operation:0,UUID:[I;29,0,0,2],Slot:\"chest\"}]}"}}}]
