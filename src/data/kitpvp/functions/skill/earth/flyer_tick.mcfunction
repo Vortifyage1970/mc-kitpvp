@@ -15,10 +15,12 @@ tag @a[tag=kitpvp.flyer_target] remove kitpvp.flyer_target
 #   直接 /function 召的母体 owner 也是 0，两边一相等就把唯一那个玩家排除了 ⇒ 一个靶子都没有、俯冲空转。
 #   同样的坑 gearbox_aura / venus_chill_mark 里都踩过，写法保持一致。
 execute if score #fl_own kitpvp.game matches 1.. as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #fl_own kitpvp.game run tag @s add kitpvp.flyer_target
-execute unless score #fl_own kitpvp.game matches 1.. as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] run tag @s add kitpvp.flyer_target
+# owner 无效时用开召那一刻记下的 fl_summoner 认出召唤者：他永远不是靶子，也不会吃到俯冲
+execute unless score #fl_own kitpvp.game matches 1.. as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.fl_summoner matches 1 run tag @s add kitpvp.flyer_target
 # 没靶子时别放任原版盘旋 AI 把它带走（实测会飘出去几十格，看着像"飞走了"）：朝召唤者慢慢靠，回到 14 格内就停手
 tag @a[tag=kitpvp.flyer_home] remove kitpvp.flyer_home
-execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] if score @s kitpvp.etid = #fl_own kitpvp.game run tag @s add kitpvp.flyer_home
+execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] if score @s kitpvp.fl_summoner matches 1 run tag @s add kitpvp.flyer_home
+execute if score #fl_own kitpvp.game matches 1.. as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] if score @s kitpvp.etid = #fl_own kitpvp.game run tag @s add kitpvp.flyer_home
 execute unless entity @a[tag=kitpvp.flyer_target] if entity @p[tag=kitpvp.flyer_home,distance=14..] facing entity @p[tag=kitpvp.flyer_home] feet run tp @s ^ ^ ^0.35
 # 每 200 刻（10 秒）扑一次，上限 50 刻 × 1 格/刻；离目标 3 格内就收手（再贴下去会钻进地里）
 execute if score @s kitpvp.earth_cd_a matches ..0 run scoreboard players set @s kitpvp.flyer_dive 50

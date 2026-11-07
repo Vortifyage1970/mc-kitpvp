@@ -7,6 +7,10 @@
 kill @e[tag=kitpvp.earth_flyer_carrier]
 kill @e[tag=kitpvp.earth_flyer_body]
 kill @e[tag=kitpvp.fl_anchor]
+# 记下这次是谁召的：俯冲永远避开召唤者。owner 有效（1..6 队槽）时 flyer_tick 用 etid 比对；
+# 直接 /function 召、魂石召的 owner 是 0，这时就靠这个分数认出召唤者（只认本次召唤，先全清）
+scoreboard players set @a kitpvp.fl_summoner 0
+scoreboard players set @s kitpvp.fl_summoner 1
 summon minecraft:marker ~ ~22 ~ {Tags:["kitpvp.fl_anchor"]}
 scoreboard players set #fl_wait kitpvp.game 60
 schedule function kitpvp:summon/earth_flyer_a 1t replace
