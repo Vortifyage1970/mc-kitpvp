@@ -390,6 +390,8 @@ execute as @e[tag=kitpvp.earth_noteblock] at @s run tp @e[tag=kitpvp.earth_noteb
 execute as @e[tag=kitpvp.earth_noteblock_guard] at @s unless entity @e[tag=kitpvp.earth_noteblock,distance=..3] run function kitpvp:skill/earth/noteblock_death
 # 罐子：被打死的那一帧（尸体还在，Health:0.0f）在原地摇一只随机生灵，主人编号原样传给新生的那只
 execute as @e[tag=kitpvp.earth_jar,tag=!kitpvp.jar_popped,nbt={Health:0.0f}] at @s run function kitpvp:skill/earth/jar_pop
+# 蜂巢：被砍中的那一帧（HurtTime 9）给 8 格内的玩家塞"眩晕"，第 2 下翻倍、第 3 下起每次 3 个
+execute as @e[tag=kitpvp.earth_hive,nbt={HurtTime:9s}] at @s run function kitpvp:skill/earth/hive_hit
 
 # 术战士 / 流浪汉的"打中人"结算：不再走 advancement（那套 NBT 条件在这个版本上一直没触发过），
 # 改成抓挨打那一帧（HurtTime 9 = 伤害刚结算完的下一个 tick），再看身边 3 格内有没有对应的召唤物
