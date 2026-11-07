@@ -10,10 +10,10 @@ scoreboard players set @s kitpvp.earth_cd_a 60
 tag @a remove kitpvp.dl_victim
 
 # 1) 有主：2 格内、不是主人的活人
-execute if score #dl_owner kitpvp.game matches 1.. at @e[tag=kitpvp.earth_dublinn_zombie,distance=..3,sort=nearest,limit=1] as @a[distance=..2,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #dl_owner kitpvp.game run tag @s add kitpvp.dl_victim
+execute if score #dl_owner kitpvp.game matches 1.. at @e[tag=kitpvp.earth_dublinn_zombie,distance=..3,sort=nearest,limit=1] as @a[distance=..2,gamemode=!creative,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #dl_owner kitpvp.game run tag @s add kitpvp.dl_victim
 
 # 2) 无主：2 格内所有活人（含召唤者）
-execute if score #dl_owner kitpvp.game matches ..0 at @e[tag=kitpvp.earth_dublinn_zombie,distance=..3,sort=nearest,limit=1] as @a[distance=..2,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] run tag @s add kitpvp.dl_victim
+execute if score #dl_owner kitpvp.game matches ..0 at @e[tag=kitpvp.earth_dublinn_zombie,distance=..3,sort=nearest,limit=1] as @a[distance=..2,gamemode=!creative,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] run tag @s add kitpvp.dl_victim
 
 # 3) 挥刀前转向目标（持续的朝向在 tick.mcfunction:322 那条里）
 execute as @e[tag=kitpvp.earth_dublinn_zombie] at @s facing entity @a[tag=kitpvp.dl_victim,sort=nearest,limit=1] feet run tp @s ~ ~ ~ ~ ~
