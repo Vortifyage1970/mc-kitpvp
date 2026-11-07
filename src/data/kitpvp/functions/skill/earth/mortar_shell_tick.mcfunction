@@ -26,5 +26,7 @@ execute if score @s kitpvp.mo_vy matches -7..-6 at @s run tp @s ~ ~-0.65 ~
 execute if score @s kitpvp.mo_vy matches -9..-8 at @s run tp @s ~ ~-0.8 ~
 execute if score @s kitpvp.mo_vy matches ..-10 at @s run tp @s ~ ~-0.95 ~
 scoreboard players remove @s kitpvp.mo_vy 1
+# 撞到方块就炸：鱼弹 NoGravity，进到非空气方块里说明已经贴上了
+execute at @s unless block ~ ~ ~ minecraft:air unless block ~ ~ ~ minecraft:cave_air unless block ~ ~ ~ minecraft:void_air run function kitpvp:skill/earth/mortar_burst
 execute at @e[tag=kitpvp.mo_aim,limit=1] if entity @s[distance=..2] run function kitpvp:skill/earth/mortar_burst
 execute if score @s kitpvp.mo_life matches 46.. run function kitpvp:skill/earth/mortar_burst
