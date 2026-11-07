@@ -1,4 +1,4 @@
-﻿# @s = 鱼弹落点（at @s）：炸开。只伤人、不动地形
+# @s = 鱼弹落点（at @s）：炸开。只伤人、不动地形
 # 先把自己的归属抄到假玩家上，下面判"是不是主人"要用
 scoreboard players set #mo_own kitpvp.game 0
 scoreboard players operation #mo_own kitpvp.game = @s kitpvp.mo_owner
