@@ -3,7 +3,8 @@
 # 场上一对（UUID 写死给 Leash 用），所以先清掉上一对
 kill @e[tag=kitpvp.earth_flyer_carrier]
 kill @e[tag=kitpvp.earth_flyer_body]
-summon minecraft:phantom ~ ~2 ~ {UUID:[I;1900010,1,1,1],Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_flyer","kitpvp.earth_flyer_carrier","kitpvp.fl_spawning"],Size:1,CustomName:'{"text":"飞行器","color":"dark_aqua"}',CustomNameVisible:1b,PersistenceRequired:1b,Silent:1b}
+summon minecraft:phantom ~ ~22 ~ {UUID:[I;1900010,1,1,1],Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_flyer","kitpvp.earth_flyer_carrier","kitpvp.fl_spawning"],Size:1,CustomName:'{"text":"飞行器","color":"dark_aqua"}',CustomNameVisible:1b,PersistenceRequired:1b,Silent:1b}
+# 出生就放在头顶 22 格：俯冲是"朝目标飞、离 3 格收手"，贴着召唤者出生的话第一次俯冲只有 4-5 格可冲
 # 抗性 V 让它打不死（被打烂就失去"吊车"的意义），虚弱 X 让它近战无伤害
 # 认准刚召的那只（fl_spawning 是它独有的），别用 sort=nearest —— 被 kill 的旧幻翼还没消失时往往更近，效果会加到快死的旧身上
 effect give @e[tag=kitpvp.fl_spawning,limit=1] minecraft:resistance infinite 4 true
