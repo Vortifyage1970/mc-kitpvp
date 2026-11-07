@@ -7,7 +7,6 @@ execute if entity @e[tag=kitpvp.lf_spawning,limit=1] run kill @e[tag=kitpvp.lf_a
 # 虚弱 X 让它自己那一口咬不掉人（真正的输出来自下面的骷髅）
 execute if entity @e[tag=kitpvp.lf_spawning,limit=1] run effect give @e[tag=kitpvp.earth_lowflyer_carrier,limit=1,nbt=!{Health:0.0f}] minecraft:resistance infinite 4 true
 execute if entity @e[tag=kitpvp.lf_spawning,limit=1] run effect give @e[tag=kitpvp.earth_lowflyer_carrier,limit=1,nbt=!{Health:0.0f}] minecraft:weakness infinite 9 true
-execute if entity @e[tag=kitpvp.lf_spawning,limit=1] run scoreboard players set @e[tag=kitpvp.earth_lowflyer_carrier,nbt=!{Health:0.0f}] kitpvp.earth_cd_a 200
 execute if entity @e[tag=kitpvp.lf_spawning,limit=1] run schedule function kitpvp:summon/earth_lowflyer_b 1t replace
 # 还没成功就再等一刻；3 秒还没成功就放弃，别把 marker 留在场上
 execute unless entity @e[tag=kitpvp.lf_spawning] if entity @e[tag=kitpvp.lf_anchor,limit=1] if score #lf_wait kitpvp.game matches 1.. run schedule function kitpvp:summon/earth_lowflyer_a 1t replace

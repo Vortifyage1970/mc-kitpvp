@@ -225,7 +225,6 @@ scoreboard objectives add kitpvp.cap_prev dummy "资本家上一次的血量（�
 scoreboard objectives add kitpvp.fire_hp dummy "篝火热血量 ×100（每刻读一次，用来判断这一帧有没有掉血）"
 scoreboard objectives add kitpvp.fire_prev dummy "篝火上一帧的血量（拿它和 fire_hp 比，掉血了就说明挨打了）"
 scoreboard objectives add kitpvp.flyer_dive dummy "飞行器俯冲剩余刻数（17 = 正在扑）"
-scoreboard objectives add kitpvp.lf_dive dummy "低空飞行器俯冲剩余刻数（14 = 正在扑）"
 scoreboard players set #six kitpvp.game 6
 
 # 预留（暂无消费者，刻意保留）：item = 物品计数
