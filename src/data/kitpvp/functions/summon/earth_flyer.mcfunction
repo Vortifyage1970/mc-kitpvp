@@ -9,5 +9,4 @@ kill @e[tag=kitpvp.earth_flyer_body]
 kill @e[tag=kitpvp.fl_anchor]
 summon minecraft:marker ~ ~22 ~ {Tags:["kitpvp.fl_anchor"]}
 scoreboard players set #fl_wait kitpvp.game 60
-tellraw @a {"text":"[0] 清场完成，锚点已放，开始重试召唤","color":"gray"}
 schedule function kitpvp:summon/earth_flyer_a 1t replace
