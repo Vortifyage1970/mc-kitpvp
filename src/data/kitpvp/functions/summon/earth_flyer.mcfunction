@@ -7,9 +7,9 @@ scoreboard players add #fl_slot kitpvp.game 1
 execute if score #fl_slot kitpvp.game matches 3.. run scoreboard players set #fl_slot kitpvp.game 1
 kill @e[tag=kitpvp.earth_flyer_carrier]
 kill @e[tag=kitpvp.earth_flyer_body]
-execute if score #fl_slot kitpvp.game matches 1 run summon minecraft:phantom ~ ~2 ~ {UUID:[I;1900010,1,1,1],Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_flyer","kitpvp.earth_flyer_carrier","kitpvp.fl_slot_a"],Size:1,CustomName:'{"text":"飞行器","color":"dark_aqua"}',CustomNameVisible:1b,PersistenceRequired:1b,Silent:1b}
-execute if score #fl_slot kitpvp.game matches 2 run summon minecraft:phantom ~ ~2 ~ {UUID:[I;1900011,1,1,1],Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_flyer","kitpvp.earth_flyer_carrier","kitpvp.fl_slot_b"],Size:1,CustomName:'{"text":"飞行器","color":"dark_aqua"}',CustomNameVisible:1b,PersistenceRequired:1b,Silent:1b}
-# 虚弱 X 让它近战无伤害；不给抗性提升，白天照样会被晒（要能扛就调血量）
+execute if score #fl_slot kitpvp.game matches 1 run summon minecraft:phantom ~ ~2 ~ {UUID:[I;1900010,1,1,1],Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_flyer","kitpvp.earth_flyer_carrier","kitpvp.fl_slot_a"],Size:1,CustomName:'{"text":"飞行器","color":"dark_aqua"}',CustomNameVisible:1b,PersistenceRequired:1b,Silent:1b,Attributes:[{Name:"minecraft:generic.max_health",Base:40.0}],Health:40.0f}
+execute if score #fl_slot kitpvp.game matches 2 run summon minecraft:phantom ~ ~2 ~ {UUID:[I;1900011,1,1,1],Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_flyer","kitpvp.earth_flyer_carrier","kitpvp.fl_slot_b"],Size:1,CustomName:'{"text":"飞行器","color":"dark_aqua"}',CustomNameVisible:1b,PersistenceRequired:1b,Silent:1b,Attributes:[{Name:"minecraft:generic.max_health",Base:40.0}],Health:40.0f}
+# 40 血（火伤 1 点/秒 ⇒ 白天日晒能扛约 40 秒）；虚弱 X 让它近战无伤害，不给抗性提升
 effect give @e[tag=kitpvp.earth_flyer_carrier,limit=1,sort=nearest] minecraft:weakness infinite 9 true
 scoreboard players set @e[tag=kitpvp.earth_flyer_carrier] kitpvp.earth_cd_a 200
 execute as @e[tag=kitpvp.earth_flyer_carrier] run scoreboard players set @s kitpvp.flyer_grace 10
