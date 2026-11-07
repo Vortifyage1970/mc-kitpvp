@@ -388,6 +388,8 @@ execute as @e[tag=kitpvp.sup_falling] at @s if data entity @s {OnGround:1b} run 
 execute as @e[tag=kitpvp.earth_explainer] run scoreboard players operation @s kitpvp.nb_prev = @s kitpvp.nb_hp
 execute as @e[tag=kitpvp.earth_noteblock] at @s run tp @e[tag=kitpvp.earth_noteblock_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~
 execute as @e[tag=kitpvp.earth_noteblock_guard] at @s unless entity @e[tag=kitpvp.earth_noteblock,distance=..3] run function kitpvp:skill/earth/noteblock_death
+# 罐子：被打死的那一帧（尸体还在，Health:0.0f）在原地摇一只随机生灵，主人编号原样传给新生的那只
+execute as @e[tag=kitpvp.earth_jar,tag=!kitpvp.jar_popped,nbt={Health:0.0f}] at @s run function kitpvp:skill/earth/jar_pop
 
 # 术战士 / 流浪汉的"打中人"结算：不再走 advancement（那套 NBT 条件在这个版本上一直没触发过），
 # 改成抓挨打那一帧（HurtTime 9 = 伤害刚结算完的下一个 tick），再看身边 3 格内有没有对应的召唤物
