@@ -1,26 +1,16 @@
-# 地球·73 低空飞行器：蝙蝠吊着骷髅弓箭手在头顶十格左右跟着人走，不俯冲，靠骷髅放箭输出
+# 地球·73 低空飞行器：一只普通的蝙蝠（原版怎么飞就怎么飞），下面用绳子吊着骷髅弓箭手
 # 由 tick.mcfunction 以 as @e[tag=kitpvp.earth_lowflyer_carrier] at @s 调用
 # 出生当刻不算共生：吊舱是 1 刻后才召的。用 tag 而不是计分（计分没 /reload 就不存在，会永远不判死）
 execute unless entity @s[tag=kitpvp.lf_spawning] unless entity @e[tag=kitpvp.earth_lowflyer_body] run kill @s
 tag @s remove kitpvp.lf_spawning
 execute as @e[tag=kitpvp.earth_lowflyer_body] unless data entity @s Leash run data merge entity @s {Leash:{UUID:[I;1900011,1,1,1]}}
 execute as @e[tag=kitpvp.earth_lowflyer_body] at @s run kill @e[type=minecraft:item,nbt={Item:{id:"minecraft:lead"}},distance=..4]
-# 目标：不是召唤者的最近玩家（用临时 tag 筛）
-# 先垫 -1 再取：母体没有 earth_owner（直接 /function 召、魂石召）时那句会静默失败，
-# 不垫的话 #lf_own 会留着上一次的值，可能把某个真人错当成召唤者排除掉
+# 不追人、不悬停、不改高度：飞行完全交给原版蝙蝠 AI。
+# 只有一件事要管——飘得太远（超过 16 格）就朝召唤者飞回去，否则它会自己钻进洞、挂墙上，看着像丢了
 scoreboard players set #lf_own kitpvp.game -1
 scoreboard players operation #lf_own kitpvp.game = @s kitpvp.earth_owner
-tag @a[tag=kitpvp.lf_target] remove kitpvp.lf_target
-# ★ 只有 owner ≥ 1 才排除召唤者。etid 0 = "还没分到槽位"（见 link.mcfunction），
-#   直接 /function 召的母体 owner 也是 0，两边一相等就把唯一那个玩家排除了 ⇒ 一个靶子都没有
-execute if score #lf_own kitpvp.game matches 1.. as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #lf_own kitpvp.game run tag @s add kitpvp.lf_target
-execute unless score #lf_own kitpvp.game matches 1.. as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] run tag @s add kitpvp.lf_target
-# ★ 不俯冲：只在同一高度上朝人靠过去，把骷髅吊在他头顶。竖直方向一格都不动。
-#   rotated ~ 0 把俯仰压平，否则 ^ 会顺着视线往下斜，等于变相俯冲（迫击炮踩过这个坑）
-execute if entity @p[tag=kitpvp.lf_target,distance=4..16] at @s facing entity @p[tag=kitpvp.lf_target,distance=4..16] feet rotated ~ 0 run tp @s ^ ^ ^0.35
-# 没有靶子时别放任原版乱飞（蝙蝠会挂墙、钻洞）：朝召唤者慢慢靠，回到 10 格内就停手
 tag @a[tag=kitpvp.lf_home] remove kitpvp.lf_home
 execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] if score @s kitpvp.etid = #lf_own kitpvp.game run tag @s add kitpvp.lf_home
-execute unless entity @a[tag=kitpvp.lf_target] if entity @p[tag=kitpvp.lf_home,distance=10..] at @s rotated ~ 0 run tp @s ^ ^ ^0.35
+execute unless entity @p[tag=kitpvp.lf_home,distance=..16] if entity @p[tag=kitpvp.lf_home] at @s facing entity @p[tag=kitpvp.lf_home] feet run tp @s ^ ^ ^0.35
 # 吊舱每刻贴到母体下方 1 格：原版持绳超过约 10 格就 dropLeash，飘远了绳子会断、骷髅留在半空
 execute at @s run tp @e[tag=kitpvp.earth_lowflyer_body] ~ ~-1 ~

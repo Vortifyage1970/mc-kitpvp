@@ -1,5 +1,5 @@
-# 地球·73 低空飞行器：蝙蝠吊着骷髅弓箭手在头顶十来格盘旋，每 10 秒往下扑一次；骷髅死则蝙蝠同死
-# 和 69 号飞行器同一套骨架，只是"吊车"从幻翼换成蝙蝠、巡航高度从 22 格压到 10 格、俯冲从 50 格压到 14 格
+# 地球·73 低空飞行器：一只普通蝙蝠吊着骷髅弓箭手，在召唤点就地出生；骷髅死则蝙蝠同死
+# 和 69 号飞行器同一套骨架（分两帧召 + UUID 重试），只是"吊车"从幻翼换成普通蝙蝠，出生就在召唤者脚边
 # 分两帧召：同一帧召出的实体不在 UUID 索引里，Leash 会被静默丢弃
 # 场上一对（UUID 写死给 Leash 用），所以先清掉上一对
 # ★ kill 只是标记：蝙蝠要播完死亡动画才真的消失，这期间它的 UUID 还占着，再 summon 同一个 UUID 会被静默丢掉。
@@ -7,6 +7,6 @@
 kill @e[tag=kitpvp.earth_lowflyer_carrier]
 kill @e[tag=kitpvp.earth_lowflyer_body]
 kill @e[tag=kitpvp.lf_anchor]
-summon minecraft:marker ~ ~10 ~ {Tags:["kitpvp.lf_anchor"]}
+summon minecraft:marker ~ ~1 ~ {Tags:["kitpvp.lf_anchor"]}
 scoreboard players set #lf_wait kitpvp.game 60
 schedule function kitpvp:summon/earth_lowflyer_a 1t replace
