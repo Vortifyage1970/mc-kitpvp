@@ -6,6 +6,8 @@ scoreboard players set #mob_round kitpvp.game 0
 scoreboard players set @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] kitpvp.mob_ready 0
 # 召集号（袭击事件那只角）：号一响就是"全班集合"
 execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s run playsound minecraft:event.raid.horn master @s ~ ~ ~ 1.2 1.0
+# 山羊角叠在召集号上：角声是"动员"这个动作的招牌（sound.0 = 寻角），比单放袭击号更明确
+execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] at @s run playsound minecraft:item.goat_horn.sound.0 master @s ~ ~ ~ 1.0 1.0
 # 5 秒倒计时：每秒一声滴答（append 叠加，不能用 replace，否则前三个会被顶掉）
 schedule function kitpvp:skill/earth/mobilizer_beep 20t append
 schedule function kitpvp:skill/earth/mobilizer_beep 40t append
