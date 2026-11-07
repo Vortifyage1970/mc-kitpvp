@@ -1,13 +1,11 @@
 # 地球·69 飞行器：幻翼吊着骷髅弓箭手盘旋，每 10 秒俯冲 50 格；骷髅死则幻翼同死
 # 分两帧召：同一帧召出的实体不在 UUID 索引里，Leash 会被静默丢弃
 # 场上一对（UUID 写死给 Leash 用），所以先清掉上一对
+# ★ 同一刻 kill + summon 同一个写死 UUID 会被 addFreshEntity 静默拒绝（老实体要到刻末才真的消失），
+#   表现为"第一次按只会清场、要按第二次才召得出来"。所以这里只 kill 并在原位放一个 1 刻的 marker 记住位置，
+#   真正召唤挪到下一刻的 earth_flyer_a。
 kill @e[tag=kitpvp.earth_flyer_carrier]
 kill @e[tag=kitpvp.earth_flyer_body]
-summon minecraft:phantom ~ ~22 ~ {UUID:[I;1900010,1,1,1],Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_flyer","kitpvp.earth_flyer_carrier","kitpvp.fl_spawning"],Size:1,CustomName:'{"text":"飞行器","color":"dark_aqua"}',CustomNameVisible:1b,PersistenceRequired:1b,Silent:1b}
-# 出生就放在头顶 22 格：俯冲是"朝目标飞、离 3 格收手"，贴着召唤者出生的话第一次俯冲只有 4-5 格可冲
-# 抗性 V 让它打不死（被打烂就失去"吊车"的意义），虚弱 X 让它近战无伤害
-# 认准刚召的那只（fl_spawning 是它独有的），别用 sort=nearest —— 被 kill 的旧幻翼还没消失时往往更近，效果会加到快死的旧身上
-effect give @e[tag=kitpvp.fl_spawning,limit=1] minecraft:resistance infinite 4 true
-effect give @e[tag=kitpvp.fl_spawning,limit=1] minecraft:weakness infinite 9 true
-scoreboard players set @e[tag=kitpvp.earth_flyer_carrier] kitpvp.earth_cd_a 200
-schedule function kitpvp:summon/earth_flyer_b 1t replace
+kill @e[tag=kitpvp.fl_anchor]
+summon minecraft:marker ~ ~22 ~ {Tags:["kitpvp.fl_anchor"]}
+schedule function kitpvp:summon/earth_flyer_a 1t replace
