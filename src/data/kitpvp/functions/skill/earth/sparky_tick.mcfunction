@@ -7,7 +7,7 @@ scoreboard players operation #spk_owner kitpvp.game = @s kitpvp.earth_owner
 #   以前要求"必须有一个不是召唤者的人"才充能，于是单人档里它永远不动、看起来像坏了。
 #   伤害那边另有排除（sparky_burst 里跳过主人），所以充能不会变成误伤。
 scoreboard players set #spk_on kitpvp.game 0
-execute at @s if entity @a[distance=..15,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] run scoreboard players set #spk_on kitpvp.game 1
+execute at @s if entity @a[distance=..15,gamemode=!creative,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] run scoreboard players set #spk_on kitpvp.game 1
 
 # 没目标：充能清零（像皇家战争里收不到目标的炮，线圈冷却下来）
 execute if score #spk_on kitpvp.game matches 0 run scoreboard players set @s kitpvp.sparky_charge 0
