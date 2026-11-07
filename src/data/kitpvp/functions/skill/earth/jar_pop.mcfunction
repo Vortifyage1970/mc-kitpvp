@@ -1,9 +1,9 @@
 # @s = 罐子的"守卫"标记（隐形 marker）：罐子已经不在了，就在守卫脚下摇一只随机生灵
 # 不用尸体帧：本机实测尸体不到 1 刻就被移除，读不到 Health=0（木星、资本家都踩过这个坑）
 # 主人编号每刻由 tick 从罐子抄到守卫身上，所以这里直接读 @s
-tellraw @a {"text":"[罐子] 碎了","color":"gray"}
-execute at @s run playsound minecraft:block.decorated_pot.shatter master @a ~ ~ ~ 2.0 1.0
-execute at @s run playsound minecraft:block.decorated_pot.break master @a ~ ~ ~ 2.0 0.9
+execute at @s run playsound minecraft:block.decorated_pot.shatter master @a ~ ~ ~ 4.0 1.0
+execute at @s run playsound minecraft:block.decorated_pot.break master @a ~ ~ ~ 4.0 0.9
+execute at @s run playsound minecraft:block.decorated_pot.break master @a ~ ~ ~ 4.0 0.6
 particle minecraft:poof ~ ~1 ~ 0.35 0.35 0.35 0.05 12 force
 # 主人编号：没有 earth_owner 分的（手动 /function 召的）先补 0 再抄，否则 operation 会因源分缺失失败
 scoreboard players add @s kitpvp.earth_owner 0
