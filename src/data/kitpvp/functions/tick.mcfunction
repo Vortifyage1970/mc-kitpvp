@@ -380,6 +380,9 @@ execute as @e[tag=kitpvp.earth_explainer] store result score @s kitpvp.nb_hp run
 execute as @e[tag=kitpvp.earth_explainer] if score @s kitpvp.nb_hp < @s kitpvp.nb_prev run function kitpvp:skill/earth/explainer_leave
 # 保洁员：每 15 秒（earth_cd_a 300）扫一次 8 格内的掉落物
 execute as @e[tag=kitpvp.earth_janitor,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/janitor_sweep
+# 支援者：落地那刻提到 20 格高开始下落；落地两刻后解除无敌并播尘埃
+execute as @e[tag=kitpvp.sup_wait] at @s run function kitpvp:skill/earth/supporter_lift
+execute as @e[tag=kitpvp.sup_falling] at @s if data entity @s {OnGround:1b} run function kitpvp:skill/earth/supporter_land
 execute as @e[tag=kitpvp.earth_explainer] run scoreboard players operation @s kitpvp.nb_prev = @s kitpvp.nb_hp
 execute as @e[tag=kitpvp.earth_noteblock] at @s run tp @e[tag=kitpvp.earth_noteblock_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~
 execute as @e[tag=kitpvp.earth_noteblock_guard] at @s unless entity @e[tag=kitpvp.earth_noteblock,distance=..3] run function kitpvp:skill/earth/noteblock_death
