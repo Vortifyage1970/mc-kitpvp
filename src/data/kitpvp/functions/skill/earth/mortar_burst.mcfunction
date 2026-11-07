@@ -9,4 +9,5 @@ particle minecraft:flame ~ ~ ~ 0.9 0.9 0.9 0.02 24
 execute as @a[distance=..3.5,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] if score #mo_own kitpvp.game matches 1.. unless score @s kitpvp.etid = #mo_own kitpvp.game run damage @s 7 minecraft:explosion
 execute as @a[distance=..3.5,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score #mo_own kitpvp.game matches 1.. run damage @s 7 minecraft:explosion
 tag @a remove kitpvp.mo_tgt
+kill @e[tag=kitpvp.mo_aim]
 kill @s
