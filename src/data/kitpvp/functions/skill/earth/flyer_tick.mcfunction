@@ -17,3 +17,6 @@ execute if score @s kitpvp.earth_cd_a matches ..0 run scoreboard players set @s 
 execute if score @s kitpvp.flyer_dive matches 1.. run tp @e[tag=kitpvp.earth_flyer_body] ~ ~-1 ~
 execute if score @s kitpvp.flyer_dive matches 1.. if entity @p[tag=kitpvp.flyer_target,distance=3..] facing entity @p[tag=kitpvp.flyer_target] eyes run tp @s ^ ^ ^1
 execute if score @s kitpvp.flyer_dive matches 1.. run scoreboard players remove @s kitpvp.flyer_dive 1
+# 临时探针：俯冲时拖一条火焰尾 + 起手一声嘶吼，用来确认这段到底跑没跑（诊断完删）
+execute if score @s kitpvp.earth_cd_a matches 100 run playsound minecraft:entity.phantom.swoop hostile @a ~ ~ ~ 1.5 1
+execute if score @s kitpvp.flyer_dive matches 1.. run particle minecraft:flame ~ ~ ~ 0.05 0.05 0.05 0.001 4 force
