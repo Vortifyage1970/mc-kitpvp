@@ -1,6 +1,5 @@
 # 里·坦克（kit = 25）：钻石全套荆棘 V + 耐久 III 木剑，靠反弹伤害的致命肉盾
 # 护甲 20 显式写在 AttributeModifiers 里（覆盖默认修饰符 = 韧性从 8 清零，同 kit/tank）；
-# 血量减半用玩家属性 max_health 基数 10（clear_player 已把基数重置为 20，这里必须再压）。
 function kitpvp:util/clear_player
 
 scoreboard players set @s kitpvp.kit 25
@@ -14,8 +13,8 @@ item replace entity @s armor.feet with minecraft:diamond_boots{Unbreakable:1b,En
 item replace entity @s hotbar.0 with minecraft:wooden_sword{Unbreakable:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:3}]}
 item replace entity @s hotbar.1 with minecraft:cooked_beef 14
 
-# 最大生命 20 → 10（砍半）；重生时基数会保留，不需要在 after_death 重设
-attribute @s minecraft:generic.max_health base set 10
+# 最大生命 20 → 10（砍半）放在 skill/tainted_tank/passive 里：重生会重建玩家属性，
+# 只在这里 base set 的话第二条命起就回到 20（见 04 §六）。
 
 function kitpvp:skill/tainted_tank/passive
 
