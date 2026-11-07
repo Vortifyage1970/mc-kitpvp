@@ -9,11 +9,11 @@ execute as @e[tag=kitpvp.earth_flyer_body] at @s run kill @e[type=minecraft:item
 scoreboard players operation #fl_own kitpvp.game = @s kitpvp.earth_owner
 tag @a[tag=kitpvp.flyer_target] remove kitpvp.flyer_target
 execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #fl_own kitpvp.game run tag @s add kitpvp.flyer_target
-# 每 200 刻（10 秒）扑一次，17 刻 × 1 格/刻
-execute if score @s kitpvp.earth_cd_a matches ..0 run scoreboard players set @s kitpvp.flyer_dive 17
+# 每 200 刻（10 秒）扑一次，30 刻 × 1 格/刻；离目标 3 格内就收手（再贴下去会钻进地里）
+execute if score @s kitpvp.earth_cd_a matches ..0 run scoreboard players set @s kitpvp.flyer_dive 30
 execute if score @s kitpvp.earth_cd_a matches ..0 run scoreboard players set @s kitpvp.earth_cd_a 200
-# ★ 吊舱跟着一起下：原版持绳超过约 10 格就 dropLeash，17 格俯冲必然闪断 ⇒ 骷髅留在半空、够不到人
+# ★ 吊舱跟着一起下：原版持绳超过约 10 格就 dropLeash，长距离俯冲必然闪断 ⇒ 骷髅留在半空、够不到人
 #   每刻先把它贴到母体下方 1 格，两者距离永远 <2（绳子不断、骷髅也不会被落下），母体再往前挪 1 格
 execute if score @s kitpvp.flyer_dive matches 1.. run tp @e[tag=kitpvp.earth_flyer_body] ~ ~-1 ~
-execute if score @s kitpvp.flyer_dive matches 1.. facing entity @p[tag=kitpvp.flyer_target] feet run tp @s ^ ^ ^1
+execute if score @s kitpvp.flyer_dive matches 1.. if entity @p[tag=kitpvp.flyer_target,distance=3..] facing entity @p[tag=kitpvp.flyer_target] eyes run tp @s ^ ^ ^1
 execute if score @s kitpvp.flyer_dive matches 1.. run scoreboard players remove @s kitpvp.flyer_dive 1
