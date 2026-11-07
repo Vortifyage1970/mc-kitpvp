@@ -1,5 +1,8 @@
 # 星象池随机：与 kit/random 同法（1in2 连掷 7 次拼 0..127 再取模），池子只有星象职业。
 # 新增星象职业时改 #pool_size 并在末尾追加一行映射（见 06 §一）。
+# 先按"旧职业"清理一次（理由同 kit/random：随机池先改 kit 分数，clear_player 就看不到旧职业了）
+function kitpvp:util/clear_player
+
 scoreboard players set #pool_size kitpvp.game 5
 
 scoreboard players set @s kitpvp.rng 0
