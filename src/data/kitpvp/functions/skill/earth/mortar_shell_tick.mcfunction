@@ -1,6 +1,5 @@
-# @s = 迫击炮的鱼弹（as @s at @s）：飞向开炮那一刻锁定的落点（kitpvp.mo_aim）
-# 水平：每刻用 execute facing 把朝向指向落点，再沿朝向迈一步（速度分档在 mo_hs）
-# 竖直：mo_vy 每刻 -1，位移查表 ⇒ 位移 ∝ 时间的平方、开口向下
+# @s = 迫击炮的鱼弹（as @s at @s）
+# 临时诊断版：正常逻辑保留，但第 12 / 16 刻各跳 3 格，看哪条位移路走通
 scoreboard players add @s kitpvp.mo_life 1
 execute if entity @e[tag=kitpvp.mo_aim,limit=1] at @s facing entity @e[tag=kitpvp.mo_aim,limit=1] feet if score @s kitpvp.mo_hs matches 42 run tp @s ^ ^ ^0.42
 execute if entity @e[tag=kitpvp.mo_aim,limit=1] at @s facing entity @e[tag=kitpvp.mo_aim,limit=1] feet if score @s kitpvp.mo_hs matches 55 run tp @s ^ ^ ^0.55
@@ -19,15 +18,14 @@ execute if score @s kitpvp.mo_vy matches -7..-6 run tp @s ~ ~-0.65 ~
 execute if score @s kitpvp.mo_vy matches -9..-8 run tp @s ~ ~-0.8 ~
 execute if score @s kitpvp.mo_vy matches ..-10 run tp @s ~ ~-0.95 ~
 scoreboard players remove @s kitpvp.mo_vy 1
-# 临时探针（查完就删）：第 3 刻和第 12 刻各报一次"离落点多远"
-execute if score @s kitpvp.mo_life matches 3 at @e[tag=kitpvp.mo_aim,limit=1] if entity @s[distance=..3] run tellraw @a {"text":"[鱼·3刻] 离落点 0-3 格","color":"red"}
-execute if score @s kitpvp.mo_life matches 3 at @e[tag=kitpvp.mo_aim,limit=1] if entity @s[distance=3..8] run tellraw @a {"text":"[鱼·3刻] 离落点 3-8 格","color":"yellow"}
-execute if score @s kitpvp.mo_life matches 3 at @e[tag=kitpvp.mo_aim,limit=1] if entity @s[distance=8..14] run tellraw @a {"text":"[鱼·3刻] 离落点 8-14 格","color":"aqua"}
-execute if score @s kitpvp.mo_life matches 3 at @e[tag=kitpvp.mo_aim,limit=1] if entity @s[distance=14..] run tellraw @a {"text":"[鱼·3刻] 离落点 14+ 格","color":"green"}
-execute if score @s kitpvp.mo_life matches 12 at @e[tag=kitpvp.mo_aim,limit=1] if entity @s[distance=..3] run tellraw @a {"text":"[鱼·12刻] 离落点 0-3 格","color":"red"}
-execute if score @s kitpvp.mo_life matches 12 at @e[tag=kitpvp.mo_aim,limit=1] if entity @s[distance=3..8] run tellraw @a {"text":"[鱼·12刻] 离落点 3-8 格","color":"yellow"}
-execute if score @s kitpvp.mo_life matches 12 at @e[tag=kitpvp.mo_aim,limit=1] if entity @s[distance=8..14] run tellraw @a {"text":"[鱼·12刻] 离落点 8-14 格","color":"aqua"}
-execute if score @s kitpvp.mo_life matches 12 at @e[tag=kitpvp.mo_aim,limit=1] if entity @s[distance=14..] run tellraw @a {"text":"[鱼·12刻] 离落点 14+ 格","color":"green"}
-# 引爆：飞到落点 2 格内，或满 30 刻兜底
+# === 临时诊断（看完就删） ===
+execute if score @s kitpvp.mo_life matches 12 run tellraw @a {"text":"[跳A] 朝落点跳 3 格","color":"red"}
+execute if score @s kitpvp.mo_life matches 12 at @s facing entity @e[tag=kitpvp.mo_aim,limit=1] feet run tp @s ^ ^ ^3
+execute if score @s kitpvp.mo_life matches 16 run tellraw @a {"text":"[跳B] 沿自身朝向跳 3 格","color":"blue"}
+execute if score @s kitpvp.mo_life matches 16 at @s run tp @s ^ ^ ^3
+execute if score @s kitpvp.mo_life matches 12 run scoreboard players operation #dbg_hs kitpvp.game = @s kitpvp.mo_hs
+execute if score @s kitpvp.mo_life matches 12 run scoreboard players operation #dbg_vy kitpvp.game = @s kitpvp.mo_vy
+execute if score @s kitpvp.mo_life matches 12 run tellraw @a [{"text":"[数据] hs=","color":"gray"},{"score":{"name":"#dbg_hs","objective":"kitpvp.game"}},{"text":" vy=","color":"gray"},{"score":{"name":"#dbg_vy","objective":"kitpvp.game"}}]
+# === 诊断结束 ===
 execute at @e[tag=kitpvp.mo_aim,limit=1] if entity @s[distance=..2] run function kitpvp:skill/earth/mortar_burst
 execute if score @s kitpvp.mo_life matches 30.. run function kitpvp:skill/earth/mortar_burst
