@@ -85,5 +85,5 @@ execute if score @s kitpvp.rng matches 66 run function kitpvp:summon/earth_polyp
   execute if score @s kitpvp.rng matches 67 run function kitpvp:summon/earth_tandem
 execute if score @s kitpvp.rng matches 68 run function kitpvp:summon/earth_flyer
 execute if score @s kitpvp.rng matches 69 run function kitpvp:summon/earth_mortar
-execute if score @s kitpvp.rng matches 70 run function kitpvp:summon/earth_supporter_a
-execute if score @s kitpvp.rng matches 71 run function kitpvp:summon/earth_supporter_b
+execute if score @s kitpvp.rng matches 70 run function kitpvp:summon/earth_supporter_fast
+execute if score @s kitpvp.rng matches 71 run function kitpvp:summon/earth_supporter_slow
