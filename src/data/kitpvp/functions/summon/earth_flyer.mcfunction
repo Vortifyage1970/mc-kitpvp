@@ -1,12 +1,13 @@
 # 地球·69 飞行器：幻翼吊着骷髅弓箭手盘旋，每 10 秒俯冲 17 格；骷髅死则幻翼同死
-# 复用优先：UUID 写死（Leash 要用），addFreshEntity 遇到已存在的 UUID 会静默失败，
-#   所以场上已有母体时什么都不做——不杀、不召、也不搬动它（本体的行为保持最初那一版）；
-#   只有场上没有母体时才走三段式（清场 → 幻翼 → 吊舱，每帧一步，避开 UUID 查重窗口）
-execute if entity @e[tag=kitpvp.earth_flyer_carrier] unless entity @e[tag=kitpvp.earth_flyer_body] run scoreboard players set @e[tag=kitpvp.earth_flyer_carrier] kitpvp.flyer_grace 10
-execute if entity @e[tag=kitpvp.earth_flyer_carrier] unless entity @e[tag=kitpvp.earth_flyer_body] run scoreboard players set #fl_retry kitpvp.game 0
-execute if entity @e[tag=kitpvp.earth_flyer_carrier] unless entity @e[tag=kitpvp.earth_flyer_body] run scoreboard players set #fl_body kitpvp.game 1
-execute unless entity @e[tag=kitpvp.earth_flyer_carrier] run kill @e[tag=kitpvp.earth_flyer_body]
-execute unless entity @e[tag=kitpvp.earth_flyer_carrier] run kill @e[tag=kitpvp.fl_anchor]
-execute unless entity @e[tag=kitpvp.earth_flyer_carrier] at @s run summon minecraft:marker ~ ~2 ~ {Tags:["kitpvp.fl_anchor"]}
-execute unless entity @e[tag=kitpvp.earth_flyer_carrier] run scoreboard players set #fl_retry kitpvp.game 0
-execute unless entity @e[tag=kitpvp.earth_flyer_carrier] run scoreboard players set #fl_spawn kitpvp.game 1
+# 分两帧召：同一帧召出的实体不在 UUID 索引里，Leash 会被静默丢弃
+# 场上一对（UUID 写死给 Leash 用）；已经有母体时什么都不做——不杀、不召、不搬（重复 summon 会被 UUID 查重静默拒绝）
+execute unless entity @e[tag=kitpvp.earth_flyer_carrier] run scoreboard players set #fl_new kitpvp.game 1
+execute if score #fl_new kitpvp.game matches 1 run kill @e[tag=kitpvp.earth_flyer_carrier]
+execute if score #fl_new kitpvp.game matches 1 run kill @e[tag=kitpvp.earth_flyer_body]
+execute if score #fl_new kitpvp.game matches 1 run summon minecraft:phantom ~ ~2 ~ {UUID:[I;1900010,1,1,1],Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_flyer","kitpvp.earth_flyer_carrier"],Size:1,CustomName:'{"text":"飞行器","color":"dark_aqua"}',CustomNameVisible:1b,PersistenceRequired:1b,Silent:1b}
+# 抗性 V 让它打不死（被打烂就失去"吊车"的意义），虚弱 X 让它近战无伤害
+execute if score #fl_new kitpvp.game matches 1 run effect give @e[tag=kitpvp.earth_flyer_carrier,limit=1,sort=nearest] minecraft:resistance infinite 4 true
+execute if score #fl_new kitpvp.game matches 1 run effect give @e[tag=kitpvp.earth_flyer_carrier,limit=1,sort=nearest] minecraft:weakness infinite 9 true
+execute if score #fl_new kitpvp.game matches 1 run scoreboard players set @e[tag=kitpvp.earth_flyer_carrier] kitpvp.earth_cd_a 200
+execute if score #fl_new kitpvp.game matches 1 run schedule function kitpvp:summon/earth_flyer_b 1t replace
+execute if score #fl_new kitpvp.game matches 1 run scoreboard players set #fl_new kitpvp.game 0

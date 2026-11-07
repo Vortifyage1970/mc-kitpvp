@@ -10,6 +10,3 @@ execute if score #fl_t kitpvp.game matches 3 as @e[tag=kitpvp.earth_flyer_body] 
 execute if score #fl_t kitpvp.game matches 4 as @e[tag=kitpvp.earth_flyer_body] run team join earth_4 @s
 execute if score #fl_t kitpvp.game matches 5 as @e[tag=kitpvp.earth_flyer_body] run team join earth_5 @s
 execute if score #fl_t kitpvp.game matches 6 as @e[tag=kitpvp.earth_flyer_body] run team join earth_6 @s
-# 吊舱没出来（UUID 还被上一只占着）→ 下一帧再试，最多 3 次
-execute unless entity @e[tag=kitpvp.earth_flyer_body] run scoreboard players add #fl_retry kitpvp.game 1
-execute unless entity @e[tag=kitpvp.earth_flyer_body] if score #fl_retry kitpvp.game matches ..2 run scoreboard players set #fl_body kitpvp.game 1
