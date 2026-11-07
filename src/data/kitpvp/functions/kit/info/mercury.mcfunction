@@ -11,7 +11,7 @@ tellraw @s [{"text":"│ 胸甲：","color":"gray"},{"text":"青色皮革胸甲"
 tellraw @s [{"text":"│ 护腿：","color":"gray"},{"text":"青色皮革护腿","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:leather_leggings","Count":1,"tag":"{display:{color:1481884}}"}}}]
 tellraw @s [{"text":"│ 靴子：","color":"gray"},{"text":"青色皮革靴子（保护 III，深海探索者 X）","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:leather_boots","Count":1,"tag":"{Enchantments:[{id:\"minecraft:protection\",lvl:3},{id:\"minecraft:depth_strider\",lvl:10}],display:{color:1481884}}"}}}]
 tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"水桶","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:water_bucket","Count":1}}},{"text":"、"},{"text":"熟鳕鱼 x16","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:cooked_cod","Count":1}}}]
-tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"常态 移动速度 +0.2（属性修饰符，基础 0.1 → 0.3）、最大生命 -7.5（20 → 12.5）","color":"aqua"}]
+tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"常态 移动速度 +0.2（属性修饰符，基础 0.1 → 0.3）、最大生命 -7（20 → 13）","color":"aqua"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"无","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"white"}]
 tellraw @s [{"text":"└──────────────────────────────","color":"dark_gray"}]
