@@ -1,4 +1,4 @@
-# 地球·69 飞行器：共生（吊舱死则母体死）+ 补绳 + 清掉地上的 lead + 每 10 秒俯冲 17 格
+# 地球·69 飞行器：共生（吊舱死则母体死）+ 补绳 + 清掉地上的 lead + 每 10 秒俯冲 50 格
 # 由 tick.mcfunction 以 as @e[tag=kitpvp.earth_flyer_carrier] at @s 调用
 # 出生当刻不算共生：吊舱是 1 刻后才召的。用 tag 而不是计分（计分没 /reload 就不存在，会永远不判死）
 execute unless entity @s[tag=kitpvp.fl_spawning] unless entity @e[tag=kitpvp.earth_flyer_body] run kill @s
@@ -9,8 +9,8 @@ execute as @e[tag=kitpvp.earth_flyer_body] at @s run kill @e[type=minecraft:item
 scoreboard players operation #fl_own kitpvp.game = @s kitpvp.earth_owner
 tag @a[tag=kitpvp.flyer_target] remove kitpvp.flyer_target
 execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #fl_own kitpvp.game run tag @s add kitpvp.flyer_target
-# 每 200 刻（10 秒）扑一次，30 刻 × 1 格/刻；离目标 3 格内就收手（再贴下去会钻进地里）
-execute if score @s kitpvp.earth_cd_a matches ..0 run scoreboard players set @s kitpvp.flyer_dive 30
+# 每 200 刻（10 秒）扑一次，上限 50 刻 × 1 格/刻；离目标 3 格内就收手（再贴下去会钻进地里）
+execute if score @s kitpvp.earth_cd_a matches ..0 run scoreboard players set @s kitpvp.flyer_dive 50
 execute if score @s kitpvp.earth_cd_a matches ..0 run scoreboard players set @s kitpvp.earth_cd_a 200
 # ★ 吊舱跟着一起下：原版持绳超过约 10 格就 dropLeash，长距离俯冲必然闪断 ⇒ 骷髅留在半空、够不到人
 #   每刻先把它贴到母体下方 1 格，两者距离永远 <2（绳子不断、骷髅也不会被落下），母体再往前挪 1 格
