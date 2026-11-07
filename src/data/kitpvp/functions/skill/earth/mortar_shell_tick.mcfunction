@@ -1,13 +1,13 @@
-# @s = 迫击炮的鱼弹（as @s at @s）：飞向开炮那一刻锁定的落点（kitpvp.mo_aim），自身走一条开口向下的抛物线
-# 水平：方向朝落点（落点不动 ⇒ 每刻方向相同），速度由开炮时按距离定好的 mo_hs 决定 ⇒ 水平位移 ∝ 时间
+# @s = 迫击炮的鱼弹（as @s at @s）：飞向开炮那一刻锁定的落点（kitpvp.mo_aim），走一条先升后落的弧线
+# 落点开炮时固定，之后不再追人 ⇒ 玩家跑开就打空，也不会在头顶悬停
+# 水平：每刻朝落点转向，再沿朝向前进（速度按开炮距离分档，存在 mo_hs）
 # 竖直：mo_vy 每刻 -1，位移查表 ⇒ 位移 ∝ 时间的平方、开口向下
-# 两者合起来就是标准抛物线；不会在头顶悬停，因为它压根不看你，只看那个落点
 scoreboard players add @s kitpvp.mo_life 1
 execute if entity @e[tag=kitpvp.mo_aim,limit=1] at @s run tp @s ~ ~ ~ facing entity @e[tag=kitpvp.mo_aim,limit=1] feet
-execute if score @s kitpvp.mo_hs matches 42 rotated ~ 0 run tp @s ^ ^ ^0.42
-execute if score @s kitpvp.mo_hs matches 55 rotated ~ 0 run tp @s ^ ^ ^0.55
-execute if score @s kitpvp.mo_hs matches 68 rotated ~ 0 run tp @s ^ ^ ^0.68
-execute if score @s kitpvp.mo_hs matches 82 rotated ~ 0 run tp @s ^ ^ ^0.82
+execute if entity @e[tag=kitpvp.mo_aim,limit=1] at @s if score @s kitpvp.mo_hs matches 42 run tp @s ^ ^ ^0.42
+execute if entity @e[tag=kitpvp.mo_aim,limit=1] at @s if score @s kitpvp.mo_hs matches 55 run tp @s ^ ^ ^0.55
+execute if entity @e[tag=kitpvp.mo_aim,limit=1] at @s if score @s kitpvp.mo_hs matches 68 run tp @s ^ ^ ^0.68
+execute if entity @e[tag=kitpvp.mo_aim,limit=1] at @s if score @s kitpvp.mo_hs matches 82 run tp @s ^ ^ ^0.82
 execute if score @s kitpvp.mo_vy matches 11.. run tp @s ~ ~0.95 ~
 execute if score @s kitpvp.mo_vy matches 9..10 run tp @s ~ ~0.8 ~
 execute if score @s kitpvp.mo_vy matches 7..8 run tp @s ~ ~0.65 ~
