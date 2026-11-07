@@ -390,6 +390,8 @@ execute as @e[tag=kitpvp.earth_noteblock] at @s run tp @e[tag=kitpvp.earth_noteb
 execute as @e[tag=kitpvp.earth_noteblock_guard] at @s unless entity @e[tag=kitpvp.earth_noteblock,distance=..3] run function kitpvp:skill/earth/noteblock_death
 # 罐子：被打死的那一帧（尸体还在，Health:0.0f）在原地摇一只随机生灵，主人编号原样传给新生的那只
 execute as @e[tag=kitpvp.earth_jar,tag=!kitpvp.jar_popped,nbt={Health:0.0f}] at @s run function kitpvp:skill/earth/jar_pop
+# 兜底：Health 精确比对在某些死亡路径上抓不到，再补一条死亡动画第 1 刻（DeathTime 只在那一帧等于 1）
+execute as @e[tag=kitpvp.earth_jar,tag=!kitpvp.jar_popped,nbt={DeathTime:1s}] at @s run function kitpvp:skill/earth/jar_pop
 # 蜂巢：被砍中的那一帧（HurtTime 9）给 8 格内的玩家塞"眩晕"，第 2 下翻倍、第 3 下起每次 3 个
 execute as @e[tag=kitpvp.earth_hive,nbt={HurtTime:9s}] at @s run function kitpvp:skill/earth/hive_hit
 # 酿造台：每 15 秒（300 刻）往脚边丢一瓶随机药水
