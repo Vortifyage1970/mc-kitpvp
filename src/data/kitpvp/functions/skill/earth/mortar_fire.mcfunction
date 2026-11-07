@@ -9,19 +9,21 @@ scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_li
 scoreboard players operation @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_owner = @s kitpvp.earth_owner
 # 按距离装药：分七档，档内取"中距"算水平速度，误差控制在 ±1.5 格
 # mo_vy = 竖直初速（每刻 -1），决定弧顶高度与滞空；mo_hs = 水平速度 ×100，按 滞空 × hs/100 ≈ 距离 配
-execute if entity @p[tag=kitpvp.mo_tgt,distance=..3] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_vy 8
-execute if entity @p[tag=kitpvp.mo_tgt,distance=..3] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_hs 15
-execute if entity @p[tag=kitpvp.mo_tgt,distance=4..6] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_vy 9
-execute if entity @p[tag=kitpvp.mo_tgt,distance=4..6] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_hs 27
-execute if entity @p[tag=kitpvp.mo_tgt,distance=7..9] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_vy 11
-execute if entity @p[tag=kitpvp.mo_tgt,distance=7..9] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_hs 36
-execute if entity @p[tag=kitpvp.mo_tgt,distance=10..12] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_vy 12
-execute if entity @p[tag=kitpvp.mo_tgt,distance=10..12] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_hs 45
-execute if entity @p[tag=kitpvp.mo_tgt,distance=13..15] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_vy 14
-execute if entity @p[tag=kitpvp.mo_tgt,distance=13..15] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_hs 50
-execute if entity @p[tag=kitpvp.mo_tgt,distance=16..18] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_vy 16
-execute if entity @p[tag=kitpvp.mo_tgt,distance=16..18] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_hs 53
-execute if entity @p[tag=kitpvp.mo_tgt,distance=19..] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_vy 18
-execute if entity @p[tag=kitpvp.mo_tgt,distance=19..] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_hs 55
+# 先给默认值、再按档覆盖；档位边界用重叠写法（3..6 与 6..9 都含 6）。不然小数距离会掉进缝里，
+# 一档都不匹配 -> vy/hs 保持 0 -> 鱼既不升也不走，直接往下掉
+scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_vy 8
+scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_hs 15
+execute if entity @p[tag=kitpvp.mo_tgt,distance=3..6] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_vy 9
+execute if entity @p[tag=kitpvp.mo_tgt,distance=3..6] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_hs 27
+execute if entity @p[tag=kitpvp.mo_tgt,distance=6..9] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_vy 11
+execute if entity @p[tag=kitpvp.mo_tgt,distance=6..9] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_hs 36
+execute if entity @p[tag=kitpvp.mo_tgt,distance=9..12] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_vy 12
+execute if entity @p[tag=kitpvp.mo_tgt,distance=9..12] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_hs 45
+execute if entity @p[tag=kitpvp.mo_tgt,distance=12..15] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_vy 14
+execute if entity @p[tag=kitpvp.mo_tgt,distance=12..15] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_hs 50
+execute if entity @p[tag=kitpvp.mo_tgt,distance=15..18] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_vy 16
+execute if entity @p[tag=kitpvp.mo_tgt,distance=15..18] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_hs 53
+execute if entity @p[tag=kitpvp.mo_tgt,distance=18..] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_vy 18
+execute if entity @p[tag=kitpvp.mo_tgt,distance=18..] run scoreboard players set @e[tag=kitpvp.mo_shell,limit=1,sort=nearest] kitpvp.mo_hs 55
 scoreboard players set @s kitpvp.earth_cd_a 60
 playsound minecraft:entity.arrow.shoot hostile @a ~ ~ ~ 0.9 0.7
