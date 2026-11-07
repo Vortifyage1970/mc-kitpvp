@@ -7,6 +7,6 @@ kill @e[type=minecraft:minecart,distance=..50,tag=!kitpvp.displayitem]
 kill @e[type=minecraft:boat,distance=..50,tag=!kitpvp.displayitem]
 
 # 下面三行与 earth_cop 同一套写法，只是标签换成 cleaner 版、不带力量/抗性；车沿用 earth_cop_cart，tick 里那条倒计时 kill 直接复用
-summon minecraft:minecart ~ ~ ~ {Tags:["kitpvp.earth_mount","kitpvp.earth_cop_cart"],Invulnerable:1b,Passengers:[{id:"minecraft:zombie",Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_cop_cleaner"],CustomName:'{"text":"交警","color":"yellow"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:20.0f,HandItems:[{id:"minecraft:end_rod",Count:1b},{id:"minecraft:end_rod",Count:1b}],ArmorItems:[{},{},{},{id:"minecraft:lodestone",Count:1b}]}]}
+summon minecraft:minecart ~ ~ ~ {Tags:["kitpvp.earth_mount","kitpvp.earth_cop_cart"],Invulnerable:1b,Passengers:[{id:"minecraft:zombie",Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_cop_cleaner"],CustomName:'{"text":"交警","color":"yellow"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:15.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:15.0}],HandItems:[{id:"minecraft:end_rod",Count:1b},{id:"minecraft:end_rod",Count:1b}],ArmorItems:[{},{},{},{id:"minecraft:lodestone",Count:1b}]}]}
 scoreboard players set @e[tag=kitpvp.earth_cop_cart] kitpvp.earth_cd_a 200
 effect give @e[tag=kitpvp.earth_cop_cleaner] minecraft:speed infinite 2 true

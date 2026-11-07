@@ -3,6 +3,6 @@
 # 速度分由 skill/earth/cop_blink_track 每刻算好（格/刻 x100），判定与闪现都在 skill/earth/cop_blink_jaunt
 # 阈值 v 写在 cop_blink_jaunt 的 scores={kitpvp.pspd=900..} 里：900 = (0.30 格/刻)²，平地疾跑 784 不触发，疾跑跳 1225 才触发
 # 车的倒计时沿用 earth_cop_cart（tick 里那条 kill 直接复用），车上的 200 刻与下面僵尸自己的 1 刻冷却互不干扰
-summon minecraft:minecart ~ ~ ~ {Tags:["kitpvp.earth_mount","kitpvp.earth_cop_cart"],Invulnerable:1b,Passengers:[{id:"minecraft:zombie",Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_cop_blink"],CustomName:'{"text":"交警","color":"yellow"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:20.0f,HandItems:[{id:"minecraft:end_rod",Count:1b},{id:"minecraft:end_rod",Count:1b}],ArmorItems:[{},{},{},{id:"minecraft:lodestone",Count:1b}]}]}
+summon minecraft:minecart ~ ~ ~ {Tags:["kitpvp.earth_mount","kitpvp.earth_cop_cart"],Invulnerable:1b,Passengers:[{id:"minecraft:zombie",Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_cop_blink"],CustomName:'{"text":"交警","color":"yellow"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:15.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:15.0}],HandItems:[{id:"minecraft:end_rod",Count:1b},{id:"minecraft:end_rod",Count:1b}],ArmorItems:[{},{},{},{id:"minecraft:lodestone",Count:1b}]}]}
 scoreboard players set @e[tag=kitpvp.earth_cop_cart] kitpvp.earth_cd_a 200
 scoreboard players set @e[tag=kitpvp.earth_cop_blink] kitpvp.earth_cd_a 1
