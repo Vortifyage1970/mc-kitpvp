@@ -1,4 +1,4 @@
-# 建造模式：创造 + 退出游戏统计（摘 selected）；恢复用 debug/test/play
+# 建造模式：创造 + 退出游戏统计（摘 selected）；恢复用 debug/play
 tag @s remove kitpvp.selected
 
 tag @s remove kitpvp.spectator
