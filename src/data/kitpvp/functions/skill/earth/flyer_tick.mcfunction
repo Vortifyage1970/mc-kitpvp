@@ -6,6 +6,9 @@ tag @s remove kitpvp.fl_spawning
 execute as @e[tag=kitpvp.earth_flyer_body] unless data entity @s Leash run data merge entity @s {Leash:{UUID:[I;1900010,1,1,1]}}
 execute as @e[tag=kitpvp.earth_flyer_body] at @s run kill @e[type=minecraft:item,nbt={Item:{id:"minecraft:lead"}},distance=..4]
 # 俯冲目标：不是召唤者的最近玩家（用临时 tag 筛，免得把绳子往自己脸上甩）
+# 先垫 -1 再取：母体没有 earth_owner（比如直接 /function 召）时上面那句会静默失败，不垫的话 #fl_own 会留着上一次的值，
+# 恰好等于你的 etid 时你就会被"当成召唤者"排除掉 —— 一个靶子都没有，俯冲空转，看着就像"只掉几格"
+scoreboard players set #fl_own kitpvp.game -1
 scoreboard players operation #fl_own kitpvp.game = @s kitpvp.earth_owner
 tag @a[tag=kitpvp.flyer_target] remove kitpvp.flyer_target
 execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #fl_own kitpvp.game run tag @s add kitpvp.flyer_target
