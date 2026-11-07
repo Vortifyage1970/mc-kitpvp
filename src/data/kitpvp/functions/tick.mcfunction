@@ -352,6 +352,11 @@ execute if entity @e[tag=kitpvp.earth_magnet] run function kitpvp:skill/earth/ma
 execute as @e[tag=kitpvp.earth_dominion,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/dominion_firework
 execute as @e[tag=kitpvp.earth_dominion] run scoreboard players add @s kitpvp.dominion_age 1
 # 飞行器（地球·69）：共生（吊舱死则母体死）+ 补绳 + 每 10 秒俯冲 25 格
+# ---- 飞行器三段式派发：清场 → 幻翼（#fl_spawn=1）→ 吊舱（#fl_body=1）----
+execute if score #fl_spawn kitpvp.game matches 1 run function kitpvp:summon/earth_flyer_spawn
+execute if score #fl_spawn kitpvp.game matches 1 run scoreboard players set #fl_spawn kitpvp.game 0
+execute if score #fl_body kitpvp.game matches 1 run function kitpvp:summon/earth_flyer_b
+execute if score #fl_body kitpvp.game matches 1 run scoreboard players set #fl_body kitpvp.game 0
 execute as @e[tag=kitpvp.earth_flyer_carrier] at @s run function kitpvp:skill/earth/flyer_tick
 # 变色者：每 5 秒换一次头顶方块（earth_cd_a 由 tick 统一递减）
 execute as @e[tag=kitpvp.earth_colorchanger,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/colorchanger_shift
