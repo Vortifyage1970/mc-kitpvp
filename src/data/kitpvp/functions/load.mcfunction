@@ -189,6 +189,11 @@ scoreboard objectives add kitpvp.skater_snd dummy "滑冰者滑行音效计时"
 scoreboard objectives add kitpvp.bee_slow_snd dummy "被大蜜蜂减速的提示音冷却（刻）"
 scoreboard objectives add kitpvp.sparky_charge dummy "电磁炮充能（0..200，满 200 放电 = 10 秒）"
 scoreboard objectives add kitpvp.sparky_beep dummy "电磁炮充能滴声计时（20 刻一响）"
+# 迫击炮（69 号）：这些以前漏建过，缺了就会被静默忽略（鱼不动、堆在炮口）
+scoreboard objectives add kitpvp.mo_owner dummy "鱼弹的归属编号（= 迫击炮主人的 etid，0 = 无主）"
+scoreboard objectives add kitpvp.mo_vy dummy "鱼弹竖直初速（每刻 -1）"
+scoreboard objectives add kitpvp.mo_hs dummy "鱼弹水平速度 x100（按开炮距离分档）"
+scoreboard objectives add kitpvp.mo_life dummy "鱼弹已经飞了多少刻"
 scoreboard objectives add kitpvp.leaker_cd dummy "泄露者的通报时钟（15 秒 = 300 刻）"
 scoreboard objectives add kitpvp.skater_call dummy "滑冰者寒带动静计时（2 次滑行一声）"
 scoreboard players set #skater_four kitpvp.game 4
