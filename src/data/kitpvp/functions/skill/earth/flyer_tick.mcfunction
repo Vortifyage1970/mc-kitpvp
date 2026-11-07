@@ -6,14 +6,16 @@ tag @s remove kitpvp.fl_spawning
 execute as @e[tag=kitpvp.earth_flyer_body] unless data entity @s Leash run data merge entity @s {Leash:{UUID:[I;1900010,1,1,1]}}
 execute as @e[tag=kitpvp.earth_flyer_body] at @s run kill @e[type=minecraft:item,nbt={Item:{id:"minecraft:lead"}},distance=..4]
 # 俯冲目标：不是召唤者的最近玩家（用临时 tag 筛，免得把绳子往自己脸上甩）
-# 先垫 -1 再取：母体没有 earth_owner（比如直接 /function 召）时上面那句会静默失败，不垫的话 #fl_own 会留着上一次的值，
-# 恰好等于你的 etid 时你就会被"当成召唤者"排除掉 —— 一个靶子都没有，俯冲空转，看着就像"只掉几格"
+# 先垫 -1 再取：母体没有 earth_owner（直接 /function 召、魂石召）时那句会静默失败，
+# 不垫的话 #fl_own 会留着上一次的值，可能把某个真人错当成召唤者排除掉
 scoreboard players set #fl_own kitpvp.game -1
 scoreboard players operation #fl_own kitpvp.game = @s kitpvp.earth_owner
 tag @a[tag=kitpvp.flyer_target] remove kitpvp.flyer_target
-execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #fl_own kitpvp.game run tag @s add kitpvp.flyer_target
-# 测试模式兜底：只有 debug/flyer_test 召的那只带 fl_test。单人时拿召唤者当靶子，正常召唤不生效（免得场上就剩一个人时被自己的飞行器扑）
-execute if entity @s[tag=kitpvp.fl_test] unless entity @a[tag=kitpvp.flyer_target] as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] run tag @s add kitpvp.flyer_target
+# ★ 只有 owner ≥ 1 才排除召唤者。etid 0 = "还没分到槽位"（见 link.mcfunction），
+#   直接 /function 召的母体 owner 也是 0，两边一相等就把唯一那个玩家排除了 ⇒ 一个靶子都没有、俯冲空转。
+#   同样的坑 gearbox_aura / venus_chill_mark 里都踩过，写法保持一致。
+execute if score #fl_own kitpvp.game matches 1.. as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] unless score @s kitpvp.etid = #fl_own kitpvp.game run tag @s add kitpvp.flyer_target
+execute unless score #fl_own kitpvp.game matches 1.. as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] run tag @s add kitpvp.flyer_target
 # 没靶子时别放任原版盘旋 AI 把它带走（实测会飘出去几十格，看着像"飞走了"）：朝召唤者慢慢靠，回到 14 格内就停手
 tag @a[tag=kitpvp.flyer_home] remove kitpvp.flyer_home
 execute as @a[gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] if score @s kitpvp.etid = #fl_own kitpvp.game run tag @s add kitpvp.flyer_home
