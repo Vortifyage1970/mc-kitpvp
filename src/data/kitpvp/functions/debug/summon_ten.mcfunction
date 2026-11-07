@@ -13,16 +13,16 @@ execute as @p at @s positioned ~2 ~ ~-2 run function kitpvp:debug/summon_ten_one
 execute as @p at @s positioned ~-2 ~ ~-2 run function kitpvp:debug/summon_ten_one
 execute as @p at @s positioned ~4 ~ ~ run function kitpvp:debug/summon_ten_one
 execute as @p at @s positioned ~-4 ~ ~ run function kitpvp:debug/summon_ten_one
-# 测试专用：把主人改成不存在的 99 号槽，并从队伍里踢出去 ——
-# 这样它们不认你是主人，会像对待敌人一样回头打你。正式召唤走 link，照常认主、不会打你
-execute as @p at @s run scoreboard players set @e[tag=kitpvp.earth_minion,distance=..10] kitpvp.earth_owner 99
+# 测试专用：把主人分整条抹掉、并踢出队伍 —— 它们成了"无主生灵"，
+# 会按无主逻辑把周围所有玩家当敌人。正式召唤走 link，照常认主、不会打你
+execute as @p at @s run scoreboard players reset @e[tag=kitpvp.earth_minion,distance=..10] kitpvp.earth_owner
 execute as @p at @s run team leave @e[tag=kitpvp.earth_minion,distance=..10]
 execute as @p at @s run tag @e[tag=kitpvp.earth_minion,distance=..10] add kitpvp.ten_test
-# 自检：报附近总数与"还没被改成测试归属"的只数（应为 0）
+# 自检：报附近总数与"身上还挂着主人分"的只数（应为 0）
 scoreboard players set #ten_all kitpvp.game 0
 scoreboard players set #ten_orphan kitpvp.game 0
 execute as @p at @s as @e[tag=kitpvp.earth_minion,distance=..10] run scoreboard players add #ten_all kitpvp.game 1
-execute as @p at @s as @e[tag=kitpvp.earth_minion,distance=..10] unless score @s kitpvp.earth_owner matches 99 run scoreboard players add #ten_orphan kitpvp.game 1
-execute as @p run title @s actionbar {"text":"十只生灵已降临（测试：它们会打你）","color":"red"}
-execute as @p run tellraw @s [{"text":"[十连] 附近生灵 ","color":"gray"},{"score":{"name":"#ten_all","objective":"kitpvp.game"}},{"text":" 只，其中没转成敌对的 ","color":"gray"},{"score":{"name":"#ten_orphan","objective":"kitpvp.game"}},{"text":" 只","color":"gray"}]
+execute as @p at @s as @e[tag=kitpvp.earth_minion,distance=..10,scores={kitpvp.earth_owner=..2147483647}] run scoreboard players add #ten_orphan kitpvp.game 1
+execute as @p run title @s actionbar {"text":"十只无主生灵已降临","color":"red"}
+execute as @p run tellraw @s [{"text":"[十连] 附近生灵 ","color":"gray"},{"score":{"name":"#ten_all","objective":"kitpvp.game"}},{"text":" 只，其中还挂着主人的 ","color":"gray"},{"score":{"name":"#ten_orphan","objective":"kitpvp.game"}},{"text":" 只","color":"gray"}]
 execute unless entity @p run tellraw @a {"text":"[十连] 附近没有玩家，什么都没召","color":"red"}
