@@ -13,4 +13,3 @@ execute if score #fl_t kitpvp.game matches 6 as @e[tag=kitpvp.earth_flyer_body] 
 # 吊舱没出来（UUID 还被上一只占着）→ 下一帧再试，最多 3 次
 execute unless entity @e[tag=kitpvp.earth_flyer_body] run scoreboard players add #fl_retry kitpvp.game 1
 execute unless entity @e[tag=kitpvp.earth_flyer_body] if score #fl_retry kitpvp.game matches ..2 run scoreboard players set #fl_body kitpvp.game 1
-execute unless entity @e[tag=kitpvp.earth_flyer_body] if score #fl_retry kitpvp.game matches 3.. run tellraw @a[distance=..48] [{"text":"[飞行器] 吊舱召不出来：UUID 一直被占","color":"red"}]

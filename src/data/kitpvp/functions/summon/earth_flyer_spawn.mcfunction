@@ -7,10 +7,8 @@ effect give @e[tag=kitpvp.earth_flyer_carrier,limit=1,sort=nearest] minecraft:we
 scoreboard players set @e[tag=kitpvp.earth_flyer_carrier] kitpvp.earth_cd_a 200
 scoreboard players set @e[tag=kitpvp.earth_flyer_carrier] kitpvp.flyer_grace 10
 execute if entity @e[tag=kitpvp.earth_flyer_carrier] run kill @e[tag=kitpvp.fl_anchor]
-execute if entity @e[tag=kitpvp.earth_flyer_carrier] run tellraw @a [{"text":"[飞行器] 幻翼已生成","color":"green"}]
 execute if entity @e[tag=kitpvp.earth_flyer_carrier] run scoreboard players set #fl_retry kitpvp.game 0
 execute if entity @e[tag=kitpvp.earth_flyer_carrier] run scoreboard players set #fl_body kitpvp.game 1
 execute unless entity @e[tag=kitpvp.earth_flyer_carrier] run scoreboard players add #fl_retry kitpvp.game 1
-execute unless entity @e[tag=kitpvp.earth_flyer_carrier] if score #fl_retry kitpvp.game matches ..3 run tellraw @a [{"text":"[飞行器] 幻翼没出来，下一帧重试","color":"red"}]
 execute unless entity @e[tag=kitpvp.earth_flyer_carrier] if score #fl_retry kitpvp.game matches ..3 run scoreboard players set #fl_spawn kitpvp.game 1
 execute unless entity @e[tag=kitpvp.earth_flyer_carrier] if score #fl_retry kitpvp.game matches 4.. run tellraw @a [{"text":"[飞行器] 召唤失败：UUID 一直没释放","color":"red"}]

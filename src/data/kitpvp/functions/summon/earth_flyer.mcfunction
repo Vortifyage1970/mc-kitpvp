@@ -7,10 +7,8 @@ execute at @s if entity @e[tag=kitpvp.earth_flyer_carrier] run tp @e[tag=kitpvp.
 execute if entity @e[tag=kitpvp.earth_flyer_carrier] run scoreboard players set @e[tag=kitpvp.earth_flyer_carrier] kitpvp.flyer_grace 10
 execute if entity @e[tag=kitpvp.earth_flyer_carrier] unless entity @e[tag=kitpvp.earth_flyer_body] run scoreboard players set #fl_retry kitpvp.game 0
 execute if entity @e[tag=kitpvp.earth_flyer_carrier] unless entity @e[tag=kitpvp.earth_flyer_body] run scoreboard players set #fl_body kitpvp.game 1
-execute if entity @e[tag=kitpvp.earth_flyer_carrier] run tellraw @a[distance=..48] [{"text":"[飞行器] 已就位","color":"dark_gray"}]
 execute unless entity @e[tag=kitpvp.earth_flyer_carrier] run kill @e[tag=kitpvp.earth_flyer_body]
 execute unless entity @e[tag=kitpvp.earth_flyer_carrier] run kill @e[tag=kitpvp.fl_anchor]
 execute unless entity @e[tag=kitpvp.earth_flyer_carrier] at @s run summon minecraft:marker ~ ~2 ~ {Tags:["kitpvp.fl_anchor"]}
-execute unless entity @e[tag=kitpvp.earth_flyer_carrier] run tellraw @a[distance=..48] [{"text":"[飞行器] 场上没有飞行器，下一刻新召","color":"dark_gray"}]
 execute unless entity @e[tag=kitpvp.earth_flyer_carrier] run scoreboard players set #fl_retry kitpvp.game 0
 execute unless entity @e[tag=kitpvp.earth_flyer_carrier] run scoreboard players set #fl_spawn kitpvp.game 1
