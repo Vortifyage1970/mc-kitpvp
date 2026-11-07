@@ -1,6 +1,9 @@
 # @s = 刚被打死的罐子（尸体还在的那几刻：Health:0.0f），at 它身上执行
 # ★ 先打标记：尸体要播约 20 刻死亡动画，不打标记这一条会连摇十几次，一次刷出十几只
 tag @s add kitpvp.jar_popped
+# 陶罐摔碎：声音 + 几片碎片，给"碎了"一点反馈
+playsound minecraft:block.decorated_pot.break block @a ~ ~ ~ 1.0 1.0
+particle minecraft:poof ~ ~1 ~ 0.35 0.35 0.35 0.05 12 force
 # 主人编号：没有 earth_owner 分的罐子（手动 /function、魂石召的）先补 0 再抄，否则 operation 会因源分缺失失败
 scoreboard players add @s kitpvp.earth_owner 0
 scoreboard players operation #jar_own kitpvp.game = @s kitpvp.earth_owner
