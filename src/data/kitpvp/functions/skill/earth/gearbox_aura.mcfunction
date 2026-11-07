@@ -1,4 +1,4 @@
-# @s = 变速器：6 格内没有除召唤者以外的玩家就获得速度 V；有人靠近就改成抗性 II + 缓慢 IV + 急迫 I
+# @s = 变速器：6 格内没有除召唤者以外的玩家就获得速度 VI；有人靠近就改成抗性 II + 缓慢 IV + 急迫 I
 # 归属靠 earth_owner 比较（link 里写好的队槽编号）：召唤者有自己的 etid，别人一律算"靠近的敌人"
 # 先归零：魂石召出来的生灵没有 earth_owner 分，operation 会因源分缺失直接失败，不能留上一只的旧值
 scoreboard players set #gb_owner kitpvp.game 0
@@ -17,13 +17,13 @@ execute if score #gb_enemy kitpvp.game matches 1.. unless score @s kitpvp.gb_mod
 execute if score #gb_enemy kitpvp.game matches 0 run scoreboard players set @s kitpvp.gb_mode 0
 execute if score #gb_enemy kitpvp.game matches 1.. run scoreboard players set @s kitpvp.gb_mode 1
 
-# 空旷：极速（速度 V），同时清掉"变慢"的两条与急迫，否则两种状态会叠在一起
-execute if score #gb_enemy kitpvp.game matches 0 run effect give @s minecraft:speed 1 4 true
+# 空旷：极速（速度 VI），同时清掉"变慢"的两条与急迫，否则两种状态会叠在一起
+execute if score #gb_enemy kitpvp.game matches 0 run effect give @s minecraft:speed 1 5 true
 execute if score #gb_enemy kitpvp.game matches 0 run effect clear @s minecraft:resistance
 execute if score #gb_enemy kitpvp.game matches 0 run effect clear @s minecraft:slowness
 execute if score #gb_enemy kitpvp.game matches 0 run effect clear @s minecraft:haste
 
-# 有人：变肉变慢 + 急迫 I，并撤掉速度，否则靠速度 V 抵消缓慢 IV 根本慢不下来
+# 有人：变肉变慢 + 急迫 I，并撤掉速度，否则靠速度 VI 抵消缓慢 IV 根本慢不下来
 # 急迫只在"身边有玩家"时给（人的设计口径）：落单时只有速度
 execute if score #gb_enemy kitpvp.game matches 1.. run effect give @s minecraft:resistance 1 1 true
 execute if score #gb_enemy kitpvp.game matches 1.. run effect give @s minecraft:slowness 1 3 true

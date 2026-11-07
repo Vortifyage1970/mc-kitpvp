@@ -57,6 +57,7 @@ kill @e[tag=kitpvp.earth_twinstar_guard_a]
 kill @e[tag=kitpvp.earth_twinstar_guard_b]
 kill @e[tag=kitpvp.earth_mobilizer_guard]
 kill @e[tag=kitpvp.earth_noteblock_guard]
+kill @e[tag=kitpvp.nb_dying]
 # 罐子先封口再清场：否则 reset 这一刀会让每只罐子都"碎一次"，白白刷出一堆生灵
 kill @e[tag=kitpvp.earth_jar_guard]
 kill @e[tag=kitpvp.earth_minion]

@@ -218,6 +218,7 @@ scoreboard players set #neg kitpvp.game -1
 scoreboard objectives add kitpvp.fire_left dummy "篝火剩余燃烧刻数（-1 = 待点火，0 = 刚烧完，1..100 = 燃烧中）"
 scoreboard objectives add kitpvp.nb_hp dummy "音符盒当前血量 ×100（每刻读一次）"
 scoreboard objectives add kitpvp.nb_prev dummy "音符盒上一帧血量（掉了就说明挨打了）"
+scoreboard objectives add kitpvp.nb_step dummy "死亡音符盒连音：弹音器走到第几刻"
 
 scoreboard objectives add kitpvp.jan_unit dummy "保洁员清扫：单个掉落物的件数（按件计，不按堆）"
 scoreboard objectives add kitpvp.cap_hp dummy "资本家当前血量（×100，用来判断挨打）"

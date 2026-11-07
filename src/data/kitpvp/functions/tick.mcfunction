@@ -287,7 +287,7 @@ execute as @e[tag=kitpvp.earth_capitalist] at @s run tp @e[tag=kitpvp.earth_capi
 execute as @e[tag=kitpvp.earth_capitalist_guard] at @s unless entity @e[tag=kitpvp.earth_capitalist,distance=..3] run function kitpvp:skill/earth/capitalist_death
 # 资本家：血量比上一刻低就是挨了一下 —— 立刻掉一张纸（尸体帧抓不到，所以不用死亡判定）
 execute as @e[tag=kitpvp.earth_capitalist] store result score @s kitpvp.cap_hp run data get entity @s Health 100
-execute as @e[tag=kitpvp.earth_capitalist] if score @s kitpvp.cap_hp < @s kitpvp.cap_prev run function kitpvp:skill/earth/capitalist_drop
+execute as @e[tag=kitpvp.earth_capitalist] at @s if score @s kitpvp.cap_hp < @s kitpvp.cap_prev run function kitpvp:skill/earth/capitalist_drop
 execute as @e[tag=kitpvp.earth_capitalist] run scoreboard players operation @s kitpvp.cap_prev = @s kitpvp.cap_hp
 # β转角尾巴：每刻摆到底座正后方 0.75 格一节的密集队列（吸附后不会散成稀疏的一挂）
 # 底座没了就整段不跑：尾巴留在原地，不会像竖链那样悬空
@@ -388,6 +388,8 @@ execute as @e[tag=kitpvp.sup_falling] at @s if data entity @s {OnGround:1b} run 
 execute as @e[tag=kitpvp.earth_explainer] run scoreboard players operation @s kitpvp.nb_prev = @s kitpvp.nb_hp
 execute as @e[tag=kitpvp.earth_noteblock] at @s run tp @e[tag=kitpvp.earth_noteblock_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~
 execute as @e[tag=kitpvp.earth_noteblock_guard] at @s unless entity @e[tag=kitpvp.earth_noteblock,distance=..3] run function kitpvp:skill/earth/noteblock_death
+# 音符盒死亡连音：marker 记住死亡地点，这里每刻带着 at @s 调，playsound 才不会跑到世界原点
+execute as @e[tag=kitpvp.nb_dying] at @s run function kitpvp:skill/earth/noteblock_cascade
 # 罐子：脚下埋一个隐形 marker 当"守卫"，每刻被拖到罐子身上；罐子没了就在守卫脚下摇一只随机生灵
 # 不用"读尸体 Health=0 那一帧"：本机实测尸体不到 1 刻就被移除，读不到（木星、资本家都踩过这个坑）
 execute as @e[tag=kitpvp.earth_jar] at @s run scoreboard players add @s kitpvp.earth_owner 0
