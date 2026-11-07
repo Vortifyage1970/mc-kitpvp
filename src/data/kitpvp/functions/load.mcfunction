@@ -195,6 +195,7 @@ scoreboard objectives add kitpvp.mo_vy dummy "鱼弹竖直初速（每刻 -1）"
 scoreboard objectives add kitpvp.mo_hs dummy "鱼弹水平速度 x100（按开炮距离分档）"
 scoreboard objectives add kitpvp.mo_life dummy "鱼弹已经飞了多少刻"
 scoreboard objectives add kitpvp.sup_land dummy "支援者落地后过了几刻（2 刻才收无敌）"
+scoreboard objectives add kitpvp.brw_life dummy "酿造台药水落地后过了几刻（30 刻还没落地就强制砸开）"
 scoreboard objectives add kitpvp.leaker_cd dummy "泄露者的通报时钟（15 秒 = 300 刻）"
 scoreboard objectives add kitpvp.skater_call dummy "滑冰者寒带动静计时（2 次滑行一声）"
 scoreboard players set #skater_four kitpvp.game 4

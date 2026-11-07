@@ -394,6 +394,10 @@ execute as @e[tag=kitpvp.earth_jar,tag=!kitpvp.jar_popped,nbt={Health:0.0f}] at 
 execute as @e[tag=kitpvp.earth_hive,nbt={HurtTime:9s}] at @s run function kitpvp:skill/earth/hive_hit
 # 酿造台：每 15 秒（300 刻）往脚边丢一瓶随机药水
 execute as @e[tag=kitpvp.earth_brewer,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/brewer_drop
+# 酿造台药水：落地（OnGround）或 30 刻还没落地就砸开，4 格内的玩家吃效果
+scoreboard players add @e[tag=kitpvp.brw_potion] kitpvp.brw_life 1
+execute as @e[tag=kitpvp.brw_potion] at @s if data entity @s {OnGround:1b} run function kitpvp:skill/earth/brewer_break
+execute as @e[tag=kitpvp.brw_potion,scores={kitpvp.brw_life=30..}] at @s run function kitpvp:skill/earth/brewer_break
 
 # 术战士 / 流浪汉的"打中人"结算：不再走 advancement（那套 NBT 条件在这个版本上一直没触发过），
 # 改成抓挨打那一帧（HurtTime 9 = 伤害刚结算完的下一个 tick），再看身边 3 格内有没有对应的召唤物
