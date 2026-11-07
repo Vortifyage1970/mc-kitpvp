@@ -4,8 +4,12 @@ tag @s add kitpvp.jar_popped
 # 主人编号：没有 earth_owner 分的罐子（手动 /function、魂石召的）先补 0 再抄，否则 operation 会因源分缺失失败
 scoreboard players add @s kitpvp.earth_owner 0
 scoreboard players operation #jar_own kitpvp.game = @s kitpvp.earth_owner
-# 走正式随机链路：random 自己摇 rng（0..73）、自己调 summon/<种类>，和玩家召唤用的是同一套
+# 走正式随机链路：random 自己摇 rng（0..75）、自己调 summon/<种类>，和玩家召唤用的是同一套
 function kitpvp:skill/earth/random
+# 【临时诊断】确认这一条到底有没有跑、摇到了几号；确认没问题后删掉这四行
+scoreboard players operation #jar_roll kitpvp.game = @s kitpvp.rng
+scoreboard players operation #jar_roll2 kitpvp.game = #jar_own kitpvp.game
+tellraw @a [{"text":"[罐子] 碎了，摇到 #","color":"gold"},{"score":{"name":"#jar_roll","objective":"kitpvp.game"}},{"text":"  主人分=","color":"gray"},{"score":{"name":"#jar_roll2","objective":"kitpvp.game"}}]
 # 新生的那只没有主人（link 没跑）。24 格内所有"还没主人 + 刚出生"的生灵，把罐子的主人编号抄过去。
 # 不用 3 格半径：飞行器、支援者这类会在出生后几刻内被挪到十几二十格高，3 格够不着
 scoreboard players add @e[tag=kitpvp.earth_minion_new,distance=..24] kitpvp.earth_owner 0
