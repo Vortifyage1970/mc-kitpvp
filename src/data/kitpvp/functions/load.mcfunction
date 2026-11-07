@@ -177,7 +177,6 @@ scoreboard objectives add kitpvp.earth_fw_life dummy "内卫烟花烟团还能�
 scoreboard objectives add kitpvp.dominion_age dummy "内卫存活刻数（过 240 = 12 秒就只放烟花、不再留烟）"
 scoreboard objectives add kitpvp.earth_last dummy "地球召唤快照"
 scoreboard objectives add kitpvp.earth_cd_a dummy "地球召唤物技能计时"
-scoreboard objectives add kitpvp.flyer_grace dummy
 scoreboard objectives add kitpvp.earth_lev dummy "地球超凡升天计时"
 scoreboard objectives add kitpvp.earth_life dummy "地球召唤物寿命"
 scoreboard objectives add kitpvp.earth_grass_arm dummy "可疑草丛落地的迟钝计时"
