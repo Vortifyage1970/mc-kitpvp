@@ -10,4 +10,5 @@ summon minecraft:parrot ~ ~2 ~ {Tags:["kitpvp.earth_pluto_parrot","kitpvp.pl_new
 scoreboard players operation @e[tag=kitpvp.pl_new] kitpvp.pluto_pair = #pluto_pair kitpvp.game
 scoreboard players set @e[tag=kitpvp.pl_new] kitpvp.pluto_miss 0
 tag @e[tag=kitpvp.pl_new] remove kitpvp.pl_new
+execute as @e[tag=kitpvp.earth_pluto_carrier] run effect give @s minecraft:invisibility infinite 0 true
 execute as @e[tag=kitpvp.earth_pluto_carrier] run effect give @s minecraft:resistance infinite 4 true
