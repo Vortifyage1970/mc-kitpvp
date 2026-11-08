@@ -5,27 +5,30 @@ summon minecraft:skeleton ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minio
 
 # 八条轨道：每只召出来先打 sat_new，谁身上还挂着 sat_new 就只有它一只，相位就不会点错人
 kill @e[tag=kitpvp.sat_orbit,distance=..6]
-summon minecraft:silverfish ~2.2 ~0.55 ~ {Tags:["kitpvp.earth_minion","kitpvp.sat_orbit","kitpvp.sat_new"],CustomName:'{"text":"轨道","color":"gray"}',CustomNameVisible:1b,Silent:1b,NoAI:1b,NoGravity:1b,PersistenceRequired:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}]}
+summon minecraft:silverfish ~2.2 ~0.9 ~ {Tags:["kitpvp.earth_minion","kitpvp.sat_orbit","kitpvp.sat_new"],CustomName:'{"text":"轨道","color":"gray"}',CustomNameVisible:1b,Silent:1b,NoAI:1b,NoGravity:1b,PersistenceRequired:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}]}
 scoreboard players set @e[tag=kitpvp.sat_new,limit=1] kitpvp.sat_phase 0
 tag @e[tag=kitpvp.sat_new] remove kitpvp.sat_new
-summon minecraft:silverfish ~1.56 ~0.6 ~1.56 {Tags:["kitpvp.earth_minion","kitpvp.sat_orbit","kitpvp.sat_new"],CustomName:'{"text":"轨道","color":"gray"}',CustomNameVisible:1b,Silent:1b,NoAI:1b,NoGravity:1b,PersistenceRequired:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}]}
+summon minecraft:silverfish ~1.56 ~1.0 ~1.56 {Tags:["kitpvp.earth_minion","kitpvp.sat_orbit","kitpvp.sat_new"],CustomName:'{"text":"轨道","color":"gray"}',CustomNameVisible:1b,Silent:1b,NoAI:1b,NoGravity:1b,PersistenceRequired:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}]}
 scoreboard players set @e[tag=kitpvp.sat_new,limit=1] kitpvp.sat_phase 1
 tag @e[tag=kitpvp.sat_new] remove kitpvp.sat_new
-summon minecraft:silverfish ~0 ~0.65 ~2.2 {Tags:["kitpvp.earth_minion","kitpvp.sat_orbit","kitpvp.sat_new"],CustomName:'{"text":"轨道","color":"gray"}',CustomNameVisible:1b,Silent:1b,NoAI:1b,NoGravity:1b,PersistenceRequired:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}]}
+summon minecraft:silverfish ~0 ~1.1 ~2.2 {Tags:["kitpvp.earth_minion","kitpvp.sat_orbit","kitpvp.sat_new"],CustomName:'{"text":"轨道","color":"gray"}',CustomNameVisible:1b,Silent:1b,NoAI:1b,NoGravity:1b,PersistenceRequired:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}]}
 scoreboard players set @e[tag=kitpvp.sat_new,limit=1] kitpvp.sat_phase 2
 tag @e[tag=kitpvp.sat_new] remove kitpvp.sat_new
-summon minecraft:silverfish ~-1.56 ~0.6 ~1.56 {Tags:["kitpvp.earth_minion","kitpvp.sat_orbit","kitpvp.sat_new"],CustomName:'{"text":"轨道","color":"gray"}',CustomNameVisible:1b,Silent:1b,NoAI:1b,NoGravity:1b,PersistenceRequired:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}]}
+summon minecraft:silverfish ~-1.56 ~1.0 ~1.56 {Tags:["kitpvp.earth_minion","kitpvp.sat_orbit","kitpvp.sat_new"],CustomName:'{"text":"轨道","color":"gray"}',CustomNameVisible:1b,Silent:1b,NoAI:1b,NoGravity:1b,PersistenceRequired:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}]}
 scoreboard players set @e[tag=kitpvp.sat_new,limit=1] kitpvp.sat_phase 3
 tag @e[tag=kitpvp.sat_new] remove kitpvp.sat_new
-summon minecraft:silverfish ~-2.2 ~0.55 ~ {Tags:["kitpvp.earth_minion","kitpvp.sat_orbit","kitpvp.sat_new"],CustomName:'{"text":"轨道","color":"gray"}',CustomNameVisible:1b,Silent:1b,NoAI:1b,NoGravity:1b,PersistenceRequired:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}]}
+summon minecraft:silverfish ~-2.2 ~0.9 ~ {Tags:["kitpvp.earth_minion","kitpvp.sat_orbit","kitpvp.sat_new"],CustomName:'{"text":"轨道","color":"gray"}',CustomNameVisible:1b,Silent:1b,NoAI:1b,NoGravity:1b,PersistenceRequired:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}]}
 scoreboard players set @e[tag=kitpvp.sat_new,limit=1] kitpvp.sat_phase 4
 tag @e[tag=kitpvp.sat_new] remove kitpvp.sat_new
-summon minecraft:silverfish ~-1.56 ~0.5 ~-1.56 {Tags:["kitpvp.earth_minion","kitpvp.sat_orbit","kitpvp.sat_new"],CustomName:'{"text":"轨道","color":"gray"}',CustomNameVisible:1b,Silent:1b,NoAI:1b,NoGravity:1b,PersistenceRequired:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}]}
+summon minecraft:silverfish ~-1.56 ~0.8 ~-1.56 {Tags:["kitpvp.earth_minion","kitpvp.sat_orbit","kitpvp.sat_new"],CustomName:'{"text":"轨道","color":"gray"}',CustomNameVisible:1b,Silent:1b,NoAI:1b,NoGravity:1b,PersistenceRequired:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}]}
 scoreboard players set @e[tag=kitpvp.sat_new,limit=1] kitpvp.sat_phase 5
 tag @e[tag=kitpvp.sat_new] remove kitpvp.sat_new
-summon minecraft:silverfish ~0 ~0.45 ~-2.2 {Tags:["kitpvp.earth_minion","kitpvp.sat_orbit","kitpvp.sat_new"],CustomName:'{"text":"轨道","color":"gray"}',CustomNameVisible:1b,Silent:1b,NoAI:1b,NoGravity:1b,PersistenceRequired:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}]}
+summon minecraft:silverfish ~0 ~0.7 ~-2.2 {Tags:["kitpvp.earth_minion","kitpvp.sat_orbit","kitpvp.sat_new"],CustomName:'{"text":"轨道","color":"gray"}',CustomNameVisible:1b,Silent:1b,NoAI:1b,NoGravity:1b,PersistenceRequired:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}]}
 scoreboard players set @e[tag=kitpvp.sat_new,limit=1] kitpvp.sat_phase 6
 tag @e[tag=kitpvp.sat_new] remove kitpvp.sat_new
-summon minecraft:silverfish ~1.56 ~0.5 ~-1.56 {Tags:["kitpvp.earth_minion","kitpvp.sat_orbit","kitpvp.sat_new"],CustomName:'{"text":"轨道","color":"gray"}',CustomNameVisible:1b,Silent:1b,NoAI:1b,NoGravity:1b,PersistenceRequired:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}]}
+summon minecraft:silverfish ~1.56 ~0.8 ~-1.56 {Tags:["kitpvp.earth_minion","kitpvp.sat_orbit","kitpvp.sat_new"],CustomName:'{"text":"轨道","color":"gray"}',CustomNameVisible:1b,Silent:1b,NoAI:1b,NoGravity:1b,PersistenceRequired:1b,Health:1.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:1.0}]}
 scoreboard players set @e[tag=kitpvp.sat_new,limit=1] kitpvp.sat_phase 7
 tag @e[tag=kitpvp.sat_new] remove kitpvp.sat_new
+
+# 轨道给抗性 V（amplifier 4）：1 血也不会被一发箭点掉，只能靠真伤/掉落慢慢磨
+effect give @e[tag=kitpvp.sat_orbit,distance=..6] minecraft:resistance infinite 4 true
