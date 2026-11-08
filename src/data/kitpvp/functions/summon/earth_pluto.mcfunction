@@ -1,7 +1,7 @@
 # 地球·80 冥王星：隐形的抗性提升 V 尸壳，头顶钉着一只 30 血的鹦鹉（和「冥王星」职业同款：鹦鹉 NoAI、每刻被 tp 到头顶，不是乘客）
 # 用尸壳（husk）：1.20.1 里会走会打的亡灵只有尸壳白天不烧（流浪者、骷髅、僵尸都烧），它隐形所以外观没差别
 # 会自己走、会打人，所以不写 NoAI、也不压移速；名字留空
-# 鹦鹉一死，尸壳跟着死；尸壳没了，鹦鹉也不留（见 skill/earth/pluto_tick）
+# 鹦鹉没了，尸壳掉抗性继续打（见 skill/earth/pluto_shed）；尸壳没了，鹦鹉也不留（见 skill/earth/pluto_tick）
 # 鹦鹉刻意不带 kitpvp.pluto_parrot —— 那个 tag 是「冥王星职业」分身的，串上会被它的 follow/check 拖走判死
 kill @e[tag=kitpvp.earth_pluto_carrier]
 kill @e[tag=kitpvp.earth_pluto_parrot]
