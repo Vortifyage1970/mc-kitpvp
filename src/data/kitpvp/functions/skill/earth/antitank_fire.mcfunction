@@ -1,8 +1,9 @@
-# @s = 反装甲步兵（at 它身上）：开一炮
-# 状态切换：装填 60 -> -60（60 刻的跑位窗口），这一帧摘掉缓慢 III、给 60 刻速度 I
-scoreboard players set @s kitpvp.at_charge -60
+# @s = 反装甲步兵（at 它身上）：打出唯一的一炮
+# 打完就定型：at_shot 1、缓慢 III 摘掉、永久速度 I（之后不再装填、不再开炮）
+scoreboard players set @s kitpvp.at_shot 1
+scoreboard players set @s kitpvp.at_charge 0
 effect clear @s minecraft:slowness
-effect give @s minecraft:speed 60 0 true
+effect give @s minecraft:speed infinite 0 true
 
 # 落点：开炮那一刻目标脚下放 marker，之后不再追人 —— 和迫击炮同一套"打提前量"手感，只是弹速快得多
 # 不清旧 marker：两只步兵同时开炮时，清掉会把前一颗还在飞的炮弹的落点弄没；

@@ -5,3 +5,4 @@ summon minecraft:skeleton ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minio
 # 装填期常驻缓慢 III（amplifier 2 = III 级，-45% 移速）；分数初值必须埋，否则 ..0 的闸门不匹配
 effect give @e[tag=kitpvp.earth_antitank] minecraft:slowness infinite 2 true
 scoreboard players set @e[tag=kitpvp.earth_antitank] kitpvp.at_charge 0
+scoreboard players set @e[tag=kitpvp.earth_antitank] kitpvp.at_shot 0

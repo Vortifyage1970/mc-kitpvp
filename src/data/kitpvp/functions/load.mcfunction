@@ -230,6 +230,7 @@ scoreboard objectives add kitpvp.flyer_dive dummy "飞行器俯冲剩余刻数�
 scoreboard objectives add kitpvp.at_charge dummy "反装甲步兵装填（60 开炮；-60..-1 是开炮后跑位）"
 scoreboard objectives add kitpvp.at_life dummy "反装甲炮弹飞了几刻"
 scoreboard objectives add kitpvp.at_owner dummy "炮弹的主人队槽"
+scoreboard objectives add kitpvp.at_shot dummy "反装甲步兵打没打过那一炮（1 = 打完了，永久速度 I）"
 scoreboard objectives add kitpvp.fl_summoner dummy "这一只飞行器是谁召的（1 = 召唤者本人，俯冲时避开）"
 scoreboard objectives add kitpvp.hive_hits dummy "蜂巢挨了几下（1→1个眩晕，2→2个，3下起每次3个）"
 scoreboard players set #six kitpvp.game 6
