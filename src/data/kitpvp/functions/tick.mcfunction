@@ -283,6 +283,9 @@ execute as @e[tag=kitpvp.sat_orbit,scores={kitpvp.sat_phase=8..}] run scoreboard
 execute as @e[tag=kitpvp.sat_orbit] unless score @s kitpvp.sat_phase matches -2147483648.. run scoreboard players set @s kitpvp.sat_phase 0
 execute as @e[tag=kitpvp.earth_saturn] at @s run function kitpvp:skill/earth/saturn_tick
 execute as @e[tag=kitpvp.sat_orbit] at @s unless entity @e[tag=kitpvp.earth_saturn,distance=..8] run kill @s
+# 地球·80 冥王星：肩上的鹦鹉一死，隐形僵尸跟着倒；僵尸先没的话别把鹦鹉留成孤儿
+execute as @e[tag=kitpvp.earth_pluto_carrier] at @s run function kitpvp:skill/earth/pluto_tick
+execute as @e[tag=kitpvp.earth_pluto_parrot] at @s unless entity @e[tag=kitpvp.earth_pluto_carrier,distance=..2] run kill @s
 # 木星：本体不驮乘客（armor_stand 当乘客不可靠），改由脚下那枚隐形 marker 守卫跟着它走
 # 顺序不能反：先把守卫拖到木星身上，再判"3 格内还有没有木星" —— 反过来守卫会在被传送时误劈
 execute as @e[tag=kitpvp.earth_jupiter] at @s run tp @e[tag=kitpvp.earth_jupiter_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~

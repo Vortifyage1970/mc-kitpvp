@@ -60,6 +60,8 @@ kill @e[tag=kitpvp.earth_noteblock_guard]
 kill @e[tag=kitpvp.nb_dying]
 # 罐子先封口再清场：否则 reset 这一刀会让每只罐子都"碎一次"，白白刷出一堆生灵
 kill @e[tag=kitpvp.earth_jar_guard]
+# 冥王星的鹦鹉是乘客、不是 earth_minion，得单独清，否则僵尸没了它还挂在半空
+kill @e[tag=kitpvp.earth_pluto_parrot]
 kill @e[tag=kitpvp.earth_minion]
 kill @e[tag=kitpvp.earth_mount]
 kill @e[tag=kitpvp.earth_bomb]
