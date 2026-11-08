@@ -1,9 +1,9 @@
 # 随机召一只生灵：3 轮 7 位拼成 0..2097151，再对"已实现的种类数"取模
-# ⚠ 不能只用 1 轮 7 位（0..127）直接 % 77：128 不是 77 的倍数，编号 0..50 会变成 2/128、51..76 只有 1/128 —— 前 51 只的出现率是后 26 只的两倍
-#   3 轮一共 21 位，2097152 % 77 = 57，相对偏差约 0.003%，统计上就是等概率
-# ⚠ 取模用的是实现数（77），不是 2 的幂：新增生灵时同时加一行 + 把这个数加一
+# ⚠ 不能只用 1 轮 7 位（0..127）直接对种类数取模：128 不是 79 的倍数，前面的编号会变成双倍概率
+#   3 轮一共 21 位，2097152 % 79 = 20，相对偏差约万分之三，统计上就是等概率
+# ⚠ 取模用的是实现数（79），不是 2 的幂：新增生灵时同时加一行 + 把这个数加一
 # 只负责"掷 + 召"：归属（link）、补货冷却、播报由调用方决定
-scoreboard players set #pool_size kitpvp.game 78
+scoreboard players set #pool_size kitpvp.game 79
 scoreboard players set #flip128 kitpvp.game 128
 
 scoreboard players set @s kitpvp.rng 0
@@ -111,3 +111,4 @@ execute if score @s kitpvp.rng matches 74 run function kitpvp:summon/earth_hive
 execute if score @s kitpvp.rng matches 75 run function kitpvp:summon/earth_brewer
 execute if score @s kitpvp.rng matches 76 run function kitpvp:summon/earth_jar_small
 execute if score @s kitpvp.rng matches 77 run function kitpvp:summon/earth_antitank
+execute if score @s kitpvp.rng matches 78 run function kitpvp:summon/earth_saturn

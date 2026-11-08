@@ -275,6 +275,13 @@ execute as @e[tag=kitpvp.mo_shell] at @s run function kitpvp:skill/earth/mortar_
 # 反装甲步兵：装填/开炮状态机 + 它的高速炮弹
 execute as @e[tag=kitpvp.earth_antitank] at @s run function kitpvp:skill/earth/antitank_tick
 execute as @e[tag=kitpvp.at_shell] at @s run function kitpvp:skill/earth/antitank_shell_tick
+# 地球·79 土星：绕身的「轨道」蠹虫先转相位再摆位置（8 格一圈，每 4 刻一格 = 32 刻绕一圈）
+scoreboard players add #sat_clock kitpvp.game 1
+execute if score #sat_clock kitpvp.game matches 4.. run scoreboard players add @e[tag=kitpvp.sat_orbit] kitpvp.sat_phase 1
+execute if score #sat_clock kitpvp.game matches 4.. run scoreboard players set #sat_clock kitpvp.game 0
+execute as @e[tag=kitpvp.sat_orbit] run scoreboard players operation @s kitpvp.sat_phase %= #sat_mod
+execute as @e[tag=kitpvp.earth_saturn] at @s run function kitpvp:skill/earth/saturn_tick
+execute as @e[tag=kitpvp.sat_orbit] unless entity @e[tag=kitpvp.earth_saturn,distance=..8] run kill @s
 # 木星：本体不驮乘客（armor_stand 当乘客不可靠），改由脚下那枚隐形 marker 守卫跟着它走
 # 顺序不能反：先把守卫拖到木星身上，再判"3 格内还有没有木星" —— 反过来守卫会在被传送时误劈
 execute as @e[tag=kitpvp.earth_jupiter] at @s run tp @e[tag=kitpvp.earth_jupiter_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~

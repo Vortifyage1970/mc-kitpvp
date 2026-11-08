@@ -233,6 +233,8 @@ scoreboard objectives add kitpvp.at_owner dummy "炮弹的主人队槽"
 scoreboard objectives add kitpvp.fl_summoner dummy "这一只飞行器是谁召的（1 = 召唤者本人，俯冲时避开）"
 scoreboard objectives add kitpvp.hive_hits dummy "蜂巢挨了几下（1→1个眩晕，2→2个，3下起每次3个）"
 scoreboard players set #six kitpvp.game 6
+scoreboard objectives add kitpvp.sat_phase dummy "土星轨道蠹虫的相位（0..7，每 4 刻 +1）"
+scoreboard players set #sat_mod kitpvp.game 8
 
 # 预留（暂无消费者，刻意保留）：item = 物品计数
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
