@@ -227,6 +227,9 @@ scoreboard objectives add kitpvp.cap_prev dummy "资本家上一次的血量（�
 scoreboard objectives add kitpvp.fire_hp dummy "篝火热血量 ×100（每刻读一次，用来判断这一帧有没有掉血）"
 scoreboard objectives add kitpvp.fire_prev dummy "篝火上一帧的血量（拿它和 fire_hp 比，掉血了就说明挨打了）"
 scoreboard objectives add kitpvp.flyer_dive dummy "飞行器俯冲剩余刻数（50 = 正在扑）"
+scoreboard objectives add kitpvp.at_charge dummy "反装甲步兵装填（60 开炮；-60..-1 是开炮后跑位）"
+scoreboard objectives add kitpvp.at_life dummy "反装甲炮弹飞了几刻"
+scoreboard objectives add kitpvp.at_owner dummy "炮弹的主人队槽"
 scoreboard objectives add kitpvp.fl_summoner dummy "这一只飞行器是谁召的（1 = 召唤者本人，俯冲时避开）"
 scoreboard objectives add kitpvp.hive_hits dummy "蜂巢挨了几下（1→1个眩晕，2→2个，3下起每次3个）"
 scoreboard players set #six kitpvp.game 6

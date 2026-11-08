@@ -3,7 +3,7 @@
 #   3 轮一共 21 位，2097152 % 77 = 57，相对偏差约 0.003%，统计上就是等概率
 # ⚠ 取模用的是实现数（77），不是 2 的幂：新增生灵时同时加一行 + 把这个数加一
 # 只负责"掷 + 召"：归属（link）、补货冷却、播报由调用方决定
-scoreboard players set #pool_size kitpvp.game 77
+scoreboard players set #pool_size kitpvp.game 78
 scoreboard players set #flip128 kitpvp.game 128
 
 scoreboard players set @s kitpvp.rng 0
@@ -110,3 +110,4 @@ execute if score @s kitpvp.rng matches 73 run function kitpvp:summon/earth_jar
 execute if score @s kitpvp.rng matches 74 run function kitpvp:summon/earth_hive
 execute if score @s kitpvp.rng matches 75 run function kitpvp:summon/earth_brewer
 execute if score @s kitpvp.rng matches 76 run function kitpvp:summon/earth_jar_small
+execute if score @s kitpvp.rng matches 77 run function kitpvp:summon/earth_antitank
