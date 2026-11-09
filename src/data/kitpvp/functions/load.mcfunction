@@ -238,9 +238,7 @@ scoreboard objectives add kitpvp.hive_hits dummy "蜂巢挨了几下（1→1个�
 scoreboard players set #six kitpvp.game 6
 scoreboard objectives add kitpvp.sat_phase dummy "土星轨道蠹虫的相位（0..7，每 4 刻 +1）"
 scoreboard players set #sat_mod kitpvp.game 8
-scoreboard objectives add kitpvp.kv_v dummy "电压门控钾通道的膜电位（-140 静息，涨到 -55 开闸）"
-scoreboard objectives add kitpvp.kv_state dummy "电压门控钾通道状态（0 静息 / 1 开放 / 2 不应期）"
-scoreboard objectives add kitpvp.kv_ref dummy "电压门控钾通道当前状态的剩余刻数"
+scoreboard objectives add kitpvp.dser_hp dummy "逃兵当前血量（每刻 data get 读一次，用来判半血）"
 
 # 预留（暂无消费者，刻意保留）：item = 物品计数
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}

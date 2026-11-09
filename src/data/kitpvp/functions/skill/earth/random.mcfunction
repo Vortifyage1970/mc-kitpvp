@@ -1,7 +1,7 @@
 # 随机召一只生灵：3 轮 7 位拼成 0..2097151，再对"已实现的种类数"取模
-# ⚠ 不能只用 1 轮 7 位（0..127）直接对种类数取模：128 不是 80 的倍数，前面的编号会变成双倍概率
-#   3 轮一共 21 位，2097152 % 80 = 32，相对偏差约万分之三，统计上就是等概率
-# ⚠ 取模用的是实现数（80），不是 2 的幂：新增生灵时同时加一行 + 把这个数加一
+# ⚠ 不能只用 1 轮 7 位（0..127）直接对种类数取模：128 不是 81 的倍数，前面的编号会变成双倍概率
+#   3 轮一共 21 位，2097152 % 81 = 62，相对偏差约万分之三，统计上就是等概率
+# ⚠ 取模用的是实现数（81），不是 2 的幂：新增生灵时同时加一行 + 把这个数加一
 # 只负责"掷 + 召"：归属（link）、补货冷却、播报由调用方决定
 scoreboard players set #pool_size kitpvp.game 81
 scoreboard players set #flip128 kitpvp.game 128
@@ -113,4 +113,4 @@ execute if score @s kitpvp.rng matches 76 run function kitpvp:summon/earth_jar_s
 execute if score @s kitpvp.rng matches 77 run function kitpvp:summon/earth_antitank
 execute if score @s kitpvp.rng matches 78 run function kitpvp:summon/earth_saturn
 execute if score @s kitpvp.rng matches 79 run function kitpvp:summon/earth_pluto
-execute if score @s kitpvp.rng matches 80 run function kitpvp:summon/earth_kv
+execute if score @s kitpvp.rng matches 80 run function kitpvp:summon/earth_deserter
