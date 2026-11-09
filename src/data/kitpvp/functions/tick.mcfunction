@@ -286,6 +286,8 @@ execute as @e[tag=kitpvp.sat_orbit] at @s unless entity @e[tag=kitpvp.earth_satu
 # 地球·80 冥王星：头顶的鹦鹉一死，隐形尸壳跟着倒；尸壳先没的话别把鹦鹉留成孤儿（鹦鹉钉在 2.5 格高，判定半径要放宽到 4）
 execute as @e[tag=kitpvp.earth_pluto_carrier] at @s run function kitpvp:skill/earth/pluto_tick
 execute as @e[tag=kitpvp.earth_pluto_parrot] at @s unless entity @e[tag=kitpvp.earth_pluto_carrier,distance=..4] run kill @s
+# 地球·81 电压门控钾通道：静息 → 开闸 → 不应期 的三段状态机（电位、状态、倒数都记在它自己身上）
+execute as @e[tag=kitpvp.earth_kv] at @s run function kitpvp:skill/earth/kv_tick
 # 木星：本体不驮乘客（armor_stand 当乘客不可靠），改由脚下那枚隐形 marker 守卫跟着它走
 # 顺序不能反：先把守卫拖到木星身上，再判"3 格内还有没有木星" —— 反过来守卫会在被传送时误劈
 execute as @e[tag=kitpvp.earth_jupiter] at @s run tp @e[tag=kitpvp.earth_jupiter_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~
