@@ -1,3 +1,4 @@
 # 第 6 秒：每只 iLsacuL 处起一只名叫「李朱俊泽」的苦力怕，半径 5、无前摇
-# 跳过魂石那只（soul_li_pig）：它是种子，炸掉就没有下一圈了（见 skill/soul/li_apply）
-execute as @e[tag=kitpvp.li_pig,tag=!kitpvp.soul_li_pig] at @s run function kitpvp:skill/li_zhujunze/boom5
+# 种子猪（soul_li_pig）也照炸：它带抗性提升 V，炸不死、就在原地挨一发，这才有"全都炸完还剩一只"的演出
+# （以前这条把它排除了，于是魂石只剩复制体在炸、种子永远不在爆炸里，看起来像循环停摆）
+execute as @e[tag=kitpvp.li_pig] at @s run function kitpvp:skill/li_zhujunze/boom5
