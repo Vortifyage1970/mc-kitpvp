@@ -44,6 +44,14 @@ kill @e[type=minecraft:potion,nbt={Item:{tag:{KitCivilDemonSpit:1b}}}]
 
 # 李朱俊泽的 iLsacuL 与自爆苦力怕：按 tag 清，不碰地图原生的猪与苦力怕
 kill @e[tag=kitpvp.li_pig]
+# 新四种魂石的残留：落点 marker / 驯兽师的狗与动物 / 金星的舔狗与自爆苦力怕
+kill @e[tag=kitpvp.soul_tamer_marker]
+kill @e[tag=kitpvp.soul_sun_marker]
+kill @e[tag=kitpvp.soul_tamer_wolf]
+kill @e[tag=kitpvp.soul_tamer_animal]
+kill @e[tag=kitpvp.soul_venus_dog]
+kill @e[tag=kitpvp.soul_venus_bomb]
+tag @a remove kitpvp.soul_venus_owner
 kill @e[tag=kitpvp.li_bomb]
 
 # 地球的召唤物 / 坐骑 / 炸弹 / 令牌载体：按 tag 清，不碰地图原有的同类生物

@@ -66,6 +66,16 @@ scoreboard objectives add kitpvp.soul_earth_last dummy "地球魂石快照"
 scoreboard objectives add kitpvp.soul_earth_team dummy "地球魂石认出的队编号（挂 marker：1..6 幽灵 / 7..12 炮台 / 13..18 里驯兽师 / 19..24 地球）"
 scoreboard objectives add kitpvp.soul_li_used minecraft.used:minecraft.pig_spawn_egg
 scoreboard objectives add kitpvp.soul_li_last dummy "李朱俊泽魂石快照"
+scoreboard objectives add kitpvp.soul_tamer_used minecraft.used:minecraft.cat_spawn_egg
+scoreboard objectives add kitpvp.soul_tamer_last dummy "驯兽师魂石快照"
+scoreboard objectives add kitpvp.soul_sun_used minecraft.used:minecraft.allay_spawn_egg
+scoreboard objectives add kitpvp.soul_sun_last dummy "太阳魂石快照"
+scoreboard objectives add kitpvp.soul_mercury_used minecraft.used:minecraft.dolphin_spawn_egg
+scoreboard objectives add kitpvp.soul_mercury_last dummy "水星魂石快照"
+scoreboard objectives add kitpvp.soul_venus_used minecraft.used:minecraft.ocelot_spawn_egg
+scoreboard objectives add kitpvp.soul_venus_last dummy "金星魂石快照"
+scoreboard objectives add kitpvp.soul_timer dummy "魂石倒计时（marker / 实体：400 = 20 秒）"
+scoreboard objectives add kitpvp.soul_next dummy "魂石间隔（marker / 实体：到 0 触发下一步）"
 scoreboard objectives add kitpvp.ghost_minion_cd dummy "阴兵召唤冷却"
 scoreboard objectives add kitpvp.tid dummy "队槽编号"
 scoreboard objectives add kitpvp.rng dummy
@@ -293,7 +303,7 @@ scoreboard players set #global kitpvp.timer 0
 scoreboard players set #state kitpvp.game 0
 scoreboard players set #survivors kitpvp.game 0
 scoreboard players set #debug kitpvp.game 0
-scoreboard players set #soul_count kitpvp.game 10
+scoreboard players set #soul_count kitpvp.game 14
 scoreboard players set #ghost_tid kitpvp.game 0
 scoreboard players set #ghost_need_new kitpvp.game 0
 scoreboard players set #lobby kitpvp.game 0
