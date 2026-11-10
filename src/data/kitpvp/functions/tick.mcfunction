@@ -360,7 +360,8 @@ execute as @e[tag=kitpvp.tep_b] at @s as @e[type=!minecraft:player,type=!minecra
 execute as @e[tag=kitpvp.tep_r] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.displayitem] run function kitpvp:skill/enderman/ent_through_p
 execute as @e[tag=kitpvp.tep_p] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.displayitem] run function kitpvp:skill/enderman/ent_through_r
 # 实体侧的穿门免疫
-execute as @e[type=!minecraft:player,scores={kitpvp.tep_ready=1..}] run scoreboard players remove @s kitpvp.tep_ready 1yers remove @s kitpvp.bomb_life 1
+execute as @e[type=!minecraft:player,scores={kitpvp.tep_ready=1..}] run scoreboard players remove @s kitpvp.tep_ready 1
+execute as @e[tag=kitpvp.bomb_rider,scores={kitpvp.bomb_life=1..}] run scoreboard players remove @s kitpvp.bomb_life 1
 execute as @e[tag=kitpvp.bomb_rider,scores={kitpvp.bomb_life=..0}] run kill @s
 
 # 渔夫：无戟计时器，背包无戟持续 160 刻（8 秒）才允许补发，防"投出即补"刷两把
