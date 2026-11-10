@@ -1,6 +1,5 @@
-# @s = 非玩家实体（召唤物 / 箭 / 掉落物）：从 A 进、从 B 出
-# 装饰类（displayitem：盔甲架 / 展示框 / 画）不参与；marker 也不参与
-execute at @e[tag=kitpvp.tep_b,limit=1] run tp @s ~ ~ ~
+# @s = 非玩家实体（召唤物 / 箭 / 掉落物）：从A 进、从 B 出
+execute at @e[tag=kitpvp.tep_b,limit=1] run tp @s ~ ~-1.2 ~
 scoreboard players set @s kitpvp.tep_ready 20
 data merge entity @s {Motion:[0.0d,0.3d,0.0d]}
 particle minecraft:dragon_breath ~ ~0.5 ~ 0.3 0.5 0.3 0.03 10 normal
