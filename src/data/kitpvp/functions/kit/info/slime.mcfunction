@@ -5,7 +5,6 @@ tellraw @s [{"text":"│ 简介：","color":"gray"},{"text":"灵活跳跃的杂�
 tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"5","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:stone_sword","Count":1}}},{"text":"（悬停查看详情）","color":"dark_gray","hoverEvent":{"action":"show_text","contents":[{"text":"武器：石剑\n单次伤害：5    攻击速度：1.6\n附魔：—","color":"white"}]}}]
 tellraw @s [{"text":"│ 武器攻击速度：","color":"gray"},{"text":"1.6","color":"white"}]
 tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"13","color":"white"}]
-tellraw @s [{"text":"│ 总护甲韧性：","color":"gray"},{"text":"0","color":"white"}]
 tellraw @s [{"text":"│ 头盔：","color":"gray"},{"text":"铁头盔","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:iron_helmet","Count":1}}}]
 tellraw @s [{"text":"│ 胸甲：","color":"gray"},{"text":"绿色皮革胸甲","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:leather_chestplate","Count":1,"tag":"{display:{color:10079282}}"}}}]
 tellraw @s [{"text":"│ 护腿：","color":"gray"},{"text":"铁护腿","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:iron_leggings","Count":1}}}]

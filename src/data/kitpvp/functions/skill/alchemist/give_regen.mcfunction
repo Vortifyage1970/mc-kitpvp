@@ -1,1 +1,1 @@
-give @s minecraft:splash_potion{KitAlchemistPotion:1b,KitAlchemistRegen:1b,Potion:"minecraft:awkward",CustomPotionEffects:[{Id:10b,Amplifier:1b,Duration:300,ShowParticles:0b}],CustomPotionColor:16740264,display:{Name:'{"text":"再生药剂","color":"light_purple","bold":true}'}} 1
+give @s minecraft:splash_potion{KitAlchemistPotion:1b,KitAlchemistRegen:1b,Potion:"minecraft:awkward",CustomPotionEffects:[{Id:10b,Amplifier:1b,Duration:300,ShowParticles:0b}],CustomPotionColor:16740264,display:{Name:'{"text":"再生药剂","color":"light_purple"}'}} 1

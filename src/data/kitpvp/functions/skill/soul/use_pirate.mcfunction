@@ -7,7 +7,7 @@ execute at @s run kill @e[type=minecraft:pillager,name="海盗魂石"]
 # 所以这里清掉的是"全部炮弹"，发完正好 3 发，不会随着每次魂石累积
 clear @s minecraft:crossbow{KitSoulPirateCrossbow:1b}
 clear @s minecraft:firework_rocket{KitPirateRocket:1b}
-give @s minecraft:crossbow{KitSoulPirateCrossbow:1b,Unbreakable:1b,Enchantments:[{id:"minecraft:multishot",lvl:1}],display:{Name:'{"text":"大型手炮","color":"dark_blue","bold":true}'}} 1
+give @s minecraft:crossbow{KitSoulPirateCrossbow:1b,Unbreakable:1b,Enchantments:[{id:"minecraft:multishot",lvl:1}],display:{Name:'{"text":"大型手炮","color":"dark_blue"}'}} 1
 # 未装填：不写 Charged / ChargedProjectiles，玩家得自己把炮弹装上（与 kit/pirate 的手炮一致）
 # 炮弹与 kit/pirate 逐字一致（3 颗烟火之星、深蓝 0x003366）
 give @s minecraft:firework_rocket{KitPirateRocket:1b,Fireworks:{Flight:1,Explosions:[{Type:1,Colors:[I;13158],Trail:1b},{Type:1,Colors:[I;13158],Trail:1b},{Type:1,Colors:[I;13158],Trail:1b}]}} 3

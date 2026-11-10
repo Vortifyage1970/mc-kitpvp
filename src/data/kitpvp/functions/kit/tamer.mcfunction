@@ -13,7 +13,7 @@ item replace entity @s armor.legs with minecraft:chainmail_leggings{Unbreakable:
 item replace entity @s armor.feet with minecraft:chainmail_boots{Unbreakable:1b} 1
 
 item replace entity @s hotbar.0 with minecraft:stone_sword{Unbreakable:1b} 1
-item replace entity @s hotbar.1 with minecraft:cooked_beef 24
+item replace entity @s hotbar.1 with minecraft:pumpkin_pie 24
 
 give @s minecraft:bone 64
 give @s minecraft:apple 32

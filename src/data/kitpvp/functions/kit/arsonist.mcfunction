@@ -16,5 +16,5 @@ give @s minecraft:cooked_beef 24
 give @s minecraft:flint_and_steel 1
 
 scoreboard players set @s kitpvp.cd 0
-give @s minecraft:splash_potion{KitFireBomb:1b,CustomPotionColor:16750848,display:{Name:'{"text":"燃烧瓶","color":"gold","bold":true}'}} 2
+give @s minecraft:splash_potion{KitFireBomb:1b,CustomPotionColor:16750848,display:{Name:'{"text":"燃烧瓶","color":"gold"}'}} 2
 tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"纵火狂","color":"gold","bold":true}]
