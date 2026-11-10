@@ -303,6 +303,7 @@ scoreboard players set #lipurge kitpvp.game 0
 scoreboard players set #hacker_count kitpvp.game 0
 scoreboard players set #hacker_prev kitpvp.game 0
 scoreboard players set #li_soul kitpvp.game -1
+# #li_soul 自 2026-11-10 起不再使用（魂石改成常驻种子、没有时限），保留这一行只为兼容旧存档里的残留数值
 scoreboard players set #eslot kitpvp.game 0
 scoreboard players set #wolfsweep kitpvp.game 0
 

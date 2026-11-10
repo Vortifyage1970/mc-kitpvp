@@ -239,10 +239,6 @@ execute if score #state kitpvp.game matches 1 if entity @a[scores={kitpvp.kit=88
 # 以前这里只认 earth_ilsacul，于是魂石的 20 秒计时一结束、而剩下的复制体明明还站着，循环就冻住了：
 # 复制阶段还在扫 @e[tag=li_pig]，可 timer 已经不再被调用（2026-11-10 车主报的"过一个循环就停"）。
 execute if score #state kitpvp.game matches 1 if entity @e[tag=kitpvp.li_pig] run scoreboard players set #li_active kitpvp.game 1
-# 李朱俊泽魂石：计时开关（#li_soul 由 li_apply 置 400，20 秒后 li_expire 归一），与场上有没有 kit=88 无关
-execute if score #li_soul kitpvp.game matches 1.. run scoreboard players set #li_active kitpvp.game 1
-execute if score #li_soul kitpvp.game matches 1.. run scoreboard players remove #li_soul kitpvp.game 1
-execute if score #li_soul kitpvp.game matches 0 run function kitpvp:skill/soul/li_expire
 execute if score #li_active kitpvp.game matches 1 run function kitpvp:skill/li_zhujunze/timer
 execute if score #li_active kitpvp.game matches 0 run scoreboard players set #litimer kitpvp.game 0
 execute if score #li_active kitpvp.game matches 0 run scoreboard players set #liapoc kitpvp.game 0
