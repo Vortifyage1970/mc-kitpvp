@@ -12,7 +12,7 @@ item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,di
 item replace entity @s weapon.mainhand with minecraft:iron_sword{Unbreakable:1b}
 give @s minecraft:cooked_beef 12
 give @s minecraft:chorus_fruit 24
-give @s minecraft:warped_fungus_on_a_stick{KitPortalGun:1b,Unbreakable:1b,display:{Name:'{"text":"传送枪","color":"light_purple"}'}} 1
+give @s minecraft:spyglass{KitPortalGun:1b,Unbreakable:1b,display:{Name:'{"text":"传送枪","color":"light_purple"}'}} 1
 
 scoreboard players set @s kitpvp.lives 3
 scoreboard players set @s kitpvp.tep_cd 0

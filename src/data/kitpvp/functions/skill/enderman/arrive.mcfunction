@@ -4,9 +4,11 @@ execute rotated as @e[tag=kitpvp.tep_a,distance=..1,limit=1,sort=nearest] run tp
 execute rotated as @e[tag=kitpvp.tep_b,distance=..1,limit=1,sort=nearest] run tp @s ~ ~ ~ ~ ~
 
 # 竖直动量 → 水平冲刺：进门时摔得多深，出去就弹多远（3 步底座，最多 8 步）
+# 1.20.1 没有 `scoreboard players divide`，除法只能走 operation /=（除数放假玩家）
+scoreboard players set #tep_div kitpvp.game 5
 execute store result score @s kitpvp.tep_dash run data get entity @s FallDistance 1
 scoreboard players operation @s kitpvp.tep_step = @s kitpvp.tep_dash
-scoreboard players divide @s kitpvp.tep_step 5
+scoreboard players operation @s kitpvp.tep_step /= #tep_div kitpvp.game
 scoreboard players add @s kitpvp.tep_step 3
 execute if score @s kitpvp.tep_step matches 9.. run scoreboard players set @s kitpvp.tep_step 8
 
