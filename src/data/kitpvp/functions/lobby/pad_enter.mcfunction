@@ -26,3 +26,4 @@ execute if entity @s[x=247,y=68,z=93,dx=1,dy=1,dz=1] run function kitpvp:kit/inf
 execute if entity @s[x=251,y=68,z=93,dx=1,dy=1,dz=1] run function kitpvp:kit/info/tainted_tamer
 execute if entity @s[x=255,y=68,z=93,dx=1,dy=1,dz=1] run function kitpvp:kit/info/tainted_fisher
 execute if entity @s[x=227,y=68,z=101,dx=1,dy=1,dz=1] run function kitpvp:kit/info/tainted_bomber
+execute if entity @s[x=231,y=68,z=101,dx=1,dy=1,dz=1] run function kitpvp:kit/info/tainted_enderman

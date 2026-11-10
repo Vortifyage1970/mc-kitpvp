@@ -23,3 +23,4 @@ setblock 247 68 93 minecraft:light_weighted_pressure_plate
 setblock 251 68 93 minecraft:light_weighted_pressure_plate
 setblock 255 68 93 minecraft:light_weighted_pressure_plate
 setblock 227 68 101 minecraft:light_weighted_pressure_plate
+setblock 231 68 101 minecraft:light_weighted_pressure_plate
