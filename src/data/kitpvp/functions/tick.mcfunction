@@ -335,7 +335,6 @@ execute as @a[scores={kitpvp.kit=33,kitpvp.alive=1},tag=!kitpvp.spectator] unles
 execute as @a[scores={kitpvp.kit=33,kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.tep_used > @s kitpvp.tep_last run function kitpvp:skill/enderman/portal_use
 execute as @a[scores={kitpvp.tep_cd=1..}] run scoreboard players remove @s kitpvp.tep_cd 1
 execute as @a[scores={kitpvp.tep_ready=1..}] run scoreboard players remove @s kitpvp.tep_ready 1
-execute as @a[scores={kitpvp.tep_step=1..}] at @s run function kitpvp:skill/enderman/dash_step
 execute as @e[tag=kitpvp.tep_a] at @s run function kitpvp:skill/enderman/portal_tick
 execute as @e[tag=kitpvp.tep_b] at @s run function kitpvp:skill/enderman/portal_tick
 execute as @e[tag=kitpvp.tep_a] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_b
