@@ -1,0 +1,25 @@
+# 本文件由 tools/gen_lobby.py 生成，别手改（改生成器里的 ROWS / POSE 后重跑）
+setblock -226 71 98 minecraft:light_weighted_pressure_plate
+setblock -230 71 98 minecraft:light_weighted_pressure_plate
+setblock -234 71 98 minecraft:light_weighted_pressure_plate
+setblock -238 71 98 minecraft:light_weighted_pressure_plate
+setblock -242 71 98 minecraft:light_weighted_pressure_plate
+setblock -246 71 98 minecraft:light_weighted_pressure_plate
+setblock -250 71 98 minecraft:light_weighted_pressure_plate
+setblock -254 71 98 minecraft:light_weighted_pressure_plate
+setblock -258 71 98 minecraft:light_weighted_pressure_plate
+setblock -226 71 90 minecraft:light_weighted_pressure_plate
+setblock -230 71 90 minecraft:light_weighted_pressure_plate
+setblock -234 71 90 minecraft:light_weighted_pressure_plate
+setblock -238 71 90 minecraft:light_weighted_pressure_plate
+setblock -242 71 90 minecraft:light_weighted_pressure_plate
+setblock -246 71 90 minecraft:light_weighted_pressure_plate
+setblock 227 68 93 minecraft:light_weighted_pressure_plate
+setblock 231 68 93 minecraft:light_weighted_pressure_plate
+setblock 235 68 93 minecraft:light_weighted_pressure_plate
+setblock 239 68 93 minecraft:light_weighted_pressure_plate
+setblock 243 68 93 minecraft:light_weighted_pressure_plate
+setblock 247 68 93 minecraft:light_weighted_pressure_plate
+setblock 251 68 93 minecraft:light_weighted_pressure_plate
+setblock 255 68 93 minecraft:light_weighted_pressure_plate
+setblock 227 68 101 minecraft:light_weighted_pressure_plate
