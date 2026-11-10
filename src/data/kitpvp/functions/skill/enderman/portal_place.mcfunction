@@ -21,5 +21,10 @@ tag @e[tag=kitpvp.tep_new] remove kitpvp.tep_new
 scoreboard players set @s kitpvp.tep_cd 30
 playsound minecraft:block.end_portal_frame.fill master @a[distance=..20] ~ ~ ~ 0.7 1.6
 playsound minecraft:entity.enderman.teleport master @s ~ ~ ~ 0.5 1.2
-execute if score #tep_blue kitpvp.game matches 1 run title @s actionbar {"text":"蓝门已架好","color":"aqua"}
-execute if score #tep_blue kitpvp.game matches 0 run title @s actionbar {"text":"橙门已架好","color":"gold"}
+# 状态灯：对应颜色的门亮起来（名字变实心方块 + 有色 + 满条）
+execute if score #tep_blue kitpvp.game matches 1 run bossbar set kitpvp:tep_hud_blue name {"text":"■ 蓝门","color":"aqua"}
+execute if score #tep_blue kitpvp.game matches 1 run bossbar set kitpvp:tep_hud_blue color blue
+execute if score #tep_blue kitpvp.game matches 1 run bossbar set kitpvp:tep_hud_blue value 1
+execute if score #tep_blue kitpvp.game matches 0 run bossbar set kitpvp:tep_hud_orange name {"text":"■ 橙门","color":"gold"}
+execute if score #tep_blue kitpvp.game matches 0 run bossbar set kitpvp:tep_hud_orange color yellow
+execute if score #tep_blue kitpvp.game matches 0 run bossbar set kitpvp:tep_hud_orange value 1

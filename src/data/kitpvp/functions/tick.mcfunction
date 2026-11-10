@@ -328,6 +328,9 @@ execute as @a[scores={kitpvp.bomb_track_cd=1..}] run scoreboard players remove @
 execute as @a[scores={kitpvp.bomb_nuke_cd=1..}] run scoreboard players remove @s kitpvp.bomb_nuke_cd 1
 
 # ===== 里·末影人（kit 33）：传送枪 =====
+# 状态灯只发给里·末影人（一条命令设整份名单，别按人循环——bossbar set players 是覆盖语义）
+bossbar set kitpvp:tep_hud_orange players @a[scores={kitpvp.kit=33},tag=!kitpvp.spectator]
+bossbar set kitpvp:tep_hud_blue players @a[scores={kitpvp.kit=33},tag=!kitpvp.spectator]
 execute as @a[scores={kitpvp.kit=33,kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.tep_last matches -2147483648.. run scoreboard players operation @s kitpvp.tep_last = @s kitpvp.tep_used
 execute as @a[scores={kitpvp.kit=33,kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.tep_used > @s kitpvp.tep_last run function kitpvp:skill/enderman/portal_use
 execute as @a[scores={kitpvp.tep_cd=1..}] run scoreboard players remove @s kitpvp.tep_cd 1

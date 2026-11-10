@@ -81,6 +81,12 @@ kill @e[tag=kitpvp.bomb_rider]
 kill @e[tag=kitpvp.bomb_token]
 # 里·末影人的传送门（marker）
 kill @e[tag=kitpvp.tep_a]
+bossbar set kitpvp:tep_hud_orange name {"text":"□ 橙门","color":"dark_gray"}
+bossbar set kitpvp:tep_hud_orange color white
+bossbar set kitpvp:tep_hud_orange value 0
+bossbar set kitpvp:tep_hud_blue name {"text":"□ 蓝门","color":"dark_gray"}
+bossbar set kitpvp:tep_hud_blue color white
+bossbar set kitpvp:tep_hud_blue value 0
 kill @e[tag=kitpvp.tep_b]
 
 # 渔夫魂石的令牌生物（鳕鱼）：按 tag 清，不碰地图里的鱼

@@ -340,6 +340,17 @@ scoreboard players set @a kitpvp.tep_ready 0
 scoreboard players set @a kitpvp.tep_step 0
 scoreboard players operation @a kitpvp.tep_last = @a kitpvp.tep_used
 scoreboard players add #tep_pid kitpvp.game 0
+# 传送门状态灯：两条 bossbar，橙/蓝各一条；没有门时是灰色空心方块 + 0 格进度
+bossbar add kitpvp:tep_hud_orange {"text":"□ 橙门","color":"dark_gray"}
+bossbar add kitpvp:tep_hud_blue {"text":"□ 蓝门","color":"dark_gray"}
+bossbar set kitpvp:tep_hud_orange color white
+bossbar set kitpvp:tep_hud_blue color white
+bossbar set kitpvp:tep_hud_orange style progress
+bossbar set kitpvp:tep_hud_blue style progress
+bossbar set kitpvp:tep_hud_orange overlay progress
+bossbar set kitpvp:tep_hud_blue overlay progress
+bossbar set kitpvp:tep_hud_orange value 0
+bossbar set kitpvp:tep_hud_blue value 0
 # 传送门是临时实体：重载时清掉上一局残留在已加载区块里的
 kill @e[tag=kitpvp.tep_a]
 kill @e[tag=kitpvp.tep_b]
