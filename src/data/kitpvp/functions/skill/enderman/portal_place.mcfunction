@@ -26,7 +26,7 @@ scoreboard players set @e[tag=kitpvp.tep_new] kitpvp.tep_life 400
 scoreboard players operation @e[tag=kitpvp.tep_new] kitpvp.tep_owner = @s kitpvp.tep_pid
 tag @e[tag=kitpvp.tep_new] remove kitpvp.tep_new
 
-scoreboard players set @s kitpvp.tep_cd 30
+scoreboard players set @s kitpvp.tep_cd 40
 playsound minecraft:block.end_portal_frame.fill master @a[distance=..20] ~ ~ ~ 0.7 1.6
 playsound minecraft:entity.enderman.teleport master @s ~ ~ ~ 0.5 1.2
 # 状态灯：对应颜色的门亮起来（名字变实心方块 + 有色 + 满条）
