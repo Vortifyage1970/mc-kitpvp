@@ -6,7 +6,8 @@
 #   传送触发区       (0,66,30)1x1x1 / (-224,70,93)1x1x3 / (0,65,81)1x1x1 / (223,67,96)1x1x3   ← lobby/teleport
 #   职业压力板       x=-226..-254（步进 -4），y=71，z=98      ← lobby/pad_enter
 #   讲台触发区       x=-21..-19 / 19..21，y=63..66，z=97..99   ← advancements/player/lectern_teleport_*
-#   起跳按钮         (0,63,98)（任意按钮）                    ← advancements/player/lobby_launch
+#   起跳按钮         (0,63,98)（任意按钮；判定盒开成整列 x -1..1 / y 62..66 / z 97..99，
+#                     因为玩家站在按钮上、脚在 y=64，只写 y=63 不会触发）← advancements/player/lobby_launch
 #   起跳柱           (0,64,98) 落点 → 漂浮 47 三秒；(0,70,98) 补抗性 V 三秒   ← lobby/launch + tick
 spawnpoint @s 0 64 0
 tp @s 0 64 0
