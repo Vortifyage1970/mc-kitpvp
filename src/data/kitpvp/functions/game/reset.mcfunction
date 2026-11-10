@@ -79,6 +79,9 @@ kill @e[tag=kitpvp.test_dummy]
 kill @e[tag=kitpvp.bomb]
 kill @e[tag=kitpvp.bomb_rider]
 kill @e[tag=kitpvp.bomb_token]
+# 里·末影人的传送门（marker）
+kill @e[tag=kitpvp.tep_a]
+kill @e[tag=kitpvp.tep_b]
 
 # 渔夫魂石的令牌生物（鳕鱼）：按 tag 清，不碰地图里的鱼
 kill @e[tag=kitpvp.soul_fisher_token]

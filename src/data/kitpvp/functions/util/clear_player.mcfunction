@@ -109,6 +109,10 @@ tag @s remove kitpvp.rocket_full
 tag @s remove kitpvp.rocket_air
 tag @s remove kitpvp.soul_slime_active
 scoreboard players set @s kitpvp.rocket_charge 0
+scoreboard players operation @s kitpvp.tep_last = @s kitpvp.tep_used
+scoreboard players set @s kitpvp.tep_cd 0
+scoreboard players set @s kitpvp.tep_ready 0
+scoreboard players set @s kitpvp.tep_step 0
 scoreboard players set @s kitpvp.soul_slime_timer 0
 scoreboard players set @s kitpvp.soul_ghost_timer 0
 scoreboard players set @s kitpvp.ghost_minion_cd 0

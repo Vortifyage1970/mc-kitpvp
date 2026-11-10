@@ -77,6 +77,13 @@ scoreboard objectives add kitpvp.soul_venus_last dummy "金星魂石快照"
 scoreboard objectives add kitpvp.soul_slime_used minecraft.used:minecraft.slime_spawn_egg
 scoreboard objectives add kitpvp.soul_slime_last dummy "史莱姆魂石快照"
 scoreboard objectives add kitpvp.soul_slime_timer dummy "史莱姆魂石倒计时"
+scoreboard objectives add kitpvp.tep_used minecraft.used:minecraft.spyglass
+scoreboard objectives add kitpvp.tep_last dummy "传送枪使用快照"
+scoreboard objectives add kitpvp.tep_cd dummy "传送枪装填（30 = 1.5 秒）"
+scoreboard objectives add kitpvp.tep_life dummy "传送门寿命（400 = 20 秒）"
+scoreboard objectives add kitpvp.tep_dash dummy "进门时的下落距离"
+scoreboard objectives add kitpvp.tep_step dummy "出口冲刺剩余步数"
+scoreboard objectives add kitpvp.tep_ready dummy "穿门后的免疫刻数"
 scoreboard objectives add kitpvp.rocket_charge dummy "蓄力火箭跳的蓄力刻数（0..60）"
 scoreboard objectives add kitpvp.soul_timer dummy "魂石倒计时（marker / 实体：400 = 20 秒）"
 scoreboard objectives add kitpvp.soul_next dummy "魂石间隔（marker / 实体：到 0 触发下一步）"
@@ -326,6 +333,10 @@ scoreboard players set @a kitpvp.soul_next 0
 scoreboard players set @a kitpvp.soul_zombie_timer 0
 scoreboard players set @a kitpvp.soul_slime_timer 0
 scoreboard players set @a kitpvp.rocket_charge 0
+scoreboard players set @a kitpvp.tep_cd 0
+scoreboard players set @a kitpvp.tep_ready 0
+scoreboard players set @a kitpvp.tep_step 0
+scoreboard players operation @a kitpvp.tep_last = @a kitpvp.tep_used
 scoreboard players set @a kitpvp.parrot_miss 0
 scoreboard players set @a kitpvp.bomb_small_cd 0
 scoreboard players set @a kitpvp.bomb_big_cd 0

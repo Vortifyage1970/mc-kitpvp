@@ -38,6 +38,10 @@ scoreboard players operation @s kitpvp.fisher_last = @s kitpvp.fisher_used
 scoreboard players set @s kitpvp.arsonist_ammo 0
 scoreboard players set @s kitpvp.soul_next 0
 scoreboard players set @s kitpvp.rocket_charge 0
+scoreboard players operation @s kitpvp.tep_last = @s kitpvp.tep_used
+scoreboard players set @s kitpvp.tep_cd 0
+scoreboard players set @s kitpvp.tep_ready 0
+scoreboard players set @s kitpvp.tep_step 0
 scoreboard players operation @s kitpvp.ender_last = @s kitpvp.ender_used
 scoreboard players set @s kitpvp.ender_ammo 0
 scoreboard players operation @s kitpvp.werewolf_last = @s kitpvp.werewolf_used
