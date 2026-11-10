@@ -18,6 +18,12 @@ gamemode survival @a[tag=kitpvp.selected]
 
 function kitpvp:map/distribute
 
+# 地图规定的天光：君士坦丁堡正午定格、地球白天定格（结算时 game/end 把 doDaylightCycle 放回 true）
+execute if score #global kitpvp.map matches 10 run gamerule doDaylightCycle false
+execute if score #global kitpvp.map matches 10 run time set noon
+execute if score #global kitpvp.map matches 7 run gamerule doDaylightCycle false
+execute if score #global kitpvp.map matches 7 run time set day
+
 # 队槽每局重建：先退出上局残留的队伍，再清空槽位
 # 否则上局留下的编号会让两名同职业玩家落进同一队，召唤物从此互不攻击（见 04 §十四）
 # 地球 / 幽灵 / 炮台 / 里·驯兽师四套队槽各自独立，而一名玩家只可能在其中一套里，一次 team leave @a 就够

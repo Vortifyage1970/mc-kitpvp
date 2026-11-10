@@ -7,6 +7,11 @@ kill @e[tag=kitpvp.tamer_wolf]
 # iLsacuL 专用清除：此刻玩家全在图里、区块是加载的，猪抓得到（见 04 §十四）
 function kitpvp:game/li_purge
 
+# 结算音乐与天光：先停掉雨爱（它是一条 schedule 链，不主动停会一直播到下局），
+# 再把昼夜循环交还给原版——各图要定格的话在 game/start_impl 里自己关
+function kitpvp:music/yu_ai/stop
+gamerule doDaylightCycle true
+
 execute if score #survivors kitpvp.game matches 1 run title @a times 10 60 20
 execute if score #survivors kitpvp.game matches 1 run title @a title {"text":"游戏结束","color":"gold","bold":true}
 execute if score #survivors kitpvp.game matches 1 run title @a subtitle [{"text":"胜者：","color":"yellow"},{"selector":"@a[tag=kitpvp.selected,tag=!kitpvp.spectator]","color":"white","bold":true}]

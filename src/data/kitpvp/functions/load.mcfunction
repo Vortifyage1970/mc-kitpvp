@@ -4,6 +4,8 @@ gamerule mobGriefing false
 gamerule doFireTick false
 gamerule doInsomnia false
 gamerule doWeatherCycle false
+# 昼夜：load 默认放行（原版行为）；个别地图在开局时自己关掉，结算时 game/end 再放回来
+gamerule doDaylightCycle true
 gamerule naturalRegeneration true
 gamerule fallDamage true
 gamerule announceAdvancements false
