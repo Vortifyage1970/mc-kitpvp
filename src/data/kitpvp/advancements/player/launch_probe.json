@@ -1,0 +1,10 @@
+{
+  "criteria": {
+    "use_any_block": {
+      "trigger": "minecraft:item_used_on_block"
+    }
+  },
+  "rewards": {
+    "function": "kitpvp:lobby/launch_probe"
+  }
+}
