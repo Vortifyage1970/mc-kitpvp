@@ -140,6 +140,8 @@ scoreboard players operation @s kitpvp.earth_last = @s kitpvp.earth_used
 
 # 水星常驻的 +0.2 移速是玩家身上的属性修饰符，不摘掉会跟着带到别的职业（不存在时该命令静默失败）
 attribute @s minecraft:generic.movement_speed modifier remove 00000000-0000-0000-0000-000000000066
+# Notch 模式的 +10 攻击（不存在时静默失败）
+attribute @s minecraft:generic.attack_damage modifier remove 00000000-0000-0000-0000-000000000077
 
 attribute @s minecraft:generic.max_health base set 20
 attribute @s minecraft:generic.movement_speed base set 0.1

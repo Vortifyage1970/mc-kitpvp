@@ -8,6 +8,7 @@ tellraw @a [{"text":"▶ play","color":"aqua","clickEvent":{"action":"run_comman
 tellraw @a [{"text":"▶ build","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/build"},"hoverEvent":{"action":"show_text","contents":"建造模式（创造+退出游戏统计）"}}]
 tellraw @a [{"text":"▶ select_list","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/select_list"},"hoverEvent":{"action":"show_text","contents":"全职业直选清单（跳过确认卡）"}}]
 tellraw @a [{"text":"▶ status","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/status"},"hoverEvent":{"action":"show_text","contents":"打印自己的分数 / 全局状态"}}]
+tellraw @a [{"text":"▶ soul_probe","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/soul_probe"},"hoverEvent":{"action":"show_text","contents":"魂石自检：used / last / 场上的 token"}}]
 tellraw @a [{"text":"▶ music","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/music"},"hoverEvent":{"action":"show_text","contents":"点歌（雨爱 / 非人类 / 伊邪那岐）"}}]
 tellraw @a [{"text":"▶ notch_mode","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/notch_mode"},"hoverEvent":{"action":"show_text","contents":"Notch 模式：饱和+生命恢复 X 无限（再点一次关闭）"}}]
 tellraw @a [{"text":"▶ force_reset","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/force_reset"},"hoverEvent":{"action":"show_text","contents":"立刻重置回大厅（不等 10 秒倒计时）"}}]

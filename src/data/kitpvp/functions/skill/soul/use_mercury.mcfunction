@@ -7,3 +7,4 @@ title @s actionbar {"text":"魂石·极速：20 秒移动速度 +200%","color":"
 playsound minecraft:entity.dolphin.splash master @s ~ ~ ~ 1.0 1.4
 
 execute at @s run kill @e[tag=kitpvp.soul_mercury_token]
+execute at @s run kill @e[type=minecraft:dolphin,name="水星魂石",distance=..8]

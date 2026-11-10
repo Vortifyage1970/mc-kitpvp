@@ -7,11 +7,14 @@ scoreboard players operation #notch kitpvp.game %= #notch_cap kitpvp.game
 execute if score #notch kitpvp.game matches 1 run tag @s add kitpvp.notch_mode
 execute if score #notch kitpvp.game matches 1 run effect give @s minecraft:saturation infinite 0 true
 execute if score #notch kitpvp.game matches 1 run effect give @s minecraft:regeneration infinite 9 true
-execute if score #notch kitpvp.game matches 1 run tellraw @s [{"text":"[debug] ","color":"light_purple","bold":true},{"text":"Notch 模式：已开启（饱和 I + 生命恢复 X，无限）。再点一次关闭。","color":"green"}]
+# 攻击伤害 +10（基础 1 → 实际 11）：固定 UUID，关掉时能精确摘掉
+execute if score #notch kitpvp.game matches 1 run attribute @s minecraft:generic.attack_damage modifier add 00000000-0000-0000-0000-000000000077 kitpvp.notch_attack 10 add
+execute if score #notch kitpvp.game matches 1 run tellraw @s [{"text":"[debug] ","color":"light_purple","bold":true},{"text":"Notch 模式：已开启（饱和 I + 生命恢复 X + 攻击伤害 +10，再点一次关闭）。","color":"green"}]
 
 execute if score #notch kitpvp.game matches 0 run tag @s remove kitpvp.notch_mode
 execute if score #notch kitpvp.game matches 0 run effect clear @s minecraft:saturation
 execute if score #notch kitpvp.game matches 0 run effect clear @s minecraft:regeneration
+execute if score #notch kitpvp.game matches 0 run attribute @s minecraft:generic.attack_damage modifier remove 00000000-0000-0000-0000-000000000077
 execute if score #notch kitpvp.game matches 0 run tellraw @s [{"text":"[debug] ","color":"light_purple","bold":true},{"text":"Notch 模式：已关闭。","color":"gray"}]
 
 playsound minecraft:ui.button.click master @s ~ ~ ~ 1 1.2
