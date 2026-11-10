@@ -2,4 +2,5 @@
 execute if score @s kitpvp.soul_next matches ..0 run function kitpvp:skill/soul/sun_noise
 execute if score @s kitpvp.soul_next matches 1.. run scoreboard players remove @s kitpvp.soul_next 1
 execute if score @s kitpvp.soul_timer matches 1.. run scoreboard players remove @s kitpvp.soul_timer 1
+execute if score @s kitpvp.soul_timer matches ..0 run tag @a remove kitpvp.soul_sun_owner
 execute if score @s kitpvp.soul_timer matches ..0 run kill @s

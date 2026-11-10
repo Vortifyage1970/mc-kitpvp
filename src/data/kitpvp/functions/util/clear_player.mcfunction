@@ -94,6 +94,7 @@ tag @s remove kitpvp.soul_fisher_active
 tag @s remove kitpvp.arrow_user
 tag @s remove kitpvp.soul_ghost_active
 tag @s remove kitpvp.soul_venus_owner
+tag @s remove kitpvp.soul_sun_owner
 scoreboard players set @s kitpvp.soul_ghost_timer 0
 scoreboard players set @s kitpvp.ghost_minion_cd 0
 scoreboard players operation @s kitpvp.soul_ghost_last = @s kitpvp.soul_ghost_used

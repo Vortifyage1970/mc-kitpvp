@@ -56,6 +56,7 @@ kill @e[tag=kitpvp.soul_sun_token]
 kill @e[tag=kitpvp.soul_mercury_token]
 kill @e[tag=kitpvp.soul_venus_token]
 tag @a remove kitpvp.soul_venus_owner
+tag @a remove kitpvp.soul_sun_owner
 kill @e[tag=kitpvp.li_bomb]
 
 # 地球的召唤物 / 坐骑 / 炸弹 / 令牌载体：按 tag 清，不碰地图原有的同类生物
