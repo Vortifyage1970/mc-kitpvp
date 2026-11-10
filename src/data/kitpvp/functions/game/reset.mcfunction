@@ -47,6 +47,11 @@ kill @e[tag=kitpvp.li_pig]
 kill @e[tag=kitpvp.li_bomb]
 
 # 地球的召唤物 / 坐骑 / 炸弹 / 令牌载体：按 tag 清，不碰地图原有的同类生物
+# 从「测试」分支搬来的召唤物：守卫 / 时钟必须排在本体前面删（本体一消失，守卫会以为它战死）
+kill @e[tag=kitpvp.earth_threshold_guard]
+kill @e[tag=kitpvp.earth_hydrator_guard]
+kill @e[tag=kitpvp.earth_leaker_clock]
+kill @e[tag=kitpvp.earth_minecart_boat]
 kill @e[tag=kitpvp.earth_minion]
 kill @e[tag=kitpvp.earth_mount]
 kill @e[tag=kitpvp.earth_bomb]

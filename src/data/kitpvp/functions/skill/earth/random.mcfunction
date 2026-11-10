@@ -1,8 +1,8 @@
 # 随机召一只生灵：1in2 连掷 7 次拼 0..127，再对"已实现的种类数"取模
-# ⚠ 取模用的是实现数（27），不是 32：空号只是给未来预留的编号位置，不能真的掷中，
-#   否则会白耗一枚蛋 + 白进 10 秒冷却。新增生灵时把数改成 28、29……并启用对应那行即可。
+# ⚠ 取模用的是实现数（33），不是 2 的幂：空号会让某些编号永远掷不中，所以这个数必须等于"已实现的行数"。
+#   新增生灵时把数加一并启用对应那行即可（0..32 都满了）。
 # 只负责"掷 + 召"：归属（link）、补货冷却、播报由调用方决定（地球职业在 summon，魂石在 soul/earth_step）
-scoreboard players set #pool_size kitpvp.game 27
+scoreboard players set #pool_size kitpvp.game 33
 
 scoreboard players set @s kitpvp.rng 0
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 1
@@ -34,13 +34,17 @@ execute if score @s kitpvp.rng matches 15 run function kitpvp:summon/earth_mercu
 execute if score @s kitpvp.rng matches 16 run function kitpvp:summon/earth_disruptor
 execute if score @s kitpvp.rng matches 17 run function kitpvp:summon/earth_fisher1
 execute if score @s kitpvp.rng matches 18 run function kitpvp:summon/earth_fisher2
-execute if score @s kitpvp.rng matches 19 run function kitpvp:summon/earth_ascend2
-execute if score @s kitpvp.rng matches 20 run function kitpvp:summon/earth_boatman_wet
-execute if score @s kitpvp.rng matches 21 run function kitpvp:summon/earth_boatman_dry
-execute if score @s kitpvp.rng matches 22 run function kitpvp:summon/earth_hacker
-execute if score @s kitpvp.rng matches 23 run function kitpvp:summon/earth_retainer
-execute if score @s kitpvp.rng matches 24 run function kitpvp:summon/earth_grass
-execute if score @s kitpvp.rng matches 25 run function kitpvp:summon/earth_qin
-execute if score @s kitpvp.rng matches 26 run function kitpvp:summon/earth_target
-
-# 27..31 是给后续扩展预留的编号位置（目前不参与随机）：新增生灵时启用对应一行并把 #pool_size 加一
+execute if score @s kitpvp.rng matches 19 run function kitpvp:summon/earth_boatman_wet
+execute if score @s kitpvp.rng matches 20 run function kitpvp:summon/earth_hacker
+execute if score @s kitpvp.rng matches 21 run function kitpvp:summon/earth_retainer
+execute if score @s kitpvp.rng matches 22 run function kitpvp:summon/earth_grass
+execute if score @s kitpvp.rng matches 23 run function kitpvp:summon/earth_qin
+execute if score @s kitpvp.rng matches 24 run function kitpvp:summon/earth_target
+execute if score @s kitpvp.rng matches 25 run function kitpvp:summon/earth_dominion
+execute if score @s kitpvp.rng matches 26 run function kitpvp:summon/earth_gatherer
+execute if score @s kitpvp.rng matches 27 run function kitpvp:summon/earth_hydrator
+execute if score @s kitpvp.rng matches 28 run function kitpvp:summon/earth_manhole
+execute if score @s kitpvp.rng matches 29 run function kitpvp:summon/earth_minecart_pick
+execute if score @s kitpvp.rng matches 30 run function kitpvp:summon/earth_leaker
+execute if score @s kitpvp.rng matches 31 run function kitpvp:summon/earth_threshold
+execute if score @s kitpvp.rng matches 32 run function kitpvp:summon/earth_skater

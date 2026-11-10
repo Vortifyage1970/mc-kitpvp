@@ -12,7 +12,7 @@ tellraw @s [{"text":"│ 护腿：","color":"gray"},{"text":"钻石护腿","colo
 tellraw @s [{"text":"│ 靴子：","color":"gray"},{"text":"铁靴子","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:iron_boots","Count":1}}}]
 tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"召唤生灵 x3","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:goat_spawn_egg","Count":1}}},{"text":"、"},{"text":"熟猪排 x24","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:cooked_porkchop","Count":1}}}]
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"—","color":"dark_gray"}]
-tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"召唤生灵","color":"yellow"},{"text":" —— 右键投出召唤蛋，随机召来一只友善生灵（69 种）；上限 3 个","color":"white"}]
+tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"召唤生灵","color":"yellow"},{"text":" —— 右键投出召唤蛋，随机召来一只友善生灵（33 种）；上限 3 个","color":"white"}]
 tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"15","color":"gold"},{"text":" 秒补 ","color":"white"},{"text":"1","color":"gold"},{"text":" 个","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"white"}]
 tellraw @s [{"text":"└──────────────────────────────","color":"dark_gray"}]
