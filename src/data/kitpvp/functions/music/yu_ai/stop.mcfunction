@@ -114,4 +114,3 @@ schedule clear kitpvp:music/yu_ai/ev_0110
 schedule clear kitpvp:music/yu_ai/ev_0111
 schedule clear kitpvp:music/yu_ai/ev_0112
 schedule clear kitpvp:music/yu_ai/ev_0113
-tellraw @a [{"text":"[音乐] ","color":"aqua","bold":true},{"text":"雨爱 已停止","color":"white"}]

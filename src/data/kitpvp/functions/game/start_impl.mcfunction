@@ -23,6 +23,10 @@ execute if score #global kitpvp.map matches 10 run gamerule doDaylightCycle fals
 execute if score #global kitpvp.map matches 10 run time set noon
 execute if score #global kitpvp.map matches 7 run gamerule doDaylightCycle false
 execute if score #global kitpvp.map matches 7 run time set day
+execute if score #global kitpvp.map matches 1 run time set 11000
+execute if score #global kitpvp.map matches 2 run time set day
+execute if score #global kitpvp.map matches 3 run time set night
+execute if score #global kitpvp.map matches 9 run time set night
 
 # 队槽每局重建：先退出上局残留的队伍，再清空槽位
 # 否则上局留下的编号会让两名同职业玩家落进同一队，召唤物从此互不攻击（见 04 §十四）
