@@ -7,8 +7,8 @@ execute if score #tep_blue kitpvp.game matches 0 run function kitpvp:skill/ender
 execute if score #tep_blue kitpvp.game matches 1 run kill @e[tag=kitpvp.tep_b]
 execute if score #tep_blue kitpvp.game matches 0 run kill @e[tag=kitpvp.tep_a]
 
-# 从命中格沿视线回退 0.85 格：门贴在方块外侧，出来不会半个身子卡墙里
-execute positioned ^ ^ ^-0.85 run summon minecraft:marker ~ ~ ~ {Tags:["kitpvp.tep_new"]}
+# 从命中格沿视线回退 1.0 格：门一定在两个空气采样点之间，出来不会卡墙
+execute positioned ^ ^ ^-1.0 run summon minecraft:marker ~ ~ ~ {Tags:["kitpvp.tep_new"]}
 execute if score #tep_blue kitpvp.game matches 1 run tag @e[tag=kitpvp.tep_new] add kitpvp.tep_b
 execute if score #tep_blue kitpvp.game matches 0 run tag @e[tag=kitpvp.tep_new] add kitpvp.tep_a
 # 门朝向 = 使用者视线的反方向（开枪时是朝着墙看的，出门要朝外）

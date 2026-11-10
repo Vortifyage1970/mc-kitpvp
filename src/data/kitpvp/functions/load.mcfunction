@@ -340,6 +340,9 @@ scoreboard players set @a kitpvp.tep_ready 0
 scoreboard players set @a kitpvp.tep_step 0
 scoreboard players operation @a kitpvp.tep_last = @a kitpvp.tep_used
 scoreboard players add #tep_pid kitpvp.game 0
+# 传送门是临时实体：重载时清掉上一局残留在已加载区块里的
+kill @e[tag=kitpvp.tep_a]
+kill @e[tag=kitpvp.tep_b]
 scoreboard players set @a kitpvp.parrot_miss 0
 scoreboard players set @a kitpvp.bomb_small_cd 0
 scoreboard players set @a kitpvp.bomb_big_cd 0
