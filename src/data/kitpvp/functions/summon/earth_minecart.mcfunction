@@ -8,7 +8,8 @@
 # 船是"无法破坏"的：Invulnerable:1b 挡掉玩家/怪物对它的伤害；/kill 与 reset 里的按 tag 清除不受影响
 summon minecraft:silverfish ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_minecart"],CustomName:'{"text":"矿车","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Invisible:1b,Invulnerable:1b,Passengers:[{id:"minecraft:boat",Type:"oak",Tags:["kitpvp.earth_mount","kitpvp.earth_minecart_boat","kitpvp.earth_cart_boat"],Invulnerable:1b,CustomName:'{"text":"矿车","color":"gray"}',CustomNameVisible:1b}]}
 # 速度改成属性修饰符 +100%（乘算）：速度 VI 的药水效果在骑乘/坐船时看着不直观，属性加成一处生效
-attribute @e[tag=kitpvp.earth_minecart,tag=kitpvp.earth_minion_new] minecraft:generic.movement_speed modifier add 00000000-0000-0000-0000-000000000036 kitpvp.minecart_speed 1.0 multiply
+# attribute 只接受单个实体，选择器必须逐个执行（写成 attribute @e[...] 会让整份函数加载失败）
+execute as @e[tag=kitpvp.earth_minecart,tag=kitpvp.earth_minion_new] run attribute @s minecraft:generic.movement_speed modifier add 00000000-0000-0000-0000-000000000036 kitpvp.minecart_speed 1.0 multiply
 effect give @e[tag=kitpvp.earth_minecart] minecraft:weakness infinite 9 true
 # 40 秒（800 刻）后连蠹虫带船自毁：只给刚召出的这一只埋倒计时（earth_minion_new 在 link 之后就没了）
 scoreboard players set @e[tag=kitpvp.earth_minecart,tag=kitpvp.earth_minion_new] kitpvp.minecart_life 800

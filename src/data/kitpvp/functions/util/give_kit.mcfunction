@@ -12,6 +12,7 @@ execute if score @s kitpvp.kit matches 10 run function kitpvp:kit/slime
 execute if score @s kitpvp.kit matches 11 run function kitpvp:kit/tamer
 execute if score @s kitpvp.kit matches 12 run function kitpvp:kit/alchemist
 execute if score @s kitpvp.kit matches 18 run function kitpvp:kit/werewolf
+execute if score @s kitpvp.kit matches 19 run function kitpvp:kit/bomber
 execute if score @s kitpvp.kit matches 23 run function kitpvp:kit/tainted_warrior
 execute if score @s kitpvp.kit matches 24 run function kitpvp:kit/tainted_archer
 execute if score @s kitpvp.kit matches 25 run function kitpvp:kit/tainted_tank
@@ -19,6 +20,8 @@ execute if score @s kitpvp.kit matches 27 run function kitpvp:kit/tainted_arsoni
 execute if score @s kitpvp.kit matches 28 run function kitpvp:kit/tainted_ghost
 execute if score @s kitpvp.kit matches 29 run function kitpvp:kit/tainted_fisher
 execute if score @s kitpvp.kit matches 30 run function kitpvp:kit/tainted_tamer
+execute if score @s kitpvp.kit matches 31 run function kitpvp:kit/tainted_slime
+execute if score @s kitpvp.kit matches 32 run function kitpvp:kit/tainted_bomber
 execute if score @s kitpvp.kit matches 65 run function kitpvp:kit/sun
 execute if score @s kitpvp.kit matches 66 run function kitpvp:kit/mercury
 execute if score @s kitpvp.kit matches 67 run function kitpvp:kit/venus

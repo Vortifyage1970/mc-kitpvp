@@ -311,6 +311,26 @@ execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=68,kitpvp
 # 山羊载体兜底清
 kill @e[tag=kitpvp.earth_token]
 
+# ===== 炸弹兵（kit 19）/ 里·炸弹兵（kit 32）=====
+# 五套令牌共用蘑菇牛蛋，蛋刷出的隐形载体只当落点标记：dispatch 按载体 tag 分流，cast 在它的位置放炸弹再清掉
+execute as @a[scores={kitpvp.kit=19,kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.bomb_used > @s kitpvp.bomb_last run function kitpvp:skill/bomber/dispatch
+execute as @a[scores={kitpvp.kit=32,kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.bomb_used > @s kitpvp.bomb_last run function kitpvp:skill/tainted_bomber/dispatch
+
+# 补货：cd 走完才发；满仓时什么都不发、cd 停在 0，等下一枚用掉再起计
+execute as @a[scores={kitpvp.kit=19,kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/bomber/refill
+execute as @a[scores={kitpvp.kit=32,kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/tainted_bomber/refill
+
+# 补货计时：表的三个 + 假核弹 + 里的（共享冷却照样各算各的计时） + 核弹
+execute as @a[scores={kitpvp.bomb_small_cd=1..}] run scoreboard players remove @s kitpvp.bomb_small_cd 1
+execute as @a[scores={kitpvp.bomb_big_cd=1..}] run scoreboard players remove @s kitpvp.bomb_big_cd 1
+execute as @a[scores={kitpvp.bomb_fake_cd=1..}] run scoreboard players remove @s kitpvp.bomb_fake_cd 1
+execute as @a[scores={kitpvp.bomb_track_cd=1..}] run scoreboard players remove @s kitpvp.bomb_track_cd 1
+execute as @a[scores={kitpvp.bomb_nuke_cd=1..}] run scoreboard players remove @s kitpvp.bomb_nuke_cd 1
+
+# 跟踪炸弹的骑手：苦力怕被提前打死时它还活着，120 刻后清掉
+execute as @e[tag=kitpvp.bomb_rider,scores={kitpvp.bomb_life=1..}] run scoreboard players remove @s kitpvp.bomb_life 1
+execute as @e[tag=kitpvp.bomb_rider,scores={kitpvp.bomb_life=..0}] run kill @s
+
 # 渔夫：无戟计时器，背包无戟持续 160 刻（8 秒）才允许补发，防"投出即补"刷两把
 execute as @a[scores={kitpvp.kit=7}] at @s run kill @e[type=minecraft:drowned,distance=..16,name="寻戟"]
 scoreboard players add @a[scores={kitpvp.kit=7,kitpvp.alive=1}] kitpvp.fisher_no_tri 1
@@ -354,6 +374,7 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator]
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_zombie_used > @s kitpvp.soul_zombie_last run function kitpvp:skill/soul/use_zombie
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_earth_used > @s kitpvp.soul_earth_last run function kitpvp:skill/soul/use_earth
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_li_used > @s kitpvp.soul_li_last run function kitpvp:skill/soul/use_li
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_slime_used > @s kitpvp.soul_slime_last run function kitpvp:skill/soul/use_slime
 # 魂石：驯兽师 / 太阳 / 水星 / 金星（水星是一次性 buff，没有后续计时）
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.soul_tamer_last matches -2147483648.. run scoreboard players operation @s kitpvp.soul_tamer_last = @s kitpvp.soul_tamer_used
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_tamer_used > @s kitpvp.soul_tamer_last run function kitpvp:skill/soul/use_tamer
@@ -374,6 +395,16 @@ execute as @e[tag=kitpvp.soul_earth_marker,scores={kitpvp.earth_cd_a=..0}] at @s
 # 僵尸魂石：20 秒到就摘掉 +20 上限
 execute as @a[tag=kitpvp.soul_zombie_active,scores={kitpvp.soul_zombie_timer=1..}] run scoreboard players remove @s kitpvp.soul_zombie_timer 1
 execute as @a[tag=kitpvp.soul_zombie_active,scores={kitpvp.soul_zombie_timer=..0}] run function kitpvp:skill/soul/zombie_expire
+
+# 史莱姆魂石：只读秒，增益由 slime_apply 一次性发 20 秒（不每刻补）
+execute as @a[tag=kitpvp.soul_slime_active,scores={kitpvp.soul_slime_timer=1..}] run scoreboard players remove @s kitpvp.soul_slime_timer 1
+execute as @a[tag=kitpvp.soul_slime_active,scores={kitpvp.soul_slime_timer=..0}] run function kitpvp:skill/soul/slime_expire
+
+# 里·史莱姆 / 史莱姆魂石：蓄力火箭跳（tag 由 kit/tainted_slime 与 soul/slime_apply 挂上；大厅里也跑，选完职业就能试）
+execute as @a[tag=kitpvp.rocket_jump,scores={kitpvp.alive=1},tag=!kitpvp.spectator] at @s run function kitpvp:skill/tainted_slime/charge
+
+# 史莱姆魂石的常驻 III：落地清空 / 蓄力顶掉后，缺了才补 1 秒（到期 tag 摘掉后就不再补）
+execute as @a[tag=kitpvp.soul_slime_active,scores={kitpvp.soul_slime_timer=1..}] unless predicate kitpvp:has_jump_boost run effect give @s minecraft:jump_boost 1 2 true
 
 # 自动技能统一入口（按 kit 分派；主动技能与触发器驱动技能不走这里）
 execute as @a[scores={kitpvp.kit=1..,kitpvp.alive=1}] if score @s kitpvp.cd matches ..0 run function kitpvp:skill/dispatch

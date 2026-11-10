@@ -75,6 +75,11 @@ kill @e[tag=kitpvp.soul_earth_marker]
 # 测试用召唤物（summon/zombie_iron_helmet、summon/zombie_iron_armor）：按 tag 清，不碰地图里的僵尸
 kill @e[tag=kitpvp.test_dummy]
 
+# 炸弹兵：还没炸的炸弹 / 跟踪炸弹的骑手 / 没被用掉的令牌载体（隐形）
+kill @e[tag=kitpvp.bomb]
+kill @e[tag=kitpvp.bomb_rider]
+kill @e[tag=kitpvp.bomb_token]
+
 # 渔夫魂石的令牌生物（鳕鱼）：按 tag 清，不碰地图里的鱼
 kill @e[tag=kitpvp.soul_fisher_token]
 

@@ -11,6 +11,10 @@ execute if score @s kitpvp.kit matches 67 at @s run function kitpvp:skill/venus/
 
 function kitpvp:player/invincible
 
+# 蓄力火箭跳：死亡时可能停在半空，蓄力与"满蓄力音效已响过"都要复位（tag 留着，重生后照常蓄力）
+scoreboard players set @s kitpvp.rocket_charge 0
+tag @s remove kitpvp.rocket_full
+
 # 死亡清空了药水效果，重生后重挂职业被动（新增被动职业在此追加一行）
 execute if score @s kitpvp.kit matches 3 run function kitpvp:skill/tank/passive
 execute if score @s kitpvp.kit matches 4 run function kitpvp:skill/assassin/passive

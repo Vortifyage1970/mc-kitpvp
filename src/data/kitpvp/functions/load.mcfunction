@@ -74,6 +74,10 @@ scoreboard objectives add kitpvp.soul_mercury_used minecraft.used:minecraft.dolp
 scoreboard objectives add kitpvp.soul_mercury_last dummy "水星魂石快照"
 scoreboard objectives add kitpvp.soul_venus_used minecraft.used:minecraft.ocelot_spawn_egg
 scoreboard objectives add kitpvp.soul_venus_last dummy "金星魂石快照"
+scoreboard objectives add kitpvp.soul_slime_used minecraft.used:minecraft.slime_spawn_egg
+scoreboard objectives add kitpvp.soul_slime_last dummy "史莱姆魂石快照"
+scoreboard objectives add kitpvp.soul_slime_timer dummy "史莱姆魂石倒计时"
+scoreboard objectives add kitpvp.rocket_charge dummy "蓄力火箭跳的蓄力刻数（0..60）"
 scoreboard objectives add kitpvp.soul_timer dummy "魂石倒计时（marker / 实体：400 = 20 秒）"
 scoreboard objectives add kitpvp.soul_next dummy "魂石间隔（marker / 实体：到 0 触发下一步）"
 # 新魂石的 last 快照：/reload 时把在线玩家的快照对齐到当前 used，否则 `if score used > last` 因为 last 不存在而永远不成立
@@ -81,6 +85,7 @@ scoreboard players operation @a kitpvp.soul_tamer_last = @a kitpvp.soul_tamer_us
 scoreboard players operation @a kitpvp.soul_sun_last = @a kitpvp.soul_sun_used
 scoreboard players operation @a kitpvp.soul_mercury_last = @a kitpvp.soul_mercury_used
 scoreboard players operation @a kitpvp.soul_venus_last = @a kitpvp.soul_venus_used
+scoreboard players operation @a kitpvp.soul_slime_last = @a kitpvp.soul_slime_used
 scoreboard objectives add kitpvp.ghost_minion_cd dummy "阴兵召唤冷却"
 scoreboard objectives add kitpvp.tid dummy "队槽编号"
 scoreboard objectives add kitpvp.rng dummy
@@ -156,6 +161,17 @@ scoreboard objectives add kitpvp.ttamer_vex_last dummy "里·驯兽师怨灵快�
 scoreboard objectives add kitpvp.ttamer_blaze_used minecraft.used:minecraft.blaze_spawn_egg
 scoreboard objectives add kitpvp.ttamer_blaze_last dummy "里·驯兽师灼炎快照"
 scoreboard objectives add kitpvp.ttamer_tid dummy "召唤物队槽编号"
+
+# 炸弹兵（kit 19）/ 里·炸弹兵（kit 32）：五套令牌共用蘑菇牛蛋，靠载体的 tag 分流（dispatch）
+scoreboard objectives add kitpvp.bomb_used minecraft.used:minecraft.mooshroom_spawn_egg
+scoreboard objectives add kitpvp.bomb_last dummy "炸弹兵令牌快照"
+scoreboard objectives add kitpvp.bomb_small_cd dummy "小炸弹补货计时"
+scoreboard objectives add kitpvp.bomb_big_cd dummy "大炸弹补货计时"
+scoreboard objectives add kitpvp.bomb_fake_cd dummy "假核弹补货计时"
+scoreboard objectives add kitpvp.bomb_track_cd dummy "跟踪炸弹补货计时"
+scoreboard objectives add kitpvp.bomb_nuke_cd dummy "核弹补货计时"
+scoreboard objectives add kitpvp.bomb_life dummy "跟踪炸弹骑手寿命"
+scoreboard objectives add kitpvp.btid dummy "炸弹兵跟踪炸弹队槽编号"
 
 # 金星（kit 67）：三枚模块令牌 + 舔狗（归属 / 两个模块计时）+ 全局冷度
 scoreboard objectives add kitpvp.venus_chill_used minecraft.used:minecraft.polar_bear_spawn_egg
@@ -241,6 +257,12 @@ team add earth_3
 team add earth_4
 team add earth_5
 team add earth_6
+team add bomb_1
+team add bomb_2
+team add bomb_3
+team add bomb_4
+team add bomb_5
+team add bomb_6
 
 tag @a remove kitpvp.selected
 tag @a remove kitpvp.invincible
@@ -299,7 +321,17 @@ scoreboard players set @a kitpvp.civil_demon_timer 0
 scoreboard players add @a kitpvp.vtid 0
 scoreboard players set @a kitpvp.soul_next 0
 scoreboard players set @a kitpvp.soul_zombie_timer 0
+scoreboard players set @a kitpvp.soul_slime_timer 0
+scoreboard players set @a kitpvp.rocket_charge 0
 scoreboard players set @a kitpvp.parrot_miss 0
+scoreboard players set @a kitpvp.bomb_small_cd 0
+scoreboard players set @a kitpvp.bomb_big_cd 0
+scoreboard players set @a kitpvp.bomb_fake_cd 0
+scoreboard players set @a kitpvp.bomb_track_cd 0
+scoreboard players set @a kitpvp.bomb_nuke_cd 0
+# btid 用补零保留：重载后队还在，编号必须和玩家所在队一致（同 etid / vtid）
+scoreboard players add @a kitpvp.btid 0
+execute as @a run scoreboard players operation @s kitpvp.bomb_last = @s kitpvp.bomb_used
 # 换过 criterion 的快照要重新对齐，否则 old 的快照值会一直压着新计数不触发
 execute as @a run scoreboard players operation @s kitpvp.tainted_core_last = @s kitpvp.tainted_core_used
 
@@ -308,12 +340,13 @@ scoreboard players set #global kitpvp.timer 0
 scoreboard players set #state kitpvp.game 0
 scoreboard players set #survivors kitpvp.game 0
 scoreboard players set #debug kitpvp.game 0
-scoreboard players set #soul_count kitpvp.game 14
+scoreboard players set #soul_count kitpvp.game 15
 scoreboard players set #ghost_tid kitpvp.game 0
 scoreboard players set #ghost_need_new kitpvp.game 0
 scoreboard players set #lobby kitpvp.game 0
 scoreboard players set #unready kitpvp.game 0
 scoreboard players set #ttamer kitpvp.game 0
+scoreboard players set #btid kitpvp.game 0
 scoreboard players add #vtid kitpvp.game 0
 scoreboard players add #ptid kitpvp.game 0
 scoreboard players set #pparrot kitpvp.game 0
