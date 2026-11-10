@@ -6,13 +6,13 @@ tag @s add kitpvp.selected
 scoreboard players set @s kitpvp.alive 1
 
 item replace entity @s armor.head with minecraft:iron_helmet{Unbreakable:1b}
-item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:2820927}}
-item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:2820927}}
+item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:6954928}}
+item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:6954928}}
 item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,display:{color:0},Enchantments:[{id:"minecraft:feather_falling",lvl:5}]}
 item replace entity @s weapon.mainhand with minecraft:iron_sword{Unbreakable:1b}
 give @s minecraft:cooked_beef 12
 give @s minecraft:chorus_fruit 24
-give @s minecraft:spyglass{KitPortalGun:1b,Unbreakable:1b,display:{Name:'{"text":"传送枪","color":"light_purple"}'}} 1
+give @s minecraft:warped_fungus_on_a_stick{KitPortalGun:1b,Unbreakable:1b,display:{Name:'{"text":"传送枪","color":"light_purple"}'}} 1
 
 scoreboard players set @s kitpvp.lives 3
 scoreboard players set @s kitpvp.tep_cd 0

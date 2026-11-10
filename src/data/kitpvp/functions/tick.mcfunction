@@ -336,6 +336,12 @@ execute as @e[tag=kitpvp.tep_a] at @s run function kitpvp:skill/enderman/portal_
 execute as @e[tag=kitpvp.tep_b] at @s run function kitpvp:skill/enderman/portal_tick
 execute as @e[tag=kitpvp.tep_a] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_b
 execute as @e[tag=kitpvp.tep_b] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_a
+# 非玩家实体（召唤物 / 箭 / 掉落物）任何人的门都能穿；装饰类与 marker 不参与
+execute as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.displayitem] run scoreboard players add @s kitpvp.tep_ready 0
+execute as @e[tag=kitpvp.tep_a] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.displayitem] run function kitpvp:skill/enderman/ent_through_b
+execute as @e[tag=kitpvp.tep_b] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.displayitem] run function kitpvp:skill/enderman/ent_through_a
+# 实体侧的穿门免疫（玩家的免疫在上面那行 @a 里）
+execute as @e[type=!minecraft:player,scores={kitpvp.tep_ready=1..}] run scoreboard players remove @s kitpvp.tep_ready 1
 
 # 跟踪炸弹的骑手：苦力怕被提前打死时它还活着，120 刻后清掉
 execute as @e[tag=kitpvp.bomb_rider,scores={kitpvp.bomb_life=1..}] run scoreboard players remove @s kitpvp.bomb_life 1

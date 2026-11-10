@@ -13,6 +13,7 @@ execute if score #tep_blue kitpvp.game matches 0 run tag @e[tag=kitpvp.tep_new] 
 # 门朝向 = 使用者当时的视线（也就是从门里"往外"的方向）
 data modify entity @e[tag=kitpvp.tep_new,limit=1,sort=nearest] Rotation set from entity @s Rotation
 scoreboard players set @e[tag=kitpvp.tep_new] kitpvp.tep_life 400
+scoreboard players operation @e[tag=kitpvp.tep_new] kitpvp.tep_owner = @s kitpvp.tep_pid
 tag @e[tag=kitpvp.tep_new] remove kitpvp.tep_new
 
 scoreboard players set @s kitpvp.tep_cd 30

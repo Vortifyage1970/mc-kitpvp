@@ -39,6 +39,11 @@ scoreboard players set @s kitpvp.arsonist_ammo 0
 scoreboard players set @s kitpvp.soul_next 0
 scoreboard players set @s kitpvp.rocket_charge 0
 scoreboard players operation @s kitpvp.tep_last = @s kitpvp.tep_used
+# 传送门配对号：每名玩家一个，只在自己开的门里穿梭
+scoreboard players add #tep_pid kitpvp.game 0
+execute unless score @s kitpvp.tep_pid matches 1.. run scoreboard players operation @s kitpvp.tep_pid = #tep_pid kitpvp.game
+execute unless score @s kitpvp.tep_pid matches 1.. run scoreboard players add #tep_pid kitpvp.game 1
+execute if score #tep_pid kitpvp.game matches 65.. run scoreboard players set #tep_pid kitpvp.game 1
 scoreboard players set @s kitpvp.tep_cd 0
 scoreboard players set @s kitpvp.tep_ready 0
 scoreboard players set @s kitpvp.tep_step 0
