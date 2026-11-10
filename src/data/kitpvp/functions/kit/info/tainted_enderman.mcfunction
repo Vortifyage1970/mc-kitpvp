@@ -12,7 +12,7 @@ tellraw @s [{"text":"│ 靴子：","color":"gray"},{"text":"纯黑皮革靴（�
 tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"传送枪","color":"light_purple","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:warped_fungus_on_a_stick","Count":1}}},{"text":"、铁剑、熟牛排 x12、紫颂果 x24","color":"white"}]
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"—","color":"dark_gray"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"传送枪","color":"light_purple"},{"text":" —— 右键开橙门，潜行右键开蓝门（20 格射线、只能开在实心墙面）；全场只允许一对，门活 ","color":"white"},{"text":"20","color":"gold"},{"text":" 秒、每扇门 ","color":"white"},{"text":"1.5","color":"gold"},{"text":" 秒装填。玩家只能穿自己开的门；召唤物 / 箭 / 掉落物任何人都能穿","color":"white"}]
-tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"传送跳","color":"yellow"},{"text":" —— 从越高的地方掉进门，出门就弹得越远越高（单次弹出后交给重力，不会一顿一顿），落地不摔伤","color":"white"}]
+tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"传送跳","color":"yellow"},{"text":" —— 从越高的地方掉进门，出门就弹得越远越高（单次弹出后交给重力，不会一顿一顿）。门会自动吸附成墙 / 地面 / 天花板三种：地面门朝上顶、天花板门朝下砸，落地不摔伤","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"white"}]
 tellraw @s [{"text":"└──────────────────────────────","color":"dark_gray"}]
 tellraw @s [{"text":"[ 确认选择 ]","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/tainted_enderman"},"hoverEvent":{"action":"show_text","contents":[{"text":"以里·末影人","color":"gray"}]}},{"text":"  "},{"text":"[ 返回 ]","color":"yellow","clickEvent":{"action":"run_command","value":"/function kitpvp:lobby/menu"},"hoverEvent":{"action":"show_text","contents":[{"text":"回到主大厅菜单","color":"gray"}]}}]

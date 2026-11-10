@@ -11,9 +11,17 @@ execute if score #tep_blue kitpvp.game matches 0 run kill @e[tag=kitpvp.tep_a]
 execute positioned ^ ^ ^-1.0 run summon minecraft:marker ~ ~ ~ {Tags:["kitpvp.tep_new"]}
 execute if score #tep_blue kitpvp.game matches 1 run tag @e[tag=kitpvp.tep_new] add kitpvp.tep_b
 execute if score #tep_blue kitpvp.game matches 0 run tag @e[tag=kitpvp.tep_new] add kitpvp.tep_a
-# 门朝向 = 使用者视线的反方向（开枪时是朝着墙看的，出门要朝外）
+# 门朝向 = 面的法线（出门方向）：墙 → 水平朝外；地面 → 竖直向上；天花板 → 竖直向下
+# 先抄使用者的视线，再翻 180° 偏航（法线在水平面上的部分），最后按俯仰角吸附 pitch
 data modify entity @e[tag=kitpvp.tep_new,limit=1,sort=nearest] Rotation set from entity @s Rotation
 execute as @e[tag=kitpvp.tep_new] run tp @s ~ ~ ~ ~180 ~
+execute store result score #tep_pitch kitpvp.game run data get entity @s Rotation[1] 1
+execute if score #tep_pitch kitpvp.game matches -49..49 run data modify entity @e[tag=kitpvp.tep_new,limit=1,sort=nearest] Rotation[1] set value 0f
+execute if score #tep_pitch kitpvp.game matches 50.. run data modify entity @e[tag=kitpvp.tep_new,limit=1,sort=nearest] Rotation[1] set value -90f
+execute if score #tep_pitch kitpvp.game matches ..-50 run data modify entity @e[tag=kitpvp.tep_new,limit=1,sort=nearest] Rotation[1] set value 90f
+scoreboard players set @e[tag=kitpvp.tep_new] kitpvp.tep_face 0
+execute if score #tep_pitch kitpvp.game matches 50.. run scoreboard players set @e[tag=kitpvp.tep_new] kitpvp.tep_face 1
+execute if score #tep_pitch kitpvp.game matches ..-50 run scoreboard players set @e[tag=kitpvp.tep_new] kitpvp.tep_face 2
 scoreboard players set @e[tag=kitpvp.tep_new] kitpvp.tep_life 400
 scoreboard players operation @e[tag=kitpvp.tep_new] kitpvp.tep_owner = @s kitpvp.tep_pid
 tag @e[tag=kitpvp.tep_new] remove kitpvp.tep_new

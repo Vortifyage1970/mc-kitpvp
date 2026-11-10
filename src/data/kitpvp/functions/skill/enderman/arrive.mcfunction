@@ -5,6 +5,13 @@ execute rotated as @e[tag=kitpvp.tep_b,distance=..1,limit=1,sort=nearest] run tp
 execute rotated as @e[tag=kitpvp.tep_a,distance=..1,limit=1,sort=nearest] run tp @s ^ ^ ^0.3
 execute rotated as @e[tag=kitpvp.tep_b,distance=..1,limit=1,sort=nearest] run tp @s ^ ^ ^0.3
 
+# 出口是哪一类门（0 墙 / 1 地面 / 2 天花板）：决定弹出方向
+scoreboard players set #tep_face kitpvp.game 0
+execute if score @e[tag=kitpvp.tep_a,distance=..1,limit=1,sort=nearest] kitpvp.tep_face matches 1 run scoreboard players set #tep_face kitpvp.game 1
+execute if score @e[tag=kitpvp.tep_b,distance=..1,limit=1,sort=nearest] kitpvp.tep_face matches 1 run scoreboard players set #tep_face kitpvp.game 1
+execute if score @e[tag=kitpvp.tep_a,distance=..1,limit=1,sort=nearest] kitpvp.tep_face matches 2 run scoreboard players set #tep_face kitpvp.game 2
+execute if score @e[tag=kitpvp.tep_b,distance=..1,limit=1,sort=nearest] kitpvp.tep_face matches 2 run scoreboard players set #tep_face kitpvp.game 2
+
 # 记下进门时的下落深度（决定弹多远），然后一次弹出
 execute store result score @s kitpvp.tep_dash run data get entity @s FallDistance 1
 data merge entity @s {FallDistance:0f}
