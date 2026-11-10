@@ -35,7 +35,7 @@ tag @e[tag=kitpvp.tep_new] remove kitpvp.tep_new
 
 # 冷却：里·末影人 2 秒 / 魂石 0.5 秒
 execute if entity @s[tag=kitpvp.tep_kit] run scoreboard players set @s kitpvp.tep_cd 40
-execute unless entity @s[tag=kitpvp.tep_kit] run scoreboard players set @s kitpvp.tep_cd_s 10
+execute unless entity @s[tag=kitpvp.tep_kit] run scoreboard players set @s kitpvp.tep_cd_s 4
 
 playsound minecraft:block.end_portal_frame.fill master @a[distance=..20] ~ ~ ~ 0.7 1.6
 playsound minecraft:entity.enderman.teleport master @s ~ ~ ~ 0.5 1.2

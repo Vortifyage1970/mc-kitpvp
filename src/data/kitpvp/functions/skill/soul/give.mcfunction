@@ -13,6 +13,8 @@ execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.sou
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.soul_rand 512
 
 scoreboard players operation @s kitpvp.soul_rand %= #soul_count kitpvp.game
+# 里·末影人本来就有一把传送枪，别再把末影人魂石发给他（抽到 15 就顺延成 0）
+execute if score @s kitpvp.kit matches 33 if score @s kitpvp.soul_rand matches 15 run scoreboard players set @s kitpvp.soul_rand 0
 
 execute if score @s kitpvp.soul_rand matches 0 run give @s minecraft:blaze_spawn_egg{KitSoul:1b,KitSoulWarrior:1b,display:{Name:'{"text":"战士魂石","color":"red"}'}} 1
 execute if score @s kitpvp.soul_rand matches 1 run give @s minecraft:skeleton_spawn_egg{KitSoul:1b,KitSoulArcher:1b,display:{Name:'{"text":"弓箭手魂石","color":"green"}'}} 1
