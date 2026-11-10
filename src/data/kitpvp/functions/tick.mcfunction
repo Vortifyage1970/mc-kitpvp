@@ -327,27 +327,40 @@ execute as @a[scores={kitpvp.bomb_fake_cd=1..}] run scoreboard players remove @s
 execute as @a[scores={kitpvp.bomb_track_cd=1..}] run scoreboard players remove @s kitpvp.bomb_track_cd 1
 execute as @a[scores={kitpvp.bomb_nuke_cd=1..}] run scoreboard players remove @s kitpvp.bomb_nuke_cd 1
 
-# ===== 里·末影人（kit 33）：传送枪 =====
-# 状态灯只发给里·末影人（一条命令设整份名单，别按人循环——bossbar set players 是覆盖语义）
+# 末影人魂石：用掉蛋就发一把魂石·传送枪
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_ep_used > @s kitpvp.soul_ep_last run function kitpvp:skill/soul/use_ep
+
+# ===== 里·末影人（kit 33）/ 末影人魂石：传送枪 =====
+# 状态灯只发给"当前有传送枪的人"（里·末影人 或 魂石生效中）
 bossbar set kitpvp:tep_hud_orange players @a[scores={kitpvp.kit=33},tag=!kitpvp.spectator]
 bossbar set kitpvp:tep_hud_blue players @a[scores={kitpvp.kit=33},tag=!kitpvp.spectator]
-execute as @a[scores={kitpvp.kit=33,kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.tep_last matches -2147483648.. run scoreboard players operation @s kitpvp.tep_last = @s kitpvp.tep_used
-execute as @a[scores={kitpvp.kit=33,kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.tep_used > @s kitpvp.tep_last run function kitpvp:skill/enderman/portal_use
+bossbar set kitpvp:tep_hud_red players @a[tag=kitpvp.soul_ep_active,tag=!kitpvp.spectator]
+bossbar set kitpvp:tep_hud_purple players @a[tag=kitpvp.soul_ep_active,tag=!kitpvp.spectator]
+# 使用分发：里·末影人走橙/蓝，魂石走红/紫（快照只推进一次，防止两边抢同一次右键）
+execute as @a[scores={kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.tep_last matches -2147483648.. run scoreboard players operation @s kitpvp.tep_last = @s kitpvp.tep_used
+execute as @a[scores={kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.tep_used > @s kitpvp.tep_last run function kitpvp:skill/enderman/use_dispatch
+# 冷却：里·末影人 2 秒 / 魂石 0.5 秒
 execute as @a[scores={kitpvp.tep_cd=1..}] run scoreboard players remove @s kitpvp.tep_cd 1
+execute as @a[scores={kitpvp.tep_cd_s=1..}] run scoreboard players remove @s kitpvp.tep_cd_s 1
 execute as @a[scores={kitpvp.tep_ready=1..}] run scoreboard players remove @s kitpvp.tep_ready 1
-execute as @e[tag=kitpvp.tep_a] at @s run function kitpvp:skill/enderman/portal_tick
-execute as @e[tag=kitpvp.tep_b] at @s run function kitpvp:skill/enderman/portal_tick
+# 末影人魂石：20 秒后收回传送枪并关掉红/紫门
+execute as @a[tag=kitpvp.soul_ep_active,scores={kitpvp.soul_ep_timer=1..}] run scoreboard players remove @s kitpvp.soul_ep_timer 1
+execute as @a[tag=kitpvp.soul_ep_active,scores={kitpvp.soul_ep_timer=..0}] run function kitpvp:skill/soul/soul_ep_expire
+# 门的寿命 / 粒子 / 状态灯
+execute as @e[tag=kitpvp.tep_portal] at @s run function kitpvp:skill/enderman/portal_tick
+# 玩家穿门（每个人 3 秒免疫；两扇门都齐了才生效）
 execute as @e[tag=kitpvp.tep_a] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_b
 execute as @e[tag=kitpvp.tep_b] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_a
+execute as @e[tag=kitpvp.tep_r] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_p
+execute as @e[tag=kitpvp.tep_p] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_r
 # 非玩家实体（召唤物 / 箭 / 掉落物）任何人的门都能穿；装饰类与 marker 不参与
 execute as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.displayitem] run scoreboard players add @s kitpvp.tep_ready 0
 execute as @e[tag=kitpvp.tep_a] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.displayitem] run function kitpvp:skill/enderman/ent_through_b
 execute as @e[tag=kitpvp.tep_b] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.displayitem] run function kitpvp:skill/enderman/ent_through_a
-# 实体侧的穿门免疫（玩家的免疫在上面那行 @a 里）
-execute as @e[type=!minecraft:player,scores={kitpvp.tep_ready=1..}] run scoreboard players remove @s kitpvp.tep_ready 1
-
-# 跟踪炸弹的骑手：苦力怕被提前打死时它还活着，120 刻后清掉
-execute as @e[tag=kitpvp.bomb_rider,scores={kitpvp.bomb_life=1..}] run scoreboard players remove @s kitpvp.bomb_life 1
+execute as @e[tag=kitpvp.tep_r] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.displayitem] run function kitpvp:skill/enderman/ent_through_p
+execute as @e[tag=kitpvp.tep_p] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.displayitem] run function kitpvp:skill/enderman/ent_through_r
+# 实体侧的穿门免疫
+execute as @e[type=!minecraft:player,scores={kitpvp.tep_ready=1..}] run scoreboard players remove @s kitpvp.tep_ready 1yers remove @s kitpvp.bomb_life 1
 execute as @e[tag=kitpvp.bomb_rider,scores={kitpvp.bomb_life=..0}] run kill @s
 
 # 渔夫：无戟计时器，背包无戟持续 160 刻（8 秒）才允许补发，防"投出即补"刷两把

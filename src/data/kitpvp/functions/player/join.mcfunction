@@ -45,6 +45,9 @@ execute unless score @s kitpvp.tep_pid matches 1.. run scoreboard players operat
 execute unless score @s kitpvp.tep_pid matches 1.. run scoreboard players add #tep_pid kitpvp.game 1
 execute if score #tep_pid kitpvp.game matches 65.. run scoreboard players set #tep_pid kitpvp.game 1
 scoreboard players set @s kitpvp.tep_cd 0
+scoreboard players set @s kitpvp.tep_cd_s 0
+scoreboard players operation @s kitpvp.soul_ep_last = @s kitpvp.soul_ep_used
+tag @s remove kitpvp.soul_ep_active
 scoreboard players set @s kitpvp.tep_ready 0
 scoreboard players set @s kitpvp.tep_step 0
 scoreboard players operation @s kitpvp.ender_last = @s kitpvp.ender_used

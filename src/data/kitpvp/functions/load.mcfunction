@@ -86,6 +86,10 @@ scoreboard objectives add kitpvp.tep_step dummy "出口冲刺剩余步数"
 scoreboard objectives add kitpvp.tep_ready dummy "穿门后的免疫刻数"
 scoreboard objectives add kitpvp.tep_pid dummy "传送门的配对号（每个玩家一个）"
 scoreboard objectives add kitpvp.tep_owner dummy "门的主人配对号（挂 marker）"
+scoreboard objectives add kitpvp.soul_ep_used minecraft.used:minecraft.endermite_spawn_egg
+scoreboard objectives add kitpvp.soul_ep_last dummy "末影人魂石快照"
+scoreboard objectives add kitpvp.soul_ep_timer dummy "末影人魂石传送枪剩余刻数（400 = 20 秒）"
+scoreboard objectives add kitpvp.tep_cd_s dummy "魂石传送枪装填（10 = 0.5 秒）"
 scoreboard objectives add kitpvp.tep_face dummy "门的朝向类型：0 墙 / 1 地面（往天上出）/ 2 天花板（往地下出）"
 scoreboard objectives add kitpvp.rocket_charge dummy "蓄力火箭跳的蓄力刻数（0..60）"
 scoreboard objectives add kitpvp.soul_timer dummy "魂石倒计时（marker / 实体：400 = 20 秒）"
@@ -341,6 +345,9 @@ scoreboard players set @a kitpvp.tep_ready 0
 scoreboard players set @a kitpvp.tep_step 0
 scoreboard players operation @a kitpvp.tep_last = @a kitpvp.tep_used
 scoreboard players add #tep_pid kitpvp.game 0
+scoreboard players set @a kitpvp.tep_cd_s 0
+scoreboard players set @a kitpvp.soul_ep_timer 0
+execute as @a run scoreboard players operation @s kitpvp.soul_ep_last = @s kitpvp.soul_ep_used
 # 传送门状态灯：两条 bossbar，橙/蓝各一条；没有门时是灰色空心方块 + 0 格进度
 # 注意：1.20.1 的 bossbar 没有 `overlay` 这个属性（notched 样式属于 `style`），写了会让整份 load.mcfunction 不加载
 bossbar add kitpvp:tep_hud_orange {"text":"□ 橙门","color":"dark_gray"}
@@ -351,6 +358,14 @@ bossbar set kitpvp:tep_hud_orange style progress
 bossbar set kitpvp:tep_hud_blue style progress
 bossbar set kitpvp:tep_hud_orange value 0
 bossbar set kitpvp:tep_hud_blue value 0
+bossbar add kitpvp:tep_hud_red {"text":"□ 红门","color":"dark_gray"}
+bossbar add kitpvp:tep_hud_purple {"text":"□ 紫门","color":"dark_gray"}
+bossbar set kitpvp:tep_hud_red color white
+bossbar set kitpvp:tep_hud_purple color white
+bossbar set kitpvp:tep_hud_red style progress
+bossbar set kitpvp:tep_hud_purple style progress
+bossbar set kitpvp:tep_hud_red value 0
+bossbar set kitpvp:tep_hud_purple value 0
 # 传送门是临时实体：重载时清掉上一局残留在已加载区块里的
 kill @e[tag=kitpvp.tep_a]
 kill @e[tag=kitpvp.tep_b]
@@ -371,7 +386,7 @@ scoreboard players set #global kitpvp.timer 0
 scoreboard players set #state kitpvp.game 0
 scoreboard players set #survivors kitpvp.game 0
 scoreboard players set #debug kitpvp.game 0
-scoreboard players set #soul_count kitpvp.game 15
+scoreboard players set #soul_count kitpvp.game 16
 scoreboard players set #ghost_tid kitpvp.game 0
 scoreboard players set #ghost_need_new kitpvp.game 0
 scoreboard players set #lobby kitpvp.game 0

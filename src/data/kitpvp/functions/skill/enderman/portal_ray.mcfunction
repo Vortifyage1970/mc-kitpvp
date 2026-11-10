@@ -1,8 +1,8 @@
 # 射线：从眼睛沿视线每 0.5 格采样（最多 20 格），第一次命中实心方块就在它前面 1.0 格开门
-# 0.5 的步长保证"回退 1.0"落在两个空气采样点之间 —— 门一定在空气里，玩家出来不会半个身子卡墙
+# 第二个颜色由玩家身上的 kitpvp.tep_col2 tag 标记（不用全局分数，两个人同一 tick 开枪也不会串）
 scoreboard players set #tep_hit kitpvp.game 0
-scoreboard players set #tep_blue kitpvp.game 0
-execute if predicate kitpvp:sneaking run scoreboard players set #tep_blue kitpvp.game 1
+tag @s remove kitpvp.tep_col2
+execute if predicate kitpvp:sneaking run tag @s add kitpvp.tep_col2
 
 execute at @s anchored eyes positioned ^ ^ ^0.5 if score #tep_hit kitpvp.game matches 0 unless block ~ ~ ~ minecraft:air unless block ~ ~ ~ minecraft:cave_air unless block ~ ~ ~ minecraft:void_air unless block ~ ~ ~ minecraft:water unless block ~ ~ ~ minecraft:lava run function kitpvp:skill/enderman/portal_place
 execute at @s anchored eyes positioned ^ ^ ^1 if score #tep_hit kitpvp.game matches 0 unless block ~ ~ ~ minecraft:air unless block ~ ~ ~ minecraft:cave_air unless block ~ ~ ~ minecraft:void_air unless block ~ ~ ~ minecraft:water unless block ~ ~ ~ minecraft:lava run function kitpvp:skill/enderman/portal_place
@@ -45,5 +45,5 @@ execute at @s anchored eyes positioned ^ ^ ^19 if score #tep_hit kitpvp.game mat
 execute at @s anchored eyes positioned ^ ^ ^19.5 if score #tep_hit kitpvp.game matches 0 unless block ~ ~ ~ minecraft:air unless block ~ ~ ~ minecraft:cave_air unless block ~ ~ ~ minecraft:void_air unless block ~ ~ ~ minecraft:water unless block ~ ~ ~ minecraft:lava run function kitpvp:skill/enderman/portal_place
 execute at @s anchored eyes positioned ^ ^ ^20 if score #tep_hit kitpvp.game matches 0 unless block ~ ~ ~ minecraft:air unless block ~ ~ ~ minecraft:cave_air unless block ~ ~ ~ minecraft:void_air unless block ~ ~ ~ minecraft:water unless block ~ ~ ~ minecraft:lava run function kitpvp:skill/enderman/portal_place
 
-# 20 格以内没打到任何东西：提示（不消耗冷却）
 execute if score #tep_hit kitpvp.game matches 0 run title @s actionbar {"text":"太远了——20 格内没有可开门的墙面","color":"gray"}
+tag @s remove kitpvp.tep_col2

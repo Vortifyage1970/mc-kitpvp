@@ -88,6 +88,16 @@ bossbar set kitpvp:tep_hud_blue name {"text":"□ 蓝门","color":"dark_gray"}
 bossbar set kitpvp:tep_hud_blue color white
 bossbar set kitpvp:tep_hud_blue value 0
 kill @e[tag=kitpvp.tep_b]
+kill @e[tag=kitpvp.tep_r]
+kill @e[tag=kitpvp.tep_p]
+tag @a remove kitpvp.soul_ep_active
+clear @a minecraft:spyglass{KitPortalGunSoul:1b}
+bossbar set kitpvp:tep_hud_red name {"text":"□ 红门","color":"dark_gray"}
+bossbar set kitpvp:tep_hud_red color white
+bossbar set kitpvp:tep_hud_red value 0
+bossbar set kitpvp:tep_hud_purple name {"text":"□ 紫门","color":"dark_gray"}
+bossbar set kitpvp:tep_hud_purple color white
+bossbar set kitpvp:tep_hud_purple value 0
 
 # 渔夫魂石的令牌生物（鳕鱼）：按 tag 清，不碰地图里的鱼
 kill @e[tag=kitpvp.soul_fisher_token]
