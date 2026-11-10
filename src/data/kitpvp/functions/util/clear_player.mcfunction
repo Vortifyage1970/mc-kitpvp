@@ -78,6 +78,10 @@ scoreboard players operation @s kitpvp.soul_fisher_last = @s kitpvp.soul_fisher_
 scoreboard players operation @s kitpvp.soul_zombie_last = @s kitpvp.soul_zombie_used
 scoreboard players operation @s kitpvp.soul_earth_last = @s kitpvp.soul_earth_used
 scoreboard players operation @s kitpvp.soul_li_last = @s kitpvp.soul_li_used
+scoreboard players operation @s kitpvp.soul_tamer_last = @s kitpvp.soul_tamer_used
+scoreboard players operation @s kitpvp.soul_sun_last = @s kitpvp.soul_sun_used
+scoreboard players operation @s kitpvp.soul_mercury_last = @s kitpvp.soul_mercury_used
+scoreboard players operation @s kitpvp.soul_venus_last = @s kitpvp.soul_venus_used
 scoreboard players operation @s kitpvp.tainted_turret_last = @s kitpvp.tainted_turret_used
 scoreboard players operation @s kitpvp.tainted_core_last = @s kitpvp.tainted_core_used
 scoreboard players set @s kitpvp.turret_heal_cd 0

@@ -76,6 +76,11 @@ scoreboard objectives add kitpvp.soul_venus_used minecraft.used:minecraft.ocelot
 scoreboard objectives add kitpvp.soul_venus_last dummy "金星魂石快照"
 scoreboard objectives add kitpvp.soul_timer dummy "魂石倒计时（marker / 实体：400 = 20 秒）"
 scoreboard objectives add kitpvp.soul_next dummy "魂石间隔（marker / 实体：到 0 触发下一步）"
+# 新魂石的 last 快照：/reload 时把在线玩家的快照对齐到当前 used，否则 `if score used > last` 因为 last 不存在而永远不成立
+scoreboard players operation @a kitpvp.soul_tamer_last = @a kitpvp.soul_tamer_used
+scoreboard players operation @a kitpvp.soul_sun_last = @a kitpvp.soul_sun_used
+scoreboard players operation @a kitpvp.soul_mercury_last = @a kitpvp.soul_mercury_used
+scoreboard players operation @a kitpvp.soul_venus_last = @a kitpvp.soul_venus_used
 scoreboard objectives add kitpvp.ghost_minion_cd dummy "阴兵召唤冷却"
 scoreboard objectives add kitpvp.tid dummy "队槽编号"
 scoreboard objectives add kitpvp.rng dummy

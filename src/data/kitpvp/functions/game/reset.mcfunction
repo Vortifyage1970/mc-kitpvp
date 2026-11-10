@@ -51,6 +51,10 @@ kill @e[tag=kitpvp.soul_tamer_wolf]
 kill @e[tag=kitpvp.soul_tamer_animal]
 kill @e[tag=kitpvp.soul_venus_dog]
 kill @e[tag=kitpvp.soul_venus_bomb]
+kill @e[tag=kitpvp.soul_tamer_token]
+kill @e[tag=kitpvp.soul_sun_token]
+kill @e[tag=kitpvp.soul_mercury_token]
+kill @e[tag=kitpvp.soul_venus_token]
 tag @a remove kitpvp.soul_venus_owner
 kill @e[tag=kitpvp.li_bomb]
 

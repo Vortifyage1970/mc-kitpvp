@@ -24,7 +24,7 @@ execute if score @s kitpvp.soul_rand matches 6 run give @s minecraft:cod_spawn_e
 execute if score @s kitpvp.soul_rand matches 7 run give @s minecraft:husk_spawn_egg{KitSoul:1b,KitSoulZombie:1b,display:{Name:'{"text":"僵尸魂石","color":"dark_green"}'}} 1
 execute if score @s kitpvp.soul_rand matches 8 run give @s minecraft:villager_spawn_egg{KitSoul:1b,KitSoulEarth:1b,display:{Name:'{"text":"地球魂石","color":"blue"}'}} 1
 execute if score @s kitpvp.soul_rand matches 9 run give @s minecraft:pig_spawn_egg{KitSoul:1b,KitSoulLi:1b,display:{Name:'{"text":"李朱俊泽魂石","color":"light_purple"}'}} 1
-execute if score @s kitpvp.soul_rand matches 10 run give @s minecraft:cat_spawn_egg{KitSoul:1b,KitSoulTamer:1b,display:{Name:'{"text":"驯兽师魂石","color":"green"}'}} 1
-execute if score @s kitpvp.soul_rand matches 11 run give @s minecraft:allay_spawn_egg{KitSoul:1b,KitSoulSun:1b,display:{Name:'{"text":"太阳魂石","color":"gold"}'}} 1
-execute if score @s kitpvp.soul_rand matches 12 run give @s minecraft:dolphin_spawn_egg{KitSoul:1b,KitSoulMercury:1b,display:{Name:'{"text":"水星魂石","color":"aqua"}'}} 1
-execute if score @s kitpvp.soul_rand matches 13 run give @s minecraft:ocelot_spawn_egg{KitSoul:1b,KitSoulVenus:1b,display:{Name:'{"text":"金星魂石","color":"gold"}'}} 1
+execute if score @s kitpvp.soul_rand matches 10 run give @s minecraft:cat_spawn_egg{KitSoul:1b,KitSoulTamer:1b,EntityTag:{Tags:["kitpvp.soul_tamer_token"]},display:{Name:'{"text":"驯兽师魂石","color":"green"}'}} 1
+execute if score @s kitpvp.soul_rand matches 11 run give @s minecraft:allay_spawn_egg{KitSoul:1b,KitSoulSun:1b,EntityTag:{Tags:["kitpvp.soul_sun_token"]},display:{Name:'{"text":"太阳魂石","color":"gold"}'}} 1
+execute if score @s kitpvp.soul_rand matches 12 run give @s minecraft:dolphin_spawn_egg{KitSoul:1b,KitSoulMercury:1b,EntityTag:{Tags:["kitpvp.soul_mercury_token"]},display:{Name:'{"text":"水星魂石","color":"aqua"}'}} 1
+execute if score @s kitpvp.soul_rand matches 13 run give @s minecraft:ocelot_spawn_egg{KitSoul:1b,KitSoulVenus:1b,EntityTag:{Tags:["kitpvp.soul_venus_token"]},display:{Name:'{"text":"金星魂石","color":"gold"}'}} 1
