@@ -27,7 +27,7 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator]
 # 到期用 ..300 而非 =300：跳刻时不漏触发
 execute as @a[scores={kitpvp.cd=..300},tag=kitpvp.shield_held,tag=!kitpvp.spectator] run function kitpvp:skill/tank/expire
 # distance 16 覆盖刷怪蛋右键射程；会误杀该范围内同名的装饰性生物
-execute as @a[scores={kitpvp.kit=3}] at @s run kill @e[type=iron_golem,distance=..16,name="举盾令牌"]
+execute as @a[scores={kitpvp.kit=3}] at @s run kill @e[type=iron_golem,distance=..16,name="举盾"]
 # 令牌只在"真的用过"（cast 开的窗口）且冷却走完时发回，不拿"背包里没有"当依据（见 04 §四）
 execute as @a[scores={kitpvp.kit=3,kitpvp.alive=1,kitpvp.cd=0},tag=kitpvp.tank_handout,tag=!kitpvp.spectator] run function kitpvp:skill/tank/handout
 
@@ -37,7 +37,7 @@ execute if entity @a[tag=kitpvp.arrow_user] run kill @e[type=minecraft:arrow,nbt
 
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.assassin_used > @s kitpvp.assassin_last run function kitpvp:skill/assassin/dispatch
 execute as @a[scores={kitpvp.cd=..500},tag=kitpvp.assassin_hidden,tag=!kitpvp.spectator] run function kitpvp:skill/assassin/unhide
-execute as @a[scores={kitpvp.kit=4}] at @s run kill @e[type=enderman,distance=..16,name="隐匿令牌"]
+execute as @a[scores={kitpvp.kit=4}] at @s run kill @e[type=enderman,distance=..16,name="隐匿"]
 execute as @a[scores={kitpvp.kit=4,kitpvp.alive=1,kitpvp.cd=0},tag=kitpvp.assassin_handout,tag=!kitpvp.spectator] run function kitpvp:skill/assassin/handout
 
 # 海盗：射击即进冷却——检测"手持的手炮从已装填翻到未装填"
@@ -240,11 +240,10 @@ execute as @a[scores={kitpvp.kit=88,kitpvp.alive=1},tag=!kitpvp.spectator] at @s
 # 内联循环计时器：李朱俊泽在局内，或地球召出的 iLsacuL 存在时就一直走；两者都没有则归零
 scoreboard players set #li_active kitpvp.game 0
 execute if score #state kitpvp.game matches 1 if entity @a[scores={kitpvp.kit=88}] run scoreboard players set #li_active kitpvp.game 1
-execute if score #state kitpvp.game matches 1 if entity @e[tag=kitpvp.earth_ilsacul] run scoreboard players set #li_active kitpvp.game 1
-# 李朱俊泽魂石：计时开关（#li_soul 由 li_apply 置 400，20 秒后 li_expire 归一），与场上有没有 kit=88 无关
-execute if score #li_soul kitpvp.game matches 1.. run scoreboard players set #li_active kitpvp.game 1
-execute if score #li_soul kitpvp.game matches 1.. run scoreboard players remove #li_soul kitpvp.game 1
-execute if score #li_soul kitpvp.game matches 0 run function kitpvp:skill/soul/li_expire
+# 场上有任何一只 iLsacuL（地球召的、魂石召的、还有它们的 200 血复制体）循环就继续跑 ——
+# 以前这里只认 earth_ilsacul，于是魂石的 20 秒计时一结束、而剩下的复制体明明还站着，循环就冻住了：
+# 复制阶段还在扫 @e[tag=li_pig]，可 timer 已经不再被调用（2026-11-10 车主报的"过一个循环就停"）。
+execute if score #state kitpvp.game matches 1 if entity @e[tag=kitpvp.li_pig] run scoreboard players set #li_active kitpvp.game 1
 execute if score #li_active kitpvp.game matches 1 run function kitpvp:skill/li_zhujunze/timer
 execute if score #li_active kitpvp.game matches 0 run scoreboard players set #litimer kitpvp.game 0
 execute if score #li_active kitpvp.game matches 0 run scoreboard players set #liapoc kitpvp.game 0
@@ -256,16 +255,18 @@ execute as @a[scores={kitpvp.kit=68,kitpvp.alive=1},tag=!kitpvp.spectator] at @s
 
 # 召唤物计时器（都挂在实体上）
 execute as @e[scores={kitpvp.earth_cd_a=1..}] run scoreboard players remove @s kitpvp.earth_cd_a 1
+
+# 地球召唤物的常驻光环 / 计时（merge main 时这几行被整块去重过一次，补回来）
 execute as @e[tag=kitpvp.earth_sheep,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/sheep_aura
 execute as @e[tag=kitpvp.earth_disruptor,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/disrupt
 # 变速器：6 格内没别人就提速，有敌人就变肉变慢并给急迫（判定与效果都在 gearbox_aura 里）
 execute as @e[tag=kitpvp.earth_gearbox,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/gearbox_aura
-# 大蜜蜂：半径 10 格内的所有玩家和生物持续挖掘疲劳 III
-# 每刻直接跑、不再用 scores 节流：分数不存在时那个选择器不匹配，整条会静默失效（踩过一次）
+# 大蜜蜂：半径 10 格内的所有玩家和生物持续挖掘疲劳 III（每刻直接跑，别用 scores 节流）
 execute as @e[tag=kitpvp.earth_bigbee] at @s run function kitpvp:skill/earth/bigbee_aura
 # 大蜜蜂减速提示音的冷却：统一在 tick 减一次，避免多只蜜蜂各减一遍
 execute as @a[scores={kitpvp.bee_slow_snd=1..}] run scoreboard players remove @s kitpvp.bee_slow_snd 1
-
+# 内卫：出场计时（只用来决定"出场那阵烟"还要不要补，不控制烟花本身；烟花由 summon 放一次）
+execute as @e[tag=kitpvp.earth_dominion] run scoreboard players add @s kitpvp.dominion_age 1
 # 地球·54 电磁炮：每刻找目标、充能、充满就放电（充能计数在 sparky_tick 里维护）
 execute as @e[tag=kitpvp.earth_sparky] at @s run function kitpvp:skill/earth/sparky_tick
 # 地球·70 迫击炮：earth_cd_a 归零就朝 20 格内最近的敌人打一发鱼弹（冷却分在 summon 里埋了初值）
@@ -368,9 +369,7 @@ execute if entity @e[tag=kitpvp.earth_cyclic] run function kitpvp:skill/earth/ri
 execute as @e[tag=kitpvp.earth_oracle,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/oracle_speak
 # 磁铁：每刻吸掉落物、拽靠近的玩家
 execute if entity @e[tag=kitpvp.earth_magnet] run function kitpvp:skill/earth/magnet_pull
-# 内卫：每 3 秒放一枚黑色烟花
-execute as @e[tag=kitpvp.earth_dominion,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/dominion_firework
-execute as @e[tag=kitpvp.earth_dominion] run scoreboard players add @s kitpvp.dominion_age 1
+# 内卫：出场那一下由 summon/earth_dominion 自己放完（2026-11-10 改成"仅出场时放一次"），这里不再循环
 # 飞行器（地球·69）：共生（吊舱死则母体死）+ 补绳 + 每 10 秒俯冲 50 格
 execute as @e[tag=kitpvp.earth_flyer_carrier] at @s run function kitpvp:skill/earth/flyer_tick
 # 低空飞行器（地球·73）：蝙蝠吊着骷髅在头顶 10 格跟着人走，不俯冲，靠骷髅放箭
@@ -482,8 +481,61 @@ execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=68,kitpvp
 # 山羊载体兜底清
 kill @e[tag=kitpvp.earth_token]
 
+# ===== 炸弹兵（kit 19）/ 里·炸弹兵（kit 32）=====
+# 五套令牌共用蘑菇牛蛋，蛋刷出的隐形载体只当落点标记：dispatch 按载体 tag 分流，cast 在它的位置放炸弹再清掉
+execute as @a[scores={kitpvp.kit=19,kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.bomb_used > @s kitpvp.bomb_last run function kitpvp:skill/bomber/dispatch
+execute as @a[scores={kitpvp.kit=32,kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.bomb_used > @s kitpvp.bomb_last run function kitpvp:skill/tainted_bomber/dispatch
+
+# 补货：cd 走完才发；满仓时什么都不发、cd 停在 0，等下一枚用掉再起计
+execute as @a[scores={kitpvp.kit=19,kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/bomber/refill
+execute as @a[scores={kitpvp.kit=32,kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/tainted_bomber/refill
+
+# 补货计时：表的三个 + 假核弹 + 里的（共享冷却照样各算各的计时） + 核弹
+execute as @a[scores={kitpvp.bomb_small_cd=1..}] run scoreboard players remove @s kitpvp.bomb_small_cd 1
+execute as @a[scores={kitpvp.bomb_big_cd=1..}] run scoreboard players remove @s kitpvp.bomb_big_cd 1
+execute as @a[scores={kitpvp.bomb_fake_cd=1..}] run scoreboard players remove @s kitpvp.bomb_fake_cd 1
+execute as @a[scores={kitpvp.bomb_track_cd=1..}] run scoreboard players remove @s kitpvp.bomb_track_cd 1
+execute as @a[scores={kitpvp.bomb_nuke_cd=1..}] run scoreboard players remove @s kitpvp.bomb_nuke_cd 1
+
+# 末影人魂石：用掉蛋就发一把魂石·传送枪
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_ep_used > @s kitpvp.soul_ep_last run function kitpvp:skill/soul/use_ep
+
+# ===== 里·末影人（kit 33）/ 末影人魂石：传送枪 =====
+# 状态灯只发给"当前有传送枪的人"（里·末影人 或 魂石生效中）
+bossbar set kitpvp:tep_hud_orange players @a[scores={kitpvp.kit=33},tag=!kitpvp.spectator]
+bossbar set kitpvp:tep_hud_blue players @a[scores={kitpvp.kit=33},tag=!kitpvp.spectator]
+bossbar set kitpvp:tep_hud_red players @a[tag=kitpvp.soul_ep_active,tag=!kitpvp.spectator]
+bossbar set kitpvp:tep_hud_purple players @a[tag=kitpvp.soul_ep_active,tag=!kitpvp.spectator]
+# 使用分发：里·末影人走橙/蓝，魂石走红/紫（快照只推进一次，防止两边抢同一次右键）
+execute as @a[scores={kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.tep_last matches -2147483648.. run scoreboard players operation @s kitpvp.tep_last = @s kitpvp.tep_used
+execute as @a[scores={kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.tep_used > @s kitpvp.tep_last run function kitpvp:skill/enderman/use_dispatch
+# 冷却：里·末影人 2 秒 / 魂石 0.5 秒
+execute as @a[scores={kitpvp.tep_cd=1..}] run scoreboard players remove @s kitpvp.tep_cd 1
+execute as @a[scores={kitpvp.tep_cd_s=1..}] run scoreboard players remove @s kitpvp.tep_cd_s 1
+execute as @a[scores={kitpvp.tep_ready=1..}] run scoreboard players remove @s kitpvp.tep_ready 1
+# 末影人魂石：20 秒后收回传送枪并关掉红/紫门
+execute as @a[tag=kitpvp.soul_ep_active,scores={kitpvp.soul_ep_timer=1..}] run scoreboard players remove @s kitpvp.soul_ep_timer 1
+execute as @a[tag=kitpvp.soul_ep_active,scores={kitpvp.soul_ep_timer=..0}] run function kitpvp:skill/soul/soul_ep_expire
+# 门的寿命 / 粒子 / 状态灯
+execute as @e[tag=kitpvp.tep_portal] at @s run function kitpvp:skill/enderman/portal_tick
+# 玩家穿门（每个人 3 秒免疫；两扇门都齐了才生效）
+execute as @e[tag=kitpvp.tep_a] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_b
+execute as @e[tag=kitpvp.tep_b] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_a
+execute as @e[tag=kitpvp.tep_r] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_p
+execute as @e[tag=kitpvp.tep_p] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_r
+# 非玩家实体（召唤物 / 箭 / 掉落物）任何人的门都能穿；装饰类与 marker 不参与
+execute as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.displayitem] run scoreboard players add @s kitpvp.tep_ready 0
+execute as @e[tag=kitpvp.tep_a] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.displayitem] run function kitpvp:skill/enderman/ent_through_b
+execute as @e[tag=kitpvp.tep_b] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.displayitem] run function kitpvp:skill/enderman/ent_through_a
+execute as @e[tag=kitpvp.tep_r] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.displayitem] run function kitpvp:skill/enderman/ent_through_p
+execute as @e[tag=kitpvp.tep_p] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.displayitem] run function kitpvp:skill/enderman/ent_through_r
+# 实体侧的穿门免疫
+execute as @e[type=!minecraft:player,scores={kitpvp.tep_ready=1..}] run scoreboard players remove @s kitpvp.tep_ready 1
+execute as @e[tag=kitpvp.bomb_rider,scores={kitpvp.bomb_life=1..}] run scoreboard players remove @s kitpvp.bomb_life 1
+execute as @e[tag=kitpvp.bomb_rider,scores={kitpvp.bomb_life=..0}] run kill @s
+
 # 渔夫：无戟计时器，背包无戟持续 160 刻（8 秒）才允许补发，防"投出即补"刷两把
-execute as @a[scores={kitpvp.kit=7}] at @s run kill @e[type=minecraft:drowned,distance=..16,name="寻戟令牌"]
+execute as @a[scores={kitpvp.kit=7}] at @s run kill @e[type=minecraft:drowned,distance=..16,name="寻戟"]
 scoreboard players add @a[scores={kitpvp.kit=7,kitpvp.alive=1}] kitpvp.fisher_no_tri 1
 execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1}] if data entity @s Inventory[{tag:{KitFisherTrident:1b}}] run scoreboard players set @s kitpvp.fisher_no_tri 0
 
@@ -525,6 +577,20 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator]
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_zombie_used > @s kitpvp.soul_zombie_last run function kitpvp:skill/soul/use_zombie
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_earth_used > @s kitpvp.soul_earth_last run function kitpvp:skill/soul/use_earth
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_li_used > @s kitpvp.soul_li_last run function kitpvp:skill/soul/use_li
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_slime_used > @s kitpvp.soul_slime_last run function kitpvp:skill/soul/use_slime
+# 魂石：驯兽师 / 太阳 / 水星 / 金星（水星是一次性 buff，没有后续计时）
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.soul_tamer_last matches -2147483648.. run scoreboard players operation @s kitpvp.soul_tamer_last = @s kitpvp.soul_tamer_used
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_tamer_used > @s kitpvp.soul_tamer_last run function kitpvp:skill/soul/use_tamer
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.soul_sun_last matches -2147483648.. run scoreboard players operation @s kitpvp.soul_sun_last = @s kitpvp.soul_sun_used
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_sun_used > @s kitpvp.soul_sun_last run function kitpvp:skill/soul/use_sun
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.soul_mercury_last matches -2147483648.. run scoreboard players operation @s kitpvp.soul_mercury_last = @s kitpvp.soul_mercury_used
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_mercury_used > @s kitpvp.soul_mercury_last run function kitpvp:skill/soul/use_mercury
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.soul_venus_last matches -2147483648.. run scoreboard players operation @s kitpvp.soul_venus_last = @s kitpvp.soul_venus_used
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_venus_used > @s kitpvp.soul_venus_last run function kitpvp:skill/soul/use_venus
+# 驯兽师 / 太阳：落点 marker 的每刻推进；金星：舔狗自己的 20 秒计时与增益
+execute as @e[tag=kitpvp.soul_tamer_marker] at @s run function kitpvp:skill/soul/tamer_tick
+execute as @e[tag=kitpvp.soul_sun_marker] at @s run function kitpvp:skill/soul/sun_tick
+execute as @e[tag=kitpvp.soul_venus_dog] at @s run function kitpvp:skill/soul/venus_tick
 
 # 地球魂石：标记处每 10 刻召一只（earth_cd_a 已由上面的实体计时器统一递减）
 execute as @e[tag=kitpvp.soul_earth_marker,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/soul/earth_step
@@ -532,6 +598,16 @@ execute as @e[tag=kitpvp.soul_earth_marker,scores={kitpvp.earth_cd_a=..0}] at @s
 # 僵尸魂石：20 秒到就摘掉 +20 上限
 execute as @a[tag=kitpvp.soul_zombie_active,scores={kitpvp.soul_zombie_timer=1..}] run scoreboard players remove @s kitpvp.soul_zombie_timer 1
 execute as @a[tag=kitpvp.soul_zombie_active,scores={kitpvp.soul_zombie_timer=..0}] run function kitpvp:skill/soul/zombie_expire
+
+# 史莱姆魂石：只读秒，增益由 slime_apply 一次性发 20 秒（不每刻补）
+execute as @a[tag=kitpvp.soul_slime_active,scores={kitpvp.soul_slime_timer=1..}] run scoreboard players remove @s kitpvp.soul_slime_timer 1
+execute as @a[tag=kitpvp.soul_slime_active,scores={kitpvp.soul_slime_timer=..0}] run function kitpvp:skill/soul/slime_expire
+
+# 里·史莱姆 / 史莱姆魂石：蓄力火箭跳（tag 由 kit/tainted_slime 与 soul/slime_apply 挂上；大厅里也跑，选完职业就能试）
+execute as @a[tag=kitpvp.rocket_jump,scores={kitpvp.alive=1},tag=!kitpvp.spectator] at @s run function kitpvp:skill/tainted_slime/charge
+
+# 史莱姆魂石的常驻 III：落地清空 / 蓄力顶掉后，缺了才补 1 秒（到期 tag 摘掉后就不再补）
+execute as @a[tag=kitpvp.soul_slime_active,scores={kitpvp.soul_slime_timer=1..}] unless predicate kitpvp:has_jump_boost run effect give @s minecraft:jump_boost 1 2 true
 
 # 自动技能统一入口（按 kit 分派；主动技能与触发器驱动技能不走这里）
 execute as @a[scores={kitpvp.kit=1..,kitpvp.alive=1}] if score @s kitpvp.cd matches ..0 run function kitpvp:skill/dispatch

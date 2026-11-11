@@ -5,7 +5,6 @@ tellraw @s [{"text":"│ 简介：","color":"gray"},{"text":"将敌人无情点�
 tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"4","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:wooden_sword","Count":1,"tag":"{Enchantments:[{id:\"minecraft:knockback\",lvl:2},{id:\"minecraft:fire_aspect\",lvl:4}]}"}}},{"text":"（悬停查看详情）","color":"dark_gray","hoverEvent":{"action":"show_text","contents":[{"text":"武器：木剑\n单次伤害：4    攻击速度：1.6\n附魔：击退 II、火焰附加 IV","color":"white"}]}}]
 tellraw @s [{"text":"│ 武器攻击速度：","color":"gray"},{"text":"1.6","color":"white"}]
 tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"7","color":"white"}]
-tellraw @s [{"text":"│ 总护甲韧性：","color":"gray"},{"text":"0","color":"white"}]
 tellraw @s [{"text":"│ 头盔：","color":"gray"},{"text":"皮革头盔（红色，火焰保护 III）","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:leather_helmet","Count":1,"tag":"{Enchantments:[{id:\"minecraft:fire_protection\",lvl:3}],display:{color:11546150}}"}}}]
 tellraw @s [{"text":"│ 胸甲：","color":"gray"},{"text":"皮革胸甲（红色，火焰保护 III）","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:leather_chestplate","Count":1,"tag":"{Enchantments:[{id:\"minecraft:fire_protection\",lvl:3}],display:{color:11546150}}"}}}]
 tellraw @s [{"text":"│ 护腿：","color":"gray"},{"text":"皮革护腿（红色，火焰保护 III）","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:leather_leggings","Count":1,"tag":"{Enchantments:[{id:\"minecraft:fire_protection\",lvl:3}],display:{color:11546150}}"}}}]

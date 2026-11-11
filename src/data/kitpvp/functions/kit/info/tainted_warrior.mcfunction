@@ -5,7 +5,6 @@ tellraw @s [{"text":"│ 简介：","color":"gray"},{"text":"签订恶魔契约�
 tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"6","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:golden_sword","Count":1,"tag":"{Enchantments:[{id:\"minecraft:sharpness\",lvl:3}]}"}}},{"text":"（悬停查看详情）","color":"dark_gray","hoverEvent":{"action":"show_text","contents":[{"text":"武器：金剑\n单次伤害：6    攻击速度：1.6\n附魔：锋利 III","color":"white"}]}}]
 tellraw @s [{"text":"│ 武器攻击速度：","color":"gray"},{"text":"1.6","color":"white"}]
 tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"12","color":"white"}]
-tellraw @s [{"text":"│ 总护甲韧性：","color":"gray"},{"text":"0","color":"white"}]
 tellraw @s [{"text":"│ 头盔：","color":"gray"},{"text":"金头盔（耐久 III）","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:golden_helmet","Count":1,"tag":"{Enchantments:[{id:\"minecraft:unbreaking\",lvl:3}]}"}}}]
 tellraw @s [{"text":"│ 胸甲：","color":"gray"},{"text":"铁胸甲（耐久 III）","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:iron_chestplate","Count":1,"tag":"{Enchantments:[{id:\"minecraft:unbreaking\",lvl:3}]}"}}}]
 tellraw @s [{"text":"│ 护腿：","color":"gray"},{"text":"金护腿（耐久 III）","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:golden_leggings","Count":1,"tag":"{Enchantments:[{id:\"minecraft:unbreaking\",lvl:3}]}"}}}]

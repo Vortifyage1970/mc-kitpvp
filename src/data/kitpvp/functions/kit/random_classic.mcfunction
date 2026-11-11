@@ -1,6 +1,9 @@
 # 表职业池随机：与 kit/random 同法（1in2 连掷 7 次拼 0..127 再取模），池子只有经典（表）。
 # 新增表职业时改 #pool_size 并在末尾追加一行映射（见 06 §一）。
-scoreboard players set #pool_size kitpvp.game 14
+# 先按"旧职业"清理一次（理由同 kit/random：随机池先改 kit 分数，clear_player 就看不到旧职业了）
+function kitpvp:util/clear_player
+
+scoreboard players set #pool_size kitpvp.game 15
 
 scoreboard players set @s kitpvp.rng 0
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 1
@@ -27,5 +30,6 @@ execute if score @s kitpvp.rng matches 10 run scoreboard players set @s kitpvp.k
 execute if score @s kitpvp.rng matches 11 run scoreboard players set @s kitpvp.kit 18
 execute if score @s kitpvp.rng matches 12 run scoreboard players set @s kitpvp.kit 12
 execute if score @s kitpvp.rng matches 13 run scoreboard players set @s kitpvp.kit 14
+execute if score @s kitpvp.rng matches 14 run scoreboard players set @s kitpvp.kit 19
 
 function kitpvp:util/give_kit

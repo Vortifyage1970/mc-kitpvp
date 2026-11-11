@@ -4,6 +4,8 @@ gamerule mobGriefing false
 gamerule doFireTick false
 gamerule doInsomnia false
 gamerule doWeatherCycle false
+# 昼夜：load 默认放行（原版行为）；个别地图在开局时自己关掉，结算时 game/end 再放回来
+gamerule doDaylightCycle true
 gamerule naturalRegeneration true
 gamerule fallDamage true
 gamerule announceAdvancements false
@@ -64,6 +66,42 @@ scoreboard objectives add kitpvp.soul_earth_last dummy "地球魂石快照"
 scoreboard objectives add kitpvp.soul_earth_team dummy "地球魂石认出的队编号（挂 marker：1..6 幽灵 / 7..12 炮台 / 13..18 里驯兽师 / 19..24 地球）"
 scoreboard objectives add kitpvp.soul_li_used minecraft.used:minecraft.pig_spawn_egg
 scoreboard objectives add kitpvp.soul_li_last dummy "李朱俊泽魂石快照"
+scoreboard objectives add kitpvp.soul_tamer_used minecraft.used:minecraft.cat_spawn_egg
+scoreboard objectives add kitpvp.soul_tamer_last dummy "驯兽师魂石快照"
+scoreboard objectives add kitpvp.soul_sun_used minecraft.used:minecraft.allay_spawn_egg
+scoreboard objectives add kitpvp.soul_sun_last dummy "太阳魂石快照"
+scoreboard objectives add kitpvp.soul_mercury_used minecraft.used:minecraft.dolphin_spawn_egg
+scoreboard objectives add kitpvp.soul_mercury_last dummy "水星魂石快照"
+scoreboard objectives add kitpvp.soul_venus_used minecraft.used:minecraft.ocelot_spawn_egg
+scoreboard objectives add kitpvp.soul_venus_last dummy "金星魂石快照"
+scoreboard objectives add kitpvp.soul_slime_used minecraft.used:minecraft.slime_spawn_egg
+scoreboard objectives add kitpvp.soul_slime_last dummy "史莱姆魂石快照"
+scoreboard objectives add kitpvp.soul_slime_timer dummy "史莱姆魂石倒计时"
+scoreboard objectives add kitpvp.tep_used minecraft.used:minecraft.warped_fungus_on_a_stick
+scoreboard objectives add kitpvp.tep_last dummy "传送枪使用快照"
+scoreboard objectives add kitpvp.tep_cd dummy "传送枪装填（30 = 1.5 秒）"
+scoreboard objectives add kitpvp.tep_life dummy "传送门寿命（400 = 20 秒）"
+scoreboard objectives add kitpvp.tep_dash dummy "进门时的下落距离"
+scoreboard objectives add kitpvp.tep_step dummy "出口冲刺剩余步数"
+scoreboard objectives add kitpvp.tep_ready dummy "穿门后的免疫刻数"
+scoreboard objectives add kitpvp.tep_pid dummy "传送门的配对号（每个玩家一个）"
+scoreboard objectives add kitpvp.tep_owner dummy "门的主人配对号（挂 marker）"
+scoreboard objectives add kitpvp.soul_ep_used minecraft.used:minecraft.endermite_spawn_egg
+scoreboard objectives add kitpvp.soul_ep_last dummy "末影人魂石快照"
+scoreboard objectives add kitpvp.soul_ep_timer dummy "末影人魂石传送枪剩余刻数（400 = 20 秒）"
+scoreboard objectives add kitpvp.tep_cd_s dummy "魂石传送枪装填（10 = 0.5 秒）"
+scoreboard objectives add kitpvp.tep_face dummy "门的朝向类型：0 墙 / 1 地面（往天上出）/ 2 天花板（往地下出）"
+scoreboard objectives add kitpvp.rocket_charge dummy "蓄力火箭跳的蓄力刻数（0..60）"
+scoreboard objectives add kitpvp.soul_timer dummy "魂石倒计时（marker / 实体：400 = 20 秒）"
+# 大厅起跳按钮的 advancement：加载失败过一次（blocks 写成了标签），万一有谁被旧版本授过奖就永远不再触发 —— 每次 reload 清一遍
+advancement revoke @a only kitpvp:player/lobby_launch
+
+# 新魂石的 last 快照：/reload 时把在线玩家的快照对齐到当前 used，否则 `if score used > last` 因为 last 不存在而永远不成立
+scoreboard players operation @a kitpvp.soul_tamer_last = @a kitpvp.soul_tamer_used
+scoreboard players operation @a kitpvp.soul_sun_last = @a kitpvp.soul_sun_used
+scoreboard players operation @a kitpvp.soul_mercury_last = @a kitpvp.soul_mercury_used
+scoreboard players operation @a kitpvp.soul_venus_last = @a kitpvp.soul_venus_used
+scoreboard players operation @a kitpvp.soul_slime_last = @a kitpvp.soul_slime_used
 scoreboard objectives add kitpvp.ghost_minion_cd dummy "阴兵召唤冷却"
 scoreboard objectives add kitpvp.tid dummy "队槽编号"
 scoreboard objectives add kitpvp.rng dummy
@@ -140,6 +178,17 @@ scoreboard objectives add kitpvp.ttamer_blaze_used minecraft.used:minecraft.blaz
 scoreboard objectives add kitpvp.ttamer_blaze_last dummy "里·驯兽师灼炎快照"
 scoreboard objectives add kitpvp.ttamer_tid dummy "召唤物队槽编号"
 
+# 炸弹兵（kit 19）/ 里·炸弹兵（kit 32）：五套令牌共用蘑菇牛蛋，靠载体的 tag 分流（dispatch）
+scoreboard objectives add kitpvp.bomb_used minecraft.used:minecraft.mooshroom_spawn_egg
+scoreboard objectives add kitpvp.bomb_last dummy "炸弹兵令牌快照"
+scoreboard objectives add kitpvp.bomb_small_cd dummy "小炸弹补货计时"
+scoreboard objectives add kitpvp.bomb_big_cd dummy "大炸弹补货计时"
+scoreboard objectives add kitpvp.bomb_fake_cd dummy "假核弹补货计时"
+scoreboard objectives add kitpvp.bomb_track_cd dummy "跟踪炸弹补货计时"
+scoreboard objectives add kitpvp.bomb_nuke_cd dummy "核弹补货计时"
+scoreboard objectives add kitpvp.bomb_life dummy "跟踪炸弹骑手寿命"
+scoreboard objectives add kitpvp.btid dummy "炸弹兵跟踪炸弹队槽编号"
+
 # 金星（kit 67）：三枚模块令牌 + 舔狗（归属 / 两个模块计时）+ 全局冷度
 scoreboard objectives add kitpvp.venus_chill_used minecraft.used:minecraft.polar_bear_spawn_egg
 scoreboard objectives add kitpvp.venus_chill_last dummy "金星制冷快照"
@@ -177,6 +226,8 @@ scoreboard objectives add kitpvp.earth_fw_life dummy "内卫烟花烟团还能�
 scoreboard objectives add kitpvp.dominion_age dummy "内卫存活刻数（过 240 = 12 秒就只放烟花、不再留烟）"
 scoreboard objectives add kitpvp.earth_last dummy "地球召唤快照"
 scoreboard objectives add kitpvp.earth_cd_a dummy "地球召唤物技能计时"
+scoreboard objectives add kitpvp.minecart_life dummy "矿车寿命（800 = 40 秒，到 0 连船一起自毁）"
+scoreboard objectives add kitpvp.skater_snd dummy "滑冰者滑行音效冷却"
 scoreboard objectives add kitpvp.earth_lev dummy "地球超凡升天计时"
 scoreboard objectives add kitpvp.earth_life dummy "地球召唤物寿命"
 scoreboard objectives add kitpvp.earth_grass_arm dummy "可疑草丛落地的迟钝计时"
@@ -184,8 +235,6 @@ scoreboard objectives add kitpvp.earth_owner dummy "地球召唤物的归属编�
 scoreboard objectives add kitpvp.earth_hp dummy "Ollama 上一次的血量（Health x10）"
 scoreboard objectives add kitpvp.earth_hp_new dummy "Ollama 这一刻的血量（Health x10，比完就回写）"
 scoreboard objectives add kitpvp.earth_snow dummy "术战士细雪还剩多少刻"
-scoreboard objectives add kitpvp.minecart_life dummy "矿车还能跑多少刻（900 = 45 秒，到 0 熄火）"
-scoreboard objectives add kitpvp.skater_snd dummy "滑冰者滑行音效计时"
 scoreboard objectives add kitpvp.bee_slow_snd dummy "被大蜜蜂减速的提示音冷却（刻）"
 scoreboard objectives add kitpvp.sparky_charge dummy "电磁炮充能（0..200，满 200 放电 = 10 秒）"
 scoreboard objectives add kitpvp.sparky_beep dummy "电磁炮充能滴声计时（20 刻一响）"
@@ -278,6 +327,12 @@ team add earth_3
 team add earth_4
 team add earth_5
 team add earth_6
+team add bomb_1
+team add bomb_2
+team add bomb_3
+team add bomb_4
+team add bomb_5
+team add bomb_6
 
 tag @a remove kitpvp.selected
 tag @a remove kitpvp.invincible
@@ -336,7 +391,46 @@ scoreboard players set @a kitpvp.civil_demon_timer 0
 scoreboard players add @a kitpvp.vtid 0
 scoreboard players set @a kitpvp.soul_next 0
 scoreboard players set @a kitpvp.soul_zombie_timer 0
+scoreboard players set @a kitpvp.soul_slime_timer 0
+scoreboard players set @a kitpvp.rocket_charge 0
+scoreboard players set @a kitpvp.tep_cd 0
+scoreboard players set @a kitpvp.tep_ready 0
+scoreboard players set @a kitpvp.tep_step 0
+scoreboard players operation @a kitpvp.tep_last = @a kitpvp.tep_used
+scoreboard players add #tep_pid kitpvp.game 0
+scoreboard players set @a kitpvp.tep_cd_s 0
+scoreboard players set @a kitpvp.soul_ep_timer 0
+execute as @a run scoreboard players operation @s kitpvp.soul_ep_last = @s kitpvp.soul_ep_used
+# 传送门状态灯：两条 bossbar，橙/蓝各一条；没有门时是灰色空心方块 + 0 格进度
+# 注意：1.20.1 的 bossbar 没有 `overlay` 这个属性（notched 样式属于 `style`），写了会让整份 load.mcfunction 不加载
+bossbar add kitpvp:tep_hud_orange {"text":"□ 橙门","color":"dark_gray"}
+bossbar add kitpvp:tep_hud_blue {"text":"□ 蓝门","color":"dark_gray"}
+bossbar set kitpvp:tep_hud_orange color white
+bossbar set kitpvp:tep_hud_blue color white
+bossbar set kitpvp:tep_hud_orange style progress
+bossbar set kitpvp:tep_hud_blue style progress
+bossbar set kitpvp:tep_hud_orange value 0
+bossbar set kitpvp:tep_hud_blue value 0
+bossbar add kitpvp:tep_hud_red {"text":"□ 红门","color":"dark_gray"}
+bossbar add kitpvp:tep_hud_purple {"text":"□ 紫门","color":"dark_gray"}
+bossbar set kitpvp:tep_hud_red color white
+bossbar set kitpvp:tep_hud_purple color white
+bossbar set kitpvp:tep_hud_red style progress
+bossbar set kitpvp:tep_hud_purple style progress
+bossbar set kitpvp:tep_hud_red value 0
+bossbar set kitpvp:tep_hud_purple value 0
+# 传送门是临时实体：重载时清掉上一局残留在已加载区块里的
+kill @e[tag=kitpvp.tep_a]
+kill @e[tag=kitpvp.tep_b]
 scoreboard players set @a kitpvp.parrot_miss 0
+scoreboard players set @a kitpvp.bomb_small_cd 0
+scoreboard players set @a kitpvp.bomb_big_cd 0
+scoreboard players set @a kitpvp.bomb_fake_cd 0
+scoreboard players set @a kitpvp.bomb_track_cd 0
+scoreboard players set @a kitpvp.bomb_nuke_cd 0
+# btid 用补零保留：重载后队还在，编号必须和玩家所在队一致（同 etid / vtid）
+scoreboard players add @a kitpvp.btid 0
+execute as @a run scoreboard players operation @s kitpvp.bomb_last = @s kitpvp.bomb_used
 # 换过 criterion 的快照要重新对齐，否则 old 的快照值会一直压着新计数不触发
 execute as @a run scoreboard players operation @s kitpvp.tainted_core_last = @s kitpvp.tainted_core_used
 
@@ -344,13 +438,14 @@ scoreboard players set #global kitpvp.map 0
 scoreboard players set #global kitpvp.timer 0
 scoreboard players set #state kitpvp.game 0
 scoreboard players set #survivors kitpvp.game 0
-scoreboard players set #test kitpvp.game 0
-scoreboard players set #soul_count kitpvp.game 10
+scoreboard players set #debug kitpvp.game 0
+scoreboard players set #soul_count kitpvp.game 16
 scoreboard players set #ghost_tid kitpvp.game 0
 scoreboard players set #ghost_need_new kitpvp.game 0
 scoreboard players set #lobby kitpvp.game 0
 scoreboard players set #unready kitpvp.game 0
 scoreboard players set #ttamer kitpvp.game 0
+scoreboard players set #btid kitpvp.game 0
 scoreboard players add #vtid kitpvp.game 0
 scoreboard players add #ptid kitpvp.game 0
 scoreboard players set #pparrot kitpvp.game 0
@@ -363,6 +458,7 @@ scoreboard players set #lipurge kitpvp.game 0
 scoreboard players set #hacker_count kitpvp.game 0
 scoreboard players set #hacker_prev kitpvp.game 0
 scoreboard players set #li_soul kitpvp.game -1
+# #li_soul 自 2026-11-10 起不再使用（魂石改成常驻种子、没有时限），保留这一行只为兼容旧存档里的残留数值
 scoreboard players set #eslot kitpvp.game 0
 scoreboard players set #wolfsweep kitpvp.game 0
 

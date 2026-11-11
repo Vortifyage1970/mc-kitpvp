@@ -1,1 +1,1 @@
-give @s minecraft:potion{KitAlchemistElixir:1b,KitAlchemistSlowFall:1b,Potion:"minecraft:awkward",CustomPotionEffects:[{Id:28b,Amplifier:0b,Duration:1800,ShowParticles:0b}],CustomPotionColor:15263999,display:{Name:'{"text":"缓降药水","color":"aqua","bold":true}'}} 1
+give @s minecraft:potion{KitAlchemistElixir:1b,KitAlchemistSlowFall:1b,Potion:"minecraft:awkward",CustomPotionEffects:[{Id:28b,Amplifier:0b,Duration:1800,ShowParticles:0b}],CustomPotionColor:15263999,display:{Name:'{"text":"缓降药水","color":"aqua"}'}} 1

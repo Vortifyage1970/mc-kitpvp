@@ -1,0 +1,1 @@
+give @s minecraft:mooshroom_spawn_egg{KitBombNuke:1b,EntityTag:{Tags:["kitpvp.bomb_token","kitpvp.bomb_nuke_token"],Invisible:1b,Silent:1b,NoAI:1b,DeathLootTable:"minecraft:empty"},display:{Name:'{"text":"核弹","color":"dark_red"}'}} 1

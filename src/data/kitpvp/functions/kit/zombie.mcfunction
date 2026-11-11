@@ -7,8 +7,8 @@ tag @s add kitpvp.selected
 scoreboard players set @s kitpvp.alive 1
 scoreboard players set @s kitpvp.lives 3
 
-# 僵尸头原版没有护甲值，那 1 点靠 head 槽修饰符补（同李朱俊泽的头颅做法）
-item replace entity @s armor.head with minecraft:zombie_head{Unbreakable:1b,AttributeModifiers:[{AttributeName:"minecraft:generic.armor",Name:"kitpvp.zombie_armor",Amount:1,Operation:0,UUID:[I;14,0,0,1],Slot:"head"}]}
+# 僵尸头原版没有护甲值：这里刻意不补，头部 0 护甲（总护甲 8 → 7，2026-11-10）
+item replace entity @s armor.head with minecraft:zombie_head{Unbreakable:1b}
 item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:3033902}}
 item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:3033902}}
 item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b}

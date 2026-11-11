@@ -78,6 +78,18 @@ scoreboard players operation @s kitpvp.soul_fisher_last = @s kitpvp.soul_fisher_
 scoreboard players operation @s kitpvp.soul_zombie_last = @s kitpvp.soul_zombie_used
 scoreboard players operation @s kitpvp.soul_earth_last = @s kitpvp.soul_earth_used
 scoreboard players operation @s kitpvp.soul_li_last = @s kitpvp.soul_li_used
+scoreboard players operation @s kitpvp.soul_tamer_last = @s kitpvp.soul_tamer_used
+scoreboard players operation @s kitpvp.soul_sun_last = @s kitpvp.soul_sun_used
+scoreboard players operation @s kitpvp.soul_mercury_last = @s kitpvp.soul_mercury_used
+scoreboard players operation @s kitpvp.soul_venus_last = @s kitpvp.soul_venus_used
+scoreboard players operation @s kitpvp.soul_slime_last = @s kitpvp.soul_slime_used
+scoreboard players set @s kitpvp.bomb_small_cd 0
+scoreboard players set @s kitpvp.bomb_big_cd 0
+scoreboard players set @s kitpvp.bomb_fake_cd 0
+scoreboard players set @s kitpvp.bomb_track_cd 0
+scoreboard players set @s kitpvp.bomb_nuke_cd 0
+scoreboard players add @s kitpvp.btid 0
+scoreboard players operation @s kitpvp.bomb_last = @s kitpvp.bomb_used
 scoreboard players operation @s kitpvp.tainted_turret_last = @s kitpvp.tainted_turret_used
 scoreboard players operation @s kitpvp.tainted_core_last = @s kitpvp.tainted_core_used
 scoreboard players set @s kitpvp.turret_heal_cd 0
@@ -89,6 +101,22 @@ attribute @s minecraft:generic.max_health modifier remove 00000000-0000-0000-000
 tag @s remove kitpvp.soul_fisher_active
 tag @s remove kitpvp.arrow_user
 tag @s remove kitpvp.soul_ghost_active
+tag @s remove kitpvp.soul_venus_owner
+tag @s remove kitpvp.soul_sun_owner
+# 蓄力火箭跳：tag 是"能不能蓄力"的总开关（里·史莱姆与史莱姆魂石共用），换职业必须摘掉
+tag @s remove kitpvp.rocket_jump
+tag @s remove kitpvp.rocket_full
+tag @s remove kitpvp.rocket_air
+tag @s remove kitpvp.soul_slime_active
+scoreboard players set @s kitpvp.rocket_charge 0
+scoreboard players operation @s kitpvp.tep_last = @s kitpvp.tep_used
+scoreboard players set @s kitpvp.tep_cd 0
+scoreboard players set @s kitpvp.tep_cd_s 0
+scoreboard players operation @s kitpvp.soul_ep_last = @s kitpvp.soul_ep_used
+tag @s remove kitpvp.soul_ep_active
+scoreboard players set @s kitpvp.tep_ready 0
+scoreboard players set @s kitpvp.tep_step 0
+scoreboard players set @s kitpvp.soul_slime_timer 0
 scoreboard players set @s kitpvp.soul_ghost_timer 0
 scoreboard players set @s kitpvp.ghost_minion_cd 0
 scoreboard players operation @s kitpvp.soul_ghost_last = @s kitpvp.soul_ghost_used
@@ -135,6 +163,8 @@ scoreboard players operation @s kitpvp.earth_last = @s kitpvp.earth_used
 
 # 水星常驻的 +0.2 移速是玩家身上的属性修饰符，不摘掉会跟着带到别的职业（不存在时该命令静默失败）
 attribute @s minecraft:generic.movement_speed modifier remove 00000000-0000-0000-0000-000000000066
+# Notch 模式的 +10 攻击（不存在时静默失败）
+attribute @s minecraft:generic.attack_damage modifier remove 00000000-0000-0000-0000-000000000077
 
 attribute @s minecraft:generic.max_health base set 20
 attribute @s minecraft:generic.movement_speed base set 0.1

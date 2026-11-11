@@ -7,8 +7,10 @@ scoreboard players set @s kitpvp.alive 1
 scoreboard players set @s kitpvp.lives 3
 
 # 高饱和绿 65280（= 0x00FF00）；混搭铁胸甲 / 锁链护腿 / 钻石靴子
+# 铁胸甲显式写 armor 6 + armor_toughness -1：写 AttributeModifiers 会整体取代默认修饰符，
+# 所以护甲值必须一起写；-1 韧性是 2026-11-10 的要求（负韧性 = 被穿甲打得更疼）
 item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,display:{color:65280}}
-item replace entity @s armor.chest with minecraft:iron_chestplate{Unbreakable:1b}
+item replace entity @s armor.chest with minecraft:iron_chestplate{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.civil_armor_chest",Amount:6,Operation:0,UUID:[I;87,0,0,1],Slot:"chest"},{AttributeName:"generic.armor_toughness",Name:"kitpvp.civil_toughness_chest",Amount:-1,Operation:0,UUID:[I;87,0,0,2],Slot:"chest"}]}
 item replace entity @s armor.legs with minecraft:chainmail_leggings{Unbreakable:1b}
 item replace entity @s armor.feet with minecraft:diamond_boots{Unbreakable:1b}
 

@@ -18,17 +18,29 @@ gamemode survival @a[tag=kitpvp.selected]
 
 function kitpvp:map/distribute
 
+# 地图规定的天光：君士坦丁堡正午定格、地球白天定格（结算时 game/end 把 doDaylightCycle 放回 true）
+execute if score #global kitpvp.map matches 10 run gamerule doDaylightCycle false
+execute if score #global kitpvp.map matches 10 run time set noon
+execute if score #global kitpvp.map matches 7 run gamerule doDaylightCycle false
+execute if score #global kitpvp.map matches 7 run time set day
+execute if score #global kitpvp.map matches 1 run time set 11000
+execute if score #global kitpvp.map matches 2 run time set day
+execute if score #global kitpvp.map matches 3 run time set night
+execute if score #global kitpvp.map matches 9 run time set night
+
 # 队槽每局重建：先退出上局残留的队伍，再清空槽位
 # 否则上局留下的编号会让两名同职业玩家落进同一队，召唤物从此互不攻击（见 04 §十四）
-# 地球 / 幽灵 / 炮台 / 里·驯兽师四套队槽各自独立，而一名玩家只可能在其中一套里，一次 team leave @a 就够
+# 地球 / 幽灵 / 炮台 / 里·驯兽师 / 炸弹兵五套队槽各自独立，而一名玩家只可能在其中一套里，一次 team leave @a 就够
 team leave @a
 scoreboard players set @a kitpvp.etid 0
 scoreboard players set @a kitpvp.tid 0
 scoreboard players set @a kitpvp.ttid 0
 scoreboard players set @a kitpvp.ttamer_tid 0
+scoreboard players set @a kitpvp.btid 0
 scoreboard players set #eslot kitpvp.game 0
 scoreboard players set #ghost_tid kitpvp.game 0
 scoreboard players set #ttamer kitpvp.game 0
+scoreboard players set #btid kitpvp.game 0
 scoreboard players set #hacker_prev kitpvp.game 0
 
 # 上一局留在没加载区块里的驯兽师狼：本局开头按 tag 再扫一次（见 04 §五）

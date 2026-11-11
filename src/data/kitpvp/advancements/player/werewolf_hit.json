@@ -1,7 +1,12 @@
 {
   "criteria": {
     "hit": {
-      "trigger": "minecraft:player_hurt_entity"
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:player"
+        }
+      }
     }
   },
   "rewards": {

@@ -1,7 +1,11 @@
 # 1.20.1 无 /random：用 1in2 谓词连掷 7 次拼出 0..127，取模得到池内序号（0..pool_size-1）。
-# 序号到真实编号的映射写在末尾——表职业 1..12、14 与 18，里职业 23..25 与 27..30，星象 65..68 与 76，抽象 87..88，编号不连续也能进池。
+# 序号到真实编号的映射写在末尾——表职业 1..12、14、18 与 19，里职业 23..25 与 27..32，星象 65..68 与 76，抽象 87..88，编号不连续也能进池。
 # 新增职业时改 #pool_size 并在末尾追加一行映射。
-scoreboard players set #pool_size kitpvp.game 28
+# 先按"旧职业"做一次离场清理：随机池是先改 kit 分数再发装备（不走 kit/<名> 的 clear_player 前置），
+# 不清的话 clear_player 里那些"离开某职业要带走的东西"（金星舔狗 / 冥王星鹦鹉）判断不到旧职业（见 04 §十四）。
+function kitpvp:util/clear_player
+
+scoreboard players set #pool_size kitpvp.game 31
 
 scoreboard players set @s kitpvp.rng 0
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 1
@@ -42,5 +46,8 @@ execute if score @s kitpvp.rng matches 24 run scoreboard players set @s kitpvp.k
 execute if score @s kitpvp.rng matches 25 run scoreboard players set @s kitpvp.kit 68
 execute if score @s kitpvp.rng matches 26 run scoreboard players set @s kitpvp.kit 14
 execute if score @s kitpvp.rng matches 27 run scoreboard players set @s kitpvp.kit 76
+execute if score @s kitpvp.rng matches 28 run scoreboard players set @s kitpvp.kit 31
+execute if score @s kitpvp.rng matches 29 run scoreboard players set @s kitpvp.kit 19
+execute if score @s kitpvp.rng matches 30 run scoreboard players set @s kitpvp.kit 32
 
 function kitpvp:util/give_kit
