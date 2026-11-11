@@ -49,7 +49,6 @@ scoreboard players set @s kitpvp.tep_cd_s 0
 scoreboard players operation @s kitpvp.soul_ep_last = @s kitpvp.soul_ep_used
 tag @s remove kitpvp.soul_ep_active
 scoreboard players set @s kitpvp.tep_ready 0
-scoreboard players set @s kitpvp.tep_step 0
 scoreboard players operation @s kitpvp.ender_last = @s kitpvp.ender_used
 scoreboard players set @s kitpvp.ender_ammo 0
 scoreboard players operation @s kitpvp.werewolf_last = @s kitpvp.werewolf_used

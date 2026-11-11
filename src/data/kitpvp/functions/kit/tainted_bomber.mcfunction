@@ -11,13 +11,7 @@ give @s minecraft:cooked_beef 12
 
 scoreboard players set @s kitpvp.lives 3
 
-# 令牌开局发满：小炸弹 5 / 大炸弹 5 / 跟踪炸弹 2 / 核弹 5
-function kitpvp:skill/bomber/give_small
-function kitpvp:skill/bomber/give_small
-function kitpvp:skill/bomber/give_small
-function kitpvp:skill/bomber/give_small
-function kitpvp:skill/bomber/give_small
-function kitpvp:skill/bomber/give_big
+# 令牌开局发满：大炸弹 4 / 跟踪炸弹 2 / 核弹 5（里不再发小炸弹）
 function kitpvp:skill/bomber/give_big
 function kitpvp:skill/bomber/give_big
 function kitpvp:skill/bomber/give_big

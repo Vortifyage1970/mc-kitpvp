@@ -20,11 +20,10 @@ function kitpvp:skill/bomber/give_nuke
 function kitpvp:skill/bomber/give_nuke
 function kitpvp:skill/bomber/give_nuke
 
-# 其余令牌开局发满：小炸弹 3 / 大炸弹 3 / 假核弹 1 / 跟踪炸弹 1
+# 其余令牌开局发满：小炸弹 3 / 大炸弹 2 / 假核弹 1 / 跟踪炸弹 1
 function kitpvp:skill/bomber/give_small
 function kitpvp:skill/bomber/give_small
 function kitpvp:skill/bomber/give_small
-function kitpvp:skill/bomber/give_big
 function kitpvp:skill/bomber/give_big
 function kitpvp:skill/bomber/give_big
 function kitpvp:skill/bomber/give_fake
