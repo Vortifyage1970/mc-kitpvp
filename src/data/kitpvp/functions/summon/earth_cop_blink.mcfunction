@@ -6,3 +6,6 @@
 summon minecraft:minecart ~ ~ ~ {Tags:["kitpvp.earth_mount","kitpvp.earth_cop_cart"],Invulnerable:1b,Passengers:[{id:"minecraft:zombie",Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_cop_blink"],CustomName:'{"text":"交警","color":"yellow"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:15.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:15.0}],HandItems:[{id:"minecraft:end_rod",Count:1b},{id:"minecraft:end_rod",Count:1b}],ArmorItems:[{},{},{},{id:"minecraft:lodestone",Count:1b}]}]}
 scoreboard players set @e[tag=kitpvp.earth_cop_cart] kitpvp.earth_cd_a 200
 scoreboard players set @e[tag=kitpvp.earth_cop_blink] kitpvp.earth_cd_a 1
+# 召唤者记号：闪现判目标时排除他（cop_blink_jaunt 里先打 tag 再排除）
+scoreboard players set @a kitpvp.cop_summoner 0
+scoreboard players set @s kitpvp.cop_summoner 1

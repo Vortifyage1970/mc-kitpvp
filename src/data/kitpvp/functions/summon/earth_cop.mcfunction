@@ -10,3 +10,6 @@ effect give @e[tag=kitpvp.earth_cop] minecraft:speed infinite 1 true
 effect give @e[tag=kitpvp.earth_cop] minecraft:strength infinite 0 true
 # 车里那 10 秒额外抗性 IV：时长给 10 秒（= 200 刻 = 矿车寿命），下车时刚好自己到期，不用另做清理
 effect give @e[tag=kitpvp.earth_cop] minecraft:resistance 10 3 true
+# 召唤者记号：闪现版交警靠这个分数把他排除在"截谁"之外（手动 /function 召的也有，owner 那条路不必要）
+scoreboard players set @a kitpvp.cop_summoner 0
+scoreboard players set @s kitpvp.cop_summoner 1

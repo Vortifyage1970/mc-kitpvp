@@ -7,6 +7,9 @@
 kill @e[tag=kitpvp.earth_lowflyer_carrier]
 kill @e[tag=kitpvp.earth_lowflyer_body]
 kill @e[tag=kitpvp.lf_anchor]
+# 召唤者记号：吊舱骷髅的射击由脚本负责，只打不是召唤者的人（lf_summoner=1）
+scoreboard players set @a kitpvp.lf_summoner 0
+scoreboard players set @s kitpvp.lf_summoner 1
 summon minecraft:marker ~ ~1 ~ {Tags:["kitpvp.lf_anchor"]}
 scoreboard players set #lf_wait kitpvp.game 60
 schedule function kitpvp:summon/earth_lowflyer_a 1t replace

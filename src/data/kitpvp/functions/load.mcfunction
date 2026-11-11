@@ -484,3 +484,5 @@ execute as @e[tag=kitpvp.displayitem] run data merge entity @s {Invulnerable:1b}
 say Kitpvp loaded · build 2026-11-06 深夜 3（内卫烟 ×3 / 深池 / 电磁炮 / 双星）
 scoreboard objectives add kitpvp.dl_summoner dummy "这一只深池飞行兵是谁召的（1 = 召唤者本人，不索敌）"
 scoreboard objectives add kitpvp.mh_summoner dummy "这一只井盖是谁埋的（1 = 召唤者本人，不触发）"
+scoreboard objectives add kitpvp.cop_summoner dummy "这一只交警是谁召的（1 = 召唤者本人，闪现不截他）"
+scoreboard objectives add kitpvp.lf_summoner dummy "这一只低空飞行器是谁召的（1 = 召唤者本人，弓箭手不射他）"
