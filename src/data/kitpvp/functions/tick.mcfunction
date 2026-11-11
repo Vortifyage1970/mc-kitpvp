@@ -369,7 +369,7 @@ execute if entity @e[tag=kitpvp.earth_cyclic] run function kitpvp:skill/earth/ri
 execute as @e[tag=kitpvp.earth_oracle,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/oracle_speak
 # 磁铁：每刻吸掉落物、拽靠近的玩家
 execute if entity @e[tag=kitpvp.earth_magnet] run function kitpvp:skill/earth/magnet_pull
-# 内卫：出场那一下由 summon/earth_dominion 自己放完（2026-11-10 改成"仅出场时放一次"），这里不再循环
+execute as @e[tag=kitpvp.earth_dominion,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/dominion_firework
 # 飞行器（地球·69）：共生（吊舱死则母体死）+ 补绳 + 每 10 秒俯冲 50 格
 execute as @e[tag=kitpvp.earth_flyer_carrier] at @s run function kitpvp:skill/earth/flyer_tick
 # 低空飞行器（地球·73）：蝙蝠吊着骷髅在头顶 10 格跟着人走，不俯冲，靠骷髅放箭
