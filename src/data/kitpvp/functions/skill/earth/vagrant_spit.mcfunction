@@ -1,7 +1,8 @@
-# 流浪汉吐口水：由 advancement kitpvp:player/vagrant_spit 触发（@s = 真的打了流浪汉的那名玩家）
+# 流浪汉吐口水：由 advancement kitpvp:player/vagrant_spit 触发（@s = 被这只流浪汉打中的那名玩家）
+# 触发器是 entity_hurt_player + damage.source_entity.nbt 匹配 Tags:["kitpvp.earth_vagrant"]
+#   —— 也就是"流浪汉动手打了谁"，只算挨打的那一个；站在旁边的人不会中
 # 首行必须 revoke：advancement 的 rewards 只在"完成"那一刻发放一次，不 revoke 下次就不再触发
 advancement revoke @s only kitpvp:player/vagrant_spit
-# 只在玩家打了这只流浪汉时进这里 —— 不像旧的 tick 那套"挨打 + 3 格内有流浪汉"，站在旁边的人不会被误伤
 # 排查用计数：每次 +1（/scoreboard players get @s kitpvp.earth_hit_hits）
 scoreboard players add @s kitpvp.earth_hit_hits 1
 
