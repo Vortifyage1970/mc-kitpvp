@@ -1,0 +1,21 @@
+{
+  "criteria": {
+    "hurt": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "damage": {
+          "source_entity": {
+            "type": "minecraft:zombie",
+            "nbt": "{Tags:[\"kitpvp.earth_carto\"]}"
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    ["hurt"]
+  ],
+  "rewards": {
+    "function": "kitpvp:skill/earth/carto_try"
+  }
+}

@@ -386,8 +386,8 @@ execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=1..}] at @s run
 execute as @e[tag=kitpvp.earth_noteblock] store result score @s kitpvp.nb_hp run data get entity @s Health 100
 execute as @e[tag=kitpvp.earth_noteblock] if score @s kitpvp.nb_hp < @s kitpvp.nb_prev run function kitpvp:skill/earth/noteblock_note
 execute as @e[tag=kitpvp.earth_noteblock] run scoreboard players operation @s kitpvp.nb_prev = @s kitpvp.nb_hp
-# 制图台：玩家挨打那一帧（HurtTime 9）+ 3 格内有制图台 ⇒ 刷一条"制图台提醒您 X"（10 刻冷却）
-execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_carto,distance=..3] unless score @s kitpvp.earth_cd_a matches 1.. run function kitpvp:skill/earth/carto_line
+# 制图台：判定已改由 advancement kitpvp:player/carto_hit 驱动（伤害来源 = 带 earth_carto 的僵尸），只发给挨打的那一个人
+# 旧写法 `@a[HurtTime:9s] + 3 格内有制图台` 不看伤害来源，站在制图台旁边摔伤、被别的怪打都会弹 pid
 # 讲解石：掉一滴血就离场（不做任何减伤/免疫，一碰就没）
 execute as @e[tag=kitpvp.earth_explainer] store result score @s kitpvp.nb_hp run data get entity @s Health 100
 execute as @e[tag=kitpvp.earth_explainer] if score @s kitpvp.nb_hp < @s kitpvp.nb_prev run function kitpvp:skill/earth/explainer_leave
