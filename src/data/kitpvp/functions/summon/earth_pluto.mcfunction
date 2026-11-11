@@ -14,3 +14,5 @@ scoreboard players set @e[tag=kitpvp.pl_new] kitpvp.pluto_miss 0
 tag @e[tag=kitpvp.pl_new] remove kitpvp.pl_new
 execute as @e[tag=kitpvp.earth_pluto_carrier] run effect give @s minecraft:invisibility infinite 0 true
 execute as @e[tag=kitpvp.earth_pluto_carrier] run effect give @s minecraft:resistance infinite 4 true
+# 尸壳（外壳）常驻虚弱 I：近战伤害砍半，靠"打不动人、但抗性 V 也打不死"占点
+execute as @e[tag=kitpvp.earth_pluto_carrier] run effect give @s minecraft:weakness infinite 0 true

@@ -16,4 +16,4 @@ execute if score #brw kitpvp.game matches 4 run summon minecraft:item ~ ~1.2 ~ {
 scoreboard players set @e[tag=kitpvp.brw_potion] kitpvp.brw_life 0
 playsound minecraft:block.brewing_stand.brew block @a ~ ~ ~ 0.6 0.9
 # 15 秒 = 300 刻
-scoreboard players set @s kitpvp.earth_cd_a 300
+scoreboard players set @s kitpvp.earth_cd_a 200

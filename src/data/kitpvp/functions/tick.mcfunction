@@ -274,8 +274,6 @@ execute as @e[tag=kitpvp.earth_mortar,scores={kitpvp.earth_cd_a=..0}] at @s run 
 # 迫击炮的鱼弹：抛物线飞行 + 落地/贴身引爆
 execute as @e[tag=kitpvp.mo_shell] at @s run function kitpvp:skill/earth/mortar_shell_tick
 # 反装甲步兵：装填/开炮状态机 + 它的高速炮弹
-execute as @e[tag=kitpvp.earth_antitank] at @s run function kitpvp:skill/earth/antitank_tick
-execute as @e[tag=kitpvp.at_shell] at @s run function kitpvp:skill/earth/antitank_shell_tick
 # 地球·79 土星：绕身的「轨道」蠹虫先推相位再摆位置（8 格一圈，每 4 刻一格 = 32 刻绕一圈）
 scoreboard players add #sat_clock kitpvp.game 1
 execute if score #sat_clock kitpvp.game matches 4.. run scoreboard players add @e[tag=kitpvp.sat_orbit] kitpvp.sat_phase 1
@@ -366,18 +364,16 @@ function kitpvp:skill/earth/nograv_chase
 # 环肽（地球·47，实验）：整圈每刻贴到最近的活玩家周围；#ring_spin=1 时四方位轮换（绕圈），=0 就固定方位跟着走
 execute if entity @e[tag=kitpvp.earth_cyclic] run function kitpvp:skill/earth/ring_follow
 # 预言家：每 15 秒开口（靠 earth_cd_a 归零触发）
-execute as @e[tag=kitpvp.earth_oracle,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/oracle_speak
 # 磁铁：每刻吸掉落物、拽靠近的玩家
 execute if entity @e[tag=kitpvp.earth_magnet] run function kitpvp:skill/earth/magnet_pull
 execute as @e[tag=kitpvp.earth_dominion,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/dominion_firework
 # 飞行器（地球·69）：共生（吊舱死则母体死）+ 补绳 + 每 10 秒俯冲 50 格
-execute as @e[tag=kitpvp.earth_flyer_carrier] at @s run function kitpvp:skill/earth/flyer_tick
 # 低空飞行器（地球·73）：蝙蝠吊着骷髅在头顶 10 格跟着人走，不俯冲，靠骷髅放箭
 execute as @e[tag=kitpvp.earth_lowflyer_carrier] at @s run function kitpvp:skill/earth/lowflyer_tick
 # 变色者：每 5 秒换一次头顶方块（earth_cd_a 由 tick 统一递减）
 execute as @e[tag=kitpvp.earth_colorchanger,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/colorchanger_shift
 # 井盖：装填期（earth_cd_a，召唤后 2 秒）走完之后，头顶 2.5 格内有活人就破土（dy≈2 ⇒ 站在正上方即命中）
-execute as @e[tag=kitpvp.earth_manhole,scores={kitpvp.earth_cd_a=..0}] at @s if entity @a[distance=..2.5,gamemode=!spectator,tag=!kitpvp.spectator,nbt=!{Health:0.0f}] run function kitpvp:skill/earth/manhole_pop
+execute as @e[tag=kitpvp.earth_manhole,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/manhole_try
 # 篝火：挨打就点燃。判据是"血量变少了"（每刻读一次 Health×100 与上一帧比）—— 比 nbt HurtTime 靠谱，任何来源的掉血都算
 execute as @e[tag=kitpvp.earth_campfire] store result score @s kitpvp.fire_hp run data get entity @s Health 100
 execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=..0}] if score @s kitpvp.fire_hp < @s kitpvp.fire_prev run function kitpvp:skill/earth/campfire_ignite
@@ -412,7 +408,6 @@ execute as @e[tag=kitpvp.earth_jar] at @s run tp @e[tag=kitpvp.earth_jar_guard,d
 execute as @e[tag=kitpvp.earth_jar] at @s run scoreboard players operation @e[tag=kitpvp.earth_jar_guard,distance=..5,limit=1,sort=nearest] kitpvp.earth_owner = @s kitpvp.earth_owner
 execute as @e[tag=kitpvp.earth_jar_guard] at @s unless entity @e[tag=kitpvp.earth_jar,distance=..3] run function kitpvp:skill/earth/jar_pop
 # 蜂巢：被砍中的那一帧（HurtTime 9）给 8 格内的玩家塞"眩晕"，第 2 下翻倍、第 3 下起每次 3 个
-execute as @e[tag=kitpvp.earth_hive,nbt={HurtTime:9s}] at @s run function kitpvp:skill/earth/hive_hit
 # 酿造台：每 15 秒（300 刻）往脚边丢一瓶随机药水
 execute as @e[tag=kitpvp.earth_brewer,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/brewer_drop
 # 酿造台药水：落地（OnGround）或 30 刻还没落地就砸开，4 格内的玩家吃效果

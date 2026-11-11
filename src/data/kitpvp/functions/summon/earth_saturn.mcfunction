@@ -1,7 +1,7 @@
 # 地球·79 土星：装备与弓箭手同款（皮革胸甲 + 铁腿 + 铁靴，白板弓），头是泥砖
 # 身边一圈 8 只「轨道」蠹虫——不落地、不吃重力，靠 saturn_tick 按 8 个位置绕圈
 # 不吃击退：knockback_resistance 1.0（和炮台一样）
-summon minecraft:skeleton ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_saturn"],CustomName:'{"text":"土星","color":"gold"}',CustomNameVisible:1b,Silent:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:20.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:20.0},{Name:"minecraft:generic.knockback_resistance",Base:1.0}],ArmorItems:[{id:"minecraft:iron_boots",Count:1b},{id:"minecraft:iron_leggings",Count:1b},{id:"minecraft:leather_chestplate",Count:1b},{id:"minecraft:mud_bricks",Count:1b}],HandItems:[{id:"minecraft:bow",Count:1b},{}]}
+summon minecraft:skeleton ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_saturn"],CustomName:'{"text":"土星","color":"gold"}',CustomNameVisible:1b,Silent:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:10.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:10.0},{Name:"minecraft:generic.knockback_resistance",Base:1.0}],ArmorItems:[{id:"minecraft:iron_boots",Count:1b},{id:"minecraft:iron_leggings",Count:1b},{id:"minecraft:leather_chestplate",Count:1b},{id:"minecraft:mud_bricks",Count:1b}],HandItems:[{id:"minecraft:bow",Count:1b},{}]}
 
 # 八条轨道：每只召出来先打 sat_new，谁身上还挂着 sat_new 就只有它一只，相位就不会点错人
 kill @e[tag=kitpvp.sat_orbit,distance=..6]

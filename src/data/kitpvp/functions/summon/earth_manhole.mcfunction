@@ -4,3 +4,5 @@
 # earth_cd_a 40 = 埋好之后有 2 秒"装填期"，这期间踩上去不会触发（也不会被召唤者自己当场顶出来）
 summon minecraft:skeleton ~ ~-2 ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_manhole"],CustomName:'{"text":"井盖","color":"gray"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Silent:1b,NoAI:1b,Invulnerable:1b,Health:20.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:20.0}],HandItems:[{},{}],ArmorItems:[{},{},{},{id:"minecraft:suspicious_gravel",Count:1b}]}
 scoreboard players set @e[tag=kitpvp.earth_manhole] kitpvp.earth_cd_a 40
+scoreboard players set @a kitpvp.mh_summoner 0
+scoreboard players set @s kitpvp.mh_summoner 1
