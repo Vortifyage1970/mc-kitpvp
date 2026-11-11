@@ -9,7 +9,7 @@ tellraw @s [{"text":"│ 头盔：","color":"gray"},{"text":"铁头盔","color":
 tellraw @s [{"text":"│ 胸甲：","color":"gray"},{"text":"紫黑皮革胸甲","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:leather_chestplate","Count":1,"tag":"{display:{color:6954928}}"}}}]
 tellraw @s [{"text":"│ 护腿：","color":"gray"},{"text":"紫黑皮革护腿","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:leather_leggings","Count":1,"tag":"{display:{color:6954928}}"}}}]
 tellraw @s [{"text":"│ 靴子：","color":"gray"},{"text":"纯黑皮革靴（摔落保护 V）","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:leather_boots","Count":1,"tag":"{Enchantments:[{id:\"minecraft:feather_falling\",lvl:5}],display:{color:0}}"}}}]
-tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"传送枪","color":"light_purple","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:warped_fungus_on_a_stick","Count":1}}},{"text":"、铁剑、熟牛排 x12、紫颂果 x24","color":"white"}]
+tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"传送枪","color":"light_purple","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:spyglass","Count":1}}},{"text":"、铁剑、熟牛排 x12、紫颂果 x24","color":"white"}]
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"—","color":"dark_gray"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"传送枪","color":"light_purple"},{"text":" —— 右键开橙门，潜行右键开蓝门（20 格射线、只能开在实心墙面）；全场只允许一对，门活 ","color":"white"},{"text":"20","color":"gold"},{"text":" 秒、每扇门 ","color":"white"},{"text":"2","color":"gold"},{"text":" 秒装填。所有人都能穿（玩家 / 召唤物 / 箭 / 掉落物均可），出门后 ","color":"white"},{"text":"3","color":"gold"},{"text":" 秒内不会再被传送","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"white"}]
