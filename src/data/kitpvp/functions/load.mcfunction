@@ -97,6 +97,7 @@ scoreboard objectives add kitpvp.soul_timer dummy "魂石倒计时（marker / �
 advancement revoke @a only kitpvp:player/lobby_launch
 advancement revoke @a only kitpvp:player/vagrant_spit
 advancement revoke @a only kitpvp:player/coser_give
+advancement revoke @a only kitpvp:player/spoon_hit
 
 # 新魂石的 last 快照：/reload 时把在线玩家的快照对齐到当前 used，否则 `if score used > last` 因为 last 不存在而永远不成立
 scoreboard players operation @a kitpvp.soul_tamer_last = @a kitpvp.soul_tamer_used

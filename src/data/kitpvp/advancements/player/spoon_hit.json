@@ -1,0 +1,21 @@
+{
+  "criteria": {
+    "hurt": {
+      "trigger": "minecraft:entity_hurt_player",
+      "conditions": {
+        "damage": {
+          "source_entity": {
+            "type": "minecraft:skeleton",
+            "nbt": "{Tags:[\"kitpvp.earth_spoon\"]}"
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    ["hurt"]
+  ],
+  "rewards": {
+    "function": "kitpvp:skill/earth/spoon_try"
+  }
+}

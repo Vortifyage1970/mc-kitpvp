@@ -420,8 +420,8 @@ execute as @e[tag=kitpvp.brw_potion,scores={kitpvp.brw_life=30..}] at @s run fun
 # 误判：被别的僵尸蹭一下、同时 3 格内正好站着一只术战士/流浪汉也会算数（单人自测就用这个特性）
 execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_spellblade,distance=..3] run function kitpvp:skill/earth/spellblade_hit
 # 流浪汉吐口水的判定已改由 advancement kitpvp:player/vagrant_spit 驱动（只有真打了它的那名玩家会中），这里不再扫描
-# 勺子：玩家挨打那一帧、1.6 格内贴着一只勺子，就把主手的物品塞进背包（判定的是"勺子打人"，不是"勺子被打"）
-execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_spoon,distance=..1.5] run function kitpvp:skill/earth/spoon_hit
+# 勺子：判定已改由 advancement kitpvp:player/spoon_hit 驱动（伤害来源 = 带 earth_spoon 的骷髅，近战和箭都算），这里不再扫描
+# 旧写法 `@a[nbt={HurtTime:9s}] + 1.5 格内有勺子` 有两个毛病：① 不管伤害是谁打的，站在勺子旁边摔伤也算；② 骷髅远程射中时距离远超 1.5，箭伤永远不触发
 # 交警：矿车只是出场载具，200 刻（10 秒）到点撤掉，人自己落地继续走
 execute as @e[tag=kitpvp.earth_cop_cart,scores={kitpvp.earth_cd_a=..0}] run kill @s
 # 超凡升天：60 刻后开始漂浮，300 刻后离场（tag 区分两个阶段）
