@@ -320,7 +320,7 @@ execute as @a[scores={kitpvp.kit=32,kitpvp.alive=1},tag=!kitpvp.spectator] at @s
 execute as @a[scores={kitpvp.kit=19,kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/bomber/refill
 execute as @a[scores={kitpvp.kit=32,kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/tainted_bomber/refill
 
-# 补货计时：表的三个 + 假核弹 + 里的（共享冷却照样各算各的计时） + 核弹
+# 补货计时：表四个（小/大/假/跟踪）+ 里三个（大/跟踪/核弹），各算各的、用掉才起计
 execute as @a[scores={kitpvp.bomb_small_cd=1..}] run scoreboard players remove @s kitpvp.bomb_small_cd 1
 execute as @a[scores={kitpvp.bomb_big_cd=1..}] run scoreboard players remove @s kitpvp.bomb_big_cd 1
 execute as @a[scores={kitpvp.bomb_fake_cd=1..}] run scoreboard players remove @s kitpvp.bomb_fake_cd 1
