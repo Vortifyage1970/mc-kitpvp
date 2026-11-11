@@ -1,9 +1,9 @@
 # 随机召一只生灵：3 轮 7 位拼成 0..2097151，再对"已实现的种类数"取模
-# ⚠ 不能只用 1 轮 7 位（0..127）直接对种类数取模：128 不是 76 的倍数，前面的编号会变成双倍概率
-#   3 轮一共 21 位，2097152 % 76 = 8，相对偏差约万分之三，统计上就是等概率
-# ⚠ 取模用的是实现数（76），不是 2 的幂：新增生灵时同时加一行 + 把这个数加一
+# ⚠ 不能只用 1 轮 7 位（0..127）直接对种类数取模：128 不是 75 的倍数，前面的编号会变成双倍概率
+#   3 轮一共 21 位，2097152 % 75 = 2，相对偏差约万分之三，统计上就是等概率
+# ⚠ 取模用的是实现数（75），不是 2 的幂：新增生灵时同时加一行 + 把这个数加一
 # 只负责"掷 + 召"：归属（link）、补货冷却、播报由调用方决定
-scoreboard players set #pool_size kitpvp.game 76
+scoreboard players set #pool_size kitpvp.game 75
 scoreboard players set #flip128 kitpvp.game 128
 
 scoreboard players set @s kitpvp.rng 0
@@ -89,23 +89,22 @@ execute if score @s kitpvp.rng matches 52 run function kitpvp:summon/earth_spoon
 execute if score @s kitpvp.rng matches 53 run function kitpvp:summon/earth_hydrator
 execute if score @s kitpvp.rng matches 54 run function kitpvp:summon/earth_capitalist
 execute if score @s kitpvp.rng matches 55 run function kitpvp:summon/earth_leaker
-execute if score @s kitpvp.rng matches 56 run function kitpvp:summon/earth_magnet
-execute if score @s kitpvp.rng matches 57 run function kitpvp:summon/earth_colorchanger
-execute if score @s kitpvp.rng matches 58 run function kitpvp:summon/earth_manhole
-execute if score @s kitpvp.rng matches 59 run function kitpvp:summon/earth_campfire
-execute if score @s kitpvp.rng matches 60 run function kitpvp:summon/earth_noteblock
-execute if score @s kitpvp.rng matches 61 run function kitpvp:summon/earth_carto
-execute if score @s kitpvp.rng matches 62 run function kitpvp:summon/earth_explainer
-execute if score @s kitpvp.rng matches 63 run function kitpvp:summon/earth_janitor
-execute if score @s kitpvp.rng matches 64 run function kitpvp:summon/earth_tandem
-execute if score @s kitpvp.rng matches 65 run function kitpvp:summon/earth_mortar
-execute if score @s kitpvp.rng matches 66 run function kitpvp:summon/earth_supporter_fast
-execute if score @s kitpvp.rng matches 67 run function kitpvp:summon/earth_supporter_slow
-execute if score @s kitpvp.rng matches 68 run function kitpvp:summon/earth_lowflyer
-execute if score @s kitpvp.rng matches 69 run function kitpvp:summon/earth_jar
-execute if score @s kitpvp.rng matches 70 run function kitpvp:summon/earth_hive
-execute if score @s kitpvp.rng matches 71 run function kitpvp:summon/earth_brewer
-execute if score @s kitpvp.rng matches 72 run function kitpvp:summon/earth_jar_small
-execute if score @s kitpvp.rng matches 73 run function kitpvp:summon/earth_saturn
-execute if score @s kitpvp.rng matches 74 run function kitpvp:summon/earth_pluto
-execute if score @s kitpvp.rng matches 75 run function kitpvp:summon/earth_deserter
+execute if score @s kitpvp.rng matches 56 run function kitpvp:summon/earth_colorchanger
+execute if score @s kitpvp.rng matches 57 run function kitpvp:summon/earth_manhole
+execute if score @s kitpvp.rng matches 58 run function kitpvp:summon/earth_campfire
+execute if score @s kitpvp.rng matches 59 run function kitpvp:summon/earth_noteblock
+execute if score @s kitpvp.rng matches 60 run function kitpvp:summon/earth_carto
+execute if score @s kitpvp.rng matches 61 run function kitpvp:summon/earth_explainer
+execute if score @s kitpvp.rng matches 62 run function kitpvp:summon/earth_janitor
+execute if score @s kitpvp.rng matches 63 run function kitpvp:summon/earth_tandem
+execute if score @s kitpvp.rng matches 64 run function kitpvp:summon/earth_mortar
+execute if score @s kitpvp.rng matches 65 run function kitpvp:summon/earth_supporter_fast
+execute if score @s kitpvp.rng matches 66 run function kitpvp:summon/earth_supporter_slow
+execute if score @s kitpvp.rng matches 67 run function kitpvp:summon/earth_lowflyer
+execute if score @s kitpvp.rng matches 68 run function kitpvp:summon/earth_jar
+execute if score @s kitpvp.rng matches 69 run function kitpvp:summon/earth_hive
+execute if score @s kitpvp.rng matches 70 run function kitpvp:summon/earth_brewer
+execute if score @s kitpvp.rng matches 71 run function kitpvp:summon/earth_jar_small
+execute if score @s kitpvp.rng matches 72 run function kitpvp:summon/earth_saturn
+execute if score @s kitpvp.rng matches 73 run function kitpvp:summon/earth_pluto
+execute if score @s kitpvp.rng matches 74 run function kitpvp:summon/earth_deserter

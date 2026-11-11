@@ -363,12 +363,8 @@ function kitpvp:skill/earth/nograv_chase
 
 # 环肽（地球·47，实验）：整圈每刻贴到最近的活玩家周围；#ring_spin=1 时四方位轮换（绕圈），=0 就固定方位跟着走
 execute if entity @e[tag=kitpvp.earth_cyclic] run function kitpvp:skill/earth/ring_follow
-# 预言家：每 15 秒开口（靠 earth_cd_a 归零触发）
-# 磁铁：每刻吸掉落物、拽靠近的玩家
-execute if entity @e[tag=kitpvp.earth_magnet] run function kitpvp:skill/earth/magnet_pull
 execute as @e[tag=kitpvp.earth_dominion,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/dominion_firework
-# 飞行器（地球·69）：共生（吊舱死则母体死）+ 补绳 + 每 10 秒俯冲 50 格
-# 低空飞行器（地球·73）：蝙蝠吊着骷髅在头顶 10 格跟着人走，不俯冲，靠骷髅放箭
+# 低空飞行器（地球·73）：蝙蝠吊着 NoAI 骷髅，箭由 lowflyer_shoot 每 2 秒点名射（不打召唤者）
 execute as @e[tag=kitpvp.earth_lowflyer_carrier] at @s run function kitpvp:skill/earth/lowflyer_tick
 # 变色者：每 5 秒换一次头顶方块（earth_cd_a 由 tick 统一递减）
 execute as @e[tag=kitpvp.earth_colorchanger,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/colorchanger_shift
