@@ -77,7 +77,10 @@ scoreboard objectives add kitpvp.soul_venus_last dummy "金星魂石快照"
 scoreboard objectives add kitpvp.soul_slime_used minecraft.used:minecraft.slime_spawn_egg
 scoreboard objectives add kitpvp.soul_slime_last dummy "史莱姆魂石快照"
 scoreboard objectives add kitpvp.soul_slime_timer dummy "史莱姆魂石倒计时"
-scoreboard objectives add kitpvp.tep_used minecraft.used:minecraft.warped_fungus_on_a_stick
+# 传送枪：里·末影人（kit/tainted_enderman）与魂石（skill/soul/use_ep）发的都是 minecraft:spyglass{KitPortalGun:1b}
+# 旧版这里统计的是 warped_fungus_on_a_stick，跟实际发的物品对不上 ⇒ tep_used 永远是 0、右键不开门。先把旧目标删掉再按 spyglass 建
+scoreboard objectives remove kitpvp.tep_used
+scoreboard objectives add kitpvp.tep_used minecraft.used:minecraft.spyglass
 scoreboard objectives add kitpvp.tep_last dummy "传送枪使用快照"
 scoreboard objectives add kitpvp.tep_cd dummy "传送枪装填（30 = 1.5 秒）"
 scoreboard objectives add kitpvp.tep_life dummy "传送门寿命（400 = 20 秒）"
