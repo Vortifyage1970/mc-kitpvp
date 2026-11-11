@@ -17,7 +17,6 @@ give @s minecraft:spyglass{KitPortalGun:1b,Unbreakable:1b,display:{Name:'{"text"
 scoreboard players set @s kitpvp.lives 3
 scoreboard players set @s kitpvp.tep_cd 0
 scoreboard players set @s kitpvp.tep_ready 0
-scoreboard players set @s kitpvp.tep_step 0
 
 tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"里·末影人","color":"dark_purple","bold":true}]
 playsound minecraft:ui.button.click master @s ~ ~ ~ 1 1.2
