@@ -49,3 +49,5 @@ summon minecraft:painting 6679 78 -9 {facing:1b,variant:"minecraft:match",TileY:
 summon minecraft:painting 6679 78 -6 {facing:1b,variant:"minecraft:match",TileY:78,TileX:6679,TileZ:-6,Invulnerable:1b,Tags:["kitpvp.displayitem"]}
 summon minecraft:painting 6679 78 -3 {facing:1b,variant:"minecraft:wanderer",TileY:78,TileX:6679,TileZ:-3,Invulnerable:1b,Tags:["kitpvp.displayitem"]}
 summon minecraft:painting 6679 78 -15 {facing:1b,variant:"minecraft:match",TileY:78,TileX:6679,TileZ:-15,Invulnerable:1b,Tags:["kitpvp.displayitem"]}
+# 2026-11-11 补：模板只存方块，这个展示框（品红玻璃板）之前漏了，复原后会对不上
+summon minecraft:item_frame 6676.97 85.5 -12.5 {Facing:4b,Rotation:[90.0f,0.0f],Item:{id:"minecraft:magenta_stained_glass_pane",Count:1b},TileY:85,TileX:6676,TileZ:-13,Fixed:0b,Invisible:0b,Invulnerable:1b,Tags:["kitpvp.displayitem"]}
