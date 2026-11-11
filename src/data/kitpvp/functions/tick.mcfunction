@@ -377,6 +377,8 @@ execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=1..}] run score
 execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=0}] at @s run function kitpvp:skill/earth/campfire_out
 # 燃烧中每刻冒火苗（NBT 的 Fire 只是让它真的着火，这里补粒子让"在烧"一眼可见）
 execute as @e[tag=kitpvp.earth_campfire,scores={kitpvp.fire_left=1..}] at @s run particle minecraft:flame ~ ~1.2 ~ 0.35 0.5 0.35 0.01 4
+# 被篝火点着的玩家：burn_left 计时（玩家 NBT 改不了，只能自己算），每刻冒火星、每 20 刻 1 点火焰伤害
+execute as @a[scores={kitpvp.burn_left=1..}] at @s run function kitpvp:skill/earth/burn_tick
 # 音符盒：血量掉了 = 挨打了 ⇒ 打一个随机音符（6 刻冷却，连击不会糊成一片）
 execute as @e[tag=kitpvp.earth_noteblock] store result score @s kitpvp.nb_hp run data get entity @s Health 100
 execute as @e[tag=kitpvp.earth_noteblock] if score @s kitpvp.nb_hp < @s kitpvp.nb_prev run function kitpvp:skill/earth/noteblock_note

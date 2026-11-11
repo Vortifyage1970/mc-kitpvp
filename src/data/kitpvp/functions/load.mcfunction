@@ -487,3 +487,5 @@ scoreboard objectives add kitpvp.mh_summoner dummy "这一只井盖是谁埋的�
 scoreboard objectives add kitpvp.cop_summoner dummy "这一只交警是谁召的（1 = 召唤者本人，闪现不截他）"
 scoreboard objectives add kitpvp.lf_summoner dummy "这一只低空飞行器是谁召的（1 = 召唤者本人，弓箭手不射他）"
 scoreboard objectives add kitpvp.winner_summoner dummy "这一只赢家是谁召的（1 = 召唤者本人，不收那套假结算播报）"
+scoreboard objectives add kitpvp.burn_left dummy "被篝火点着的玩家还剩几刻（100 = 5 秒，每 20 刻掉 1 点火焰伤害）"
+scoreboard players set #burn_20 kitpvp.game 20
