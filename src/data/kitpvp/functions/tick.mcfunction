@@ -287,8 +287,6 @@ execute as @e[tag=kitpvp.earth_pluto_carrier] at @s run function kitpvp:skill/ea
 execute as @e[tag=kitpvp.earth_pluto_parrot] at @s unless entity @e[tag=kitpvp.earth_pluto_carrier,distance=..4] run kill @s
 # 地球·81 逃兵：半血以下掉头就跑（NoAI + 脚本位移），跑出 16 格算跑掉
 execute as @e[tag=kitpvp.earth_deserter] at @s run function kitpvp:skill/earth/deserter_tick
-# 逃兵死了/换个场景了，那只看不见的狼要跟着收掉，不然会留在原地
-execute as @e[tag=kitpvp.dser_wolf] unless entity @e[tag=kitpvp.earth_deserter,distance=..24] run kill @s
 # 木星：本体不驮乘客（armor_stand 当乘客不可靠），改由脚下那枚隐形 marker 守卫跟着它走
 # 顺序不能反：先把守卫拖到木星身上，再判"3 格内还有没有木星" —— 反过来守卫会在被传送时误劈
 execute as @e[tag=kitpvp.earth_jupiter] at @s run tp @e[tag=kitpvp.earth_jupiter_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~

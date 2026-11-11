@@ -62,7 +62,6 @@ kill @e[tag=kitpvp.nb_dying]
 kill @e[tag=kitpvp.earth_jar_guard]
 # 冥王星的鹦鹉是乘客、不是 earth_minion，得单独清，否则僵尸没了它还挂在半空
 kill @e[tag=kitpvp.earth_pluto_parrot]
-kill @e[tag=kitpvp.dser_wolf]
 kill @e[tag=kitpvp.earth_minion]
 kill @e[tag=kitpvp.earth_mount]
 kill @e[tag=kitpvp.earth_bomb]
