@@ -487,3 +487,4 @@ scoreboard objectives add kitpvp.mh_summoner dummy "这一只井盖是谁埋的�
 scoreboard objectives add kitpvp.cop_summoner dummy "这一只交警是谁召的（1 = 召唤者本人，闪现不截他）"
 scoreboard objectives add kitpvp.lf_summoner dummy "这一只低空飞行器是谁召的（1 = 召唤者本人，弓箭手不射他）"
 scoreboard objectives add kitpvp.winner_summoner dummy "这一只赢家是谁召的（1 = 召唤者本人，不收那套假结算播报）"
+scoreboard objectives add kitpvp.campfire_summoner dummy "这一只篝火是谁召的（1 = 召唤者本人，打它不会被点着）"
