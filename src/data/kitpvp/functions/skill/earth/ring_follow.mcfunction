@@ -1,4 +1,4 @@
-# 环肽驱动：每刻把 16 只重新摆到"圈心玩家"周围
+# 环肽驱动：每刻把 8 只重新摆到"圈心玩家"周围
 # 圈心优先认召唤者：link 给环上每只写了 earth_owner，玩家身上的 kitpvp.etid 与之相等者就是召唤者
 # 召唤者不在了（死了/退游戏/手动召唤没有归属分）就退化成"离圈最近的活玩家"
 scoreboard players set #ring_owner kitpvp.game 0
