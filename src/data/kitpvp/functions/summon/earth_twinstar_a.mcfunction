@@ -1,3 +1,3 @@
-# 双星 A：10 血、头戴诡异菌核。死了先不盖棺，等 twinstar_revive_a 在 1 秒后决定复活还是放走
-summon minecraft:zombie ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_twinstar_a"],CustomName:'{"text":"双星A","color":"dark_aqua"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:10.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:10.0}],ArmorItems:[{},{},{},{id:"minecraft:warped_hyphae",Count:1b}]}
+# 双星 A：8 血、头戴诡异菌核。死了先不盖棺，等 twinstar_revive_a 在 1.5 秒后决定复活还是放走
+summon minecraft:zombie ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_twinstar_a"],CustomName:'{"text":"双星A","color":"dark_aqua"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,Health:8.0f,Attributes:[{Name:"minecraft:generic.max_health",Base:8.0}],ArmorItems:[{},{},{},{id:"minecraft:warped_hyphae",Count:1b}]}
 summon minecraft:marker ~ ~ ~ {Tags:["kitpvp.earth_twinstar_guard_a"]}

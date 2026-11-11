@@ -251,6 +251,7 @@ scoreboard objectives add kitpvp.skater_call dummy "滑冰者寒带动静计时�
 scoreboard players set #skater_four kitpvp.game 4
 scoreboard objectives add kitpvp.gb_mode dummy "变速器当前模式（0 空旷 / 1 有人）"
 scoreboard objectives add kitpvp.gb_summoner dummy "这一只变速器是谁召的（1 = 召唤者本人，不计入有人靠近）"
+scoreboard objectives add kitpvp.coser_cd dummy "COSER 发物料的冷却（60 刻 = 3 秒）"
 scoreboard objectives add kitpvp.earth_hit_hits dummy "地球生灵打中人的累计次数（排查触发用）"
 scoreboard objectives add kitpvp.mob_ready dummy "动员家那一轮的准备状态（0 没点 / 1 点了 / 2 已结算）"
 scoreboard objectives add kitpvp.px dummy "交警（闪现版）：玩家 x 坐标 x100（这一刻）"

@@ -1,8 +1,8 @@
-# 地球·36 大蜜蜂：一只没有巢的蜜蜂，存在期间给半径 20 格内的所有玩家和生物持续挖掘疲劳 V + 缓慢 II，自身常驻抗性提升 II
+# 地球·36 大蜜蜂：一只没有巢的蜜蜂，存在期间给半径 20 格内的所有玩家和生物持续挖掘疲劳 III + 缓慢 II，自身常驻抗性提升 I
 # 蜂类不设 HivePos 也能飞（只是会一直试图回家，原地打转），CannotEnterHiveTicks 拉满避免它钻巢
 # 注意：真蜇到人会走原版 BEE_STING 逻辑，20 刻后自己死掉 —— 这一点 NBT 关不掉，只能靠仇恨值避免
 summon minecraft:bee ~ ~ ~ {Tags:["kitpvp.earth_minion","kitpvp.earth_minion_new","kitpvp.earth_bigbee"],CustomName:'{"text":"大蜜蜂","color":"yellow"}',CustomNameVisible:1b,PersistenceRequired:1b,Health:10.0f,CannotEnterHiveTicks:999999,AngerTime:0,Attributes:[{Name:"minecraft:generic.max_health",Base:10.0}]}
 # 光环改成 tick 里每刻直接跑（tag 判定，不再用 earth_cd_a 节流），所以这里不需要给计时器初值
-# 自身抗性提升 II（只给自己，减伤 40%）：无限时长、无粒子，和交警那套写法一致（1.20.1 的 effect give 支持 infinite）
+# 自身抗性提升 I（只给自己，减伤 20%）：无限时长、无粒子，和交警那套写法一致（1.20.1 的 effect give 支持 infinite）
 # 缓慢 II 是给光环里的玩家和生物的，在 bigbee_aura.mcfunction 里发，不在这里
-effect give @e[tag=kitpvp.earth_bigbee] minecraft:resistance infinite 1 true
+effect give @e[tag=kitpvp.earth_bigbee] minecraft:resistance infinite 0 true

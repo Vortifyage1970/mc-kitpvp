@@ -331,8 +331,9 @@ execute as @e[tag=kitpvp.earth_twinstar_a] at @s run tp @e[tag=kitpvp.earth_twin
 execute as @e[tag=kitpvp.earth_twinstar_guard_a] at @s unless entity @e[tag=kitpvp.earth_twinstar_a,distance=..3] run function kitpvp:skill/earth/twinstar_died_a
 execute as @e[tag=kitpvp.earth_twinstar_b] at @s run tp @e[tag=kitpvp.earth_twinstar_guard_b,distance=..5,limit=1,sort=nearest] ~ ~ ~
 execute as @e[tag=kitpvp.earth_twinstar_guard_b] at @s unless entity @e[tag=kitpvp.earth_twinstar_b,distance=..3] run function kitpvp:skill/earth/twinstar_died_b
-# COSER：玩家刚挨打的那一帧（HurtTime=9）且 32 格内有 COSER，就给一张「物料」（箭伤同样触发）
-execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.earth_coser,distance=..32] run function kitpvp:skill/earth/coser_paper
+# COSER：玩家刚挨打的那一帧（HurtTime=9）且 32 格内有 COSER，就给一张「物料」（箭伤同样触发）；每人 3 秒冷却
+execute as @a[nbt={HurtTime:9s},gamemode=!spectator,tag=!kitpvp.spectator] at @s unless score @s kitpvp.coser_cd matches 1.. if entity @e[tag=kitpvp.earth_coser,distance=..32] run function kitpvp:skill/earth/coser_paper
+execute as @a[scores={kitpvp.coser_cd=1..}] run scoreboard players remove @s kitpvp.coser_cd 1
 # COSER 猫叫：每 4 秒一声（计时在 summon 里埋初值、函数里重置）
 execute as @e[tag=kitpvp.earth_coser,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/coser_meow
 # ★ 不用"读尸体 Health=0 那一帧"：实测被 /damage 打死的木星在第 1 刻就整个不见了，那一帧抓不到

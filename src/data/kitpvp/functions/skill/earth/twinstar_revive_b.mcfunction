@@ -1,5 +1,5 @@
-# 1 秒到了：A 还活着 ⇒ B 在它脚下满血复活；A 也没了 ⇒ 两只算一起死，谁都别复活
-# replace 去重：这 1 秒里同一只死两次只算最后那次，不会复活出两只
+# 1.5 秒到了：A 还活着 ⇒ B 在它脚下满血复活；A 也没了 ⇒ 两只算一起死，谁都别复活
+# replace 去重：这 1.5 秒里同一只死两次只算最后那次，不会复活出两只
 execute if entity @e[tag=kitpvp.earth_twinstar_a] at @e[tag=kitpvp.earth_twinstar_a,limit=1] run function kitpvp:summon/earth_twinstar_b
 
 # ★ 复活出来的是全新的召唤物、没走过 link：不继承归属它就会打召唤者（包括你）。
