@@ -32,6 +32,7 @@ execute if score @s kitpvp.kit matches 76 run function kitpvp:skill/pluto/passiv
 execute if score @s kitpvp.kit matches 76 run function kitpvp:skill/pluto/respawn
 
 # 药剂师的四条秘药是"每条命一套"：重生解锁并补满
-execute if score @s kitpvp.kit matches 12 run function kitpvp:skill/alchemist/restock_elixir
+execute if score @s kitpvp.kit matches 12 run function kitpvp:skill/alchemist/restock_elix
+execute if score @s kitpvp.kit matches 45 run function kitpvp:kit/chaos_startir
 
 playsound minecraft:block.note_block.pling master @s ~ ~ ~ 1 1.2
