@@ -294,7 +294,6 @@ scoreboard objectives add kitpvp.hive_hits dummy "蜂巢挨了几下（1→1个�
 scoreboard players set #six kitpvp.game 6
 scoreboard objectives add kitpvp.sat_phase dummy "土星轨道蠹虫的相位（0..7，每 4 刻 +1）"
 scoreboard players set #sat_mod kitpvp.game 8
-scoreboard objectives add kitpvp.dser_hp dummy "逃兵当前血量（每刻 data get 读一次，用来判半血）"
 
 # 预留（暂无消费者，刻意保留）：item = 物品计数
 scoreboard objectives modify kitpvp.kit displayname {"text":"职业","color":"gold"}
