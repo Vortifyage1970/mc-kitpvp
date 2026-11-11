@@ -6,6 +6,3 @@ effect give @e[tag=kitpvp.earth_campfire] minecraft:resistance infinite 1 true
 scoreboard players set @e[tag=kitpvp.earth_campfire] kitpvp.fire_left -1
 scoreboard players set @e[tag=kitpvp.earth_campfire] kitpvp.fire_prev 2000
 execute as @e[tag=kitpvp.earth_campfire] store result score @s kitpvp.fire_hp run data get entity @s Health 100
-# 召唤者本人不点：他打自己的篝火不该被烧（别人打照烧）
-scoreboard players set @a kitpvp.campfire_summoner 0
-scoreboard players set @s kitpvp.campfire_summoner 1
