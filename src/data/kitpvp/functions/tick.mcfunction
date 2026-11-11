@@ -438,11 +438,6 @@ execute as @e[tag=kitpvp.earth_snow,scores={kitpvp.earth_snow=..0}] at @s run fu
 # 湿海绵船夫：只有还坐在自己的筏上时才有抗性提升 V，下筏 / 沉船就撤掉
 execute as @e[tag=kitpvp.earth_boatman1] at @s unless entity @e[tag=kitpvp.earth_boat1,distance=..2] run effect clear @s minecraft:resistance
 
-# 干海绵船夫：船被打掉（2 格内找不到自己的船）→ 一次性给 15 秒力量 II
-execute as @e[tag=kitpvp.earth_boatman2,tag=!kitpvp.earth_powered,tag=!kitpvp.earth_power_armed] at @s unless entity @e[tag=kitpvp.earth_boat2,distance=..2] run tag @s add kitpvp.earth_power_armed
-execute as @e[tag=kitpvp.earth_power_armed] run effect give @s minecraft:strength 15 1 true
-execute as @e[tag=kitpvp.earth_power_armed] run tag @s add kitpvp.earth_powered
-execute as @e[tag=kitpvp.earth_power_armed] run tag @s remove kitpvp.earth_power_armed
 
 # 随从：本体（小僵尸）一死，驮着它的悦灵也不该继续飘——2 格内找不到自己的小僵尸就清掉
 execute as @e[type=minecraft:allay,tag=kitpvp.earth_retainer_mount] at @s unless entity @e[type=minecraft:zombie,tag=kitpvp.earth_retainer,distance=..2] run kill @s
