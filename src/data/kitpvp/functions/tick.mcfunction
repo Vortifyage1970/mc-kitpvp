@@ -337,6 +337,7 @@ execute as @e[tag=kitpvp.earth_coser,scores={kitpvp.earth_cd_a=..0}] at @s run f
 
 # 动员家：每 15 秒（300 刻）催一次"准备"，5 秒后没人点就挨瞬间伤害（结算在 mobilizer_check）
 # 守卫与木星同一套：先拖到本体身上，再判"3 格内还有没有本体"，没了就播红色的"结束准备"
+execute as @e[tag=kitpvp.earth_mobilizer] at @s run scoreboard players operation @e[tag=kitpvp.earth_mobilizer_guard,distance=..5,limit=1,sort=nearest] kitpvp.earth_owner = @s kitpvp.earth_owner
 execute as @e[tag=kitpvp.earth_mobilizer] at @s run tp @e[tag=kitpvp.earth_mobilizer_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~
 execute as @e[tag=kitpvp.earth_mobilizer_guard] at @s unless entity @e[tag=kitpvp.earth_mobilizer,distance=..3] run function kitpvp:skill/earth/mobilizer_end
 execute as @e[tag=kitpvp.earth_mobilizer,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/mobilizer_prompt

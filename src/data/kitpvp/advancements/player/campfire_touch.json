@@ -1,0 +1,19 @@
+{
+  "criteria": {
+    "hit": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:skeleton",
+          "nbt": "{Tags:[\"kitpvp.earth_campfire\"]}"
+        }
+      }
+    }
+  },
+  "requirements": [
+    ["hit"]
+  ],
+  "rewards": {
+    "function": "kitpvp:skill/earth/campfire_touch"
+  }
+}

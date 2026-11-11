@@ -100,6 +100,7 @@ advancement revoke @a only kitpvp:player/vagrant_spit
 advancement revoke @a only kitpvp:player/coser_give
 advancement revoke @a only kitpvp:player/spoon_hit
 advancement revoke @a only kitpvp:player/carto_hit
+advancement revoke @a only kitpvp:player/campfire_touch
 
 # 新魂石的 last 快照：/reload 时把在线玩家的快照对齐到当前 used，否则 `if score used > last` 因为 last 不存在而永远不成立
 scoreboard players operation @a kitpvp.soul_tamer_last = @a kitpvp.soul_tamer_used
@@ -485,3 +486,4 @@ scoreboard objectives add kitpvp.dl_summoner dummy "这一只深池飞行兵是�
 scoreboard objectives add kitpvp.mh_summoner dummy "这一只井盖是谁埋的（1 = 召唤者本人，不触发）"
 scoreboard objectives add kitpvp.cop_summoner dummy "这一只交警是谁召的（1 = 召唤者本人，闪现不截他）"
 scoreboard objectives add kitpvp.lf_summoner dummy "这一只低空飞行器是谁召的（1 = 召唤者本人，弓箭手不射他）"
+scoreboard objectives add kitpvp.winner_summoner dummy "这一只赢家是谁召的（1 = 召唤者本人，不收那套假结算播报）"
