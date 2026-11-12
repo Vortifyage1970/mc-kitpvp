@@ -1,0 +1,18 @@
+{
+  "criteria": {
+    "use": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:pufferfish_spawn_egg"
+          ],
+          "nbt": "{ChaosToken:1b}"
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "kitpvp:kit/chaos_skill_adv"
+  }
+}
