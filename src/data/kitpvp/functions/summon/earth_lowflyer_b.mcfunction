@@ -1,6 +1,6 @@
 # 低空飞行器的"吊舱"：由 summon/earth_lowflyer_a 排程 1 刻后调用，锚在蝙蝠身上
 # 不带 earth_minion_new：它比母体晚一帧出生，不该被"下一次召唤"的 link 领走（会被记成别人的召唤物）
-execute at @e[tag=kitpvp.earth_lowflyer_carrier,limit=1,sort=nearest] run summon minecraft:skeleton ~ ~1 ~ {UUID:[I;1900011,2,1,1],Tags:["kitpvp.earth_minion","kitpvp.earth_lowflyer","kitpvp.earth_lowflyer_body"],Leash:{UUID:[I;1900011,1,1,1]},NoGravity:1b,Silent:1b,PersistenceRequired:1b,CanPickUpLoot:0b,CustomName:'{"text":"低空飞行器","color":"dark_aqua"}',CustomNameVisible:1b,HandItems:[{id:"minecraft:bow",Count:1b},{}],ArmorItems:[{id:"minecraft:leather_boots",Count:1b,tag:{Unbreakable:1b,display:{color:16777215},Enchantments:[{id:"minecraft:feather_falling",lvl:20}]}},{},{},{id:"minecraft:white_wool",Count:1b}]}
+execute at @e[tag=kitpvp.earth_lowflyer_carrier,limit=1,sort=nearest] run summon minecraft:skeleton ~ ~-1.5 ~ {UUID:[I;1900011,2,1,1],Tags:["kitpvp.earth_minion","kitpvp.earth_lowflyer","kitpvp.earth_lowflyer_body"],Leash:{UUID:[I;1900011,1,1,1]},NoGravity:1b,Silent:1b,PersistenceRequired:1b,CanPickUpLoot:0b,CustomName:'{"text":"低空飞行器","color":"dark_aqua"}',CustomNameVisible:1b,HandItems:[{id:"minecraft:bow",Count:1b},{}],ArmorItems:[{id:"minecraft:leather_boots",Count:1b,tag:{Unbreakable:1b,display:{color:16777215},Enchantments:[{id:"minecraft:feather_falling",lvl:20}]}},{},{},{id:"minecraft:white_wool",Count:1b}]}
 # ★ 吊舱：无重力 + 有 AI —— 箭交给原版骷髅自己射
 # "不打召唤者"靠队伍：原版 AI 的目标筛选会跳过队友，所以把它 join 进召唤者的 earth_N 就够了
 # （召唤者在 link.mcfunction 里已经进了同一队；只有 owner 为 0、用 /function 直接召时才没有队、会谁都打）
