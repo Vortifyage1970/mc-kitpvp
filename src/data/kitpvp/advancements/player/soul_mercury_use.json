@@ -1,0 +1,18 @@
+{
+  "criteria": {
+    "use": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:dolphin_spawn_egg"
+          ],
+          "nbt": "{KitSoulMercury:1b}"
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "kitpvp:skill/soul/use_mercury"
+  }
+}
