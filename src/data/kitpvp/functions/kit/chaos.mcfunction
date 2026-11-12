@@ -14,6 +14,6 @@ scoreboard players set @s kitpvp.lives 3
 function kitpvp:kit/chaos_start
 
 give @s minecraft:cooked_beef 13
-give @s minecraft:pufferfish_spawn_egg{ChaosToken:1b,EntityTag:{Tags:["kitpvp.chaos_token"]},display:{Name:'{"text":"混沌·重铸","color":"dark_purple","italic":false}',Lore:['{"text":"右键：清掉手上的武器，随机重铸一把（冷却 30 秒）","color":"dark_purple","italic":false}']}} 1
+give @s minecraft:spyglass{ChaosToken:1b,Unbreakable:1b,display:{Name:'{"text":"混沌·重铸","color":"dark_purple","italic":false}',Lore:['{"text":"右键：清掉手上的武器，随机重铸一把（冷却 30 秒）","color":"dark_purple","italic":false}']}} 1
 tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"混沌战士","color":"dark_purple","bold":true}]
 playsound minecraft:ui.button.click master @s ~ ~ ~ 1 1.2
