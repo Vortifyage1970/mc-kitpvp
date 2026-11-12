@@ -1,4 +1,6 @@
 # 武器用尽：随机发下一把（池子大小由 tools/gen_chaos.py 写出）
+# 发之前先把带 ChaosBlade 标签的武器全清掉（任何格子），杜绝叠刀
+function kitpvp:kit/chaos_wipe
 scoreboard players set @s kitpvp.rng 0
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 1
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 2
