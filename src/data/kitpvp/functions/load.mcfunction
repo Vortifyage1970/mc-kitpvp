@@ -498,3 +498,4 @@ scoreboard objectives add kitpvp.burn_left dummy "被篝火点着的玩家还剩
 scoreboard players set #burn_20 kitpvp.game 20
 scoreboard objectives add kitpvp.phx_stage dummy "凤凰的守卫阶段（0 = 第一形态活着，1 = 已留蛋，2 = 复活过一次）"
 scoreboard objectives add kitpvp.phx_life dummy "凤凰蛋还要几刻孵化（200 = 10 秒）"
+scoreboard objectives add kitpvp.phx_pair dummy "凤凰的配对号（本体/守卫/蛋同号，防止多只同时在场时串台）"

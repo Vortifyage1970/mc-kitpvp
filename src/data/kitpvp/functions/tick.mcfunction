@@ -396,8 +396,7 @@ execute as @e[tag=kitpvp.sup_falling] at @s if data entity @s {OnGround:1b} run 
 execute as @e[tag=kitpvp.earth_explainer] run scoreboard players operation @s kitpvp.nb_prev = @s kitpvp.nb_hp
 execute as @e[tag=kitpvp.earth_noteblock] at @s run tp @e[tag=kitpvp.earth_noteblock_guard,distance=..5,limit=1,sort=nearest] ~ ~ ~
 execute as @e[tag=kitpvp.earth_noteblock_guard] at @s unless entity @e[tag=kitpvp.earth_noteblock,distance=..3] run function kitpvp:skill/earth/noteblock_death
-# 凤凰：守卫每刻贴到本体身上；本体倒下后由守卫接管（留蛋 → 10 秒孵化 → 只复活一次）
-execute as @e[tag=kitpvp.earth_phoenix_guard] at @e[tag=kitpvp.earth_phoenix,distance=..16,limit=1,sort=nearest] run tp @s ~ ~ ~
+# 凤凰：每个守卫按配对号找自己的本体（多只同时在场也不会串台）；本体倒下后接管 → 留蛋 → 10 秒孵化 → 只复活一次
 execute as @e[tag=kitpvp.earth_phoenix_guard] at @s run function kitpvp:skill/earth/phoenix_guard
 # 音符盒死亡连音：marker 记住死亡地点，这里每刻带着 at @s 调，playsound 才不会跑到世界原点
 execute as @e[tag=kitpvp.nb_dying] at @s run function kitpvp:skill/earth/noteblock_cascade
