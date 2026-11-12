@@ -70,8 +70,6 @@ scoreboard objectives add kitpvp.soul_tamer_used minecraft.used:minecraft.cat_sp
 scoreboard objectives add kitpvp.soul_tamer_last dummy "驯兽师魂石快照"
 scoreboard objectives add kitpvp.soul_sun_used minecraft.used:minecraft.allay_spawn_egg
 scoreboard objectives add kitpvp.soul_sun_last dummy "太阳魂石快照"
-scoreboard objectives add kitpvp.soul_mercury_used minecraft.used:minecraft.dolphin_spawn_egg
-scoreboard objectives add kitpvp.soul_mercury_last dummy "水星魂石快照"
 scoreboard objectives add kitpvp.soul_venus_used minecraft.used:minecraft.ocelot_spawn_egg
 scoreboard objectives add kitpvp.soul_venus_last dummy "金星魂石快照"
 scoreboard objectives add kitpvp.soul_slime_used minecraft.used:minecraft.slime_spawn_egg
@@ -92,6 +90,15 @@ scoreboard objectives add kitpvp.soul_ep_last dummy "末影人魂石快照"
 scoreboard objectives add kitpvp.soul_ep_timer dummy "末影人魂石传送枪剩余刻数（400 = 20 秒）"
 scoreboard objectives add kitpvp.tep_cd_s dummy "魂石传送枪装填（4 = 0.2 秒）"
 scoreboard objectives add kitpvp.tep_face dummy "门的朝向类型：0 墙 / 1 地面（往天上出）/ 2 天花板（往地下出）"
+scoreboard objectives add kitpvp.chaos_skill_used minecraft.used:minecraft.spyglass
+scoreboard objectives add kitpvp.chaos_skill_last dummy "混沌重铸快照"
+scoreboard objectives add kitpvp.chaos_uses dummy "混沌战士：当前武器还剩几次"
+scoreboard objectives add kitpvp.chaos_bow_used minecraft.used:minecraft.bow
+scoreboard objectives add kitpvp.chaos_bow_last dummy "混沌·弓使用快照"
+scoreboard objectives add kitpvp.chaos_xbow_used minecraft.used:minecraft.crossbow
+scoreboard objectives add kitpvp.chaos_xbow_last dummy "混沌·弩使用快照"
+scoreboard objectives add kitpvp.chaos_tri_used minecraft.used:minecraft.trident
+scoreboard objectives add kitpvp.chaos_tri_last dummy "混沌·三叉戟使用快照"
 scoreboard objectives add kitpvp.rocket_charge dummy "蓄力火箭跳的蓄力刻数（0..60）"
 scoreboard objectives add kitpvp.soul_timer dummy "魂石倒计时（marker / 实体：400 = 20 秒）"
 # 大厅起跳按钮的 advancement：加载失败过一次（blocks 写成了标签），万一有谁被旧版本授过奖就永远不再触发 —— 每次 reload 清一遍
@@ -105,7 +112,6 @@ advancement revoke @a only kitpvp:player/campfire_touch
 # 新魂石的 last 快照：/reload 时把在线玩家的快照对齐到当前 used，否则 `if score used > last` 因为 last 不存在而永远不成立
 scoreboard players operation @a kitpvp.soul_tamer_last = @a kitpvp.soul_tamer_used
 scoreboard players operation @a kitpvp.soul_sun_last = @a kitpvp.soul_sun_used
-scoreboard players operation @a kitpvp.soul_mercury_last = @a kitpvp.soul_mercury_used
 scoreboard players operation @a kitpvp.soul_venus_last = @a kitpvp.soul_venus_used
 scoreboard players operation @a kitpvp.soul_slime_last = @a kitpvp.soul_slime_used
 scoreboard objectives add kitpvp.ghost_minion_cd dummy "阴兵召唤冷却"
@@ -379,6 +385,7 @@ scoreboard players set @a kitpvp.item 0
 scoreboard players set @a kitpvp.tid 0
 scoreboard players set @a kitpvp.ttid 0
 scoreboard players set @a kitpvp.fisher_no_tri 0
+scoreboard players operation @a kitpvp.chaos_skill_last = @a kitpvp.chaos_skill_used
 scoreboard players set @a kitpvp.turret_heal_cd 0
 scoreboard players set @a kitpvp.werewolf_hit_cd 0
 scoreboard players set @a kitpvp.sun_reload 0

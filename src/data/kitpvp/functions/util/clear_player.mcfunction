@@ -80,7 +80,6 @@ scoreboard players operation @s kitpvp.soul_earth_last = @s kitpvp.soul_earth_us
 scoreboard players operation @s kitpvp.soul_li_last = @s kitpvp.soul_li_used
 scoreboard players operation @s kitpvp.soul_tamer_last = @s kitpvp.soul_tamer_used
 scoreboard players operation @s kitpvp.soul_sun_last = @s kitpvp.soul_sun_used
-scoreboard players operation @s kitpvp.soul_mercury_last = @s kitpvp.soul_mercury_used
 scoreboard players operation @s kitpvp.soul_venus_last = @s kitpvp.soul_venus_used
 scoreboard players operation @s kitpvp.soul_slime_last = @s kitpvp.soul_slime_used
 scoreboard players set @s kitpvp.bomb_small_cd 0

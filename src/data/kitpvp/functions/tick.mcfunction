@@ -487,6 +487,18 @@ execute as @a[scores={kitpvp.bomb_nuke_cd=1..}] run scoreboard players remove @s
 # 末影人魂石：用掉蛋就发一把魂石·传送枪
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_ep_used > @s kitpvp.soul_ep_last run function kitpvp:skill/soul/use_ep
 
+# ===== 混沌战士（kit 45）：弓 / 弩 / 三叉戟的"使用"各扣一次 =====
+execute as @a[scores={kitpvp.kit=45}] unless score @s kitpvp.chaos_bow_last matches -2147483648.. run scoreboard players operation @s kitpvp.chaos_bow_last = @s kitpvp.chaos_bow_used
+execute as @a[scores={kitpvp.kit=45}] unless score @s kitpvp.chaos_xbow_last matches -2147483648.. run scoreboard players operation @s kitpvp.chaos_xbow_last = @s kitpvp.chaos_xbow_used
+execute as @a[scores={kitpvp.kit=45}] unless score @s kitpvp.chaos_tri_last matches -2147483648.. run scoreboard players operation @s kitpvp.chaos_tri_last = @s kitpvp.chaos_tri_used
+execute as @a[scores={kitpvp.kit=45}] if score @s kitpvp.chaos_bow_used > @s kitpvp.chaos_bow_last run function kitpvp:kit/chaos_shot_bow
+execute as @a[scores={kitpvp.kit=45}] if score @s kitpvp.chaos_xbow_used > @s kitpvp.chaos_xbow_last run function kitpvp:kit/chaos_shot_xbow
+execute as @a[scores={kitpvp.kit=45}] if score @s kitpvp.chaos_tri_used > @s kitpvp.chaos_tri_last run function kitpvp:kit/chaos_shot_tri
+# 混沌·重铸：右键令牌（统计 spyglass 使用）→ 清武器并随机重铸，冷却 30 秒
+execute as @a[scores={kitpvp.kit=45,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.chaos_skill_used > @s kitpvp.chaos_skill_last run function kitpvp:kit/chaos_skill
+# 混沌·金斧：持有时隐身（effect 类被动只能走 tick）
+execute as @a[scores={kitpvp.kit=45}] at @s if data entity @s SelectedItem.tag.ChaosInvisible run effect give @s minecraft:invisibility 1 0 true
+
 # ===== 里·末影人（kit 33）/ 末影人魂石：传送枪 =====
 # 状态灯只发给"当前有传送枪的人"（里·末影人 或 魂石生效中）
 bossbar set kitpvp:tep_hud_orange players @a[scores={kitpvp.kit=33},tag=!kitpvp.spectator]
@@ -569,8 +581,7 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator]
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_tamer_used > @s kitpvp.soul_tamer_last run function kitpvp:skill/soul/use_tamer
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.soul_sun_last matches -2147483648.. run scoreboard players operation @s kitpvp.soul_sun_last = @s kitpvp.soul_sun_used
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_sun_used > @s kitpvp.soul_sun_last run function kitpvp:skill/soul/use_sun
-execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.soul_mercury_last matches -2147483648.. run scoreboard players operation @s kitpvp.soul_mercury_last = @s kitpvp.soul_mercury_used
-execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_mercury_used > @s kitpvp.soul_mercury_last run function kitpvp:skill/soul/use_mercury
+# 水星魂石走 advancement（advancements/player/soul_mercury_use.json），不再用「海豚蛋被使用」统计
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.soul_venus_last matches -2147483648.. run scoreboard players operation @s kitpvp.soul_venus_last = @s kitpvp.soul_venus_used
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_venus_used > @s kitpvp.soul_venus_last run function kitpvp:skill/soul/use_venus
 # 驯兽师 / 太阳：落点 marker 的每刻推进；金星：舔狗自己的 20 秒计时与增益

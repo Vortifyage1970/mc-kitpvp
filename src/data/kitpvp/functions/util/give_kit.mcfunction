@@ -23,6 +23,7 @@ execute if score @s kitpvp.kit matches 30 run function kitpvp:kit/tainted_tamer
 execute if score @s kitpvp.kit matches 31 run function kitpvp:kit/tainted_slime
 execute if score @s kitpvp.kit matches 32 run function kitpvp:kit/tainted_bomber
 execute if score @s kitpvp.kit matches 33 run function kitpvp:kit/tainted_enderman
+execute if score @s kitpvp.kit matches 45 run function kitpvp:kit/chaos
 execute if score @s kitpvp.kit matches 65 run function kitpvp:kit/sun
 execute if score @s kitpvp.kit matches 66 run function kitpvp:kit/mercury
 execute if score @s kitpvp.kit matches 67 run function kitpvp:kit/venus

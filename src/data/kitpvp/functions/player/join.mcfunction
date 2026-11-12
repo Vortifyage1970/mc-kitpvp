@@ -21,7 +21,6 @@ scoreboard players operation @s kitpvp.soul_pirate_last = @s kitpvp.soul_pirate_
 scoreboard players operation @s kitpvp.soul_fisher_last = @s kitpvp.soul_fisher_used
 scoreboard players operation @s kitpvp.soul_tamer_last = @s kitpvp.soul_tamer_used
 scoreboard players operation @s kitpvp.soul_sun_last = @s kitpvp.soul_sun_used
-scoreboard players operation @s kitpvp.soul_mercury_last = @s kitpvp.soul_mercury_used
 scoreboard players operation @s kitpvp.soul_venus_last = @s kitpvp.soul_venus_used
 scoreboard players operation @s kitpvp.soul_slime_last = @s kitpvp.soul_slime_used
 scoreboard players set @s kitpvp.bomb_small_cd 0
@@ -47,6 +46,7 @@ execute if score #tep_pid kitpvp.game matches 65.. run scoreboard players set #t
 scoreboard players set @s kitpvp.tep_cd 0
 scoreboard players set @s kitpvp.tep_cd_s 0
 scoreboard players operation @s kitpvp.soul_ep_last = @s kitpvp.soul_ep_used
+scoreboard players operation @s kitpvp.chaos_skill_last = @s kitpvp.chaos_skill_used
 tag @s remove kitpvp.soul_ep_active
 scoreboard players set @s kitpvp.tep_ready 0
 scoreboard players operation @s kitpvp.ender_last = @s kitpvp.ender_used
