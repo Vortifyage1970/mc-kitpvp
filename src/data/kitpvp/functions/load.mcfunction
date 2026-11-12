@@ -89,6 +89,13 @@ scoreboard objectives add kitpvp.soul_ep_last dummy "末影人魂石快照"
 scoreboard objectives add kitpvp.soul_ep_timer dummy "末影人魂石传送枪剩余刻数（400 = 20 秒）"
 scoreboard objectives add kitpvp.tep_cd_s dummy "魂石传送枪装填（4 = 0.2 秒）"
 scoreboard objectives add kitpvp.tep_face dummy "门的朝向类型：0 墙 / 1 地面（往天上出）/ 2 天花板（往地下出）"
+scoreboard objectives add kitpvp.chaos_uses dummy "混沌战士：当前武器还剩几次"
+scoreboard objectives add kitpvp.chaos_bow_used minecraft.used:minecraft.bow
+scoreboard objectives add kitpvp.chaos_bow_last dummy "混沌·弓使用快照"
+scoreboard objectives add kitpvp.chaos_xbow_used minecraft.used:minecraft.crossbow
+scoreboard objectives add kitpvp.chaos_xbow_last dummy "混沌·弩使用快照"
+scoreboard objectives add kitpvp.chaos_tri_used minecraft.used:minecraft.trident
+scoreboard objectives add kitpvp.chaos_tri_last dummy "混沌·三叉戟使用快照"
 scoreboard objectives add kitpvp.rocket_charge dummy "蓄力火箭跳的蓄力刻数（0..60）"
 scoreboard objectives add kitpvp.soul_timer dummy "魂石倒计时（marker / 实体：400 = 20 秒）"
 scoreboard objectives add kitpvp.soul_next dummy "魂石间隔（marker / 实体：到 0 触发下一步）"

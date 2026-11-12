@@ -6,3 +6,5 @@ advancement revoke @s only kitpvp:player/werewolf_hit
 # 最后是 18 刻（0.9 秒）内置冷却，防连点刷效果——它比武器攻速 1.4 略慢，正常挥砍不受影响；
 # advancement 侧限定只对玩家生效（打召唤物 / 怪物不回饱和，2026-11-07 回调）
 execute if score @s kitpvp.kit matches 18 if score @s kitpvp.werewolf_hit_cd matches ..0 if data entity @s SelectedItem.tag.KitWerewolfAxe run function kitpvp:skill/werewolf/bite
+# 混沌战士抽到「嗜血狼牙」时吃同一口吸血
+execute if score @s kitpvp.kit matches 45 if score @s kitpvp.werewolf_hit_cd matches ..0 if data entity @s SelectedItem.tag.KitWerewolfAxe run function kitpvp:skill/werewolf/bite
