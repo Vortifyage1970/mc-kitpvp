@@ -1,4 +1,6 @@
 # 结算清理：game/end 用 schedule 在 200 刻后调用（设计文档 2.11 第 3~7 步）
+# MVP 凯歌的 tag 不会被 clear_player 清掉，这里主动收尾，否则会跟着玩家进下一局
+execute as @a run function kitpvp:debug/music_stop
 execute as @a run function kitpvp:util/clear_player
 
 # iLsacuL 再清一遍：结算到重置这 10 秒里玩家还可能把新蛋放出来（见 04 §十四）

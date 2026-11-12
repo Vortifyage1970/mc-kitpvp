@@ -26,6 +26,10 @@ execute if score #survivors kitpvp.game matches 1 if entity @a[name="Queen",tag=
 execute if score #survivors kitpvp.game matches 1 if entity @a[name="Vortifyage1970",tag=kitpvp.selected,tag=!kitpvp.spectator] run tellraw @a [{"text":"✦ ","color":"light_purple"},{"text":"正在高奏 ","color":"aqua"},{"text":"Vortifyage1970","color":"gold","bold":true},{"text":" 的MVP凯歌：","color":"aqua"},{"text":"上海アリス幻楽団 - 伊弉諾物質","color":"light_purple","bold":true,"italic":true},{"text":" ✦","color":"light_purple"}]
 execute if score #survivors kitpvp.game matches 1 if entity @a[name="Vortifyage1970",tag=kitpvp.selected,tag=!kitpvp.spectator] as @a run function mvpmusic:izanagi/play
 
+# 胜者是 Chicken_brothers 时的专属 MVP 凯歌（花上亡灵，1:56 起的副歌，约 41 秒）
+execute if score #survivors kitpvp.game matches 1 if entity @a[name="Chicken_brothers",tag=kitpvp.selected,tag=!kitpvp.spectator] run tellraw @a [{"text":"✦ ","color":"light_purple"},{"text":"正在高奏 ","color":"aqua"},{"text":"Chicken_brothers","color":"gold","bold":true},{"text":" 的MVP凯歌：","color":"aqua"},{"text":"花上亡灵","color":"light_purple","bold":true,"italic":true},{"text":" ✦","color":"light_purple"}]
+execute if score #survivors kitpvp.game matches 1 if entity @a[name="Chicken_brothers",tag=kitpvp.selected,tag=!kitpvp.spectator] as @a run function mvpmusic:huashang/play
+
 execute if score #survivors kitpvp.game matches ..0 run tellraw @a [{"text":"[平局]","color":"gray","bold":true},{"text":"本局无幸存者","color":"gray"}]
 execute if score #survivors kitpvp.game matches 2.. run tellraw @a [{"text":"[结束]","color":"red","bold":true},{"text":"本局被管理员终止","color":"gray"}]
 
