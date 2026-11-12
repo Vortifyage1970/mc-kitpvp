@@ -89,7 +89,6 @@ scoreboard objectives add kitpvp.tep_cd_s dummy "魂石传送枪装填（4 = 0.2
 scoreboard objectives add kitpvp.tep_face dummy "门的朝向类型：0 墙 / 1 地面（往天上出）/ 2 天花板（往地下出）"
 scoreboard objectives add kitpvp.chaos_skill_used minecraft.used:minecraft.pufferfish_spawn_egg
 scoreboard objectives add kitpvp.chaos_skill_last dummy "混沌重铸快照"
-scoreboard objectives add kitpvp.chaos_skill_cd dummy "混沌重铸冷却（刻）"
 scoreboard objectives add kitpvp.chaos_uses dummy "混沌战士：当前武器还剩几次"
 scoreboard objectives add kitpvp.chaos_bow_used minecraft.used:minecraft.bow
 scoreboard objectives add kitpvp.chaos_bow_last dummy "混沌·弓使用快照"
@@ -324,6 +323,7 @@ scoreboard players set @a kitpvp.item 0
 scoreboard players set @a kitpvp.tid 0
 scoreboard players set @a kitpvp.ttid 0
 scoreboard players set @a kitpvp.fisher_no_tri 0
+scoreboard players operation @a kitpvp.chaos_skill_last = @a kitpvp.chaos_skill_used
 scoreboard players set @a kitpvp.turret_heal_cd 0
 scoreboard players set @a kitpvp.werewolf_hit_cd 0
 scoreboard players set @a kitpvp.sun_reload 0

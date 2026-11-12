@@ -11,7 +11,6 @@ item replace entity @s armor.chest with minecraft:chainmail_chestplate{Unbreakab
 item replace entity @s armor.legs with minecraft:chainmail_leggings{Unbreakable:1b}
 item replace entity @s armor.feet with minecraft:chainmail_boots{Unbreakable:1b}
 scoreboard players set @s kitpvp.lives 3
-scoreboard players set @s kitpvp.chaos_skill_cd 0
 function kitpvp:kit/chaos_start
 
 give @s minecraft:cooked_beef 13
