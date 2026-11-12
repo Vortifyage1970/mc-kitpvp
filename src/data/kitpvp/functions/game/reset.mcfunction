@@ -60,6 +60,9 @@ kill @e[tag=kitpvp.earth_twinstar_guard_b]
 kill @e[tag=kitpvp.earth_mobilizer_guard]
 kill @e[tag=kitpvp.earth_noteblock_guard]
 kill @e[tag=kitpvp.nb_dying]
+# 凤凰：守卫先杀（否则它的"本体没了"会当成死亡、留一颗蛋），蛋一起收
+kill @e[tag=kitpvp.earth_phoenix_guard]
+kill @e[tag=kitpvp.phx_egg]
 # 罐子先封口再清场：否则 reset 这一刀会让每只罐子都"碎一次"，白白刷出一堆生灵
 kill @e[tag=kitpvp.earth_jar_guard]
 # 冥王星的鹦鹉是乘客、不是 earth_minion，得单独清，否则僵尸没了它还挂在半空

@@ -496,3 +496,5 @@ scoreboard objectives add kitpvp.lf_summoner dummy "这一只低空飞行器是�
 scoreboard objectives add kitpvp.winner_summoner dummy "这一只赢家是谁召的（1 = 召唤者本人，不收那套假结算播报）"
 scoreboard objectives add kitpvp.burn_left dummy "被篝火点着的玩家还剩几刻（100 = 5 秒，每 20 刻掉 1 点火焰伤害）"
 scoreboard players set #burn_20 kitpvp.game 20
+scoreboard objectives add kitpvp.phx_stage dummy "凤凰的守卫阶段（0 = 第一形态活着，1 = 已留蛋，2 = 复活过一次）"
+scoreboard objectives add kitpvp.phx_life dummy "凤凰蛋还要几刻孵化（200 = 10 秒）"
