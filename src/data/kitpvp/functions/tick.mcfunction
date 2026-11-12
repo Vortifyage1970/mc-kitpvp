@@ -363,7 +363,7 @@ function kitpvp:skill/earth/nograv_chase
 # 环肽（地球·47，实验）：整圈每刻贴到最近的活玩家周围；#ring_spin=1 时四方位轮换（绕圈），=0 就固定方位跟着走
 execute if entity @e[tag=kitpvp.earth_cyclic] run function kitpvp:skill/earth/ring_follow
 execute as @e[tag=kitpvp.earth_dominion,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/dominion_firework
-# 低空飞行器（地球·73）：蝙蝠吊着 NoAI 骷髅，箭由 lowflyer_shoot 每 2 秒点名射（不打召唤者）
+# 低空飞行器（地球·73）：蝙蝠正常 AI + 重力，无重力骷髅有 AI 吊在下面，箭由原版骷髅自己射
 execute as @e[tag=kitpvp.earth_lowflyer_carrier] at @s run function kitpvp:skill/earth/lowflyer_tick
 # 变色者：每 5 秒换一次头顶方块（earth_cd_a 由 tick 统一递减）
 execute as @e[tag=kitpvp.earth_colorchanger,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/colorchanger_shift
