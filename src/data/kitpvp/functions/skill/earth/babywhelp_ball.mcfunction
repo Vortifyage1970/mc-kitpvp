@@ -10,7 +10,7 @@ execute at @s run particle minecraft:lava ~ ~ ~ 0.04 0.04 0.04 0 1
 execute at @s run tp @s ^ ^ ^0.8
 # 撞到方块：冒烟熄灭，不烧方块、不伤自己人
 execute at @s unless block ~ ~ ~ minecraft:air unless block ~ ~ ~ minecraft:cave_air unless block ~ ~ ~ minecraft:void_air run function kitpvp:skill/earth/babywhelp_fizzle
-# 命中玩家（1.2 格内）→ 结算伤害
-execute at @s if entity @a[distance=..1.2,gamemode=!spectator,gamemode=!creative,tag=!kitpvp.spectator] run function kitpvp:skill/earth/babywhelp_hit
+# 命中玩家（1.5 格内）→ 结算伤害
+execute at @s if entity @a[distance=..1.5,gamemode=!spectator,tag=!kitpvp.spectator] run function kitpvp:skill/earth/babywhelp_hit
 # 寿命上限 40 刻（约 16 格），没打到任何东西也会消失
 execute if score @s kitpvp.bw_life matches 40.. run function kitpvp:skill/earth/babywhelp_fizzle
