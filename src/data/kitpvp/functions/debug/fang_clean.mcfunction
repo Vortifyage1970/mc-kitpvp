@@ -1,2 +1,3 @@
-# 收掉只做视觉的假尖牙（Warmup 200，正常永远不会咬人；这里只是别让它一直杵在原地）
-kill @e[tag=kitpvp.fang_fake]
+# 收尾：清掉落点 marker 和可能留在场上的尖牙（正常它们咬完会自己消失，这里只是兜底）
+kill @e[tag=kitpvp.fang_at]
+kill @e[tag=kitpvp.fang_line]
