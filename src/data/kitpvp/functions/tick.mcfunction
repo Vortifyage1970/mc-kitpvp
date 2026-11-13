@@ -365,6 +365,9 @@ execute if entity @e[tag=kitpvp.earth_cyclic] run function kitpvp:skill/earth/ri
 execute as @e[tag=kitpvp.earth_dominion,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/dominion_firework
 # 低空飞行器（地球·73）：蝙蝠正常 AI + 重力，无重力骷髅有 AI 吊在下面，箭由原版骷髅自己射
 execute as @e[tag=kitpvp.earth_lowflyer_carrier] at @s run function kitpvp:skill/earth/lowflyer_tick
+# 飞龙宝宝（地球·74）：每 5 秒朝 20 格内最近的玩家吐一颗火球；火球自己不带速度，全靠 tp 直线飞
+execute as @e[tag=kitpvp.earth_babywhelp] at @s run function kitpvp:skill/earth/babywhelp_tick
+execute as @e[tag=kitpvp.bw_ball] at @s run function kitpvp:skill/earth/babywhelp_ball
 # 变色者：每 5 秒换一次头顶方块（earth_cd_a 由 tick 统一递减）
 execute as @e[tag=kitpvp.earth_colorchanger,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/colorchanger_shift
 # 井盖：装填期（earth_cd_a，召唤后 2 秒）走完之后，头顶 2.5 格内有活人就破土（dy≈2 ⇒ 站在正上方即命中）
