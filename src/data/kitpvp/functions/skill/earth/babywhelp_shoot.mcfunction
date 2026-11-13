@@ -1,4 +1,5 @@
 # 下面这一行由 babywhelp_fire 调进来时 @s 还是宝宝；这里只负责"真的吐出去"
+scoreboard players set @s kitpvp.bw_cd 100
 # 吐之前的预警：喉咙里亮一下、来一声吸气（不然玩家看不见它在准备）
 execute at @s run particle minecraft:flame ~ ~1.4 ~ 0.06 0.06 0.06 0.005 3
 execute at @s run playsound minecraft:entity.blaze.breathe hostile @a[distance=..24] ~ ~ ~ 0.7 1.3

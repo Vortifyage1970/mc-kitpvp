@@ -1,6 +1,5 @@
-# @s = 飞龙宝宝：重置冷却，挑一个"能打的人"，然后从嘴里吐一颗火球
+# @s = 飞龙宝宝：挑一个"能打的人"，有的话就从嘴里吐一颗火球（冷却由 babywhelp_shoot 重置）
 # 能打的人 = 20 格内、非创造/旁观/观战、且**不是召唤者本人**
-scoreboard players set @s kitpvp.bw_cd 100
 # ⚠ earth_owner 的 0 表示"还没分配槽位"，不能拿 0 去比：owner=0 时跳过"排除主人"这一步，
 #   否则会把所有 etid 还没分配到的玩家一起排除掉（mortar_tick 踩过的同一个坑）
 scoreboard players set #bw_owner kitpvp.game 0
