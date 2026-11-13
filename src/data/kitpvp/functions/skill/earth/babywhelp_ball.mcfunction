@@ -4,8 +4,7 @@
 #   让它自己飞，射偏一发竞技场就着一块。零速度时原版的命中检测长度为 0，永远不会触发。
 scoreboard players add @s kitpvp.bw_life 1
 # 尾迹
-execute at @s run particle minecraft:flame ~ ~ ~ 0.05 0.05 0.05 0.01 2
-execute at @s run particle minecraft:lava ~ ~ ~ 0.04 0.04 0.04 0 1
+execute at @s run particle minecraft:flame ~ ~ ~ 0.02 0.02 0.02 0.005 1
 # 追击：每刻重新对准"最近的活玩家"的胸口再前进 0.9 格（at @s 会把这只火球自己的 Rotation 带进 ^ 的计算）
 # ⚠ 以前是"吐出那一刻的朝向直着飞"——玩家一走就擦过去，看起来就是瞄不准。改成每刻重新 facing，火球会拐一点弯，但跟得住人。
 execute at @s facing entity @p[distance=..32,gamemode=!spectator,tag=!kitpvp.spectator] eyes run tp @s ^ ^ ^0.9
