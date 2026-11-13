@@ -1,8 +1,11 @@
-# @s = 飞龙宝宝：重置冷却，从嘴里吐一颗火球
+# @s = 飞龙宝宝：重置冷却，挑一个"能打的人"，然后从嘴里吐一颗火球
+# 能打的人 = 20 格内、非创造/旁观/观战、且**不是召唤者本人**
 scoreboard players set @s kitpvp.bw_cd 100
-# 吐之前的预警：喉咙里先亮一下、来一声吸气（不然玩家看不见它在准备）
-execute at @s run particle minecraft:flame ~ ~1.4 ~ 0.1 0.1 0.1 0.01 8
-execute at @s run playsound minecraft:entity.blaze.breathe hostile @a[distance=..24] ~ ~ ~ 0.8 1.3
-# 朝向目标召唤：朝向决定这只火球自己的 Rotation，之后它就沿这条直线飞（见 babywhelp_ball）
-execute anchored eyes facing entity @p[distance=..20,gamemode=!spectator,tag=!kitpvp.spectator] eyes positioned ^ ^ ^1 run summon minecraft:small_fireball ~ ~ ~ {Tags:["kitpvp.bw_ball"],NoGravity:1b,Silent:1b}
-execute at @s run playsound minecraft:entity.blaze.shoot hostile @a[distance=..24] ~ ~ ~ 0.9 1.1
+# ⚠ earth_owner 的 0 表示"还没分配槽位"，不能拿 0 去比：owner=0 时跳过"排除主人"这一步，
+#   否则会把所有 etid 还没分配到的玩家一起排除掉（mortar_tick 踩过的同一个坑）
+scoreboard players set #bw_owner kitpvp.game 0
+scoreboard players operation #bw_owner kitpvp.game = @s kitpvp.earth_owner
+tag @a remove kitpvp.bw_tgt
+execute if score #bw_owner kitpvp.game matches 1.. as @a[distance=..20,gamemode=!spectator,gamemode=!creative,tag=!kitpvp.spectator] unless score @s kitpvp.etid = #bw_owner kitpvp.game run tag @s add kitpvp.bw_tgt
+execute unless score #bw_owner kitpvp.game matches 1.. as @a[distance=..20,gamemode=!spectator,gamemode=!creative,tag=!kitpvp.spectator] run tag @s add kitpvp.bw_tgt
+execute if entity @a[tag=kitpvp.bw_tgt] run function kitpvp:skill/earth/babywhelp_shoot

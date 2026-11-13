@@ -502,3 +502,4 @@ scoreboard objectives add kitpvp.phx_pair dummy "凤凰的配对号（本体/守
 scoreboard objectives add kitpvp.phx_pair dummy "凤凰的配对号（本体/守卫/蛋同号，防止多只同时在场时串台）"
 scoreboard objectives add kitpvp.bw_cd dummy "飞龙宝宝吐火球的冷却（100 = 5 秒）"
 scoreboard objectives add kitpvp.bw_life dummy "飞龙宝宝的火球已经飞了几刻（40 刻强制熄灭）"
+scoreboard objectives add kitpvp.bw_owner dummy "火球记住的召唤者编号（用来不打自己人）"
