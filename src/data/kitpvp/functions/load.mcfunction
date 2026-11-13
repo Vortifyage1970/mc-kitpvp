@@ -499,5 +499,3 @@ scoreboard players set #burn_20 kitpvp.game 20
 scoreboard objectives add kitpvp.phx_stage dummy "凤凰的守卫阶段（0 = 第一形态活着，1 = 已留蛋，2 = 复活过一次）"
 scoreboard objectives add kitpvp.phx_life dummy "凤凰蛋还要几刻孵化（200 = 10 秒）"
 scoreboard objectives add kitpvp.phx_pair dummy "凤凰的配对号（本体/守卫/蛋同号，防止多只同时在场时串台）"
-scoreboard objectives add kitpvp.fang_cd dummy "尖牙测试（debug/fang_test）：铁块骷髅的施法冷却，0 就放一发尖牙"
-scoreboard objectives add kitpvp.snow_cd dummy "雪球测试（debug/snow_test）：铁块骷髅的投掷冷却，0 就丢一颗雪球"
