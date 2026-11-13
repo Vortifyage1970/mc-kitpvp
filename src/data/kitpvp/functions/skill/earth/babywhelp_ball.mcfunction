@@ -6,8 +6,11 @@ scoreboard players add @s kitpvp.bw_life 1
 # 尾迹
 execute at @s run particle minecraft:flame ~ ~ ~ 0.05 0.05 0.05 0.01 2
 execute at @s run particle minecraft:lava ~ ~ ~ 0.04 0.04 0.04 0 1
-# 沿吐出那一刻的朝向直线前进 0.8 格/刻（`at @s` 会把这只火球自己的 Rotation 带进 ^ 的计算里）
-execute at @s run tp @s ^ ^ ^0.8
+# 追击：每刻重新对准"最近的活玩家"的胸口再前进 0.9 格（at @s 会把这只火球自己的 Rotation 带进 ^ 的计算）
+# ⚠ 以前是"吐出那一刻的朝向直着飞"——玩家一走就擦过去，看起来就是瞄不准。改成每刻重新 facing，火球会拐一点弯，但跟得住人。
+execute at @s facing entity @p[distance=..32,gamemode=!spectator,tag=!kitpvp.spectator] eyes run tp @s ^ ^ ^0.9
+# 一个人都没有了：按自己最后的朝向继续飞，靠 40 刻寿命自然消失
+execute unless entity @p[distance=..32,gamemode=!spectator,tag=!kitpvp.spectator] at @s run tp @s ^ ^ ^0.9
 # 撞到方块：冒烟熄灭，不烧方块、不伤自己人
 execute at @s unless block ~ ~ ~ minecraft:air unless block ~ ~ ~ minecraft:cave_air unless block ~ ~ ~ minecraft:void_air run function kitpvp:skill/earth/babywhelp_fizzle
 # 命中玩家（1.5 格内）→ 结算伤害
