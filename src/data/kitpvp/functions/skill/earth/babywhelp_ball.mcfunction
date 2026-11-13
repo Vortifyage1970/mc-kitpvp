@@ -13,7 +13,8 @@ execute at @s facing entity @p[distance=..32,gamemode=!spectator,tag=!kitpvp.spe
 execute unless entity @p[distance=..32,gamemode=!spectator,tag=!kitpvp.spectator] at @s run tp @s ^ ^ ^0.9
 # 撞到方块：冒烟熄灭，不烧方块、不伤自己人
 execute at @s unless block ~ ~ ~ minecraft:air unless block ~ ~ ~ minecraft:cave_air unless block ~ ~ ~ minecraft:void_air run function kitpvp:skill/earth/babywhelp_fizzle
-# 命中玩家（1.5 格内）→ 结算伤害
-execute at @s if entity @a[distance=..1.5,gamemode=!spectator,tag=!kitpvp.spectator] run function kitpvp:skill/earth/babywhelp_hit
+# 命中玩家（2.2 格内）→ 结算伤害
+# ⚠ 半径必须 > 1.7：火球是按'比玩家眼高'的高度飞过去的，而 distance 量的是火球到玩家**脚底坐标**的直线距离，..1.5 永远差一点点 ⇒ 火球从人身上穿过去绕圈，看起来既没伤害又轨迹诡异
+execute at @s if entity @a[distance=..2.2,gamemode=!spectator,tag=!kitpvp.spectator] run function kitpvp:skill/earth/babywhelp_hit
 # 寿命上限 40 刻（约 16 格），没打到任何东西也会消失
 execute if score @s kitpvp.bw_life matches 40.. run function kitpvp:skill/earth/babywhelp_fizzle
