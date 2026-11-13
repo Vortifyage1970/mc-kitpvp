@@ -4,7 +4,8 @@
 execute as @a[distance=..2.2,gamemode=!spectator,tag=!kitpvp.spectator] run tellraw @a [{"text":"[诊断] 命中 ","color":"green"},{"selector":"@s"},{"text":"｜模式 ","color":"gray"},{"nbt":"playerGameType","entity":"@s","color":"aqua"},{"text":"｜血量 ","color":"gray"},{"nbt":"Health","entity":"@s","color":"aqua"}]
 # 有主就按"生物远程攻击"结算（归还击杀/伤害归属），主人已经死了就退化成无来源伤害
 execute if entity @e[tag=kitpvp.earth_babywhelp,distance=..48] as @a[distance=..2.2,gamemode=!spectator,tag=!kitpvp.spectator] at @s run damage @s 4 minecraft:magic by @e[tag=kitpvp.earth_babywhelp,distance=..48,limit=1]
-execute unless entity @e[tag=kitpvp.earth_babywhelp,distance=..48] run damage @a[distance=..2.2,gamemode=!spectator,tag=!kitpvp.spectator] 4 minecraft:magic
+# ⚠ `/damage` 的 target 只收**单个**实体（EntityArgument.entity）：写 `damage @a[...] …` 会让整个函数解析失败、一行都不注册
+execute unless entity @e[tag=kitpvp.earth_babywhelp,distance=..48] as @a[distance=..2.2,gamemode=!spectator,tag=!kitpvp.spectator] run damage @s 4 minecraft:magic
 execute as @a[distance=..2.2,gamemode=!spectator,tag=!kitpvp.spectator] run tellraw @a [{"text":"[诊断] 打完血量 ","color":"green"},{"nbt":"Health","entity":"@s","color":"gold"}]
 particle minecraft:explosion ~ ~ ~ 0 0 0 0 1
 particle minecraft:flame ~ ~ ~ 0.25 0.25 0.25 0.03 6
