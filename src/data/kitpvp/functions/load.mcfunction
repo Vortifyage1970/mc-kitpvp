@@ -503,3 +503,4 @@ scoreboard objectives add kitpvp.bw_cd dummy "飞龙宝宝吐火球的冷却（1
 scoreboard objectives add kitpvp.bw_life dummy "飞龙宝宝的火球已经飞了几刻（40 刻强制熄灭）"
 scoreboard objectives add kitpvp.bw_owner dummy "火球记住的召唤者编号（用来不打自己人）"
 scoreboard objectives add kitpvp.cap_cd dummy "队长的举盾周期（120 刻一轮：120..60 举盾）"
+scoreboard objectives add kitpvp.cap_sum_cd dummy "队长召唤跳跳虎的冷却（100 刻 = 5 秒，场上已有跳跳虎就跳过）"
