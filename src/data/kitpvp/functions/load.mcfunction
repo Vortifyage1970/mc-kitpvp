@@ -380,6 +380,8 @@ scoreboard objectives add kitpvp.plant_last dummy "农夫播种快照"
 scoreboard objectives add kitpvp.bread_used minecraft.used:minecraft.bread
 scoreboard objectives add kitpvp.bread_last dummy "农夫面包快照"
 scoreboard players set #farmer_roll kitpvp.game 3
+scoreboard players set #tick_slow2 kitpvp.game 0
+scoreboard players set #tick_slow4 kitpvp.game 0
 scoreboard players operation @a kitpvp.chaos_skill_last = @a kitpvp.chaos_skill_used
 scoreboard players operation @a kitpvp.soul_mercury_last = @a kitpvp.soul_mercury_used
 scoreboard players operation @a kitpvp.halley_last = @a kitpvp.halley_used

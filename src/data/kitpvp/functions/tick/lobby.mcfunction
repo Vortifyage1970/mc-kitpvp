@@ -9,4 +9,3 @@ execute as @a[tag=kitpvp.in_lobby,x=-0.5,y=70,z=97.5,dx=1,dy=3,dz=1] run effect 
 function kitpvp:lobby/display_lock
 function kitpvp:lobby/pad
 execute as @a[tag=kitpvp.in_lobby,tag=!kitpvp.spectator] if score @s kitpvp.ready_used > @s kitpvp.ready_last run function kitpvp:lobby/ready_toggle
-

@@ -15,14 +15,8 @@ execute as @e[tag=kitpvp.venus_armed] run function kitpvp:skill/venus/arm_refres
 execute as @e[tag=kitpvp.venus_armed,scores={kitpvp.venus_arm_timer=..0}] run function kitpvp:skill/venus/arm_expire
 
 # 技能入口：三枚模块令牌分别走 cd / cd2 / venus_cd3，互不影响
-execute as @a[scores={kitpvp.kit=67,kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.venus_chill_used > @s kitpvp.venus_chill_last run function kitpvp:skill/venus/chill_cast
-execute as @a[scores={kitpvp.kit=67,kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.venus_arm_used > @s kitpvp.venus_arm_last run function kitpvp:skill/venus/arm_cast
-execute as @a[scores={kitpvp.kit=67,kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.venus_bomb_used > @s kitpvp.venus_bomb_last run function kitpvp:skill/venus/bomb_cast
 
 # 令牌补货（自愈口径，同太阳）：只在游戏进行中发，避免在大厅反复刷
-execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=67,kitpvp.alive=1,kitpvp.cd=..0},tag=!kitpvp.spectator] at @s run function kitpvp:skill/venus/refill_chill
-execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=67,kitpvp.alive=1,kitpvp.cd2=..0},tag=!kitpvp.spectator] at @s run function kitpvp:skill/venus/refill_arm
-execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=67,kitpvp.alive=1,kitpvp.venus_cd3=..0},tag=!kitpvp.spectator] at @s run function kitpvp:skill/venus/refill_bomb
 
 # 舔狗跟随：每刻把落在 12 格外的狗拉回主人身边。狗只要一直在主人所在区块，
 # 就不会出现"区块卸载→看不见→误判丢了→再召一只"的两只狗（见 04 §十四）
@@ -44,4 +38,3 @@ execute if score #state kitpvp.game matches 0 as @a[scores={kitpvp.kit=71},tag=!
 
 # 令牌刷出来的基础生物：蛋一用就会刷一只，兜底清（cast 里已当场清过一次）
 kill @e[tag=kitpvp.venus_token]
-

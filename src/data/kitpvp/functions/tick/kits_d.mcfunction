@@ -110,8 +110,6 @@ kill @e[tag=kitpvp.earth_token]
 
 # ===== 炸弹兵（kit 19）/ 里·炸弹兵（kit 32）=====
 # 五套令牌共用蘑菇牛蛋，蛋刷出的隐形载体只当落点标记：dispatch 按载体 tag 分流，cast 在它的位置放炸弹再清掉
-execute as @a[scores={kitpvp.kit=19,kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.bomb_used > @s kitpvp.bomb_last run function kitpvp:skill/bomber/dispatch
-execute as @a[scores={kitpvp.kit=32,kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.bomb_used > @s kitpvp.bomb_last run function kitpvp:skill/tainted_bomber/dispatch
 
 # 补货：cd 走完才发；满仓时什么都不发、cd 停在 0，等下一枚用掉再起计
 execute as @a[scores={kitpvp.kit=19,kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/bomber/refill
@@ -125,9 +123,6 @@ execute as @a[scores={kitpvp.bomb_track_cd=1..}] run scoreboard players remove @
 execute as @a[scores={kitpvp.bomb_nuke_cd=1..}] run scoreboard players remove @s kitpvp.bomb_nuke_cd 1
 
 # 末影人魂石：用掉蛋就发一把魂石·传送枪
-execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_ep_used > @s kitpvp.soul_ep_last run function kitpvp:skill/soul/use_ep
-execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_farm_used > @s kitpvp.soul_farm_last run function kitpvp:skill/soul/use_farm
-execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_mars_used > @s kitpvp.soul_mars_last run function kitpvp:skill/soul/use_mars
 
 # ===== 混沌战士（kit 45）：弓 / 弩 / 三叉戟的"使用"各扣一次 =====
 execute as @a[scores={kitpvp.kit=45}] unless score @s kitpvp.chaos_bow_last matches -2147483648.. run scoreboard players operation @s kitpvp.chaos_bow_last = @s kitpvp.chaos_bow_used
@@ -140,7 +135,5 @@ execute as @a[scores={kitpvp.chaos_tri_wait=120..}] run function kitpvp:kit/chao
 execute as @a[scores={kitpvp.kit=45},nbt={SelectedItem:{id:"minecraft:bow"}}] run function kitpvp:kit/chaos_arrow_check
 execute as @a[scores={kitpvp.kit=45},nbt={SelectedItem:{id:"minecraft:crossbow"}}] run function kitpvp:kit/chaos_xbow_check
 # 混沌重铸：右键令牌（统计 spyglass 使用）→ 清武器并随机重铸，冷却 30 秒
-execute as @a[scores={kitpvp.kit=45,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.chaos_skill_used > @s kitpvp.chaos_skill_last run function kitpvp:kit/chaos_skill
 # 混沌·金斧：持有时隐身（effect 类被动只能走 tick）
 execute as @a[scores={kitpvp.kit=45}] at @s if data entity @s SelectedItem.tag.ChaosInvisible run effect give @s minecraft:invisibility 1 0 true
-

@@ -43,12 +43,8 @@ tag @a remove kitpvp.hold_ep
 execute as @a if data entity @s SelectedItem.tag.KitEnderPearl run tag @s add kitpvp.hold_ep
 execute as @a[scores={kitpvp.kit=8,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.ender_used > @s kitpvp.ender_last run function kitpvp:skill/enderman/cast
 
-execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.fisher_used > @s kitpvp.fisher_last run function kitpvp:skill/fisher/cast
-execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1,kitpvp.cd=0},tag=kitpvp.fisher_handout,tag=!kitpvp.spectator] run function kitpvp:skill/fisher/handout
 
 # 狼人 / 驯兽师：都用 wolf_spawn_egg（嗅闻令牌 / 狼蛋），各自靠 EntityTag 认自己那只、按 kit 分闸门，互不触发
-execute as @a[scores={kitpvp.kit=18,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.werewolf_used > @s kitpvp.werewolf_last run function kitpvp:skill/werewolf/cast
-execute as @a[scores={kitpvp.kit=11,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.tamer_used > @s kitpvp.tamer_last run function kitpvp:skill/tamer/cast
 # 命中被动的 18 刻（0.9 秒）内置冷却
 execute as @a[scores={kitpvp.werewolf_hit_cd=1..}] run scoreboard players remove @s kitpvp.werewolf_hit_cd 1
 
@@ -64,9 +60,5 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=34},tag=!kit
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=34},tag=!kitpvp.spectator] if score @s kitpvp.bread_used > @s kitpvp.bread_last run function kitpvp:skill/farmer/eat_bread
 
 # 里·农夫（kit 34）：两种蛋都与别的系统共用同种蛋（蘑菇牛=炸弹兵、尸壳=僵尸魂石），各走 dispatch 按名字分流
-execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=34},tag=!kitpvp.spectator] if score @s kitpvp.tf_rise_used > @s kitpvp.tf_rise_last run function kitpvp:skill/tainted_farmer/rise_dispatch
-execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=34},tag=!kitpvp.spectator] if score @s kitpvp.tf_rally_used > @s kitpvp.tf_rally_last run function kitpvp:skill/tainted_farmer/rally_dispatch
 # 召集农民：上限 1，冷却 60 秒；冷却走完且手上 / 16 格内地上都没有才补回
-execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=34,kitpvp.cd=..0},tag=!kitpvp.spectator] at @s unless entity @e[type=minecraft:item,nbt={Item:{id:"minecraft:husk_spawn_egg",tag:{KitTaintedRally:1b}}},distance=..16] run function kitpvp:skill/tainted_farmer/rally_refill
 execute if entity @e[tag=kitpvp.tf_leader] run function kitpvp:skill/tainted_farmer/leader_tick
-
