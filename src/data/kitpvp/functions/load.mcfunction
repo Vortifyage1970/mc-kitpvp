@@ -97,6 +97,9 @@ scoreboard objectives add kitpvp.chaos_skill_last dummy "混沌重铸快照"
 scoreboard objectives add kitpvp.chaos_uses dummy "混沌战士：当前武器还剩几次"
 scoreboard objectives add kitpvp.chaos_bow_used minecraft.used:minecraft.bow
 scoreboard objectives add kitpvp.chaos_bow_last dummy "混沌·弓使用快照"
+scoreboard objectives add kitpvp.chaos_xbow_used minecraft.used:minecraft.crossbow
+scoreboard objectives add kitpvp.chaos_xbow_last dummy "混沌·弩使用快照"
+scoreboard objectives add kitpvp.chaos_arrows dummy "混沌·背包箭数快照"
 scoreboard objectives add kitpvp.chaos_tri_used minecraft.used:minecraft.trident
 scoreboard objectives add kitpvp.chaos_tri_last dummy "混沌·三叉戟使用快照"
 scoreboard objectives add kitpvp.rocket_charge dummy "蓄力火箭跳的蓄力刻数（0..60）"
@@ -353,6 +356,7 @@ scoreboard players operation @a kitpvp.chaos_skill_last = @a kitpvp.chaos_skill_
 scoreboard players operation @a kitpvp.soul_mercury_last = @a kitpvp.soul_mercury_used
 scoreboard players operation @a kitpvp.halley_last = @a kitpvp.halley_used
 scoreboard players operation @a kitpvp.archer_shot_last = @a kitpvp.archer_shot
+scoreboard players operation @a kitpvp.chaos_xbow_last = @a kitpvp.chaos_xbow_used
 scoreboard players operation @a kitpvp.mars_domain_last = @a kitpvp.mars_domain_used
 scoreboard players set @a kitpvp.turret_heal_cd 0
 scoreboard players set @a kitpvp.werewolf_hit_cd 0
