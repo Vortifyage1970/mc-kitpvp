@@ -6,3 +6,4 @@ execute as @a run function kitpvp:music/rumbling/stop
 function kitpvp:music/rumbling_lyric/stop
 playsound minecraft:entity.wither.death master @a ~ ~ ~ 0.8 0.7
 tellraw @a [{"text":"❖ ","color":"gold","bold":true},{"text":"地鸣停止了","color":"gray","italic":true}]
+schedule clear kitpvp:skill/mars/song_end

@@ -12,6 +12,7 @@ particle minecraft:dust 0.6 0.05 0.05 3 ~ ~1 ~ 3 2 3 0.2 200 normal
 execute at @r[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/mars/giant_spawn
 scoreboard players set #mars_music kitpvp.game 0
 scoreboard players set #mars_active kitpvp.game 1
+schedule function kitpvp:skill/mars/song_end 1810t replace
 execute as @a run function kitpvp:music/rumbling/play
 function kitpvp:music/rumbling_lyric/start
 execute at @s run kill @e[tag=kitpvp.mars_token,distance=..32]
