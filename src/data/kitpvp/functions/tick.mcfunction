@@ -329,6 +329,8 @@ execute as @a[scores={kitpvp.bomb_nuke_cd=1..}] run scoreboard players remove @s
 
 # 末影人魂石：用掉蛋就发一把魂石·传送枪
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_ep_used > @s kitpvp.soul_ep_last run function kitpvp:skill/soul/use_ep
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_farm_used > @s kitpvp.soul_farm_last run function kitpvp:skill/soul/use_farm
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_mars_used > @s kitpvp.soul_mars_last run function kitpvp:skill/soul/use_mars
 
 # ===== 混沌战士（kit 45）：弓 / 弩 / 三叉戟的"使用"各扣一次 =====
 execute as @a[scores={kitpvp.kit=45}] unless score @s kitpvp.chaos_bow_last matches -2147483648.. run scoreboard players operation @s kitpvp.chaos_bow_last = @s kitpvp.chaos_bow_used

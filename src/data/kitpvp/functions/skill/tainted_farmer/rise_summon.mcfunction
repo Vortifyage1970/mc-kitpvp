@@ -1,8 +1,12 @@
-# @s = 里·农夫：清掉起义蛋的载体，就地召出领袖并归队
+# @s = 里·农夫：领袖生在蛋的落点（载体所在位置）；领队与归属沿用同一套队槽
 function kitpvp:skill/tainted_farmer/team_slot
-execute at @s run kill @e[type=minecraft:mooshroom,name="开始一场起义"]
 scoreboard players operation #tf_own kitpvp.game = @s kitpvp.tfid
-execute at @s run function kitpvp:summon/tainted_farmer_leader
+
+execute as @e[type=minecraft:mooshroom,name="开始一场起义",limit=1] at @s run function kitpvp:summon/tainted_farmer_leader
+# 载体没了（被打掉 / 落进虚空）就退回玩家脚下，保证技能不会白按
+execute unless entity @e[type=minecraft:mooshroom,name="开始一场起义"] at @s run function kitpvp:summon/tainted_farmer_leader
+execute at @s run kill @e[type=minecraft:mooshroom,name="开始一场起义"]
+
 scoreboard players operation @e[tag=kitpvp.tf_new,type=minecraft:zombie] kitpvp.tf_owner = #tf_own kitpvp.game
 execute as @e[tag=kitpvp.tf_new,type=minecraft:zombie] run function kitpvp:skill/tainted_farmer/join_own
 

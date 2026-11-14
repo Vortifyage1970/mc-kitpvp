@@ -94,6 +94,8 @@ scoreboard objectives add kitpvp.tf_rally_used minecraft.used:minecraft.husk_spa
 scoreboard objectives add kitpvp.tf_rally_last dummy "里·农夫召集快照"
 scoreboard objectives add kitpvp.tfid dummy "里·农夫队槽编号（1..6）"
 scoreboard objectives add kitpvp.tf_owner dummy "起义军归属的队槽编号（挂实体）"
+scoreboard objectives add kitpvp.soul_farm_used minecraft.used:minecraft.zombie_villager_spawn_egg
+scoreboard objectives add kitpvp.soul_farm_last dummy "农夫魂石快照"
 scoreboard objectives add kitpvp.tep_cd_s dummy "魂石传送枪装填（4 = 0.2 秒）"
 scoreboard objectives add kitpvp.tep_face dummy "门的朝向类型：0 墙 / 1 地面（往天上出）/ 2 天花板（往地下出）"
 scoreboard objectives add kitpvp.mars_curse dummy "火星：目标身上的诅咒层数"
@@ -302,6 +304,13 @@ team add bomb_3
 team add bomb_4
 team add bomb_5
 team add bomb_6
+# 里·农夫的起义军：队伍必须先建出来，否则 team join 静默失败、领袖会把自己人当敌人
+team add farmer_1
+team add farmer_2
+team add farmer_3
+team add farmer_4
+team add farmer_5
+team add farmer_6
 
 tag @a remove kitpvp.selected
 tag @a remove kitpvp.invincible
@@ -412,6 +421,7 @@ execute as @a run scoreboard players operation @s kitpvp.soul_ep_last = @s kitpv
 execute as @a run scoreboard players operation @s kitpvp.soul_mars_last = @s kitpvp.soul_mars_used
 execute as @a run scoreboard players operation @s kitpvp.tf_rise_last = @s kitpvp.tf_rise_used
 execute as @a run scoreboard players operation @s kitpvp.tf_rally_last = @s kitpvp.tf_rally_used
+execute as @a run scoreboard players operation @s kitpvp.soul_farm_last = @s kitpvp.soul_farm_used
 # 传送门状态灯：两条 bossbar，橙/蓝各一条；没有门时是灰色空心方块 + 0 格进度
 # 注意：1.20.1 的 bossbar 没有 `overlay` 这个属性（notched 样式属于 `style`），写了会让整份 load.mcfunction 不加载
 bossbar add kitpvp:tep_hud_orange {"text":"□ 橙门","color":"dark_gray"}
@@ -450,7 +460,7 @@ scoreboard players set #global kitpvp.timer 0
 scoreboard players set #state kitpvp.game 0
 scoreboard players set #survivors kitpvp.game 0
 scoreboard players set #debug kitpvp.game 0
-scoreboard players set #soul_count kitpvp.game 17
+scoreboard players set #soul_count kitpvp.game 18
 scoreboard players set #ghost_tid kitpvp.game 0
 scoreboard players set #ghost_need_new kitpvp.game 0
 scoreboard players set #lobby kitpvp.game 0

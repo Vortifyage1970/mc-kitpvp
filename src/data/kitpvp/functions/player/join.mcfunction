@@ -98,4 +98,5 @@ scoreboard players operation @s kitpvp.soul_mars_last = @s kitpvp.soul_mars_used
 scoreboard players set @s kitpvp.soul_mars_timer 0
 scoreboard players operation @s kitpvp.tf_rise_last = @s kitpvp.tf_rise_used
 scoreboard players operation @s kitpvp.tf_rally_last = @s kitpvp.tf_rally_used
+scoreboard players operation @s kitpvp.soul_farm_last = @s kitpvp.soul_farm_used
 scoreboard players set @s kitpvp.tfid 0

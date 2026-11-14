@@ -1,2 +1,2 @@
-# 木锄农民：20 血、皮革胸甲 + 玩家头颅、手持木锄（地球召唤的「农民」也算这一类）
-summon minecraft:zombie ~ ~ ~ {Tags:["kitpvp.tf_wood","kitpvp.tf_new"],CustomName:'{"text":"农民","color":"yellow"}',CustomNameVisible:1b,PersistenceRequired:1b,CanPickUpLoot:0b,HandItems:[{id:"minecraft:wooden_hoe",Count:1b},{}],ArmorItems:[{},{},{id:"minecraft:leather_chestplate",Count:1b},{id:"minecraft:player_head",Count:1b}],Health:20f,Attributes:[{Name:"minecraft:generic.max_health",Base:20.0}]}
+# 木锄农民：20 血、皮革胸甲 + 玩家头颅、手持木锄；名字不显示（减少屏幕噪音）
+summon minecraft:zombie ~ ~ ~ {Tags:["kitpvp.tf_wood","kitpvp.tf_new"],CustomName:'{"text":"农民","color":"yellow"}',CustomNameVisible:0b,PersistenceRequired:1b,CanPickUpLoot:0b,HandItems:[{id:"minecraft:wooden_hoe",Count:1b},{}],ArmorItems:[{},{},{id:"minecraft:leather_chestplate",Count:1b},{id:"minecraft:player_head",Count:1b}],Health:20f,Attributes:[{Name:"minecraft:generic.max_health",Base:20.0}]}

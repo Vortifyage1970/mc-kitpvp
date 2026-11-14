@@ -53,6 +53,7 @@ kill @e[tag=kitpvp.tf_stone]
 kill @e[tag=kitpvp.tf_wood]
 kill @e[type=minecraft:mooshroom,name="开始一场起义"]
 kill @e[type=minecraft:husk,name="召集农民"]
+kill @e[tag=kitpvp.soul_farm_token]
 scoreboard players set #tf_wave kitpvp.game 0
 scoreboard players set #tf_wave2 kitpvp.game 0
 scoreboard players set #soul_mars_wild_timer kitpvp.game 0
