@@ -96,6 +96,8 @@ scoreboard objectives add kitpvp.tfid dummy "里·农夫队槽编号（1..6）"
 scoreboard objectives add kitpvp.tf_owner dummy "起义军归属的队槽编号（挂实体）"
 scoreboard objectives add kitpvp.soul_farm_used minecraft.used:minecraft.zombie_villager_spawn_egg
 scoreboard objectives add kitpvp.soul_farm_last dummy "农夫魂石快照"
+scoreboard objectives add kitpvp.sun_hit_timer dummy "太阳魂石：被日蚀锁定的剩余刻数"
+scoreboard objectives add kitpvp.sun_hit_next dummy "太阳魂石：下一条噪音倒计时"
 scoreboard objectives add kitpvp.tep_cd_s dummy "魂石传送枪装填（4 = 0.2 秒）"
 scoreboard objectives add kitpvp.tep_face dummy "门的朝向类型：0 墙 / 1 地面（往天上出）/ 2 天花板（往地下出）"
 scoreboard objectives add kitpvp.mars_curse dummy "火星：目标身上的诅咒层数"

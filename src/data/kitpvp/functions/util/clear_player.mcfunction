@@ -101,6 +101,9 @@ tag @s remove kitpvp.soul_fisher_active
 tag @s remove kitpvp.arrow_user
 tag @s remove kitpvp.soul_ghost_active
 tag @s remove kitpvp.soul_venus_owner
+tag @s remove kitpvp.sun_hit
+scoreboard players set @s kitpvp.sun_hit_timer 0
+scoreboard players set @s kitpvp.sun_hit_next 0
 # 蓄力火箭跳：tag 是"能不能蓄力"的总开关（里·史莱姆与史莱姆魂石共用），换职业必须摘掉
 tag @s remove kitpvp.rocket_jump
 tag @s remove kitpvp.rocket_full

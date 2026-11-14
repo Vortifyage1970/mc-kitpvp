@@ -37,6 +37,7 @@ scoreboard players set #tf_wave kitpvp.game 0
 scoreboard players set #tf_wave2 kitpvp.game 0
 scoreboard players set #soul_mars_wild_timer kitpvp.game 0
 tag @a remove kitpvp.soul_venus_owner
+tag @a remove kitpvp.sun_hit
 tag @a remove kitpvp.soul_ep_active
 clear @a minecraft:spyglass{KitPortalGunSoul:1b}
 bossbar set kitpvp:tep_hud_orange name {"text":"□ 橙门","color":"dark_gray"}

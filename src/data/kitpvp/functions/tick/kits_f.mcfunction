@@ -18,10 +18,11 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator]
 # 兜底：蛋真的用掉了就会在原地生出一只带 soul_mercury_token 的河豚；
 # 统计判据万一不涨（1.20.1 对刷怪蛋的 used 统计并不总是可靠），这条也能触发，use_mercury 会顺手把河豚清掉
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.soul_venus_last matches -2147483648.. run scoreboard players operation @s kitpvp.soul_venus_last = @s kitpvp.soul_venus_used
-# 驯兽师 / 太阳：落点 marker 的每刻推进；金星：舔狗自己的 20 秒计时与增益
+# 驯兽师 / 金星：落点 marker 与舔狗的每刻推进（太阳魂石不用 marker：标记在人身上）
 execute as @e[tag=kitpvp.soul_tamer_marker] at @s run function kitpvp:skill/soul/tamer_tick
-execute as @e[tag=kitpvp.soul_sun_marker] at @s run function kitpvp:skill/soul/sun_tick
 execute as @e[tag=kitpvp.soul_venus_dog] at @s run function kitpvp:skill/soul/venus_tick
+# 太阳魂石：被日蚀锁定的人每刻走自己的倒计时（标记在人身上 → 跑出 10 格范围也继续吃噪音）
+execute as @a[tag=kitpvp.sun_hit] run function kitpvp:skill/soul/sun_hit
 
 # 地球魂石：标记处每 10 刻召一只（earth_cd_a 已由上面的实体计时器统一递减）
 execute as @e[tag=kitpvp.soul_earth_marker,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/soul/earth_step

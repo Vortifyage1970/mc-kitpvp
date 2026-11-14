@@ -1,10 +1,10 @@
 # 太阳魂石落地（执行位置 = 落点，@s = 使用者）
-# 落点留一个 marker 当锚点：20 秒内每刻刷新失明（2 秒覆盖），中途进出范围的玩家都会立刻中招；
-# 每 2 秒再给范围里的每个参战玩家灌一条噪音（128 选 1，复用太阳自己的噪音池）
-summon minecraft:marker ~ ~ ~ {Tags:["kitpvp.soul_sun_marker","kitpvp.soul_sun_new"]}
-scoreboard players set @e[tag=kitpvp.soul_sun_new] kitpvp.soul_timer 400
-scoreboard players set @e[tag=kitpvp.soul_sun_new] kitpvp.soul_next 1
-tag @e[tag=kitpvp.soul_sun_new] remove kitpvp.soul_sun_new
+# 施放瞬间锁定：10 格内**除使用者以外**的参战玩家，每人一次性 20 秒失明
+# 之后标记留在人身上（不是留在地上）：这 20 秒里即使跑出范围，也会继续被噪音干扰
+# 使用者 = 落点最近的那名玩家，只在这次标记里用来排除，标完立刻摘掉
+execute as @a[distance=..8,sort=nearest,limit=1] run tag @s add kitpvp.soul_sun_owner
+execute at @s as @a[distance=..10,scores={kitpvp.alive=1},tag=!kitpvp.spectator,tag=!kitpvp.soul_sun_owner] run function kitpvp:skill/soul/sun_mark
+tag @a remove kitpvp.soul_sun_owner
 
-title @s actionbar {"text":"魂石·日蚀：10 格内全体失明 20 秒，每 2 秒一条噪音","color":"gold"}
+title @s actionbar {"text":"魂石·日蚀：10 格内其他人失明 20 秒，噪音会一直跟着他们","color":"gold"}
 playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 1.0 0.6
