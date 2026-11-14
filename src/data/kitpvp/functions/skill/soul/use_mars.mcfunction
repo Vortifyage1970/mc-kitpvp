@@ -12,6 +12,8 @@ execute as @a at @s run playsound minecraft:entity.warden.roar master @s ~ ~ ~ 0
 execute as @a at @s run playsound minecraft:entity.wither.spawn master @s ~ ~ ~ 0.8 0.6
 
 execute at @s run function kitpvp:skill/soul/mars_spawn
+# 生灵节奏与火星地鸣完全一致：每 24 刻在巨人处刷一只地球生灵
+scoreboard players set #soul_mars_wild_timer kitpvp.game 24
 
 tag @s add kitpvp.soul_mars_active
 scoreboard players set @s kitpvp.soul_mars_timer 400
@@ -22,5 +24,7 @@ scoreboard players set @s kitpvp.soul_mars_timer 400
 execute as @a run function kitpvp:music/rumbling/play
 execute as @a run scoreboard players set @s nbs_rumbling 216160
 execute as @a run scoreboard players set @s nbs_rumbling_t 2701
+# 歌词从第 18 句接上：ev_018 在曲内第 1401 刻（≈70.05 秒），正好是最后 20 秒的第一句
+schedule function kitpvp:music/rumbling_lyric/ev_018 1t replace
 
 title @s actionbar {"text":"魂石·地鸣：巨人 20 秒","color":"dark_red"}

@@ -2,6 +2,7 @@
 kill @e[tag=kitpvp.soul_mars_giant]
 kill @e[tag=kitpvp.soul_mars_controller]
 execute as @a run function kitpvp:music/rumbling/stop
+function kitpvp:music/rumbling_lyric/stop
 
 tag @s remove kitpvp.soul_mars_active
 scoreboard players set @s kitpvp.soul_mars_timer 0

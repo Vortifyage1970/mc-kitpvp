@@ -45,6 +45,9 @@ kill @e[tag=kitpvp.soul_mars_giant]
 kill @e[tag=kitpvp.soul_mars_controller]
 # 万一有没被当场清掉的载体劫掠兽（蛋本身带 NoAI，站着不动，但也不能留）
 kill @e[tag=kitpvp.soul_mars_token]
+# 魂石巨人刷出来的地球生灵（与地鸣的 mars_wild 各管一半，earth_minion 那行本来也会兜住）
+kill @e[tag=kitpvp.soul_mars_wild]
+scoreboard players set #soul_mars_wild_timer kitpvp.game 0
 
 # 文明小子的令牌基础生物 / 还在飞的两种口水（一次性的投掷物，落地前也必须清干净）
 kill @e[tag=kitpvp.civil_token]
