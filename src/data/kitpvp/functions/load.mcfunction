@@ -87,6 +87,9 @@ scoreboard objectives add kitpvp.soul_ep_last dummy "末影人魂石快照"
 scoreboard objectives add kitpvp.soul_ep_timer dummy "末影人魂石传送枪剩余刻数（400 = 20 秒）"
 scoreboard objectives add kitpvp.tep_cd_s dummy "魂石传送枪装填（4 = 0.2 秒）"
 scoreboard objectives add kitpvp.tep_face dummy "门的朝向类型：0 墙 / 1 地面（往天上出）/ 2 天花板（往地下出）"
+scoreboard objectives add kitpvp.mars_curse dummy "火星：目标身上的诅咒层数"
+scoreboard objectives add kitpvp.mars_domain_used minecraft.used:minecraft.vex_spawn_egg
+scoreboard objectives add kitpvp.mars_domain_last dummy "火星：地鸣快照"
 scoreboard objectives add kitpvp.archer_shot minecraft.used:minecraft.bow
 scoreboard objectives add kitpvp.archer_shot_last dummy "混沌弓箭手射击快照"
 scoreboard objectives add kitpvp.chaos_skill_used minecraft.used:minecraft.spyglass
@@ -203,7 +206,7 @@ scoreboard objectives add kitpvp.venus_bomb_used minecraft.used:minecraft.silver
 scoreboard objectives add kitpvp.venus_bomb_last dummy "金星自爆快照"
 scoreboard objectives add kitpvp.venus_cd3 dummy "第三技能冷却"
 scoreboard objectives add kitpvp.venus_dog_timer dummy "舔狗复活倒计时"
-# 冥王星（kit 76）：鹦鹉分身（归属编号 + 鹦鹉身上的归属）
+# 冥王星（kit 71）：鹦鹉分身（归属编号 + 鹦鹉身上的归属）
 scoreboard objectives add kitpvp.ptid dummy "冥王星鹦鹉归属编号"
 scoreboard objectives add kitpvp.parrot_owner dummy "冥王星鹦鹉归属（挂鹦鹉）"
 scoreboard objectives add kitpvp.parrot_miss dummy "冥王星鹦鹉缺失计时（缺 6 刻才判死，防跨区传送误杀）"
@@ -323,6 +326,11 @@ scoreboard players set @a kitpvp.item 0
 scoreboard players set @a kitpvp.tid 0
 scoreboard players set @a kitpvp.ttid 0
 scoreboard players set @a kitpvp.fisher_no_tri 0
+scoreboard players set #mars_wild_timer kitpvp.game 0
+scoreboard players set #mars_music kitpvp.game 0
+scoreboard players set #mars_wild kitpvp.game 0
+scoreboard players set #mars_pick kitpvp.game 0
+scoreboard players set #mars_pick_max kitpvp.game 6
 scoreboard players set #cart_cd1 kitpvp.game 0
 scoreboard players set #cart_cd2 kitpvp.game 0
 scoreboard players set #cart_cd3 kitpvp.game 0
@@ -345,6 +353,7 @@ scoreboard players operation @a kitpvp.chaos_skill_last = @a kitpvp.chaos_skill_
 scoreboard players operation @a kitpvp.soul_mercury_last = @a kitpvp.soul_mercury_used
 scoreboard players operation @a kitpvp.halley_last = @a kitpvp.halley_used
 scoreboard players operation @a kitpvp.archer_shot_last = @a kitpvp.archer_shot
+scoreboard players operation @a kitpvp.mars_domain_last = @a kitpvp.mars_domain_used
 scoreboard players set @a kitpvp.turret_heal_cd 0
 scoreboard players set @a kitpvp.werewolf_hit_cd 0
 scoreboard players set @a kitpvp.sun_reload 0

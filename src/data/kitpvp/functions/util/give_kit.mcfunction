@@ -26,6 +26,7 @@ execute if score @s kitpvp.kit matches 33 run function kitpvp:kit/tainted_enderm
 execute if score @s kitpvp.kit matches 45 run function kitpvp:kit/chaos
 execute if score @s kitpvp.kit matches 69 run function kitpvp:kit/halley
 execute if score @s kitpvp.kit matches 46 run function kitpvp:kit/chaos_archer
+execute if score @s kitpvp.kit matches 70 run function kitpvp:kit/mars
 execute if score @s kitpvp.kit matches 65 run function kitpvp:kit/sun
 execute if score @s kitpvp.kit matches 66 run function kitpvp:kit/mercury
 execute if score @s kitpvp.kit matches 67 run function kitpvp:kit/venus
@@ -33,4 +34,4 @@ execute if score @s kitpvp.kit matches 87 run function kitpvp:kit/civil
 execute if score @s kitpvp.kit matches 88 run function kitpvp:kit/li_zhujunze
 execute if score @s kitpvp.kit matches 68 run function kitpvp:kit/earth
 execute if score @s kitpvp.kit matches 14 run function kitpvp:kit/zombie
-execute if score @s kitpvp.kit matches 76 run function kitpvp:kit/pluto
+execute if score @s kitpvp.kit matches 71 run function kitpvp:kit/pluto

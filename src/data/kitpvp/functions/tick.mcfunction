@@ -192,11 +192,11 @@ execute as @a[tag=kitpvp.venus_dog_dead,scores={kitpvp.alive=1,kitpvp.venus_dog_
 # ===== 冥王星（kit 76）=====
 # 鹦鹉跟随：每刻把 2 格外的鹦鹉拉到肩头
 # 大厅里也要跟（选职业时就在大厅，玩家会立刻走动）
-execute as @a[scores={kitpvp.kit=76,kitpvp.alive=1},tag=!kitpvp.spectator] at @s run function kitpvp:skill/pluto/follow
+execute as @a[scores={kitpvp.kit=71,kitpvp.alive=1},tag=!kitpvp.spectator] at @s run function kitpvp:skill/pluto/follow
 # 鹦鹉一死 => 本体强制死亡；重生后由 player/after_death 补一只新鹦鹉
-execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=76,kitpvp.alive=1},tag=!kitpvp.spectator,tag=!kitpvp.respawn_pending] at @s run function kitpvp:skill/pluto/check
+execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=71,kitpvp.alive=1},tag=!kitpvp.spectator,tag=!kitpvp.respawn_pending] at @s run function kitpvp:skill/pluto/check
 # 大厅里没有 after_death 兜底（on_death 只在局内挂 respawn_pending）：鸟丢了就在大厅直接补一只
-execute if score #state kitpvp.game matches 0 as @a[scores={kitpvp.kit=76},tag=!kitpvp.spectator] at @s run function kitpvp:skill/pluto/respawn
+execute if score #state kitpvp.game matches 0 as @a[scores={kitpvp.kit=71},tag=!kitpvp.spectator] at @s run function kitpvp:skill/pluto/respawn
 
 # 令牌刷出来的基础生物：蛋一用就会刷一只，兜底清（cast 里已当场清过一次）
 kill @e[tag=kitpvp.venus_token]
@@ -504,6 +504,10 @@ execute if score #cart_cd10 kitpvp.game matches 1.. run scoreboard players remov
 execute if score #cart_cd10 kitpvp.game matches ..0 if block 6049 65 6014 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_10
 execute if score #cart_cd11 kitpvp.game matches 1.. run scoreboard players remove #cart_cd11 kitpvp.game 1
 execute if score #cart_cd11 kitpvp.game matches ..0 if block 6050 65 6054 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_11
+
+# ===== 火星（kit 70）：地鸣触发 + 巨人/生灵心跳 =====
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.mars_domain_used > @s kitpvp.mars_domain_last run function kitpvp:skill/mars/domain_cast
+function kitpvp:skill/mars/giant_tick
 
 # ===== 混沌弓箭手（kit 46）：每射一箭 → 自动装填一支随机魔法箭 =====
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.archer_shot > @s kitpvp.archer_shot_last run function kitpvp:skill/chaos_archer/cast

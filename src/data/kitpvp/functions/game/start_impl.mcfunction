@@ -51,7 +51,7 @@ kill @e[tag=kitpvp.tamer_wolf]
 execute as @a[scores={kitpvp.kit=67}] at @s run function kitpvp:skill/venus/dog_follow
 
 # 冥王星：鹦鹉跟着进图（同样是跨区块传送，必须当刻拉一把），并顺手回满血
-execute as @a[scores={kitpvp.kit=76}] at @s run function kitpvp:skill/pluto/enter_map
+execute as @a[scores={kitpvp.kit=71}] at @s run function kitpvp:skill/pluto/enter_map
 
 execute as @a[tag=kitpvp.selected] run function kitpvp:player/invincible
 

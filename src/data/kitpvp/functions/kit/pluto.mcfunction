@@ -2,7 +2,7 @@
 # 机制照抄金星的舔狗：一只无 AI 的鹦鹉「冥王星」当分身——它一死，本体跟着强制死亡，重生后再补一只
 function kitpvp:util/clear_player
 
-scoreboard players set @s kitpvp.kit 76
+scoreboard players set @s kitpvp.kit 71
 tag @s add kitpvp.selected
 scoreboard players set @s kitpvp.alive 1
 scoreboard players set @s kitpvp.lives 3
