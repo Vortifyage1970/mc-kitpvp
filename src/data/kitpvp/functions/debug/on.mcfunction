@@ -8,6 +8,8 @@ tellraw @a [{"text":"▶ play","color":"aqua","clickEvent":{"action":"run_comman
 tellraw @a [{"text":"▶ build","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/build"},"hoverEvent":{"action":"show_text","contents":"建造模式（创造+退出游戏统计）"}}]
 tellraw @a [{"text":"▶ status","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/status"},"hoverEvent":{"action":"show_text","contents":"打印自己的分数 / 全局状态"}}]
 tellraw @a [{"text":"▶ music","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/music"},"hoverEvent":{"action":"show_text","contents":"点歌（雨爱 / 非人类 / 伊邪那岐）"}}]
+tellraw @a [{"text":"▶ dummy","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/dummy"},"hoverEvent":{"action":"show_text","contents":[{"text":"正前方 3 格生成 200 血铁套僵尸（训练假人）","color":"gray"}]}}]
+tellraw @a [{"text":"▶ dummy_clear","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/dummy_clear"},"hoverEvent":{"action":"show_text","contents":[{"text":"清掉所有训练假人","color":"gray"}]}}]
 tellraw @a [{"text":"▶ notch_mode","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/notch_mode"},"hoverEvent":{"action":"show_text","contents":"Notch 模式：饱和+生命恢复 X 无限（再点一次关闭）"}}]
 tellraw @a [{"text":"▶ force_reset","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:debug/force_reset"},"hoverEvent":{"action":"show_text","contents":"立刻重置回大厅（不等 10 秒倒计时）"}}]
 tellraw @a [{"text":"▶ sudden_death","color":"aqua","clickEvent":{"action":"run_command","value":"/function kitpvp:game/sudden_death_start"},"hoverEvent":{"action":"show_text","contents":"立刻进入突然死亡（魂石间隔按剩余命数：3 命 45 秒 / 2 命 35 秒 / 1 命 25 秒）"}}]
