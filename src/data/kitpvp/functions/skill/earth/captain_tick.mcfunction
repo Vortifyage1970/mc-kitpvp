@@ -8,6 +8,10 @@ execute if entity @s[tag=kitpvp.cap_block] run effect give @s minecraft:resistan
 execute unless entity @s[tag=kitpvp.cap_block] run effect clear @s minecraft:resistance
 execute if entity @s[tag=kitpvp.cap_block] run effect give @s minecraft:slowness infinite 0 true
 execute unless entity @s[tag=kitpvp.cap_block] run effect clear @s minecraft:slowness
-# 举盾那一刻"啪"一声；盾面上有电火花，方便玩家判断现在能不能打
+# 举盾那一刻"啪"一声
 execute if score @s kitpvp.cap_cd matches 120 run playsound minecraft:item.shield.block hostile @a[distance=..16] ~ ~ ~ 0.9 1.2
-execute if entity @s[tag=kitpvp.cap_block] at @s run particle minecraft:electric_spark ~ ^1 ~0.55 0.2 0.15 0.2 0.01 1
+# 举盾期间的可视信号：副手盾面（左侧 0.6 格）往冒电火花 + 头顶白雾
+execute if entity @s[tag=kitpvp.cap_block] at @s positioned ^ ^ ^0.6 run particle minecraft:electric_spark ~ ~ ~ 0.15 0.25 0.15 0.01 6
+execute if entity @s[tag=kitpvp.cap_block] at @s run particle minecraft:end_rod ~ ~2.05 ~ 0.25 0.1 0.25 0.01 3
+# 放下盾那一刻也响一声（第 59 刻），提示"现在可以打了"
+execute if score @s kitpvp.cap_cd matches 59 run playsound minecraft:item.shield.break hostile @a[distance=..16] ~ ~ ~ 0.4 1.6
