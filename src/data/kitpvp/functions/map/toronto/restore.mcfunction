@@ -9,5 +9,5 @@ place template kitpvp:toronto4 5988 60 5942
 place template kitpvp:toronto5 5988 60 5990
 place template kitpvp:toronto6 5988 60 6038
 place template kitpvp:toronto7 6036 60 5942
-# place template kitpvp:toronto8 6036 60 5990   # ← 缺文件，等存档补 toronto8.nbt
+place template kitpvp:toronto8 6036 60 5990
 place template kitpvp:toronto9 6036 60 6038
