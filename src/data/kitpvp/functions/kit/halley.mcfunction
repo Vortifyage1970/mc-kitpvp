@@ -1,4 +1,5 @@
-# 哈雷彗星（kit = 69）：钻石头盔 + 金胸甲/护腿/靴子 + 铁剑（护甲 3+5+3+1 = 12）；食物金胡萝卜 x24
+# 哈雷彗星（kit = 69）：钻石头盔/靴子 + 金胸甲/护腿 + 铁剑；食物金胡萝卜 x24
+# 护甲 3+5+3+3 = 14 → 用 AttributeModifiers 把钻石靴压到 1 点（-2），合计 12（外观仍是钻石靴）
 # 被动 1 温度升高（skill/halley/heat）、被动 2 近身加速（skill/halley/near）都在 tick 里驱动
 function kitpvp:util/clear_player
 
@@ -10,7 +11,7 @@ scoreboard players set @s kitpvp.lives 3
 item replace entity @s armor.head with minecraft:diamond_helmet{Unbreakable:1b}
 item replace entity @s armor.chest with minecraft:golden_chestplate{Unbreakable:1b}
 item replace entity @s armor.legs with minecraft:golden_leggings{Unbreakable:1b}
-item replace entity @s armor.feet with minecraft:golden_boots{Unbreakable:1b}
+item replace entity @s armor.feet with minecraft:diamond_boots{Unbreakable:1b,AttributeModifiers:[{AttributeName:"minecraft:generic.armor",Name:"kitpvp.halley_armor",Amount:-2,Operation:0,UUID:[I;69,0,0,9],Slot:"feet"}]}
 
 item replace entity @s weapon.mainhand with minecraft:iron_sword{Unbreakable:1b}
 

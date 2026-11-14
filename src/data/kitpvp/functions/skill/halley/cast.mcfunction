@@ -3,7 +3,7 @@
 scoreboard players operation @s kitpvp.halley_last = @s kitpvp.halley_used
 
 effect give @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] minecraft:speed 1 80 true
-title @a[tag=kitpvp.selected,scores={kitpvp.alive=1}] actionbar {"text":"天堂制造","color":"gold"}
+title @s actionbar {"text":"天堂制造","color":"gold"}
 playsound minecraft:entity.firework_rocket.launch master @s ~ ~ ~ 1 0.8
 particle minecraft:flame ~ ~1 ~ 1 1 1 0.2 30 normal
 
