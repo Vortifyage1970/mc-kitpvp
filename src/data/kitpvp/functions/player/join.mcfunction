@@ -88,3 +88,4 @@ tag @s remove kitpvp.hold_cb_prev
 scoreboard players add @s kitpvp.vtid 0
 
 function kitpvp:lobby/enter
+scoreboard players operation @s kitpvp.soul_mercury_last = @s kitpvp.soul_mercury_used

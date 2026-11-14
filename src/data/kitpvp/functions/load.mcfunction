@@ -334,7 +334,10 @@ scoreboard players set #cart_cd8 kitpvp.game 0
 scoreboard players set #cart_cd9 kitpvp.game 0
 scoreboard players set #cart_cd10 kitpvp.game 0
 scoreboard players set #cart_cd11 kitpvp.game 0
+scoreboard objectives add kitpvp.soul_mercury_used minecraft.used:minecraft:tropical_fish_spawn_egg
+scoreboard objectives add kitpvp.soul_mercury_last dummy "水星魂石快照"
 scoreboard players operation @a kitpvp.chaos_skill_last = @a kitpvp.chaos_skill_used
+scoreboard players operation @a kitpvp.soul_mercury_last = @a kitpvp.soul_mercury_used
 scoreboard players set @a kitpvp.turret_heal_cd 0
 scoreboard players set @a kitpvp.werewolf_hit_cd 0
 scoreboard players set @a kitpvp.sun_reload 0

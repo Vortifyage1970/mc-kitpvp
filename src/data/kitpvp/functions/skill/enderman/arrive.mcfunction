@@ -12,5 +12,6 @@ execute rotated as @e[tag=kitpvp.tep_portal,distance=..1,limit=1,sort=nearest] r
 
 data merge entity @s {FallDistance:0f}
 scoreboard players set @s kitpvp.tep_ready 60
+tag @s add kitpvp.tep_locked
 particle minecraft:dragon_breath ~ ~0.9 ~ 0.4 0.5 0.4 0.05 14 normal
 playsound minecraft:entity.enderman.teleport master @a[distance=..16] ~ ~ ~ 0.8 1.1

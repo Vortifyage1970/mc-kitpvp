@@ -361,16 +361,17 @@ execute as @a[tag=kitpvp.soul_ep_active,scores={kitpvp.soul_ep_timer=..0}] run f
 # 门的寿命 / 粒子 / 状态灯
 execute as @e[tag=kitpvp.tep_portal] at @s run function kitpvp:skill/enderman/portal_tick
 # 玩家穿门（每个人 3 秒免疫；两扇门都齐了才生效）
-execute as @e[tag=kitpvp.tep_a] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_b
-execute as @e[tag=kitpvp.tep_b] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_a
-execute as @e[tag=kitpvp.tep_r] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_p
-execute as @e[tag=kitpvp.tep_p] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_r
+execute as @e[tag=kitpvp.tep_a] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator,tag=!kitpvp.tep_locked] run function kitpvp:skill/enderman/enter_b
+execute as @e[tag=kitpvp.tep_b] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator,tag=!kitpvp.tep_locked] run function kitpvp:skill/enderman/enter_a
+execute as @e[tag=kitpvp.tep_r] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator,tag=!kitpvp.tep_locked] run function kitpvp:skill/enderman/enter_p
+execute as @e[tag=kitpvp.tep_p] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator,tag=!kitpvp.tep_locked] run function kitpvp:skill/enderman/enter_r
 # 非玩家实体（召唤物 / 箭 / 掉落物）任何人的门都能穿；装饰类与 marker 不参与
-execute as @e[tag=kitpvp.tep_a] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,tag=!kitpvp.displayitem] unless score @s kitpvp.tep_ready matches 1.. run function kitpvp:skill/enderman/ent_through_b
-execute as @e[tag=kitpvp.tep_b] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,tag=!kitpvp.displayitem] unless score @s kitpvp.tep_ready matches 1.. run function kitpvp:skill/enderman/ent_through_a
-execute as @e[tag=kitpvp.tep_r] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,tag=!kitpvp.displayitem] unless score @s kitpvp.tep_ready matches 1.. run function kitpvp:skill/enderman/ent_through_p
-execute as @e[tag=kitpvp.tep_p] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,tag=!kitpvp.displayitem] unless score @s kitpvp.tep_ready matches 1.. run function kitpvp:skill/enderman/ent_through_r
+execute as @e[tag=kitpvp.tep_a] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,tag=!kitpvp.displayitem,tag=!kitpvp.tep_locked] unless score @s kitpvp.tep_ready matches 1.. run function kitpvp:skill/enderman/ent_through_b
+execute as @e[tag=kitpvp.tep_b] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,tag=!kitpvp.displayitem,tag=!kitpvp.tep_locked] unless score @s kitpvp.tep_ready matches 1.. run function kitpvp:skill/enderman/ent_through_a
+execute as @e[tag=kitpvp.tep_r] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,tag=!kitpvp.displayitem,tag=!kitpvp.tep_locked] unless score @s kitpvp.tep_ready matches 1.. run function kitpvp:skill/enderman/ent_through_p
+execute as @e[tag=kitpvp.tep_p] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,tag=!kitpvp.displayitem,tag=!kitpvp.tep_locked] unless score @s kitpvp.tep_ready matches 1.. run function kitpvp:skill/enderman/ent_through_r
 # 实体侧的穿门免疫
+execute as @e[tag=kitpvp.tep_locked] at @s unless entity @e[tag=kitpvp.tep_portal,distance=..1.7] run tag @s remove kitpvp.tep_locked
 execute as @e[type=!minecraft:player,scores={kitpvp.tep_ready=1..}] run scoreboard players remove @s kitpvp.tep_ready 1
 execute as @e[tag=kitpvp.bomb_rider,scores={kitpvp.bomb_life=1..}] run scoreboard players remove @s kitpvp.bomb_life 1
 execute as @e[tag=kitpvp.bomb_rider,scores={kitpvp.bomb_life=..0}] run kill @s
@@ -424,7 +425,9 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator]
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_tamer_used > @s kitpvp.soul_tamer_last run function kitpvp:skill/soul/use_tamer
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.soul_sun_last matches -2147483648.. run scoreboard players operation @s kitpvp.soul_sun_last = @s kitpvp.soul_sun_used
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_sun_used > @s kitpvp.soul_sun_last run function kitpvp:skill/soul/use_sun
-# 水星魂石走 advancement（advancements/player/soul_mercury_use.json），不再用「海豚蛋被使用」统计
+# 水星魂石：河豚蛋的使用统计 → 快照比较（同表渔夫）
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.soul_mercury_last matches -2147483648.. run scoreboard players operation @s kitpvp.soul_mercury_last = @s kitpvp.soul_mercury_used
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_mercury_used > @s kitpvp.soul_mercury_last run function kitpvp:skill/soul/use_mercury
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.soul_venus_last matches -2147483648.. run scoreboard players operation @s kitpvp.soul_venus_last = @s kitpvp.soul_venus_used
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_venus_used > @s kitpvp.soul_venus_last run function kitpvp:skill/soul/use_venus
 # 驯兽师 / 太阳：落点 marker 的每刻推进；金星：舔狗自己的 20 秒计时与增益
