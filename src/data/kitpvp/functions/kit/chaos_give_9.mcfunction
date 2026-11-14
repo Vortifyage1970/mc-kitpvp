@@ -1,7 +1,3 @@
-tag @s remove kitpvp.chaos_hand
-execute unless data entity @s SelectedItem run tag @s add kitpvp.chaos_hand
-execute if entity @s[tag=kitpvp.chaos_hand] run item replace entity @s weapon.mainhand with minecraft:bow{ChaosBlade:1b,ChaosId:9b,ChaosUses:2b,ChaosBow:1b,Damage:380s,display:{Lore:['{"text": "权柄。别无所需。", "color": "dark_purple", "italic": false}']},Enchantments:[{id:"minecraft:flame",lvl:1s}]} 1
-execute unless entity @s[tag=kitpvp.chaos_hand] run give @s minecraft:bow{ChaosBlade:1b,ChaosId:9b,ChaosUses:2b,ChaosBow:1b,Damage:380s,display:{Lore:['{"text": "权柄。别无所需。", "color": "dark_purple", "italic": false}']},Enchantments:[{id:"minecraft:flame",lvl:1s}]} 1
-tag @s remove kitpvp.chaos_hand
+give @s minecraft:bow{ChaosBlade:1b,ChaosId:9b,ChaosUses:2b,ChaosBow:1b,Damage:380s,display:{Lore:['{"text": "权柄。别无所需。", "color": "dark_purple", "italic": false}']},Enchantments:[{id:"minecraft:flame",lvl:1s}]} 1
 scoreboard players set @s kitpvp.chaos_uses 2
 give @s minecraft:arrow 2
