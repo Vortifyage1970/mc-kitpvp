@@ -334,8 +334,8 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator]
 execute as @a[scores={kitpvp.kit=45}] unless score @s kitpvp.chaos_bow_last matches -2147483648.. run scoreboard players operation @s kitpvp.chaos_bow_last = @s kitpvp.chaos_bow_used
 execute as @a[scores={kitpvp.kit=45}] unless score @s kitpvp.chaos_tri_last matches -2147483648.. run scoreboard players operation @s kitpvp.chaos_tri_last = @s kitpvp.chaos_tri_used
 execute as @a[scores={kitpvp.kit=45}] if score @s kitpvp.chaos_tri_used > @s kitpvp.chaos_tri_last run function kitpvp:kit/chaos_shot_tri
-execute as @a[scores={kitpvp.kit=45}] if score @s kitpvp.chaos_xbow_used > @s kitpvp.chaos_xbow_last run function kitpvp:kit/chaos_shot_xbow
 execute as @a[scores={kitpvp.kit=45},nbt={SelectedItem:{id:"minecraft:bow"}}] run function kitpvp:kit/chaos_arrow_check
+execute as @a[scores={kitpvp.kit=45},nbt={SelectedItem:{id:"minecraft:crossbow"}}] run function kitpvp:kit/chaos_xbow_check
 # 混沌重铸：右键令牌（统计 spyglass 使用）→ 清武器并随机重铸，冷却 30 秒
 execute as @a[scores={kitpvp.kit=45,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.chaos_skill_used > @s kitpvp.chaos_skill_last run function kitpvp:kit/chaos_skill
 # 混沌·金斧：持有时隐身（effect 类被动只能走 tick）

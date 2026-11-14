@@ -100,6 +100,7 @@ scoreboard objectives add kitpvp.chaos_bow_last dummy "混沌·弓使用快照"
 scoreboard objectives add kitpvp.chaos_xbow_used minecraft.used:minecraft.crossbow
 scoreboard objectives add kitpvp.chaos_xbow_last dummy "混沌·弩使用快照"
 scoreboard objectives add kitpvp.chaos_arrows dummy "混沌·背包箭数快照"
+scoreboard objectives add kitpvp.chaos_xbow_charge dummy "混沌·手炮装填快照"
 scoreboard objectives add kitpvp.chaos_tri_used minecraft.used:minecraft.trident
 scoreboard objectives add kitpvp.chaos_tri_last dummy "混沌·三叉戟使用快照"
 scoreboard objectives add kitpvp.rocket_charge dummy "蓄力火箭跳的蓄力刻数（0..60）"
