@@ -371,7 +371,6 @@ execute as @e[tag=kitpvp.bw_ball] at @s run function kitpvp:skill/earth/babywhel
 execute as @e[tag=kitpvp.earth_captain] at @s run function kitpvp:skill/earth/captain_tick
 # 铁人（地球·75）：NoAI 僵尸，靠命令驱着走；每 5 秒在脚边丢一颗 2 秒引信的小炸弹
 execute as @e[tag=kitpvp.earth_ironman] at @s run function kitpvp:skill/earth/ironman_tick
-execute as @e[tag=kitpvp.im_bomb] at @s run function kitpvp:skill/earth/ironman_bomb_tick
 # 变色者：每 5 秒换一次头顶方块（earth_cd_a 由 tick 统一递减）
 execute as @e[tag=kitpvp.earth_colorchanger,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/colorchanger_shift
 # 井盖：装填期（earth_cd_a，召唤后 2 秒）走完之后，头顶 2.5 格内有活人就破土（dy≈2 ⇒ 站在正上方即命中）
