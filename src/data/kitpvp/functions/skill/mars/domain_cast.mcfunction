@@ -13,4 +13,6 @@ execute at @r[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator]
 scoreboard players set #mars_music kitpvp.game 0
 execute as @a run function kitpvp:music/rumbling/play
 function kitpvp:music/rumbling_lyric/start
-kill @e[tag=kitpvp.mars_token,distance=..32]
+execute at @s run kill @e[tag=kitpvp.mars_token,distance=..32]
+execute at @s run kill @e[name="地鸣",distance=..32]
+execute at @s run kill @e[type=minecraft:vex,distance=..8,tag=!kitpvp.displayitem]

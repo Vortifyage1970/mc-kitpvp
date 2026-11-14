@@ -1,7 +1,7 @@
 tellraw @s [{"text":"┌──────────────────────────────","color":"dark_gray"}]
 tellraw @s [{"text":"│ 职业名：","color":"gray"},{"text":"火星","color":"dark_red","bold":true}]
 tellraw @s [{"text":"│ 分类：","color":"gray"},{"text":"星象","color":"white"}]
-tellraw @s [{"text":"│ 简介：","color":"gray"},{"text":"掌控诅咒与破坏的混乱行星","color":"white"}]
+tellraw @s [{"text":"│ 简介：","color":"gray"},{"text":"掌控诅咒与混乱的邪恶行星化身","color":"white"}]
 tellraw @s [{"text":"│ 武器单次伤害：","color":"gray"},{"text":"2","color":"gold"},{"text":"（诅咒剑）","color":"white"}]
 tellraw @s [{"text":"│ 武器攻击速度：","color":"gray"},{"text":"1.6","color":"gold"}]
 tellraw @s [{"text":"│ 总护甲值：","color":"gray"},{"text":"10","color":"gold"}]
