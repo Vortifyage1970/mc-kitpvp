@@ -9,6 +9,7 @@ execute if data entity @s Inventory[{tag:{ChaosBlade:1b},id:"minecraft:diamond_a
 execute if data entity @s Inventory[{tag:{ChaosBlade:1b},id:"minecraft:diamond_sword"}] run clear @s minecraft:diamond_sword{ChaosBlade:1b}
 execute if data entity @s Inventory[{tag:{ChaosBlade:1b},id:"minecraft:golden_axe"}] run clear @s minecraft:golden_axe{ChaosBlade:1b}
 execute if data entity @s Inventory[{tag:{ChaosBlade:1b},id:"minecraft:golden_sword"}] run clear @s minecraft:golden_sword{ChaosBlade:1b}
+execute if data entity @s Inventory[{tag:{ChaosBlade:1b},id:"minecraft:iron_hoe"}] run clear @s minecraft:iron_hoe{ChaosBlade:1b}
 execute if data entity @s Inventory[{tag:{ChaosBlade:1b},id:"minecraft:iron_shovel"}] run clear @s minecraft:iron_shovel{ChaosBlade:1b}
 execute if data entity @s Inventory[{tag:{ChaosBlade:1b},id:"minecraft:iron_sword"}] run clear @s minecraft:iron_sword{ChaosBlade:1b}
 execute if data entity @s Inventory[{tag:{ChaosBlade:1b},id:"minecraft:stone_axe"}] run clear @s minecraft:stone_axe{ChaosBlade:1b}

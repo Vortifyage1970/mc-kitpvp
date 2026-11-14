@@ -403,6 +403,8 @@ execute as @a[scores={kitpvp.werewolf_hit_cd=1..}] run scoreboard players remove
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=13},tag=!kitpvp.spectator] if score @s kitpvp.farm_used > @s kitpvp.farm_last run function kitpvp:skill/farmer/cultivate
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=13},tag=!kitpvp.spectator] if score @s kitpvp.plant_used > @s kitpvp.plant_last run function kitpvp:skill/farmer/harvest
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=13},tag=!kitpvp.spectator] if score @s kitpvp.bread_used > @s kitpvp.bread_last run function kitpvp:skill/farmer/eat_bread
+# 混沌·农锄（kit 45）：同一把铁锄的 used 统计，给农夫同款手感但不产种子 / 小麦
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=45},tag=!kitpvp.spectator] if score @s kitpvp.farm_used > @s kitpvp.farm_last run function kitpvp:kit/chaos_farm
 
 # 太阳（kit 65）：被动"免疫一切状态效果"每刻清空效果；两个技能各自独立冷却（耀斑看 cd，黑子看 cd2）
 execute as @a[scores={kitpvp.kit=65,kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/sun/passive

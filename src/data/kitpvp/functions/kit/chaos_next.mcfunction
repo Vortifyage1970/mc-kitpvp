@@ -9,7 +9,7 @@ execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 16
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 32
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 64
-scoreboard players set #chaos_pool kitpvp.game 20
+scoreboard players set #chaos_pool kitpvp.game 21
 scoreboard players operation @s kitpvp.rng %= #chaos_pool kitpvp.game
 execute if score @s kitpvp.rng matches 0 run function kitpvp:kit/chaos_give_1
 execute if score @s kitpvp.rng matches 1 run function kitpvp:kit/chaos_give_2
@@ -31,3 +31,4 @@ execute if score @s kitpvp.rng matches 16 run function kitpvp:kit/chaos_give_17
 execute if score @s kitpvp.rng matches 17 run function kitpvp:kit/chaos_give_18
 execute if score @s kitpvp.rng matches 18 run function kitpvp:kit/chaos_give_19
 execute if score @s kitpvp.rng matches 19 run function kitpvp:kit/chaos_give_20
+execute if score @s kitpvp.rng matches 20 run function kitpvp:kit/chaos_give_21
