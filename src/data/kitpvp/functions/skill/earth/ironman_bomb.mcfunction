@@ -1,5 +1,6 @@
-# @s = 铁人，at 它身上：在**身后一格**丢一颗隐形小炸弹（复用炸弹兵的代码：苦力怕 Fuse:0 立爆 + ExplosionRadius:1）
-# 位置用 ^ ^ ^-1（局部坐标，正后方一格），不再叠在他自己身上 ⇒ 爆炸把他往前推一点，自己挨的伤害也更少
-# 隐形：不给名字（无 CustomName）+ 隐形药水，只留下爆炸本身
-execute at @s run summon minecraft:creeper ^ ^ ^-1 {Tags:["kitpvp.bomb","kitpvp.bomb_small"],Silent:0b,ignited:1b,Fuse:0s,ExplosionRadius:1b}
-effect give @e[tag=kitpvp.bomb_small] minecraft:invisibility infinite 0 true
+# @s = 铁人，at 它身上：在身后一格丢一颗隐形小炸弹
+# 炸弹本体完全照抄炸弹兵的代码（summon/bomber_small.mcfunction:2），只做两处改动：
+#   ① 位置改成身后一格（^ ^ ^-1，跟着铁人朝向）
+#   ② 隐形写在 NBT 里（ActiveEffects Id 14 = invisibility，ShowParticles:0b 不留粒子），不用药水命令
+# 铁人自己不带任何隐形/效果，这条函数只生成一个炸弹实体
+summon minecraft:creeper ^ ^ ^-1 {Tags:["kitpvp.bomb","kitpvp.bomb_small"],CustomName:'{"text":"小炸弹","color":"gold"}',CustomNameVisible:0b,ignited:1b,Fuse:0s,ExplosionRadius:1b,ActiveEffects:[{Id:14b,Amplifier:0b,Duration:1000000,ShowParticles:0b}]}
