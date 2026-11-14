@@ -504,3 +504,10 @@ execute if score #cart_cd10 kitpvp.game matches 1.. run scoreboard players remov
 execute if score #cart_cd10 kitpvp.game matches ..0 if block 6049 65 6014 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_10
 execute if score #cart_cd11 kitpvp.game matches 1.. run scoreboard players remove #cart_cd11 kitpvp.game 1
 execute if score #cart_cd11 kitpvp.game matches ..0 if block 6050 65 6054 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_11
+
+# ===== 哈雷彗星（kit 69）：补货 / 天堂制造 / 温度升高 / 近身加速 =====
+execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=69,kitpvp.alive=1,kitpvp.halley_cd=..0},tag=!kitpvp.spectator] at @s run function kitpvp:skill/halley/auto
+execute as @a[scores={kitpvp.kit=69}] if score @s kitpvp.halley_cd matches 1.. run scoreboard players remove @s kitpvp.halley_cd 1
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.halley_used > @s kitpvp.halley_last run function kitpvp:skill/halley/cast
+execute as @a[scores={kitpvp.kit=69,kitpvp.alive=1},tag=!kitpvp.spectator] at @s run function kitpvp:skill/halley/heat
+execute as @a[scores={kitpvp.kit=69,kitpvp.alive=1},tag=!kitpvp.spectator] at @s run function kitpvp:skill/halley/near

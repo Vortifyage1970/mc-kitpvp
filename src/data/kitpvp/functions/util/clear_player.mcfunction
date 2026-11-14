@@ -177,3 +177,4 @@ gamemode adventure @s
 # 1.20.1 无 /heal
 effect give @s minecraft:instant_health 1 5 true
 scoreboard players operation @s kitpvp.soul_mercury_last = @s kitpvp.soul_mercury_used
+scoreboard players operation @s kitpvp.halley_last = @s kitpvp.halley_used

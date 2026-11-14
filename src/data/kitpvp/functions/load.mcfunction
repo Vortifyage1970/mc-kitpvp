@@ -334,8 +334,14 @@ scoreboard players set #cart_cd10 kitpvp.game 0
 scoreboard players set #cart_cd11 kitpvp.game 0
 scoreboard objectives add kitpvp.soul_mercury_used minecraft.used:minecraft.tropical_fish_spawn_egg
 scoreboard objectives add kitpvp.soul_mercury_last dummy "水星魂石快照"
+scoreboard objectives add kitpvp.halley_used minecraft.used:minecraft.magma_cube_spawn_egg
+scoreboard objectives add kitpvp.halley_last dummy "哈雷彗星技能快照"
+scoreboard objectives add kitpvp.halley_cd dummy "哈雷彗星补货冷却（刻）"
+scoreboard objectives add kitpvp.halley_heat dummy "哈雷彗星升温计时（刻）"
+scoreboard objectives add kitpvp.halley_pending dummy "哈雷彗星灼烧倒计时（-1 空闲）"
 scoreboard players operation @a kitpvp.chaos_skill_last = @a kitpvp.chaos_skill_used
 scoreboard players operation @a kitpvp.soul_mercury_last = @a kitpvp.soul_mercury_used
+scoreboard players operation @a kitpvp.halley_last = @a kitpvp.halley_used
 scoreboard players set @a kitpvp.turret_heal_cd 0
 scoreboard players set @a kitpvp.werewolf_hit_cd 0
 scoreboard players set @a kitpvp.sun_reload 0
