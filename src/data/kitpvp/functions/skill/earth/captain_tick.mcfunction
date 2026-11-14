@@ -15,7 +15,7 @@ execute unless entity @s[tag=kitpvp.cap_block] run effect clear @s minecraft:glo
 execute if score @s kitpvp.cap_cd matches 120 run playsound minecraft:item.shield.block hostile @a[distance=..16] ~ ~ ~ 0.9 1.2
 # 放下盾那一刻也响一声（第 59 刻），提示"现在可以打了"
 execute if score @s kitpvp.cap_cd matches 59 run playsound minecraft:item.shield.break hostile @a[distance=..16] ~ ~ ~ 0.4 1.6
-# 每 5 秒检查一次：场上没有跳跳虎就召一只（同队 ⇒ 不打召唤者）
+# 每 8 秒检查一次：场上没有跳跳虎就召一只（同队 ⇒ 不打召唤者）
 scoreboard players remove @s kitpvp.cap_sum_cd 1
 execute if score @s kitpvp.cap_sum_cd matches ..0 unless entity @e[tag=kitpvp.cap_tiger] run function kitpvp:summon/earth_captain_tiger
-execute if score @s kitpvp.cap_sum_cd matches ..0 run scoreboard players set @s kitpvp.cap_sum_cd 100
+execute if score @s kitpvp.cap_sum_cd matches ..0 run scoreboard players set @s kitpvp.cap_sum_cd 160
