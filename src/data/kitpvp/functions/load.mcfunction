@@ -505,3 +505,4 @@ scoreboard objectives add kitpvp.bw_owner dummy "火球记住的召唤者编号�
 scoreboard objectives add kitpvp.cap_cd dummy "队长的举盾周期（120 刻一轮：120..60 举盾）"
 scoreboard objectives add kitpvp.cap_sum_cd dummy "队长召唤跳跳虎的冷却（160 刻 = 8 秒，场上已有跳跳虎就跳过）"
 scoreboard objectives add kitpvp.im_cd dummy "铁人丢炸弹的冷却（100 刻 = 5 秒）"
+scoreboard objectives add kitpvp.im_push dummy "铁人被打屁股后那颗炸弹顶出去：剩余冲量刻数"
