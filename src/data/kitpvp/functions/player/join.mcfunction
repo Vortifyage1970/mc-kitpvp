@@ -90,3 +90,4 @@ scoreboard players add @s kitpvp.vtid 0
 function kitpvp:lobby/enter
 scoreboard players operation @s kitpvp.soul_mercury_last = @s kitpvp.soul_mercury_used
 scoreboard players operation @s kitpvp.halley_last = @s kitpvp.halley_used
+scoreboard players operation @s kitpvp.archer_shot_last = @s kitpvp.archer_shot

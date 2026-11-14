@@ -87,6 +87,8 @@ scoreboard objectives add kitpvp.soul_ep_last dummy "末影人魂石快照"
 scoreboard objectives add kitpvp.soul_ep_timer dummy "末影人魂石传送枪剩余刻数（400 = 20 秒）"
 scoreboard objectives add kitpvp.tep_cd_s dummy "魂石传送枪装填（4 = 0.2 秒）"
 scoreboard objectives add kitpvp.tep_face dummy "门的朝向类型：0 墙 / 1 地面（往天上出）/ 2 天花板（往地下出）"
+scoreboard objectives add kitpvp.archer_shot minecraft.used:minecraft.bow
+scoreboard objectives add kitpvp.archer_shot_last dummy "混沌弓箭手射击快照"
 scoreboard objectives add kitpvp.chaos_skill_used minecraft.used:minecraft.spyglass
 scoreboard objectives add kitpvp.chaos_skill_last dummy "混沌重铸快照"
 scoreboard objectives add kitpvp.chaos_uses dummy "混沌战士：当前武器还剩几次"
@@ -342,6 +344,7 @@ scoreboard objectives add kitpvp.halley_pending dummy "哈雷彗星灼烧倒计�
 scoreboard players operation @a kitpvp.chaos_skill_last = @a kitpvp.chaos_skill_used
 scoreboard players operation @a kitpvp.soul_mercury_last = @a kitpvp.soul_mercury_used
 scoreboard players operation @a kitpvp.halley_last = @a kitpvp.halley_used
+scoreboard players operation @a kitpvp.archer_shot_last = @a kitpvp.archer_shot
 scoreboard players set @a kitpvp.turret_heal_cd 0
 scoreboard players set @a kitpvp.werewolf_hit_cd 0
 scoreboard players set @a kitpvp.sun_reload 0
