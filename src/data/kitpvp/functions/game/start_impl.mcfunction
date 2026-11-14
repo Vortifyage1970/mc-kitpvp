@@ -21,6 +21,7 @@ function kitpvp:map/distribute
 # 地图规定的天光：君士坦丁堡正午定格、地球白天定格（结算时 game/end 把 doDaylightCycle 放回 true）
 execute if score #global kitpvp.map matches 10 run gamerule doDaylightCycle false
 execute if score #global kitpvp.map matches 10 run time set noon
+execute if score #global kitpvp.map matches 11 run time set day
 execute if score #global kitpvp.map matches 7 run gamerule doDaylightCycle false
 execute if score #global kitpvp.map matches 7 run time set day
 execute if score #global kitpvp.map matches 1 run time set 11000

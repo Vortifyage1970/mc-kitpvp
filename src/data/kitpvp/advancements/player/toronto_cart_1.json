@@ -1,0 +1,29 @@
+{
+  "criteria": {
+    "press": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "minecraft:stone_button"
+                ]
+              },
+              "position": {
+                "x": 6023,
+                "y": 65,
+                "z": 6046
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "function": "kitpvp:map/toronto/cart_1"
+  }
+}
