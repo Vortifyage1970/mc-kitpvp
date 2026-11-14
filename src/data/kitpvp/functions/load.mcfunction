@@ -110,6 +110,7 @@ scoreboard objectives add kitpvp.soul_timer dummy "魂石倒计时（marker / �
 scoreboard objectives add kitpvp.soul_next dummy "魂石间隔（marker / 实体：到 0 触发下一步）"
 # 大厅起跳按钮的 advancement：加载失败过一次（blocks 写成了标签），万一有谁被旧版本授过奖就永远不再触发 —— 每次 reload 清一遍
 advancement revoke @a only kitpvp:player/lobby_launch
+advancement revoke @a only kitpvp:player/farmer_hit
 
 # 新魂石的 last 快照：/reload 时把在线玩家的快照对齐到当前 used，否则 `if score used > last` 因为 last 不存在而永远不成立
 scoreboard players operation @a kitpvp.soul_tamer_last = @a kitpvp.soul_tamer_used
@@ -355,12 +356,22 @@ scoreboard objectives add kitpvp.halley_last dummy "哈雷彗星技能快照"
 scoreboard objectives add kitpvp.halley_cd dummy "哈雷彗星补货冷却（刻）"
 scoreboard objectives add kitpvp.halley_heat dummy "哈雷彗星升温计时（刻）"
 scoreboard objectives add kitpvp.halley_pending dummy "哈雷彗星灼烧倒计时（-1 空闲）"
+scoreboard objectives add kitpvp.farm_used minecraft.used:minecraft.iron_hoe
+scoreboard objectives add kitpvp.farm_last dummy "农夫耕地快照"
+scoreboard objectives add kitpvp.plant_used minecraft.used:minecraft.wheat_seeds
+scoreboard objectives add kitpvp.plant_last dummy "农夫播种快照"
+scoreboard objectives add kitpvp.bread_used minecraft.used:minecraft.bread
+scoreboard objectives add kitpvp.bread_last dummy "农夫面包快照"
+scoreboard players set #farmer_roll kitpvp.game 3
 scoreboard players operation @a kitpvp.chaos_skill_last = @a kitpvp.chaos_skill_used
 scoreboard players operation @a kitpvp.soul_mercury_last = @a kitpvp.soul_mercury_used
 scoreboard players operation @a kitpvp.halley_last = @a kitpvp.halley_used
 scoreboard players operation @a kitpvp.archer_shot_last = @a kitpvp.archer_shot
 scoreboard players operation @a kitpvp.chaos_xbow_last = @a kitpvp.chaos_xbow_used
 scoreboard players operation @a kitpvp.mars_domain_last = @a kitpvp.mars_domain_used
+scoreboard players operation @a kitpvp.farm_last = @a kitpvp.farm_used
+scoreboard players operation @a kitpvp.plant_last = @a kitpvp.plant_used
+scoreboard players operation @a kitpvp.bread_last = @a kitpvp.bread_used
 scoreboard players set @a kitpvp.turret_heal_cd 0
 scoreboard players set @a kitpvp.werewolf_hit_cd 0
 scoreboard players set @a kitpvp.sun_reload 0

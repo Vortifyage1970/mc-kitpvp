@@ -399,6 +399,11 @@ execute as @a[scores={kitpvp.kit=11,kitpvp.alive=1},tag=!kitpvp.spectator] if sc
 # 命中被动的 18 刻（0.9 秒）内置冷却
 execute as @a[scores={kitpvp.werewolf_hit_cd=1..}] run scoreboard players remove @s kitpvp.werewolf_hit_cd 1
 
+# 农夫（kit 13）：铁锄右键（耕地）与吃面包看 used；锄头命中实体走 advancement（player/farmer_hit）
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=13},tag=!kitpvp.spectator] if score @s kitpvp.farm_used > @s kitpvp.farm_last run function kitpvp:skill/farmer/cultivate
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=13},tag=!kitpvp.spectator] if score @s kitpvp.plant_used > @s kitpvp.plant_last run function kitpvp:skill/farmer/harvest
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=13},tag=!kitpvp.spectator] if score @s kitpvp.bread_used > @s kitpvp.bread_last run function kitpvp:skill/farmer/eat_bread
+
 # 太阳（kit 65）：被动"免疫一切状态效果"每刻清空效果；两个技能各自独立冷却（耀斑看 cd，黑子看 cd2）
 execute as @a[scores={kitpvp.kit=65,kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/sun/passive
 # ⚠ 必须带 at @s：耀斑 / 黑子的距离判定与粒子都靠它锚定（tick 本身执行在世界出生点）

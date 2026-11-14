@@ -179,3 +179,6 @@ effect give @s minecraft:instant_health 1 5 true
 scoreboard players operation @s kitpvp.soul_mercury_last = @s kitpvp.soul_mercury_used
 scoreboard players operation @s kitpvp.halley_last = @s kitpvp.halley_used
 scoreboard players operation @s kitpvp.archer_shot_last = @s kitpvp.archer_shot
+scoreboard players operation @s kitpvp.farm_last = @s kitpvp.farm_used
+scoreboard players operation @s kitpvp.plant_last = @s kitpvp.plant_used
+scoreboard players operation @s kitpvp.bread_last = @s kitpvp.bread_used
