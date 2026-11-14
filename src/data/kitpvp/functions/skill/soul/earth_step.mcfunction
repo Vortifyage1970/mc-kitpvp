@@ -26,6 +26,18 @@ execute if score @s kitpvp.soul_earth_team matches 21 run team join earth_3 @e[t
 execute if score @s kitpvp.soul_earth_team matches 22 run team join earth_4 @e[tag=kitpvp.earth_minion_new,distance=..4]
 execute if score @s kitpvp.soul_earth_team matches 23 run team join earth_5 @e[tag=kitpvp.earth_minion_new,distance=..4]
 execute if score @s kitpvp.soul_earth_team matches 24 run team join earth_6 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 25 run team join bomb_1 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 26 run team join bomb_2 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 27 run team join bomb_3 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 28 run team join bomb_4 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 29 run team join bomb_5 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 30 run team join bomb_6 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 31 run team join farmer_1 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 32 run team join farmer_2 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 33 run team join farmer_3 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 34 run team join farmer_4 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 35 run team join farmer_5 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 36 run team join farmer_6 @e[tag=kitpvp.earth_minion_new,distance=..4]
 tag @e[tag=kitpvp.earth_minion_new,distance=..4] remove kitpvp.earth_minion_new
 
 # 下一只 10 刻后；4 只发完就把标记清掉

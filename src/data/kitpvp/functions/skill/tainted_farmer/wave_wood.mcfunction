@@ -4,6 +4,7 @@ scoreboard players set #tf_wood kitpvp.game 0
 execute store result score #tf_wood kitpvp.game if entity @e[tag=kitpvp.tf_wood]
 scoreboard players set #tf_own kitpvp.game 0
 execute if score #tf_wood kitpvp.game matches ..11 store result score #tf_own kitpvp.game run scoreboard players get @s kitpvp.tf_owner
+execute if score #tf_wood kitpvp.game matches ..11 run scoreboard players operation #steam kitpvp.game = #tf_own kitpvp.game
 execute if score #tf_wood kitpvp.game matches ..11 at @s run function kitpvp:summon/tainted_farmer_wood
-execute if score #tf_wood kitpvp.game matches ..11 run scoreboard players operation @e[tag=kitpvp.tf_new,type=minecraft:zombie] kitpvp.tf_owner = #tf_own kitpvp.game
-execute if score #tf_wood kitpvp.game matches ..11 as @e[tag=kitpvp.tf_new,type=minecraft:zombie] run function kitpvp:skill/tainted_farmer/join_own
+execute if score #tf_wood kitpvp.game matches ..11 run scoreboard players operation @e[tag=kitpvp.team_new] kitpvp.tf_owner = #tf_own kitpvp.game
+execute if score #tf_wood kitpvp.game matches ..11 run function kitpvp:util/team_join
