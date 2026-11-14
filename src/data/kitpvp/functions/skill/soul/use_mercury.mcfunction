@@ -1,6 +1,7 @@
 # 水星魂石：一次性 buff，20 秒速度 +200%（速度等级 X = amplifier 9）
 # 触发走「统计 + 快照」（同表渔夫），蛋用河豚蛋：没有任何职业会发这种蛋，不会误触发
 scoreboard players operation @s kitpvp.soul_mercury_last = @s kitpvp.soul_mercury_used
+execute at @s run kill @e[tag=kitpvp.soul_mercury_token,distance=..8]
 
 effect give @s minecraft:speed 20 9 true
 title @s actionbar {"text":"魂石·极速：20 秒移动速度 +200%","color":"aqua"}
