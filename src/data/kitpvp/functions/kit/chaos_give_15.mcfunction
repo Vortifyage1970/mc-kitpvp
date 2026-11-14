@@ -1,2 +1,3 @@
 give @s minecraft:trident{ChaosBlade:1b,ChaosId:15b,ChaosUses:4b,ChaosTri:1b,Unbreakable:1b,Damage:244s,AttributeModifiers:[{AttributeName:"minecraft:generic.attack_damage",Name:"kit.damage",Amount:4,Operation:0,UUID:[I;45,0,0,1],Slot:"mainhand"},{AttributeName:"minecraft:generic.attack_speed",Name:"kit.speed",Amount:-3.1,Operation:0,UUID:[I;45,0,0,2],Slot:"mainhand"}],display:{Lore:['{"text": "“我的学生们还在看着我呢，再让我耍会帅吧”", "color": "dark_purple", "italic": false}']},Enchantments:[{id:"minecraft:riptide",lvl:1s}]} 1
 scoreboard players set @s kitpvp.chaos_uses 4
+tag @s add kitpvp.chaos_tri

@@ -2,3 +2,4 @@
 function kitpvp:kit/chaos_wipe
 give @s minecraft:iron_sword{ChaosBlade:1b,ChaosId:1b,ChaosUses:3b,ChaosMelee:1b,Unbreakable:1b,Damage:245s,AttributeModifiers:[{AttributeName:"minecraft:generic.attack_damage",Name:"kit.damage",Amount:5,Operation:0,UUID:[I;45,0,0,1],Slot:"mainhand"},{AttributeName:"minecraft:generic.attack_speed",Name:"kit.speed",Amount:-2.4,Operation:0,UUID:[I;45,0,0,2],Slot:"mainhand"}],display:{Lore:['{"text": "默认并不代表着弱小。", "color": "dark_purple", "italic": false}','{"text": "相反，它们故意使其强大，为了盛宴的传播与喝采。", "color": "dark_purple", "italic": false}']}} 1
 scoreboard players set @s kitpvp.chaos_uses 3
+tag @s remove kitpvp.chaos_tri

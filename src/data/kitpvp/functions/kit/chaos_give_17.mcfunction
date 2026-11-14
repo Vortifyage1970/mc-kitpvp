@@ -1,2 +1,3 @@
 give @s minecraft:golden_axe{ChaosBlade:1b,ChaosId:17b,ChaosUses:4b,ChaosMelee:1b,Unbreakable:1b,Damage:22s,ChaosInvisible:1b,AttributeModifiers:[{AttributeName:"minecraft:generic.attack_damage",Name:"kit.damage",Amount:7,Operation:0,UUID:[I;45,0,0,1],Slot:"mainhand"},{AttributeName:"minecraft:generic.attack_speed",Name:"kit.speed",Amount:-2.9,Operation:0,UUID:[I;45,0,0,2],Slot:"mainhand"}],display:{Lore:['{"text": "他早已死过一次，所以现在只是重复动作。", "color": "dark_purple", "italic": false}']}} 1
 scoreboard players set @s kitpvp.chaos_uses 4
+tag @s remove kitpvp.chaos_tri
