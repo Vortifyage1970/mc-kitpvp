@@ -32,4 +32,4 @@ execute if score @s kitpvp.soul_rand matches 12 run give @s minecraft:tropical_f
 execute if score @s kitpvp.soul_rand matches 13 run give @s minecraft:ocelot_spawn_egg{KitSoul:1b,KitSoulVenus:1b,EntityTag:{Tags:["kitpvp.soul_venus_token"]},display:{Name:'{"text":"金星魂石","color":"gold"}'}} 1
 execute if score @s kitpvp.soul_rand matches 15 run give @s minecraft:endermite_spawn_egg{KitSoul:1b,KitSoulEnderman:1b,EntityTag:{Tags:["kitpvp.soul_ep_token"]},display:{Name:'{"text":"末影人魂石","color":"dark_purple"}'}} 1
 execute if score @s kitpvp.soul_rand matches 14 run give @s minecraft:slime_spawn_egg{KitSoul:1b,KitSoulSlime:1b,EntityTag:{Size:0,Tags:["kitpvp.soul_slime_token"]},display:{Name:'{"text":"史莱姆魂石","color":"green"}'}} 1
-execute if score @s kitpvp.soul_rand matches 16 run give @s minecraft:ravager_spawn_egg{KitSoul:1b,KitSoulMars:1b,EntityTag:{Tags:["kitpvp.soul_mars_token"]},display:{Name:'{"text":"火星魂石","color":"dark_red"}'}} 1
+execute if score @s kitpvp.soul_rand matches 16 run give @s minecraft:ravager_spawn_egg{KitSoul:1b,KitSoulMars:1b,EntityTag:{Tags:["kitpvp.soul_mars_token"],NoAI:1b,Silent:1b},display:{Name:'{"text":"火星魂石","color":"dark_red"}'}} 1
