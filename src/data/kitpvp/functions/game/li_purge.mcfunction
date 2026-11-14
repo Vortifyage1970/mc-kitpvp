@@ -9,6 +9,11 @@ scoreboard players set #licount kitpvp.game 0
 kill @e[tag=kitpvp.li_bomb]
 
 execute if entity @a[tag=kitpvp.selected,limit=1,sort=nearest] run tp @e[tag=kitpvp.li_pig] @a[tag=kitpvp.selected,limit=1,sort=nearest]
+# 狗（狼）：召唤狼带 tag，但繁殖出的幼崽不继承 tag，1.20.1 又没有"是否驯服"的选择器
+# → 按类型全清，走和 iLsacuL 一样的"先拖到玩家身上、再杀、隔刻复核"兜底
+execute if entity @a[tag=kitpvp.selected,limit=1,sort=nearest] run tp @e[type=minecraft:wolf] @a[tag=kitpvp.selected,limit=1,sort=nearest]
+kill @e[type=minecraft:wolf]
+
 kill @e[tag=kitpvp.li_pig]
 
 schedule function kitpvp:game/li_purge_verify 1t replace
