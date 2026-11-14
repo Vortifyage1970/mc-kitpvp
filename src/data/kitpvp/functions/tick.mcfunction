@@ -477,3 +477,21 @@ execute as @a[tag=kitpvp.respawn_pending,tag=!kitpvp.spectator] unless entity @s
 # 胜负判定：必须排在死亡处理之后——同刻互杀要等两人都淘汰完再统计，
 # 否则会先看到"幸存者=1"而误判胜者；同时覆盖掉线减员的兜底
 execute if score #state kitpvp.game matches 1 run function kitpvp:game/check_winner
+
+# ===== 多伦多：矿车按钮（advancement 之外的第二道判定：看按钮 powered 状态） =====
+execute if score #cart_cd1 kitpvp.game matches 1.. run scoreboard players remove #cart_cd1 kitpvp.game 1
+execute if score #cart_cd1 kitpvp.game matches ..0 if block 6023 65 6046 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_1
+execute if score #cart_cd2 kitpvp.game matches 1.. run scoreboard players remove #cart_cd2 kitpvp.game 1
+execute if score #cart_cd2 kitpvp.game matches ..0 if block 5987 65 6046 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_2
+execute if score #cart_cd3 kitpvp.game matches 1.. run scoreboard players remove #cart_cd3 kitpvp.game 1
+execute if score #cart_cd3 kitpvp.game matches ..0 if block 6050 65 6054 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_3
+execute if score #cart_cd4 kitpvp.game matches 1.. run scoreboard players remove #cart_cd4 kitpvp.game 1
+execute if score #cart_cd4 kitpvp.game matches ..0 if block 6037 65 6005 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_4
+execute if score #cart_cd5 kitpvp.game matches 1.. run scoreboard players remove #cart_cd5 kitpvp.game 1
+execute if score #cart_cd5 kitpvp.game matches ..0 if block 5976 65 5966 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_5
+execute if score #cart_cd6 kitpvp.game matches 1.. run scoreboard players remove #cart_cd6 kitpvp.game 1
+execute if score #cart_cd6 kitpvp.game matches ..0 if block 6049 65 6014 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_6
+execute if score #cart_cd7 kitpvp.game matches 1.. run scoreboard players remove #cart_cd7 kitpvp.game 1
+execute if score #cart_cd7 kitpvp.game matches ..0 if block 6006 65 5977 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_7
+execute if score #cart_cd8 kitpvp.game matches 1.. run scoreboard players remove #cart_cd8 kitpvp.game 1
+execute if score #cart_cd8 kitpvp.game matches ..0 if block 6049 65 5962 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_8

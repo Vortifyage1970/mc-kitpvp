@@ -323,6 +323,14 @@ scoreboard players set @a kitpvp.item 0
 scoreboard players set @a kitpvp.tid 0
 scoreboard players set @a kitpvp.ttid 0
 scoreboard players set @a kitpvp.fisher_no_tri 0
+scoreboard players set #cart_cd1 kitpvp.game 0
+scoreboard players set #cart_cd2 kitpvp.game 0
+scoreboard players set #cart_cd3 kitpvp.game 0
+scoreboard players set #cart_cd4 kitpvp.game 0
+scoreboard players set #cart_cd5 kitpvp.game 0
+scoreboard players set #cart_cd6 kitpvp.game 0
+scoreboard players set #cart_cd7 kitpvp.game 0
+scoreboard players set #cart_cd8 kitpvp.game 0
 scoreboard players operation @a kitpvp.chaos_skill_last = @a kitpvp.chaos_skill_used
 scoreboard players set @a kitpvp.turret_heal_cd 0
 scoreboard players set @a kitpvp.werewolf_hit_cd 0
