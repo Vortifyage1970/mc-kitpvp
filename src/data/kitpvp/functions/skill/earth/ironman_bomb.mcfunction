@@ -3,7 +3,7 @@
 # 冲量算法：炸弹在身后一格 ⇒「铁人坐标 − 炸弹坐标」就是朝前的单位向量（坐标 ×1000 存进分数），
 # 再用 store result entity … Motion[i] double 写回真实速度：0.00035 × 1000 = 0.35 格/刻，
 # 之后交给原版摩擦（每刻 ×0.91）自然衰减 ⇒ 肉眼是"被屁股后的炮仗顶出去"的抛物线，全程没有 tp
-summon minecraft:creeper ^ ^ ^-1 {Tags:["kitpvp.bomb","kitpvp.bomb_small"],CustomName:'{"text":"小炸弹","color":"gold"}',CustomNameVisible:0b,ignited:1b,Fuse:0s,ExplosionRadius:2b,ActiveEffects:[{Id:14b,Amplifier:0b,Duration:1000000,ShowParticles:0b}]}
+summon minecraft:creeper ^ ^ ^-1 {Tags:["kitpvp.bomb","kitpvp.bomb_small"],CustomName:'{"text":"小炸弹","color":"gold"}',CustomNameVisible:0b,ignited:1b,Fuse:0s,ExplosionRadius:2b}
 execute store result score #im_px kitpvp.game run data get entity @s Pos[0] 1000
 execute store result score #im_py kitpvp.game run data get entity @s Pos[1] 1000
 execute store result score #im_pz kitpvp.game run data get entity @s Pos[2] 1000
