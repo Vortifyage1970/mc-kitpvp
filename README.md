@@ -26,7 +26,7 @@
 |---|---|
 | 主大厅（选职业 / 选地图 / 准备 / 讲台传送） | 可用 |
 | 开局 / 结算 / 重置 | 可用 |
-| 突然死亡 + 魂石（17 种，随机发放） | 可用 |
+| 突然死亡 + 魂石（18 种，随机发放） | 可用 |
 | 职业技能：主动 / 自动 / 触发器 / 投掷类 / 蓄力类 | 可用 |
 | 职业 38 / 地图 8 | 开发中 |
 | 地图复原 | 可用（8 张地图各用 `place template` 回滚） |
@@ -57,6 +57,8 @@ src/
    ├─ kitpvp/
    │  ├─ advancements/   触发器（拾取 / 受击 / 讲台）
    │  ├─ functions/      所有逻辑
+   │  │  ├─ tick.mcfunction  每刻入口：按顺序调 tick/* 各模块（模块内是原顺序，零行为变化）
+   │  │  ├─ tick/           life / lobby / kits_a..f / player / world + slow2(每 2 刻) / slow4(每 4 刻)
    │  │  ├─ load / tick  加载与每刻钩子
    │  │  ├─ lobby/       主大厅
    │  │  ├─ kit/         职业定义（info 卡片 / list 列表）
@@ -96,7 +98,8 @@ src/
 | 脚本 | 作用 |
 |---|---|
 | `ai.py` | 读取 `ai-content/` 当上下文的 AI 助手 CLI |
-| `check.py` | 体检：函数引用断链 + JSON 合法性 + 模板引用 + 单实体选择器 + 注释统计 |
+| `check.py` | 体检：函数引用断链 + JSON 合法性 + 模板引用 + 单实体选择器 + objective criteria + 清场覆盖 + 注释统计 |
+| `gen_cleanup.py` | 从所有 `summon` / 蛋的 `EntityTag` / 运行期 `tag @e add` 反推，生成 `game/reset_entities.mcfunction`（清场白名单） |
 | `gen_structure.py` | 重新扫描 `src/`，刷新 `01-file-structure.md` 的目录树 |
 | `gen_cards.py` | 生成 `kit/info/*.mcfunction` 职业卡片（改数值改脚本再重跑，别手改） |
 | `scan_logs.py` | 读世界日志，定位"function 静默不加载"的加载期报错 |
@@ -108,6 +111,7 @@ src/
 ```
 python tools/check.py
 python tools/gen_structure.py
+python tools/gen_cleanup.py     # 动过 summon / 刷怪蛋时必跑
 ```
 
 改了职业数值 / 装备，卡片要重新生成：
