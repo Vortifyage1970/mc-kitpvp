@@ -14,7 +14,7 @@ item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b}
 
 item replace entity @s hotbar.0 with minecraft:iron_hoe{KitFarmerHoe:1b,Unbreakable:1b,AttributeModifiers:[{AttributeName:"minecraft:generic.attack_damage",Name:"kitpvp.farmer_hoe",Amount:4.5,Operation:0,UUID:[I;13,0,0,1],Slot:"mainhand"},{AttributeName:"minecraft:generic.attack_speed",Name:"kitpvp.farmer_hoe_speed",Amount:-2.0,Operation:0,UUID:[I;13,0,0,2],Slot:"mainhand"}]}
 item replace entity @s hotbar.1 with minecraft:cooked_beef 24
-item replace entity @s hotbar.2 with minecraft:crafting_table 5
+item replace entity @s hotbar.2 with minecraft:crafting_table 4
 
 tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"农夫","color":"yellow","bold":true}]
 playsound minecraft:ui.button.click master @s ~ ~ ~ 1 1.2

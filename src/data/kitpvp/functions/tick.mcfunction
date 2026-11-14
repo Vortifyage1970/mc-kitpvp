@@ -399,7 +399,7 @@ execute as @a[scores={kitpvp.kit=11,kitpvp.alive=1},tag=!kitpvp.spectator] if sc
 # 命中被动的 18 刻（0.9 秒）内置冷却
 execute as @a[scores={kitpvp.werewolf_hit_cd=1..}] run scoreboard players remove @s kitpvp.werewolf_hit_cd 1
 
-# 农夫（kit 13）：铁锄右键（耕地）与吃面包看 used；锄头命中实体走 advancement（player/farmer_hit）
+# 农夫（kit 13）：iron_hoe 的 used 覆盖"耕地"与"平A 命中"两种用法（空挥不计），播种、吃面包同理
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=13},tag=!kitpvp.spectator] if score @s kitpvp.farm_used > @s kitpvp.farm_last run function kitpvp:skill/farmer/cultivate
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=13},tag=!kitpvp.spectator] if score @s kitpvp.plant_used > @s kitpvp.plant_last run function kitpvp:skill/farmer/harvest
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=13},tag=!kitpvp.spectator] if score @s kitpvp.bread_used > @s kitpvp.bread_last run function kitpvp:skill/farmer/eat_bread
