@@ -88,6 +88,12 @@ scoreboard objectives add kitpvp.soul_ep_timer dummy "末影人魂石传送枪�
 scoreboard objectives add kitpvp.soul_mars_used minecraft.used:minecraft.ravager_spawn_egg
 scoreboard objectives add kitpvp.soul_mars_last dummy "火星魂石快照"
 scoreboard objectives add kitpvp.soul_mars_timer dummy "火星魂石倒计时"
+scoreboard objectives add kitpvp.tf_rise_used minecraft.used:minecraft:mooshroom_spawn_egg
+scoreboard objectives add kitpvp.tf_rise_last dummy "里·农夫起义快照"
+scoreboard objectives add kitpvp.tf_rally_used minecraft.used:minecraft:husk_spawn_egg
+scoreboard objectives add kitpvp.tf_rally_last dummy "里·农夫召集快照"
+scoreboard objectives add kitpvp.tfid dummy "里·农夫队槽编号（1..6）"
+scoreboard objectives add kitpvp.tf_owner dummy "起义军归属的队槽编号（挂实体）"
 scoreboard objectives add kitpvp.tep_cd_s dummy "魂石传送枪装填（4 = 0.2 秒）"
 scoreboard objectives add kitpvp.tep_face dummy "门的朝向类型：0 墙 / 1 地面（往天上出）/ 2 天花板（往地下出）"
 scoreboard objectives add kitpvp.mars_curse dummy "火星：目标身上的诅咒层数"
@@ -404,6 +410,8 @@ scoreboard players set @a kitpvp.soul_ep_timer 0
 scoreboard players set @a kitpvp.soul_mars_timer 0
 execute as @a run scoreboard players operation @s kitpvp.soul_ep_last = @s kitpvp.soul_ep_used
 execute as @a run scoreboard players operation @s kitpvp.soul_mars_last = @s kitpvp.soul_mars_used
+execute as @a run scoreboard players operation @s kitpvp.tf_rise_last = @s kitpvp.tf_rise_used
+execute as @a run scoreboard players operation @s kitpvp.tf_rally_last = @s kitpvp.tf_rally_used
 # 传送门状态灯：两条 bossbar，橙/蓝各一条；没有门时是灰色空心方块 + 0 格进度
 # 注意：1.20.1 的 bossbar 没有 `overlay` 这个属性（notched 样式属于 `style`），写了会让整份 load.mcfunction 不加载
 bossbar add kitpvp:tep_hud_orange {"text":"□ 橙门","color":"dark_gray"}

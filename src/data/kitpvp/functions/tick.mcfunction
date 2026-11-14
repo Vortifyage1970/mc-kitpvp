@@ -405,6 +405,17 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=13},tag=!kit
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=13},tag=!kitpvp.spectator] if score @s kitpvp.bread_used > @s kitpvp.bread_last run function kitpvp:skill/farmer/eat_bread
 # 混沌·农锄（kit 45）：同一把铁锄的 used 统计，给农夫同款手感但不产种子 / 小麦
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=45},tag=!kitpvp.spectator] if score @s kitpvp.farm_used > @s kitpvp.farm_last run function kitpvp:kit/chaos_farm
+# 里·农夫（kit 34）共享同一套耕地被动（③A）
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=34},tag=!kitpvp.spectator] if score @s kitpvp.farm_used > @s kitpvp.farm_last run function kitpvp:skill/farmer/cultivate
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=34},tag=!kitpvp.spectator] if score @s kitpvp.plant_used > @s kitpvp.plant_last run function kitpvp:skill/farmer/harvest
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=34},tag=!kitpvp.spectator] if score @s kitpvp.bread_used > @s kitpvp.bread_last run function kitpvp:skill/farmer/eat_bread
+
+# 里·农夫（kit 34）：两种蛋都与别的系统共用同种蛋（蘑菇牛=炸弹兵、尸壳=僵尸魂石），各走 dispatch 按名字分流
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=34},tag=!kitpvp.spectator] if score @s kitpvp.tf_rise_used > @s kitpvp.tf_rise_last run function kitpvp:skill/tainted_farmer/rise_dispatch
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=34},tag=!kitpvp.spectator] if score @s kitpvp.tf_rally_used > @s kitpvp.tf_rally_last run function kitpvp:skill/tainted_farmer/rally_dispatch
+# 召集农民：上限 1，冷却 60 秒；冷却走完且手上 / 16 格内地上都没有才补回
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=34,kitpvp.cd=..0},tag=!kitpvp.spectator] at @s unless entity @e[type=minecraft:item,nbt={Item:{id:"minecraft:husk_spawn_egg",tag:{KitTaintedRally:1b}}},distance=..16] run function kitpvp:skill/tainted_farmer/rally_refill
+execute if entity @e[tag=kitpvp.tf_leader] run function kitpvp:skill/tainted_farmer/leader_tick
 
 # 太阳（kit 65）：被动"免疫一切状态效果"每刻清空效果；两个技能各自独立冷却（耀斑看 cd，黑子看 cd2）
 execute as @a[scores={kitpvp.kit=65,kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/sun/passive

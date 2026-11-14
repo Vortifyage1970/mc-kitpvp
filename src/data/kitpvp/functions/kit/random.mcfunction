@@ -5,7 +5,7 @@
 # 不清的话 clear_player 里那些"离开某职业要带走的东西"（金星舔狗 / 冥王星鹦鹉）判断不到旧职业（见 04 §十四）。
 function kitpvp:util/clear_player
 
-scoreboard players set #pool_size kitpvp.game 37
+scoreboard players set #pool_size kitpvp.game 38
 
 scoreboard players set @s kitpvp.rng 0
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 1
@@ -55,5 +55,6 @@ execute if score @s kitpvp.rng matches 33 run scoreboard players set @s kitpvp.k
 execute if score @s kitpvp.rng matches 34 run scoreboard players set @s kitpvp.kit 70
 execute if score @s kitpvp.rng matches 35 run scoreboard players set @s kitpvp.kit 33
 execute if score @s kitpvp.rng matches 36 run scoreboard players set @s kitpvp.kit 13
+execute if score @s kitpvp.rng matches 37 run scoreboard players set @s kitpvp.kit 34
 
 function kitpvp:util/give_kit

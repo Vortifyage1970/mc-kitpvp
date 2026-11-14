@@ -47,6 +47,14 @@ kill @e[tag=kitpvp.soul_mars_controller]
 kill @e[tag=kitpvp.soul_mars_token]
 # 魂石巨人刷出来的地球生灵（与地鸣的 mars_wild 各管一半，earth_minion 那行本来也会兜住）
 kill @e[tag=kitpvp.soul_mars_wild]
+# 里农夫的起义军与两种蛋的残留载体（载体名字只属于这个职业）
+kill @e[tag=kitpvp.tf_leader]
+kill @e[tag=kitpvp.tf_stone]
+kill @e[tag=kitpvp.tf_wood]
+kill @e[type=minecraft:mooshroom,name="开始一场起义"]
+kill @e[type=minecraft:husk,name="召集农民"]
+scoreboard players set #tf_wave kitpvp.game 0
+scoreboard players set #tf_wave2 kitpvp.game 0
 scoreboard players set #soul_mars_wild_timer kitpvp.game 0
 
 # 文明小子的令牌基础生物 / 还在飞的两种口水（一次性的投掷物，落地前也必须清干净）
