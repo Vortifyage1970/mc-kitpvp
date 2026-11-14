@@ -40,6 +40,9 @@ kill @e[tag=kitpvp.mars_giant]
 kill @e[tag=kitpvp.mars_controller]
 kill @e[tag=kitpvp.mars_wild]
 scoreboard players set #mars_active kitpvp.game 0
+# 火星魂石的巨人（与地鸣的巨人各用一套 tag，互不清场）
+kill @e[tag=kitpvp.soul_mars_giant]
+kill @e[tag=kitpvp.soul_mars_controller]
 
 # 文明小子的令牌基础生物 / 还在飞的两种口水（一次性的投掷物，落地前也必须清干净）
 kill @e[tag=kitpvp.civil_token]

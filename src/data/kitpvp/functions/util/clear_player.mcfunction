@@ -182,3 +182,8 @@ scoreboard players operation @s kitpvp.archer_shot_last = @s kitpvp.archer_shot
 scoreboard players operation @s kitpvp.farm_last = @s kitpvp.farm_used
 scoreboard players operation @s kitpvp.plant_last = @s kitpvp.plant_used
 scoreboard players operation @s kitpvp.bread_last = @s kitpvp.bread_used
+# 火星魂石的歌是逐玩家的播放链：清场时必须替这名玩家停掉，否则歌会一直放下去
+execute if entity @s[tag=kitpvp.soul_mars_active] run function kitpvp:music/rumbling/stop
+tag @s remove kitpvp.soul_mars_active
+scoreboard players set @s kitpvp.soul_mars_timer 0
+scoreboard players operation @s kitpvp.soul_mars_last = @s kitpvp.soul_mars_used

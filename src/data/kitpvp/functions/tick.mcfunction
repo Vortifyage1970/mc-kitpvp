@@ -475,6 +475,9 @@ execute as @a[scores={kitpvp.soul_ghost_timer=1..}] run scoreboard players remov
 execute as @a[tag=kitpvp.soul_ghost_active,scores={kitpvp.soul_ghost_timer=..0}] run function kitpvp:skill/soul/ghost_expire
 # 渔夫魂石：计时两段（380 落「无量空渔」、0 收束）与到期回收都在 soul/fisher_tick 里；带 at @s 供粒子锚定
 execute as @a[tag=kitpvp.soul_fisher_active] at @s run function kitpvp:skill/soul/fisher_tick
+# 火星魂石：巨人 20 秒 + 歌从最后 20 秒进；倒计时与提前收场都在 soul/mars_tick 里
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_mars_used > @s kitpvp.soul_mars_last run function kitpvp:skill/soul/use_mars
+execute as @a[tag=kitpvp.soul_mars_active] at @s run function kitpvp:skill/soul/mars_tick
 execute as @a[scores={kitpvp.ghost_minion_cd=1..}] run scoreboard players remove @s kitpvp.ghost_minion_cd 1
 
 # 无敌 / 虚空 / 死亡
