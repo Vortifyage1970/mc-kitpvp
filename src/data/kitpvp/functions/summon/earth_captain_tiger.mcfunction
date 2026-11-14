@@ -11,3 +11,5 @@ execute if score @s kitpvp.earth_owner matches 3 run team join earth_3 @e[tag=ki
 execute if score @s kitpvp.earth_owner matches 4 run team join earth_4 @e[tag=kitpvp.cap_tiger,distance=..6]
 execute if score @s kitpvp.earth_owner matches 5 run team join earth_5 @e[tag=kitpvp.cap_tiger,distance=..6]
 execute if score @s kitpvp.earth_owner matches 6 run team join earth_6 @e[tag=kitpvp.cap_tiger,distance=..6]
+# 跳跃提升 V（amplifier 4）：一蹦三层楼，跳着追人
+effect give @e[tag=kitpvp.cap_tiger] minecraft:jump_boost infinite 4 true
