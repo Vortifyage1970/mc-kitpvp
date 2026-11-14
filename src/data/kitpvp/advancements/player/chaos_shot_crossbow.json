@@ -1,0 +1,18 @@
+{
+  "criteria": {
+    "shot": {
+      "trigger": "minecraft:shot_crossbow",
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:crossbow"
+          ],
+          "nbt": "{ChaosXbow:1b}"
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "kitpvp:kit/chaos_shot_xbow"
+  }
+}
