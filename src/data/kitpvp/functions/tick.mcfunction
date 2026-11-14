@@ -502,7 +502,7 @@ execute as @a[scores={kitpvp.kit=45}] unless score @s kitpvp.chaos_tri_last matc
 execute as @a[scores={kitpvp.kit=45}] if score @s kitpvp.chaos_bow_used > @s kitpvp.chaos_bow_last run function kitpvp:kit/chaos_shot_bow
 execute as @a[scores={kitpvp.kit=45}] if score @s kitpvp.chaos_xbow_used > @s kitpvp.chaos_xbow_last run function kitpvp:kit/chaos_shot_xbow
 execute as @a[scores={kitpvp.kit=45}] if score @s kitpvp.chaos_tri_used > @s kitpvp.chaos_tri_last run function kitpvp:kit/chaos_shot_tri
-# 混沌·重铸：右键令牌（统计 spyglass 使用）→ 清武器并随机重铸，冷却 30 秒
+# 混沌重铸：右键令牌（统计 spyglass 使用）→ 清武器并随机重铸，冷却 30 秒
 execute as @a[scores={kitpvp.kit=45,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.chaos_skill_used > @s kitpvp.chaos_skill_last run function kitpvp:kit/chaos_skill
 # 混沌·金斧：持有时隐身（effect 类被动只能走 tick）
 execute as @a[scores={kitpvp.kit=45}] at @s if data entity @s SelectedItem.tag.ChaosInvisible run effect give @s minecraft:invisibility 1 0 true
@@ -662,3 +662,20 @@ execute store result score #td_n kitpvp.game if entity @e[tag=kitpvp.earth_tande
 execute as @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone] at @s if score #td_n kitpvp.game matches ..1 run function kitpvp:skill/earth/tandem_alone
 # 串联体：一只死了 ⇒ 另一只永久速度 II + 力量 I（用 0.1..64 排除自己）
 # 串联体：同伴一没就立刻独活（每刻判定，不等 aura 的 1 秒节拍）；同伴死了它身上的 near 标记也要摘掉
+# ===== 多伦多：矿车按钮（advancement 之外的第二道判定：看按钮 powered 状态） =====
+execute if score #cart_cd1 kitpvp.game matches 1.. run scoreboard players remove #cart_cd1 kitpvp.game 1
+execute if score #cart_cd1 kitpvp.game matches ..0 if block 6023 65 6046 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_1
+execute if score #cart_cd2 kitpvp.game matches 1.. run scoreboard players remove #cart_cd2 kitpvp.game 1
+execute if score #cart_cd2 kitpvp.game matches ..0 if block 5987 65 6046 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_2
+execute if score #cart_cd3 kitpvp.game matches 1.. run scoreboard players remove #cart_cd3 kitpvp.game 1
+execute if score #cart_cd3 kitpvp.game matches ..0 if block 6050 65 6054 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_3
+execute if score #cart_cd4 kitpvp.game matches 1.. run scoreboard players remove #cart_cd4 kitpvp.game 1
+execute if score #cart_cd4 kitpvp.game matches ..0 if block 6037 65 6005 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_4
+execute if score #cart_cd5 kitpvp.game matches 1.. run scoreboard players remove #cart_cd5 kitpvp.game 1
+execute if score #cart_cd5 kitpvp.game matches ..0 if block 5976 65 5966 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_5
+execute if score #cart_cd6 kitpvp.game matches 1.. run scoreboard players remove #cart_cd6 kitpvp.game 1
+execute if score #cart_cd6 kitpvp.game matches ..0 if block 6049 65 6014 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_6
+execute if score #cart_cd7 kitpvp.game matches 1.. run scoreboard players remove #cart_cd7 kitpvp.game 1
+execute if score #cart_cd7 kitpvp.game matches ..0 if block 6006 65 5977 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_7
+execute if score #cart_cd8 kitpvp.game matches 1.. run scoreboard players remove #cart_cd8 kitpvp.game 1
+execute if score #cart_cd8 kitpvp.game matches ..0 if block 6049 65 5962 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_8
