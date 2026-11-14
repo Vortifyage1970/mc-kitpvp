@@ -499,7 +499,7 @@ scoreboard players set #burn_20 kitpvp.game 20
 scoreboard objectives add kitpvp.phx_stage dummy "凤凰的守卫阶段（0 = 第一形态活着，1 = 已留蛋，2 = 复活过一次）"
 scoreboard objectives add kitpvp.phx_life dummy "凤凰蛋还要几刻孵化（200 = 10 秒）"
 scoreboard objectives add kitpvp.phx_pair dummy "凤凰的配对号（本体/守卫/蛋同号，防止多只同时在场时串台）"
-scoreboard objectives add kitpvp.phx_pair dummy "凤凰的配对号（本体/守卫/蛋同号，防止多只同时在场时串台）"
 scoreboard objectives add kitpvp.bw_cd dummy "飞龙宝宝吐火球的冷却（100 = 5 秒）"
 scoreboard objectives add kitpvp.bw_life dummy "飞龙宝宝的火球已经飞了几刻（40 刻强制熄灭）"
 scoreboard objectives add kitpvp.bw_owner dummy "火球记住的召唤者编号（用来不打自己人）"
+scoreboard objectives add kitpvp.cap_cd dummy "队长的举盾周期（120 刻一轮：120..60 举盾）"
