@@ -88,9 +88,9 @@ scoreboard objectives add kitpvp.soul_ep_timer dummy "末影人魂石传送枪�
 scoreboard objectives add kitpvp.soul_mars_used minecraft.used:minecraft.ravager_spawn_egg
 scoreboard objectives add kitpvp.soul_mars_last dummy "火星魂石快照"
 scoreboard objectives add kitpvp.soul_mars_timer dummy "火星魂石倒计时"
-scoreboard objectives add kitpvp.tf_rise_used minecraft.used:minecraft:mooshroom_spawn_egg
+scoreboard objectives add kitpvp.tf_rise_used minecraft.used:minecraft.mooshroom_spawn_egg
 scoreboard objectives add kitpvp.tf_rise_last dummy "里·农夫起义快照"
-scoreboard objectives add kitpvp.tf_rally_used minecraft.used:minecraft:husk_spawn_egg
+scoreboard objectives add kitpvp.tf_rally_used minecraft.used:minecraft.husk_spawn_egg
 scoreboard objectives add kitpvp.tf_rally_last dummy "里·农夫召集快照"
 scoreboard objectives add kitpvp.tfid dummy "里·农夫队槽编号（1..6）"
 scoreboard objectives add kitpvp.tf_owner dummy "起义军归属的队槽编号（挂实体）"
