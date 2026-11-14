@@ -1,0 +1,50 @@
+{
+  "criteria": {
+    "press": {
+      "trigger": "minecraft:item_used_on_block",
+      "conditions": {
+        "location": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "block": {
+                "blocks": [
+                  "minecraft:oak_button",
+                  "minecraft:spruce_button",
+                  "minecraft:birch_button",
+                  "minecraft:jungle_button",
+                  "minecraft:acacia_button",
+                  "minecraft:dark_oak_button",
+                  "minecraft:mangrove_button",
+                  "minecraft:cherry_button",
+                  "minecraft:bamboo_button",
+                  "minecraft:crimson_button",
+                  "minecraft:warped_button",
+                  "minecraft:stone_button",
+                  "minecraft:polished_blackstone_button"
+                ]
+              },
+              "position": {
+                "x": {
+                  "min": 6048,
+                  "max": 6050
+                },
+                "y": {
+                  "min": 64,
+                  "max": 66
+                },
+                "z": {
+                  "min": 6013,
+                  "max": 6015
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "function": "kitpvp:map/toronto/cart_10"
+  }
+}

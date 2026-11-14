@@ -113,6 +113,7 @@ scoreboard players set @s kitpvp.tep_cd 0
 scoreboard players set @s kitpvp.tep_cd_s 0
 scoreboard players operation @s kitpvp.soul_ep_last = @s kitpvp.soul_ep_used
 tag @s remove kitpvp.soul_ep_active
+tag @s remove kitpvp.tep_locked
 scoreboard players set @s kitpvp.tep_ready 0
 scoreboard players set @s kitpvp.soul_slime_timer 0
 scoreboard players set @s kitpvp.soul_ghost_timer 0
@@ -175,3 +176,4 @@ attribute @s minecraft:generic.armor_toughness base set 0
 gamemode adventure @s
 # 1.20.1 无 /heal
 effect give @s minecraft:instant_health 1 5 true
+scoreboard players operation @s kitpvp.soul_mercury_last = @s kitpvp.soul_mercury_used

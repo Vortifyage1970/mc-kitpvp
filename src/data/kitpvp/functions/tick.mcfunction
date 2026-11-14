@@ -526,16 +526,17 @@ execute as @a[tag=kitpvp.soul_ep_active,scores={kitpvp.soul_ep_timer=..0}] run f
 # 门的寿命 / 粒子 / 状态灯
 execute as @e[tag=kitpvp.tep_portal] at @s run function kitpvp:skill/enderman/portal_tick
 # 玩家穿门（每个人 3 秒免疫；两扇门都齐了才生效）
-execute as @e[tag=kitpvp.tep_a] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_b
-execute as @e[tag=kitpvp.tep_b] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_a
-execute as @e[tag=kitpvp.tep_r] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_p
-execute as @e[tag=kitpvp.tep_p] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator] run function kitpvp:skill/enderman/enter_r
+execute as @e[tag=kitpvp.tep_a] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator,tag=!kitpvp.tep_locked] run function kitpvp:skill/enderman/enter_b
+execute as @e[tag=kitpvp.tep_b] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator,tag=!kitpvp.tep_locked] run function kitpvp:skill/enderman/enter_a
+execute as @e[tag=kitpvp.tep_r] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator,tag=!kitpvp.tep_locked] run function kitpvp:skill/enderman/enter_p
+execute as @e[tag=kitpvp.tep_p] at @s as @a[distance=..1.3,scores={kitpvp.tep_ready=..0},tag=!kitpvp.spectator,tag=!kitpvp.tep_locked] run function kitpvp:skill/enderman/enter_r
 # 非玩家实体（召唤物 / 箭 / 掉落物）任何人的门都能穿；装饰类与 marker 不参与
-execute as @e[tag=kitpvp.tep_a] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,tag=!kitpvp.displayitem] unless score @s kitpvp.tep_ready matches 1.. run function kitpvp:skill/enderman/ent_through_b
-execute as @e[tag=kitpvp.tep_b] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,tag=!kitpvp.displayitem] unless score @s kitpvp.tep_ready matches 1.. run function kitpvp:skill/enderman/ent_through_a
-execute as @e[tag=kitpvp.tep_r] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,tag=!kitpvp.displayitem] unless score @s kitpvp.tep_ready matches 1.. run function kitpvp:skill/enderman/ent_through_p
-execute as @e[tag=kitpvp.tep_p] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,tag=!kitpvp.displayitem] unless score @s kitpvp.tep_ready matches 1.. run function kitpvp:skill/enderman/ent_through_r
+execute as @e[tag=kitpvp.tep_a] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,tag=!kitpvp.displayitem,tag=!kitpvp.tep_locked] unless score @s kitpvp.tep_ready matches 1.. run function kitpvp:skill/enderman/ent_through_b
+execute as @e[tag=kitpvp.tep_b] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,tag=!kitpvp.displayitem,tag=!kitpvp.tep_locked] unless score @s kitpvp.tep_ready matches 1.. run function kitpvp:skill/enderman/ent_through_a
+execute as @e[tag=kitpvp.tep_r] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,tag=!kitpvp.displayitem,tag=!kitpvp.tep_locked] unless score @s kitpvp.tep_ready matches 1.. run function kitpvp:skill/enderman/ent_through_p
+execute as @e[tag=kitpvp.tep_p] at @s as @e[type=!minecraft:player,type=!minecraft:marker,distance=..1.3,tag=!kitpvp.displayitem,tag=!kitpvp.tep_locked] unless score @s kitpvp.tep_ready matches 1.. run function kitpvp:skill/enderman/ent_through_r
 # 实体侧的穿门免疫
+execute as @e[tag=kitpvp.tep_locked] at @s unless entity @e[tag=kitpvp.tep_portal,distance=..1.7] run tag @s remove kitpvp.tep_locked
 execute as @e[type=!minecraft:player,scores={kitpvp.tep_ready=1..}] run scoreboard players remove @s kitpvp.tep_ready 1
 execute as @e[tag=kitpvp.bomb_rider,scores={kitpvp.bomb_life=1..}] run scoreboard players remove @s kitpvp.bomb_life 1
 execute as @e[tag=kitpvp.bomb_rider,scores={kitpvp.bomb_life=..0}] run kill @s
@@ -589,7 +590,12 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator]
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_tamer_used > @s kitpvp.soul_tamer_last run function kitpvp:skill/soul/use_tamer
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.soul_sun_last matches -2147483648.. run scoreboard players operation @s kitpvp.soul_sun_last = @s kitpvp.soul_sun_used
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_sun_used > @s kitpvp.soul_sun_last run function kitpvp:skill/soul/use_sun
-# 水星魂石走 advancement（advancements/player/soul_mercury_use.json），不再用「海豚蛋被使用」统计
+# 水星魂石：河豚蛋的使用统计 → 快照比较（同表渔夫）
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.soul_mercury_last matches -2147483648.. run scoreboard players operation @s kitpvp.soul_mercury_last = @s kitpvp.soul_mercury_used
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_mercury_used > @s kitpvp.soul_mercury_last run function kitpvp:skill/soul/use_mercury
+# 兜底：蛋真的用掉了就会在原地生出一只带 soul_mercury_token 的河豚；
+# 统计判据万一不涨（1.20.1 对刷怪蛋的 used 统计并不总是可靠），这条也能触发，use_mercury 会顺手把河豚清掉
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] at @s if entity @e[tag=kitpvp.soul_mercury_token,distance=..4] run function kitpvp:skill/soul/use_mercury
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] unless score @s kitpvp.soul_venus_last matches -2147483648.. run scoreboard players operation @s kitpvp.soul_venus_last = @s kitpvp.soul_venus_used
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_venus_used > @s kitpvp.soul_venus_last run function kitpvp:skill/soul/use_venus
 # 驯兽师 / 太阳：落点 marker 的每刻推进；金星：舔狗自己的 20 秒计时与增益
@@ -664,18 +670,24 @@ execute as @e[tag=kitpvp.earth_tandem,tag=!kitpvp.tandem_alone] at @s if score #
 # 串联体：同伴一没就立刻独活（每刻判定，不等 aura 的 1 秒节拍）；同伴死了它身上的 near 标记也要摘掉
 # ===== 多伦多：矿车按钮（advancement 之外的第二道判定：看按钮 powered 状态） =====
 execute if score #cart_cd1 kitpvp.game matches 1.. run scoreboard players remove #cart_cd1 kitpvp.game 1
-execute if score #cart_cd1 kitpvp.game matches ..0 if block 6023 65 6046 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_1
+execute if score #cart_cd1 kitpvp.game matches ..0 if block 5963 65 6054 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_1
 execute if score #cart_cd2 kitpvp.game matches 1.. run scoreboard players remove #cart_cd2 kitpvp.game 1
-execute if score #cart_cd2 kitpvp.game matches ..0 if block 5987 65 6046 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_2
+execute if score #cart_cd2 kitpvp.game matches ..0 if block 5972 65 6004 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_2
 execute if score #cart_cd3 kitpvp.game matches 1.. run scoreboard players remove #cart_cd3 kitpvp.game 1
-execute if score #cart_cd3 kitpvp.game matches ..0 if block 6050 65 6054 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_3
+execute if score #cart_cd3 kitpvp.game matches ..0 if block 5976 65 5966 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_3
 execute if score #cart_cd4 kitpvp.game matches 1.. run scoreboard players remove #cart_cd4 kitpvp.game 1
-execute if score #cart_cd4 kitpvp.game matches ..0 if block 6037 65 6005 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_4
+execute if score #cart_cd4 kitpvp.game matches ..0 if block 5987 65 6046 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_4
 execute if score #cart_cd5 kitpvp.game matches 1.. run scoreboard players remove #cart_cd5 kitpvp.game 1
-execute if score #cart_cd5 kitpvp.game matches ..0 if block 5976 65 5966 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_5
+execute if score #cart_cd5 kitpvp.game matches ..0 if block 6006 65 5977 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_5
 execute if score #cart_cd6 kitpvp.game matches 1.. run scoreboard players remove #cart_cd6 kitpvp.game 1
-execute if score #cart_cd6 kitpvp.game matches ..0 if block 6049 65 6014 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_6
+execute if score #cart_cd6 kitpvp.game matches ..0 if block 6012 74 5988 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_6
 execute if score #cart_cd7 kitpvp.game matches 1.. run scoreboard players remove #cart_cd7 kitpvp.game 1
-execute if score #cart_cd7 kitpvp.game matches ..0 if block 6006 65 5977 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_7
+execute if score #cart_cd7 kitpvp.game matches ..0 if block 6023 65 6046 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_7
 execute if score #cart_cd8 kitpvp.game matches 1.. run scoreboard players remove #cart_cd8 kitpvp.game 1
-execute if score #cart_cd8 kitpvp.game matches ..0 if block 6049 65 5962 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_8
+execute if score #cart_cd8 kitpvp.game matches ..0 if block 6037 65 6005 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_8
+execute if score #cart_cd9 kitpvp.game matches 1.. run scoreboard players remove #cart_cd9 kitpvp.game 1
+execute if score #cart_cd9 kitpvp.game matches ..0 if block 6049 65 5962 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_9
+execute if score #cart_cd10 kitpvp.game matches 1.. run scoreboard players remove #cart_cd10 kitpvp.game 1
+execute if score #cart_cd10 kitpvp.game matches ..0 if block 6049 65 6014 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_10
+execute if score #cart_cd11 kitpvp.game matches 1.. run scoreboard players remove #cart_cd11 kitpvp.game 1
+execute if score #cart_cd11 kitpvp.game matches ..0 if block 6050 65 6054 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_11
