@@ -1,4 +1,5 @@
-# @s = 铁人，at 它身上：丢一颗"小炸弹" —— 直接复用炸弹兵的代码（summon/bomber_small.mcfunction:2）
-# 原版苦力怕真爆炸：Fuse:0 立爆、ExplosionRadius:1（半径 1；mobGriefing 关时不破坏地形）
-# 铁人自己站在爆点上，靠全套爆炸保护 V 扛住（这是给铁人配附魔的原因）
-summon minecraft:creeper ~ ~1 ~ {Tags:["kitpvp.bomb","kitpvp.bomb_small"],CustomName:'{"text":"小炸弹","color":"gold"}',CustomNameVisible:1b,ignited:1b,Fuse:0s,ExplosionRadius:1b}
+# @s = 铁人，at 它身上：在**身后一格**丢一颗隐形小炸弹（复用炸弹兵的代码：苦力怕 Fuse:0 立爆 + ExplosionRadius:1）
+# 位置用 ^ ^ ^-1（局部坐标，正后方一格），不再叠在他自己身上 ⇒ 爆炸把他往前推一点，自己挨的伤害也更少
+# 隐形：不给名字（无 CustomName）+ 隐形药水，只留下爆炸本身
+execute at @s run summon minecraft:creeper ^ ^ ^-1 {Tags:["kitpvp.bomb","kitpvp.bomb_small"],Silent:0b,ignited:1b,Fuse:0s,ExplosionRadius:1b}
+effect give @e[tag=kitpvp.bomb_small] minecraft:invisibility infinite 0 true
