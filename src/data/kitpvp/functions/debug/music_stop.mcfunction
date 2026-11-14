@@ -3,3 +3,5 @@ execute as @a run function mvpmusic:inhuman/stop
 execute as @a run function mvpmusic:izanagi/stop
 execute as @a run function othermusic:inhuman/stop
 execute as @a run function kitpvp:music/yu_ai/stop
+execute as @a run function kitpvp:music/rumbling/stop
+function kitpvp:music/rumbling_lyric/stop

@@ -36,6 +36,10 @@ kill @e[tag=kitpvp.venus_bomb_creeper]
 
 # 冥王星的鹦鹉分身：按 tag 清
 kill @e[tag=kitpvp.pluto_parrot]
+kill @e[tag=kitpvp.mars_giant]
+kill @e[tag=kitpvp.mars_controller]
+kill @e[tag=kitpvp.mars_wild]
+scoreboard players set #mars_active kitpvp.game 0
 
 # 文明小子的令牌基础生物 / 还在飞的两种口水（一次性的投掷物，落地前也必须清干净）
 kill @e[tag=kitpvp.civil_token]

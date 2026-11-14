@@ -12,7 +12,7 @@ item replace entity @s armor.chest with minecraft:golden_chestplate{Unbreakable:
 item replace entity @s armor.legs with minecraft:golden_leggings{Unbreakable:1b,Enchantments:[{id:"minecraft:protection",lvl:1}]}
 item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,display:{color:12326679},Enchantments:[{id:"minecraft:protection",lvl:3}]}
 
-item replace entity @s weapon.mainhand with minecraft:golden_sword{KitMarsSword:1b,Unbreakable:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:3}],AttributeModifiers:[{AttributeName:"minecraft:generic.attack_damage",Name:"kitpvp.mars_damage",Amount:-2,Operation:0,UUID:[I;70,0,0,1],Slot:"mainhand"},{AttributeName:"minecraft:generic.attack_speed",Name:"kitpvp.mars_speed",Amount:-2.4,Operation:0,UUID:[I;70,0,0,2],Slot:"mainhand"}],display:{Name:'{"text":"诅咒剑","color":"dark_red","italic":false}'}} 1
+item replace entity @s weapon.mainhand with minecraft:golden_sword{KitMarsSword:1b,Unbreakable:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:3}],AttributeModifiers:[{AttributeName:"minecraft:generic.attack_damage",Name:"kitpvp.mars_damage",Amount:1,Operation:0,UUID:[I;70,0,0,1],Slot:"mainhand"},{AttributeName:"minecraft:generic.attack_speed",Name:"kitpvp.mars_speed",Amount:-2.4,Operation:0,UUID:[I;70,0,0,2],Slot:"mainhand"}],display:{Name:'{"text":"诅咒剑","color":"dark_red","italic":false}'}} 1
 give @s minecraft:cooked_chicken 24
 clear @s minecraft:vex_spawn_egg{KitMarsEgg:1b} 0
 give @s minecraft:vex_spawn_egg{KitMarsEgg:1b,EntityTag:{Tags:["kitpvp.mars_token"],CustomName:'{"text":"地鸣"}'},display:{Name:'{"text":"地鸣","color":"dark_red","italic":false}',Lore:['{"text":"一次性：召唤巨人。","color":"dark_purple","italic":false}']}} 1
