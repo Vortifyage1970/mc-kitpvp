@@ -334,6 +334,10 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator]
 execute as @a[scores={kitpvp.kit=45}] unless score @s kitpvp.chaos_bow_last matches -2147483648.. run scoreboard players operation @s kitpvp.chaos_bow_last = @s kitpvp.chaos_bow_used
 execute as @a[scores={kitpvp.kit=45}] unless score @s kitpvp.chaos_tri_last matches -2147483648.. run scoreboard players operation @s kitpvp.chaos_tri_last = @s kitpvp.chaos_tri_used
 execute as @a[scores={kitpvp.kit=45}] if score @s kitpvp.chaos_tri_used > @s kitpvp.chaos_tri_last run function kitpvp:kit/chaos_shot_tri
+# 三叉戟待结算：飞完（或超时 6 秒）才扣次数
+execute as @a[scores={kitpvp.chaos_tri_pending=1}] run scoreboard players add @s kitpvp.chaos_tri_wait 1
+execute as @a[scores={kitpvp.chaos_tri_pending=1}] at @s unless entity @e[type=minecraft:trident,nbt={Trident:{tag:{ChaosBlade:1b}}},distance=..96] run function kitpvp:kit/chaos_tri_settle
+execute as @a[scores={kitpvp.chaos_tri_wait=120..}] run function kitpvp:kit/chaos_tri_settle
 execute as @a[scores={kitpvp.kit=45},nbt={SelectedItem:{id:"minecraft:bow"}}] run function kitpvp:kit/chaos_arrow_check
 execute as @a[scores={kitpvp.kit=45},nbt={SelectedItem:{id:"minecraft:crossbow"}}] run function kitpvp:kit/chaos_xbow_check
 # 混沌重铸：右键令牌（统计 spyglass 使用）→ 清武器并随机重铸，冷却 30 秒
