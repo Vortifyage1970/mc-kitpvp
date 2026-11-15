@@ -1,8 +1,10 @@
 # 慢拍 · 每 2 刻：只放「读 used 快照」的触发与「cd 到点才补」的发放（幂等，晚 2 刻无感）。
 # 这些行是从 tick/kits_* 里原样搬过来的；不要把它们改回每刻 —— 除非确实需要每刻精度。
-execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=3},tag=!kitpvp.spectator] if score @s kitpvp.tank_used > @s kitpvp.tank_last run function kitpvp:skill/tank/dispatch
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.tank_used > @s kitpvp.tank_last run function kitpvp:skill/tank/dispatch
 execute as @a[scores={kitpvp.kit=3,kitpvp.alive=1,kitpvp.cd=0},tag=kitpvp.tank_handout,tag=!kitpvp.spectator] run function kitpvp:skill/tank/handout
-execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=4},tag=!kitpvp.spectator] if score @s kitpvp.assassin_used > @s kitpvp.assassin_last run function kitpvp:skill/assassin/dispatch
+# 坦克 / 刺客魂石是"任何职业都可能拿到"的：这里绝不能卡 kit=3 / kit=4，
+# 职业令牌的分流已经在 dispatch 内部（`if score @s kitpvp.kit matches N`）做过
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.assassin_used > @s kitpvp.assassin_last run function kitpvp:skill/assassin/dispatch
 execute as @a[scores={kitpvp.kit=4,kitpvp.alive=1,kitpvp.cd=0},tag=kitpvp.assassin_handout,tag=!kitpvp.spectator] run function kitpvp:skill/assassin/handout
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=29},tag=!kitpvp.spectator] at @s if score @s kitpvp.tainted_turret_used > @s kitpvp.tainted_turret_last run function kitpvp:skill/tainted_archer/turret_cast
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=29},tag=!kitpvp.spectator] at @s if score @s kitpvp.tainted_core_used > @s kitpvp.tainted_core_last run function kitpvp:skill/tainted_archer/dispatch
