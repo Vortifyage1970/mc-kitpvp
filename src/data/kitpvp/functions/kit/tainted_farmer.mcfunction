@@ -14,8 +14,8 @@ item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b,Encha
 
 item replace entity @s hotbar.0 with minecraft:iron_shovel{KitTaintedFarmerShovel:1b,Unbreakable:1b,Enchantments:[{id:"minecraft:sharpness",lvl:1}]}
 item replace entity @s hotbar.1 with minecraft:iron_hoe{KitTaintedFarmerHoe:1b,Unbreakable:1b,Enchantments:[{id:"minecraft:knockback",lvl:2}]}
-item replace entity @s hotbar.2 with minecraft:crafting_table 4
-item replace entity @s hotbar.3 with minecraft:baked_potato 24
+item replace entity @s hotbar.2 with minecraft:crafting_table 2
+item replace entity @s hotbar.3 with minecraft:baked_potato 12
 
 # 两种蛋都借用原版蛋（display.Name 会成为召唤物的 CustomName，dispatch 就靠这个名字分流）
 # 起义蛋一次性；召集蛋上限 1、冷却 45 秒，冷却走完由 skill/tainted_farmer/rally_refill 补回

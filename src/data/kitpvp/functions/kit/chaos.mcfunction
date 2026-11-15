@@ -1,5 +1,5 @@
 # 混沌战士（kit = 45）：铁盔 + 锁链胸甲 + 锁链护腿 + 锁链靴（合计护甲 12）
-# 手上永远一把"耗材"：耐久 2~4 次，用完记分板清零 → 清主手、播损坏音、无缝发下一把（见 kit/chaos_use）
+# 手上永远一把"耗材"：耐久 2~5 次，用完记分板清零 → 清主手、播损坏音、无缝发下一把（见 kit/chaos_use）
 function kitpvp:util/clear_player
 
 scoreboard players set @s kitpvp.kit 45
