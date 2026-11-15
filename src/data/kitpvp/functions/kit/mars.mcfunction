@@ -15,7 +15,7 @@ item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,di
 item replace entity @s weapon.mainhand with minecraft:golden_sword{KitMarsSword:1b,Unbreakable:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:3}],AttributeModifiers:[{AttributeName:"minecraft:generic.attack_damage",Name:"kitpvp.mars_damage",Amount:1,Operation:0,UUID:[I;70,0,0,1],Slot:"mainhand"},{AttributeName:"minecraft:generic.attack_speed",Name:"kitpvp.mars_speed",Amount:-2.4,Operation:0,UUID:[I;70,0,0,2],Slot:"mainhand"}],display:{Name:'{"text":"诅咒剑","color":"dark_red","italic":false}'}} 1
 give @s minecraft:cooked_chicken 24
 clear @s minecraft:vex_spawn_egg{KitMarsEgg:1b} 0
-give @s minecraft:vex_spawn_egg{KitMarsEgg:1b,EntityTag:{Tags:["kitpvp.mars_token"],CustomName:'{"text":"地鸣"}'},display:{Name:'{"text":"地鸣","color":"dark_red","italic":false}',Lore:['{"text":"一次性：召唤巨人。","color":"dark_purple","italic":false}']}} 1
+give @s minecraft:vex_spawn_egg{KitMarsEgg:1b,EntityTag:{Tags:["kitpvp.mars_token"],NoAI:1b,Silent:1b,CustomName:'{"text":"地鸣"}'},display:{Name:'{"text":"地鸣","color":"dark_red","italic":false}',Lore:['{"text":"一次性：召唤巨人。","color":"dark_purple","italic":false}']}} 1
 scoreboard players set @s kitpvp.mars_curse 0
 
 tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"火星","color":"dark_red","bold":true}]
