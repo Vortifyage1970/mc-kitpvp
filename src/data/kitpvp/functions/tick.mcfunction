@@ -9,6 +9,7 @@ function kitpvp:tick/kits_d
 function kitpvp:tick/kits_e
 function kitpvp:tick/kits_f
 function kitpvp:tick/player
+function kitpvp:tick/burger
 function kitpvp:tick/world
 
 # 慢拍闸门：slow2 = 每 2 刻、slow4 = 每 4 刻。搬进去的是幂等判定（读 used 快照 / cd 到点补发），

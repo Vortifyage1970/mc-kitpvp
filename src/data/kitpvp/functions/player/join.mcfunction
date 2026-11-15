@@ -102,3 +102,7 @@ scoreboard players operation @s kitpvp.tf_rise_last = @s kitpvp.tf_rise_used
 scoreboard players operation @s kitpvp.tf_rally_last = @s kitpvp.tf_rally_used
 scoreboard players operation @s kitpvp.soul_farm_last = @s kitpvp.soul_farm_used
 scoreboard players set @s kitpvp.tfid 0
+scoreboard players set @s kitpvp.burger_charge 0
+scoreboard players set @s kitpvp.burger_snd 20
+scoreboard players set @s kitpvp.burger_announced 0
+scoreboard players set @s kitpvp.burger_slot 0

@@ -38,6 +38,19 @@ scoreboard players set #tf_wave2 kitpvp.game 0
 scoreboard players set #soul_mars_wild_timer kitpvp.game 0
 tag @a remove kitpvp.soul_venus_owner
 tag @a remove kitpvp.sun_hit
+# 汉堡小子：收起 bossbar 与蓄力状态
+bossbar set kitpvp:burger_hud_1 players
+bossbar set kitpvp:burger_hud_2 players
+bossbar set kitpvp:burger_hud_3 players
+bossbar set kitpvp:burger_hud_4 players
+bossbar set kitpvp:burger_hud_5 players
+bossbar set kitpvp:burger_hud_6 players
+bossbar set kitpvp:burger_hud_7 players
+bossbar set kitpvp:burger_hud_8 players
+scoreboard players set @a kitpvp.burger_charge 0
+scoreboard players set @a kitpvp.burger_snd 20
+scoreboard players set @a kitpvp.burger_slot 0
+scoreboard players set @a kitpvp.burger_announced 0
 tag @a remove kitpvp.soul_ep_active
 clear @a minecraft:spyglass{KitPortalGunSoul:1b}
 bossbar set kitpvp:tep_hud_orange name {"text":"□ 橙门","color":"dark_gray"}

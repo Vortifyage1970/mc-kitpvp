@@ -451,6 +451,46 @@ bossbar set kitpvp:tep_hud_red style progress
 bossbar set kitpvp:tep_hud_purple style progress
 bossbar set kitpvp:tep_hud_red value 0
 bossbar set kitpvp:tep_hud_purple value 0
+bossbar add kitpvp:burger_hud_1 {"text":"汉堡兽蓄力","color":"light_purple"}
+bossbar set kitpvp:burger_hud_1 color purple
+bossbar set kitpvp:burger_hud_1 style progress
+bossbar set kitpvp:burger_hud_1 max 1000
+bossbar set kitpvp:burger_hud_1 value 0
+bossbar add kitpvp:burger_hud_2 {"text":"汉堡兽蓄力","color":"light_purple"}
+bossbar set kitpvp:burger_hud_2 color purple
+bossbar set kitpvp:burger_hud_2 style progress
+bossbar set kitpvp:burger_hud_2 max 1000
+bossbar set kitpvp:burger_hud_2 value 0
+bossbar add kitpvp:burger_hud_3 {"text":"汉堡兽蓄力","color":"light_purple"}
+bossbar set kitpvp:burger_hud_3 color purple
+bossbar set kitpvp:burger_hud_3 style progress
+bossbar set kitpvp:burger_hud_3 max 1000
+bossbar set kitpvp:burger_hud_3 value 0
+bossbar add kitpvp:burger_hud_4 {"text":"汉堡兽蓄力","color":"light_purple"}
+bossbar set kitpvp:burger_hud_4 color purple
+bossbar set kitpvp:burger_hud_4 style progress
+bossbar set kitpvp:burger_hud_4 max 1000
+bossbar set kitpvp:burger_hud_4 value 0
+bossbar add kitpvp:burger_hud_5 {"text":"汉堡兽蓄力","color":"light_purple"}
+bossbar set kitpvp:burger_hud_5 color purple
+bossbar set kitpvp:burger_hud_5 style progress
+bossbar set kitpvp:burger_hud_5 max 1000
+bossbar set kitpvp:burger_hud_5 value 0
+bossbar add kitpvp:burger_hud_6 {"text":"汉堡兽蓄力","color":"light_purple"}
+bossbar set kitpvp:burger_hud_6 color purple
+bossbar set kitpvp:burger_hud_6 style progress
+bossbar set kitpvp:burger_hud_6 max 1000
+bossbar set kitpvp:burger_hud_6 value 0
+bossbar add kitpvp:burger_hud_7 {"text":"汉堡兽蓄力","color":"light_purple"}
+bossbar set kitpvp:burger_hud_7 color purple
+bossbar set kitpvp:burger_hud_7 style progress
+bossbar set kitpvp:burger_hud_7 max 1000
+bossbar set kitpvp:burger_hud_7 value 0
+bossbar add kitpvp:burger_hud_8 {"text":"汉堡兽蓄力","color":"light_purple"}
+bossbar set kitpvp:burger_hud_8 color purple
+bossbar set kitpvp:burger_hud_8 style progress
+bossbar set kitpvp:burger_hud_8 max 1000
+bossbar set kitpvp:burger_hud_8 value 0
 # 传送门是临时实体：重载时清掉上一局残留在已加载区块里的
 kill @e[tag=kitpvp.tep_a]
 kill @e[tag=kitpvp.tep_b]
@@ -471,6 +511,10 @@ scoreboard players set #global kitpvp.timer 0
 scoreboard players set #state kitpvp.game 0
 scoreboard players set #survivors kitpvp.game 0
 scoreboard players set #debug kitpvp.game 0
+scoreboard objectives add kitpvp.burger_charge dummy "汉堡小子蓄力进度（1000 = 50 秒）"
+scoreboard objectives add kitpvp.burger_snd dummy "汉堡小子提示音计时"
+scoreboard objectives add kitpvp.burger_slot dummy "汉堡小子 bossbar 槽位（1..8）"
+scoreboard objectives add kitpvp.burger_announced dummy "汉堡小子 25 秒提示是否已发"
 scoreboard players set #soul_count kitpvp.game 18
 scoreboard players set #ghost_tid kitpvp.game 0
 scoreboard players set #ghost_need_new kitpvp.game 0

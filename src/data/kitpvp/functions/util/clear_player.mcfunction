@@ -195,3 +195,15 @@ scoreboard players set @s kitpvp.mars_curse 0
 scoreboard players operation @s kitpvp.tf_rise_last = @s kitpvp.tf_rise_used
 scoreboard players operation @s kitpvp.tf_rally_last = @s kitpvp.tf_rally_used
 scoreboard players operation @s kitpvp.soul_farm_last = @s kitpvp.soul_farm_used
+execute if score @s kitpvp.burger_slot matches 1 run bossbar set kitpvp:burger_hud_1 players
+execute if score @s kitpvp.burger_slot matches 2 run bossbar set kitpvp:burger_hud_2 players
+execute if score @s kitpvp.burger_slot matches 3 run bossbar set kitpvp:burger_hud_3 players
+execute if score @s kitpvp.burger_slot matches 4 run bossbar set kitpvp:burger_hud_4 players
+execute if score @s kitpvp.burger_slot matches 5 run bossbar set kitpvp:burger_hud_5 players
+execute if score @s kitpvp.burger_slot matches 6 run bossbar set kitpvp:burger_hud_6 players
+execute if score @s kitpvp.burger_slot matches 7 run bossbar set kitpvp:burger_hud_7 players
+execute if score @s kitpvp.burger_slot matches 8 run bossbar set kitpvp:burger_hud_8 players
+scoreboard players set @s kitpvp.burger_charge 0
+scoreboard players set @s kitpvp.burger_snd 20
+scoreboard players set @s kitpvp.burger_announced 0
+scoreboard players set @s kitpvp.burger_slot 0

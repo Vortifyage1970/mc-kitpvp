@@ -37,3 +37,4 @@ execute if score @s kitpvp.kit matches 88 run function kitpvp:kit/li_zhujunze
 execute if score @s kitpvp.kit matches 68 run function kitpvp:kit/earth
 execute if score @s kitpvp.kit matches 14 run function kitpvp:kit/zombie
 execute if score @s kitpvp.kit matches 71 run function kitpvp:kit/pluto
+execute if score @s kitpvp.kit matches 89 run function kitpvp:kit/burger
