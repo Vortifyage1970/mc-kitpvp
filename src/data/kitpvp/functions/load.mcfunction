@@ -313,6 +313,13 @@ team add farmer_3
 team add farmer_4
 team add farmer_5
 team add farmer_6
+# 农民对主人友好：同队且关闭友伤（默认 friendlyFire=true，主人 AoE 也会误伤自己的兵）
+team modify farmer_1 friendlyFire false
+team modify farmer_2 friendlyFire false
+team modify farmer_3 friendlyFire false
+team modify farmer_4 friendlyFire false
+team modify farmer_5 friendlyFire false
+team modify farmer_6 friendlyFire false
 
 tag @a remove kitpvp.selected
 tag @a remove kitpvp.invincible
@@ -352,6 +359,7 @@ scoreboard players set @a kitpvp.item 0
 scoreboard players set @a kitpvp.tid 0
 scoreboard players set @a kitpvp.ttid 0
 scoreboard players set @a kitpvp.fisher_no_tri 0
+scoreboard players set #mars_active kitpvp.game 0
 scoreboard players set #mars_wild_timer kitpvp.game 0
 scoreboard players set #mars_music kitpvp.game 0
 scoreboard players set #mars_wild kitpvp.game 0

@@ -31,7 +31,6 @@ execute as @a[scores={kitpvp.kit=19,kitpvp.alive=1},tag=!kitpvp.spectator] at @s
 execute as @a[scores={kitpvp.kit=32,kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.bomb_used > @s kitpvp.bomb_last run function kitpvp:skill/tainted_bomber/dispatch
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_ep_used > @s kitpvp.soul_ep_last run function kitpvp:skill/soul/use_ep
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_farm_used > @s kitpvp.soul_farm_last run function kitpvp:skill/soul/use_farm
-execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_mars_used > @s kitpvp.soul_mars_last run function kitpvp:skill/soul/use_mars
 execute as @a[scores={kitpvp.kit=45,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.chaos_skill_used > @s kitpvp.chaos_skill_last run function kitpvp:kit/chaos_skill
 execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.fisher_used > @s kitpvp.fisher_last run function kitpvp:skill/fisher/cast
 execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1,kitpvp.cd=0},tag=kitpvp.fisher_handout,tag=!kitpvp.spectator] run function kitpvp:skill/fisher/handout

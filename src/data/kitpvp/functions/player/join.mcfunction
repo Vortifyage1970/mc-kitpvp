@@ -95,6 +95,8 @@ scoreboard players operation @s kitpvp.farm_last = @s kitpvp.farm_used
 scoreboard players operation @s kitpvp.plant_last = @s kitpvp.plant_used
 scoreboard players operation @s kitpvp.bread_last = @s kitpvp.bread_used
 scoreboard players operation @s kitpvp.soul_mars_last = @s kitpvp.soul_mars_used
+scoreboard players operation @s kitpvp.mars_domain_last = @s kitpvp.mars_domain_used
+scoreboard players set @s kitpvp.mars_curse 0
 scoreboard players set @s kitpvp.soul_mars_timer 0
 scoreboard players operation @s kitpvp.tf_rise_last = @s kitpvp.tf_rise_used
 scoreboard players operation @s kitpvp.tf_rally_last = @s kitpvp.tf_rally_used

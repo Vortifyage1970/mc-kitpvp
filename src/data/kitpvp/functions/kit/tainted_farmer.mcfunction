@@ -18,7 +18,7 @@ item replace entity @s hotbar.2 with minecraft:crafting_table 4
 item replace entity @s hotbar.3 with minecraft:baked_potato 24
 
 # 两种蛋都借用原版蛋（display.Name 会成为召唤物的 CustomName，dispatch 就靠这个名字分流）
-# 起义蛋一次性；召集蛋上限 1、冷却 60 秒，冷却走完由 skill/tainted_farmer/rally_refill 补回
+# 起义蛋一次性；召集蛋上限 1、冷却 45 秒，冷却走完由 skill/tainted_farmer/rally_refill 补回
 give @s minecraft:mooshroom_spawn_egg{KitTaintedRise:1b,display:{Name:'{"text":"开始一场起义","color":"gold","italic":false}'}} 1
 give @s minecraft:husk_spawn_egg{KitTaintedRally:1b,display:{Name:'{"text":"召集农民","color":"yellow","italic":false}'}} 1
 

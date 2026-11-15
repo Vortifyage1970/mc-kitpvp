@@ -60,5 +60,5 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=34},tag=!kit
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=34},tag=!kitpvp.spectator] if score @s kitpvp.bread_used > @s kitpvp.bread_last run function kitpvp:skill/farmer/eat_bread
 
 # 里·农夫（kit 34）：两种蛋都与别的系统共用同种蛋（蘑菇牛=炸弹兵、尸壳=僵尸魂石），各走 dispatch 按名字分流
-# 召集农民：上限 1，冷却 60 秒；冷却走完且手上 / 16 格内地上都没有才补回
+# 召集农民：上限 1，冷却 45 秒；冷却走完且手上 / 16 格内地上都没有才补回
 execute if entity @e[tag=kitpvp.tf_leader] run function kitpvp:skill/tainted_farmer/leader_tick
