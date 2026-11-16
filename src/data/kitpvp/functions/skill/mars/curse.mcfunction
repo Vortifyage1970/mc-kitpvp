@@ -1,4 +1,4 @@
-# 5 层满了：1.12.2 原样的诅咒套餐（缓慢 III / 虚弱 / 凋零 II / 失明 / 瞬间伤害 / 漂浮）
+# 5 层满了：1.12.2 原样的诅咒套餐（缓慢 III / 虚弱 / 凋零 I / 失明 / 瞬间伤害 / 漂浮）
 scoreboard players set @s kitpvp.mars_curse 0
 effect give @s minecraft:slowness 10 2 true
 effect give @s minecraft:weakness 10 0 true

@@ -27,7 +27,7 @@ execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=67,kitpvp
 execute as @a[tag=kitpvp.venus_dog_dead,scores={kitpvp.venus_dog_timer=1..}] run scoreboard players remove @s kitpvp.venus_dog_timer 1
 execute as @a[tag=kitpvp.venus_dog_dead,scores={kitpvp.alive=1,kitpvp.venus_dog_timer=..0}] at @s run function kitpvp:skill/venus/dog_respawn
 
-# ===== 冥王星（kit 76）=====
+# ===== 冥王星（kit 71）=====
 # 鹦鹉跟随：每刻把 2 格外的鹦鹉拉到肩头
 # 大厅里也要跟（选职业时就在大厅，玩家会立刻走动）
 execute as @a[scores={kitpvp.kit=71,kitpvp.alive=1},tag=!kitpvp.spectator] at @s run function kitpvp:skill/pluto/follow

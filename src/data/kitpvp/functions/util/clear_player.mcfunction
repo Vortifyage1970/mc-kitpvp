@@ -121,7 +121,7 @@ scoreboard players set @s kitpvp.soul_slime_timer 0
 scoreboard players set @s kitpvp.soul_ghost_timer 0
 scoreboard players set @s kitpvp.ghost_minion_cd 0
 scoreboard players operation @s kitpvp.soul_ghost_last = @s kitpvp.soul_ghost_used
-scoreboard players set @a kitpvp.fisher_no_tri 0
+scoreboard players set @s kitpvp.fisher_no_tri 0
 scoreboard players set @s kitpvp.ender_ammo 0
 scoreboard players set @s kitpvp.arsonist_ammo 0
 scoreboard players operation @s kitpvp.ender_last = @s kitpvp.ender_used

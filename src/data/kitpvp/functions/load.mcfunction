@@ -39,7 +39,6 @@ scoreboard objectives add kitpvp.ready_used minecraft.used:minecraft.carrot_on_a
 scoreboard objectives add kitpvp.ready_last dummy "大厅准备快照"
 scoreboard objectives add kitpvp.tmp dummy
 scoreboard objectives add kitpvp.soul_rand dummy "魂石随机数"
-scoreboard objectives add kitpvp.soul_next dummy "下次魂石倒计时"
 scoreboard objectives add kitpvp.soul_bow_timer dummy "魂石弓倒计时"
 scoreboard objectives add kitpvp.soul_warrior_used minecraft.used:minecraft.blaze_spawn_egg
 scoreboard objectives add kitpvp.soul_archer_used minecraft.used:minecraft.skeleton_spawn_egg
@@ -494,6 +493,9 @@ bossbar set kitpvp:burger_hud_8 value 0
 # 传送门是临时实体：重载时清掉上一局残留在已加载区块里的
 kill @e[tag=kitpvp.tep_a]
 kill @e[tag=kitpvp.tep_b]
+kill @e[tag=kitpvp.tep_r]
+kill @e[tag=kitpvp.tep_p]
+kill @e[tag=kitpvp.tep_portal]
 scoreboard players set @a kitpvp.parrot_miss 0
 scoreboard players set @a kitpvp.bomb_small_cd 0
 scoreboard players set @a kitpvp.bomb_big_cd 0

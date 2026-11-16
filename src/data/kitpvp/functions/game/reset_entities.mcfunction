@@ -9,7 +9,7 @@ kill @e[tag=kitpvp.earth_hydrator_guard]
 # 时钟：先删时钟，本体消失后不再续播报
 kill @e[tag=kitpvp.earth_leaker_clock]
 
-# ---- 其余按 tag 清（110 个；来源写在每行上面的注释里）----
+# ---- 其余按 tag 清（111 个；来源写在每行上面的注释里）----
 # kitpvp.arsonist_fire  <- place_one
 kill @e[tag=kitpvp.arsonist_fire]
 # kitpvp.bomb  <- bomber_big, bomber_fake, bomber_nuke, bomber_small, bomber_track
@@ -152,6 +152,8 @@ kill @e[tag=kitpvp.soul_mars_token]
 kill @e[tag=kitpvp.soul_mars_wild]
 # kitpvp.soul_mercury_token  <- give
 kill @e[tag=kitpvp.soul_mercury_token]
+# kitpvp.soul_slime_token  <- give
+kill @e[tag=kitpvp.soul_slime_token]
 # kitpvp.soul_sun_token  <- give
 kill @e[tag=kitpvp.soul_sun_token]
 # kitpvp.soul_tamer_animal  <- tamer_animal
