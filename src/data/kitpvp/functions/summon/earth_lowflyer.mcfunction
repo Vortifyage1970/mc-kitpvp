@@ -7,13 +7,13 @@
 kill @e[tag=kitpvp.earth_lowflyer_carrier]
 kill @e[tag=kitpvp.earth_lowflyer_body]
 kill @e[tag=kitpvp.lf_anchor]
-# ★★ 队槽必须在这一刻记下来：蝙蝠要等下一帧才召，那时 summon 主流程里的 link 早就跑完了，
-#    蝙蝠和骷髅身上永远不会自动有 earth_owner 和队伍 —— 没队伍，原版骷髅 AI 就会照着召唤者射箭。
-#    （这就是"低空飞行器的骷髅还在射召唤者"的根因；69 号飞行器同样是延迟出生的，也一样要手动补）
-# 没有队槽的玩家先补跑一次 link，和正常召唤同一套选槽逻辑
-scoreboard players add @s kitpvp.etid 0
-execute if score @s kitpvp.etid matches 0 run function kitpvp:skill/earth/link
-scoreboard players operation #lf_owner kitpvp.game = @s kitpvp.etid
+# ★★ 队伍必须在召唤这一刻就确定：random 是在 summon.mcfunction 里的 link 之前跑的，
+#    而 link 只给"当刻已经存在"的生灵发队伍；蝙蝠要等下一帧才出生，等它出现时 link 早就跑完了。
+#    结果就是蝙蝠和骷髅一辈子没有队伍 —— 原版骷髅 AI 不看别的，只看队友，没队友就把召唤者也当敌人。
+#    所以这里先保证召唤者自己有队槽（没有就补跑一次 link），再用 tag 把"这一对的召唤者"记到下一帧。
+execute unless score @s kitpvp.etid matches 1.. run function kitpvp:skill/earth/link
+tag @a remove kitpvp.lf_owner_tmp
+tag @s add kitpvp.lf_owner_tmp
 summon minecraft:marker ~ ~1 ~ {Tags:["kitpvp.lf_anchor"]}
 scoreboard players set #lf_wait kitpvp.game 60
 schedule function kitpvp:summon/earth_lowflyer_a 1t replace
