@@ -7,9 +7,13 @@
 kill @e[tag=kitpvp.earth_lowflyer_carrier]
 kill @e[tag=kitpvp.earth_lowflyer_body]
 kill @e[tag=kitpvp.lf_anchor]
-# 召唤者记号：吊舱骷髅的射击由脚本负责，只打不是召唤者的人（lf_summoner=1）
-scoreboard players set @a kitpvp.lf_summoner 0
-scoreboard players set @s kitpvp.lf_summoner 1
+# ★★ 队槽必须在这一刻记下来：蝙蝠要等下一帧才召，那时 summon 主流程里的 link 早就跑完了，
+#    蝙蝠和骷髅身上永远不会自动有 earth_owner 和队伍 —— 没队伍，原版骷髅 AI 就会照着召唤者射箭。
+#    （这就是"低空飞行器的骷髅还在射召唤者"的根因；69 号飞行器同样是延迟出生的，也一样要手动补）
+# 没有队槽的玩家先补跑一次 link，和正常召唤同一套选槽逻辑
+scoreboard players add @s kitpvp.etid 0
+execute if score @s kitpvp.etid matches 0 run function kitpvp:skill/earth/link
+scoreboard players operation #lf_owner kitpvp.game = @s kitpvp.etid
 summon minecraft:marker ~ ~1 ~ {Tags:["kitpvp.lf_anchor"]}
 scoreboard players set #lf_wait kitpvp.game 60
 schedule function kitpvp:summon/earth_lowflyer_a 1t replace
