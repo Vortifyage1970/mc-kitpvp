@@ -269,7 +269,7 @@ execute as @a[scores={kitpvp.bee_slow_snd=1..}] run scoreboard players remove @s
 execute as @e[tag=kitpvp.earth_dominion] run scoreboard players add @s kitpvp.dominion_age 1
 # 地球·54 电磁炮：每刻找目标、充能、充满就放电（充能计数在 sparky_tick 里维护）
 execute as @e[tag=kitpvp.earth_sparky] at @s run function kitpvp:skill/earth/sparky_tick
-# 地球·70 迫击炮：earth_cd_a 归零就朝 20 格内最近的敌人打一发鱼弹（冷却分在 summon 里埋了初值）
+# 地球·70 迫击炮：earth_cd_a 归零就朝 15 格内最近的敌人打一发鱼弹（冷却分在 summon 里埋了初值）
 execute as @e[tag=kitpvp.earth_mortar,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/mortar_tick
 # 迫击炮的鱼弹：抛物线飞行 + 落地/贴身引爆
 execute as @e[tag=kitpvp.mo_shell] at @s run function kitpvp:skill/earth/mortar_shell_tick
