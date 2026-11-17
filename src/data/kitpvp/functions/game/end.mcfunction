@@ -10,6 +10,8 @@ function kitpvp:game/li_purge
 # 结算音乐与天光：先停掉雨爱（它是一条 schedule 链，不主动停会一直播到下局），
 # 再把昼夜循环交还给原版——各图要定格的话在 game/start_impl 里自己关
 function kitpvp:music/yu_ai/stop
+# 顺手清掉上局可能还挂着的 winning 音乐盒（tag/分数），避免叠加
+execute as @a run function kitpvp:music/winning/stop
 gamerule doDaylightCycle true
 
 execute if score #survivors kitpvp.game matches 1 run title @a times 10 60 20
@@ -25,6 +27,10 @@ execute if score #survivors kitpvp.game matches 1 if entity @a[name="Queen",tag=
 # 胜者是 Vortifyage1970 时的专属 MVP 凯歌
 execute if score #survivors kitpvp.game matches 1 if entity @a[name="Vortifyage1970",tag=kitpvp.selected,tag=!kitpvp.spectator] run tellraw @a [{"text":"✦ ","color":"light_purple"},{"text":"正在高奏 ","color":"aqua"},{"text":"Vortifyage1970","color":"gold","bold":true},{"text":" 的MVP凯歌：","color":"aqua"},{"text":"上海アリス幻楽団 - 伊弉諾物質","color":"light_purple","bold":true,"italic":true},{"text":" ✦","color":"light_purple"}]
 execute if score #survivors kitpvp.game matches 1 if entity @a[name="Vortifyage1970",tag=kitpvp.selected,tag=!kitpvp.spectator] as @a run function mvpmusic:izanagi/play
+
+# 其余胜者（没有专属音乐盒）：默认播 winning 音乐盒
+execute if score #survivors kitpvp.game matches 1 unless entity @a[name="Queen",tag=kitpvp.selected,tag=!kitpvp.spectator] unless entity @a[name="Vortifyage1970",tag=kitpvp.selected,tag=!kitpvp.spectator] run tellraw @a [{"text":"✦ ","color":"light_purple"},{"text":"正在高奏 ","color":"aqua"},{"selector":"@a[tag=kitpvp.selected,tag=!kitpvp.spectator]","color":"gold","bold":true},{"text":" 的MVP凯歌：","color":"aqua"},{"text":"Laura Shigihara - Winning","color":"light_purple","bold":true,"italic":true},{"text":" ✦","color":"light_purple"}]
+execute if score #survivors kitpvp.game matches 1 unless entity @a[name="Queen",tag=kitpvp.selected,tag=!kitpvp.spectator] unless entity @a[name="Vortifyage1970",tag=kitpvp.selected,tag=!kitpvp.spectator] as @a run function kitpvp:music/winning/play
 
 execute if score #survivors kitpvp.game matches ..0 run tellraw @a [{"text":"[平局]","color":"gray","bold":true},{"text":"本局无幸存者","color":"gray"}]
 execute if score #survivors kitpvp.game matches 2.. run tellraw @a [{"text":"[结束]","color":"red","bold":true},{"text":"本局被管理员终止","color":"gray"}]

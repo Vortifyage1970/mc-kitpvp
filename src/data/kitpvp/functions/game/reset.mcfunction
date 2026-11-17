@@ -84,3 +84,4 @@ scoreboard players set #wolfsweep kitpvp.game 0
 schedule function kitpvp:game/wolf_sweep 20t replace
 
 tellraw @a [{"text":"[系统] ","color":"gray","bold":true},{"text":"本局已重置，回到主大厅","color":"gray"}]
+execute as @a run function kitpvp:music/winning/stop

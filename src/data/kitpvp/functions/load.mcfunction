@@ -554,3 +554,4 @@ tag @e[name="海龟蛋"] add kitpvp.displayitem
 execute as @e[tag=kitpvp.displayitem] run data merge entity @s {Invulnerable:1b}
 
 say Kitpvp loaded
+function kitpvp:music/winning/load
