@@ -1,15 +1,16 @@
-# 炮台队槽：分配 ttid（若为 0）并把主人 join 回自己的炮台队。
-# ⚠ 必须每次部署都跑：game/start_impl 开局会把所有人的 ttid 清零（队槽每局重建），
-#   而职业是在大厅里选的、选职业时分配的 ttid 也会一起被清掉。
-#   以前只在 kit/tainted_archer 里分配一次，开局后 ttid 已是 0 → 部署时谁都不进队
-#   → 骷髅把主人当成敌人打（2026-11-05 实机 bug）。
+# 炮台队槽：分配 ttid（若为 0）——ttid 既是「炮台组编号」也是 turret_owner 的 owner id（计数用）
+# ⚠ 必须每次部署都跑：start_impl 开局把 ttid 清零（队槽每局重建），大厅选职业时分配的也会被清。
 execute if score @s kitpvp.ttid matches 0 run scoreboard players add #ttid kitpvp.game 1
 execute if score @s kitpvp.ttid matches 0 if score #ttid kitpvp.game matches 7.. run scoreboard players set #ttid kitpvp.game 1
 execute if score @s kitpvp.ttid matches 0 run scoreboard players operation @s kitpvp.ttid = #ttid kitpvp.game
 
-execute if score @s kitpvp.ttid matches 1 run team join turret_1 @s
-execute if score @s kitpvp.ttid matches 2 run team join turret_2 @s
-execute if score @s kitpvp.ttid matches 3 run team join turret_3 @s
-execute if score @s kitpvp.ttid matches 4 run team join turret_4 @s
-execute if score @s kitpvp.ttid matches 5 run team join turret_5 @s
-execute if score @s kitpvp.ttid matches 6 run team join turret_6 @s
+# 只有「主人当前不在任何队」时，才把他 join 进 turret_N 并占一个炮台槽；
+# 如果他已经通过魂石/阴兵等进了别的队，就沿用那套，**绝不动他自己的队**（否则旧召唤物会翻脸）。
+# 炮台本身由 turret_fire 按「主人当前队」join（见那里）。
+function kitpvp:util/team_index
+execute if score #steam kitpvp.game matches 0 if score @s kitpvp.ttid matches 1 run team join turret_1 @s
+execute if score #steam kitpvp.game matches 0 if score @s kitpvp.ttid matches 2 run team join turret_2 @s
+execute if score #steam kitpvp.game matches 0 if score @s kitpvp.ttid matches 3 run team join turret_3 @s
+execute if score #steam kitpvp.game matches 0 if score @s kitpvp.ttid matches 4 run team join turret_4 @s
+execute if score #steam kitpvp.game matches 0 if score @s kitpvp.ttid matches 5 run team join turret_5 @s
+execute if score #steam kitpvp.game matches 0 if score @s kitpvp.ttid matches 6 run team join turret_6 @s

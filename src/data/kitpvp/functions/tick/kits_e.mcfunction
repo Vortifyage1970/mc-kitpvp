@@ -61,4 +61,6 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=34},tag=!kit
 
 # 里·农夫（kit 34）：两种蛋都与别的系统共用同种蛋（蘑菇牛=炸弹兵、尸壳=僵尸魂石），各走 dispatch 按名字分流
 # 召集农民：上限 1，冷却 45 秒；冷却走完且手上 / 16 格内地上都没有才补回
+# 领袖在：正常跑；领袖死了但场上还有石锄农民：也继续跑（让石锄接着召木锄）
 execute if entity @e[tag=kitpvp.tf_leader] run function kitpvp:skill/tainted_farmer/leader_tick
+execute unless entity @e[tag=kitpvp.tf_leader] if entity @e[tag=kitpvp.tf_stone] run function kitpvp:skill/tainted_farmer/leader_tick
