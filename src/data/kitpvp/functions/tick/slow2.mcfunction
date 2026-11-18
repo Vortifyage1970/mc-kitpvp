@@ -8,6 +8,7 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator]
 execute as @a[scores={kitpvp.kit=4,kitpvp.alive=1,kitpvp.cd=0},tag=kitpvp.assassin_handout,tag=!kitpvp.spectator] run function kitpvp:skill/assassin/handout
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=24},tag=!kitpvp.spectator] at @s if score @s kitpvp.tainted_turret_used > @s kitpvp.tainted_turret_last run function kitpvp:skill/tainted_archer/turret_cast
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=24},tag=!kitpvp.spectator] at @s if score @s kitpvp.tainted_core_used > @s kitpvp.tainted_core_last run function kitpvp:skill/tainted_archer/dispatch
+execute as @a[scores={kitpvp.kit=24,kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/tainted_archer/refill_tokens
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=29},tag=!kitpvp.spectator] if score @s kitpvp.tainted_fisher_blue_used > @s kitpvp.tainted_fisher_blue_last run function kitpvp:skill/tainted_fisher/blue_cast
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=29},tag=!kitpvp.spectator] if score @s kitpvp.tainted_fisher_domain_used > @s kitpvp.tainted_fisher_domain_last run function kitpvp:skill/tainted_fisher/domain_cast
 execute as @a[scores={kitpvp.kit=29,kitpvp.alive=1,kitpvp.cd=0,kitpvp.cd2=0},tag=kitpvp.tainted_fisher_handout,tag=!kitpvp.spectator] run function kitpvp:skill/tainted_fisher/handout
@@ -28,7 +29,9 @@ execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=67,kitpvp
 execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=67,kitpvp.alive=1,kitpvp.cd2=..0},tag=!kitpvp.spectator] at @s run function kitpvp:skill/venus/refill_arm
 execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=67,kitpvp.alive=1,kitpvp.venus_cd3=..0},tag=!kitpvp.spectator] at @s run function kitpvp:skill/venus/refill_bomb
 execute as @a[scores={kitpvp.kit=19,kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.bomb_used > @s kitpvp.bomb_last run function kitpvp:skill/bomber/dispatch
+execute as @a[scores={kitpvp.kit=19,kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/bomber/refill
 execute as @a[scores={kitpvp.kit=32,kitpvp.alive=1},tag=!kitpvp.spectator] at @s if score @s kitpvp.bomb_used > @s kitpvp.bomb_last run function kitpvp:skill/tainted_bomber/dispatch
+execute as @a[scores={kitpvp.kit=32,kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/tainted_bomber/refill
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_ep_used > @s kitpvp.soul_ep_last run function kitpvp:skill/soul/use_ep
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_farm_used > @s kitpvp.soul_farm_last run function kitpvp:skill/soul/use_farm
 execute as @a[scores={kitpvp.kit=45,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.chaos_skill_used > @s kitpvp.chaos_skill_last run function kitpvp:kit/chaos_skill
@@ -60,5 +63,5 @@ execute as @a[scores={kitpvp.kit=1..,kitpvp.alive=1}] if score @s kitpvp.cd matc
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_ghost_used > @s kitpvp.soul_ghost_last run function kitpvp:skill/soul/use_ghost
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_mars_used > @s kitpvp.soul_mars_last run function kitpvp:skill/soul/use_mars
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=70},tag=!kitpvp.spectator] if score @s kitpvp.mars_domain_used > @s kitpvp.mars_domain_last run function kitpvp:skill/mars/dispatch
-execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=69,kitpvp.alive=1,kitpvp.halley_cd=..0},tag=!kitpvp.spectator] at @s run function kitpvp:skill/halley/auto
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=69},tag=!kitpvp.spectator] at @s if score @s kitpvp.halley_used > @s kitpvp.halley_last run function kitpvp:skill/halley/cast
+execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=69,kitpvp.alive=1,kitpvp.halley_cd=..0},tag=!kitpvp.spectator] at @s run function kitpvp:skill/halley/auto

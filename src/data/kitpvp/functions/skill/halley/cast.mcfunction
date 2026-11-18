@@ -9,3 +9,4 @@ particle minecraft:flame ~ ~1 ~ 1 1 1 0.2 30 normal
 
 # 蛋生出来的岩浆怪收掉
 execute at @s run kill @e[tag=kitpvp.halley_token,distance=..16]
+execute if score @s kitpvp.halley_cd matches ..0 run scoreboard players set @s kitpvp.halley_cd 1000
