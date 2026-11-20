@@ -82,3 +82,4 @@ execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] if sc
 execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_worm_pick_used > @s kitpvp.trap_worm_pick_last run function kitpvp:skill/zhanshishi/pick_worm
 execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_poison_pick_used > @s kitpvp.trap_poison_pick_last run function kitpvp:skill/zhanshishi/pick_poison
 execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_boom_pick_used > @s kitpvp.trap_boom_pick_last run function kitpvp:skill/zhanshishi/pick_boom
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/scan_fallback
