@@ -135,3 +135,6 @@ execute as @a[scores={kitpvp.kit=45},nbt={SelectedItem:{id:"minecraft:crossbow"}
 # 混沌重铸：右键令牌（统计 spyglass 使用）→ 清武器并随机重铸，冷却 30 秒
 # 混沌·金斧：持有时隐身（effect 类被动只能走 tick）
 execute as @a[scores={kitpvp.kit=45}] at @s if data entity @s SelectedItem.tag.ChaosInvisible run effect give @s minecraft:invisibility 1 0 true
+# 陷阱师（kit 77）：两个补货倒计时按每刻走（不要搬进 slow2，否则冷却会变 2 倍长）
+execute as @a[scores={kitpvp.trap_hook_cd=1..}] run scoreboard players remove @s kitpvp.trap_hook_cd 1
+execute as @a[scores={kitpvp.trap_worm_cd=1..}] run scoreboard players remove @s kitpvp.trap_worm_cd 1

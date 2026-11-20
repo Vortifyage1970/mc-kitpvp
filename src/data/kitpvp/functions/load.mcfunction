@@ -319,6 +319,19 @@ team modify farmer_3 friendlyFire false
 team modify farmer_4 friendlyFire false
 team modify farmer_5 friendlyFire false
 team modify farmer_6 friendlyFire false
+# 陷阱师（kit 77）：陷阱虫的队槽（只有主人本来不在任何队时才会用到）
+team add trap_1
+team add trap_2
+team add trap_3
+team add trap_4
+team add trap_5
+team add trap_6
+team modify trap_1 friendlyFire false
+team modify trap_2 friendlyFire false
+team modify trap_3 friendlyFire false
+team modify trap_4 friendlyFire false
+team modify trap_5 friendlyFire false
+team modify trap_6 friendlyFire false
 
 tag @a remove kitpvp.selected
 tag @a remove kitpvp.invincible
@@ -351,6 +364,10 @@ scoreboard players set @a kitpvp.alive 1
 scoreboard players set @a kitpvp.lives 3
 scoreboard players set @a kitpvp.kills 0
 scoreboard players set @a kitpvp.cizhi_timer 0
+scoreboard players set @a kitpvp.trap_id 0
+scoreboard players set @a kitpvp.trap_team 0
+scoreboard players set @a kitpvp.trap_hook_cd 0
+scoreboard players set @a kitpvp.trap_worm_cd 0
 scoreboard players set @a kitpvp.deaths 0
 scoreboard players set @a kitpvp.inv 0
 scoreboard players set @a kitpvp.death_detect 0
@@ -394,6 +411,7 @@ scoreboard players set #tick_slow4 kitpvp.game 0
 scoreboard players operation @a kitpvp.chaos_skill_last = @a kitpvp.chaos_skill_used
 scoreboard players operation @a kitpvp.soul_mercury_last = @a kitpvp.soul_mercury_used
 scoreboard players operation @a kitpvp.cizhi_last = @a kitpvp.cizhi_used
+scoreboard players operation @a kitpvp.trap_float_last = @a kitpvp.trap_jump_used
 scoreboard players operation @a kitpvp.halley_last = @a kitpvp.halley_used
 scoreboard players operation @a kitpvp.archer_shot_last = @a kitpvp.archer_shot
 scoreboard players operation @a kitpvp.chaos_xbow_last = @a kitpvp.chaos_xbow_used
@@ -524,6 +542,13 @@ scoreboard objectives add kitpvp.cizhi_used minecraft.used:minecraft.sniffer_spa
 scoreboard objectives add kitpvp.cizhi_last dummy "烛之武：辞令令牌快照"
 scoreboard objectives add kitpvp.cizhi_timer dummy "烛之武：辞令剩余刻数（200 = 10 秒）"
 scoreboard objectives add kitpvp.cz_rng dummy "烛之武：被动 5% 掷数"
+# 陷阱师（kit 77）：槽位 / 队槽 / 两种补货 cd / 漂浮的跳跃计数
+scoreboard objectives add kitpvp.trap_id dummy "陷阱师：槽位 1..6"
+scoreboard objectives add kitpvp.trap_team dummy "陷阱师：自己所在的队槽（37..42 为 trap 家族）"
+scoreboard objectives add kitpvp.trap_hook_cd dummy "陷阱师：绊索补货倒计时"
+scoreboard objectives add kitpvp.trap_worm_cd dummy "陷阱师：蠹虫补货倒计时"
+scoreboard objectives add kitpvp.trap_float_last dummy "陷阱师：漂浮陷阱的跳跃快照"
+scoreboard objectives add kitpvp.trap_jump_used minecraft.custom:minecraft.jump
 scoreboard players set #soul_count kitpvp.game 18
 scoreboard players set #cz20 kitpvp.game 20
 scoreboard players set #ghost_tid kitpvp.game 0

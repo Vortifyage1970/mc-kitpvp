@@ -9,7 +9,7 @@ kill @e[tag=kitpvp.earth_hydrator_guard]
 # 时钟：先删时钟，本体消失后不再续播报
 kill @e[tag=kitpvp.earth_leaker_clock]
 
-# ---- 其余按 tag 清（113 个；来源写在每行上面的注释里）----
+# ---- 其余按 tag 清（115 个；来源写在每行上面的注释里）----
 # kitpvp.arsonist_fire  <- place_one
 kill @e[tag=kitpvp.arsonist_fire]
 # kitpvp.bomb  <- bomber_big, bomber_fake, bomber_nuke, bomber_small, bomber_track
@@ -208,6 +208,10 @@ kill @e[tag=kitpvp.tf_wood]
 kill @e[tag=kitpvp.token_core]
 # kitpvp.token_turret  <- give_token_turret
 kill @e[tag=kitpvp.token_turret]
+# kitpvp.trap_boom_mob  <- trigger_boom
+kill @e[tag=kitpvp.trap_boom_mob]
+# kitpvp.trap_worm  <- trap_worm, trigger_worm
+kill @e[tag=kitpvp.trap_worm]
 # kitpvp.tt_minion  <- tainted_tamer_blaze, tainted_tamer_creeper, tainted_tamer_skeleton, tainted_tamer_vex, tainted_tamer_vindicator, tainted_tamer_witch, tainted_tamer_zombie
 kill @e[tag=kitpvp.tt_minion]
 # kitpvp.tt_spawn  <- give1, give2

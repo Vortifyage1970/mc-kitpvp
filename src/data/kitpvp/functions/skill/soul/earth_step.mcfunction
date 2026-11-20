@@ -38,6 +38,12 @@ execute if score @s kitpvp.soul_earth_team matches 33 run team join farmer_3 @e[
 execute if score @s kitpvp.soul_earth_team matches 34 run team join farmer_4 @e[tag=kitpvp.earth_minion_new,distance=..4]
 execute if score @s kitpvp.soul_earth_team matches 35 run team join farmer_5 @e[tag=kitpvp.earth_minion_new,distance=..4]
 execute if score @s kitpvp.soul_earth_team matches 36 run team join farmer_6 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 37 run team join trap_1 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 38 run team join trap_2 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 39 run team join trap_3 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 40 run team join trap_4 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 41 run team join trap_5 @e[tag=kitpvp.earth_minion_new,distance=..4]
+execute if score @s kitpvp.soul_earth_team matches 42 run team join trap_6 @e[tag=kitpvp.earth_minion_new,distance=..4]
 tag @e[tag=kitpvp.earth_minion_new,distance=..4] remove kitpvp.earth_minion_new
 
 # 下一只 10 刻后；4 只发完就把标记清掉

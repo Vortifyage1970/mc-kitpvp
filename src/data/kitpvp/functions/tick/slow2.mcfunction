@@ -69,3 +69,19 @@ execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=69,kitpvp
 # 烛之武（kit 97）：辞令令牌使用 → 补货（补货排在用之后，使用侧已写 cd）
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=97},tag=!kitpvp.spectator] at @s if score @s kitpvp.cizhi_used > @s kitpvp.cizhi_last run function kitpvp:skill/zhuzhiwu/dispatch
 execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=97,kitpvp.alive=1,kitpvp.cd=..0},tag=!kitpvp.spectator] at @s run function kitpvp:skill/zhuzhiwu/refill
+
+# 陷阱师（kit 77）：队伍维护 → 补货 → 检查有没有捡到别人的陷阱（补货都在使用侧之后，见 03 §2.13）
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=77},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/team_maintain
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.trap_hook_cd=..0},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/refill_hook
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.trap_worm_cd=..0},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/refill_worm
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=77},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/refill_float
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] store result score @s kitpvp.tmp run clear @s minecraft:tripwire_hook{KitTrap:1b} 0
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.tmp=1..},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/check_hook
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] store result score @s kitpvp.tmp run clear @s minecraft:quartz{KitTrap:1b} 0
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.tmp=1..},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/check_float
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] store result score @s kitpvp.tmp run clear @s minecraft:firework_star{KitTrap:1b} 0
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.tmp=1..},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/check_worm
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] store result score @s kitpvp.tmp run clear @s minecraft:spider_eye{KitTrap:1b} 0
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.tmp=1..},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/check_poison
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] store result score @s kitpvp.tmp run clear @s minecraft:tnt{KitTrap:1b} 0
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.tmp=1..},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/check_boom

@@ -211,3 +211,13 @@ tag @s remove kitpvp.cz_buff
 scoreboard players set @s kitpvp.cizhi_timer 0
 function kitpvp:skill/zhuzhiwu/cizhi_remove
 scoreboard players operation @s kitpvp.cizhi_last = @s kitpvp.cizhi_used
+clear @s minecraft:tripwire_hook{KitTrap:1b}
+clear @s minecraft:quartz{KitTrap:1b}
+clear @s minecraft:firework_star{KitTrap:1b}
+clear @s minecraft:spider_eye{KitTrap:1b}
+clear @s minecraft:tnt{KitTrap:1b}
+scoreboard players set @s kitpvp.trap_id 0
+scoreboard players set @s kitpvp.trap_team 0
+scoreboard players set @s kitpvp.trap_hook_cd 0
+scoreboard players set @s kitpvp.trap_worm_cd 0
+scoreboard players operation @s kitpvp.trap_float_last = @s kitpvp.trap_jump_used

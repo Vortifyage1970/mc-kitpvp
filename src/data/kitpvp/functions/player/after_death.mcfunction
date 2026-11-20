@@ -36,3 +36,6 @@ execute if score @s kitpvp.kit matches 12 run function kitpvp:skill/alchemist/re
 execute if score @s kitpvp.kit matches 45 run function kitpvp:kit/chaos_start
 
 playsound minecraft:block.note_block.pling master @s ~ ~ ~ 1 1.2
+
+# 陷阱师：爆炸陷阱「死亡时补货」
+execute if score @s kitpvp.kit matches 77 run function kitpvp:skill/zhanshishi/refill_boom

@@ -1,9 +1,11 @@
-# 读「这名玩家现在在哪套队」：命令读不到实体所属队伍，只能逐队比对（36 行机械展开，由 out/gen_team_files.py 生成）。
+# 读「这名玩家现在在哪套队」：命令读不到实体所属队伍，只能逐队比对（42 行机械展开，由 out/gen_team_files.py 生成）。
 # 编号写进 #steam：
 #   1..6    幽灵（阴兵）      7..12   里·弓箭手（炮台）   13..18  里·驯兽师
 #   19..24  地球              25..30  炸弹兵              31..36  里·农夫
+#   37..42  陷阱师（陷阱虫）  43..    备用
 #   0 = 不在任何队
-# 加新队槽：load 里 team add → 这里追加 6 行 → util/team_join 追加 6 行 → skill/soul/earth_step 追加 6 行。
+# 加新队槽：load 里 team add → out/gen_team_files.py 的 FAMILIES 加一行 → 重跑（生成 team_index / team_join）
+#           → skill/soul/earth_step 追加 6 行进队映射。
 scoreboard players set #steam kitpvp.game 0
 execute if entity @s[team=ghost_1] run scoreboard players set #steam kitpvp.game 1
 execute if entity @s[team=ghost_2] run scoreboard players set #steam kitpvp.game 2
@@ -41,3 +43,9 @@ execute if entity @s[team=farmer_3] run scoreboard players set #steam kitpvp.gam
 execute if entity @s[team=farmer_4] run scoreboard players set #steam kitpvp.game 34
 execute if entity @s[team=farmer_5] run scoreboard players set #steam kitpvp.game 35
 execute if entity @s[team=farmer_6] run scoreboard players set #steam kitpvp.game 36
+execute if entity @s[team=trap_1] run scoreboard players set #steam kitpvp.game 37
+execute if entity @s[team=trap_2] run scoreboard players set #steam kitpvp.game 38
+execute if entity @s[team=trap_3] run scoreboard players set #steam kitpvp.game 39
+execute if entity @s[team=trap_4] run scoreboard players set #steam kitpvp.game 40
+execute if entity @s[team=trap_5] run scoreboard players set #steam kitpvp.game 41
+execute if entity @s[team=trap_6] run scoreboard players set #steam kitpvp.game 42
