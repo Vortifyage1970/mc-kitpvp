@@ -215,7 +215,7 @@ clear @s minecraft:tripwire_hook{KitTrap:1b}
 clear @s minecraft:quartz{KitTrap:1b}
 clear @s minecraft:firework_star{KitTrap:1b}
 clear @s minecraft:spider_eye{KitTrap:1b}
-clear @s minecraft:tnt{KitTrap:1b}
+clear @s minecraft:poppy{KitTrap:1b}
 scoreboard players set @s kitpvp.trap_id 0
 scoreboard players set @s kitpvp.trap_team 0
 scoreboard players set @s kitpvp.trap_hook_cd 0

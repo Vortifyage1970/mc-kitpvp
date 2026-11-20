@@ -83,5 +83,5 @@ execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] store
 execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.tmp=1..},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/check_worm
 execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] store result score @s kitpvp.tmp run clear @s minecraft:spider_eye{KitTrap:1b} 0
 execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.tmp=1..},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/check_poison
-execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] store result score @s kitpvp.tmp run clear @s minecraft:tnt{KitTrap:1b} 0
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] store result score @s kitpvp.tmp run clear @s minecraft:poppy{KitTrap:1b} 0
 execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.tmp=1..},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/check_boom
