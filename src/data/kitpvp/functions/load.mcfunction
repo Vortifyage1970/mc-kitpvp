@@ -368,8 +368,13 @@ scoreboard players set @a kitpvp.trap_id 0
 scoreboard players set @a kitpvp.trap_team 0
 scoreboard players set @a kitpvp.trap_hook_cd 0
 scoreboard players set @a kitpvp.trap_worm_cd 0
-scoreboard players set @a kitpvp.trap_hook_prev 0
-scoreboard players set @a kitpvp.trap_worm_prev 0
+scoreboard players operation @a kitpvp.trap_hook_drop_last = @a kitpvp.trap_hook_drop_used
+scoreboard players operation @a kitpvp.trap_worm_drop_last = @a kitpvp.trap_worm_drop_used
+scoreboard players operation @a kitpvp.trap_hook_pick_last = @a kitpvp.trap_hook_pick_used
+scoreboard players operation @a kitpvp.trap_float_pick_last = @a kitpvp.trap_float_pick_used
+scoreboard players operation @a kitpvp.trap_worm_pick_last = @a kitpvp.trap_worm_pick_used
+scoreboard players operation @a kitpvp.trap_poison_pick_last = @a kitpvp.trap_poison_pick_used
+scoreboard players operation @a kitpvp.trap_boom_pick_last = @a kitpvp.trap_boom_pick_used
 scoreboard players set @a kitpvp.deaths 0
 scoreboard players set @a kitpvp.inv 0
 scoreboard players set @a kitpvp.death_detect 0
@@ -551,8 +556,20 @@ scoreboard objectives add kitpvp.trap_hook_cd dummy "陷阱师：绊索补货倒
 scoreboard objectives add kitpvp.trap_worm_cd dummy "陷阱师：蠹虫补货倒计时"
 scoreboard objectives add kitpvp.trap_float_last dummy "陷阱师：漂浮陷阱的跳跃快照"
 scoreboard objectives add kitpvp.trap_jump_used minecraft.custom:minecraft.jump
-scoreboard objectives add kitpvp.trap_hook_prev dummy "陷阱师：绊索背包数量快照（丢出检测）"
-scoreboard objectives add kitpvp.trap_worm_prev dummy "陷阱师：蠹虫背包数量快照（丢出检测）"
+scoreboard objectives add kitpvp.trap_hook_drop_used minecraft.dropped:minecraft.tripwire_hook
+scoreboard objectives add kitpvp.trap_worm_drop_used minecraft.dropped:minecraft.firework_star
+scoreboard objectives add kitpvp.trap_hook_drop_last dummy "陷阱师：绊索陷阱 丢出快照"
+scoreboard objectives add kitpvp.trap_worm_drop_last dummy "陷阱师：蠹虫陷阱 丢出快照"
+scoreboard objectives add kitpvp.trap_hook_pick_used minecraft.picked_up:minecraft.tripwire_hook
+scoreboard objectives add kitpvp.trap_float_pick_used minecraft.picked_up:minecraft.quartz
+scoreboard objectives add kitpvp.trap_worm_pick_used minecraft.picked_up:minecraft.firework_star
+scoreboard objectives add kitpvp.trap_poison_pick_used minecraft.picked_up:minecraft.spider_eye
+scoreboard objectives add kitpvp.trap_boom_pick_used minecraft.picked_up:minecraft.poppy
+scoreboard objectives add kitpvp.trap_hook_pick_last dummy "陷阱师：绊索陷阱 捡起快照"
+scoreboard objectives add kitpvp.trap_float_pick_last dummy "陷阱师：漂浮陷阱 捡起快照"
+scoreboard objectives add kitpvp.trap_worm_pick_last dummy "陷阱师：蠹虫陷阱 捡起快照"
+scoreboard objectives add kitpvp.trap_poison_pick_last dummy "陷阱师：猛毒陷阱 捡起快照"
+scoreboard objectives add kitpvp.trap_boom_pick_last dummy "陷阱师：爆炸陷阱 捡起快照"
 scoreboard players set #soul_count kitpvp.game 18
 scoreboard players set #cz20 kitpvp.game 20
 scoreboard players set #ghost_tid kitpvp.game 0

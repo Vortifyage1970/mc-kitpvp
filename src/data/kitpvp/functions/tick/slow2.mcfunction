@@ -72,17 +72,13 @@ execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=97,kitpvp
 
 # 陷阱师（kit 77）：队伍维护 → 补货 → 检查有没有捡到别人的陷阱（补货都在使用侧之后，见 03 §2.13）
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=77},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/team_maintain
-execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=77},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/drop_watch
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_hook_drop_used > @s kitpvp.trap_hook_drop_last run function kitpvp:skill/zhanshishi/drop_hook
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_worm_drop_used > @s kitpvp.trap_worm_drop_last run function kitpvp:skill/zhanshishi/drop_worm
 execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.trap_hook_cd=..0},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/refill_hook
 execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.trap_worm_cd=..0},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/refill_worm
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=77},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/refill_float
-execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] store result score @s kitpvp.tmp run clear @s minecraft:tripwire_hook{KitTrap:1b} 0
-execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.tmp=1..},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/check_hook
-execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] store result score @s kitpvp.tmp run clear @s minecraft:quartz{KitTrap:1b} 0
-execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.tmp=1..},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/check_float
-execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] store result score @s kitpvp.tmp run clear @s minecraft:firework_star{KitTrap:1b} 0
-execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.tmp=1..},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/check_worm
-execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] store result score @s kitpvp.tmp run clear @s minecraft:spider_eye{KitTrap:1b} 0
-execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.tmp=1..},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/check_poison
-execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] store result score @s kitpvp.tmp run clear @s minecraft:poppy{KitTrap:1b} 0
-execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.tmp=1..},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/check_boom
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_hook_pick_used > @s kitpvp.trap_hook_pick_last run function kitpvp:skill/zhanshishi/pick_hook
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_float_pick_used > @s kitpvp.trap_float_pick_last run function kitpvp:skill/zhanshishi/pick_float
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_worm_pick_used > @s kitpvp.trap_worm_pick_last run function kitpvp:skill/zhanshishi/pick_worm
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_poison_pick_used > @s kitpvp.trap_poison_pick_last run function kitpvp:skill/zhanshishi/pick_poison
+execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_boom_pick_used > @s kitpvp.trap_boom_pick_last run function kitpvp:skill/zhanshishi/pick_boom
