@@ -13,7 +13,7 @@ tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"熟羊肉 x","color
 tellraw @s [{"text":"│ 陷阱：","color":"gray"},{"text":"丢在地上即布置；自己捡回是回收，别人捡走会触发","color":"white"}]
 tellraw @s [{"text":"│ 绊索","color":"yellow"},{"text":"：上限 ","color":"white"},{"text":"3","color":"gold"},{"text":"、","color":"white"},{"text":"25","color":"gold"},{"text":" 秒补 1 → 缓慢 III + 失明 5 秒","color":"white"}]
 tellraw @s [{"text":"│ 漂浮","color":"yellow"},{"text":"：每跳跃 ","color":"white"},{"text":"25","color":"gold"},{"text":" 次 +1（无上限）→ 飘浮 XII 1 秒","color":"white"}]
-tellraw @s [{"text":"│ 蠹虫","color":"yellow"},{"text":"：上限 ","color":"white"},{"text":"1","color":"gold"},{"text":"、","color":"white"},{"text":"60","color":"gold"},{"text":" 秒补 1 → 25 血「陷阱虫」（力量 I / 速度 I，对布陷阱者友好）","color":"white"}]
+tellraw @s [{"text":"│ 蠹虫","color":"yellow"},{"text":"：上限 ","color":"white"},{"text":"1","color":"gold"},{"text":"、","color":"white"},{"text":"90","color":"gold"},{"text":" 秒补 1 → 25 血「陷阱虫」（力量 I / 速度 I，对布陷阱者友好）","color":"white"}]
 tellraw @s [{"text":"│ 猛毒","color":"yellow"},{"text":"：开局 ","color":"white"},{"text":"2","color":"gold"},{"text":" 个，不补货 → 中毒 II + 挖掘疲劳 II + 虚弱 10 秒","color":"white"}]
 tellraw @s [{"text":"│ 爆炸","color":"yellow"},{"text":"：上限 ","color":"white"},{"text":"1","color":"gold"},{"text":"，死亡时补货 → 召唤引燃苦力怕","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"gold"}]

@@ -72,6 +72,7 @@ execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=97,kitpvp
 
 # 陷阱师（kit 77）：队伍维护 → 补货 → 检查有没有捡到别人的陷阱（补货都在使用侧之后，见 03 §2.13）
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=77},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/team_maintain
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=77},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/drop_watch
 execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.trap_hook_cd=..0},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/refill_hook
 execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.trap_worm_cd=..0},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/refill_worm
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=77},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/refill_float

@@ -18,6 +18,8 @@ give @s minecraft:cooked_mutton 24
 
 scoreboard players set @s kitpvp.trap_hook_cd 0
 scoreboard players set @s kitpvp.trap_worm_cd 0
+scoreboard players set @s kitpvp.trap_hook_prev 0
+scoreboard players set @s kitpvp.trap_worm_prev 0
 scoreboard players operation @s kitpvp.trap_float_last = @s kitpvp.trap_jump_used
 function kitpvp:skill/zhanshishi/assign_slot
 function kitpvp:skill/zhanshishi/give_hook
