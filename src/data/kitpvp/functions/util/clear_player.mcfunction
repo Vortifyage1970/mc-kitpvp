@@ -207,3 +207,7 @@ scoreboard players set @s kitpvp.burger_charge 0
 scoreboard players set @s kitpvp.burger_snd 20
 scoreboard players set @s kitpvp.burger_announced 0
 scoreboard players set @s kitpvp.burger_slot 0
+tag @s remove kitpvp.cz_buff
+scoreboard players set @s kitpvp.cizhi_timer 0
+function kitpvp:skill/zhuzhiwu/cizhi_remove
+scoreboard players operation @s kitpvp.cizhi_last = @s kitpvp.cizhi_used

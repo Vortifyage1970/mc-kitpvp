@@ -350,6 +350,7 @@ scoreboard players set @a kitpvp.cd2 0
 scoreboard players set @a kitpvp.alive 1
 scoreboard players set @a kitpvp.lives 3
 scoreboard players set @a kitpvp.kills 0
+scoreboard players set @a kitpvp.cizhi_timer 0
 scoreboard players set @a kitpvp.deaths 0
 scoreboard players set @a kitpvp.inv 0
 scoreboard players set @a kitpvp.death_detect 0
@@ -392,6 +393,7 @@ scoreboard players set #tick_slow2 kitpvp.game 0
 scoreboard players set #tick_slow4 kitpvp.game 0
 scoreboard players operation @a kitpvp.chaos_skill_last = @a kitpvp.chaos_skill_used
 scoreboard players operation @a kitpvp.soul_mercury_last = @a kitpvp.soul_mercury_used
+scoreboard players operation @a kitpvp.cizhi_last = @a kitpvp.cizhi_used
 scoreboard players operation @a kitpvp.halley_last = @a kitpvp.halley_used
 scoreboard players operation @a kitpvp.archer_shot_last = @a kitpvp.archer_shot
 scoreboard players operation @a kitpvp.chaos_xbow_last = @a kitpvp.chaos_xbow_used
@@ -517,7 +519,13 @@ scoreboard objectives add kitpvp.burger_charge dummy "汉堡小子蓄力进度�
 scoreboard objectives add kitpvp.burger_snd dummy "汉堡小子提示音计时"
 scoreboard objectives add kitpvp.burger_slot dummy "汉堡小子 bossbar 槽位（1..8）"
 scoreboard objectives add kitpvp.burger_announced dummy "汉堡小子 25 秒提示是否已发"
+# 烛之武（kit 97）：辞令令牌 / 状态计时 / 被动掷数
+scoreboard objectives add kitpvp.cizhi_used minecraft.used:minecraft.sniffer_spawn_egg
+scoreboard objectives add kitpvp.cizhi_last dummy "烛之武：辞令令牌快照"
+scoreboard objectives add kitpvp.cizhi_timer dummy "烛之武：辞令剩余刻数（200 = 10 秒）"
+scoreboard objectives add kitpvp.cz_rng dummy "烛之武：被动 5% 掷数"
 scoreboard players set #soul_count kitpvp.game 18
+scoreboard players set #cz20 kitpvp.game 20
 scoreboard players set #ghost_tid kitpvp.game 0
 scoreboard players set #ghost_need_new kitpvp.game 0
 scoreboard players set #lobby kitpvp.game 0

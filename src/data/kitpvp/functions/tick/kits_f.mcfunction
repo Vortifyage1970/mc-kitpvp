@@ -54,3 +54,6 @@ execute as @a[tag=kitpvp.soul_fisher_active] at @s run function kitpvp:skill/sou
 # 火星魂石：巨人 20 秒 + 歌从最后 20 秒进；倒计时与提前收场都在 soul/mars_tick 里
 execute as @a[tag=kitpvp.soul_mars_active] at @s run function kitpvp:skill/soul/mars_tick
 execute as @a[scores={kitpvp.ghost_minion_cd=1..}] run scoreboard players remove @s kitpvp.ghost_minion_cd 1
+
+# 烛之武（kit 97）：辞令状态每刻重挂修饰符，到点摘除
+execute as @a[tag=kitpvp.cz_buff] run function kitpvp:skill/zhuzhiwu/buff_tick

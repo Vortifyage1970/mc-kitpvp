@@ -106,3 +106,5 @@ scoreboard players set @s kitpvp.burger_charge 0
 scoreboard players set @s kitpvp.burger_snd 20
 scoreboard players set @s kitpvp.burger_announced 0
 scoreboard players set @s kitpvp.burger_slot 0
+scoreboard players set @s kitpvp.cizhi_timer 0
+scoreboard players operation @s kitpvp.cizhi_last = @s kitpvp.cizhi_used

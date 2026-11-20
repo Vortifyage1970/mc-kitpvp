@@ -65,3 +65,7 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator]
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=70},tag=!kitpvp.spectator] if score @s kitpvp.mars_domain_used > @s kitpvp.mars_domain_last run function kitpvp:skill/mars/dispatch
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=69},tag=!kitpvp.spectator] at @s if score @s kitpvp.halley_used > @s kitpvp.halley_last run function kitpvp:skill/halley/cast
 execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=69,kitpvp.alive=1,kitpvp.halley_cd=..0},tag=!kitpvp.spectator] at @s run function kitpvp:skill/halley/auto
+
+# 烛之武（kit 97）：辞令令牌使用 → 补货（补货排在用之后，使用侧已写 cd）
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=97},tag=!kitpvp.spectator] at @s if score @s kitpvp.cizhi_used > @s kitpvp.cizhi_last run function kitpvp:skill/zhuzhiwu/dispatch
+execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=97,kitpvp.alive=1,kitpvp.cd=..0},tag=!kitpvp.spectator] at @s run function kitpvp:skill/zhuzhiwu/refill
