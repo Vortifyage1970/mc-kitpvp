@@ -400,6 +400,10 @@ scoreboard players set #cart_cd8 kitpvp.game 0
 scoreboard players set #cart_cd9 kitpvp.game 0
 scoreboard players set #cart_cd10 kitpvp.game 0
 scoreboard players set #cart_cd11 kitpvp.game 0
+# ⚠ 先 remove 再 add：add 对已存在的目标是**静默无效**的，旧存档里这个目标曾是
+#   minecraft.used:minecraft.dolphin_spawn_egg（表驯兽师发 32 个海豚蛋 → 一召唤就误触发水星魂石）。
+#   凡改动过判据的统计目标，都必须 remove + add，否则老存档沿用旧判据。
+scoreboard objectives remove kitpvp.soul_mercury_used
 scoreboard objectives add kitpvp.soul_mercury_used minecraft.used:minecraft.tropical_fish_spawn_egg
 scoreboard objectives add kitpvp.soul_mercury_last dummy "水星魂石快照"
 scoreboard objectives add kitpvp.halley_used minecraft.used:minecraft.magma_cube_spawn_egg

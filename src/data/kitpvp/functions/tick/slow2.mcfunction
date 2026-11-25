@@ -77,9 +77,8 @@ execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] if sc
 execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.trap_hook_cd=..0},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/refill_hook
 execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1,kitpvp.trap_worm_cd=..0},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/refill_worm
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=77},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/refill_float
-execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_hook_pick_used > @s kitpvp.trap_hook_pick_last run function kitpvp:skill/zhanshishi/pick_hook
-execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_float_pick_used > @s kitpvp.trap_float_pick_last run function kitpvp:skill/zhanshishi/pick_float
-execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_worm_pick_used > @s kitpvp.trap_worm_pick_last run function kitpvp:skill/zhanshishi/pick_worm
-execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_poison_pick_used > @s kitpvp.trap_poison_pick_last run function kitpvp:skill/zhanshishi/pick_poison
-execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_boom_pick_used > @s kitpvp.trap_boom_pick_last run function kitpvp:skill/zhanshishi/pick_boom
-execute as @a[scores={kitpvp.kit=77,kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/scan_fallback
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_hook_pick_used > @s kitpvp.trap_hook_pick_last run function kitpvp:skill/zhanshishi/pick_hook
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_float_pick_used > @s kitpvp.trap_float_pick_last run function kitpvp:skill/zhanshishi/pick_float
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_worm_pick_used > @s kitpvp.trap_worm_pick_last run function kitpvp:skill/zhanshishi/pick_worm
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_poison_pick_used > @s kitpvp.trap_poison_pick_last run function kitpvp:skill/zhanshishi/pick_poison
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.trap_boom_pick_used > @s kitpvp.trap_boom_pick_last run function kitpvp:skill/zhanshishi/pick_boom

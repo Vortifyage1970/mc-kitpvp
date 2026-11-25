@@ -11,3 +11,6 @@ execute if score #cart_cd8 kitpvp.game matches ..0 if block 6037 65 6005 minecra
 execute if score #cart_cd9 kitpvp.game matches ..0 if block 6049 65 5962 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_9
 execute if score #cart_cd10 kitpvp.game matches ..0 if block 6049 65 6014 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_10
 execute if score #cart_cd11 kitpvp.game matches ..0 if block 6050 65 6054 minecraft:stone_button[powered=true] run function kitpvp:map/toronto/cart_11
+
+# 陷阱师：捡到别人陷阱的兜底扫描（对所有参战玩家，每 4 刻一次）
+execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] run function kitpvp:skill/zhanshishi/scan_fallback
