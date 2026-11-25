@@ -10,7 +10,6 @@ execute as @a[scores={kitpvp.kit=3}] at @s run kill @e[type=iron_golem,distance=
 execute if entity @a[tag=kitpvp.arrow_user] run kill @e[type=minecraft:arrow,nbt={inGround:1b}]
 
 execute as @a[scores={kitpvp.cd=..500},tag=kitpvp.assassin_hidden,tag=!kitpvp.spectator] run function kitpvp:skill/assassin/unhide
-execute as @a[scores={kitpvp.kit=4}] at @s run kill @e[type=enderman,distance=..16,name="隐匿"]
 
 # 海盗：射击即进冷却——检测"手持的手炮从已装填翻到未装填"
 # Charged 是字节，射击后键还在、值变 0b，所以必须取"值"（判路径会把 0b 也算成已装填）

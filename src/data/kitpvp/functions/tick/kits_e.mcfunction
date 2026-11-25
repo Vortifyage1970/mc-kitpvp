@@ -33,7 +33,9 @@ execute as @e[tag=kitpvp.bomb_rider,scores={kitpvp.bomb_life=1..}] run scoreboar
 execute as @e[tag=kitpvp.bomb_rider,scores={kitpvp.bomb_life=..0}] run kill @s
 
 # 渔夫：无戟计时器，背包无戟持续 160 刻（8 秒）才允许补发，防"投出即补"刷两把
-execute as @a[scores={kitpvp.kit=7}] at @s run kill @e[type=minecraft:drowned,distance=..16,name="寻戟"]
+# 寻戟载体：按 tag 全局清（它没有玩法作用，used 统计才是触发源）；
+# 原来 name + 16 格会漏掉游走的 / 主人死后没人清的，海洋图里最容易看到残留
+kill @e[tag=kitpvp.fisher_token]
 scoreboard players add @a[scores={kitpvp.kit=7,kitpvp.alive=1}] kitpvp.fisher_no_tri 1
 execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1}] if data entity @s Inventory[{tag:{KitFisherTrident:1b}}] run scoreboard players set @s kitpvp.fisher_no_tri 0
 
