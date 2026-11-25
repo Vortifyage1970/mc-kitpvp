@@ -27,6 +27,8 @@ execute if score #global kitpvp.map matches 7 run time set day
 execute if score #global kitpvp.map matches 1 run time set 11000
 execute if score #global kitpvp.map matches 2 run time set day
 execute if score #global kitpvp.map matches 3 run time set night
+execute if score #global kitpvp.map matches 12 run gamerule doDaylightCycle false
+execute if score #global kitpvp.map matches 12 run time set day
 execute if score #global kitpvp.map matches 9 run time set night
 
 # 队槽每局重建：先退出上局残留的队伍，再清空槽位

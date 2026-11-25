@@ -12,3 +12,4 @@ execute if score #global kitpvp.map matches 8 run function kitpvp:map/xian/resto
 execute if score #global kitpvp.map matches 9 run function kitpvp:map/mansion/restore
 execute if score #global kitpvp.map matches 10 run function kitpvp:map/cobblestone/restore
 execute if score #global kitpvp.map matches 11 run function kitpvp:map/toronto/restore
+execute if score #global kitpvp.map matches 12 run function kitpvp:map/ocean/restore
