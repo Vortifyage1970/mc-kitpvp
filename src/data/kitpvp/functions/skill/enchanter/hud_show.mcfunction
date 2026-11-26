@@ -32,3 +32,35 @@ execute if score @s kitpvp.ench_slot matches 7 run execute store result bossbar 
 execute if score @s kitpvp.ench_slot matches 7 run execute store result bossbar kitpvp:ench_a7 value run scoreboard players get #hud_a kitpvp.game
 execute if score @s kitpvp.ench_slot matches 8 run execute store result bossbar kitpvp:ench_s8 value run scoreboard players get #hud_s kitpvp.game
 execute if score @s kitpvp.ench_slot matches 8 run execute store result bossbar kitpvp:ench_a8 value run scoreboard players get #hud_a kitpvp.game
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_sword matches ..10 run bossbar set kitpvp:ench_s1 color purple
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_sword matches 11.. run bossbar set kitpvp:ench_s1 color yellow
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_armor matches ..10 run bossbar set kitpvp:ench_a1 color blue
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_armor matches 11.. run bossbar set kitpvp:ench_a1 color yellow
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_sword matches ..10 run bossbar set kitpvp:ench_s2 color purple
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_sword matches 11.. run bossbar set kitpvp:ench_s2 color yellow
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_armor matches ..10 run bossbar set kitpvp:ench_a2 color blue
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_armor matches 11.. run bossbar set kitpvp:ench_a2 color yellow
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_sword matches ..10 run bossbar set kitpvp:ench_s3 color purple
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_sword matches 11.. run bossbar set kitpvp:ench_s3 color yellow
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_armor matches ..10 run bossbar set kitpvp:ench_a3 color blue
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_armor matches 11.. run bossbar set kitpvp:ench_a3 color yellow
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_sword matches ..10 run bossbar set kitpvp:ench_s4 color purple
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_sword matches 11.. run bossbar set kitpvp:ench_s4 color yellow
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_armor matches ..10 run bossbar set kitpvp:ench_a4 color blue
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_armor matches 11.. run bossbar set kitpvp:ench_a4 color yellow
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_sword matches ..10 run bossbar set kitpvp:ench_s5 color purple
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_sword matches 11.. run bossbar set kitpvp:ench_s5 color yellow
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_armor matches ..10 run bossbar set kitpvp:ench_a5 color blue
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_armor matches 11.. run bossbar set kitpvp:ench_a5 color yellow
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_sword matches ..10 run bossbar set kitpvp:ench_s6 color purple
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_sword matches 11.. run bossbar set kitpvp:ench_s6 color yellow
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_armor matches ..10 run bossbar set kitpvp:ench_a6 color blue
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_armor matches 11.. run bossbar set kitpvp:ench_a6 color yellow
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_sword matches ..10 run bossbar set kitpvp:ench_s7 color purple
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_sword matches 11.. run bossbar set kitpvp:ench_s7 color yellow
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_armor matches ..10 run bossbar set kitpvp:ench_a7 color blue
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_armor matches 11.. run bossbar set kitpvp:ench_a7 color yellow
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_sword matches ..10 run bossbar set kitpvp:ench_s8 color purple
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_sword matches 11.. run bossbar set kitpvp:ench_s8 color yellow
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_armor matches ..10 run bossbar set kitpvp:ench_a8 color blue
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_armor matches 11.. run bossbar set kitpvp:ench_a8 color yellow
