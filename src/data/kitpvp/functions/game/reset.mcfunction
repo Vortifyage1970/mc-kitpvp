@@ -108,6 +108,23 @@ bossbar set kitpvp:ench_s7 players
 bossbar set kitpvp:ench_a7 players
 bossbar set kitpvp:ench_s8 players
 bossbar set kitpvp:ench_a8 players
+# 条值也归零：否则下一局开场 / 大厅里会看到上一局残留的蓄力
+bossbar set kitpvp:ench_s1 value 0
+bossbar set kitpvp:ench_a1 value 0
+bossbar set kitpvp:ench_s2 value 0
+bossbar set kitpvp:ench_a2 value 0
+bossbar set kitpvp:ench_s3 value 0
+bossbar set kitpvp:ench_a3 value 0
+bossbar set kitpvp:ench_s4 value 0
+bossbar set kitpvp:ench_a4 value 0
+bossbar set kitpvp:ench_s5 value 0
+bossbar set kitpvp:ench_a5 value 0
+bossbar set kitpvp:ench_s6 value 0
+bossbar set kitpvp:ench_a6 value 0
+bossbar set kitpvp:ench_s7 value 0
+bossbar set kitpvp:ench_a7 value 0
+bossbar set kitpvp:ench_s8 value 0
+bossbar set kitpvp:ench_a8 value 0
 scoreboard players set @a kitpvp.burger_charge 0
 scoreboard players set @a kitpvp.burger_snd 20
 scoreboard players set @a kitpvp.burger_slot 0

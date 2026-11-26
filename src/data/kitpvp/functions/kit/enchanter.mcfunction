@@ -16,7 +16,7 @@ item replace entity @s armor.legs with minecraft:golden_leggings{Unbreakable:1b,
 item replace entity @s armor.feet with minecraft:golden_boots{Unbreakable:1b,KitEnch:1b}
 item replace entity @s hotbar.0 with minecraft:golden_sword{Unbreakable:1b,KitEnch:1b}
 item replace entity @s hotbar.1 with minecraft:cooked_beef 24
-item replace entity @s hotbar.2 with minecraft:book{KitBook:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:1s}],display:{Name:'{"text":"《神学大全》","color":"gold","italic":false}',Lore:['{"text":"拿在主手：移速 -30%、身上发光","color":"gray","italic":false}','{"text":"每 15 秒给剑和护甲各 +1 点蓄力","color":"dark_gray","italic":false}']}}
+item replace entity @s hotbar.2 with minecraft:book{KitBook:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:1s}],display:{Name:'{"text":"《神学大全》","color":"gold","italic":false}',Lore:['{"text":"拿在主手：移速 -30%、身上发光","color":"gray","italic":false}','{"text":"拿满 40 秒，剑和护甲各升 1 级","color":"dark_gray","italic":false}']}}
 
 scoreboard players set @s kitpvp.ench_sw 0
 scoreboard players set @s kitpvp.ench_ap 0
@@ -24,14 +24,17 @@ scoreboard players set @s kitpvp.ench_sword 0
 scoreboard players set @s kitpvp.ench_armor 0
 scoreboard players set @s kitpvp.ench_book_t 0
 scoreboard players set @s kitpvp.ench_book_cd 0
+scoreboard players set @s kitpvp.ench_sw_fill 0
+scoreboard players set @s kitpvp.ench_ap_fill 0
 scoreboard players set @s kitpvp.ench_pity 0
 scoreboard players set @s kitpvp.ench_hint 0
 scoreboard players set @s kitpvp.ench_fx 0
 tag @s remove kitpvp.ench_wait
 execute as @e[tag=kitpvp.ench_bench] run kill @s
+scoreboard players set @s kitpvp.ench_slot 0
 function kitpvp:skill/enchanter/assign_slot
 function kitpvp:skill/enchanter/name_refresh
 
 tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"附魔师","color":"light_purple","bold":true}]
 tellraw @s [{"text":"打中人 → 剑附魔充能；被打中 → 护甲附魔充能（各 3 点升 1 级）","color":"dark_gray"}]
-tellraw @s [{"text":"《神学大全》拿在主手：移速 -30%、发光，每 15 秒给两条各 +1 点","color":"dark_gray"}]
+tellraw @s [{"text":"《神学大全》拿在主手：移速 -30%、发光闪烁，40 秒给两条各升 1 级","color":"dark_gray"}]
