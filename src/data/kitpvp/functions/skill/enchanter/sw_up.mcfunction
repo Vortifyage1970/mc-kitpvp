@@ -1,5 +1,6 @@
 # 金剑在主手且没满级：真正升一级
 tag @s remove kitpvp.ench_wait
+scoreboard players set @s kitpvp.ench_sw_fill 0
 scoreboard players set @s kitpvp.ench_hint 0
 scoreboard players remove @s kitpvp.ench_sw 3
 scoreboard players add @s kitpvp.ench_sword 1

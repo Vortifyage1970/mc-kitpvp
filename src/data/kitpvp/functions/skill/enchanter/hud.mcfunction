@@ -1,4 +1,4 @@
-# 附魔师 HUD：每人两条 bossbar（剑 / 护甲），值 0..3 就是这一级的蓄力点数
+# 附魔师 HUD：先把 16 条条的观众清空（只清一次），再给每个附魔师挂自己的两条
 bossbar set kitpvp:ench_s1 players
 bossbar set kitpvp:ench_a1 players
 bossbar set kitpvp:ench_s2 players
@@ -15,4 +15,4 @@ bossbar set kitpvp:ench_s7 players
 bossbar set kitpvp:ench_a7 players
 bossbar set kitpvp:ench_s8 players
 bossbar set kitpvp:ench_a8 players
-execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=98}] run function kitpvp:skill/enchanter/hud_show
+execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=98}] at @s run function kitpvp:skill/enchanter/hud_show
