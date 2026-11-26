@@ -740,4 +740,6 @@ scoreboard players set #ench_twenty kitpvp.game 20
 scoreboard players set #ench_thousand kitpvp.game 1000
 scoreboard objectives add kitpvp.ench_slot dummy "附魔师的 bossbar 槽（1..8）"
 scoreboard objectives add kitpvp.ench_pct dummy "附魔师蓄力进度（0..1000，给 bossbar 用）"
+scoreboard players set #ench_eight kitpvp.game 8
+scoreboard players set #ench_one kitpvp.game 1
 scoreboard objectives add kitpvp.ench_sslot dummy "剑找到了第几个格子（0 = 还在主手，1..37 = 已临时换进主手）"

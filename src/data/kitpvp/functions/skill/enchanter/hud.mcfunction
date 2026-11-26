@@ -1,12 +1,12 @@
 # 附魔师 HUD：像汉堡小子那样，每人一条 bossbar 显示距离下一发的蓄力进度
-execute unless score #state kitpvp.game matches 1 run bossbar set kitpvp:ench_hud_1 players
-execute unless score #state kitpvp.game matches 1 run bossbar set kitpvp:ench_hud_2 players
-execute unless score #state kitpvp.game matches 1 run bossbar set kitpvp:ench_hud_3 players
-execute unless score #state kitpvp.game matches 1 run bossbar set kitpvp:ench_hud_4 players
-execute unless score #state kitpvp.game matches 1 run bossbar set kitpvp:ench_hud_5 players
-execute unless score #state kitpvp.game matches 1 run bossbar set kitpvp:ench_hud_6 players
-execute unless score #state kitpvp.game matches 1 run bossbar set kitpvp:ench_hud_7 players
-execute unless score #state kitpvp.game matches 1 run bossbar set kitpvp:ench_hud_8 players
+bossbar set kitpvp:ench_hud_1 players
+bossbar set kitpvp:ench_hud_2 players
+bossbar set kitpvp:ench_hud_3 players
+bossbar set kitpvp:ench_hud_4 players
+bossbar set kitpvp:ench_hud_5 players
+bossbar set kitpvp:ench_hud_6 players
+bossbar set kitpvp:ench_hud_7 players
+bossbar set kitpvp:ench_hud_8 players
 execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=1}] run bossbar set kitpvp:ench_hud_1 players @s
 execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=2}] run bossbar set kitpvp:ench_hud_2 players @s
 execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=3}] run bossbar set kitpvp:ench_hud_3 players @s

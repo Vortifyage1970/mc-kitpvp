@@ -211,6 +211,7 @@ execute if score @s kitpvp.ench_slot matches 5 run bossbar set kitpvp:ench_hud_5
 execute if score @s kitpvp.ench_slot matches 6 run bossbar set kitpvp:ench_hud_6 players
 execute if score @s kitpvp.ench_slot matches 7 run bossbar set kitpvp:ench_hud_7 players
 execute if score @s kitpvp.ench_slot matches 8 run bossbar set kitpvp:ench_hud_8 players
+scoreboard players set @s kitpvp.ench_slot 0
 scoreboard players set @s kitpvp.burger_charge 0
 scoreboard players set @s kitpvp.burger_snd 20
 scoreboard players set @s kitpvp.burger_announced 0
