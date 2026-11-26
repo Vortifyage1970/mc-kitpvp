@@ -1,6 +1,6 @@
 # 附魔师（kit = 34）：金套 + 金剑，每 46.5 秒给剑和护甲各 +1 级附魔
 function kitpvp:util/clear_player
-scoreboard players set @s kitpvp.kit 98
+scoreboard players set @s kitpvp.kit 15
 tag @s add kitpvp.selected
 
 scoreboard players set @s kitpvp.alive 1

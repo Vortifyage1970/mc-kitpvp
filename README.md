@@ -77,7 +77,7 @@ src/
 
 ## 开发
 
-本项目自带一套给 AI 与开发者用的约束文档，放在 **`ai-content/`**（本地资产，已加入 `.gitignore`，不随仓库分发）：
+本项目自带一套给 AI 与开发者用的约束文档，放在 **`ai-content/`**（**随仓库分发**；以 `_` 开头的原始导出数据不入库）：
 
 | 文件 | 作用 |
 |---|---|
@@ -93,7 +93,7 @@ src/
 维护契约见 `03-project-spec.md` §6：**规则在 03，实例在 06，账本在 07；代码是事实。**
 "做到哪一步"看 `06-kit-registry.md` 总表的**状态**列，本 README 只给概览。
 
-`tools/` 下的脚本（同样本地、不入库）：
+`tools/` 下的脚本（**随仓库分发**，完整用法见 [`tools/README.md`](tools/README.md)）：
 
 | 脚本 | 作用 |
 |---|---|
@@ -109,15 +109,30 @@ src/
 改完代码建议跑一次：
 
 ```
-python tools/check.py
-python tools/gen_structure.py
+python tools/check.py           # 必跑：断链 / JSON / 模板 / 判据 / 清场覆盖
+python tools/gen_structure.py   # 增删文件后
 python tools/gen_cleanup.py     # 动过 summon / 刷怪蛋时必跑
+python tools/smoke.py           # 提交前：真开一台测试服跑一遍行为回归
+```
+
+`smoke.py` 需要一台**独立的** vanilla 1.20.1 测试服（别拿生产服），路径用环境变量指：
+
+```
+set MC_TEST_SERVER=D:\mc-test-server
+set MC_JAVA=C:\path\to\java.exe
 ```
 
 改了职业数值 / 装备，卡片要重新生成：
 
 ```
 python tools/gen_cards.py
+```
+
+上线（服务器上配了 `post-receive` 钩子，推上去会自动部署 + `/reload`）：
+
+```
+git push origin main     # GitHub 备份
+git push deploy main     # 真正上线：deploy = ssh://root@<服务器>/opt/mc-kitpvp
 ```
 
 ## 说明
