@@ -38,6 +38,10 @@ execute as @a[scores={kitpvp.kit=45,kitpvp.alive=1},tag=!kitpvp.spectator] if sc
 execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.fisher_used > @s kitpvp.fisher_last run function kitpvp:skill/fisher/cast
 execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1,kitpvp.cd=0},tag=kitpvp.fisher_handout,tag=!kitpvp.spectator] run function kitpvp:skill/fisher/handout
 execute as @a[scores={kitpvp.kit=18,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.werewolf_used > @s kitpvp.werewolf_last run function kitpvp:skill/werewolf/cast
+execute as @a[scores={kitpvp.kit=98,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.poisoner_used > @s kitpvp.poisoner_last run function kitpvp:skill/poisoner/cast
+execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=98,kitpvp.alive=1,kitpvp.cd=..0},tag=!kitpvp.spectator] at @s run function kitpvp:skill/poisoner/auto
+# 斩杀线：毒雾对召唤物 DoT（每 10 刻 3 点，仅局中，云只认 long_poison）
+execute if score #state kitpvp.game matches 1 as @e[type=minecraft:area_effect_cloud,nbt={Potion:"minecraft:long_poison"}] run function kitpvp:skill/poisoner/cloud_tick
 execute as @a[scores={kitpvp.kit=11,kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.tamer_used > @s kitpvp.tamer_last run function kitpvp:skill/tamer/cast
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=34},tag=!kitpvp.spectator] if score @s kitpvp.tf_rise_used > @s kitpvp.tf_rise_last run function kitpvp:skill/tainted_farmer/rise_dispatch
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=34},tag=!kitpvp.spectator] if score @s kitpvp.tf_rally_used > @s kitpvp.tf_rally_last run function kitpvp:skill/tainted_farmer/rally_dispatch

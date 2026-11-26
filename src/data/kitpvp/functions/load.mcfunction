@@ -47,6 +47,11 @@ scoreboard objectives add kitpvp.soul_archer_last dummy "弓箭手魂石快照"
 scoreboard objectives add kitpvp.arsonist_used minecraft.used:minecraft.splash_potion
 scoreboard objectives add kitpvp.arsonist_last dummy
 scoreboard objectives add kitpvp.arsonist_ammo dummy
+scoreboard objectives add kitpvp.poisoner_used minecraft.used:minecraft.lingering_potion
+scoreboard objectives add kitpvp.poisoner_last dummy "斩杀线投掷快照"
+scoreboard objectives add kitpvp.poisoner_hit_cd dummy "斩杀线命中冷却"
+scoreboard objectives add kitpvp.poisoner_ammo dummy
+scoreboard objectives add kitpvp.poisoner_cloud_t dummy "斩杀线毒雾跳数"
 scoreboard objectives add kitpvp.fire_timer dummy
 scoreboard objectives add kitpvp.soul_ghost_used minecraft.used:minecraft.vex_spawn_egg
 scoreboard objectives add kitpvp.soul_ghost_last dummy "幽灵魂石快照"
@@ -432,6 +437,8 @@ scoreboard players operation @a kitpvp.plant_last = @a kitpvp.plant_used
 scoreboard players operation @a kitpvp.bread_last = @a kitpvp.bread_used
 scoreboard players set @a kitpvp.turret_heal_cd 0
 scoreboard players set @a kitpvp.werewolf_hit_cd 0
+scoreboard players operation @a kitpvp.poisoner_last = @a kitpvp.poisoner_used
+scoreboard players set @a kitpvp.poisoner_hit_cd 0
 scoreboard players set @a kitpvp.sun_reload 0
 scoreboard players set @a kitpvp.pa_type 0
 scoreboard players set @a kitpvp.pa_type_prev 0
