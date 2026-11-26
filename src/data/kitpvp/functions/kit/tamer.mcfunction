@@ -15,7 +15,7 @@ item replace entity @s armor.feet with minecraft:chainmail_boots{Unbreakable:1b}
 item replace entity @s hotbar.0 with minecraft:stone_sword{Unbreakable:1b} 1
 item replace entity @s hotbar.1 with minecraft:pumpkin_pie 24
 
-give @s minecraft:bone 64
+give @s minecraft:bone 48
 give @s minecraft:apple 32
 give @s minecraft:saddle 1
 
@@ -25,7 +25,6 @@ give @s minecraft:parrot_spawn_egg 32
 give @s minecraft:dolphin_spawn_egg 32
 give @s minecraft:fox_spawn_egg 32
 give @s minecraft:frog_spawn_egg 32
-give @s minecraft:tadpole_spawn_egg 32
 give @s minecraft:turtle_spawn_egg 32
 give @s minecraft:goat_spawn_egg 32
 give @s minecraft:salmon_spawn_egg 32

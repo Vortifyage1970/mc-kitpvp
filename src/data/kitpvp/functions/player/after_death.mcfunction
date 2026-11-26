@@ -28,11 +28,14 @@ execute if score @s kitpvp.kit matches 28 run function kitpvp:skill/tainted_ghos
 execute if score @s kitpvp.kit matches 14 run function kitpvp:skill/zombie/passive
 
 # 冥王星：隐身 / 抗性 V 重生后被清掉了，重挂；鹦鹉没了就在身边补一只
-execute if score @s kitpvp.kit matches 76 run function kitpvp:skill/pluto/passive
-execute if score @s kitpvp.kit matches 76 run function kitpvp:skill/pluto/respawn
+execute if score @s kitpvp.kit matches 71 run function kitpvp:skill/pluto/passive
+execute if score @s kitpvp.kit matches 71 run function kitpvp:skill/pluto/respawn
 
 # 药剂师的四条秘药是"每条命一套"：重生解锁并补满
 execute if score @s kitpvp.kit matches 12 run function kitpvp:skill/alchemist/restock_elixir
 execute if score @s kitpvp.kit matches 45 run function kitpvp:kit/chaos_start
 
 playsound minecraft:block.note_block.pling master @s ~ ~ ~ 1 1.2
+
+# 陷阱师：爆炸陷阱「死亡时补货」
+execute if score @s kitpvp.kit matches 77 run function kitpvp:skill/zhanshishi/refill_boom

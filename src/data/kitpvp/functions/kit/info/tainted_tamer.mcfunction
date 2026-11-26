@@ -13,7 +13,7 @@ tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"亡灵仆从蛋","c
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"—","color":"dark_gray"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"亡者召唤","color":"yellow"},{"text":" —— 右键投出三枚之一：僵尸（铁剑）/ 骷髅（弓）/ 苦力怕；用掉一枚，其余两枚同时收走","color":"white"}]
 tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"30","color":"gold"},{"text":" 秒（补满整组）","color":"white"}]
-tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"魔物召唤","color":"yellow"},{"text":" —— 右键投出四枚之一：卫道士 ","color":"white"},{"text":"16","color":"gold"},{"text":" / 女巫 ","color":"white"},{"text":"25","color":"gold"},{"text":" / 恼鬼 ","color":"white"},{"text":"20","color":"gold"},{"text":" / 烈焰人 ","color":"white"},{"text":"30","color":"gold"},{"text":"；用掉一枚，其余三枚同时收走","color":"white"}]
+tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"魔物召唤","color":"yellow"},{"text":" —— 右键投出四枚之一：卫道士 ","color":"white"},{"text":"15","color":"gold"},{"text":" / 女巫 ","color":"white"},{"text":"20","color":"gold"},{"text":" / 恼鬼 ","color":"white"},{"text":"20","color":"gold"},{"text":" / 烈焰人 ","color":"white"},{"text":"30","color":"gold"},{"text":"；用掉一枚，其余三枚同时收走","color":"white"}]
 tellraw @s [{"text":"│ 技能冷却：","color":"gray"},{"text":"60","color":"gold"},{"text":" 秒（补满整组）","color":"white"}]
 tellraw @s [{"text":"│ 命数：","color":"gray"},{"text":"3","color":"gold"}]
 tellraw @s [{"text":"└──────────────────────────────","color":"dark_gray"}]

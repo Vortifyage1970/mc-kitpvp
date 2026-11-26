@@ -89,3 +89,34 @@ scoreboard players add @s kitpvp.vtid 0
 
 function kitpvp:lobby/enter
 scoreboard players operation @s kitpvp.soul_mercury_last = @s kitpvp.soul_mercury_used
+scoreboard players operation @s kitpvp.halley_last = @s kitpvp.halley_used
+scoreboard players operation @s kitpvp.archer_shot_last = @s kitpvp.archer_shot
+scoreboard players operation @s kitpvp.farm_last = @s kitpvp.farm_used
+scoreboard players operation @s kitpvp.plant_last = @s kitpvp.plant_used
+scoreboard players operation @s kitpvp.bread_last = @s kitpvp.bread_used
+scoreboard players operation @s kitpvp.soul_mars_last = @s kitpvp.soul_mars_used
+scoreboard players operation @s kitpvp.mars_domain_last = @s kitpvp.mars_domain_used
+scoreboard players set @s kitpvp.mars_curse 0
+scoreboard players set @s kitpvp.soul_mars_timer 0
+scoreboard players operation @s kitpvp.tf_rise_last = @s kitpvp.tf_rise_used
+scoreboard players operation @s kitpvp.tf_rally_last = @s kitpvp.tf_rally_used
+scoreboard players operation @s kitpvp.soul_farm_last = @s kitpvp.soul_farm_used
+scoreboard players set @s kitpvp.tfid 0
+scoreboard players set @s kitpvp.burger_charge 0
+scoreboard players set @s kitpvp.burger_snd 20
+scoreboard players set @s kitpvp.burger_announced 0
+scoreboard players set @s kitpvp.burger_slot 0
+scoreboard players set @s kitpvp.cizhi_timer 0
+scoreboard players operation @s kitpvp.cizhi_last = @s kitpvp.cizhi_used
+scoreboard players set @s kitpvp.trap_id 0
+scoreboard players set @s kitpvp.trap_team 0
+scoreboard players set @s kitpvp.trap_hook_cd 0
+scoreboard players set @s kitpvp.trap_worm_cd 0
+scoreboard players operation @s kitpvp.trap_hook_drop_last = @s kitpvp.trap_hook_drop_used
+scoreboard players operation @s kitpvp.trap_worm_drop_last = @s kitpvp.trap_worm_drop_used
+scoreboard players operation @s kitpvp.trap_hook_pick_last = @s kitpvp.trap_hook_pick_used
+scoreboard players operation @s kitpvp.trap_float_pick_last = @s kitpvp.trap_float_pick_used
+scoreboard players operation @s kitpvp.trap_worm_pick_last = @s kitpvp.trap_worm_pick_used
+scoreboard players operation @s kitpvp.trap_poison_pick_last = @s kitpvp.trap_poison_pick_used
+scoreboard players operation @s kitpvp.trap_boom_pick_last = @s kitpvp.trap_boom_pick_used
+scoreboard players operation @s kitpvp.trap_float_last = @s kitpvp.trap_jump_used

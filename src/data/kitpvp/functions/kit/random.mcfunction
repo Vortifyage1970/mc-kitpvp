@@ -1,11 +1,11 @@
 # 1.20.1 无 /random：用 1in2 谓词连掷 7 次拼出 0..127，取模得到池内序号（0..pool_size-1）。
-# 序号到真实编号的映射写在末尾——表职业 1..12、14、18 与 19，里职业 23..25 与 27..32，星象 65..68 与 76，抽象 87..88，编号不连续也能进池。
+# 序号到真实编号的映射写在末尾（0..38 共 39 个；表 1..14/18/19，里 23..25/27..34，混沌 45/46，星象 65..71，抽象 87..89，编号不连续也能进池）
 # 新增职业时改 #pool_size 并在末尾追加一行映射。
 # 先按"旧职业"做一次离场清理：随机池是先改 kit 分数再发装备（不走 kit/<名> 的 clear_player 前置），
 # 不清的话 clear_player 里那些"离开某职业要带走的东西"（金星舔狗 / 冥王星鹦鹉）判断不到旧职业（见 04 §十四）。
 function kitpvp:util/clear_player
 
-scoreboard players set #pool_size kitpvp.game 32
+scoreboard players set #pool_size kitpvp.game 41
 
 scoreboard players set @s kitpvp.rng 0
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 1
@@ -45,10 +45,19 @@ execute if score @s kitpvp.rng matches 23 run scoreboard players set @s kitpvp.k
 execute if score @s kitpvp.rng matches 24 run scoreboard players set @s kitpvp.kit 88
 execute if score @s kitpvp.rng matches 25 run scoreboard players set @s kitpvp.kit 68
 execute if score @s kitpvp.rng matches 26 run scoreboard players set @s kitpvp.kit 14
-execute if score @s kitpvp.rng matches 27 run scoreboard players set @s kitpvp.kit 76
+execute if score @s kitpvp.rng matches 27 run scoreboard players set @s kitpvp.kit 71
 execute if score @s kitpvp.rng matches 28 run scoreboard players set @s kitpvp.kit 31
 execute if score @s kitpvp.rng matches 29 run scoreboard players set @s kitpvp.kit 19
 execute if score @s kitpvp.rng matches 30 run scoreboard players set @s kitpvp.kit 32
 execute if score @s kitpvp.rng matches 31 run scoreboard players set @s kitpvp.kit 45
+execute if score @s kitpvp.rng matches 32 run scoreboard players set @s kitpvp.kit 69
+execute if score @s kitpvp.rng matches 33 run scoreboard players set @s kitpvp.kit 46
+execute if score @s kitpvp.rng matches 34 run scoreboard players set @s kitpvp.kit 70
+execute if score @s kitpvp.rng matches 35 run scoreboard players set @s kitpvp.kit 33
+execute if score @s kitpvp.rng matches 36 run scoreboard players set @s kitpvp.kit 13
+execute if score @s kitpvp.rng matches 37 run scoreboard players set @s kitpvp.kit 34
 
+execute if score @s kitpvp.rng matches 38 run scoreboard players set @s kitpvp.kit 89
+execute if score @s kitpvp.rng matches 39 run scoreboard players set @s kitpvp.kit 97
+execute if score @s kitpvp.rng matches 40 run scoreboard players set @s kitpvp.kit 77
 function kitpvp:util/give_kit

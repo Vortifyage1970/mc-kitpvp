@@ -44,7 +44,7 @@ tag @s remove kitpvp.ready_pending
 execute if score @s kitpvp.kit matches 67 run scoreboard players add @s kitpvp.vtid 0
 execute if score @s kitpvp.kit matches 67 run scoreboard players operation #vtid kitpvp.game = @s kitpvp.vtid
 execute if score @s kitpvp.kit matches 67 as @e[type=minecraft:wolf,tag=kitpvp.venus_dog] if score @s kitpvp.dog_owner = #vtid kitpvp.game run kill @s
-execute if score @s kitpvp.kit matches 76 run function kitpvp:skill/pluto/despawn
+execute if score @s kitpvp.kit matches 71 run function kitpvp:skill/pluto/despawn
 scoreboard players set @s kitpvp.parrot_miss 0
 
 scoreboard players set @s kitpvp.kit 0
@@ -101,7 +101,9 @@ tag @s remove kitpvp.soul_fisher_active
 tag @s remove kitpvp.arrow_user
 tag @s remove kitpvp.soul_ghost_active
 tag @s remove kitpvp.soul_venus_owner
-tag @s remove kitpvp.soul_sun_owner
+tag @s remove kitpvp.sun_hit
+scoreboard players set @s kitpvp.sun_hit_timer 0
+scoreboard players set @s kitpvp.sun_hit_next 0
 # 蓄力火箭跳：tag 是"能不能蓄力"的总开关（里·史莱姆与史莱姆魂石共用），换职业必须摘掉
 tag @s remove kitpvp.rocket_jump
 tag @s remove kitpvp.rocket_full
@@ -119,7 +121,7 @@ scoreboard players set @s kitpvp.soul_slime_timer 0
 scoreboard players set @s kitpvp.soul_ghost_timer 0
 scoreboard players set @s kitpvp.ghost_minion_cd 0
 scoreboard players operation @s kitpvp.soul_ghost_last = @s kitpvp.soul_ghost_used
-scoreboard players set @a kitpvp.fisher_no_tri 0
+scoreboard players set @s kitpvp.fisher_no_tri 0
 scoreboard players set @s kitpvp.ender_ammo 0
 scoreboard players set @s kitpvp.arsonist_ammo 0
 scoreboard players operation @s kitpvp.ender_last = @s kitpvp.ender_used
@@ -177,3 +179,52 @@ gamemode adventure @s
 # 1.20.1 无 /heal
 effect give @s minecraft:instant_health 1 5 true
 scoreboard players operation @s kitpvp.soul_mercury_last = @s kitpvp.soul_mercury_used
+scoreboard players operation @s kitpvp.halley_last = @s kitpvp.halley_used
+scoreboard players operation @s kitpvp.archer_shot_last = @s kitpvp.archer_shot
+scoreboard players operation @s kitpvp.farm_last = @s kitpvp.farm_used
+scoreboard players operation @s kitpvp.plant_last = @s kitpvp.plant_used
+scoreboard players operation @s kitpvp.bread_last = @s kitpvp.bread_used
+# 火星魂石的歌与歌词都是逐玩家的播放链：清场时必须替这名玩家停掉，否则会一直放下去
+execute if entity @s[tag=kitpvp.soul_mars_active] run function kitpvp:music/rumbling/stop
+execute if entity @s[tag=kitpvp.soul_mars_active] run function kitpvp:music/rumbling_lyric/stop
+tag @s remove kitpvp.soul_mars_active
+scoreboard players set @s kitpvp.soul_mars_timer 0
+scoreboard players operation @s kitpvp.soul_mars_last = @s kitpvp.soul_mars_used
+scoreboard players operation @s kitpvp.mars_domain_last = @s kitpvp.mars_domain_used
+scoreboard players set @s kitpvp.mars_curse 0
+scoreboard players operation @s kitpvp.tf_rise_last = @s kitpvp.tf_rise_used
+scoreboard players operation @s kitpvp.tf_rally_last = @s kitpvp.tf_rally_used
+scoreboard players operation @s kitpvp.soul_farm_last = @s kitpvp.soul_farm_used
+execute if score @s kitpvp.burger_slot matches 1 run bossbar set kitpvp:burger_hud_1 players
+execute if score @s kitpvp.burger_slot matches 2 run bossbar set kitpvp:burger_hud_2 players
+execute if score @s kitpvp.burger_slot matches 3 run bossbar set kitpvp:burger_hud_3 players
+execute if score @s kitpvp.burger_slot matches 4 run bossbar set kitpvp:burger_hud_4 players
+execute if score @s kitpvp.burger_slot matches 5 run bossbar set kitpvp:burger_hud_5 players
+execute if score @s kitpvp.burger_slot matches 6 run bossbar set kitpvp:burger_hud_6 players
+execute if score @s kitpvp.burger_slot matches 7 run bossbar set kitpvp:burger_hud_7 players
+execute if score @s kitpvp.burger_slot matches 8 run bossbar set kitpvp:burger_hud_8 players
+scoreboard players set @s kitpvp.burger_charge 0
+scoreboard players set @s kitpvp.burger_snd 20
+scoreboard players set @s kitpvp.burger_announced 0
+scoreboard players set @s kitpvp.burger_slot 0
+tag @s remove kitpvp.cz_buff
+scoreboard players set @s kitpvp.cizhi_timer 0
+function kitpvp:skill/zhuzhiwu/cizhi_remove
+scoreboard players operation @s kitpvp.cizhi_last = @s kitpvp.cizhi_used
+clear @s minecraft:tripwire_hook{KitTrap:1b}
+clear @s minecraft:quartz{KitTrap:1b}
+clear @s minecraft:firework_star{KitTrap:1b}
+clear @s minecraft:spider_eye{KitTrap:1b}
+clear @s minecraft:poppy{KitTrap:1b}
+scoreboard players set @s kitpvp.trap_id 0
+scoreboard players set @s kitpvp.trap_team 0
+scoreboard players set @s kitpvp.trap_hook_cd 0
+scoreboard players set @s kitpvp.trap_worm_cd 0
+scoreboard players operation @s kitpvp.trap_hook_drop_last = @s kitpvp.trap_hook_drop_used
+scoreboard players operation @s kitpvp.trap_worm_drop_last = @s kitpvp.trap_worm_drop_used
+scoreboard players operation @s kitpvp.trap_hook_pick_last = @s kitpvp.trap_hook_pick_used
+scoreboard players operation @s kitpvp.trap_float_pick_last = @s kitpvp.trap_float_pick_used
+scoreboard players operation @s kitpvp.trap_worm_pick_last = @s kitpvp.trap_worm_pick_used
+scoreboard players operation @s kitpvp.trap_poison_pick_last = @s kitpvp.trap_poison_pick_used
+scoreboard players operation @s kitpvp.trap_boom_pick_last = @s kitpvp.trap_boom_pick_used
+scoreboard players operation @s kitpvp.trap_float_last = @s kitpvp.trap_jump_used

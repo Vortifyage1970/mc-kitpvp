@@ -14,12 +14,11 @@ scoreboard players operation @e[tag=kitpvp.turret_new] kitpvp.turret_seq = #turr
 function kitpvp:skill/tainted_archer/team_slot
 scoreboard players operation @e[tag=kitpvp.turret_new] kitpvp.turret_owner = @s kitpvp.ttid
 
-execute if score @s kitpvp.ttid matches 1 run team join turret_1 @e[tag=kitpvp.turret_new]
-execute if score @s kitpvp.ttid matches 2 run team join turret_2 @e[tag=kitpvp.turret_new]
-execute if score @s kitpvp.ttid matches 3 run team join turret_3 @e[tag=kitpvp.turret_new]
-execute if score @s kitpvp.ttid matches 4 run team join turret_4 @e[tag=kitpvp.turret_new]
-execute if score @s kitpvp.ttid matches 5 run team join turret_5 @e[tag=kitpvp.turret_new]
-execute if score @s kitpvp.ttid matches 6 run team join turret_6 @e[tag=kitpvp.turret_new]
+# 炮台 join 到「主人当前所在的队」：主人无队时 team_slot 已把他 join 进 turret_ttid，
+# 有队（魂石/阴兵…）时就跟着主人那套走。借 util/team_join（临时给炮台打 team_new 标记）。
+function kitpvp:util/team_index
+tag @e[tag=kitpvp.turret_new] add kitpvp.team_new
+function kitpvp:util/team_join
 
 tag @e remove kitpvp.turret_new
 

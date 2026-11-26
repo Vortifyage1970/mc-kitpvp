@@ -1,4 +1,5 @@
 tellraw @s [{"text":"═══ 抽象 ═══","color":"light_purple","bold":true}]
 tellraw @s [{"text":"[文明小子] ","color":"light_purple","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/info/civil"},"hoverEvent":{"action":"show_text","contents":[{"text":"惩奸除恶的板砖美猴王","color":"gray"}]}},{"text":"惩奸除恶的板砖美猴王","color":"dark_gray"}]
 tellraw @s [{"text":"[李朱俊泽] ","color":"dark_purple","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/info/li_zhujunze"},"hoverEvent":{"action":"show_text","contents":[{"text":"围绕李朱俊泽的职业","color":"gray"}]}},{"text":"围绕李朱俊泽的职业","color":"dark_gray"}]
+tellraw @s [{"text":"[汉堡小子] ","color":"light_purple","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/info/burger"},"hoverEvent":{"action":"show_text","contents":[{"text":"制作汉堡兽摧毁一切之人","color":"gray"}]}},{"text":"制作汉堡兽摧毁一切之人","color":"dark_gray"}]
 tellraw @s [{"text":"[返回]","color":"yellow","clickEvent":{"action":"run_command","value":"/function kitpvp:kit/list"},"hoverEvent":{"action":"show_text","contents":[{"text":"回到分类列表","color":"gray"}]}}]

@@ -10,3 +10,4 @@ execute if block ~ ~1 ~ bubble_column run tag @s add kitpvp.in_water
 
 # 每刻重挂 1 秒，出水最多残留 1 秒（同大厅的饱和）
 execute if entity @s[tag=kitpvp.in_water] run effect give @s minecraft:strength 1 0 true
+execute if entity @s[tag=kitpvp.in_water] run effect give @s minecraft:resistance 1 0 true

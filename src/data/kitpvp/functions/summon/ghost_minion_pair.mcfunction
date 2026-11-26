@@ -3,24 +3,24 @@
 execute positioned ^1 ^ ^ run function kitpvp:summon/ghost_minion
 execute positioned ^-1 ^ ^ run function kitpvp:summon/ghost_minion
 
-execute if score @s kitpvp.tid matches 0 run scoreboard players add #ghost_tid kitpvp.game 1
-execute if score @s kitpvp.tid matches 0 if score #ghost_tid kitpvp.game matches 7.. run scoreboard players set #ghost_tid kitpvp.game 1
-execute if score @s kitpvp.tid matches 0 run scoreboard players operation @s kitpvp.tid = #ghost_tid kitpvp.game
+# 队伍：主人已经在某套队里就绝不动他的队（换队会让他原有的炮台 / 阴兵 / 生灵 / 起义军翻脸）。
+# 只有他一个队都没有（战士之类，或这局被 start_impl 清空过）才开一个幽灵槽，并把他 join 进去。
+function kitpvp:util/team_index
+execute if score #steam kitpvp.game matches 0 run scoreboard players add #ghost_tid kitpvp.game 1
+execute if score #steam kitpvp.game matches 0 if score #ghost_tid kitpvp.game matches 7.. run scoreboard players set #ghost_tid kitpvp.game 1
+execute if score #steam kitpvp.game matches 0 run scoreboard players operation @s kitpvp.tid = #ghost_tid kitpvp.game
+execute if score #steam kitpvp.game matches 0 run scoreboard players operation #steam kitpvp.game = @s kitpvp.tid
 
-execute if score @s kitpvp.tid matches 1 run team join ghost_1 @s
-execute if score @s kitpvp.tid matches 2 run team join ghost_2 @s
-execute if score @s kitpvp.tid matches 3 run team join ghost_3 @s
-execute if score @s kitpvp.tid matches 4 run team join ghost_4 @s
-execute if score @s kitpvp.tid matches 5 run team join ghost_5 @s
-execute if score @s kitpvp.tid matches 6 run team join ghost_6 @s
+# 主人落在幽灵那 6 个槽时才 join 他（本来就在同一个队时是空操作）
+execute if score #steam kitpvp.game matches 1 run team join ghost_1 @s
+execute if score #steam kitpvp.game matches 2 run team join ghost_2 @s
+execute if score #steam kitpvp.game matches 3 run team join ghost_3 @s
+execute if score #steam kitpvp.game matches 4 run team join ghost_4 @s
+execute if score #steam kitpvp.game matches 5 run team join ghost_5 @s
+execute if score #steam kitpvp.game matches 6 run team join ghost_6 @s
 
-execute if score @s kitpvp.tid matches 1 run team join ghost_1 @e[tag=kitpvp.ghost_minion_new]
-execute if score @s kitpvp.tid matches 2 run team join ghost_2 @e[tag=kitpvp.ghost_minion_new]
-execute if score @s kitpvp.tid matches 3 run team join ghost_3 @e[tag=kitpvp.ghost_minion_new]
-execute if score @s kitpvp.tid matches 4 run team join ghost_4 @e[tag=kitpvp.ghost_minion_new]
-execute if score @s kitpvp.tid matches 5 run team join ghost_5 @e[tag=kitpvp.ghost_minion_new]
-execute if score @s kitpvp.tid matches 6 run team join ghost_6 @e[tag=kitpvp.ghost_minion_new]
-
+# 阴兵跟着同一个编号入队（util/team_join 按 tag kitpvp.team_new 找目标）
+function kitpvp:util/team_join
 tag @e remove kitpvp.ghost_minion_new
 
 # 5 秒召唤冷却

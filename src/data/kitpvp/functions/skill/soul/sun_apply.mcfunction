@@ -1,12 +1,10 @@
 # 太阳魂石落地（执行位置 = 落点，@s = 使用者）
-# 范围与太阳黑子一致（9 格）：落点周围**除自己以外**的玩家 20 秒失明，并在 20 秒内每 2 秒被灌一条噪音（128 选 1）
-# 自己用 tag 排除：`soul_sun_owner` 在落点写给最近的那名玩家（= 使用者），marker 到期 / reset / 换职业时摘掉
+# 施放瞬间锁定：10 格内**除使用者以外**的参战玩家，每人一次性 20 秒失明
+# 之后标记留在人身上（不是留在地上）：这 20 秒里即使跑出范围，也会继续被噪音干扰
+# 使用者 = 落点最近的那名玩家，只在这次标记里用来排除，标完立刻摘掉
 execute as @a[distance=..8,sort=nearest,limit=1] run tag @s add kitpvp.soul_sun_owner
-execute at @s as @a[distance=..9,scores={kitpvp.alive=1},tag=!kitpvp.spectator,tag=!kitpvp.soul_sun_owner] run effect give @s minecraft:blindness 20 0 true
-summon minecraft:marker ~ ~ ~ {Tags:["kitpvp.soul_sun_marker","kitpvp.soul_sun_new"]}
-scoreboard players set @e[tag=kitpvp.soul_sun_new] kitpvp.soul_timer 400
-scoreboard players set @e[tag=kitpvp.soul_sun_new] kitpvp.soul_next 20
-tag @e[tag=kitpvp.soul_sun_new] remove kitpvp.soul_sun_new
+execute at @s as @a[distance=..10,scores={kitpvp.alive=1},tag=!kitpvp.spectator,tag=!kitpvp.soul_sun_owner] run function kitpvp:skill/soul/sun_mark
+tag @a remove kitpvp.soul_sun_owner
 
-title @s actionbar {"text":"魂石·日蚀：9 格内其他玩家失明 20 秒，每 2 秒一条噪音","color":"gold"}
+title @s actionbar {"text":"魂石·日蚀：10 格内其他人失明 20 秒，噪音会一直跟着他们","color":"gold"}
 playsound minecraft:block.beacon.deactivate master @s ~ ~ ~ 1.0 0.6

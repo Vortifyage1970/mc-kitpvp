@@ -27,6 +27,8 @@ execute if score #global kitpvp.map matches 7 run time set day
 execute if score #global kitpvp.map matches 1 run time set 11000
 execute if score #global kitpvp.map matches 2 run time set day
 execute if score #global kitpvp.map matches 3 run time set night
+execute if score #global kitpvp.map matches 12 run gamerule doDaylightCycle false
+execute if score #global kitpvp.map matches 12 run time set day
 execute if score #global kitpvp.map matches 9 run time set night
 
 # 队槽每局重建：先退出上局残留的队伍，再清空槽位
@@ -38,10 +40,14 @@ scoreboard players set @a kitpvp.tid 0
 scoreboard players set @a kitpvp.ttid 0
 scoreboard players set @a kitpvp.ttamer_tid 0
 scoreboard players set @a kitpvp.btid 0
+scoreboard players set @a kitpvp.tfid 0
 scoreboard players set #eslot kitpvp.game 0
 scoreboard players set #ghost_tid kitpvp.game 0
 scoreboard players set #ttamer kitpvp.game 0
 scoreboard players set #btid kitpvp.game 0
+scoreboard players set #tfid kitpvp.game 0
+scoreboard players set #tf_wave kitpvp.game 0
+scoreboard players set #tf_wave2 kitpvp.game 0
 scoreboard players set #hacker_prev kitpvp.game 0
 
 # 上一局留在没加载区块里的驯兽师狼：本局开头按 tag 再扫一次（见 04 §五）
@@ -51,7 +57,7 @@ kill @e[tag=kitpvp.tamer_wolf]
 execute as @a[scores={kitpvp.kit=67}] at @s run function kitpvp:skill/venus/dog_follow
 
 # 冥王星：鹦鹉跟着进图（同样是跨区块传送，必须当刻拉一把），并顺手回满血
-execute as @a[scores={kitpvp.kit=76}] at @s run function kitpvp:skill/pluto/enter_map
+execute as @a[scores={kitpvp.kit=71}] at @s run function kitpvp:skill/pluto/enter_map
 
 execute as @a[tag=kitpvp.selected] run function kitpvp:player/invincible
 
