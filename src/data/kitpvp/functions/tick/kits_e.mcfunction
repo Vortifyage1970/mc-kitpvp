@@ -50,6 +50,8 @@ execute as @a[scores={kitpvp.kit=8,kitpvp.alive=1},tag=!kitpvp.spectator] if sco
 # 狼人 / 驯兽师：都用 wolf_spawn_egg（嗅闻令牌 / 狼蛋），各自靠 EntityTag 认自己那只、按 kit 分闸门，互不触发
 # 命中被动的 18 刻（0.9 秒）内置冷却
 execute as @a[scores={kitpvp.werewolf_hit_cd=1..}] run scoreboard players remove @s kitpvp.werewolf_hit_cd 1
+# 斩杀线命中中毒的 24 刻内置冷却
+execute as @a[scores={kitpvp.poisoner_hit_cd=1..}] run scoreboard players remove @s kitpvp.poisoner_hit_cd 1
 
 # 农夫（kit 13）：iron_hoe 的 used 覆盖"耕地"与"平A 命中"两种用法（空挥不计），播种、吃面包同理
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1,kitpvp.kit=13},tag=!kitpvp.spectator] if score @s kitpvp.farm_used > @s kitpvp.farm_last run function kitpvp:skill/farmer/cultivate

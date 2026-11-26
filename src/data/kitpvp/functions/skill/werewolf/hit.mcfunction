@@ -8,3 +8,5 @@ advancement revoke @s only kitpvp:player/werewolf_hit
 execute if score @s kitpvp.kit matches 18 if score @s kitpvp.werewolf_hit_cd matches ..0 if data entity @s SelectedItem.tag.KitWerewolfAxe run function kitpvp:skill/werewolf/bite
 # 混沌战士抽到「嗜血狼牙」时吃同一口吸血
 execute if score @s kitpvp.kit matches 45 if score @s kitpvp.werewolf_hit_cd matches ..0 if data entity @s SelectedItem.tag.KitWerewolfAxe run function kitpvp:skill/werewolf/bite
+# 斩杀线（98）吃同一条命中事件：先斩后毒，见 skill/poisoner/hit
+execute if score @s kitpvp.kit matches 98 run function kitpvp:skill/poisoner/hit

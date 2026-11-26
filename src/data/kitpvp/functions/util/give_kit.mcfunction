@@ -40,3 +40,4 @@ execute if score @s kitpvp.kit matches 71 run function kitpvp:kit/pluto
 execute if score @s kitpvp.kit matches 89 run function kitpvp:kit/burger
 execute if score @s kitpvp.kit matches 97 run function kitpvp:kit/zhuzhiwu
 execute if score @s kitpvp.kit matches 77 run function kitpvp:kit/zhanshishi
+execute if score @s kitpvp.kit matches 98 run function kitpvp:kit/poisoner
