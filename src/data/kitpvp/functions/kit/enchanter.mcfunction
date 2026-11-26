@@ -15,7 +15,6 @@ item replace entity @s armor.legs with minecraft:golden_leggings{Unbreakable:1b,
 item replace entity @s armor.feet with minecraft:golden_boots{Unbreakable:1b,KitEnch:1b}
 item replace entity @s hotbar.0 with minecraft:golden_sword{Unbreakable:1b,KitEnch:1b}
 item replace entity @s hotbar.1 with minecraft:cooked_beef 24
-give @s minecraft:golden_apple 1
 
 scoreboard players set @s kitpvp.ench_roll 0
 scoreboard players set @s kitpvp.ench_timer 300
