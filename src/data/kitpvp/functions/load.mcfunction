@@ -789,7 +789,7 @@ scoreboard objectives add kitpvp.ench_sw dummy "剑附魔的蓄力（打中玩�
 scoreboard objectives add kitpvp.ench_ap dummy "护甲附魔的蓄力（被玩家打中 +1，满 3 升 1 级）"
 scoreboard objectives add kitpvp.ench_sword dummy "剑附魔等级（0..11）"
 scoreboard objectives add kitpvp.ench_armor dummy "护甲附魔等级（0..11）"
-scoreboard objectives add kitpvp.ench_book_t dummy "手持《神学大全》读了几刻（300 刻给 1 点）"
+scoreboard objectives add kitpvp.ench_book_t dummy "手持《神学大全》读了几刻（既是闪烁相位，也是补格节拍；80 刻一个闪烁周期）"
 scoreboard objectives add kitpvp.ench_book_cd dummy "翻书声的间隔计时"
 scoreboard objectives add kitpvp.ench_hint dummy "附魔师 剑不在主手 的提示冷却（防止每刻刷屏）"
 scoreboard objectives add kitpvp.ench_fx dummy "《神学大全》音效循环的计时"
@@ -802,4 +802,5 @@ scoreboard players set #ench_need kitpvp.game 3
 scoreboard players set #ench_eight kitpvp.game 8
 scoreboard players set #ench_three_hundred kitpvp.game 300
 scoreboard players set #ench_one kitpvp.game 1
+scoreboard players set #book_eighty kitpvp.game 80
 scoreboard objectives add kitpvp.ench_sslot dummy "剑找到了第几个格子（0 = 还在主手，1..37 = 已临时换进主手）"

@@ -11,7 +11,7 @@ tellraw @s [{"text":"│ 护腿：","color":"gray"},{"text":"金护腿","color":
 tellraw @s [{"text":"│ 靴子：","color":"gray"},{"text":"金靴子","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:golden_boots","Count":1}}}]
 tellraw @s [{"text":"│ 物品：","color":"gray"},{"text":"熟牛肉 x","color":"white"},{"text":"24","color":"gold"},{"text":"、《神学大全》","color":"white"}]
 tellraw @s [{"text":"│ 被动：","color":"gray"},{"text":"用剑打中玩家 → 剑附魔蓄力 +1；被玩家打中 → 护甲附魔蓄力 +1（各 3 点升 1 级，各 11 级封顶）","color":"white"}]
-tellraw @s [{"text":"│ 书：","color":"gray"},{"text":"《神学大全》","color":"gold"},{"text":"（主手）：移速 -30%、身上发光、每 15 秒给两条各 +1 点","color":"white"}]
+tellraw @s [{"text":"│ 书：","color":"gray"},{"text":"《神学大全》","color":"gold"},{"text":"（主手）：移速 -30%、发光每 2 秒闪一次、两条蓄力各按 40 秒升 1 级","color":"white"}]
 tellraw @s [{"text":"│ 护甲节奏：","color":"gray"},{"text":"前 7 级四件全升；8~11 级每次只升两件（头胸 / 腿靴 / 头腿 / 胸靴）","color":"white"}]
 tellraw @s [{"text":"│ 封顶：","color":"gray"},{"text":"剑、护甲各 11 级，满了不再涨","color":"white"}]
 tellraw @s [{"text":"│ 技能：","color":"gray"},{"text":"无（全靠被动成长）","color":"white"}]
