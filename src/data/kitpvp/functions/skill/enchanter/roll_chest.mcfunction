@@ -8,7 +8,7 @@ execute if predicate kitpvp:random/1in2 run scoreboard players add #ench_r kitpv
 execute if predicate kitpvp:random/1in2 run scoreboard players add #ench_r kitpvp.game 32
 execute if predicate kitpvp:random/1in2 run scoreboard players add #ench_r kitpvp.game 64
 execute if score #ench_r kitpvp.game matches 0..27 run function kitpvp:skill/enchanter/apply_chest_protection
-execute if score #ench_r kitpvp.game matches 28..52 run function kitpvp:skill/enchanter/apply_chest_projectile_protection
-execute if score #ench_r kitpvp.game matches 53..77 run function kitpvp:skill/enchanter/apply_chest_thorns
-execute if score #ench_r kitpvp.game matches 78..102 run function kitpvp:skill/enchanter/apply_chest_fire_protection
-execute if score #ench_r kitpvp.game matches 103..127 run function kitpvp:skill/enchanter/apply_chest_blast_protection
+execute if score #ench_r kitpvp.game matches 28..59 run function kitpvp:skill/enchanter/apply_chest_projectile_protection
+execute if score #ench_r kitpvp.game matches 60..65 run function kitpvp:skill/enchanter/apply_chest_thorns
+execute if score #ench_r kitpvp.game matches 66..96 run function kitpvp:skill/enchanter/apply_chest_fire_protection
+execute if score #ench_r kitpvp.game matches 97..127 run function kitpvp:skill/enchanter/apply_chest_blast_protection
