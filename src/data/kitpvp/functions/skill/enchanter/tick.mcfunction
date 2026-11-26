@@ -1,2 +1,2 @@
-# 附魔师每刻：只有"手里拿着《神学大全》"这一条被动要走时间
-execute if data entity @s SelectedItem{KitBook:1b} run function kitpvp:skill/enchanter/book_hold
+# 附魔师每刻：剑/甲的蓄力完全靠打架，这里没有计时
+# 书的被动拆到 book_passive，由 tick/earth 在状态判定之外调用

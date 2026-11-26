@@ -16,7 +16,7 @@ item replace entity @s armor.legs with minecraft:golden_leggings{Unbreakable:1b,
 item replace entity @s armor.feet with minecraft:golden_boots{Unbreakable:1b,KitEnch:1b}
 item replace entity @s hotbar.0 with minecraft:golden_sword{Unbreakable:1b,KitEnch:1b}
 item replace entity @s hotbar.1 with minecraft:cooked_beef 24
-item replace entity @s hotbar.2 with minecraft:book{KitBook:1b,display:{Name:'{"text":"《神学大全》","color":"gold","italic":false}',Lore:['{"text":"拿在主手时：移速 -30%、身上发光","color":"gray","italic":false}','{"text":"每 15 秒给剑和护甲各 +1 点蓄力","color":"dark_gray","italic":false}']}}
+item replace entity @s hotbar.2 with minecraft:book{KitBook:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:1s}],display:{Name:'{"text":"《神学大全》","color":"gold","italic":false}',Lore:['{"text":"拿在主手：移速 -30%、身上发光","color":"gray","italic":false}','{"text":"每 15 秒给剑和护甲各 +1 点蓄力","color":"dark_gray","italic":false}']}}
 
 scoreboard players set @s kitpvp.ench_sw 0
 scoreboard players set @s kitpvp.ench_ap 0
