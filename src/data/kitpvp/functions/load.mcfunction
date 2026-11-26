@@ -576,6 +576,7 @@ scoreboard objectives add kitpvp.trap_poison_pick_last dummy "陷阱师：猛毒
 scoreboard objectives add kitpvp.trap_boom_pick_last dummy "陷阱师：爆炸陷阱 捡起快照"
 scoreboard players set #soul_count kitpvp.game 18
 scoreboard players set #cz20 kitpvp.game 20
+scoreboard players set #cz10 kitpvp.game 10
 scoreboard players set #ghost_tid kitpvp.game 0
 scoreboard players set #ghost_need_new kitpvp.game 0
 scoreboard players set #lobby kitpvp.game 0

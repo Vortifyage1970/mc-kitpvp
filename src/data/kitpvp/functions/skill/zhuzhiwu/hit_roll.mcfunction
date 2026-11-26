@@ -8,5 +8,7 @@ execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.cz_
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.cz_rng 32
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.cz_rng 64
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.cz_rng 128
-scoreboard players operation @s kitpvp.cz_rng %= #cz20 kitpvp.game
+# 辞令状态期间（tag kitpvp.cz_buff）概率翻倍：5% -> 10%
+execute if entity @s[tag=kitpvp.cz_buff] run scoreboard players operation @s kitpvp.cz_rng %= #cz10 kitpvp.game
+execute unless entity @s[tag=kitpvp.cz_buff] run scoreboard players operation @s kitpvp.cz_rng %= #cz20 kitpvp.game
 execute if score @s kitpvp.cz_rng matches 0 run function kitpvp:skill/zhuzhiwu/pull

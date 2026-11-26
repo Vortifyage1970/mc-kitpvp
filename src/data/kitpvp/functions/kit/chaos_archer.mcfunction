@@ -8,10 +8,10 @@ scoreboard players set @s kitpvp.alive 1
 scoreboard players set @s kitpvp.lives 3
 
 item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,display:{color:2186785}}
-item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:2186785}}
+item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:2186785},AttributeModifiers:[{AttributeName:"minecraft:generic.armor",Name:"kitpvp.chaos_archer_chest",Amount:6,Operation:0,UUID:[I;46,0,2,1],Slot:"chest"}]}
 
 # 弓：Unbreakable + 力量 I + 锋利 IV（没有近战武器，靠近战判定吃锋利）+ 持弓移速 -0.5
-item replace entity @s weapon.mainhand with minecraft:bow{Unbreakable:1b,Enchantments:[{id:"minecraft:punch",lvl:1},{id:"minecraft:sharpness",lvl:4}],AttributeModifiers:[{AttributeName:"minecraft:generic.movement_speed",Name:"kitpvp.archer_heavy",Amount:-0.5,Operation:1,UUID:[I;46,0,1,1],Slot:"mainhand"},{AttributeName:"minecraft:generic.movement_speed",Name:"kitpvp.archer_heavy_off",Amount:-0.5,Operation:1,UUID:[I;46,0,1,2],Slot:"offhand"}]} 1
+item replace entity @s weapon.mainhand with minecraft:bow{Unbreakable:1b,Enchantments:[{id:"minecraft:power",lvl:1},{id:"minecraft:sharpness",lvl:4}],AttributeModifiers:[{AttributeName:"minecraft:generic.movement_speed",Name:"kitpvp.archer_heavy",Amount:-0.5,Operation:1,UUID:[I;46,0,1,1],Slot:"mainhand"},{AttributeName:"minecraft:generic.movement_speed",Name:"kitpvp.archer_heavy_off",Amount:-0.5,Operation:1,UUID:[I;46,0,1,2],Slot:"offhand"}]} 1
 
 give @s minecraft:carrot 32
 
