@@ -1,4 +1,2 @@
-# 剑附魔入口：手上拿着就在手上附，没拿就先去背包里找
-scoreboard players set @s kitpvp.ench_sslot 0
-execute unless data entity @s SelectedItem{id:"minecraft:golden_sword"} run function kitpvp:skill/enchanter/sw_find
-execute if score @s kitpvp.ench_sslot matches 0 if data entity @s SelectedItem{id:"minecraft:golden_sword"} run function kitpvp:skill/enchanter/sw_roll
+# 剑附魔：只在金剑位于主手时掷（搬动背包会把东西弄丢，这条路径不碰任何格子）
+execute if data entity @s SelectedItem{id:"minecraft:golden_sword"} run function kitpvp:skill/enchanter/sw_roll
