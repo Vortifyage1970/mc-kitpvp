@@ -9,4 +9,4 @@ execute if score @s kitpvp.ench_roll matches 11 run function kitpvp:skill/enchan
 scoreboard players set @s kitpvp.ench_timer 930
 scoreboard players set @s kitpvp.ench_period 930
 execute if score @s kitpvp.ench_roll matches 11.. run scoreboard players set @s kitpvp.ench_timer 1000000
-function kitpvp:skill/enchanter/bar
+function kitpvp:skill/enchanter/name_refresh

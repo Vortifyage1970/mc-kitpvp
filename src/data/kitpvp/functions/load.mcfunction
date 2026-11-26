@@ -521,50 +521,50 @@ bossbar set kitpvp:burger_hud_8 color purple
 bossbar set kitpvp:burger_hud_8 style progress
 bossbar set kitpvp:burger_hud_8 max 1000
 bossbar set kitpvp:burger_hud_8 value 0
-bossbar add kitpvp:ench_hud_1 {"text":"附魔蓄力","color":"light_purple"}
-bossbar set kitpvp:ench_hud_1 name {"text":"附魔蓄力","color":"light_purple"}
+bossbar add kitpvp:ench_hud_1 {"text":"附魔等级：0","color":"light_purple"}
+bossbar set kitpvp:ench_hud_1 name {"text":"附魔等级：0","color":"light_purple"}
 bossbar set kitpvp:ench_hud_1 color blue
 bossbar set kitpvp:ench_hud_1 style progress
 bossbar set kitpvp:ench_hud_1 max 1000
 bossbar set kitpvp:ench_hud_1 value 0
-bossbar add kitpvp:ench_hud_2 {"text":"附魔蓄力","color":"light_purple"}
-bossbar set kitpvp:ench_hud_2 name {"text":"附魔蓄力","color":"light_purple"}
+bossbar add kitpvp:ench_hud_2 {"text":"附魔等级：0","color":"light_purple"}
+bossbar set kitpvp:ench_hud_2 name {"text":"附魔等级：0","color":"light_purple"}
 bossbar set kitpvp:ench_hud_2 color blue
 bossbar set kitpvp:ench_hud_2 style progress
 bossbar set kitpvp:ench_hud_2 max 1000
 bossbar set kitpvp:ench_hud_2 value 0
-bossbar add kitpvp:ench_hud_3 {"text":"附魔蓄力","color":"light_purple"}
-bossbar set kitpvp:ench_hud_3 name {"text":"附魔蓄力","color":"light_purple"}
+bossbar add kitpvp:ench_hud_3 {"text":"附魔等级：0","color":"light_purple"}
+bossbar set kitpvp:ench_hud_3 name {"text":"附魔等级：0","color":"light_purple"}
 bossbar set kitpvp:ench_hud_3 color blue
 bossbar set kitpvp:ench_hud_3 style progress
 bossbar set kitpvp:ench_hud_3 max 1000
 bossbar set kitpvp:ench_hud_3 value 0
-bossbar add kitpvp:ench_hud_4 {"text":"附魔蓄力","color":"light_purple"}
-bossbar set kitpvp:ench_hud_4 name {"text":"附魔蓄力","color":"light_purple"}
+bossbar add kitpvp:ench_hud_4 {"text":"附魔等级：0","color":"light_purple"}
+bossbar set kitpvp:ench_hud_4 name {"text":"附魔等级：0","color":"light_purple"}
 bossbar set kitpvp:ench_hud_4 color blue
 bossbar set kitpvp:ench_hud_4 style progress
 bossbar set kitpvp:ench_hud_4 max 1000
 bossbar set kitpvp:ench_hud_4 value 0
-bossbar add kitpvp:ench_hud_5 {"text":"附魔蓄力","color":"light_purple"}
-bossbar set kitpvp:ench_hud_5 name {"text":"附魔蓄力","color":"light_purple"}
+bossbar add kitpvp:ench_hud_5 {"text":"附魔等级：0","color":"light_purple"}
+bossbar set kitpvp:ench_hud_5 name {"text":"附魔等级：0","color":"light_purple"}
 bossbar set kitpvp:ench_hud_5 color blue
 bossbar set kitpvp:ench_hud_5 style progress
 bossbar set kitpvp:ench_hud_5 max 1000
 bossbar set kitpvp:ench_hud_5 value 0
-bossbar add kitpvp:ench_hud_6 {"text":"附魔蓄力","color":"light_purple"}
-bossbar set kitpvp:ench_hud_6 name {"text":"附魔蓄力","color":"light_purple"}
+bossbar add kitpvp:ench_hud_6 {"text":"附魔等级：0","color":"light_purple"}
+bossbar set kitpvp:ench_hud_6 name {"text":"附魔等级：0","color":"light_purple"}
 bossbar set kitpvp:ench_hud_6 color blue
 bossbar set kitpvp:ench_hud_6 style progress
 bossbar set kitpvp:ench_hud_6 max 1000
 bossbar set kitpvp:ench_hud_6 value 0
-bossbar add kitpvp:ench_hud_7 {"text":"附魔蓄力","color":"light_purple"}
-bossbar set kitpvp:ench_hud_7 name {"text":"附魔蓄力","color":"light_purple"}
+bossbar add kitpvp:ench_hud_7 {"text":"附魔等级：0","color":"light_purple"}
+bossbar set kitpvp:ench_hud_7 name {"text":"附魔等级：0","color":"light_purple"}
 bossbar set kitpvp:ench_hud_7 color blue
 bossbar set kitpvp:ench_hud_7 style progress
 bossbar set kitpvp:ench_hud_7 max 1000
 bossbar set kitpvp:ench_hud_7 value 0
-bossbar add kitpvp:ench_hud_8 {"text":"附魔蓄力","color":"light_purple"}
-bossbar set kitpvp:ench_hud_8 name {"text":"附魔蓄力","color":"light_purple"}
+bossbar add kitpvp:ench_hud_8 {"text":"附魔等级：0","color":"light_purple"}
+bossbar set kitpvp:ench_hud_8 name {"text":"附魔等级：0","color":"light_purple"}
 bossbar set kitpvp:ench_hud_8 color blue
 bossbar set kitpvp:ench_hud_8 style progress
 bossbar set kitpvp:ench_hud_8 max 1000
