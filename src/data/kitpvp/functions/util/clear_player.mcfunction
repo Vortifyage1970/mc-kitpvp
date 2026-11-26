@@ -203,6 +203,14 @@ execute if score @s kitpvp.burger_slot matches 5 run bossbar set kitpvp:burger_h
 execute if score @s kitpvp.burger_slot matches 6 run bossbar set kitpvp:burger_hud_6 players
 execute if score @s kitpvp.burger_slot matches 7 run bossbar set kitpvp:burger_hud_7 players
 execute if score @s kitpvp.burger_slot matches 8 run bossbar set kitpvp:burger_hud_8 players
+execute if score @s kitpvp.ench_slot matches 1 run bossbar set kitpvp:ench_hud_1 players
+execute if score @s kitpvp.ench_slot matches 2 run bossbar set kitpvp:ench_hud_2 players
+execute if score @s kitpvp.ench_slot matches 3 run bossbar set kitpvp:ench_hud_3 players
+execute if score @s kitpvp.ench_slot matches 4 run bossbar set kitpvp:ench_hud_4 players
+execute if score @s kitpvp.ench_slot matches 5 run bossbar set kitpvp:ench_hud_5 players
+execute if score @s kitpvp.ench_slot matches 6 run bossbar set kitpvp:ench_hud_6 players
+execute if score @s kitpvp.ench_slot matches 7 run bossbar set kitpvp:ench_hud_7 players
+execute if score @s kitpvp.ench_slot matches 8 run bossbar set kitpvp:ench_hud_8 players
 scoreboard players set @s kitpvp.burger_charge 0
 scoreboard players set @s kitpvp.burger_snd 20
 scoreboard players set @s kitpvp.burger_announced 0

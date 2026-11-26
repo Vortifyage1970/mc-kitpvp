@@ -521,6 +521,46 @@ bossbar set kitpvp:burger_hud_8 color purple
 bossbar set kitpvp:burger_hud_8 style progress
 bossbar set kitpvp:burger_hud_8 max 1000
 bossbar set kitpvp:burger_hud_8 value 0
+bossbar add kitpvp:ench_hud_1 {"text":"附魔蓄力","color":"light_purple"}
+bossbar set kitpvp:ench_hud_1 color light_purple
+bossbar set kitpvp:ench_hud_1 style progress
+bossbar set kitpvp:ench_hud_1 max 1000
+bossbar set kitpvp:ench_hud_1 value 0
+bossbar add kitpvp:ench_hud_2 {"text":"附魔蓄力","color":"light_purple"}
+bossbar set kitpvp:ench_hud_2 color light_purple
+bossbar set kitpvp:ench_hud_2 style progress
+bossbar set kitpvp:ench_hud_2 max 1000
+bossbar set kitpvp:ench_hud_2 value 0
+bossbar add kitpvp:ench_hud_3 {"text":"附魔蓄力","color":"light_purple"}
+bossbar set kitpvp:ench_hud_3 color light_purple
+bossbar set kitpvp:ench_hud_3 style progress
+bossbar set kitpvp:ench_hud_3 max 1000
+bossbar set kitpvp:ench_hud_3 value 0
+bossbar add kitpvp:ench_hud_4 {"text":"附魔蓄力","color":"light_purple"}
+bossbar set kitpvp:ench_hud_4 color light_purple
+bossbar set kitpvp:ench_hud_4 style progress
+bossbar set kitpvp:ench_hud_4 max 1000
+bossbar set kitpvp:ench_hud_4 value 0
+bossbar add kitpvp:ench_hud_5 {"text":"附魔蓄力","color":"light_purple"}
+bossbar set kitpvp:ench_hud_5 color light_purple
+bossbar set kitpvp:ench_hud_5 style progress
+bossbar set kitpvp:ench_hud_5 max 1000
+bossbar set kitpvp:ench_hud_5 value 0
+bossbar add kitpvp:ench_hud_6 {"text":"附魔蓄力","color":"light_purple"}
+bossbar set kitpvp:ench_hud_6 color light_purple
+bossbar set kitpvp:ench_hud_6 style progress
+bossbar set kitpvp:ench_hud_6 max 1000
+bossbar set kitpvp:ench_hud_6 value 0
+bossbar add kitpvp:ench_hud_7 {"text":"附魔蓄力","color":"light_purple"}
+bossbar set kitpvp:ench_hud_7 color light_purple
+bossbar set kitpvp:ench_hud_7 style progress
+bossbar set kitpvp:ench_hud_7 max 1000
+bossbar set kitpvp:ench_hud_7 value 0
+bossbar add kitpvp:ench_hud_8 {"text":"附魔蓄力","color":"light_purple"}
+bossbar set kitpvp:ench_hud_8 color light_purple
+bossbar set kitpvp:ench_hud_8 style progress
+bossbar set kitpvp:ench_hud_8 max 1000
+bossbar set kitpvp:ench_hud_8 value 0
 # 传送门是临时实体：重载时清掉上一局残留在已加载区块里的
 kill @e[tag=kitpvp.tep_a]
 kill @e[tag=kitpvp.tep_b]
@@ -689,3 +729,6 @@ scoreboard objectives add kitpvp.ench_lv dummy "这一次附魔做完后的等�
 scoreboard objectives add kitpvp.ench_period dummy "附魔师这一轮强化总共多少刻（蓄力条用）"
 scoreboard objectives add kitpvp.ench_fill dummy "蓄力条上一次画到第几格"
 scoreboard players set #ench_twenty kitpvp.game 20
+scoreboard players set #ench_thousand kitpvp.game 1000
+scoreboard objectives add kitpvp.ench_slot dummy "附魔师的 bossbar 槽（1..8）"
+scoreboard objectives add kitpvp.ench_pct dummy "附魔师蓄力进度（0..1000，给 bossbar 用）"
