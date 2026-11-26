@@ -18,6 +18,8 @@ item replace entity @s hotbar.1 with minecraft:cooked_beef 24
 
 scoreboard players set @s kitpvp.ench_roll 0
 scoreboard players set @s kitpvp.ench_timer 300
+scoreboard players set @s kitpvp.ench_period 300
+scoreboard players set @s kitpvp.ench_fill -1
 scoreboard players set @s kitpvp.ench_pity 0
 execute as @e[tag=kitpvp.ench_bench] run kill @s
 function kitpvp:skill/enchanter/bar

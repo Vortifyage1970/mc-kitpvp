@@ -686,3 +686,6 @@ scoreboard objectives add kitpvp.ench_roll dummy "附魔师强化了几次（11 
 scoreboard objectives add kitpvp.ench_timer dummy "附魔师下一次强化的倒计时（刻）"
 scoreboard objectives add kitpvp.ench_pity dummy "附魔师连续没出锋利的次数（3 次后保底）"
 scoreboard objectives add kitpvp.ench_lv dummy "这一次附魔做完后的等级（给聊天栏播报用）"
+scoreboard objectives add kitpvp.ench_period dummy "附魔师这一轮强化总共多少刻（蓄力条用）"
+scoreboard objectives add kitpvp.ench_fill dummy "蓄力条上一次画到第几格"
+scoreboard players set #ench_twenty kitpvp.game 20
