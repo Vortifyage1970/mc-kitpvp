@@ -8,9 +8,9 @@ execute if predicate kitpvp:random/1in2 run scoreboard players add #ench_r kitpv
 execute if predicate kitpvp:random/1in2 run scoreboard players add #ench_r kitpvp.game 32
 execute if predicate kitpvp:random/1in2 run scoreboard players add #ench_r kitpvp.game 64
 execute if score @s kitpvp.ench_pity matches 3.. run scoreboard players set #ench_r kitpvp.game 0
-execute if score #ench_r kitpvp.game matches 0..44 run function kitpvp:skill/enchanter/apply_sword_sharpness
-execute if score #ench_r kitpvp.game matches 45..63 run function kitpvp:skill/enchanter/apply_sword_fire_aspect
-execute if score #ench_r kitpvp.game matches 64..101 run function kitpvp:skill/enchanter/apply_sword_knockback
-execute if score #ench_r kitpvp.game matches 102..127 run function kitpvp:skill/enchanter/apply_sword_smite
-execute if score #ench_r kitpvp.game matches 0..44 run scoreboard players set @s kitpvp.ench_pity 0
+execute if data entity @s SelectedItem{id:"minecraft:golden_sword"} if score #ench_r kitpvp.game matches 0..44 run function kitpvp:skill/enchanter/apply_sword_sharpness
+execute if data entity @s SelectedItem{id:"minecraft:golden_sword"} if score #ench_r kitpvp.game matches 45..63 run function kitpvp:skill/enchanter/apply_sword_fire_aspect
+execute if data entity @s SelectedItem{id:"minecraft:golden_sword"} if score #ench_r kitpvp.game matches 64..101 run function kitpvp:skill/enchanter/apply_sword_knockback
+execute if data entity @s SelectedItem{id:"minecraft:golden_sword"} if score #ench_r kitpvp.game matches 102..127 run function kitpvp:skill/enchanter/apply_sword_smite
+execute if data entity @s SelectedItem{id:"minecraft:golden_sword"} if score #ench_r kitpvp.game matches 0..44 run scoreboard players set @s kitpvp.ench_pity 0
 execute unless score #ench_r kitpvp.game matches 0..44 run scoreboard players add @s kitpvp.ench_pity 1
