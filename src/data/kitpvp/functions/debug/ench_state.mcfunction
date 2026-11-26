@@ -1,0 +1,4 @@
+# 附魔师自检：一次性打印所有相关分数与手持物
+execute as @p run tellraw @a [{"text":"[附魔师] kit=","color":"gray"},{"score":{"name":"@p","objective":"kitpvp.kit"}},{"text":" slot=","color":"gray"},{"score":{"name":"@p","objective":"kitpvp.ench_slot"}},{"text":" sw=","color":"gray"},{"score":{"name":"@p","objective":"kitpvp.ench_sw"}},{"text":" ap=","color":"gray"},{"score":{"name":"@p","objective":"kitpvp.ench_ap"}},{"text":" 剑等级=","color":"gray"},{"score":{"name":"@p","objective":"kitpvp.ench_sword"}},{"text":" 甲等级=","color":"gray"},{"score":{"name":"@p","objective":"kitpvp.ench_armor"}},{"text":" 读书=","color":"gray"},{"score":{"name":"@p","objective":"kitpvp.ench_book_t"}}]
+execute as @p run tellraw @a [{"text":"[附魔师] 主手=","color":"gray"},{"nbt":"SelectedItem.id","entity":"@p"}]
+execute as @p run tellraw @a [{"text":"[附魔师] 身上状态：","color":"gray"},{"nbt":"ActiveEffects","entity":"@p"}]
