@@ -1,4 +1,5 @@
 tellraw @s [{"text":"═══ 经典（表） ═══","color":"green","bold":true}]
+tellraw @s [{"text":"[附魔师] ","color":"light_purple","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/info/enchanter"},"hoverEvent":{"action":"show_text","contents":[{"text":"越打越强的附魔战士","color":"gray"}]}}]
 tellraw @s [{"text":"[战士] ","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/info/warrior"},"hoverEvent":{"action":"show_text","contents":[{"text":"铁甲冲锋的正面战士","color":"gray"}]}},{"text":"铁甲冲锋的正面战士","color":"dark_gray"}]
 tellraw @s [{"text":"[弓箭手] ","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/info/archer"},"hoverEvent":{"action":"show_text","contents":[{"text":"远程消耗的射手","color":"gray"}]}},{"text":"远程消耗的射手","color":"dark_gray"}]
 tellraw @s [{"text":"[坦克] ","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function kitpvp:kit/info/tank"},"hoverEvent":{"action":"show_text","contents":[{"text":"高护甲低速的肉盾","color":"gray"}]}},{"text":"高护甲低速的肉盾","color":"dark_gray"}]

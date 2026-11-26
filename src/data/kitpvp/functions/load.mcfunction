@@ -518,3 +518,6 @@ scoreboard objectives add kitpvp.bw_life dummy "飞龙宝宝的火球已经飞�
 scoreboard objectives add kitpvp.bw_owner dummy "火球记住的召唤者编号（用来不打自己人）"
 scoreboard objectives add kitpvp.cap_cd dummy "队长的举盾周期（120 刻一轮：120..60 举盾）"
 scoreboard objectives add kitpvp.im_cd dummy "铁人丢炸弹的冷却（100 刻 = 5 秒）"
+scoreboard objectives add kitpvp.ench_roll dummy "附魔师强化了几次（11 次封顶）"
+scoreboard objectives add kitpvp.ench_timer dummy "附魔师下一次强化的倒计时（刻）"
+scoreboard objectives add kitpvp.ench_pity dummy "附魔师连续没出锋利的次数（3 次后保底）"
