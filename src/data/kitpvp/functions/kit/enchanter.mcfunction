@@ -26,6 +26,7 @@ scoreboard players set @s kitpvp.ench_book_t 0
 scoreboard players set @s kitpvp.ench_book_cd 0
 scoreboard players set @s kitpvp.ench_pity 0
 scoreboard players set @s kitpvp.ench_hint 0
+scoreboard players set @s kitpvp.ench_fx 0
 tag @s remove kitpvp.ench_wait
 execute as @e[tag=kitpvp.ench_bench] run kill @s
 function kitpvp:skill/enchanter/assign_slot

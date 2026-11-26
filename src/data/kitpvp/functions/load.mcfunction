@@ -787,6 +787,7 @@ scoreboard objectives add kitpvp.ench_armor dummy "护甲附魔等级（0..11）
 scoreboard objectives add kitpvp.ench_book_t dummy "手持《神学大全》读了几刻（300 刻给 1 点）"
 scoreboard objectives add kitpvp.ench_book_cd dummy "翻书声的间隔计时"
 scoreboard objectives add kitpvp.ench_hint dummy "附魔师 剑不在主手 的提示冷却（防止每刻刷屏）"
+scoreboard objectives add kitpvp.ench_fx dummy "《神学大全》音效循环的计时"
 scoreboard objectives add kitpvp.ench_sw_fill dummy "剑附魔的小数进度（读书每刻 +1，满 300 换 1 点）"
 scoreboard objectives add kitpvp.ench_ap_fill dummy "护甲附魔的小数进度（读书每刻 +1，满 300 换 1 点）"
 scoreboard objectives add kitpvp.ench_pity dummy "附魔师连续没出锋利的次数（3 次后保底）"
