@@ -660,7 +660,7 @@ tag @e[name="海龟蛋"] add kitpvp.displayitem
 
 execute as @e[tag=kitpvp.displayitem] run data merge entity @s {Invulnerable:1b}
 
-say Kitpvp loaded
+say Kitpvp loaded · v1.1.0
 function kitpvp:music/winning/load
 
 # ===== 本分支新增的计分项（生灵 / 附魔师）=====
