@@ -248,3 +248,5 @@ scoreboard players operation @s kitpvp.trap_worm_pick_last = @s kitpvp.trap_worm
 scoreboard players operation @s kitpvp.trap_poison_pick_last = @s kitpvp.trap_poison_pick_used
 scoreboard players operation @s kitpvp.trap_boom_pick_last = @s kitpvp.trap_boom_pick_used
 scoreboard players operation @s kitpvp.trap_float_last = @s kitpvp.trap_jump_used
+# 附魔师魂石：清计时（装备由 enchanter_expire 按标记还原）
+scoreboard players set @s kitpvp.stone_left -1

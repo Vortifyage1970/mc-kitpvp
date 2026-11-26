@@ -163,3 +163,8 @@ schedule function kitpvp:game/wolf_sweep 20t replace
 
 tellraw @a [{"text":"[系统] ","color":"gray","bold":true},{"text":"本局已重置，回到主大厅","color":"gray"}]
 execute as @a run function kitpvp:music/winning/stop
+
+# 附魔师魂石：清掉没回收的临时盔甲架，计时归零
+kill @e[tag=kitpvp.stone_bak]
+kill @e[tag=kitpvp.stone_work]
+scoreboard players set @a kitpvp.stone_left -1

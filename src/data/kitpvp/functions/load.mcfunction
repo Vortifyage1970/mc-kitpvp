@@ -679,7 +679,10 @@ scoreboard objectives add kitpvp.trap_float_pick_last dummy "陷阱师：漂浮�
 scoreboard objectives add kitpvp.trap_worm_pick_last dummy "陷阱师：蠹虫陷阱 捡起快照"
 scoreboard objectives add kitpvp.trap_poison_pick_last dummy "陷阱师：猛毒陷阱 捡起快照"
 scoreboard objectives add kitpvp.trap_boom_pick_last dummy "陷阱师：爆炸陷阱 捡起快照"
-scoreboard players set #soul_count kitpvp.game 18
+scoreboard players set #soul_count kitpvp.game 19
+scoreboard objectives add kitpvp.soul_enchanter_used minecraft.used:minecraft.cow_spawn_egg
+scoreboard objectives add kitpvp.soul_enchanter_last dummy "附魔师魂石快照"
+scoreboard objectives add kitpvp.stone_left dummy "附魔师魂石：五级附魔还剩几刻（400 = 20 秒）"
 scoreboard players set #cz20 kitpvp.game 20
 scoreboard players set #cz10 kitpvp.game 10
 scoreboard players set #ghost_tid kitpvp.game 0
@@ -770,7 +773,6 @@ scoreboard objectives add kitpvp.hive_hits dummy "蜂巢挨了几下（1→1个�
 scoreboard players set #six kitpvp.game 6
 scoreboard objectives add kitpvp.sat_phase dummy "土星轨道蠹虫的相位（0..7，每 4 刻 +1）"
 scoreboard players set #sat_mod kitpvp.game 8
-scoreboard players set #soul_count kitpvp.game 16
 scoreboard objectives add kitpvp.dl_summoner dummy "这一只深池飞行兵是谁召的（1 = 召唤者本人，不索敌）"
 scoreboard objectives add kitpvp.mh_summoner dummy "这一只井盖是谁埋的（1 = 召唤者本人，不触发）"
 scoreboard objectives add kitpvp.cop_summoner dummy "这一只交警是谁召的（1 = 召唤者本人，闪现不截他）"
