@@ -31,11 +31,11 @@ execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=5,kitpvp.ench_roll=11}] run
 execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=6,kitpvp.ench_roll=11}] run bossbar set kitpvp:ench_hud_6 color yellow
 execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=7,kitpvp.ench_roll=11}] run bossbar set kitpvp:ench_hud_7 color yellow
 execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=8,kitpvp.ench_roll=11}] run bossbar set kitpvp:ench_hud_8 color yellow
-execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=1}] unless score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_1 color pink
-execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=2}] unless score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_2 color pink
-execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=3}] unless score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_3 color pink
-execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=4}] unless score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_4 color pink
-execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=5}] unless score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_5 color pink
-execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=6}] unless score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_6 color pink
-execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=7}] unless score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_7 color pink
-execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=8}] unless score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_8 color pink
+execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=1}] unless score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_1 color blue
+execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=2}] unless score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_2 color blue
+execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=3}] unless score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_3 color blue
+execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=4}] unless score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_4 color blue
+execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=5}] unless score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_5 color blue
+execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=6}] unless score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_6 color blue
+execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=7}] unless score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_7 color blue
+execute as @a[scores={kitpvp.kit=98,kitpvp.ench_slot=8}] unless score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_8 color blue
