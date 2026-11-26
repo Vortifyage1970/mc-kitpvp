@@ -1,3 +1,0 @@
-playsound minecraft:block.note_block.bass master @s ^0 ^ ^ 0.8 0.890899 1
-playsound minecraft:block.note_block.guitar master @s ^0 ^ ^ 0.5 0.890899 1
-playsound minecraft:block.note_block.snare master @s ^0 ^ ^ 1.0 1.0 1

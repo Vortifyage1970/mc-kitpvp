@@ -25,3 +25,5 @@ balance/
 
 # ai-content 里的原始导出数据：文档入库，以下划线开头的 dump 不入库
 ai-content/_*
+# 音乐数据包由 tools/midi2nbs.py 生成，不入库
+ai-content/mvpmusic-src/

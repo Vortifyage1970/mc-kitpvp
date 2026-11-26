@@ -1,2 +1,0 @@
-playsound minecraft:block.note_block.basedrum master @s ^0 ^ ^ 1.0 1.0 1
-playsound minecraft:block.note_block.bass master @s ^0 ^ ^ 0.8 1.0 1
