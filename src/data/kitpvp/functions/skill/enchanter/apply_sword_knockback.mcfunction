@@ -1,7 +1,7 @@
 # 剑 上的 knockback +1 级：借一个临时盔甲架做 NBT 手术
 kill @e[tag=kitpvp.ench_bench]
 execute at @s run summon minecraft:armor_stand ~ ~ ~ {Tags:["kitpvp.ench_bench"],Invisible:1b,NoGravity:1b,Invulnerable:1b}
-item replace entity @e[tag=kitpvp.ench_bench,distance=..2,limit=1,sort=nearest] armor.head from entity @s hotbar.0
+item replace entity @e[tag=kitpvp.ench_bench,distance=..2,limit=1,sort=nearest] armor.head from entity @s weapon.mainhand
 execute unless data entity @e[tag=kitpvp.ench_bench,distance=..2,limit=1,sort=nearest] ArmorItems[3].tag run data modify entity @e[tag=kitpvp.ench_bench,distance=..2,limit=1,sort=nearest] ArmorItems[3].tag set value {}
 execute unless data entity @e[tag=kitpvp.ench_bench,distance=..2,limit=1,sort=nearest] ArmorItems[3].tag.Enchantments run data modify entity @e[tag=kitpvp.ench_bench,distance=..2,limit=1,sort=nearest] ArmorItems[3].tag.Enchantments set value []
 execute unless data entity @e[tag=kitpvp.ench_bench,distance=..2,limit=1,sort=nearest] ArmorItems[3].tag.Enchantments[{id:"minecraft:knockback"}] run data modify entity @e[tag=kitpvp.ench_bench,distance=..2,limit=1,sort=nearest] ArmorItems[3].tag.Enchantments append value {id:"minecraft:knockback",lvl:0s}
@@ -22,7 +22,7 @@ execute if score #ench_lv kitpvp.game matches 12 run data modify entity @e[tag=k
 execute if score #ench_lv kitpvp.game matches 12.. run data modify entity @e[tag=kitpvp.ench_bench,distance=..2,limit=1,sort=nearest] ArmorItems[3].tag.Enchantments[{id:"minecraft:knockback"}].lvl set value 12s
 scoreboard players operation @s kitpvp.ench_lv = #ench_lv kitpvp.game
 tellraw @s [{"text":"\n[附魔] ","color":"light_purple"},{"text":"剑 · 击退 ","color":"gray"},{"text":"+1","color":"green"},{"text":" → ","color":"dark_gray"},{"score":{"name":"@s","objective":"kitpvp.ench_lv"}},{"text":" 级","color":"white"}]
-item replace entity @s hotbar.0 from entity @e[tag=kitpvp.ench_bench,distance=..2,limit=1,sort=nearest] armor.head
+item replace entity @s weapon.mainhand from entity @e[tag=kitpvp.ench_bench,distance=..2,limit=1,sort=nearest] armor.head
 kill @e[tag=kitpvp.ench_bench]
 playsound minecraft:block.enchantment_table.use master @s ~ ~ ~ 0.35 1.8
 particle minecraft:enchant ~ ~1 ~ 0.3 0.6 0.3 0.1 10
