@@ -8,5 +8,4 @@ execute if score @s kitpvp.ench_roll matches 10 run function kitpvp:skill/enchan
 execute if score @s kitpvp.ench_roll matches 11 run function kitpvp:skill/enchanter/roll_chest_feet
 scoreboard players set @s kitpvp.ench_timer 930
 execute if score @s kitpvp.ench_roll matches 11.. run scoreboard players set @s kitpvp.ench_timer 1000000
-execute if score @s kitpvp.ench_roll matches 11.. run title @s actionbar {"text":"附魔强化到此为止","color":"light_purple"}
-execute unless score @s kitpvp.ench_roll matches 11.. run title @s actionbar [{"text":"强化 ","color":"light_purple"},{"score":{"name":"@s","objective":"kitpvp.ench_roll"}},{"text":" / 11","color":"gray"}]
+function kitpvp:skill/enchanter/bar

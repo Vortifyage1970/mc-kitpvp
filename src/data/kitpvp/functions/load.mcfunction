@@ -521,3 +521,4 @@ scoreboard objectives add kitpvp.im_cd dummy "铁人丢炸弹的冷却（100 刻
 scoreboard objectives add kitpvp.ench_roll dummy "附魔师强化了几次（11 次封顶）"
 scoreboard objectives add kitpvp.ench_timer dummy "附魔师下一次强化的倒计时（刻）"
 scoreboard objectives add kitpvp.ench_pity dummy "附魔师连续没出锋利的次数（3 次后保底）"
+scoreboard objectives add kitpvp.ench_lv dummy "这一次附魔做完后的等级（给聊天栏播报用）"

@@ -18,6 +18,8 @@ execute if score #ench_lv kitpvp.game matches 10 run data modify entity @e[tag=k
 execute if score #ench_lv kitpvp.game matches 11 run data modify entity @e[tag=kitpvp.ench_bench,distance=..2,limit=1,sort=nearest] Item.tag.Enchantments[{id:"minecraft:blast_protection"}].lvl set value 11s
 execute if score #ench_lv kitpvp.game matches 12 run data modify entity @e[tag=kitpvp.ench_bench,distance=..2,limit=1,sort=nearest] Item.tag.Enchantments[{id:"minecraft:blast_protection"}].lvl set value 12s
 execute if score #ench_lv kitpvp.game matches 12.. run data modify entity @e[tag=kitpvp.ench_bench,distance=..2,limit=1,sort=nearest] Item.tag.Enchantments[{id:"minecraft:blast_protection"}].lvl set value 12s
+scoreboard players operation @s kitpvp.ench_lv = #ench_lv kitpvp.game
+tellraw @s [{"text":"[附魔] ","color":"light_purple"},{"text":"头盔 · 爆炸保护 ","color":"gray"},{"text":"+1","color":"green"},{"text":" → ","color":"dark_gray"},{"score":{"name":"@s","objective":"kitpvp.ench_lv"}},{"text":" 级","color":"white"}]
 item replace entity @s armor.head from entity @e[tag=kitpvp.ench_bench,distance=..2,limit=1,sort=nearest] contents
 kill @e[tag=kitpvp.ench_bench]
 playsound minecraft:block.enchantment_table.use master @s ~ ~ ~ 0.35 1.8

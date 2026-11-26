@@ -20,6 +20,7 @@ scoreboard players set @s kitpvp.ench_roll 0
 scoreboard players set @s kitpvp.ench_timer 300
 scoreboard players set @s kitpvp.ench_pity 0
 execute as @e[tag=kitpvp.ench_bench] run kill @s
+function kitpvp:skill/enchanter/bar
 
 tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"附魔师","color":"light_purple","bold":true}]
 tellraw @s [{"text":"每 46.5 秒剑和护甲各 +1 级附魔，15 秒后开始，8 分钟封顶","color":"dark_gray"}]
