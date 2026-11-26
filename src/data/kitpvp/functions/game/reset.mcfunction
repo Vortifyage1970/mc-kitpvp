@@ -30,6 +30,8 @@ kill @e[type=minecraft:tadpole,tag=!kitpvp.displayitem]
 kill @e[type=minecraft:turtle,tag=!kitpvp.displayitem]
 kill @e[type=minecraft:goat,tag=!kitpvp.displayitem]
 kill @e[type=minecraft:salmon,tag=!kitpvp.displayitem]
+# 溺尸：僵尸浸水转化会丢 tag（见 tick/kits_e），结算按类型兜底清
+kill @e[type=minecraft:drowned,tag=!kitpvp.displayitem]
 
 # 结算状态复位：与实体清理无关，放在回大厅之前即可
 scoreboard players set #mars_active kitpvp.game 0

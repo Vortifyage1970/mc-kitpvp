@@ -33,9 +33,10 @@ execute as @e[tag=kitpvp.bomb_rider,scores={kitpvp.bomb_life=1..}] run scoreboar
 execute as @e[tag=kitpvp.bomb_rider,scores={kitpvp.bomb_life=..0}] run kill @s
 
 # 渔夫：无戟计时器，背包无戟持续 160 刻（8 秒）才允许补发，防"投出即补"刷两把
-# 寻戟载体：按 tag 全局清（它没有玩法作用，used 统计才是触发源）；
-# 原来 name + 16 格会漏掉游走的 / 主人死后没人清的，海洋图里最容易看到残留
-kill @e[tag=kitpvp.fisher_token]
+# 溺尸：**按类型清**，不要按 tag。
+# 僵尸泡在水里转成溺尸时会**新建实体、tag 与 CustomName 全部丢失**（海洋图全图是水，必有漏网的），
+# 靠 tag 清场抓不到它们；地球职业的溺尸是 earth_minion（乘客），排除掉就不会误杀。
+kill @e[type=minecraft:drowned,tag=!kitpvp.earth_minion,tag=!kitpvp.displayitem]
 scoreboard players add @a[scores={kitpvp.kit=7,kitpvp.alive=1}] kitpvp.fisher_no_tri 1
 execute as @a[scores={kitpvp.kit=7,kitpvp.alive=1}] if data entity @s Inventory[{tag:{KitFisherTrident:1b}}] run scoreboard players set @s kitpvp.fisher_no_tri 0
 
