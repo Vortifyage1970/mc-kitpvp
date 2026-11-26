@@ -1,4 +1,6 @@
 # 一次强化事件：剑每轮都涨；护甲前 7 轮四件全涨，后 4 轮两件轮转
+# 强化瞬间给玩家 5 秒发光：对手能看见这一发，自己也确认打出来了
+effect give @s minecraft:glowing 5 0 true
 scoreboard players add @s kitpvp.ench_roll 1
 function kitpvp:skill/enchanter/roll_sword
 execute if score @s kitpvp.ench_roll matches ..7 run function kitpvp:skill/enchanter/roll_all_armor
