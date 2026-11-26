@@ -122,6 +122,8 @@ scoreboard objectives add kitpvp.soul_timer dummy "魂石倒计时（marker / �
 scoreboard objectives add kitpvp.soul_next dummy "魂石间隔（marker / 实体：到 0 触发下一步）"
 # 大厅起跳按钮的 advancement：加载失败过一次（blocks 写成了标签），万一有谁被旧版本授过奖就永远不再触发 —— 每次 reload 清一遍
 advancement revoke @a only kitpvp:player/lobby_launch
+advancement revoke @a only kitpvp:player/ench_hit
+advancement revoke @a only kitpvp:player/ench_hurt
 
 # 新魂石的 last 快照：/reload 时把在线玩家的快照对齐到当前 used，否则 `if score used > last` 因为 last 不存在而永远不成立
 scoreboard players operation @a kitpvp.soul_tamer_last = @a kitpvp.soul_tamer_used
@@ -521,54 +523,102 @@ bossbar set kitpvp:burger_hud_8 color purple
 bossbar set kitpvp:burger_hud_8 style progress
 bossbar set kitpvp:burger_hud_8 max 1000
 bossbar set kitpvp:burger_hud_8 value 0
-bossbar add kitpvp:ench_hud_1 {"text":"附魔等级：0","color":"light_purple"}
-bossbar set kitpvp:ench_hud_1 name {"text":"附魔等级：0","color":"light_purple"}
-bossbar set kitpvp:ench_hud_1 color blue
-bossbar set kitpvp:ench_hud_1 style progress
-bossbar set kitpvp:ench_hud_1 max 1000
-bossbar set kitpvp:ench_hud_1 value 0
-bossbar add kitpvp:ench_hud_2 {"text":"附魔等级：0","color":"light_purple"}
-bossbar set kitpvp:ench_hud_2 name {"text":"附魔等级：0","color":"light_purple"}
-bossbar set kitpvp:ench_hud_2 color blue
-bossbar set kitpvp:ench_hud_2 style progress
-bossbar set kitpvp:ench_hud_2 max 1000
-bossbar set kitpvp:ench_hud_2 value 0
-bossbar add kitpvp:ench_hud_3 {"text":"附魔等级：0","color":"light_purple"}
-bossbar set kitpvp:ench_hud_3 name {"text":"附魔等级：0","color":"light_purple"}
-bossbar set kitpvp:ench_hud_3 color blue
-bossbar set kitpvp:ench_hud_3 style progress
-bossbar set kitpvp:ench_hud_3 max 1000
-bossbar set kitpvp:ench_hud_3 value 0
-bossbar add kitpvp:ench_hud_4 {"text":"附魔等级：0","color":"light_purple"}
-bossbar set kitpvp:ench_hud_4 name {"text":"附魔等级：0","color":"light_purple"}
-bossbar set kitpvp:ench_hud_4 color blue
-bossbar set kitpvp:ench_hud_4 style progress
-bossbar set kitpvp:ench_hud_4 max 1000
-bossbar set kitpvp:ench_hud_4 value 0
-bossbar add kitpvp:ench_hud_5 {"text":"附魔等级：0","color":"light_purple"}
-bossbar set kitpvp:ench_hud_5 name {"text":"附魔等级：0","color":"light_purple"}
-bossbar set kitpvp:ench_hud_5 color blue
-bossbar set kitpvp:ench_hud_5 style progress
-bossbar set kitpvp:ench_hud_5 max 1000
-bossbar set kitpvp:ench_hud_5 value 0
-bossbar add kitpvp:ench_hud_6 {"text":"附魔等级：0","color":"light_purple"}
-bossbar set kitpvp:ench_hud_6 name {"text":"附魔等级：0","color":"light_purple"}
-bossbar set kitpvp:ench_hud_6 color blue
-bossbar set kitpvp:ench_hud_6 style progress
-bossbar set kitpvp:ench_hud_6 max 1000
-bossbar set kitpvp:ench_hud_6 value 0
-bossbar add kitpvp:ench_hud_7 {"text":"附魔等级：0","color":"light_purple"}
-bossbar set kitpvp:ench_hud_7 name {"text":"附魔等级：0","color":"light_purple"}
-bossbar set kitpvp:ench_hud_7 color blue
-bossbar set kitpvp:ench_hud_7 style progress
-bossbar set kitpvp:ench_hud_7 max 1000
-bossbar set kitpvp:ench_hud_7 value 0
-bossbar add kitpvp:ench_hud_8 {"text":"附魔等级：0","color":"light_purple"}
-bossbar set kitpvp:ench_hud_8 name {"text":"附魔等级：0","color":"light_purple"}
-bossbar set kitpvp:ench_hud_8 color blue
-bossbar set kitpvp:ench_hud_8 style progress
-bossbar set kitpvp:ench_hud_8 max 1000
-bossbar set kitpvp:ench_hud_8 value 0
+bossbar add kitpvp:ench_s1 {"text":"剑附魔 Lv 0","color":"purple"}
+bossbar set kitpvp:ench_s1 name {"text":"剑附魔 Lv 0","color":"purple"}
+bossbar set kitpvp:ench_s1 color purple
+bossbar set kitpvp:ench_s1 style progress
+bossbar set kitpvp:ench_s1 max 3
+bossbar set kitpvp:ench_s1 value 0
+bossbar add kitpvp:ench_s2 {"text":"剑附魔 Lv 0","color":"purple"}
+bossbar set kitpvp:ench_s2 name {"text":"剑附魔 Lv 0","color":"purple"}
+bossbar set kitpvp:ench_s2 color purple
+bossbar set kitpvp:ench_s2 style progress
+bossbar set kitpvp:ench_s2 max 3
+bossbar set kitpvp:ench_s2 value 0
+bossbar add kitpvp:ench_s3 {"text":"剑附魔 Lv 0","color":"purple"}
+bossbar set kitpvp:ench_s3 name {"text":"剑附魔 Lv 0","color":"purple"}
+bossbar set kitpvp:ench_s3 color purple
+bossbar set kitpvp:ench_s3 style progress
+bossbar set kitpvp:ench_s3 max 3
+bossbar set kitpvp:ench_s3 value 0
+bossbar add kitpvp:ench_s4 {"text":"剑附魔 Lv 0","color":"purple"}
+bossbar set kitpvp:ench_s4 name {"text":"剑附魔 Lv 0","color":"purple"}
+bossbar set kitpvp:ench_s4 color purple
+bossbar set kitpvp:ench_s4 style progress
+bossbar set kitpvp:ench_s4 max 3
+bossbar set kitpvp:ench_s4 value 0
+bossbar add kitpvp:ench_s5 {"text":"剑附魔 Lv 0","color":"purple"}
+bossbar set kitpvp:ench_s5 name {"text":"剑附魔 Lv 0","color":"purple"}
+bossbar set kitpvp:ench_s5 color purple
+bossbar set kitpvp:ench_s5 style progress
+bossbar set kitpvp:ench_s5 max 3
+bossbar set kitpvp:ench_s5 value 0
+bossbar add kitpvp:ench_s6 {"text":"剑附魔 Lv 0","color":"purple"}
+bossbar set kitpvp:ench_s6 name {"text":"剑附魔 Lv 0","color":"purple"}
+bossbar set kitpvp:ench_s6 color purple
+bossbar set kitpvp:ench_s6 style progress
+bossbar set kitpvp:ench_s6 max 3
+bossbar set kitpvp:ench_s6 value 0
+bossbar add kitpvp:ench_s7 {"text":"剑附魔 Lv 0","color":"purple"}
+bossbar set kitpvp:ench_s7 name {"text":"剑附魔 Lv 0","color":"purple"}
+bossbar set kitpvp:ench_s7 color purple
+bossbar set kitpvp:ench_s7 style progress
+bossbar set kitpvp:ench_s7 max 3
+bossbar set kitpvp:ench_s7 value 0
+bossbar add kitpvp:ench_s8 {"text":"剑附魔 Lv 0","color":"purple"}
+bossbar set kitpvp:ench_s8 name {"text":"剑附魔 Lv 0","color":"purple"}
+bossbar set kitpvp:ench_s8 color purple
+bossbar set kitpvp:ench_s8 style progress
+bossbar set kitpvp:ench_s8 max 3
+bossbar set kitpvp:ench_s8 value 0
+bossbar add kitpvp:ench_a1 {"text":"护甲附魔 Lv 0","color":"blue"}
+bossbar set kitpvp:ench_a1 name {"text":"护甲附魔 Lv 0","color":"blue"}
+bossbar set kitpvp:ench_a1 color blue
+bossbar set kitpvp:ench_a1 style progress
+bossbar set kitpvp:ench_a1 max 3
+bossbar set kitpvp:ench_a1 value 0
+bossbar add kitpvp:ench_a2 {"text":"护甲附魔 Lv 0","color":"blue"}
+bossbar set kitpvp:ench_a2 name {"text":"护甲附魔 Lv 0","color":"blue"}
+bossbar set kitpvp:ench_a2 color blue
+bossbar set kitpvp:ench_a2 style progress
+bossbar set kitpvp:ench_a2 max 3
+bossbar set kitpvp:ench_a2 value 0
+bossbar add kitpvp:ench_a3 {"text":"护甲附魔 Lv 0","color":"blue"}
+bossbar set kitpvp:ench_a3 name {"text":"护甲附魔 Lv 0","color":"blue"}
+bossbar set kitpvp:ench_a3 color blue
+bossbar set kitpvp:ench_a3 style progress
+bossbar set kitpvp:ench_a3 max 3
+bossbar set kitpvp:ench_a3 value 0
+bossbar add kitpvp:ench_a4 {"text":"护甲附魔 Lv 0","color":"blue"}
+bossbar set kitpvp:ench_a4 name {"text":"护甲附魔 Lv 0","color":"blue"}
+bossbar set kitpvp:ench_a4 color blue
+bossbar set kitpvp:ench_a4 style progress
+bossbar set kitpvp:ench_a4 max 3
+bossbar set kitpvp:ench_a4 value 0
+bossbar add kitpvp:ench_a5 {"text":"护甲附魔 Lv 0","color":"blue"}
+bossbar set kitpvp:ench_a5 name {"text":"护甲附魔 Lv 0","color":"blue"}
+bossbar set kitpvp:ench_a5 color blue
+bossbar set kitpvp:ench_a5 style progress
+bossbar set kitpvp:ench_a5 max 3
+bossbar set kitpvp:ench_a5 value 0
+bossbar add kitpvp:ench_a6 {"text":"护甲附魔 Lv 0","color":"blue"}
+bossbar set kitpvp:ench_a6 name {"text":"护甲附魔 Lv 0","color":"blue"}
+bossbar set kitpvp:ench_a6 color blue
+bossbar set kitpvp:ench_a6 style progress
+bossbar set kitpvp:ench_a6 max 3
+bossbar set kitpvp:ench_a6 value 0
+bossbar add kitpvp:ench_a7 {"text":"护甲附魔 Lv 0","color":"blue"}
+bossbar set kitpvp:ench_a7 name {"text":"护甲附魔 Lv 0","color":"blue"}
+bossbar set kitpvp:ench_a7 color blue
+bossbar set kitpvp:ench_a7 style progress
+bossbar set kitpvp:ench_a7 max 3
+bossbar set kitpvp:ench_a7 value 0
+bossbar add kitpvp:ench_a8 {"text":"护甲附魔 Lv 0","color":"blue"}
+bossbar set kitpvp:ench_a8 name {"text":"护甲附魔 Lv 0","color":"blue"}
+bossbar set kitpvp:ench_a8 color blue
+bossbar set kitpvp:ench_a8 style progress
+bossbar set kitpvp:ench_a8 max 3
+bossbar set kitpvp:ench_a8 value 0
 # 传送门是临时实体：重载时清掉上一局残留在已加载区块里的
 kill @e[tag=kitpvp.tep_a]
 kill @e[tag=kitpvp.tep_b]
@@ -730,16 +780,16 @@ scoreboard objectives add kitpvp.bw_life dummy "飞龙宝宝的火球已经飞�
 scoreboard objectives add kitpvp.bw_owner dummy "火球记住的召唤者编号（用来不打自己人）"
 scoreboard objectives add kitpvp.cap_cd dummy "队长的举盾周期（120 刻一轮：120..60 举盾）"
 scoreboard objectives add kitpvp.im_cd dummy "铁人丢炸弹的冷却（100 刻 = 5 秒）"
-scoreboard objectives add kitpvp.ench_roll dummy "附魔师强化了几次（11 次封顶）"
-scoreboard objectives add kitpvp.ench_timer dummy "附魔师下一次强化的倒计时（刻）"
+scoreboard objectives add kitpvp.ench_sw dummy "剑附魔的蓄力（打中玩家 +1，满 3 升 1 级）"
+scoreboard objectives add kitpvp.ench_ap dummy "护甲附魔的蓄力（被玩家打中 +1，满 3 升 1 级）"
+scoreboard objectives add kitpvp.ench_sword dummy "剑附魔等级（0..11）"
+scoreboard objectives add kitpvp.ench_armor dummy "护甲附魔等级（0..11）"
+scoreboard objectives add kitpvp.ench_book_t dummy "手持《神学大全》读了几刻（300 刻给 1 点）"
+scoreboard objectives add kitpvp.ench_book_cd dummy "翻书声的间隔计时"
 scoreboard objectives add kitpvp.ench_pity dummy "附魔师连续没出锋利的次数（3 次后保底）"
 scoreboard objectives add kitpvp.ench_lv dummy "这一次附魔做完后的等级（给聊天栏播报用）"
-scoreboard objectives add kitpvp.ench_period dummy "附魔师这一轮强化总共多少刻（蓄力条用）"
-scoreboard objectives add kitpvp.ench_fill dummy "蓄力条上一次画到第几格"
-scoreboard players set #ench_twenty kitpvp.game 20
-scoreboard players set #ench_thousand kitpvp.game 1000
 scoreboard objectives add kitpvp.ench_slot dummy "附魔师的 bossbar 槽（1..8）"
-scoreboard objectives add kitpvp.ench_pct dummy "附魔师蓄力进度（0..1000，给 bossbar 用）"
+scoreboard players set #ench_need kitpvp.game 3
 scoreboard players set #ench_eight kitpvp.game 8
 scoreboard players set #ench_one kitpvp.game 1
 scoreboard objectives add kitpvp.ench_sslot dummy "剑找到了第几个格子（0 = 还在主手，1..37 = 已临时换进主手）"

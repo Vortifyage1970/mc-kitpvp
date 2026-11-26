@@ -1,4 +1,5 @@
-# 附魔师（kit = 34）：金套 + 金剑，每 46.5 秒给剑和护甲各 +1 级附魔
+# 附魔师（kit = 98）：金套 + 金剑 + 《神学大全》
+# 剑的附魔靠"命中玩家"充能，护甲的靠"被玩家打中"充能；书是慢速双充的替代手段
 function kitpvp:util/clear_player
 scoreboard players set @s kitpvp.kit 98
 tag @s add kitpvp.selected
@@ -15,15 +16,19 @@ item replace entity @s armor.legs with minecraft:golden_leggings{Unbreakable:1b,
 item replace entity @s armor.feet with minecraft:golden_boots{Unbreakable:1b,KitEnch:1b}
 item replace entity @s hotbar.0 with minecraft:golden_sword{Unbreakable:1b,KitEnch:1b}
 item replace entity @s hotbar.1 with minecraft:cooked_beef 24
+item replace entity @s hotbar.2 with minecraft:book{KitBook:1b,display:{Name:'{"text":"《神学大全》","color":"gold","italic":false}',Lore:['{"text":"拿在主手时：移速 -30%、身上发光","color":"gray","italic":false}','{"text":"每 15 秒给剑和护甲各 +1 点蓄力","color":"dark_gray","italic":false}']}}
 
-scoreboard players set @s kitpvp.ench_roll 0
-scoreboard players set @s kitpvp.ench_timer 300
-scoreboard players set @s kitpvp.ench_period 300
-scoreboard players set @s kitpvp.ench_fill -1
+scoreboard players set @s kitpvp.ench_sw 0
+scoreboard players set @s kitpvp.ench_ap 0
+scoreboard players set @s kitpvp.ench_sword 0
+scoreboard players set @s kitpvp.ench_armor 0
+scoreboard players set @s kitpvp.ench_book_t 0
+scoreboard players set @s kitpvp.ench_book_cd 0
 scoreboard players set @s kitpvp.ench_pity 0
 execute as @e[tag=kitpvp.ench_bench] run kill @s
 function kitpvp:skill/enchanter/assign_slot
 function kitpvp:skill/enchanter/name_refresh
 
 tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"附魔师","color":"light_purple","bold":true}]
-tellraw @s [{"text":"每 46.5 秒剑和护甲各 +1 级附魔，15 秒后开始，8 分钟封顶","color":"dark_gray"}]
+tellraw @s [{"text":"打中人 → 剑附魔充能；被打中 → 护甲附魔充能（各 3 点升 1 级）","color":"dark_gray"}]
+tellraw @s [{"text":"《神学大全》拿在主手：移速 -30%、发光，每 15 秒给两条各 +1 点","color":"dark_gray"}]

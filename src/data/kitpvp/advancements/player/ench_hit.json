@@ -1,0 +1,25 @@
+{
+  "criteria": {
+    "hit": {
+      "trigger": "minecraft:player_hurt_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:player"
+        },
+        "damage": {
+          "source_entity": {
+            "type": "minecraft:player"
+          }
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "hit"
+    ]
+  ],
+  "rewards": {
+    "function": "kitpvp:skill/enchanter/ench_hit"
+  }
+}

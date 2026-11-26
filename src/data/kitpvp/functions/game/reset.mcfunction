@@ -90,14 +90,22 @@ bossbar set kitpvp:burger_hud_5 players
 bossbar set kitpvp:burger_hud_6 players
 bossbar set kitpvp:burger_hud_7 players
 bossbar set kitpvp:burger_hud_8 players
-bossbar set kitpvp:ench_hud_1 players
-bossbar set kitpvp:ench_hud_2 players
-bossbar set kitpvp:ench_hud_3 players
-bossbar set kitpvp:ench_hud_4 players
-bossbar set kitpvp:ench_hud_5 players
-bossbar set kitpvp:ench_hud_6 players
-bossbar set kitpvp:ench_hud_7 players
-bossbar set kitpvp:ench_hud_8 players
+bossbar set kitpvp:ench_s1 players
+bossbar set kitpvp:ench_a1 players
+bossbar set kitpvp:ench_s2 players
+bossbar set kitpvp:ench_a2 players
+bossbar set kitpvp:ench_s3 players
+bossbar set kitpvp:ench_a3 players
+bossbar set kitpvp:ench_s4 players
+bossbar set kitpvp:ench_a4 players
+bossbar set kitpvp:ench_s5 players
+bossbar set kitpvp:ench_a5 players
+bossbar set kitpvp:ench_s6 players
+bossbar set kitpvp:ench_a6 players
+bossbar set kitpvp:ench_s7 players
+bossbar set kitpvp:ench_a7 players
+bossbar set kitpvp:ench_s8 players
+bossbar set kitpvp:ench_a8 players
 scoreboard players set @a kitpvp.burger_charge 0
 scoreboard players set @a kitpvp.burger_snd 20
 scoreboard players set @a kitpvp.burger_slot 0

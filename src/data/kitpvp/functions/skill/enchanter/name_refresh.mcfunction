@@ -1,97 +1,192 @@
-# 让 bossbar 的标题显示当前附魔等级：8 槽 × 12 级，只在升级/穿上时调用
-execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_roll matches 0 run bossbar set kitpvp:ench_hud_1 name {"text":"附魔等级：0"}
-execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_roll matches 1 run bossbar set kitpvp:ench_hud_1 name {"text":"附魔等级：1"}
-execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_roll matches 2 run bossbar set kitpvp:ench_hud_1 name {"text":"附魔等级：2"}
-execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_roll matches 3 run bossbar set kitpvp:ench_hud_1 name {"text":"附魔等级：3"}
-execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_roll matches 4 run bossbar set kitpvp:ench_hud_1 name {"text":"附魔等级：4"}
-execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_roll matches 5 run bossbar set kitpvp:ench_hud_1 name {"text":"附魔等级：5"}
-execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_roll matches 6 run bossbar set kitpvp:ench_hud_1 name {"text":"附魔等级：6"}
-execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_roll matches 7 run bossbar set kitpvp:ench_hud_1 name {"text":"附魔等级：7"}
-execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_roll matches 8 run bossbar set kitpvp:ench_hud_1 name {"text":"附魔等级：8"}
-execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_roll matches 9 run bossbar set kitpvp:ench_hud_1 name {"text":"附魔等级：9"}
-execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_roll matches 10 run bossbar set kitpvp:ench_hud_1 name {"text":"附魔等级：10"}
-execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_1 name {"text":"附魔等级：11(MAX)","bold":true}
-execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_roll matches 0 run bossbar set kitpvp:ench_hud_2 name {"text":"附魔等级：0"}
-execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_roll matches 1 run bossbar set kitpvp:ench_hud_2 name {"text":"附魔等级：1"}
-execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_roll matches 2 run bossbar set kitpvp:ench_hud_2 name {"text":"附魔等级：2"}
-execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_roll matches 3 run bossbar set kitpvp:ench_hud_2 name {"text":"附魔等级：3"}
-execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_roll matches 4 run bossbar set kitpvp:ench_hud_2 name {"text":"附魔等级：4"}
-execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_roll matches 5 run bossbar set kitpvp:ench_hud_2 name {"text":"附魔等级：5"}
-execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_roll matches 6 run bossbar set kitpvp:ench_hud_2 name {"text":"附魔等级：6"}
-execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_roll matches 7 run bossbar set kitpvp:ench_hud_2 name {"text":"附魔等级：7"}
-execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_roll matches 8 run bossbar set kitpvp:ench_hud_2 name {"text":"附魔等级：8"}
-execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_roll matches 9 run bossbar set kitpvp:ench_hud_2 name {"text":"附魔等级：9"}
-execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_roll matches 10 run bossbar set kitpvp:ench_hud_2 name {"text":"附魔等级：10"}
-execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_2 name {"text":"附魔等级：11(MAX)","bold":true}
-execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_roll matches 0 run bossbar set kitpvp:ench_hud_3 name {"text":"附魔等级：0"}
-execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_roll matches 1 run bossbar set kitpvp:ench_hud_3 name {"text":"附魔等级：1"}
-execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_roll matches 2 run bossbar set kitpvp:ench_hud_3 name {"text":"附魔等级：2"}
-execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_roll matches 3 run bossbar set kitpvp:ench_hud_3 name {"text":"附魔等级：3"}
-execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_roll matches 4 run bossbar set kitpvp:ench_hud_3 name {"text":"附魔等级：4"}
-execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_roll matches 5 run bossbar set kitpvp:ench_hud_3 name {"text":"附魔等级：5"}
-execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_roll matches 6 run bossbar set kitpvp:ench_hud_3 name {"text":"附魔等级：6"}
-execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_roll matches 7 run bossbar set kitpvp:ench_hud_3 name {"text":"附魔等级：7"}
-execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_roll matches 8 run bossbar set kitpvp:ench_hud_3 name {"text":"附魔等级：8"}
-execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_roll matches 9 run bossbar set kitpvp:ench_hud_3 name {"text":"附魔等级：9"}
-execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_roll matches 10 run bossbar set kitpvp:ench_hud_3 name {"text":"附魔等级：10"}
-execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_3 name {"text":"附魔等级：11(MAX)","bold":true}
-execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_roll matches 0 run bossbar set kitpvp:ench_hud_4 name {"text":"附魔等级：0"}
-execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_roll matches 1 run bossbar set kitpvp:ench_hud_4 name {"text":"附魔等级：1"}
-execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_roll matches 2 run bossbar set kitpvp:ench_hud_4 name {"text":"附魔等级：2"}
-execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_roll matches 3 run bossbar set kitpvp:ench_hud_4 name {"text":"附魔等级：3"}
-execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_roll matches 4 run bossbar set kitpvp:ench_hud_4 name {"text":"附魔等级：4"}
-execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_roll matches 5 run bossbar set kitpvp:ench_hud_4 name {"text":"附魔等级：5"}
-execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_roll matches 6 run bossbar set kitpvp:ench_hud_4 name {"text":"附魔等级：6"}
-execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_roll matches 7 run bossbar set kitpvp:ench_hud_4 name {"text":"附魔等级：7"}
-execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_roll matches 8 run bossbar set kitpvp:ench_hud_4 name {"text":"附魔等级：8"}
-execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_roll matches 9 run bossbar set kitpvp:ench_hud_4 name {"text":"附魔等级：9"}
-execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_roll matches 10 run bossbar set kitpvp:ench_hud_4 name {"text":"附魔等级：10"}
-execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_4 name {"text":"附魔等级：11(MAX)","bold":true}
-execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_roll matches 0 run bossbar set kitpvp:ench_hud_5 name {"text":"附魔等级：0"}
-execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_roll matches 1 run bossbar set kitpvp:ench_hud_5 name {"text":"附魔等级：1"}
-execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_roll matches 2 run bossbar set kitpvp:ench_hud_5 name {"text":"附魔等级：2"}
-execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_roll matches 3 run bossbar set kitpvp:ench_hud_5 name {"text":"附魔等级：3"}
-execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_roll matches 4 run bossbar set kitpvp:ench_hud_5 name {"text":"附魔等级：4"}
-execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_roll matches 5 run bossbar set kitpvp:ench_hud_5 name {"text":"附魔等级：5"}
-execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_roll matches 6 run bossbar set kitpvp:ench_hud_5 name {"text":"附魔等级：6"}
-execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_roll matches 7 run bossbar set kitpvp:ench_hud_5 name {"text":"附魔等级：7"}
-execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_roll matches 8 run bossbar set kitpvp:ench_hud_5 name {"text":"附魔等级：8"}
-execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_roll matches 9 run bossbar set kitpvp:ench_hud_5 name {"text":"附魔等级：9"}
-execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_roll matches 10 run bossbar set kitpvp:ench_hud_5 name {"text":"附魔等级：10"}
-execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_5 name {"text":"附魔等级：11(MAX)","bold":true}
-execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_roll matches 0 run bossbar set kitpvp:ench_hud_6 name {"text":"附魔等级：0"}
-execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_roll matches 1 run bossbar set kitpvp:ench_hud_6 name {"text":"附魔等级：1"}
-execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_roll matches 2 run bossbar set kitpvp:ench_hud_6 name {"text":"附魔等级：2"}
-execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_roll matches 3 run bossbar set kitpvp:ench_hud_6 name {"text":"附魔等级：3"}
-execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_roll matches 4 run bossbar set kitpvp:ench_hud_6 name {"text":"附魔等级：4"}
-execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_roll matches 5 run bossbar set kitpvp:ench_hud_6 name {"text":"附魔等级：5"}
-execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_roll matches 6 run bossbar set kitpvp:ench_hud_6 name {"text":"附魔等级：6"}
-execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_roll matches 7 run bossbar set kitpvp:ench_hud_6 name {"text":"附魔等级：7"}
-execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_roll matches 8 run bossbar set kitpvp:ench_hud_6 name {"text":"附魔等级：8"}
-execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_roll matches 9 run bossbar set kitpvp:ench_hud_6 name {"text":"附魔等级：9"}
-execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_roll matches 10 run bossbar set kitpvp:ench_hud_6 name {"text":"附魔等级：10"}
-execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_6 name {"text":"附魔等级：11(MAX)","bold":true}
-execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_roll matches 0 run bossbar set kitpvp:ench_hud_7 name {"text":"附魔等级：0"}
-execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_roll matches 1 run bossbar set kitpvp:ench_hud_7 name {"text":"附魔等级：1"}
-execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_roll matches 2 run bossbar set kitpvp:ench_hud_7 name {"text":"附魔等级：2"}
-execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_roll matches 3 run bossbar set kitpvp:ench_hud_7 name {"text":"附魔等级：3"}
-execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_roll matches 4 run bossbar set kitpvp:ench_hud_7 name {"text":"附魔等级：4"}
-execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_roll matches 5 run bossbar set kitpvp:ench_hud_7 name {"text":"附魔等级：5"}
-execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_roll matches 6 run bossbar set kitpvp:ench_hud_7 name {"text":"附魔等级：6"}
-execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_roll matches 7 run bossbar set kitpvp:ench_hud_7 name {"text":"附魔等级：7"}
-execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_roll matches 8 run bossbar set kitpvp:ench_hud_7 name {"text":"附魔等级：8"}
-execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_roll matches 9 run bossbar set kitpvp:ench_hud_7 name {"text":"附魔等级：9"}
-execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_roll matches 10 run bossbar set kitpvp:ench_hud_7 name {"text":"附魔等级：10"}
-execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_7 name {"text":"附魔等级：11(MAX)","bold":true}
-execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_roll matches 0 run bossbar set kitpvp:ench_hud_8 name {"text":"附魔等级：0"}
-execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_roll matches 1 run bossbar set kitpvp:ench_hud_8 name {"text":"附魔等级：1"}
-execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_roll matches 2 run bossbar set kitpvp:ench_hud_8 name {"text":"附魔等级：2"}
-execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_roll matches 3 run bossbar set kitpvp:ench_hud_8 name {"text":"附魔等级：3"}
-execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_roll matches 4 run bossbar set kitpvp:ench_hud_8 name {"text":"附魔等级：4"}
-execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_roll matches 5 run bossbar set kitpvp:ench_hud_8 name {"text":"附魔等级：5"}
-execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_roll matches 6 run bossbar set kitpvp:ench_hud_8 name {"text":"附魔等级：6"}
-execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_roll matches 7 run bossbar set kitpvp:ench_hud_8 name {"text":"附魔等级：7"}
-execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_roll matches 8 run bossbar set kitpvp:ench_hud_8 name {"text":"附魔等级：8"}
-execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_roll matches 9 run bossbar set kitpvp:ench_hud_8 name {"text":"附魔等级：9"}
-execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_roll matches 10 run bossbar set kitpvp:ench_hud_8 name {"text":"附魔等级：10"}
-execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_roll matches 11 run bossbar set kitpvp:ench_hud_8 name {"text":"附魔等级：11(MAX)","bold":true}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_sword matches 0 run bossbar set kitpvp:ench_s1 name {"text":"剑附魔 Lv 0"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_sword matches 1 run bossbar set kitpvp:ench_s1 name {"text":"剑附魔 Lv 1"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_sword matches 2 run bossbar set kitpvp:ench_s1 name {"text":"剑附魔 Lv 2"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_sword matches 3 run bossbar set kitpvp:ench_s1 name {"text":"剑附魔 Lv 3"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_sword matches 4 run bossbar set kitpvp:ench_s1 name {"text":"剑附魔 Lv 4"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_sword matches 5 run bossbar set kitpvp:ench_s1 name {"text":"剑附魔 Lv 5"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_sword matches 6 run bossbar set kitpvp:ench_s1 name {"text":"剑附魔 Lv 6"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_sword matches 7 run bossbar set kitpvp:ench_s1 name {"text":"剑附魔 Lv 7"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_sword matches 8 run bossbar set kitpvp:ench_s1 name {"text":"剑附魔 Lv 8"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_sword matches 9 run bossbar set kitpvp:ench_s1 name {"text":"剑附魔 Lv 9"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_sword matches 10 run bossbar set kitpvp:ench_s1 name {"text":"剑附魔 Lv 10"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_sword matches 11 run bossbar set kitpvp:ench_s1 name {"text":"剑附魔 11（满）"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_sword matches 0 run bossbar set kitpvp:ench_s2 name {"text":"剑附魔 Lv 0"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_sword matches 1 run bossbar set kitpvp:ench_s2 name {"text":"剑附魔 Lv 1"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_sword matches 2 run bossbar set kitpvp:ench_s2 name {"text":"剑附魔 Lv 2"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_sword matches 3 run bossbar set kitpvp:ench_s2 name {"text":"剑附魔 Lv 3"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_sword matches 4 run bossbar set kitpvp:ench_s2 name {"text":"剑附魔 Lv 4"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_sword matches 5 run bossbar set kitpvp:ench_s2 name {"text":"剑附魔 Lv 5"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_sword matches 6 run bossbar set kitpvp:ench_s2 name {"text":"剑附魔 Lv 6"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_sword matches 7 run bossbar set kitpvp:ench_s2 name {"text":"剑附魔 Lv 7"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_sword matches 8 run bossbar set kitpvp:ench_s2 name {"text":"剑附魔 Lv 8"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_sword matches 9 run bossbar set kitpvp:ench_s2 name {"text":"剑附魔 Lv 9"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_sword matches 10 run bossbar set kitpvp:ench_s2 name {"text":"剑附魔 Lv 10"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_sword matches 11 run bossbar set kitpvp:ench_s2 name {"text":"剑附魔 11（满）"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_sword matches 0 run bossbar set kitpvp:ench_s3 name {"text":"剑附魔 Lv 0"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_sword matches 1 run bossbar set kitpvp:ench_s3 name {"text":"剑附魔 Lv 1"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_sword matches 2 run bossbar set kitpvp:ench_s3 name {"text":"剑附魔 Lv 2"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_sword matches 3 run bossbar set kitpvp:ench_s3 name {"text":"剑附魔 Lv 3"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_sword matches 4 run bossbar set kitpvp:ench_s3 name {"text":"剑附魔 Lv 4"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_sword matches 5 run bossbar set kitpvp:ench_s3 name {"text":"剑附魔 Lv 5"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_sword matches 6 run bossbar set kitpvp:ench_s3 name {"text":"剑附魔 Lv 6"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_sword matches 7 run bossbar set kitpvp:ench_s3 name {"text":"剑附魔 Lv 7"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_sword matches 8 run bossbar set kitpvp:ench_s3 name {"text":"剑附魔 Lv 8"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_sword matches 9 run bossbar set kitpvp:ench_s3 name {"text":"剑附魔 Lv 9"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_sword matches 10 run bossbar set kitpvp:ench_s3 name {"text":"剑附魔 Lv 10"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_sword matches 11 run bossbar set kitpvp:ench_s3 name {"text":"剑附魔 11（满）"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_sword matches 0 run bossbar set kitpvp:ench_s4 name {"text":"剑附魔 Lv 0"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_sword matches 1 run bossbar set kitpvp:ench_s4 name {"text":"剑附魔 Lv 1"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_sword matches 2 run bossbar set kitpvp:ench_s4 name {"text":"剑附魔 Lv 2"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_sword matches 3 run bossbar set kitpvp:ench_s4 name {"text":"剑附魔 Lv 3"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_sword matches 4 run bossbar set kitpvp:ench_s4 name {"text":"剑附魔 Lv 4"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_sword matches 5 run bossbar set kitpvp:ench_s4 name {"text":"剑附魔 Lv 5"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_sword matches 6 run bossbar set kitpvp:ench_s4 name {"text":"剑附魔 Lv 6"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_sword matches 7 run bossbar set kitpvp:ench_s4 name {"text":"剑附魔 Lv 7"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_sword matches 8 run bossbar set kitpvp:ench_s4 name {"text":"剑附魔 Lv 8"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_sword matches 9 run bossbar set kitpvp:ench_s4 name {"text":"剑附魔 Lv 9"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_sword matches 10 run bossbar set kitpvp:ench_s4 name {"text":"剑附魔 Lv 10"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_sword matches 11 run bossbar set kitpvp:ench_s4 name {"text":"剑附魔 11（满）"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_sword matches 0 run bossbar set kitpvp:ench_s5 name {"text":"剑附魔 Lv 0"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_sword matches 1 run bossbar set kitpvp:ench_s5 name {"text":"剑附魔 Lv 1"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_sword matches 2 run bossbar set kitpvp:ench_s5 name {"text":"剑附魔 Lv 2"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_sword matches 3 run bossbar set kitpvp:ench_s5 name {"text":"剑附魔 Lv 3"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_sword matches 4 run bossbar set kitpvp:ench_s5 name {"text":"剑附魔 Lv 4"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_sword matches 5 run bossbar set kitpvp:ench_s5 name {"text":"剑附魔 Lv 5"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_sword matches 6 run bossbar set kitpvp:ench_s5 name {"text":"剑附魔 Lv 6"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_sword matches 7 run bossbar set kitpvp:ench_s5 name {"text":"剑附魔 Lv 7"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_sword matches 8 run bossbar set kitpvp:ench_s5 name {"text":"剑附魔 Lv 8"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_sword matches 9 run bossbar set kitpvp:ench_s5 name {"text":"剑附魔 Lv 9"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_sword matches 10 run bossbar set kitpvp:ench_s5 name {"text":"剑附魔 Lv 10"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_sword matches 11 run bossbar set kitpvp:ench_s5 name {"text":"剑附魔 11（满）"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_sword matches 0 run bossbar set kitpvp:ench_s6 name {"text":"剑附魔 Lv 0"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_sword matches 1 run bossbar set kitpvp:ench_s6 name {"text":"剑附魔 Lv 1"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_sword matches 2 run bossbar set kitpvp:ench_s6 name {"text":"剑附魔 Lv 2"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_sword matches 3 run bossbar set kitpvp:ench_s6 name {"text":"剑附魔 Lv 3"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_sword matches 4 run bossbar set kitpvp:ench_s6 name {"text":"剑附魔 Lv 4"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_sword matches 5 run bossbar set kitpvp:ench_s6 name {"text":"剑附魔 Lv 5"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_sword matches 6 run bossbar set kitpvp:ench_s6 name {"text":"剑附魔 Lv 6"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_sword matches 7 run bossbar set kitpvp:ench_s6 name {"text":"剑附魔 Lv 7"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_sword matches 8 run bossbar set kitpvp:ench_s6 name {"text":"剑附魔 Lv 8"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_sword matches 9 run bossbar set kitpvp:ench_s6 name {"text":"剑附魔 Lv 9"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_sword matches 10 run bossbar set kitpvp:ench_s6 name {"text":"剑附魔 Lv 10"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_sword matches 11 run bossbar set kitpvp:ench_s6 name {"text":"剑附魔 11（满）"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_sword matches 0 run bossbar set kitpvp:ench_s7 name {"text":"剑附魔 Lv 0"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_sword matches 1 run bossbar set kitpvp:ench_s7 name {"text":"剑附魔 Lv 1"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_sword matches 2 run bossbar set kitpvp:ench_s7 name {"text":"剑附魔 Lv 2"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_sword matches 3 run bossbar set kitpvp:ench_s7 name {"text":"剑附魔 Lv 3"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_sword matches 4 run bossbar set kitpvp:ench_s7 name {"text":"剑附魔 Lv 4"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_sword matches 5 run bossbar set kitpvp:ench_s7 name {"text":"剑附魔 Lv 5"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_sword matches 6 run bossbar set kitpvp:ench_s7 name {"text":"剑附魔 Lv 6"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_sword matches 7 run bossbar set kitpvp:ench_s7 name {"text":"剑附魔 Lv 7"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_sword matches 8 run bossbar set kitpvp:ench_s7 name {"text":"剑附魔 Lv 8"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_sword matches 9 run bossbar set kitpvp:ench_s7 name {"text":"剑附魔 Lv 9"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_sword matches 10 run bossbar set kitpvp:ench_s7 name {"text":"剑附魔 Lv 10"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_sword matches 11 run bossbar set kitpvp:ench_s7 name {"text":"剑附魔 11（满）"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_sword matches 0 run bossbar set kitpvp:ench_s8 name {"text":"剑附魔 Lv 0"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_sword matches 1 run bossbar set kitpvp:ench_s8 name {"text":"剑附魔 Lv 1"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_sword matches 2 run bossbar set kitpvp:ench_s8 name {"text":"剑附魔 Lv 2"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_sword matches 3 run bossbar set kitpvp:ench_s8 name {"text":"剑附魔 Lv 3"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_sword matches 4 run bossbar set kitpvp:ench_s8 name {"text":"剑附魔 Lv 4"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_sword matches 5 run bossbar set kitpvp:ench_s8 name {"text":"剑附魔 Lv 5"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_sword matches 6 run bossbar set kitpvp:ench_s8 name {"text":"剑附魔 Lv 6"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_sword matches 7 run bossbar set kitpvp:ench_s8 name {"text":"剑附魔 Lv 7"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_sword matches 8 run bossbar set kitpvp:ench_s8 name {"text":"剑附魔 Lv 8"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_sword matches 9 run bossbar set kitpvp:ench_s8 name {"text":"剑附魔 Lv 9"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_sword matches 10 run bossbar set kitpvp:ench_s8 name {"text":"剑附魔 Lv 10"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_sword matches 11 run bossbar set kitpvp:ench_s8 name {"text":"剑附魔 11（满）"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_armor matches 0 run bossbar set kitpvp:ench_a1 name {"text":"护甲附魔 Lv 0"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_armor matches 1 run bossbar set kitpvp:ench_a1 name {"text":"护甲附魔 Lv 1"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_armor matches 2 run bossbar set kitpvp:ench_a1 name {"text":"护甲附魔 Lv 2"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_armor matches 3 run bossbar set kitpvp:ench_a1 name {"text":"护甲附魔 Lv 3"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_armor matches 4 run bossbar set kitpvp:ench_a1 name {"text":"护甲附魔 Lv 4"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_armor matches 5 run bossbar set kitpvp:ench_a1 name {"text":"护甲附魔 Lv 5"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_armor matches 6 run bossbar set kitpvp:ench_a1 name {"text":"护甲附魔 Lv 6"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_armor matches 7 run bossbar set kitpvp:ench_a1 name {"text":"护甲附魔 Lv 7"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_armor matches 8 run bossbar set kitpvp:ench_a1 name {"text":"护甲附魔 Lv 8"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_armor matches 9 run bossbar set kitpvp:ench_a1 name {"text":"护甲附魔 Lv 9"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_armor matches 10 run bossbar set kitpvp:ench_a1 name {"text":"护甲附魔 Lv 10"}
+execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_armor matches 11 run bossbar set kitpvp:ench_a1 name {"text":"护甲附魔 11（满）"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_armor matches 0 run bossbar set kitpvp:ench_a2 name {"text":"护甲附魔 Lv 0"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_armor matches 1 run bossbar set kitpvp:ench_a2 name {"text":"护甲附魔 Lv 1"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_armor matches 2 run bossbar set kitpvp:ench_a2 name {"text":"护甲附魔 Lv 2"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_armor matches 3 run bossbar set kitpvp:ench_a2 name {"text":"护甲附魔 Lv 3"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_armor matches 4 run bossbar set kitpvp:ench_a2 name {"text":"护甲附魔 Lv 4"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_armor matches 5 run bossbar set kitpvp:ench_a2 name {"text":"护甲附魔 Lv 5"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_armor matches 6 run bossbar set kitpvp:ench_a2 name {"text":"护甲附魔 Lv 6"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_armor matches 7 run bossbar set kitpvp:ench_a2 name {"text":"护甲附魔 Lv 7"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_armor matches 8 run bossbar set kitpvp:ench_a2 name {"text":"护甲附魔 Lv 8"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_armor matches 9 run bossbar set kitpvp:ench_a2 name {"text":"护甲附魔 Lv 9"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_armor matches 10 run bossbar set kitpvp:ench_a2 name {"text":"护甲附魔 Lv 10"}
+execute if score @s kitpvp.ench_slot matches 2 if score @s kitpvp.ench_armor matches 11 run bossbar set kitpvp:ench_a2 name {"text":"护甲附魔 11（满）"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_armor matches 0 run bossbar set kitpvp:ench_a3 name {"text":"护甲附魔 Lv 0"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_armor matches 1 run bossbar set kitpvp:ench_a3 name {"text":"护甲附魔 Lv 1"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_armor matches 2 run bossbar set kitpvp:ench_a3 name {"text":"护甲附魔 Lv 2"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_armor matches 3 run bossbar set kitpvp:ench_a3 name {"text":"护甲附魔 Lv 3"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_armor matches 4 run bossbar set kitpvp:ench_a3 name {"text":"护甲附魔 Lv 4"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_armor matches 5 run bossbar set kitpvp:ench_a3 name {"text":"护甲附魔 Lv 5"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_armor matches 6 run bossbar set kitpvp:ench_a3 name {"text":"护甲附魔 Lv 6"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_armor matches 7 run bossbar set kitpvp:ench_a3 name {"text":"护甲附魔 Lv 7"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_armor matches 8 run bossbar set kitpvp:ench_a3 name {"text":"护甲附魔 Lv 8"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_armor matches 9 run bossbar set kitpvp:ench_a3 name {"text":"护甲附魔 Lv 9"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_armor matches 10 run bossbar set kitpvp:ench_a3 name {"text":"护甲附魔 Lv 10"}
+execute if score @s kitpvp.ench_slot matches 3 if score @s kitpvp.ench_armor matches 11 run bossbar set kitpvp:ench_a3 name {"text":"护甲附魔 11（满）"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_armor matches 0 run bossbar set kitpvp:ench_a4 name {"text":"护甲附魔 Lv 0"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_armor matches 1 run bossbar set kitpvp:ench_a4 name {"text":"护甲附魔 Lv 1"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_armor matches 2 run bossbar set kitpvp:ench_a4 name {"text":"护甲附魔 Lv 2"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_armor matches 3 run bossbar set kitpvp:ench_a4 name {"text":"护甲附魔 Lv 3"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_armor matches 4 run bossbar set kitpvp:ench_a4 name {"text":"护甲附魔 Lv 4"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_armor matches 5 run bossbar set kitpvp:ench_a4 name {"text":"护甲附魔 Lv 5"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_armor matches 6 run bossbar set kitpvp:ench_a4 name {"text":"护甲附魔 Lv 6"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_armor matches 7 run bossbar set kitpvp:ench_a4 name {"text":"护甲附魔 Lv 7"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_armor matches 8 run bossbar set kitpvp:ench_a4 name {"text":"护甲附魔 Lv 8"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_armor matches 9 run bossbar set kitpvp:ench_a4 name {"text":"护甲附魔 Lv 9"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_armor matches 10 run bossbar set kitpvp:ench_a4 name {"text":"护甲附魔 Lv 10"}
+execute if score @s kitpvp.ench_slot matches 4 if score @s kitpvp.ench_armor matches 11 run bossbar set kitpvp:ench_a4 name {"text":"护甲附魔 11（满）"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_armor matches 0 run bossbar set kitpvp:ench_a5 name {"text":"护甲附魔 Lv 0"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_armor matches 1 run bossbar set kitpvp:ench_a5 name {"text":"护甲附魔 Lv 1"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_armor matches 2 run bossbar set kitpvp:ench_a5 name {"text":"护甲附魔 Lv 2"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_armor matches 3 run bossbar set kitpvp:ench_a5 name {"text":"护甲附魔 Lv 3"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_armor matches 4 run bossbar set kitpvp:ench_a5 name {"text":"护甲附魔 Lv 4"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_armor matches 5 run bossbar set kitpvp:ench_a5 name {"text":"护甲附魔 Lv 5"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_armor matches 6 run bossbar set kitpvp:ench_a5 name {"text":"护甲附魔 Lv 6"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_armor matches 7 run bossbar set kitpvp:ench_a5 name {"text":"护甲附魔 Lv 7"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_armor matches 8 run bossbar set kitpvp:ench_a5 name {"text":"护甲附魔 Lv 8"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_armor matches 9 run bossbar set kitpvp:ench_a5 name {"text":"护甲附魔 Lv 9"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_armor matches 10 run bossbar set kitpvp:ench_a5 name {"text":"护甲附魔 Lv 10"}
+execute if score @s kitpvp.ench_slot matches 5 if score @s kitpvp.ench_armor matches 11 run bossbar set kitpvp:ench_a5 name {"text":"护甲附魔 11（满）"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_armor matches 0 run bossbar set kitpvp:ench_a6 name {"text":"护甲附魔 Lv 0"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_armor matches 1 run bossbar set kitpvp:ench_a6 name {"text":"护甲附魔 Lv 1"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_armor matches 2 run bossbar set kitpvp:ench_a6 name {"text":"护甲附魔 Lv 2"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_armor matches 3 run bossbar set kitpvp:ench_a6 name {"text":"护甲附魔 Lv 3"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_armor matches 4 run bossbar set kitpvp:ench_a6 name {"text":"护甲附魔 Lv 4"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_armor matches 5 run bossbar set kitpvp:ench_a6 name {"text":"护甲附魔 Lv 5"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_armor matches 6 run bossbar set kitpvp:ench_a6 name {"text":"护甲附魔 Lv 6"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_armor matches 7 run bossbar set kitpvp:ench_a6 name {"text":"护甲附魔 Lv 7"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_armor matches 8 run bossbar set kitpvp:ench_a6 name {"text":"护甲附魔 Lv 8"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_armor matches 9 run bossbar set kitpvp:ench_a6 name {"text":"护甲附魔 Lv 9"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_armor matches 10 run bossbar set kitpvp:ench_a6 name {"text":"护甲附魔 Lv 10"}
+execute if score @s kitpvp.ench_slot matches 6 if score @s kitpvp.ench_armor matches 11 run bossbar set kitpvp:ench_a6 name {"text":"护甲附魔 11（满）"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_armor matches 0 run bossbar set kitpvp:ench_a7 name {"text":"护甲附魔 Lv 0"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_armor matches 1 run bossbar set kitpvp:ench_a7 name {"text":"护甲附魔 Lv 1"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_armor matches 2 run bossbar set kitpvp:ench_a7 name {"text":"护甲附魔 Lv 2"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_armor matches 3 run bossbar set kitpvp:ench_a7 name {"text":"护甲附魔 Lv 3"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_armor matches 4 run bossbar set kitpvp:ench_a7 name {"text":"护甲附魔 Lv 4"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_armor matches 5 run bossbar set kitpvp:ench_a7 name {"text":"护甲附魔 Lv 5"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_armor matches 6 run bossbar set kitpvp:ench_a7 name {"text":"护甲附魔 Lv 6"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_armor matches 7 run bossbar set kitpvp:ench_a7 name {"text":"护甲附魔 Lv 7"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_armor matches 8 run bossbar set kitpvp:ench_a7 name {"text":"护甲附魔 Lv 8"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_armor matches 9 run bossbar set kitpvp:ench_a7 name {"text":"护甲附魔 Lv 9"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_armor matches 10 run bossbar set kitpvp:ench_a7 name {"text":"护甲附魔 Lv 10"}
+execute if score @s kitpvp.ench_slot matches 7 if score @s kitpvp.ench_armor matches 11 run bossbar set kitpvp:ench_a7 name {"text":"护甲附魔 11（满）"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_armor matches 0 run bossbar set kitpvp:ench_a8 name {"text":"护甲附魔 Lv 0"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_armor matches 1 run bossbar set kitpvp:ench_a8 name {"text":"护甲附魔 Lv 1"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_armor matches 2 run bossbar set kitpvp:ench_a8 name {"text":"护甲附魔 Lv 2"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_armor matches 3 run bossbar set kitpvp:ench_a8 name {"text":"护甲附魔 Lv 3"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_armor matches 4 run bossbar set kitpvp:ench_a8 name {"text":"护甲附魔 Lv 4"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_armor matches 5 run bossbar set kitpvp:ench_a8 name {"text":"护甲附魔 Lv 5"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_armor matches 6 run bossbar set kitpvp:ench_a8 name {"text":"护甲附魔 Lv 6"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_armor matches 7 run bossbar set kitpvp:ench_a8 name {"text":"护甲附魔 Lv 7"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_armor matches 8 run bossbar set kitpvp:ench_a8 name {"text":"护甲附魔 Lv 8"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_armor matches 9 run bossbar set kitpvp:ench_a8 name {"text":"护甲附魔 Lv 9"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_armor matches 10 run bossbar set kitpvp:ench_a8 name {"text":"护甲附魔 Lv 10"}
+execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_armor matches 11 run bossbar set kitpvp:ench_a8 name {"text":"护甲附魔 11（满）"}
