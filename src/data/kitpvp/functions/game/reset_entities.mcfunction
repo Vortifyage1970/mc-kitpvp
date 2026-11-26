@@ -14,7 +14,7 @@ kill @e[tag=kitpvp.earth_leaker_clock]
 kill @e[tag=kitpvp.arsonist_fire]
 # kitpvp.assassin_token  <- give_item
 kill @e[tag=kitpvp.assassin_token]
-# kitpvp.bomb  <- bomber_big, bomber_fake, bomber_nuke, bomber_small, bomber_track, ironman_bomb
+# kitpvp.bomb  <- bomber_big, bomber_fake, bomber_nuke, bomber_small, bomber_track
 kill @e[tag=kitpvp.bomb]
 # kitpvp.bomb_big  <- bomber_big
 kill @e[tag=kitpvp.bomb_big]
@@ -30,7 +30,7 @@ kill @e[tag=kitpvp.bomb_nuke]
 kill @e[tag=kitpvp.bomb_nuke_token]
 # kitpvp.bomb_rider  <- bomber_track
 kill @e[tag=kitpvp.bomb_rider]
-# kitpvp.bomb_small  <- bomber_small, ironman_bomb
+# kitpvp.bomb_small  <- bomber_small
 kill @e[tag=kitpvp.bomb_small]
 # kitpvp.bomb_small_token  <- give_small
 kill @e[tag=kitpvp.bomb_small_token]
@@ -72,8 +72,6 @@ kill @e[tag=kitpvp.earth_amino]
 kill @e[tag=kitpvp.earth_atrain]
 # kitpvp.earth_babywhelp  <- earth_babywhelp
 kill @e[tag=kitpvp.earth_babywhelp]
-# kitpvp.earth_bigbee  <- earth_bigbee
-kill @e[tag=kitpvp.earth_bigbee]
 # kitpvp.earth_boat1  <- earth_boatman_wet
 kill @e[tag=kitpvp.earth_boat1]
 # kitpvp.earth_boatman1  <- earth_boatman_wet
@@ -142,8 +140,6 @@ kill @e[tag=kitpvp.earth_hive]
 kill @e[tag=kitpvp.earth_hydrator]
 # kitpvp.earth_ilsacul  <- earth_ilsacul, li_pig_copy
 kill @e[tag=kitpvp.earth_ilsacul]
-# kitpvp.earth_ironman  <- earth_ironman
-kill @e[tag=kitpvp.earth_ironman]
 # kitpvp.earth_janitor  <- earth_janitor
 kill @e[tag=kitpvp.earth_janitor]
 # kitpvp.earth_jar  <- earth_jar, earth_jar_small
@@ -178,7 +174,7 @@ kill @e[tag=kitpvp.earth_medium]
 kill @e[tag=kitpvp.earth_minecart]
 # kitpvp.earth_minecart_boat  <- earth_minecart, earth_minecart_plain
 kill @e[tag=kitpvp.earth_minecart_boat]
-# kitpvp.earth_minion  <- earth_ascend, earth_ascend2, earth_astronaut, earth_atrain, earth_axe, earth_babywhelp, earth_big_bomb, earth_bigbee, earth_boatman_wet, earth_brewer, earth_brick_fire, earth_brick_knockback, earth_campfire, earth_capitalist, earth_captain, earth_carto, earth_colorchanger, earth_cop, earth_cop_blink, earth_cop_cleaner, earth_coser, earth_cyclic, earth_dispenser, earth_disruptor, earth_dominion, earth_dublinn, earth_explainer, earth_farmer, earth_fisher1, earth_fisher2, earth_forester, earth_gatherer, earth_gearbox, earth_gentleman, earth_ghost_minion, earth_grass, earth_grass_pop, earth_hacker, earth_hive, earth_hydrator, earth_ilsacul, earth_ironman, earth_janitor, earth_jar, earth_jar_small, earth_jupiter, earth_leaker, earth_lowflyer_a, earth_lowflyer_b, earth_manhole, earth_medium, earth_mercury, earth_minecart, earth_minecart_plain, earth_mobilizer, earth_mortar, earth_noteblock, earth_ollama, earth_phoenix, earth_pluto, earth_polypeptide, earth_polypeptide_betaturn, earth_qin, earth_retainer, earth_saturn, earth_sheep, earth_skater, earth_sparky, earth_spellblade, earth_spoon, earth_stone, earth_supporter_fast, earth_supporter_slow, earth_tandem, earth_target, earth_threshold, earth_tracker_bomb, earth_turret, earth_twinstar_a, earth_twinstar_b, earth_vagrant, earth_venus, earth_winner, li_pig_copy, phoenix_reborn
+# kitpvp.earth_minion  <- earth_ascend, earth_ascend2, earth_astronaut, earth_atrain, earth_axe, earth_babywhelp, earth_big_bomb, earth_boatman_wet, earth_brewer, earth_brick_fire, earth_brick_knockback, earth_campfire, earth_capitalist, earth_captain, earth_carto, earth_colorchanger, earth_cop, earth_cop_blink, earth_cop_cleaner, earth_coser, earth_cyclic, earth_dispenser, earth_disruptor, earth_dominion, earth_dublinn, earth_explainer, earth_farmer, earth_fisher1, earth_fisher2, earth_forester, earth_gatherer, earth_gearbox, earth_gentleman, earth_ghost_minion, earth_grass, earth_grass_pop, earth_hacker, earth_hive, earth_hydrator, earth_ilsacul, earth_janitor, earth_jar, earth_jar_small, earth_jupiter, earth_leaker, earth_lowflyer_a, earth_lowflyer_b, earth_manhole, earth_medium, earth_mercury, earth_minecart, earth_minecart_plain, earth_mobilizer, earth_mortar, earth_noteblock, earth_ollama, earth_phoenix, earth_pluto, earth_polypeptide, earth_polypeptide_betaturn, earth_qin, earth_retainer, earth_saturn, earth_sheep, earth_skater, earth_sparky, earth_spellblade, earth_spoon, earth_stone, earth_supporter_fast, earth_supporter_slow, earth_tandem, earth_target, earth_threshold, earth_tracker_bomb, earth_turret, earth_twinstar_a, earth_twinstar_b, earth_vagrant, earth_venus, earth_winner, li_pig_copy, phoenix_reborn
 kill @e[tag=kitpvp.earth_minion]
 # kitpvp.earth_mobilizer  <- earth_mobilizer
 kill @e[tag=kitpvp.earth_mobilizer]

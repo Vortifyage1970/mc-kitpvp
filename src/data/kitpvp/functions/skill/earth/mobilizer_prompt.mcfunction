@@ -1,6 +1,7 @@
 # @s = 动员家本体（at 它身上）：15 秒到点，把全场参赛者的"准备"清零、弹绿色按钮、排 5 秒后的结算
 # 观战者和尸体既拿不到分数、也收不到这条公告（同 selector）；点按钮走 mobilizer_ready
-scoreboard players set @s kitpvp.earth_cd_a 400
+# 只发动一次：设成极大值，这辈子不会再到期（需求：只在被召唤与死亡时发动「准备」）
+scoreboard players set @s kitpvp.earth_cd_a 1000000
 # 本轮是「准备」轮：5 秒没点的人挨罚时说「你没准备哦」
 scoreboard players set #mob_round kitpvp.game 0
 # 召唤者本人不参与动员：先把本体的 earth_owner 抄到假玩家，再把 etid 相同的玩家打上豁免 tag

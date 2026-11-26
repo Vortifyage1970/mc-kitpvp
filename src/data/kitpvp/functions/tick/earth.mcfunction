@@ -12,9 +12,7 @@ execute as @e[tag=kitpvp.earth_disruptor,scores={kitpvp.earth_cd_a=..0}] at @s r
 # 变速器：6 格内没别人就提速，有敌人就变肉变慢并给急迫（判定与效果都在 gearbox_aura 里）
 execute as @e[tag=kitpvp.earth_gearbox,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/gearbox_aura
 # 大蜜蜂：半径 10 格内的所有玩家和生物持续挖掘疲劳 III（每刻直接跑，别用 scores 节流）
-execute as @e[tag=kitpvp.earth_bigbee] at @s run function kitpvp:skill/earth/bigbee_aura
 # 大蜜蜂减速提示音的冷却：统一在 tick 减一次，避免多只蜜蜂各减一遍
-execute as @a[scores={kitpvp.bee_slow_snd=1..}] run scoreboard players remove @s kitpvp.bee_slow_snd 1
 # 内卫：出场计时（只用来决定"出场那阵烟"还要不要补，不控制烟花本身；烟花由 summon 放一次）
 execute as @e[tag=kitpvp.earth_dominion] run scoreboard players add @s kitpvp.dominion_age 1
 # 地球·54 电磁炮：每刻找目标、充能、充满就放电（充能计数在 sparky_tick 里维护）
@@ -120,7 +118,6 @@ execute as @e[tag=kitpvp.earth_babywhelp] at @s run function kitpvp:skill/earth/
 execute as @e[tag=kitpvp.bw_ball] at @s run function kitpvp:skill/earth/babywhelp_ball
 execute as @e[tag=kitpvp.earth_captain] at @s run function kitpvp:skill/earth/captain_tick
 # 铁人（地球·75）：NoAI 僵尸，靠命令驱着走；每 5 秒在脚边丢一颗 2 秒引信的小炸弹
-execute as @e[tag=kitpvp.earth_ironman] at @s run function kitpvp:skill/earth/ironman_tick
 # 变色者：每 5 秒换一次头顶方块（earth_cd_a 由 tick 统一递减）
 execute as @e[tag=kitpvp.earth_colorchanger,scores={kitpvp.earth_cd_a=..0}] at @s run function kitpvp:skill/earth/colorchanger_shift
 # 井盖：装填期（earth_cd_a，召唤后 2 秒）走完之后，头顶 2.5 格内有活人就破土（dy≈2 ⇒ 站在正上方即命中）

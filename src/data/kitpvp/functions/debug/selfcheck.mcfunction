@@ -9,8 +9,6 @@ tellraw @a [{"text":"构建：","color":"gray"},{"text":"2026-11-05 深夜 · �
 tellraw @a [{"text":"tick 探针计数：","color":"gray"},{"score":{"name":"#tick_probe","objective":"kitpvp.game"},"color":"green"},{"text":"（两次执行之间应该涨了几十，不涨就是 tick 没跑）","color":"dark_gray"}]
 
 # 场上各类召唤物数量
-scoreboard players set #n_bee kitpvp.game 0
-execute as @e[tag=kitpvp.earth_bigbee] run scoreboard players add #n_bee kitpvp.game 1
 scoreboard players set #n_blade kitpvp.game 0
 execute as @e[tag=kitpvp.earth_spellblade] run scoreboard players add #n_blade kitpvp.game 1
 scoreboard players set #n_vag kitpvp.game 0
@@ -19,5 +17,5 @@ scoreboard players set #n_jup kitpvp.game 0
 execute as @e[tag=kitpvp.earth_jupiter] run scoreboard players add #n_jup kitpvp.game 1
 scoreboard players set #n_car kitpvp.game 0
 execute as @e[tag=kitpvp.earth_minecart] run scoreboard players add #n_car kitpvp.game 1
-tellraw @a [{"text":"场上：大蜜蜂 ","color":"gray"},{"score":{"name":"#n_bee","objective":"kitpvp.game"},"color":"aqua"},{"text":" / 术战士 ","color":"gray"},{"score":{"name":"#n_blade","objective":"kitpvp.game"},"color":"aqua"},{"text":" / 流浪汉 ","color":"gray"},{"score":{"name":"#n_vag","objective":"kitpvp.game"},"color":"aqua"},{"text":" / 木星 ","color":"gray"},{"score":{"name":"#n_jup","objective":"kitpvp.game"},"color":"aqua"},{"text":" / 矿车 ","color":"gray"},{"score":{"name":"#n_car","objective":"kitpvp.game"},"color":"aqua"}]
+tellraw @a [{"text":" / 术战士 ","color":"gray"},{"score":{"name":"#n_blade","objective":"kitpvp.game"},"color":"aqua"},{"text":" / 流浪汉 ","color":"gray"},{"score":{"name":"#n_vag","objective":"kitpvp.game"},"color":"aqua"},{"text":" / 木星 ","color":"gray"},{"score":{"name":"#n_jup","objective":"kitpvp.game"},"color":"aqua"},{"text":" / 矿车 ","color":"gray"},{"score":{"name":"#n_car","objective":"kitpvp.game"},"color":"aqua"}]
 tellraw @a [{"text":"========== 自检结束 ==========","color":"gold"}]
