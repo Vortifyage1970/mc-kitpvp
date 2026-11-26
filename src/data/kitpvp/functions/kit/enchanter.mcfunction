@@ -1,7 +1,7 @@
-# 附魔师（kit = 98）：金套 + 金剑 + 《神学大全》
+# 附魔师（kit = 15）：金套 + 金剑 + 《神学大全》
 # 剑的附魔靠"命中玩家"充能，护甲的靠"被玩家打中"充能；书是慢速双充的替代手段
 function kitpvp:util/clear_player
-scoreboard players set @s kitpvp.kit 98
+scoreboard players set @s kitpvp.kit 15
 tag @s add kitpvp.selected
 
 scoreboard players set @s kitpvp.alive 1

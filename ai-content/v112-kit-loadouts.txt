@@ -1,0 +1,232 @@
+### 表·僵尸   牌子(-1967,50,-1987)
+   G give @p iron_hoe 1 0 {ench:[{id:19,lvl:2}]}
+   G give @p dirt 10
+   K scoreboard players set @p KitNum 9
+   K scoreboard players set @p KitNum 10
+   K scoreboard players set @p KitNum 30
+
+### 表·农夫   牌子(-1967,50,-1991)
+   G give @p iron_hoe 1 0 {ench:[{id:19,lvl:2}]}
+   G give @p dirt 10
+   G give @p stone_axe 1 0 {display:{Name:"嗜血狼牙"},AttributeModifiers:[{AttributeName:"generic.attackSpeed",Amount:-2.2,UUIDLeast:1024,UUIDMost:2048,Name:"a",Slot:mainhand},{AttributeName:"generic
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 10
+   K scoreboard players set @p KitNum 9
+
+### 表·刺客   牌子(-1973,50,-1979)
+   K scoreboard players set @p KitNum 6
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 5
+
+### 表·史莱姆   牌子(-1973,50,-1991)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 8
+
+### 表·坦克   牌子(-1973,50,-1977)
+   K scoreboard players set @p KitNum 5
+   K scoreboard players set @p KitNum 6
+   K scoreboard players set @p KitNum 20
+
+### 表·幽灵   牌子(-1973,50,-1983)
+   K scoreboard players set @p KitNum 7
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+
+### 表·弓箭手   牌子(-1973,50,-1975)
+   K scoreboard players set @p KitNum 20
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 5
+
+### 表·战士   牌子(-1973,50,-1973)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 20
+   K scoreboard players set @p KitNum 5
+
+### 表·文明小子   牌子(-1967,50,-1977)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 33
+   K scoreboard players set @p KitNum 0
+
+### 表·时间领主   牌子(-1967,50,-1989)
+   G give @p iron_hoe 1 0 {ench:[{id:19,lvl:2}]}
+   G give @p dirt 10
+   G give @p stone_axe 1 0 {display:{Name:"嗜血狼牙"},AttributeModifiers:[{AttributeName:"generic.attackSpeed",Amount:-2.2,UUIDLeast:1024,UUIDMost:2048,Name:"a",Slot:mainhand},{AttributeName:"generic
+   K scoreboard players set @p KitNum 10
+   K scoreboard players set @p KitNum 9
+   K scoreboard players set @p KitNum 0
+
+### 表·末影人   牌子(-1973,50,-1989)
+   K scoreboard players set @p KitNum 8
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+
+### 表·李朱俊泽   牌子(-1967,50,-1983)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 30
+   K scoreboard players set @p KitNum 0
+
+### 表·海盗   牌子(-1973,50,-1985)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 7
+
+### 表·渔夫   牌子(-1967,50,-1979)
+   G give @p cooked_fish 24
+   K scoreboard players set @p KitNum 33
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+
+### 表·炸弹兵   牌子(-1967,50,-1981)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 33
+
+### 表·狼人   牌子(-1967,50,-1993)
+   G give @p stone_axe 1 0 {display:{Name:"嗜血狼牙"},AttributeModifiers:[{AttributeName:"generic.attackSpeed",Amount:-2.2,UUIDLeast:1024,UUIDMost:2048,Name:"a",Slot:mainhand},{AttributeName:"generic
+   G give @p iron_hoe 1 0 {ench:[{id:19,lvl:2}]}
+   G give @p dirt 10
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 10
+
+### 表·矿工   牌子(-1973,50,-1993)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 8
+
+### 表·纵火狂   牌子(-1973,50,-1981)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 7
+   K scoreboard players set @p KitNum 6
+
+### 表·药剂师   牌子(-1967,50,-1975)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+
+### 表·蜘蛛侠   牌子(-1967,50,-1985)
+   K scoreboard players set @p KitNum 30
+   K scoreboard players set @p KitNum 9
+   K scoreboard players set @p KitNum 0
+
+### 表·附魔师   牌子(-1967,50,-1973)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+
+### 表·驯兽师   牌子(-1973,50,-1987)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 8
+   K scoreboard players set @p KitNum 0
+
+### 里·僵尸   牌子(-1967,67,-1987)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 11
+   K scoreboard players set @p KitNum 0
+
+### 里·农夫   牌子(-1967,67,-1991)
+   G give @p cooked_beef 24
+   K scoreboard players set @p KitNum 37
+   K scoreboard players set @p KitNum 11
+   K scoreboard players set @p KitNum 0
+
+### 里·刺客   牌子(-1973,67,-1979)
+   K scoreboard players set @p KitNum 1
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 28
+
+### 里·史莱姆   牌子(-1973,67,-1991)
+   K scoreboard players set @p KitNum 3
+   K scoreboard players set @p KitNum 4
+   K scoreboard players set @p KitNum 0
+
+### 里·坦克   牌子(-1973,67,-1977)
+   K scoreboard players set @p KitNum 28
+   K scoreboard players set @p KitNum 1
+   K scoreboard players set @p KitNum 0
+
+### 里·幽灵   牌子(-1973,67,-1983)
+   K scoreboard players set @p KitNum 2
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+
+### 里·弓箭手   牌子(-1973,67,-1975)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 28
+   K scoreboard players set @p KitNum 0
+
+### 里·战士   牌子(-1973,67,-1973)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 28
+
+### 里·文明小子   牌子(-1967,67,-1977)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+
+### 里·时间领主   牌子(-1967,67,-1989)
+   G give @p cooked_beef 24
+   K scoreboard players set @p KitNum 11
+   K scoreboard players set @p KitNum 37
+   K scoreboard players set @p KitNum 0
+
+### 里·末影人   牌子(-1973,67,-1989)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 3
+
+### 里·李朱俊泽   牌子(-1967,67,-1983)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+
+### 里·海盗   牌子(-1973,67,-1985)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 2
+
+### 里·渔夫   牌子(-1967,67,-1979)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+
+### 里·炸弹兵   牌子(-1967,67,-1981)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+
+### 里·狼人   牌子(-1967,67,-1993)
+   G give @p cooked_beef 24
+   K scoreboard players set @p KitNum 37
+   K scoreboard players set @p KitNum 11
+
+### 里·矿工   牌子(-1973,67,-1993)
+   K scoreboard players set @p KitNum 4
+   K scoreboard players set @p KitNum 3
+   K scoreboard players set @p KitNum 0
+
+### 里·纵火狂   牌子(-1973,67,-1981)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 2
+   K scoreboard players set @p KitNum 1
+
+### 里·药剂师   牌子(-1967,67,-1975)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+
+### 里·蜘蛛侠   牌子(-1967,67,-1985)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+
+### 里·附魔师   牌子(-1967,67,-1973)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+
+### 里·驯兽师   牌子(-1973,67,-1987)
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0
+   K scoreboard players set @p KitNum 0

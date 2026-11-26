@@ -3,7 +3,7 @@
 # 先按"旧职业"清理一次（理由同 kit/random：随机池先改 kit 分数，clear_player 就看不到旧职业了）
 function kitpvp:util/clear_player
 
-scoreboard players set #pool_size kitpvp.game 16
+scoreboard players set #pool_size kitpvp.game 18
 
 scoreboard players set @s kitpvp.rng 0
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 1
@@ -32,5 +32,7 @@ execute if score @s kitpvp.rng matches 12 run scoreboard players set @s kitpvp.k
 execute if score @s kitpvp.rng matches 13 run scoreboard players set @s kitpvp.kit 14
 execute if score @s kitpvp.rng matches 14 run scoreboard players set @s kitpvp.kit 19
 execute if score @s kitpvp.rng matches 15 run scoreboard players set @s kitpvp.kit 13
+execute if score @s kitpvp.rng matches 16 run scoreboard players set @s kitpvp.kit 98
+execute if score @s kitpvp.rng matches 17 run scoreboard players set @s kitpvp.kit 15
 
 function kitpvp:util/give_kit

@@ -15,4 +15,4 @@ bossbar set kitpvp:ench_s7 players
 bossbar set kitpvp:ench_a7 players
 bossbar set kitpvp:ench_s8 players
 bossbar set kitpvp:ench_a8 players
-execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=98}] at @s run function kitpvp:skill/enchanter/hud_show
+execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=15}] at @s run function kitpvp:skill/enchanter/hud_show
