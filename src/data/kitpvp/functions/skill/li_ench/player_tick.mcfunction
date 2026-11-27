@@ -7,3 +7,4 @@ execute if score @s kitpvp.ench_domain_cd matches 1.. run scoreboard players rem
 execute if entity @s[tag=kitpvp.ench_domain] run function kitpvp:skill/li_ench/tick_domain
 execute if score @s kitpvp.ench_tmp matches 1.. run scoreboard players remove @s kitpvp.ench_tmp 1
 execute if score @s kitpvp.ench_tmp matches ..0 if score @s kitpvp.ench_tmp_kind matches 1.. run function kitpvp:skill/li_ench/tmp_expire
+function kitpvp:skill/enchanter/sw_pending_apply

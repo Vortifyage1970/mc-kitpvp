@@ -19,6 +19,7 @@ item replace entity @s hotbar.1 with minecraft:cooked_beef 24
 item replace entity @s hotbar.2 with minecraft:book{KitBook:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:1s}],display:{Name:'{"text":"《神学大全》","color":"gold","italic":false}',Lore:['{"text":"拿在主手：移速 -30%、身上发光","color":"gray","italic":false}','{"text":"拿满 40 秒，剑和护甲各升 1 级","color":"dark_gray","italic":false}']}}
 
 scoreboard players set @s kitpvp.ench_sw 0
+scoreboard players set @s kitpvp.ench_pending 0
 scoreboard players set @s kitpvp.ench_ap 0
 scoreboard players set @s kitpvp.ench_sword 0
 scoreboard players set @s kitpvp.ench_armor 0

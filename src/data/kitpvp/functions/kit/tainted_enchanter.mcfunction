@@ -16,6 +16,7 @@ item replace entity @s hotbar.2 with minecraft:camel_spawn_egg{KitLiSingle:1b,En
 item replace entity @s hotbar.3 with minecraft:panda_spawn_egg{KitLiTen:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:1s}],display:{Name:'{"text":"十连","color":"gold","italic":false}',Lore:['{"text":"右键：受 20 点伤害连抽十次（冷却 15 秒）","color":"gray","italic":false}']}}
 
 scoreboard players set @s kitpvp.ench_sw 0
+scoreboard players set @s kitpvp.ench_pending 0
 scoreboard players set @s kitpvp.ench_ap 0
 scoreboard players set @s kitpvp.ench_sword 0
 scoreboard players set @s kitpvp.ench_armor 0

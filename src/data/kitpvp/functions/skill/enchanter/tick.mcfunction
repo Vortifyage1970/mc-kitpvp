@@ -2,3 +2,4 @@
 execute if data entity @s SelectedItem{id:"minecraft:golden_sword"} run tag @s remove kitpvp.ench_wait
 execute if data entity @s SelectedItem{id:"minecraft:golden_sword"} run function kitpvp:skill/enchanter/ench_check
 execute if score @s kitpvp.ench_hint matches 1.. run scoreboard players remove @s kitpvp.ench_hint 1
+function kitpvp:skill/enchanter/sw_pending_apply
