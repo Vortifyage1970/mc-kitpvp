@@ -1,0 +1,4 @@
+# 卡牌自测收尾：把该清的 #li_step 复位，并把当前四条数值打出来
+scoreboard players set #li_step kitpvp.game 0
+tellraw @s [{"text":"[自测] 18 张卡打完了。剑进度=","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.ench_sw_fill"}},{"text":" 甲进度=","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.ench_ap_fill"}},{"text":" 剑级=","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.ench_sword"}},{"text":" 甲级=","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.ench_armor"}}]
+tellraw @s [{"text":"[自测] 剑点数=","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.ench_sw"}},{"text":" 甲点数=","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.ench_ap"}},{"text":" 冷却=","color":"gray"},{"score":{"name":"@s","objective":"kitpvp.ench_domain_cd"}},{"text":"   （大当要求金剑在主手才升剑等级；利刃/锋利 12/20 秒后自动摘）","color":"dark_gray"}]
