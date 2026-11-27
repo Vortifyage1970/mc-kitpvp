@@ -26,8 +26,10 @@ scoreboard players set @s kitpvp.ench_fx 0
 scoreboard players set @s kitpvp.ench_domain_t 0
 scoreboard players set @s kitpvp.ench_domain_cd 0
 scoreboard players set @s kitpvp.ench_domain_ready 0
-scoreboard players set @s kitpvp.ench_domain_last 0
-scoreboard players set @s kitpvp.ench_egg_last 0
+scoreboard players add @s kitpvp.ench_domain_used 0
+scoreboard players operation @s kitpvp.ench_domain_last = @s kitpvp.ench_domain_used
+scoreboard players add @s kitpvp.ench_egg_used 0
+scoreboard players operation @s kitpvp.ench_egg_last = @s kitpvp.ench_egg_used
 scoreboard players set @s kitpvp.ench_tmp 0
 scoreboard players set @s kitpvp.ench_tmp_kind 0
 tag @s remove kitpvp.ench_domain
@@ -36,6 +38,7 @@ execute as @e[tag=kitpvp.ench_bench] run kill @s
 scoreboard players set @s kitpvp.ench_slot 0
 function kitpvp:skill/li_ench/assign_slot
 function kitpvp:skill/li_ench/name_refresh
+function kitpvp:skill/li_ench/hud_show
 
 tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"里·附魔师","color":"dark_red","bold":true}]
 tellraw @s [{"text":"常态不能蓄力：用「领域展开：坐杀博徒」开场，60 秒内每次命中抽一张卡","color":"dark_gray"}]
