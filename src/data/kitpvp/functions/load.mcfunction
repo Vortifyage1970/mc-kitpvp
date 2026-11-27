@@ -892,3 +892,38 @@ bossbar add kitpvp:li_a8 {"text":"护甲 · 附魔等级 0","color":"blue"}
 bossbar set kitpvp:li_a8 style progress
 bossbar set kitpvp:li_a8 max 900
 bossbar set kitpvp:li_a8 value 0
+# 里·附魔师：第三条「已连抽 N 抽」，抽出大奖归零
+bossbar add kitpvp:li_p1 {"text":"已连抽 0 抽","color":"red"}
+bossbar set kitpvp:li_p1 style progress
+bossbar set kitpvp:li_p1 max 90
+bossbar set kitpvp:li_p1 value 0
+bossbar add kitpvp:li_p2 {"text":"已连抽 0 抽","color":"red"}
+bossbar set kitpvp:li_p2 style progress
+bossbar set kitpvp:li_p2 max 90
+bossbar set kitpvp:li_p2 value 0
+bossbar add kitpvp:li_p3 {"text":"已连抽 0 抽","color":"red"}
+bossbar set kitpvp:li_p3 style progress
+bossbar set kitpvp:li_p3 max 90
+bossbar set kitpvp:li_p3 value 0
+bossbar add kitpvp:li_p4 {"text":"已连抽 0 抽","color":"red"}
+bossbar set kitpvp:li_p4 style progress
+bossbar set kitpvp:li_p4 max 90
+bossbar set kitpvp:li_p4 value 0
+bossbar add kitpvp:li_p5 {"text":"已连抽 0 抽","color":"red"}
+bossbar set kitpvp:li_p5 style progress
+bossbar set kitpvp:li_p5 max 90
+bossbar set kitpvp:li_p5 value 0
+bossbar add kitpvp:li_p6 {"text":"已连抽 0 抽","color":"red"}
+bossbar set kitpvp:li_p6 style progress
+bossbar set kitpvp:li_p6 max 90
+bossbar set kitpvp:li_p6 value 0
+bossbar add kitpvp:li_p7 {"text":"已连抽 0 抽","color":"red"}
+bossbar set kitpvp:li_p7 style progress
+bossbar set kitpvp:li_p7 max 90
+bossbar set kitpvp:li_p7 value 0
+bossbar add kitpvp:li_p8 {"text":"已连抽 0 抽","color":"red"}
+bossbar set kitpvp:li_p8 style progress
+bossbar set kitpvp:li_p8 max 90
+bossbar set kitpvp:li_p8 value 0
+scoreboard players set #li_pity_max kitpvp.game 90
+

@@ -61,3 +61,5 @@ execute if score #li_r kitpvp.game < #li_t kitpvp.game run function kitpvp:skill
 execute unless score #li_r kitpvp.game < #li_t kitpvp.game run scoreboard players add @s kitpvp.li_pity 1
 execute unless score #li_r kitpvp.game < #li_t kitpvp.game if score #li_r4 kitpvp.game matches 0..101 run function kitpvp:skill/li_ench/pull_four
 execute unless score #li_r kitpvp.game < #li_t kitpvp.game if score #li_r4 kitpvp.game matches 102.. run function kitpvp:skill/li_ench/pull_charge
+# 抽完立刻刷新「已连抽 N 抽」
+function kitpvp:skill/li_ench/pity_name

@@ -47,6 +47,7 @@ scoreboard players add @s kitpvp.li_ten_used 0
 scoreboard players operation @s kitpvp.li_ten_last = @s kitpvp.li_ten_used
 scoreboard players set @s kitpvp.ench_slot 0
 function kitpvp:skill/li_ench/assign_slot
+function kitpvp:skill/li_ench/pity_name
 function kitpvp:skill/li_ench/name_refresh
 function kitpvp:skill/li_ench/hud_show
 

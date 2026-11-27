@@ -268,3 +268,20 @@ execute if score @s kitpvp.ench_slot matches 7 run bossbar set kitpvp:li_s7 play
 execute if score @s kitpvp.ench_slot matches 7 run bossbar set kitpvp:li_a7 players
 execute if score @s kitpvp.ench_slot matches 8 run bossbar set kitpvp:li_s8 players
 execute if score @s kitpvp.ench_slot matches 8 run bossbar set kitpvp:li_a8 players
+# 里·附魔师：收回「已连抽」条
+bossbar set kitpvp:li_p1 players
+bossbar set kitpvp:li_p2 players
+bossbar set kitpvp:li_p3 players
+bossbar set kitpvp:li_p4 players
+bossbar set kitpvp:li_p5 players
+bossbar set kitpvp:li_p6 players
+bossbar set kitpvp:li_p7 players
+bossbar set kitpvp:li_p8 players
+bossbar set kitpvp:li_p1 value 0
+bossbar set kitpvp:li_p2 value 0
+bossbar set kitpvp:li_p3 value 0
+bossbar set kitpvp:li_p4 value 0
+bossbar set kitpvp:li_p5 value 0
+bossbar set kitpvp:li_p6 value 0
+bossbar set kitpvp:li_p7 value 0
+bossbar set kitpvp:li_p8 value 0
