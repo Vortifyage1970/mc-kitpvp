@@ -926,4 +926,4 @@ bossbar set kitpvp:li_p8 style progress
 bossbar set kitpvp:li_p8 max 90
 bossbar set kitpvp:li_p8 value 0
 scoreboard players set #li_pity_max kitpvp.game 90
-
+scoreboard players set #li_twenty kitpvp.game 20
