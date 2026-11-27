@@ -224,5 +224,6 @@ execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.kit=68,kitpvp
 kill @e[tag=kitpvp.earth_token]
 
 # 附魔师（kit 15）：每刻走自己的强化计时
+execute as @a[tag=kitpvp.selected,scores={kitpvp.kit=15},tag=!kitpvp.spectator] at @s run function kitpvp:skill/enchanter/book_passive
 execute if score #state kitpvp.game matches 1 as @a[tag=kitpvp.selected,scores={kitpvp.kit=15,kitpvp.alive=1},tag=!kitpvp.spectator] at @s run function kitpvp:skill/enchanter/tick
 function kitpvp:skill/enchanter/hud
