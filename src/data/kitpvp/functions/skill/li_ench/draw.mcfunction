@@ -24,6 +24,12 @@ execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
 execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_p kitpvp.game 4
 execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
 execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_p kitpvp.game 8
+execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
+execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_p kitpvp.game 16
+execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
+execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_p kitpvp.game 32
+execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
+execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_p kitpvp.game 64
 
 execute if score #dom_r kitpvp.game matches 0..88 if score #dom_p kitpvp.game matches 0..20 run function kitpvp:skill/li_ench/card/c00_mo
 execute if score #dom_r kitpvp.game matches 0..88 if score #dom_p kitpvp.game matches 21..41 run function kitpvp:skill/li_ench/card/c01_cui
