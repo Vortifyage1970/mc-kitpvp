@@ -37,6 +37,7 @@ tag @s remove kitpvp.ench_domain
 tag @s remove kitpvp.ench_wait
 execute as @e[tag=kitpvp.ench_bench] run kill @s
 scoreboard players set @s kitpvp.li_single_cd 0
+scoreboard players set @s kitpvp.li_pity 0
 scoreboard players set @s kitpvp.li_ten_cd 0
 scoreboard players set @s kitpvp.li_dom_pull 0
 scoreboard players add @s kitpvp.li_single_used 0
