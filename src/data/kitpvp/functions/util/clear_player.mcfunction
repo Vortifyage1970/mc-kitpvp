@@ -177,6 +177,7 @@ attribute @s minecraft:generic.attack_speed base set 4
 attribute @s minecraft:generic.knockback_resistance base set 0
 attribute @s minecraft:generic.armor base set 0
 attribute @s minecraft:generic.armor_toughness base set 0
+function kitpvp:skill/li_ench/cleanup_one
 
 gamemode adventure @s
 # 1.20.1 无 /heal

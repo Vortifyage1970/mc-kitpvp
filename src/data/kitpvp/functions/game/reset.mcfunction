@@ -201,3 +201,4 @@ bossbar set kitpvp:li_s8 players
 bossbar set kitpvp:li_a8 players
 bossbar set kitpvp:li_s8 value 0
 bossbar set kitpvp:li_a8 value 0
+execute as @a run function kitpvp:skill/li_ench/cleanup_one
