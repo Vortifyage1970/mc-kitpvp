@@ -806,3 +806,14 @@ scoreboard players set #ench_three_hundred kitpvp.game 300
 scoreboard players set #ench_one kitpvp.game 1
 scoreboard players set #book_eighty kitpvp.game 80
 scoreboard objectives add kitpvp.ench_sslot dummy "剑找到了第几个格子（0 = 还在主手，1..37 = 已临时换进主手）"
+
+# 附魔师·坐杀博徒（2026-11-28）
+scoreboard objectives add kitpvp.ench_domain_t dummy "坐杀博徒剩余刻数（400 = 20 秒）"
+scoreboard objectives add kitpvp.ench_domain_cd dummy "坐杀博徒冷却刻数（1000 = 50 秒）"
+scoreboard objectives add kitpvp.ench_domain_ready dummy "赌徒之蛋：1 = 下一次领域不吃冷却"
+scoreboard objectives add kitpvp.ench_egg_used minecraft.used:minecraft.turtle_spawn_egg
+scoreboard objectives add kitpvp.ench_egg_last dummy "上一刻的赌徒之蛋使用次数"
+scoreboard objectives add kitpvp.ench_tmp dummy "临时强化剩余刻数（利刃 200 / 锋锐 400）"
+scoreboard objectives add kitpvp.ench_tmp_kind dummy "临时强化类型（3 = 攻击力修饰符）"
+scoreboard objectives add kitpvp.ench_domain_used minecraft.used:minecraft.bat_spawn_egg
+scoreboard objectives add kitpvp.ench_domain_last dummy "上一刻的坐杀博徒入场券使用次数"
