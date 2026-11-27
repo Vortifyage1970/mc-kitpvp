@@ -11,7 +11,7 @@ item replace entity @s armor.chest with minecraft:golden_chestplate{Unbreakable:
 item replace entity @s armor.legs with minecraft:golden_leggings{Unbreakable:1b,KitEnch:1b,Trim:{material:"minecraft:redstone",pattern:"minecraft:vex"}}
 item replace entity @s armor.feet with minecraft:golden_boots{Unbreakable:1b,KitEnch:1b,Trim:{material:"minecraft:redstone",pattern:"minecraft:vex"}}
 item replace entity @s hotbar.0 with minecraft:golden_sword{Unbreakable:1b,KitEnch:1b}
-item replace entity @s hotbar.1 with minecraft:cooked_beef 24
+item replace entity @s hotbar.1 with minecraft:golden_carrot 32
 item replace entity @s hotbar.2 with minecraft:camel_spawn_egg{KitLiSingle:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:1s}],display:{Name:'{"text":"单抽","color":"light_purple","italic":false}',Lore:['{"text":"右键：受 3 点伤害抽一次（冷却 2 秒）","color":"gray","italic":false}']}}
 item replace entity @s hotbar.3 with minecraft:panda_spawn_egg{KitLiTen:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:1s}],display:{Name:'{"text":"十连","color":"gold","italic":false}',Lore:['{"text":"右键：受 20 点伤害连抽十次（冷却 15 秒）","color":"gray","italic":false}']}}
 

@@ -9,7 +9,7 @@ tellraw @s [{"text":"│ 头盔：","color":"gray"},{"text":"金头盔","color":
 tellraw @s [{"text":"│ 胸甲：","color":"gray"},{"text":"金胸甲","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:golden_chestplate","Count":1}}}]
 tellraw @s [{"text":"│ 护腿：","color":"gray"},{"text":"金护腿","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:golden_leggings","Count":1}}}]
 tellraw @s [{"text":"│ 靴子：","color":"gray"},{"text":"金靴子","color":"white","hoverEvent":{"action":"show_item","contents":{"id":"minecraft:golden_boots","Count":1}}}]
-tellraw @s [{"text":"┃ 物品：","color":"gray"},{"text":"熟牛肉","color":"white"},{"text":"24","color":"gold"},{"text":"、「单抽」、「十连」","color":"white"}]
+tellraw @s [{"text":"┃ 物品：","color":"gray"},{"text":"金胡萝卜","color":"white"},{"text":"32","color":"gold"},{"text":"、「单抽」、「十连」","color":"white"}]
 tellraw @s [{"text":"┃ 技能：","color":"gray"},{"text":"单抽","color":"gold"},{"text":"：右键受 3 点伤害抽一次（冷却 2 秒）；","color":"white"},{"text":"十连","color":"gold"},{"text":"：受 20 点伤害连抽十次（冷却 15 秒）","color":"white"}]
 tellraw @s [{"text":"┃ 概率：","color":"gray"},{"text":"三星 89.4% 蓄力","color":"white"},{"text":" / ","color":"dark_gray"},{"text":"四星 10%","color":"aqua"},{"text":" / ","color":"dark_gray"},{"text":"大奖 0.6%","color":"light_purple"}]
 tellraw @s [{"text":"┃ 保底：","color":"gray"},{"text":"连 70 抽没出大奖起涨概率，第 90 抽必出","color":"white"}]
