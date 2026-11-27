@@ -49,6 +49,7 @@ python tools/smoke.py --keep     # 跑完不关，方便继续手测
 | `gen_cleanup.py` | **动过 `summon` / 刷怪蛋 / 运行期 `tag @e add`** → 重新生成 `game/reset_entities.mcfunction`（清场白名单）。漏跑 = 跨局残留 |
 | `gen_structure.py` | 增删文件后 → 刷新 `ai-content/01-file-structure.md` |
 | `gen_cards.py` | 改职业数值 / 装备后 → 重新生成 `kit/info/*.mcfunction` 卡片（**别手改卡片**） |
+| `gen_trims.py` | 改盔甲纹饰分配 → 按 `ASSIGN` 表往所有 kit 的盔甲里重塞 `Trim`（幂等，别手改） |
 | `gen_lobby.py` | 改大厅菜单 / 按钮 |
 | `gen_chaos.py` | 改混沌武器池 |
 | `gen_rumbling_lyrics.py` | 改音乐（火星地鸣）歌词时间轴 |

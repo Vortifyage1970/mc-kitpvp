@@ -6,10 +6,10 @@ scoreboard players set @s kitpvp.kit 45
 tag @s add kitpvp.selected
 scoreboard players set @s kitpvp.alive 1
 
-item replace entity @s armor.head with minecraft:iron_helmet{Unbreakable:1b}
-item replace entity @s armor.chest with minecraft:chainmail_chestplate{Unbreakable:1b}
-item replace entity @s armor.legs with minecraft:chainmail_leggings{Unbreakable:1b}
-item replace entity @s armor.feet with minecraft:chainmail_boots{Unbreakable:1b}
+item replace entity @s armor.head with minecraft:iron_helmet{Unbreakable:1b,Trim:{material:"minecraft:netherite",pattern:"minecraft:sentry"}}
+item replace entity @s armor.chest with minecraft:chainmail_chestplate{Unbreakable:1b,Trim:{material:"minecraft:netherite",pattern:"minecraft:sentry"}}
+item replace entity @s armor.legs with minecraft:chainmail_leggings{Unbreakable:1b,Trim:{material:"minecraft:netherite",pattern:"minecraft:sentry"}}
+item replace entity @s armor.feet with minecraft:chainmail_boots{Unbreakable:1b,Trim:{material:"minecraft:netherite",pattern:"minecraft:sentry"}}
 scoreboard players set @s kitpvp.lives 3
 function kitpvp:kit/chaos_start
 

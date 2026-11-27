@@ -318,6 +318,43 @@ LEGACY_ITEMS = {
 }
 
 
+TRIM_MATERIALS = {
+    "quartz", "iron", "netherite", "redstone", "copper",
+    "gold", "emerald", "diamond", "lapis", "amethyst",
+}
+TRIM_PATTERNS = {
+    "coast", "sentry", "dune", "wild", "ward", "eye", "vex", "tide",
+    "snout", "rib", "spire", "wayfinder", "shaper", "silent", "raiser", "host",
+}
+_TRIM_RE = re.compile(r'Trim:\{material:"minecraft:([a-z_]+)",pattern:"minecraft:([a-z_]+)"\}')
+
+
+def check_trims() -> tuple[str, list[str], bool]:
+    """盔甲纹饰：值必须在白名单里，且同一 kit 内材质（阵营色）一致。
+
+    1.20.1 里 pattern / material 写错**不会报错**——命令照常成功，只是不显示纹饰，
+    所以只能靠静态校验兜住。tools/gen_trims.py 是唯一该改纹饰的地方。
+    """
+    bad: list[str] = []
+    per_kit: dict[str, set[str]] = {}
+    for p, rel in _iter_mc():
+        for n, line in enumerate(_read(p), 1):
+            s = line.strip()
+            if s.startswith("#"):
+                continue
+            for mat, pat in _TRIM_RE.findall(s):
+                if mat not in TRIM_MATERIALS:
+                    bad.append(f"{rel}:{n}  纹饰材质不存在: {mat}")
+                if pat not in TRIM_PATTERNS:
+                    bad.append(f"{rel}:{n}  纹饰图案不存在: {pat}")
+                if "/kit/" in rel and "/info/" not in rel:
+                    per_kit.setdefault(rel, set()).add(mat)
+    for rel, mats in sorted(per_kit.items()):
+        if len(mats) > 1:
+            bad.append(f"{rel}  同一职业里混了多种纹饰材质（阵营色应统一）: {sorted(mats)}")
+    return "盔甲纹饰的材质/图案合法，且同一职业阵营色一致", bad, True
+
+
 def check_legacy_items() -> tuple[str, list[str], bool]:
     bad: list[str] = []
     pats = [(old, new, re.compile(re.escape(old) + r"(?!\w)")) for old, new in LEGACY_ITEMS.items()]
@@ -342,6 +379,7 @@ ALL_FATAL = [
     check_objective_refs,
     check_matches_comma,
     check_legacy_items,
+    check_trims,
 ]
 
 

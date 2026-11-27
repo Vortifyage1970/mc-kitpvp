@@ -8,10 +8,10 @@ tag @s add kitpvp.selected
 scoreboard players set @s kitpvp.alive 1
 scoreboard players set @s kitpvp.lives 3
 
-item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,display:{color:16777215},AttributeModifiers:[{AttributeName:"minecraft:generic.armor",Name:"kitpvp.zzw_helm",Amount:2,Operation:0,UUID:[I;97,0,0,1],Slot:"head"}]}
-item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:15956345},AttributeModifiers:[{AttributeName:"minecraft:generic.armor",Name:"kitpvp.zzw_chest",Amount:5,Operation:0,UUID:[I;97,0,0,2],Slot:"chest"}]}
-item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:16777215},AttributeModifiers:[{AttributeName:"minecraft:generic.armor",Name:"kitpvp.zzw_legs",Amount:3,Operation:0,UUID:[I;97,0,0,3],Slot:"legs"}]}
-item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,display:{color:16777215},AttributeModifiers:[{AttributeName:"minecraft:generic.armor",Name:"kitpvp.zzw_boots",Amount:2,Operation:0,UUID:[I;97,0,0,4],Slot:"feet"}]}
+item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,display:{color:16777215},AttributeModifiers:[{AttributeName:"minecraft:generic.armor",Name:"kitpvp.zzw_helm",Amount:2,Operation:0,UUID:[I;97,0,0,1],Slot:"head"}],Trim:{material:"minecraft:gold",pattern:"minecraft:ward"}}
+item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:15956345},AttributeModifiers:[{AttributeName:"minecraft:generic.armor",Name:"kitpvp.zzw_chest",Amount:5,Operation:0,UUID:[I;97,0,0,2],Slot:"chest"}],Trim:{material:"minecraft:gold",pattern:"minecraft:ward"}}
+item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:16777215},AttributeModifiers:[{AttributeName:"minecraft:generic.armor",Name:"kitpvp.zzw_legs",Amount:3,Operation:0,UUID:[I;97,0,0,3],Slot:"legs"}],Trim:{material:"minecraft:gold",pattern:"minecraft:ward"}}
+item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,display:{color:16777215},AttributeModifiers:[{AttributeName:"minecraft:generic.armor",Name:"kitpvp.zzw_boots",Amount:2,Operation:0,UUID:[I;97,0,0,4],Slot:"feet"}],Trim:{material:"minecraft:gold",pattern:"minecraft:ward"}}
 
 item replace entity @s weapon.mainhand with minecraft:stone_sword{Unbreakable:1b} 1
 give @s minecraft:cooked_beef 24

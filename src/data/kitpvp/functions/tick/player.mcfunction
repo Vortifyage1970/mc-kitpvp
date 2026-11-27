@@ -11,4 +11,9 @@ execute as @a[tag=kitpvp.respawn_pending,tag=!kitpvp.spectator] unless entity @s
 
 # 胜负判定：必须排在死亡处理之后——同刻互杀要等两人都淘汰完再统计，
 # 否则会先看到"幸存者=1"而误判胜者；同时覆盖掉线减员的兜底
+# 附魔师魂石：400 刻（20 秒）五级附魔倒计时。递减类计时器必须放每刻车道，
+# 放 slow2 会变成 400×2 刻 = 40 秒（2026-11-27 修）。stone_left=-1 表示未持有。
+execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.stone_left=1..}] run scoreboard players remove @s kitpvp.stone_left 1
+execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.stone_left=0}] at @s run function kitpvp:skill/soul/enchanter_expire
+
 execute if score #state kitpvp.game matches 1 run function kitpvp:game/check_winner

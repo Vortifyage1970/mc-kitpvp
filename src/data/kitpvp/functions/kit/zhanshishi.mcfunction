@@ -8,10 +8,10 @@ tag @s add kitpvp.selected
 scoreboard players set @s kitpvp.alive 1
 scoreboard players set @s kitpvp.lives 3
 
-item replace entity @s armor.head with minecraft:iron_helmet{Unbreakable:1b}
-item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:16776960}}
-item replace entity @s armor.legs with minecraft:iron_leggings{Unbreakable:1b}
-item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b}
+item replace entity @s armor.head with minecraft:iron_helmet{Unbreakable:1b,Trim:{material:"minecraft:emerald",pattern:"minecraft:host"}}
+item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:16776960},Trim:{material:"minecraft:emerald",pattern:"minecraft:host"}}
+item replace entity @s armor.legs with minecraft:iron_leggings{Unbreakable:1b,Trim:{material:"minecraft:emerald",pattern:"minecraft:host"}}
+item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b,Trim:{material:"minecraft:emerald",pattern:"minecraft:host"}}
 
 item replace entity @s weapon.mainhand with minecraft:wooden_sword{Unbreakable:1b,Enchantments:[{id:"minecraft:knockback",lvl:1}]} 1
 give @s minecraft:cooked_mutton 24

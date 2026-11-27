@@ -9,9 +9,9 @@ scoreboard players set @s kitpvp.lives 3
 
 # 僵尸头原版没有护甲值：这里刻意不补，头部 0 护甲（总护甲 8 → 7，2026-11-10）
 item replace entity @s armor.head with minecraft:zombie_head{Unbreakable:1b}
-item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:3033902}}
-item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:3033902}}
-item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b}
+item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:3033902},Trim:{material:"minecraft:quartz",pattern:"minecraft:eye"}}
+item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:3033902},Trim:{material:"minecraft:quartz",pattern:"minecraft:eye"}}
+item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b,Trim:{material:"minecraft:quartz",pattern:"minecraft:eye"}}
 
 item replace entity @s hotbar.0 with minecraft:stone_sword{Unbreakable:1b}
 item replace entity @s hotbar.1 with minecraft:cooked_beef 24

@@ -7,7 +7,7 @@ tag @s add kitpvp.selected
 scoreboard players set @s kitpvp.alive 1
 scoreboard players set @s kitpvp.lives 3
 
-item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b}
+item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,Trim:{material:"minecraft:amethyst",pattern:"minecraft:silent"}}
 item replace entity @s hotbar.0 with minecraft:stone_sword{Unbreakable:1b}
 item replace entity @s hotbar.1 with minecraft:cooked_beef 24
 

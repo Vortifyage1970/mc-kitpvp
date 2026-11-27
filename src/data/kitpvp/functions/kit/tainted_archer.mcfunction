@@ -7,10 +7,10 @@ tag @s add kitpvp.arrow_user
 scoreboard players set @s kitpvp.alive 1
 
 # 暗红皮革 11141120 = 0xAA0000
-item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,display:{color:11141120},Enchantments:[{id:"minecraft:protection",lvl:2}]} 1
-item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:11141120},Enchantments:[{id:"minecraft:protection",lvl:2}]} 1
-item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:11141120},Enchantments:[{id:"minecraft:protection",lvl:1}]} 1
-item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,display:{color:11141120},Enchantments:[{id:"minecraft:protection",lvl:1}]} 1
+item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,display:{color:11141120},Enchantments:[{id:"minecraft:protection",lvl:2}],Trim:{material:"minecraft:redstone",pattern:"minecraft:dune"}} 1
+item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:11141120},Enchantments:[{id:"minecraft:protection",lvl:2}],Trim:{material:"minecraft:redstone",pattern:"minecraft:dune"}} 1
+item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:11141120},Enchantments:[{id:"minecraft:protection",lvl:1}],Trim:{material:"minecraft:redstone",pattern:"minecraft:dune"}} 1
+item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,display:{color:11141120},Enchantments:[{id:"minecraft:protection",lvl:1}],Trim:{material:"minecraft:redstone",pattern:"minecraft:dune"}} 1
 
 # 小锤40：实际伤害 4.4 / 攻速 1.3（玩家基础值 1 / 4，故写 3.4 / -2.7，见 04 §九）
 item replace entity @s weapon.mainhand with minecraft:stone_axe{KitTaintedAxe:1b,Unbreakable:1b,AttributeModifiers:[{AttributeName:"minecraft:generic.attack_damage",Name:"kitpvp.tainted_axe_damage",Amount:3.4,Operation:0,UUID:[I;24,0,0,1],Slot:"mainhand"},{AttributeName:"minecraft:generic.attack_speed",Name:"kitpvp.tainted_axe_speed",Amount:-2.7,Operation:0,UUID:[I;24,0,0,2],Slot:"mainhand"}],display:{Name:'{"text":"小锤40","color":"gold"}'}} 1

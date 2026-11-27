@@ -4,10 +4,10 @@ function kitpvp:util/clear_player
 scoreboard players set @s kitpvp.kit 12
 tag @s add kitpvp.selected
 
-item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,display:{color:3046706}}
-item replace entity @s armor.chest with minecraft:iron_chestplate{Unbreakable:1b}
-item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:3046706}}
-item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,display:{color:3046706}}
+item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,display:{color:3046706},Trim:{material:"minecraft:quartz",pattern:"minecraft:wild"}}
+item replace entity @s armor.chest with minecraft:iron_chestplate{Unbreakable:1b,Trim:{material:"minecraft:quartz",pattern:"minecraft:wild"}}
+item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:3046706},Trim:{material:"minecraft:quartz",pattern:"minecraft:wild"}}
+item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,display:{color:3046706},Trim:{material:"minecraft:quartz",pattern:"minecraft:wild"}}
 
 item replace entity @s weapon.mainhand with minecraft:stone_sword{Unbreakable:1b}
 

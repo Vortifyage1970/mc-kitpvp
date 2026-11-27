@@ -9,10 +9,10 @@ scoreboard players set @s kitpvp.alive 1
 scoreboard players set @s kitpvp.lives 3
 
 # 护甲 10：金盔默认 2，显式写成 1（写 AttributeModifiers 会覆盖默认修饰符，正好拿来削 1 点）
-item replace entity @s armor.head with minecraft:golden_helmet{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.sun_armor_head",Amount:1,Operation:0,UUID:[I;65,0,0,1],Slot:"head"}]} 1
-item replace entity @s armor.chest with minecraft:golden_chestplate{Unbreakable:1b} 1
-item replace entity @s armor.legs with minecraft:golden_leggings{Unbreakable:1b} 1
-item replace entity @s armor.feet with minecraft:golden_boots{Unbreakable:1b} 1
+item replace entity @s armor.head with minecraft:golden_helmet{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.sun_armor_head",Amount:1,Operation:0,UUID:[I;65,0,0,1],Slot:"head"}],Trim:{material:"minecraft:amethyst",pattern:"minecraft:raiser"}} 1
+item replace entity @s armor.chest with minecraft:golden_chestplate{Unbreakable:1b,Trim:{material:"minecraft:amethyst",pattern:"minecraft:raiser"}} 1
+item replace entity @s armor.legs with minecraft:golden_leggings{Unbreakable:1b,Trim:{material:"minecraft:amethyst",pattern:"minecraft:raiser"}} 1
+item replace entity @s armor.feet with minecraft:golden_boots{Unbreakable:1b,Trim:{material:"minecraft:amethyst",pattern:"minecraft:raiser"}} 1
 
 item replace entity @s weapon.mainhand with minecraft:golden_sword{Unbreakable:1b,Enchantments:[{id:"minecraft:fire_aspect",lvl:1}]} 1
 function kitpvp:skill/sun/give_bow

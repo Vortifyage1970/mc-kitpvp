@@ -7,10 +7,10 @@ function kitpvp:util/clear_player
 scoreboard players set @s kitpvp.kit 3
 tag @s add kitpvp.selected
 
-item replace entity @s armor.head with minecraft:diamond_helmet{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.tank_armor_head",Amount:3,Operation:0,UUID:[I;3,0,0,1],Slot:"head"}]}
-item replace entity @s armor.chest with minecraft:diamond_chestplate{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.tank_armor_chest",Amount:8,Operation:0,UUID:[I;3,0,0,2],Slot:"chest"}]}
-item replace entity @s armor.legs with minecraft:diamond_leggings{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.tank_armor_legs",Amount:6,Operation:0,UUID:[I;3,0,0,3],Slot:"legs"}]}
-item replace entity @s armor.feet with minecraft:diamond_boots{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.tank_armor_feet",Amount:3,Operation:0,UUID:[I;3,0,0,4],Slot:"feet"}]}
+item replace entity @s armor.head with minecraft:diamond_helmet{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.tank_armor_head",Amount:3,Operation:0,UUID:[I;3,0,0,1],Slot:"head"}],Trim:{material:"minecraft:quartz",pattern:"minecraft:ward"}}
+item replace entity @s armor.chest with minecraft:diamond_chestplate{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.tank_armor_chest",Amount:8,Operation:0,UUID:[I;3,0,0,2],Slot:"chest"}],Trim:{material:"minecraft:quartz",pattern:"minecraft:ward"}}
+item replace entity @s armor.legs with minecraft:diamond_leggings{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.tank_armor_legs",Amount:6,Operation:0,UUID:[I;3,0,0,3],Slot:"legs"}],Trim:{material:"minecraft:quartz",pattern:"minecraft:ward"}}
+item replace entity @s armor.feet with minecraft:diamond_boots{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.tank_armor_feet",Amount:3,Operation:0,UUID:[I;3,0,0,4],Slot:"feet"}],Trim:{material:"minecraft:quartz",pattern:"minecraft:ward"}}
 item replace entity @s weapon.mainhand with minecraft:wooden_sword{Unbreakable:1b}
 give @s minecraft:cooked_beef 24
 

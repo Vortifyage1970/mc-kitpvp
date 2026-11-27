@@ -7,10 +7,10 @@ tag @s add kitpvp.selected
 scoreboard players set @s kitpvp.alive 1
 scoreboard players set @s kitpvp.lives 3
 
-item replace entity @s armor.head with minecraft:iron_helmet{Unbreakable:1b}
-item replace entity @s armor.chest with minecraft:golden_chestplate{Unbreakable:1b}
-item replace entity @s armor.legs with minecraft:golden_leggings{Unbreakable:1b}
-item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b}
+item replace entity @s armor.head with minecraft:iron_helmet{Unbreakable:1b,Trim:{material:"minecraft:amethyst",pattern:"minecraft:shaper"}}
+item replace entity @s armor.chest with minecraft:golden_chestplate{Unbreakable:1b,Trim:{material:"minecraft:amethyst",pattern:"minecraft:shaper"}}
+item replace entity @s armor.legs with minecraft:golden_leggings{Unbreakable:1b,Trim:{material:"minecraft:amethyst",pattern:"minecraft:shaper"}}
+item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b,Trim:{material:"minecraft:amethyst",pattern:"minecraft:shaper"}}
 
 # 原版铁铲：沿用默认修饰符（伤害 2.5 / 攻速 1.0），不写 AttributeModifiers
 item replace entity @s weapon.mainhand with minecraft:iron_shovel{Unbreakable:1b}

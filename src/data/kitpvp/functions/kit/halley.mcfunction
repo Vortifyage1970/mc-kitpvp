@@ -8,10 +8,10 @@ tag @s add kitpvp.selected
 scoreboard players set @s kitpvp.alive 1
 scoreboard players set @s kitpvp.lives 3
 
-item replace entity @s armor.head with minecraft:diamond_helmet{Unbreakable:1b}
-item replace entity @s armor.chest with minecraft:golden_chestplate{Unbreakable:1b}
-item replace entity @s armor.legs with minecraft:golden_leggings{Unbreakable:1b}
-item replace entity @s armor.feet with minecraft:diamond_boots{Unbreakable:1b,AttributeModifiers:[{AttributeName:"minecraft:generic.armor",Name:"kitpvp.halley_armor",Amount:1,Operation:0,UUID:[I;69,0,0,9],Slot:"feet"},{AttributeName:"minecraft:generic.armor_toughness",Name:"kitpvp.halley_tough",Amount:2,Operation:0,UUID:[I;69,0,0,10],Slot:"feet"}]}
+item replace entity @s armor.head with minecraft:diamond_helmet{Unbreakable:1b,Trim:{material:"minecraft:amethyst",pattern:"minecraft:dune"}}
+item replace entity @s armor.chest with minecraft:golden_chestplate{Unbreakable:1b,Trim:{material:"minecraft:amethyst",pattern:"minecraft:dune"}}
+item replace entity @s armor.legs with minecraft:golden_leggings{Unbreakable:1b,Trim:{material:"minecraft:amethyst",pattern:"minecraft:dune"}}
+item replace entity @s armor.feet with minecraft:diamond_boots{Unbreakable:1b,AttributeModifiers:[{AttributeName:"minecraft:generic.armor",Name:"kitpvp.halley_armor",Amount:1,Operation:0,UUID:[I;69,0,0,9],Slot:"feet"},{AttributeName:"minecraft:generic.armor_toughness",Name:"kitpvp.halley_tough",Amount:2,Operation:0,UUID:[I;69,0,0,10],Slot:"feet"}],Trim:{material:"minecraft:amethyst",pattern:"minecraft:dune"}}
 
 item replace entity @s weapon.mainhand with minecraft:iron_sword{Unbreakable:1b}
 

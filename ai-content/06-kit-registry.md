@@ -1570,3 +1570,36 @@
 > 所以 `play` 之后把分数推到 `277760-400×154 = 216160`（第 2702 个音）、快照推到 `2701` 即可；全曲最后一个音是 3472，正好再放 400 刻（20 秒）就自停。
 > 歌词链是 `schedule` 串联的**绝对时间轴**，中间开播不能从头起：最后 20 秒对应第 18 句（`ev_018` 落在曲内第 1401 刻 ≈ 70.05 秒），
 > 所以直接 `schedule function kitpvp:music/rumbling_lyric/ev_018 1t`，收场时用 `rumbling_lyric/stop` 把整条链清掉。
+
+## 盔甲纹饰（纯视觉，2026-11-27）
+
+1.20.1 的 `Trim:{material,pattern}` 组件。**零属性、只影响外观**，不改任何数值。
+
+**设计规则：材质 = 阵营色（远处分阵营），图案 = 职业原型（近处分职业）。**
+表 / 里 的同一原型共用同一图案，所以"里·战士"一眼能认出是"战士"的腐化版。
+
+| 阵营 | 材质 | 说明 |
+|---|---|---|
+| 表 classic | `quartz` | 月白，朴素 |
+| 里 classic_tainted | `redstone` | 暗红，腐化 |
+| 混沌 classic_chaos | `netherite` | 黑金 |
+| 星象 astral | `amethyst` | 紫晶 |
+| 抽象 meme | `copper` | 橙铜 |
+| 历史 history | `gold` | 金 |
+| 职业职业 guild | `emerald` | 翠 |
+
+图案分配见 `tools/gen_trims.py` 里的 `ASSIGN` 表（唯一该改动的地方）。
+
+⚠ **改纹饰只改 `tools/gen_trims.py` 的 `ASSIGN`，然后重跑**，不要手改 kit 文件：
+
+```
+python tools/gen_trims.py          # 幂等，重跑会先摘旧 Trim 再重塞
+python tools/check.py              # 会校验材质/图案白名单
+```
+
+三个必须知道的点：
+
+- **`pattern` / `material` 写错不会报错**：命令照常成功，只是不显示纹饰。所以 `check.py` 有白名单校验兜底（`check_trims`）。
+- **`elytra` / `player_head` / `zombie_head` / `air` 不能上纹饰**，生成器会自动跳过（渔夫的鞘翅、两位幽灵的头、汉堡小子的空头盔/护腿）。
+- **同一个 kit 里材质必须一致**（阵营色），`check.py` 会拦混用。
+

@@ -9,10 +9,10 @@ scoreboard players set @s kitpvp.lives 3
 scoreboard players set @s kitpvp.poisoner_hit_cd 0
 
 # 深紫皮革 4915330 = 0x4B0082；总护甲 8（皮革头 1 + 胸 3 + 腿 2 + 铁靴 2）
-item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,display:{color:4915330}}
-item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:4915330}}
-item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:4915330}}
-item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b}
+item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,display:{color:4915330},Trim:{material:"minecraft:emerald",pattern:"minecraft:eye"}}
+item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:4915330},Trim:{material:"minecraft:emerald",pattern:"minecraft:eye"}}
+item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:4915330},Trim:{material:"minecraft:emerald",pattern:"minecraft:eye"}}
+item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b,Trim:{material:"minecraft:emerald",pattern:"minecraft:eye"}}
 
 # 淬毒短匕：石剑面板 5 / 攻速 1.6；打上 KitPoisonerBlade 供命中被动认武器
 item replace entity @s hotbar.0 with minecraft:stone_sword{KitPoisonerBlade:1b,Unbreakable:1b,display:{Name:'{"text":"淬毒短匕","color":"dark_purple"}'}}

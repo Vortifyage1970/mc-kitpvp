@@ -6,10 +6,10 @@ scoreboard players set @s kitpvp.kit 25
 tag @s add kitpvp.selected
 scoreboard players set @s kitpvp.alive 1
 
-item replace entity @s armor.head with minecraft:diamond_helmet{Unbreakable:1b,Enchantments:[{id:"minecraft:thorns",lvl:5}],AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.ttank_armor_head",Amount:3,Operation:0,UUID:[I;25,0,0,1],Slot:"head"}]}
-item replace entity @s armor.chest with minecraft:diamond_chestplate{Unbreakable:1b,Enchantments:[{id:"minecraft:thorns",lvl:5}],AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.ttank_armor_chest",Amount:8,Operation:0,UUID:[I;25,0,0,2],Slot:"chest"}]}
-item replace entity @s armor.legs with minecraft:diamond_leggings{Unbreakable:1b,Enchantments:[{id:"minecraft:thorns",lvl:5}],AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.ttank_armor_legs",Amount:6,Operation:0,UUID:[I;25,0,0,3],Slot:"legs"}]}
-item replace entity @s armor.feet with minecraft:diamond_boots{Unbreakable:1b,Enchantments:[{id:"minecraft:thorns",lvl:5}],AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.ttank_armor_feet",Amount:3,Operation:0,UUID:[I;25,0,0,4],Slot:"feet"}]}
+item replace entity @s armor.head with minecraft:diamond_helmet{Unbreakable:1b,Enchantments:[{id:"minecraft:thorns",lvl:5}],AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.ttank_armor_head",Amount:3,Operation:0,UUID:[I;25,0,0,1],Slot:"head"}],Trim:{material:"minecraft:redstone",pattern:"minecraft:ward"}}
+item replace entity @s armor.chest with minecraft:diamond_chestplate{Unbreakable:1b,Enchantments:[{id:"minecraft:thorns",lvl:5}],AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.ttank_armor_chest",Amount:8,Operation:0,UUID:[I;25,0,0,2],Slot:"chest"}],Trim:{material:"minecraft:redstone",pattern:"minecraft:ward"}}
+item replace entity @s armor.legs with minecraft:diamond_leggings{Unbreakable:1b,Enchantments:[{id:"minecraft:thorns",lvl:5}],AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.ttank_armor_legs",Amount:6,Operation:0,UUID:[I;25,0,0,3],Slot:"legs"}],Trim:{material:"minecraft:redstone",pattern:"minecraft:ward"}}
+item replace entity @s armor.feet with minecraft:diamond_boots{Unbreakable:1b,Enchantments:[{id:"minecraft:thorns",lvl:5}],AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.ttank_armor_feet",Amount:3,Operation:0,UUID:[I;25,0,0,4],Slot:"feet"}],Trim:{material:"minecraft:redstone",pattern:"minecraft:ward"}}
 item replace entity @s hotbar.0 with minecraft:wooden_sword{Unbreakable:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:3}]}
 item replace entity @s hotbar.1 with minecraft:cooked_beef 14
 

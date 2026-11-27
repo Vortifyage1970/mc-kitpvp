@@ -90,5 +90,3 @@ execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator]
 # 附魔师魂石：用掉蛋的那一帧派发（与其它魂石同款：_used > _last 才触发）
 execute as @a[tag=kitpvp.selected,scores={kitpvp.alive=1},tag=!kitpvp.spectator] if score @s kitpvp.soul_enchanter_used > @s kitpvp.soul_enchanter_last run function kitpvp:skill/soul/use_enchanter
 # 附魔师魂石：20 秒（400 刻）倒计时，到 0 那一帧还原五件装备
-execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.stone_left=1..}] run scoreboard players remove @s kitpvp.stone_left 1
-execute if score #state kitpvp.game matches 1 as @a[scores={kitpvp.stone_left=0}] at @s run function kitpvp:skill/soul/enchanter_expire

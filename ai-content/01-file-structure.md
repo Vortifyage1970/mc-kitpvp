@@ -17,14 +17,22 @@ D:\MC-KITPVP\SRC
 │   │   ├─advancements
 │   │   │   └─player
 │   │   │       ├─archer_pickup.json
+│   │   │       ├─campfire_touch.json
+│   │   │       ├─captain_shield.json
+│   │   │       ├─carto_hit.json
 │   │   │       ├─chaos_hit.json
+│   │   │       ├─coser_give.json
+│   │   │       ├─ench_hit.json
+│   │   │       ├─ench_hurt.json
 │   │   │       ├─ghost_hurt.json
 │   │   │       ├─ghost_soul_attack.json
+│   │   │       ├─hive_struck.json
 │   │   │       ├─lectern_teleport_1.json
 │   │   │       ├─lectern_teleport_2.json
 │   │   │       ├─lobby_launch.json
 │   │   │       ├─mars_hit.json
 │   │   │       ├─pirate_pickup.json
+│   │   │       ├─spoon_hit.json
 │   │   │       ├─sun_bow_pickup.json
 │   │   │       ├─tainted_archer_hit_turret.json
 │   │   │       ├─tainted_bow_pickup.json
@@ -39,25 +47,61 @@ D:\MC-KITPVP\SRC
 │   │   │       ├─toronto_cart_7.json
 │   │   │       ├─toronto_cart_8.json
 │   │   │       ├─toronto_cart_9.json
+│   │   │       ├─vagrant_spit.json
 │   │   │       ├─werewolf_hit.json
 │   │   │       ├─werewolf_kill.json
 │   │   │       └─zhuzhiwu_hit.json
 │   │   ├─functions
 │   │   │   ├─debug
+│   │   │   │   ├─babywhelp_probe.mcfunction
+│   │   │   │   ├─babywhelp_test.mcfunction
+│   │   │   │   ├─betaturn_check.mcfunction
 │   │   │   │   ├─build.mcfunction
+│   │   │   │   ├─carto_all.mcfunction
 │   │   │   │   ├─dummy.mcfunction
 │   │   │   │   ├─dummy_clear.mcfunction
+│   │   │   │   ├─ench_5min.mcfunction
+│   │   │   │   ├─ench_8min.mcfunction
+│   │   │   │   ├─ench_armor.mcfunction
+│   │   │   │   ├─ench_book.mcfunction
+│   │   │   │   ├─ench_charge.mcfunction
+│   │   │   │   ├─ench_charge_b.mcfunction
+│   │   │   │   ├─ench_check.mcfunction
+│   │   │   │   ├─ench_force.mcfunction
+│   │   │   │   ├─ench_info.mcfunction
+│   │   │   │   ├─ench_rebuild.mcfunction
+│   │   │   │   ├─ench_state.mcfunction
+│   │   │   │   ├─ench_steps.mcfunction
+│   │   │   │   ├─ench_steps2.mcfunction
+│   │   │   │   ├─ench_test.mcfunction
 │   │   │   │   ├─force_reset.mcfunction
+│   │   │   │   ├─janitor_count.mcfunction
+│   │   │   │   ├─jar_test.mcfunction
+│   │   │   │   ├─jar_test_b.mcfunction
+│   │   │   │   ├─jar_test_c.mcfunction
+│   │   │   │   ├─lf_state.mcfunction
+│   │   │   │   ├─lowflyer_check.mcfunction
+│   │   │   │   ├─manhole_check.mcfunction
+│   │   │   │   ├─manhole_test.mcfunction
 │   │   │   │   ├─music.mcfunction
 │   │   │   │   ├─music_rumbling.mcfunction
 │   │   │   │   ├─music_stop.mcfunction
 │   │   │   │   ├─notch_mode.mcfunction
 │   │   │   │   ├─off.mcfunction
+│   │   │   │   ├─ollama_banner.mcfunction
+│   │   │   │   ├─ollama_banner_all.mcfunction
 │   │   │   │   ├─on.mcfunction
+│   │   │   │   ├─phoenix_check.mcfunction
+│   │   │   │   ├─phoenix_test.mcfunction
 │   │   │   │   ├─play.mcfunction
+│   │   │   │   ├─selfcheck.mcfunction
 │   │   │   │   ├─solo_start.mcfunction
 │   │   │   │   ├─status.mcfunction
-│   │   │   │   └─suicide.mcfunction
+│   │   │   │   ├─suicide.mcfunction
+│   │   │   │   ├─summon_ten.mcfunction
+│   │   │   │   ├─summon_ten_one.mcfunction
+│   │   │   │   ├─tandem_check.mcfunction
+│   │   │   │   └─version.mcfunction
 │   │   │   ├─game
 │   │   │   │   ├─check_winner.mcfunction
 │   │   │   │   ├─end.mcfunction
@@ -84,6 +128,7 @@ D:\MC-KITPVP\SRC
 │   │   │   │   │   ├─chaos_archer.mcfunction
 │   │   │   │   │   ├─civil.mcfunction
 │   │   │   │   │   ├─earth.mcfunction
+│   │   │   │   │   ├─enchanter.mcfunction
 │   │   │   │   │   ├─enderman.mcfunction
 │   │   │   │   │   ├─farmer.mcfunction
 │   │   │   │   │   ├─fisher.mcfunction
@@ -94,6 +139,7 @@ D:\MC-KITPVP\SRC
 │   │   │   │   │   ├─mercury.mcfunction
 │   │   │   │   │   ├─pirate.mcfunction
 │   │   │   │   │   ├─pluto.mcfunction
+│   │   │   │   │   ├─poisoner.mcfunction
 │   │   │   │   │   ├─slime.mcfunction
 │   │   │   │   │   ├─sun.mcfunction
 │   │   │   │   │   ├─tainted_archer.mcfunction
@@ -171,6 +217,7 @@ D:\MC-KITPVP\SRC
 │   │   │   │   ├─chaos_xbow_fired.mcfunction
 │   │   │   │   ├─civil.mcfunction
 │   │   │   │   ├─earth.mcfunction
+│   │   │   │   ├─enchanter.mcfunction
 │   │   │   │   ├─enderman.mcfunction
 │   │   │   │   ├─farmer.mcfunction
 │   │   │   │   ├─fisher.mcfunction
@@ -182,6 +229,7 @@ D:\MC-KITPVP\SRC
 │   │   │   │   ├─mercury.mcfunction
 │   │   │   │   ├─pirate.mcfunction
 │   │   │   │   ├─pluto.mcfunction
+│   │   │   │   ├─poisoner.mcfunction
 │   │   │   │   ├─random.mcfunction
 │   │   │   │   ├─random_astral.mcfunction
 │   │   │   │   ├─random_classic.mcfunction
@@ -702,28 +750,268 @@ D:\MC-KITPVP\SRC
 │   │   │   │   │   └─spit_burst.mcfunction
 │   │   │   │   ├─earth
 │   │   │   │   │   ├─auto.mcfunction
+│   │   │   │   │   ├─babywhelp_ball.mcfunction
+│   │   │   │   │   ├─babywhelp_fire.mcfunction
+│   │   │   │   │   ├─babywhelp_fizzle.mcfunction
+│   │   │   │   │   ├─babywhelp_hit.mcfunction
+│   │   │   │   │   ├─babywhelp_shoot.mcfunction
+│   │   │   │   │   ├─babywhelp_tick.mcfunction
+│   │   │   │   │   ├─brewer_break.mcfunction
+│   │   │   │   │   ├─brewer_drop.mcfunction
+│   │   │   │   │   ├─burn_tick.mcfunction
+│   │   │   │   │   ├─campfire_ignite.mcfunction
+│   │   │   │   │   ├─campfire_out.mcfunction
+│   │   │   │   │   ├─campfire_touch.mcfunction
+│   │   │   │   │   ├─capitalist_death.mcfunction
+│   │   │   │   │   ├─capitalist_drop.mcfunction
+│   │   │   │   │   ├─captain_blocked.mcfunction
+│   │   │   │   │   ├─captain_tick.mcfunction
+│   │   │   │   │   ├─carto_line.mcfunction
+│   │   │   │   │   ├─carto_try.mcfunction
 │   │   │   │   │   ├─cast.mcfunction
+│   │   │   │   │   ├─colorchanger_shift.mcfunction
+│   │   │   │   │   ├─cop_blink_jaunt.mcfunction
+│   │   │   │   │   ├─cop_blink_track.mcfunction
+│   │   │   │   │   ├─coser_meow.mcfunction
+│   │   │   │   │   ├─coser_paper.mcfunction
+│   │   │   │   │   ├─coser_try.mcfunction
 │   │   │   │   │   ├─disrupt.mcfunction
 │   │   │   │   │   ├─dominion_firework.mcfunction
 │   │   │   │   │   ├─dominion_smoke.mcfunction
+│   │   │   │   │   ├─dublinn_strike.mcfunction
+│   │   │   │   │   ├─explainer_leave.mcfunction
+│   │   │   │   │   ├─gearbox_aura.mcfunction
 │   │   │   │   │   ├─give_egg.mcfunction
 │   │   │   │   │   ├─grass_probe.mcfunction
+│   │   │   │   │   ├─hive_give.mcfunction
+│   │   │   │   │   ├─hive_struck.mcfunction
 │   │   │   │   │   ├─hydrator_death.mcfunction
+│   │   │   │   │   ├─janitor_sweep.mcfunction
+│   │   │   │   │   ├─jar_pop.mcfunction
+│   │   │   │   │   ├─junk_serial.mcfunction
+│   │   │   │   │   ├─jupiter_death.mcfunction
 │   │   │   │   │   ├─leaker_report.mcfunction
 │   │   │   │   │   ├─leaker_tick.mcfunction
 │   │   │   │   │   ├─levitate_end.mcfunction
 │   │   │   │   │   ├─levitate_start.mcfunction
 │   │   │   │   │   ├─link.mcfunction
+│   │   │   │   │   ├─lowflyer_tick.mcfunction
 │   │   │   │   │   ├─manhole_pop.mcfunction
+│   │   │   │   │   ├─manhole_try.mcfunction
 │   │   │   │   │   ├─minecart_stop.mcfunction
+│   │   │   │   │   ├─mobilizer_beep.mcfunction
+│   │   │   │   │   ├─mobilizer_cancel.mcfunction
+│   │   │   │   │   ├─mobilizer_check.mcfunction
+│   │   │   │   │   ├─mobilizer_end.mcfunction
+│   │   │   │   │   ├─mobilizer_prompt.mcfunction
+│   │   │   │   │   ├─mobilizer_punish.mcfunction
+│   │   │   │   │   ├─mobilizer_ready.mcfunction
+│   │   │   │   │   ├─mortar_burst.mcfunction
+│   │   │   │   │   ├─mortar_fire.mcfunction
+│   │   │   │   │   ├─mortar_shell_tick.mcfunction
+│   │   │   │   │   ├─mortar_tick.mcfunction
+│   │   │   │   │   ├─nograv_chase.mcfunction
+│   │   │   │   │   ├─nograv_step.mcfunction
+│   │   │   │   │   ├─noteblock_cascade.mcfunction
+│   │   │   │   │   ├─noteblock_death.mcfunction
+│   │   │   │   │   ├─noteblock_note.mcfunction
+│   │   │   │   │   ├─ollama_banner.mcfunction
+│   │   │   │   │   ├─ollama_banner_1.mcfunction
+│   │   │   │   │   ├─ollama_banner_2.mcfunction
+│   │   │   │   │   ├─ollama_banner_3.mcfunction
+│   │   │   │   │   ├─ollama_banner_4.mcfunction
+│   │   │   │   │   ├─ollama_banner_5.mcfunction
+│   │   │   │   │   ├─ollama_banner_all.mcfunction
+│   │   │   │   │   ├─ollama_cry.mcfunction
+│   │   │   │   │   ├─phoenix_egg.mcfunction
+│   │   │   │   │   ├─phoenix_guard.mcfunction
+│   │   │   │   │   ├─phoenix_hatch.mcfunction
+│   │   │   │   │   ├─phoenix_reborn.mcfunction
+│   │   │   │   │   ├─pluto_die.mcfunction
+│   │   │   │   │   ├─pluto_tick.mcfunction
 │   │   │   │   │   ├─random.mcfunction
+│   │   │   │   │   ├─ring_follow.mcfunction
+│   │   │   │   │   ├─ring_pos_0.mcfunction
+│   │   │   │   │   ├─ring_pos_1.mcfunction
+│   │   │   │   │   ├─ring_pos_10.mcfunction
+│   │   │   │   │   ├─ring_pos_11.mcfunction
+│   │   │   │   │   ├─ring_pos_12.mcfunction
+│   │   │   │   │   ├─ring_pos_13.mcfunction
+│   │   │   │   │   ├─ring_pos_14.mcfunction
+│   │   │   │   │   ├─ring_pos_15.mcfunction
+│   │   │   │   │   ├─ring_pos_2.mcfunction
+│   │   │   │   │   ├─ring_pos_3.mcfunction
+│   │   │   │   │   ├─ring_pos_4.mcfunction
+│   │   │   │   │   ├─ring_pos_5.mcfunction
+│   │   │   │   │   ├─ring_pos_6.mcfunction
+│   │   │   │   │   ├─ring_pos_7.mcfunction
+│   │   │   │   │   ├─ring_pos_8.mcfunction
+│   │   │   │   │   ├─ring_pos_9.mcfunction
+│   │   │   │   │   ├─saturn_tick.mcfunction
 │   │   │   │   │   ├─sheep_aura.mcfunction
 │   │   │   │   │   ├─skater_call.mcfunction
 │   │   │   │   │   ├─skater_ice.mcfunction
 │   │   │   │   │   ├─skater_skate.mcfunction
 │   │   │   │   │   ├─skater_tick.mcfunction
+│   │   │   │   │   ├─snow_clear.mcfunction
+│   │   │   │   │   ├─snow_place.mcfunction
+│   │   │   │   │   ├─sparky_burst.mcfunction
+│   │   │   │   │   ├─sparky_charge_sfx.mcfunction
+│   │   │   │   │   ├─sparky_fire.mcfunction
+│   │   │   │   │   ├─sparky_tick.mcfunction
+│   │   │   │   │   ├─spellblade_hit.mcfunction
+│   │   │   │   │   ├─spoon_hit.mcfunction
+│   │   │   │   │   ├─spoon_try.mcfunction
 │   │   │   │   │   ├─summon.mcfunction
-│   │   │   │   │   └─threshold_death.mcfunction
+│   │   │   │   │   ├─supporter_land.mcfunction
+│   │   │   │   │   ├─supporter_lift.mcfunction
+│   │   │   │   │   ├─tandem_alone.mcfunction
+│   │   │   │   │   ├─tandem_apply.mcfunction
+│   │   │   │   │   ├─threshold_death.mcfunction
+│   │   │   │   │   ├─twinstar_died_a.mcfunction
+│   │   │   │   │   ├─twinstar_died_b.mcfunction
+│   │   │   │   │   ├─twinstar_revive_a.mcfunction
+│   │   │   │   │   ├─twinstar_revive_b.mcfunction
+│   │   │   │   │   ├─vagrant_spit.mcfunction
+│   │   │   │   │   └─venus_chill_mark.mcfunction
+│   │   │   │   ├─enchanter
+│   │   │   │   │   ├─apply_chest_blast_protection.mcfunction
+│   │   │   │   │   ├─apply_chest_fire_protection.mcfunction
+│   │   │   │   │   ├─apply_chest_projectile_protection.mcfunction
+│   │   │   │   │   ├─apply_chest_protection.mcfunction
+│   │   │   │   │   ├─apply_chest_thorns.mcfunction
+│   │   │   │   │   ├─apply_feet_blast_protection.mcfunction
+│   │   │   │   │   ├─apply_feet_depth_strider.mcfunction
+│   │   │   │   │   ├─apply_feet_feather_falling.mcfunction
+│   │   │   │   │   ├─apply_feet_fire_protection.mcfunction
+│   │   │   │   │   ├─apply_feet_frost_walker.mcfunction
+│   │   │   │   │   ├─apply_feet_projectile_protection.mcfunction
+│   │   │   │   │   ├─apply_feet_protection.mcfunction
+│   │   │   │   │   ├─apply_feet_soul_speed.mcfunction
+│   │   │   │   │   ├─apply_head_blast_protection.mcfunction
+│   │   │   │   │   ├─apply_head_fire_protection.mcfunction
+│   │   │   │   │   ├─apply_head_projectile_protection.mcfunction
+│   │   │   │   │   ├─apply_head_protection.mcfunction
+│   │   │   │   │   ├─apply_head_respiration.mcfunction
+│   │   │   │   │   ├─apply_legs_blast_protection.mcfunction
+│   │   │   │   │   ├─apply_legs_fire_protection.mcfunction
+│   │   │   │   │   ├─apply_legs_projectile_protection.mcfunction
+│   │   │   │   │   ├─apply_legs_protection.mcfunction
+│   │   │   │   │   ├─apply_legs_thorns.mcfunction
+│   │   │   │   │   ├─apply_sword_fire_aspect.mcfunction
+│   │   │   │   │   ├─apply_sword_knockback.mcfunction
+│   │   │   │   │   ├─apply_sword_sharpness.mcfunction
+│   │   │   │   │   ├─apply_sword_smite.mcfunction
+│   │   │   │   │   ├─apply_sword_sweeping.mcfunction
+│   │   │   │   │   ├─assign_slot.mcfunction
+│   │   │   │   │   ├─book_fx.mcfunction
+│   │   │   │   │   ├─book_gain.mcfunction
+│   │   │   │   │   ├─book_hold.mcfunction
+│   │   │   │   │   ├─book_page.mcfunction
+│   │   │   │   │   ├─book_passive.mcfunction
+│   │   │   │   │   ├─ench_check.mcfunction
+│   │   │   │   │   ├─ench_hit.mcfunction
+│   │   │   │   │   ├─ench_hurt.mcfunction
+│   │   │   │   │   ├─fill_ap.mcfunction
+│   │   │   │   │   ├─fill_sw.mcfunction
+│   │   │   │   │   ├─hud.mcfunction
+│   │   │   │   │   ├─hud_calc.mcfunction
+│   │   │   │   │   ├─hud_clear.mcfunction
+│   │   │   │   │   ├─hud_show.mcfunction
+│   │   │   │   │   ├─name_refresh.mcfunction
+│   │   │   │   │   ├─roll_all_armor.mcfunction
+│   │   │   │   │   ├─roll_chest.mcfunction
+│   │   │   │   │   ├─roll_chest_feet.mcfunction
+│   │   │   │   │   ├─roll_feet.mcfunction
+│   │   │   │   │   ├─roll_head.mcfunction
+│   │   │   │   │   ├─roll_head_chest.mcfunction
+│   │   │   │   │   ├─roll_head_legs.mcfunction
+│   │   │   │   │   ├─roll_legs.mcfunction
+│   │   │   │   │   ├─roll_legs_feet.mcfunction
+│   │   │   │   │   ├─roll_sword.mcfunction
+│   │   │   │   │   ├─sw_find.mcfunction
+│   │   │   │   │   ├─sw_in_1.mcfunction
+│   │   │   │   │   ├─sw_in_10.mcfunction
+│   │   │   │   │   ├─sw_in_11.mcfunction
+│   │   │   │   │   ├─sw_in_12.mcfunction
+│   │   │   │   │   ├─sw_in_13.mcfunction
+│   │   │   │   │   ├─sw_in_14.mcfunction
+│   │   │   │   │   ├─sw_in_15.mcfunction
+│   │   │   │   │   ├─sw_in_16.mcfunction
+│   │   │   │   │   ├─sw_in_17.mcfunction
+│   │   │   │   │   ├─sw_in_18.mcfunction
+│   │   │   │   │   ├─sw_in_19.mcfunction
+│   │   │   │   │   ├─sw_in_2.mcfunction
+│   │   │   │   │   ├─sw_in_20.mcfunction
+│   │   │   │   │   ├─sw_in_21.mcfunction
+│   │   │   │   │   ├─sw_in_22.mcfunction
+│   │   │   │   │   ├─sw_in_23.mcfunction
+│   │   │   │   │   ├─sw_in_24.mcfunction
+│   │   │   │   │   ├─sw_in_25.mcfunction
+│   │   │   │   │   ├─sw_in_26.mcfunction
+│   │   │   │   │   ├─sw_in_27.mcfunction
+│   │   │   │   │   ├─sw_in_28.mcfunction
+│   │   │   │   │   ├─sw_in_29.mcfunction
+│   │   │   │   │   ├─sw_in_3.mcfunction
+│   │   │   │   │   ├─sw_in_30.mcfunction
+│   │   │   │   │   ├─sw_in_31.mcfunction
+│   │   │   │   │   ├─sw_in_32.mcfunction
+│   │   │   │   │   ├─sw_in_33.mcfunction
+│   │   │   │   │   ├─sw_in_34.mcfunction
+│   │   │   │   │   ├─sw_in_35.mcfunction
+│   │   │   │   │   ├─sw_in_36.mcfunction
+│   │   │   │   │   ├─sw_in_37.mcfunction
+│   │   │   │   │   ├─sw_in_4.mcfunction
+│   │   │   │   │   ├─sw_in_5.mcfunction
+│   │   │   │   │   ├─sw_in_6.mcfunction
+│   │   │   │   │   ├─sw_in_7.mcfunction
+│   │   │   │   │   ├─sw_in_8.mcfunction
+│   │   │   │   │   ├─sw_in_9.mcfunction
+│   │   │   │   │   ├─sw_out_1.mcfunction
+│   │   │   │   │   ├─sw_out_10.mcfunction
+│   │   │   │   │   ├─sw_out_11.mcfunction
+│   │   │   │   │   ├─sw_out_12.mcfunction
+│   │   │   │   │   ├─sw_out_13.mcfunction
+│   │   │   │   │   ├─sw_out_14.mcfunction
+│   │   │   │   │   ├─sw_out_15.mcfunction
+│   │   │   │   │   ├─sw_out_16.mcfunction
+│   │   │   │   │   ├─sw_out_17.mcfunction
+│   │   │   │   │   ├─sw_out_18.mcfunction
+│   │   │   │   │   ├─sw_out_19.mcfunction
+│   │   │   │   │   ├─sw_out_2.mcfunction
+│   │   │   │   │   ├─sw_out_20.mcfunction
+│   │   │   │   │   ├─sw_out_21.mcfunction
+│   │   │   │   │   ├─sw_out_22.mcfunction
+│   │   │   │   │   ├─sw_out_23.mcfunction
+│   │   │   │   │   ├─sw_out_24.mcfunction
+│   │   │   │   │   ├─sw_out_25.mcfunction
+│   │   │   │   │   ├─sw_out_26.mcfunction
+│   │   │   │   │   ├─sw_out_27.mcfunction
+│   │   │   │   │   ├─sw_out_28.mcfunction
+│   │   │   │   │   ├─sw_out_29.mcfunction
+│   │   │   │   │   ├─sw_out_3.mcfunction
+│   │   │   │   │   ├─sw_out_30.mcfunction
+│   │   │   │   │   ├─sw_out_31.mcfunction
+│   │   │   │   │   ├─sw_out_32.mcfunction
+│   │   │   │   │   ├─sw_out_33.mcfunction
+│   │   │   │   │   ├─sw_out_34.mcfunction
+│   │   │   │   │   ├─sw_out_35.mcfunction
+│   │   │   │   │   ├─sw_out_36.mcfunction
+│   │   │   │   │   ├─sw_out_37.mcfunction
+│   │   │   │   │   ├─sw_out_4.mcfunction
+│   │   │   │   │   ├─sw_out_5.mcfunction
+│   │   │   │   │   ├─sw_out_6.mcfunction
+│   │   │   │   │   ├─sw_out_7.mcfunction
+│   │   │   │   │   ├─sw_out_8.mcfunction
+│   │   │   │   │   ├─sw_out_9.mcfunction
+│   │   │   │   │   ├─sw_return.mcfunction
+│   │   │   │   │   ├─sw_roll.mcfunction
+│   │   │   │   │   ├─sw_up.mcfunction
+│   │   │   │   │   ├─sw_wait.mcfunction
+│   │   │   │   │   ├─tick.mcfunction
+│   │   │   │   │   ├─up_armor.mcfunction
+│   │   │   │   │   ├─up_armor_do.mcfunction
+│   │   │   │   │   └─up_sword.mcfunction
 │   │   │   │   ├─enderman
 │   │   │   │   │   ├─arrive.mcfunction
 │   │   │   │   │   ├─auto.mcfunction
@@ -822,6 +1110,16 @@ D:\MC-KITPVP\SRC
 │   │   │   │   │   ├─passive.mcfunction
 │   │   │   │   │   ├─respawn.mcfunction
 │   │   │   │   │   └─spawn.mcfunction
+│   │   │   │   ├─poisoner
+│   │   │   │   │   ├─auto.mcfunction
+│   │   │   │   │   ├─cast.mcfunction
+│   │   │   │   │   ├─cloud_dot.mcfunction
+│   │   │   │   │   ├─cloud_tick.mcfunction
+│   │   │   │   │   ├─execute_hit.mcfunction
+│   │   │   │   │   ├─give.mcfunction
+│   │   │   │   │   ├─hit.mcfunction
+│   │   │   │   │   ├─passive.mcfunction
+│   │   │   │   │   └─poison_hit.mcfunction
 │   │   │   │   ├─slime
 │   │   │   │   │   └─passive.mcfunction
 │   │   │   │   ├─soul
@@ -832,6 +1130,8 @@ D:\MC-KITPVP\SRC
 │   │   │   │   │   ├─earth_assign.mcfunction
 │   │   │   │   │   ├─earth_step.mcfunction
 │   │   │   │   │   ├─earth_team_id.mcfunction
+│   │   │   │   │   ├─enchanter_apply.mcfunction
+│   │   │   │   │   ├─enchanter_expire.mcfunction
 │   │   │   │   │   ├─fisher_expire.mcfunction
 │   │   │   │   │   ├─fisher_open.mcfunction
 │   │   │   │   │   ├─fisher_tick.mcfunction
@@ -861,6 +1161,7 @@ D:\MC-KITPVP\SRC
 │   │   │   │   │   ├─use_archer.mcfunction
 │   │   │   │   │   ├─use_assassin.mcfunction
 │   │   │   │   │   ├─use_earth.mcfunction
+│   │   │   │   │   ├─use_enchanter.mcfunction
 │   │   │   │   │   ├─use_ep.mcfunction
 │   │   │   │   │   ├─use_farm.mcfunction
 │   │   │   │   │   ├─use_fisher.mcfunction
@@ -1214,42 +1515,96 @@ D:\MC-KITPVP\SRC
 │   │   │   │   ├─bomber_track.mcfunction
 │   │   │   │   ├─burger_beast.mcfunction
 │   │   │   │   ├─earth_ascend.mcfunction
+│   │   │   │   ├─earth_ascend2.mcfunction
+│   │   │   │   ├─earth_ascend_pick.mcfunction
 │   │   │   │   ├─earth_astronaut.mcfunction
+│   │   │   │   ├─earth_atrain.mcfunction
 │   │   │   │   ├─earth_axe.mcfunction
+│   │   │   │   ├─earth_babywhelp.mcfunction
 │   │   │   │   ├─earth_big_bomb.mcfunction
 │   │   │   │   ├─earth_boatman_wet.mcfunction
+│   │   │   │   ├─earth_brewer.mcfunction
 │   │   │   │   ├─earth_brick_fire.mcfunction
 │   │   │   │   ├─earth_brick_knockback.mcfunction
+│   │   │   │   ├─earth_campfire.mcfunction
+│   │   │   │   ├─earth_capitalist.mcfunction
+│   │   │   │   ├─earth_captain.mcfunction
+│   │   │   │   ├─earth_carto.mcfunction
+│   │   │   │   ├─earth_colorchanger.mcfunction
+│   │   │   │   ├─earth_cop.mcfunction
+│   │   │   │   ├─earth_cop_blink.mcfunction
+│   │   │   │   ├─earth_cop_cleaner.mcfunction
+│   │   │   │   ├─earth_cop_pick.mcfunction
+│   │   │   │   ├─earth_cop_pick_b.mcfunction
+│   │   │   │   ├─earth_coser.mcfunction
+│   │   │   │   ├─earth_cyclic.mcfunction
 │   │   │   │   ├─earth_dispenser.mcfunction
 │   │   │   │   ├─earth_disruptor.mcfunction
 │   │   │   │   ├─earth_dominion.mcfunction
+│   │   │   │   ├─earth_dublinn.mcfunction
+│   │   │   │   ├─earth_explainer.mcfunction
 │   │   │   │   ├─earth_farmer.mcfunction
 │   │   │   │   ├─earth_fisher1.mcfunction
 │   │   │   │   ├─earth_fisher2.mcfunction
 │   │   │   │   ├─earth_forester.mcfunction
 │   │   │   │   ├─earth_gatherer.mcfunction
+│   │   │   │   ├─earth_gearbox.mcfunction
+│   │   │   │   ├─earth_gentleman.mcfunction
+│   │   │   │   ├─earth_gentleman_rain_end.mcfunction
 │   │   │   │   ├─earth_ghost_minion.mcfunction
 │   │   │   │   ├─earth_grass.mcfunction
 │   │   │   │   ├─earth_grass_pop.mcfunction
 │   │   │   │   ├─earth_hacker.mcfunction
 │   │   │   │   ├─earth_hacker_death.mcfunction
+│   │   │   │   ├─earth_hive.mcfunction
 │   │   │   │   ├─earth_hydrator.mcfunction
 │   │   │   │   ├─earth_ilsacul.mcfunction
+│   │   │   │   ├─earth_janitor.mcfunction
+│   │   │   │   ├─earth_jar.mcfunction
+│   │   │   │   ├─earth_jar_small.mcfunction
+│   │   │   │   ├─earth_jupiter.mcfunction
 │   │   │   │   ├─earth_leaker.mcfunction
+│   │   │   │   ├─earth_lowflyer.mcfunction
+│   │   │   │   ├─earth_lowflyer_a.mcfunction
+│   │   │   │   ├─earth_lowflyer_b.mcfunction
 │   │   │   │   ├─earth_manhole.mcfunction
+│   │   │   │   ├─earth_medium.mcfunction
 │   │   │   │   ├─earth_mercury.mcfunction
 │   │   │   │   ├─earth_minecart.mcfunction
 │   │   │   │   ├─earth_minecart_pick.mcfunction
 │   │   │   │   ├─earth_minecart_plain.mcfunction
+│   │   │   │   ├─earth_mobilizer.mcfunction
+│   │   │   │   ├─earth_mortar.mcfunction
+│   │   │   │   ├─earth_noteblock.mcfunction
+│   │   │   │   ├─earth_ollama.mcfunction
+│   │   │   │   ├─earth_peptide_chain.mcfunction
+│   │   │   │   ├─earth_phoenix.mcfunction
+│   │   │   │   ├─earth_phoenix_pair.mcfunction
+│   │   │   │   ├─earth_pluto.mcfunction
+│   │   │   │   ├─earth_polypeptide.mcfunction
+│   │   │   │   ├─earth_polypeptide_betaturn.mcfunction
 │   │   │   │   ├─earth_qin.mcfunction
 │   │   │   │   ├─earth_retainer.mcfunction
+│   │   │   │   ├─earth_saturn.mcfunction
 │   │   │   │   ├─earth_sheep.mcfunction
 │   │   │   │   ├─earth_skater.mcfunction
+│   │   │   │   ├─earth_sparky.mcfunction
+│   │   │   │   ├─earth_spellblade.mcfunction
+│   │   │   │   ├─earth_spoon.mcfunction
 │   │   │   │   ├─earth_stone.mcfunction
+│   │   │   │   ├─earth_supporter_fast.mcfunction
+│   │   │   │   ├─earth_supporter_slow.mcfunction
+│   │   │   │   ├─earth_tandem.mcfunction
 │   │   │   │   ├─earth_target.mcfunction
 │   │   │   │   ├─earth_threshold.mcfunction
 │   │   │   │   ├─earth_tracker_bomb.mcfunction
 │   │   │   │   ├─earth_turret.mcfunction
+│   │   │   │   ├─earth_twinstar.mcfunction
+│   │   │   │   ├─earth_twinstar_a.mcfunction
+│   │   │   │   ├─earth_twinstar_b.mcfunction
+│   │   │   │   ├─earth_vagrant.mcfunction
+│   │   │   │   ├─earth_venus.mcfunction
+│   │   │   │   ├─earth_winner.mcfunction
 │   │   │   │   ├─ghost_minion.mcfunction
 │   │   │   │   ├─ghost_minion_pair.mcfunction
 │   │   │   │   ├─li_pig_copy.mcfunction
@@ -1273,6 +1628,7 @@ D:\MC-KITPVP\SRC
 │   │   │   │   └─zombie_iron_helmet.mcfunction
 │   │   │   ├─tick
 │   │   │   │   ├─burger.mcfunction
+│   │   │   │   ├─earth.mcfunction
 │   │   │   │   ├─kits_a.mcfunction
 │   │   │   │   ├─kits_b.mcfunction
 │   │   │   │   ├─kits_c.mcfunction
@@ -1293,7 +1649,6 @@ D:\MC-KITPVP\SRC
 │   │   │   │   └─team_join.mcfunction
 │   │   │   ├─load.mcfunction
 │   │   │   └─tick.mcfunction
-│   │   ├─item_modifiers
 │   │   ├─predicates
 │   │   │   ├─random
 │   │   │   │   ├─1in2.json
@@ -1307,58 +1662,57 @@ D:\MC-KITPVP\SRC
 │   │   │   ├─chaos_xbow_charged.json
 │   │   │   ├─has_jump_boost.json
 │   │   │   └─sneaking.json
-│   │   ├─structures
-│   │   │   ├─arena1.nbt
-│   │   │   ├─arena2.nbt
-│   │   │   ├─arena3.nbt
-│   │   │   ├─arena4.nbt
-│   │   │   ├─arena5.nbt
-│   │   │   ├─arena6.nbt
-│   │   │   ├─arena7.nbt
-│   │   │   ├─arena8.nbt
-│   │   │   ├─arena9.nbt
-│   │   │   ├─cobblestone1.nbt
-│   │   │   ├─cobblestone2.nbt
-│   │   │   ├─cobblestone3.nbt
-│   │   │   ├─cobblestone4.nbt
-│   │   │   ├─cobblestone5.nbt
-│   │   │   ├─cobblestone6.nbt
-│   │   │   ├─cobblestone7.nbt
-│   │   │   ├─cobblestone8.nbt
-│   │   │   ├─cobblestone9.nbt
-│   │   │   ├─desert1.nbt
-│   │   │   ├─desert2.nbt
-│   │   │   ├─desert3.nbt
-│   │   │   ├─desert4.nbt
-│   │   │   ├─earth1.nbt
-│   │   │   ├─earth2.nbt
-│   │   │   ├─earth3.nbt
-│   │   │   ├─earth4.nbt
-│   │   │   ├─mansion1.nbt
-│   │   │   ├─mansion2.nbt
-│   │   │   ├─mansion3.nbt
-│   │   │   ├─ocean1.nbt
-│   │   │   ├─ocean2.nbt
-│   │   │   ├─ocean3.nbt
-│   │   │   ├─ocean4.nbt
-│   │   │   ├─ocean5.nbt
-│   │   │   ├─ocean6.nbt
-│   │   │   ├─snow1.nbt
-│   │   │   ├─snow2.nbt
-│   │   │   ├─snow3.nbt
-│   │   │   ├─snow4.nbt
-│   │   │   ├─toronto1.nbt
-│   │   │   ├─toronto2.nbt
-│   │   │   ├─toronto3.nbt
-│   │   │   ├─toronto4.nbt
-│   │   │   ├─toronto5.nbt
-│   │   │   ├─toronto6.nbt
-│   │   │   ├─toronto7.nbt
-│   │   │   ├─toronto8.nbt
-│   │   │   ├─toronto9.nbt
-│   │   │   ├─xian1.nbt
-│   │   │   └─xian2.nbt
-│   │   └─tags
+│   │   └─structures
+│   │       ├─arena1.nbt
+│   │       ├─arena2.nbt
+│   │       ├─arena3.nbt
+│   │       ├─arena4.nbt
+│   │       ├─arena5.nbt
+│   │       ├─arena6.nbt
+│   │       ├─arena7.nbt
+│   │       ├─arena8.nbt
+│   │       ├─arena9.nbt
+│   │       ├─cobblestone1.nbt
+│   │       ├─cobblestone2.nbt
+│   │       ├─cobblestone3.nbt
+│   │       ├─cobblestone4.nbt
+│   │       ├─cobblestone5.nbt
+│   │       ├─cobblestone6.nbt
+│   │       ├─cobblestone7.nbt
+│   │       ├─cobblestone8.nbt
+│   │       ├─cobblestone9.nbt
+│   │       ├─desert1.nbt
+│   │       ├─desert2.nbt
+│   │       ├─desert3.nbt
+│   │       ├─desert4.nbt
+│   │       ├─earth1.nbt
+│   │       ├─earth2.nbt
+│   │       ├─earth3.nbt
+│   │       ├─earth4.nbt
+│   │       ├─mansion1.nbt
+│   │       ├─mansion2.nbt
+│   │       ├─mansion3.nbt
+│   │       ├─ocean1.nbt
+│   │       ├─ocean2.nbt
+│   │       ├─ocean3.nbt
+│   │       ├─ocean4.nbt
+│   │       ├─ocean5.nbt
+│   │       ├─ocean6.nbt
+│   │       ├─snow1.nbt
+│   │       ├─snow2.nbt
+│   │       ├─snow3.nbt
+│   │       ├─snow4.nbt
+│   │       ├─toronto1.nbt
+│   │       ├─toronto2.nbt
+│   │       ├─toronto3.nbt
+│   │       ├─toronto4.nbt
+│   │       ├─toronto5.nbt
+│   │       ├─toronto6.nbt
+│   │       ├─toronto7.nbt
+│   │       ├─toronto8.nbt
+│   │       ├─toronto9.nbt
+│   │       ├─xian1.nbt
+│   │       └─xian2.nbt
 │   └─minecraft
 │       └─tags
 │           └─functions
