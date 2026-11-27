@@ -812,7 +812,7 @@ scoreboard objectives add kitpvp.ench_domain_t dummy "坐杀博徒剩余刻数�
 scoreboard objectives add kitpvp.ench_domain_cd dummy "坐杀博徒冷却刻数（1200 = 60 秒）"
 scoreboard objectives add kitpvp.ench_domain_ready dummy "赌徒之蛋：1 = 下一次领域不吃冷却"
 scoreboard objectives add kitpvp.ench_domain_used minecraft.used:minecraft.bat_spawn_egg
-scoreboard objectives add kitpvp.ench_domain_last dummy "上一刻的坐杀博徒入场券使用次数"
+scoreboard objectives add kitpvp.ench_domain_last dummy "上一刻的领域展开：坐杀博徒 使用次数"
 scoreboard objectives add kitpvp.ench_egg_used minecraft.used:minecraft.turtle_spawn_egg
 scoreboard objectives add kitpvp.ench_egg_last dummy "上一刻的赌徒之蛋使用次数"
 scoreboard objectives add kitpvp.ench_tmp dummy "临时强化剩余刻数（利刃 240 / 锋锐 400）"

@@ -6,4 +6,4 @@ execute if score @s kitpvp.kit matches 15 if score @s kitpvp.alive matches 1 run
 execute if score @s kitpvp.kit matches 15 if score @s kitpvp.alive matches 1 run function kitpvp:skill/enchanter/ench_check
 # 里·附魔师（kit 99）：领域内抽卡，领域外什么都不涨
 execute if score @s kitpvp.kit matches 99 if score @s kitpvp.alive matches 1 if entity @s[tag=kitpvp.ench_domain] run function kitpvp:skill/li_ench/draw
-execute if score @s kitpvp.kit matches 99 if score @s kitpvp.alive matches 1 unless entity @s[tag=kitpvp.ench_domain] run title @s actionbar {"text":"常态不能蓄力：用「坐杀博徒·入场券」开赌场","color":"gray"}
+execute if score @s kitpvp.kit matches 99 if score @s kitpvp.alive matches 1 unless entity @s[tag=kitpvp.ench_domain] run title @s actionbar {"text":"常态不能蓄力：用「领域展开：坐杀博徒」开赌场","color":"gray"}
