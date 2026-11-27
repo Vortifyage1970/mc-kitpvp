@@ -64,3 +64,7 @@ execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_sword mat
 execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_sword matches 11.. run bossbar set kitpvp:li_s8 color yellow
 execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_armor matches ..10 run bossbar set kitpvp:li_a8 color blue
 execute if score @s kitpvp.ench_slot matches 8 if score @s kitpvp.ench_armor matches 11.. run bossbar set kitpvp:li_a8 color yellow
+# 每秒核对一次标题，槽位换人后不会显示上一位的等级
+scoreboard players add @s kitpvp.ench_hud_t 1
+execute if score @s kitpvp.ench_hud_t matches 20.. run scoreboard players set @s kitpvp.ench_hud_t 0
+execute if score @s kitpvp.ench_hud_t matches 0 run function kitpvp:skill/li_ench/name_refresh

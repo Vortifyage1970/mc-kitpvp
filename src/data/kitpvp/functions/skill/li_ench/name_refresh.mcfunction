@@ -1,3 +1,4 @@
+# bossbar 标题：8 个槽 × 12 级 × 两栏，等级变了就重设一次名字
 execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_sword matches 0 run bossbar set kitpvp:li_s1 name {"text":"剑 · 附魔等级 0"}
 execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_armor matches 0 run bossbar set kitpvp:li_a1 name {"text":"护甲 · 附魔等级 0"}
 execute if score @s kitpvp.ench_slot matches 1 if score @s kitpvp.ench_sword matches 1 run bossbar set kitpvp:li_s1 name {"text":"剑 · 附魔等级 1"}
