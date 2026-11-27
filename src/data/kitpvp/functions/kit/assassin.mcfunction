@@ -5,10 +5,10 @@ scoreboard players set @s kitpvp.kit 4
 tag @s add kitpvp.selected
 scoreboard players set @s kitpvp.alive 1
 
-item replace entity @s armor.head with minecraft:leather_helmet{display:{color:1908001},Unbreakable:1b}
-item replace entity @s armor.chest with minecraft:leather_chestplate{display:{color:1908001},Unbreakable:1b}
-item replace entity @s armor.legs with minecraft:leather_leggings{display:{color:1908001},Unbreakable:1b}
-item replace entity @s armor.feet with minecraft:leather_boots{display:{color:1908001},Unbreakable:1b}
+item replace entity @s armor.head with minecraft:leather_helmet{display:{color:1908001},Unbreakable:1b,Trim:{material:"minecraft:quartz",pattern:"minecraft:silent"}}
+item replace entity @s armor.chest with minecraft:leather_chestplate{display:{color:1908001},Unbreakable:1b,Trim:{material:"minecraft:quartz",pattern:"minecraft:silent"}}
+item replace entity @s armor.legs with minecraft:leather_leggings{display:{color:1908001},Unbreakable:1b,Trim:{material:"minecraft:quartz",pattern:"minecraft:silent"}}
+item replace entity @s armor.feet with minecraft:leather_boots{display:{color:1908001},Unbreakable:1b,Trim:{material:"minecraft:quartz",pattern:"minecraft:silent"}}
 item replace entity @s hotbar.0 with minecraft:diamond_sword{Enchantments:[{id:"minecraft:sharpness",lvl:1}],Unbreakable:1b}
 item replace entity @s hotbar.1 with minecraft:cooked_beef 24
 

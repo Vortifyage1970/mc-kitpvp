@@ -9,7 +9,7 @@ kill @e[tag=kitpvp.earth_hydrator_guard]
 # 时钟：先删时钟，本体消失后不再续播报
 kill @e[tag=kitpvp.earth_leaker_clock]
 
-# ---- 其余按 tag 清（216 个；来源写在每行上面的注释里）----
+# ---- 其余按 tag 清（217 个；来源写在每行上面的注释里）----
 # kitpvp.arsonist_fire  <- place_one
 kill @e[tag=kitpvp.arsonist_fire]
 # kitpvp.assassin_token  <- give_item
@@ -324,6 +324,8 @@ kill @e[tag=kitpvp.pluto_parrot]
 kill @e[tag=kitpvp.sat_orbit]
 # kitpvp.soul_earth_marker  <- earth_apply
 kill @e[tag=kitpvp.soul_earth_marker]
+# kitpvp.soul_enchanter_token  <- give
+kill @e[tag=kitpvp.soul_enchanter_token]
 # kitpvp.soul_ep_token  <- give
 kill @e[tag=kitpvp.soul_ep_token]
 # kitpvp.soul_farm_leader  <- soul_farm_leader
@@ -366,6 +368,10 @@ kill @e[tag=kitpvp.soul_venus_token]
 kill @e[tag=kitpvp.spawn_anchor]
 # kitpvp.spoon_loot  <- spoon_hit
 kill @e[tag=kitpvp.spoon_loot]
+# kitpvp.stone_bak  <- enchanter_apply
+kill @e[tag=kitpvp.stone_bak]
+# kitpvp.stone_work  <- enchanter_apply
+kill @e[tag=kitpvp.stone_work]
 # kitpvp.sun_flare_token  <- give_flare
 kill @e[tag=kitpvp.sun_flare_token]
 # kitpvp.sun_spot_token  <- give_spot

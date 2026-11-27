@@ -5,8 +5,8 @@ scoreboard players set @s kitpvp.kit 32
 tag @s add kitpvp.selected
 scoreboard players set @s kitpvp.alive 1
 
-item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:16711680},Enchantments:[{id:"minecraft:blast_protection",lvl:5}]}
-item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:0},Enchantments:[{id:"minecraft:blast_protection",lvl:5}]}
+item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:16711680},Enchantments:[{id:"minecraft:blast_protection",lvl:5}],Trim:{material:"minecraft:redstone",pattern:"minecraft:spire"}}
+item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:0},Enchantments:[{id:"minecraft:blast_protection",lvl:5}],Trim:{material:"minecraft:redstone",pattern:"minecraft:spire"}}
 give @s minecraft:cooked_beef 12
 
 scoreboard players set @s kitpvp.lives 3

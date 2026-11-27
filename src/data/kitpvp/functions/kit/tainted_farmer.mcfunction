@@ -7,10 +7,10 @@ tag @s add kitpvp.selected
 scoreboard players set @s kitpvp.alive 1
 scoreboard players set @s kitpvp.lives 3
 
-item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:3}]}
-item replace entity @s armor.chest with minecraft:iron_chestplate{Unbreakable:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:3}]}
-item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:3}]}
-item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:3}]}
+item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:3}],Trim:{material:"minecraft:redstone",pattern:"minecraft:rib"}}
+item replace entity @s armor.chest with minecraft:iron_chestplate{Unbreakable:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:3}],Trim:{material:"minecraft:redstone",pattern:"minecraft:rib"}}
+item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:3}],Trim:{material:"minecraft:redstone",pattern:"minecraft:rib"}}
+item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:3}],Trim:{material:"minecraft:redstone",pattern:"minecraft:rib"}}
 
 item replace entity @s hotbar.0 with minecraft:iron_shovel{KitTaintedFarmerShovel:1b,Unbreakable:1b,Enchantments:[{id:"minecraft:sharpness",lvl:1}]}
 item replace entity @s hotbar.1 with minecraft:iron_hoe{KitTaintedFarmerHoe:1b,Unbreakable:1b,Enchantments:[{id:"minecraft:knockback",lvl:2}]}

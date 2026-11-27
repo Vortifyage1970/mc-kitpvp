@@ -5,10 +5,10 @@ scoreboard players set @s kitpvp.kit 33
 tag @s add kitpvp.selected
 scoreboard players set @s kitpvp.alive 1
 
-item replace entity @s armor.head with minecraft:iron_helmet{Unbreakable:1b}
-item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:6954928}}
-item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:6954928}}
-item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,display:{color:0},Enchantments:[{id:"minecraft:feather_falling",lvl:5}]}
+item replace entity @s armor.head with minecraft:iron_helmet{Unbreakable:1b,Trim:{material:"minecraft:redstone",pattern:"minecraft:host"}}
+item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:6954928},Trim:{material:"minecraft:redstone",pattern:"minecraft:host"}}
+item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:6954928},Trim:{material:"minecraft:redstone",pattern:"minecraft:host"}}
+item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,display:{color:0},Enchantments:[{id:"minecraft:feather_falling",lvl:5}],Trim:{material:"minecraft:redstone",pattern:"minecraft:host"}}
 item replace entity @s weapon.mainhand with minecraft:iron_sword{Unbreakable:1b}
 give @s minecraft:cooked_beef 12
 give @s minecraft:chorus_fruit 24

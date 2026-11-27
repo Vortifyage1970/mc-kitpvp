@@ -7,10 +7,10 @@ scoreboard players set @s kitpvp.alive 1
 scoreboard players set @s kitpvp.lives 3
 
 # 护甲 11：锁链盔默认 2，显式写成 1（写 AttributeModifiers 会覆盖默认修饰符，正好拿来削 1 点）
-item replace entity @s armor.head with minecraft:chainmail_helmet{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.tamer_armor_head",Amount:1,Operation:0,UUID:[I;11,0,0,1],Slot:"head"}]} 1
-item replace entity @s armor.chest with minecraft:chainmail_chestplate{Unbreakable:1b} 1
-item replace entity @s armor.legs with minecraft:chainmail_leggings{Unbreakable:1b} 1
-item replace entity @s armor.feet with minecraft:chainmail_boots{Unbreakable:1b} 1
+item replace entity @s armor.head with minecraft:chainmail_helmet{Unbreakable:1b,AttributeModifiers:[{AttributeName:"generic.armor",Name:"kitpvp.tamer_armor_head",Amount:1,Operation:0,UUID:[I;11,0,0,1],Slot:"head"}],Trim:{material:"minecraft:quartz",pattern:"minecraft:snout"}} 1
+item replace entity @s armor.chest with minecraft:chainmail_chestplate{Unbreakable:1b,Trim:{material:"minecraft:quartz",pattern:"minecraft:snout"}} 1
+item replace entity @s armor.legs with minecraft:chainmail_leggings{Unbreakable:1b,Trim:{material:"minecraft:quartz",pattern:"minecraft:snout"}} 1
+item replace entity @s armor.feet with minecraft:chainmail_boots{Unbreakable:1b,Trim:{material:"minecraft:quartz",pattern:"minecraft:snout"}} 1
 
 item replace entity @s hotbar.0 with minecraft:stone_sword{Unbreakable:1b} 1
 item replace entity @s hotbar.1 with minecraft:pumpkin_pie 24

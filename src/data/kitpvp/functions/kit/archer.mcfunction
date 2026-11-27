@@ -4,10 +4,10 @@ scoreboard players set @s kitpvp.kit 2
 tag @s add kitpvp.arrow_user
 scoreboard players set @s kitpvp.lives 3
 
-item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b} 1
-item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b} 1
-item replace entity @s armor.legs with minecraft:iron_leggings{Unbreakable:1b} 1
-item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b} 1
+item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,Trim:{material:"minecraft:quartz",pattern:"minecraft:dune"}} 1
+item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,Trim:{material:"minecraft:quartz",pattern:"minecraft:dune"}} 1
+item replace entity @s armor.legs with minecraft:iron_leggings{Unbreakable:1b,Trim:{material:"minecraft:quartz",pattern:"minecraft:dune"}} 1
+item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b,Trim:{material:"minecraft:quartz",pattern:"minecraft:dune"}} 1
 
 item replace entity @s weapon.mainhand with minecraft:stone_sword{Unbreakable:1b} 1
 give @s minecraft:bow{KitBow:1b,Unbreakable:1b} 1

@@ -9,9 +9,9 @@ scoreboard players set @s kitpvp.alive 1
 scoreboard players set @s kitpvp.lives 3
 
 item replace entity @s armor.head with minecraft:air
-item replace entity @s armor.chest with minecraft:golden_chestplate{Unbreakable:1b}
+item replace entity @s armor.chest with minecraft:golden_chestplate{Unbreakable:1b,Trim:{material:"minecraft:copper",pattern:"minecraft:snout"}}
 item replace entity @s armor.legs with minecraft:air
-item replace entity @s armor.feet with minecraft:golden_boots{Unbreakable:1b}
+item replace entity @s armor.feet with minecraft:golden_boots{Unbreakable:1b,Trim:{material:"minecraft:copper",pattern:"minecraft:snout"}}
 
 item replace entity @s weapon.mainhand with minecraft:golden_sword{Unbreakable:1b} 1
 give @s minecraft:cooked_chicken 24

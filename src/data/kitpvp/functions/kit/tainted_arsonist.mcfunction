@@ -7,10 +7,10 @@ scoreboard players set @s kitpvp.alive 1
 scoreboard players set @s kitpvp.lives 3
 
 # 红皮革 11546150 与表纵火狂同色；护甲 7 由皮革自然提供，不额外 set attribute（否则翻倍）
-item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,display:{color:11546150},Enchantments:[{id:"minecraft:fire_protection",lvl:3}]}
-item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:11546150},Enchantments:[{id:"minecraft:fire_protection",lvl:3}]}
-item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:11546150},Enchantments:[{id:"minecraft:fire_protection",lvl:3}]}
-item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,display:{color:11546150},Enchantments:[{id:"minecraft:fire_protection",lvl:3}]}
+item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,display:{color:11546150},Enchantments:[{id:"minecraft:fire_protection",lvl:3}],Trim:{material:"minecraft:redstone",pattern:"minecraft:raiser"}}
+item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:11546150},Enchantments:[{id:"minecraft:fire_protection",lvl:3}],Trim:{material:"minecraft:redstone",pattern:"minecraft:raiser"}}
+item replace entity @s armor.legs with minecraft:leather_leggings{Unbreakable:1b,display:{color:11546150},Enchantments:[{id:"minecraft:fire_protection",lvl:3}],Trim:{material:"minecraft:redstone",pattern:"minecraft:raiser"}}
+item replace entity @s armor.feet with minecraft:leather_boots{Unbreakable:1b,display:{color:11546150},Enchantments:[{id:"minecraft:fire_protection",lvl:3}],Trim:{material:"minecraft:redstone",pattern:"minecraft:raiser"}}
 
 item replace entity @s hotbar.0 with minecraft:wooden_sword{Unbreakable:1b,Enchantments:[{id:"minecraft:knockback",lvl:2},{id:"minecraft:fire_aspect",lvl:4}]}
 item replace entity @s hotbar.1 with minecraft:cooked_beef 16

@@ -5,10 +5,10 @@ scoreboard players set @s kitpvp.kit 9
 tag @s add kitpvp.selected
 
 # 深蓝皮革 2302862 = 0x23238E
-item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,display:{color:2302862}} 1
-item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:2302862}} 1
-item replace entity @s armor.legs with minecraft:iron_leggings{Unbreakable:1b} 1
-item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b} 1
+item replace entity @s armor.head with minecraft:leather_helmet{Unbreakable:1b,display:{color:2302862},Trim:{material:"minecraft:quartz",pattern:"minecraft:coast"}} 1
+item replace entity @s armor.chest with minecraft:leather_chestplate{Unbreakable:1b,display:{color:2302862},Trim:{material:"minecraft:quartz",pattern:"minecraft:coast"}} 1
+item replace entity @s armor.legs with minecraft:iron_leggings{Unbreakable:1b,Trim:{material:"minecraft:quartz",pattern:"minecraft:coast"}} 1
+item replace entity @s armor.feet with minecraft:iron_boots{Unbreakable:1b,Trim:{material:"minecraft:quartz",pattern:"minecraft:coast"}} 1
 
 # 1.20.1：写了 AttributeModifiers 就整体取代该物品默认修饰符，攻伤与攻速必须写全
 # 主手斧：实际伤害 8 / 攻速 1.0 —— 玩家基础攻击力是 1，所以 Amount 要写 7.0（不是 8.0，见 04 §九）
