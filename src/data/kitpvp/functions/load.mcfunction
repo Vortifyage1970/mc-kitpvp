@@ -808,6 +808,13 @@ scoreboard players set #book_eighty kitpvp.game 80
 scoreboard objectives add kitpvp.ench_sslot dummy "剑找到了第几个格子（0 = 还在主手，1..37 = 已临时换进主手）"
 
 # ===== 里·附魔师·坐杀博徒（2026-11-28）=====
+scoreboard objectives add kitpvp.li_single_used minecraft.used:minecraft.camel_spawn_egg
+scoreboard objectives add kitpvp.li_single_last dummy "上一刻的单抽次数"
+scoreboard objectives add kitpvp.li_ten_used minecraft.used:minecraft.panda_spawn_egg
+scoreboard objectives add kitpvp.li_ten_last dummy "上一刻的十连次数"
+scoreboard objectives add kitpvp.li_single_cd dummy "单抽冷却刻数（40 = 2 秒）"
+scoreboard objectives add kitpvp.li_ten_cd dummy "十连冷却刻数（300 = 15 秒）"
+scoreboard objectives add kitpvp.li_dom_pull dummy "领域内自动单抽倒计时（40 刻 = 2 秒）"
 scoreboard objectives add kitpvp.ench_domain_t dummy "坐杀博徒剩余刻数（1200 = 60 秒）"
 scoreboard objectives add kitpvp.ench_domain_cd dummy "坐杀博徒冷却刻数（1200 = 60 秒）"
 scoreboard objectives add kitpvp.ench_domain_ready dummy "赌徒之蛋：1 = 下一次领域不吃冷却"
