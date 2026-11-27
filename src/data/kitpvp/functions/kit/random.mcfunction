@@ -5,7 +5,7 @@
 # 不清的话 clear_player 里那些"离开某职业要带走的东西"（金星舔狗 / 冥王星鹦鹉）判断不到旧职业（见 04 §十四）。
 function kitpvp:util/clear_player
 
-scoreboard players set #pool_size kitpvp.game 43
+scoreboard players set #pool_size kitpvp.game 44
 
 scoreboard players set @s kitpvp.rng 0
 execute if predicate kitpvp:random/1in2 run scoreboard players add @s kitpvp.rng 1
@@ -63,3 +63,5 @@ execute if score @s kitpvp.rng matches 40 run scoreboard players set @s kitpvp.k
 execute if score @s kitpvp.rng matches 41 run scoreboard players set @s kitpvp.kit 98
 execute if score @s kitpvp.rng matches 42 run scoreboard players set @s kitpvp.kit 15
 function kitpvp:util/give_kit
+# 里·附魔师（坐杀博徒），2026-11-28 加入全池
+execute if score @s kitpvp.rng matches 43 run scoreboard players set @s kitpvp.kit 99

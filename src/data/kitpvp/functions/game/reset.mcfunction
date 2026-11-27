@@ -168,3 +168,36 @@ execute as @a run function kitpvp:music/winning/stop
 kill @e[tag=kitpvp.stone_bak]
 kill @e[tag=kitpvp.stone_work]
 scoreboard players set @a kitpvp.stone_left -1
+# 里·附魔师：收回 16 条按人显示的双条
+bossbar set kitpvp:li_s1 players
+bossbar set kitpvp:li_a1 players
+bossbar set kitpvp:li_s1 value 0
+bossbar set kitpvp:li_a1 value 0
+bossbar set kitpvp:li_s2 players
+bossbar set kitpvp:li_a2 players
+bossbar set kitpvp:li_s2 value 0
+bossbar set kitpvp:li_a2 value 0
+bossbar set kitpvp:li_s3 players
+bossbar set kitpvp:li_a3 players
+bossbar set kitpvp:li_s3 value 0
+bossbar set kitpvp:li_a3 value 0
+bossbar set kitpvp:li_s4 players
+bossbar set kitpvp:li_a4 players
+bossbar set kitpvp:li_s4 value 0
+bossbar set kitpvp:li_a4 value 0
+bossbar set kitpvp:li_s5 players
+bossbar set kitpvp:li_a5 players
+bossbar set kitpvp:li_s5 value 0
+bossbar set kitpvp:li_a5 value 0
+bossbar set kitpvp:li_s6 players
+bossbar set kitpvp:li_a6 players
+bossbar set kitpvp:li_s6 value 0
+bossbar set kitpvp:li_a6 value 0
+bossbar set kitpvp:li_s7 players
+bossbar set kitpvp:li_a7 players
+bossbar set kitpvp:li_s7 value 0
+bossbar set kitpvp:li_a7 value 0
+bossbar set kitpvp:li_s8 players
+bossbar set kitpvp:li_a8 players
+bossbar set kitpvp:li_s8 value 0
+bossbar set kitpvp:li_a8 value 0

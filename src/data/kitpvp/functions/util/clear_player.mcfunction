@@ -250,3 +250,20 @@ scoreboard players operation @s kitpvp.trap_boom_pick_last = @s kitpvp.trap_boom
 scoreboard players operation @s kitpvp.trap_float_last = @s kitpvp.trap_jump_used
 # 附魔师魂石：清计时（装备由 enchanter_expire 按标记还原）
 scoreboard players set @s kitpvp.stone_left -1
+# 里·附魔师：按槽位收回自己那两条
+execute if score @s kitpvp.ench_slot matches 1 run bossbar set kitpvp:li_s1 players
+execute if score @s kitpvp.ench_slot matches 1 run bossbar set kitpvp:li_a1 players
+execute if score @s kitpvp.ench_slot matches 2 run bossbar set kitpvp:li_s2 players
+execute if score @s kitpvp.ench_slot matches 2 run bossbar set kitpvp:li_a2 players
+execute if score @s kitpvp.ench_slot matches 3 run bossbar set kitpvp:li_s3 players
+execute if score @s kitpvp.ench_slot matches 3 run bossbar set kitpvp:li_a3 players
+execute if score @s kitpvp.ench_slot matches 4 run bossbar set kitpvp:li_s4 players
+execute if score @s kitpvp.ench_slot matches 4 run bossbar set kitpvp:li_a4 players
+execute if score @s kitpvp.ench_slot matches 5 run bossbar set kitpvp:li_s5 players
+execute if score @s kitpvp.ench_slot matches 5 run bossbar set kitpvp:li_a5 players
+execute if score @s kitpvp.ench_slot matches 6 run bossbar set kitpvp:li_s6 players
+execute if score @s kitpvp.ench_slot matches 6 run bossbar set kitpvp:li_a6 players
+execute if score @s kitpvp.ench_slot matches 7 run bossbar set kitpvp:li_s7 players
+execute if score @s kitpvp.ench_slot matches 7 run bossbar set kitpvp:li_a7 players
+execute if score @s kitpvp.ench_slot matches 8 run bossbar set kitpvp:li_s8 players
+execute if score @s kitpvp.ench_slot matches 8 run bossbar set kitpvp:li_a8 players

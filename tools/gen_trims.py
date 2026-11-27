@@ -85,7 +85,8 @@ ASSIGN = {
 
     # ===== 职业职业 =====
     "zhanshishi": ("guild", "host"),    # 陷阱：寄体
-    "enchanter":  ("guild", "vex"),     # 附魔：神秘
+    "enchanter":  ("guild", "vex"),
+    "tainted_enchanter": ("tainted", "vex"),   # 里·附魔师：同附魔     # 附魔：神秘
     "poisoner":   ("guild", "eye"),     # 斩杀：凝视
 }
 
