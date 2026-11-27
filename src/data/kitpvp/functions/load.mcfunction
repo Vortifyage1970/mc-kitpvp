@@ -806,3 +806,79 @@ scoreboard players set #ench_three_hundred kitpvp.game 300
 scoreboard players set #ench_one kitpvp.game 1
 scoreboard players set #book_eighty kitpvp.game 80
 scoreboard objectives add kitpvp.ench_sslot dummy "剑找到了第几个格子（0 = 还在主手，1..37 = 已临时换进主手）"
+
+# ===== 里·附魔师·坐杀博徒（2026-11-28）=====
+scoreboard objectives add kitpvp.ench_domain_t dummy "坐杀博徒剩余刻数（1200 = 60 秒）"
+scoreboard objectives add kitpvp.ench_domain_cd dummy "坐杀博徒冷却刻数（1200 = 60 秒）"
+scoreboard objectives add kitpvp.ench_domain_ready dummy "赌徒之蛋：1 = 下一次领域不吃冷却"
+scoreboard objectives add kitpvp.ench_domain_used minecraft.used:minecraft.bat_spawn_egg
+scoreboard objectives add kitpvp.ench_domain_last dummy "上一刻的坐杀博徒入场券使用次数"
+scoreboard objectives add kitpvp.ench_egg_used minecraft.used:minecraft.turtle_spawn_egg
+scoreboard objectives add kitpvp.ench_egg_last dummy "上一刻的赌徒之蛋使用次数"
+scoreboard objectives add kitpvp.ench_tmp dummy "临时强化剩余刻数（利刃 240 / 锋锐 400）"
+scoreboard objectives add kitpvp.ench_tmp_kind dummy "临时强化类型（3 = 攻击力修饰符）"
+# 里·附魔师专属进度条（与表附魔师分开，避免互清）
+bossbar add kitpvp:li_s1 {"text":"剑 · 附魔等级 0","color":"purple"}
+bossbar set kitpvp:li_s1 style progress
+bossbar set kitpvp:li_s1 max 900
+bossbar set kitpvp:li_s1 value 0
+bossbar add kitpvp:li_a1 {"text":"护甲 · 附魔等级 0","color":"blue"}
+bossbar set kitpvp:li_a1 style progress
+bossbar set kitpvp:li_a1 max 900
+bossbar set kitpvp:li_a1 value 0
+bossbar add kitpvp:li_s2 {"text":"剑 · 附魔等级 0","color":"purple"}
+bossbar set kitpvp:li_s2 style progress
+bossbar set kitpvp:li_s2 max 900
+bossbar set kitpvp:li_s2 value 0
+bossbar add kitpvp:li_a2 {"text":"护甲 · 附魔等级 0","color":"blue"}
+bossbar set kitpvp:li_a2 style progress
+bossbar set kitpvp:li_a2 max 900
+bossbar set kitpvp:li_a2 value 0
+bossbar add kitpvp:li_s3 {"text":"剑 · 附魔等级 0","color":"purple"}
+bossbar set kitpvp:li_s3 style progress
+bossbar set kitpvp:li_s3 max 900
+bossbar set kitpvp:li_s3 value 0
+bossbar add kitpvp:li_a3 {"text":"护甲 · 附魔等级 0","color":"blue"}
+bossbar set kitpvp:li_a3 style progress
+bossbar set kitpvp:li_a3 max 900
+bossbar set kitpvp:li_a3 value 0
+bossbar add kitpvp:li_s4 {"text":"剑 · 附魔等级 0","color":"purple"}
+bossbar set kitpvp:li_s4 style progress
+bossbar set kitpvp:li_s4 max 900
+bossbar set kitpvp:li_s4 value 0
+bossbar add kitpvp:li_a4 {"text":"护甲 · 附魔等级 0","color":"blue"}
+bossbar set kitpvp:li_a4 style progress
+bossbar set kitpvp:li_a4 max 900
+bossbar set kitpvp:li_a4 value 0
+bossbar add kitpvp:li_s5 {"text":"剑 · 附魔等级 0","color":"purple"}
+bossbar set kitpvp:li_s5 style progress
+bossbar set kitpvp:li_s5 max 900
+bossbar set kitpvp:li_s5 value 0
+bossbar add kitpvp:li_a5 {"text":"护甲 · 附魔等级 0","color":"blue"}
+bossbar set kitpvp:li_a5 style progress
+bossbar set kitpvp:li_a5 max 900
+bossbar set kitpvp:li_a5 value 0
+bossbar add kitpvp:li_s6 {"text":"剑 · 附魔等级 0","color":"purple"}
+bossbar set kitpvp:li_s6 style progress
+bossbar set kitpvp:li_s6 max 900
+bossbar set kitpvp:li_s6 value 0
+bossbar add kitpvp:li_a6 {"text":"护甲 · 附魔等级 0","color":"blue"}
+bossbar set kitpvp:li_a6 style progress
+bossbar set kitpvp:li_a6 max 900
+bossbar set kitpvp:li_a6 value 0
+bossbar add kitpvp:li_s7 {"text":"剑 · 附魔等级 0","color":"purple"}
+bossbar set kitpvp:li_s7 style progress
+bossbar set kitpvp:li_s7 max 900
+bossbar set kitpvp:li_s7 value 0
+bossbar add kitpvp:li_a7 {"text":"护甲 · 附魔等级 0","color":"blue"}
+bossbar set kitpvp:li_a7 style progress
+bossbar set kitpvp:li_a7 max 900
+bossbar set kitpvp:li_a7 value 0
+bossbar add kitpvp:li_s8 {"text":"剑 · 附魔等级 0","color":"purple"}
+bossbar set kitpvp:li_s8 style progress
+bossbar set kitpvp:li_s8 max 900
+bossbar set kitpvp:li_s8 value 0
+bossbar add kitpvp:li_a8 {"text":"护甲 · 附魔等级 0","color":"blue"}
+bossbar set kitpvp:li_a8 style progress
+bossbar set kitpvp:li_a8 max 900
+bossbar set kitpvp:li_a8 value 0

@@ -227,3 +227,6 @@ kill @e[tag=kitpvp.earth_token]
 execute as @a[tag=kitpvp.selected,scores={kitpvp.kit=15},tag=!kitpvp.spectator] at @s run function kitpvp:skill/enchanter/book_passive
 execute if score #state kitpvp.game matches 1 as @a[tag=kitpvp.selected,scores={kitpvp.kit=15,kitpvp.alive=1},tag=!kitpvp.spectator] at @s run function kitpvp:skill/enchanter/tick
 function kitpvp:skill/enchanter/hud
+# 里·附魔师（kit 99）：坐杀博徒与双进度条
+execute if score #state kitpvp.game matches 1 as @a[tag=kitpvp.selected,scores={kitpvp.kit=99,kitpvp.alive=1},tag=!kitpvp.spectator] at @s run function kitpvp:skill/li_ench/player_tick
+function kitpvp:skill/li_ench/hud

@@ -42,3 +42,4 @@ execute if score @s kitpvp.kit matches 97 run function kitpvp:kit/zhuzhiwu
 execute if score @s kitpvp.kit matches 77 run function kitpvp:kit/zhanshishi
 execute if score @s kitpvp.kit matches 15 run function kitpvp:kit/enchanter
 execute if score @s kitpvp.kit matches 98 run function kitpvp:kit/poisoner
+execute if score @s kitpvp.kit matches 99 run function kitpvp:kit/tainted_enchanter

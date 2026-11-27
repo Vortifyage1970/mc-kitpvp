@@ -4,3 +4,6 @@ execute if score @s kitpvp.kit matches 15 if score @s kitpvp.alive matches 1 if 
 execute if score @s kitpvp.kit matches 15 if score @s kitpvp.alive matches 1 if score @s kitpvp.ench_ap matches ..2 if score @s kitpvp.ench_ap_fill matches 300.. run function kitpvp:skill/enchanter/fill_ap
 execute if score @s kitpvp.kit matches 15 if score @s kitpvp.alive matches 1 run playsound minecraft:block.note_block.chime master @s ~ ~ ~ 0.35 1.4
 execute if score @s kitpvp.kit matches 15 if score @s kitpvp.alive matches 1 run function kitpvp:skill/enchanter/ench_check
+# 里·附魔师（kit 99）：只有领域里挨打才加护甲进度
+execute if score @s kitpvp.kit matches 99 if score @s kitpvp.alive matches 1 if entity @s[tag=kitpvp.ench_domain] if score @s kitpvp.ench_armor matches ..10 if score @s kitpvp.ench_ap matches ..2 run scoreboard players add @s kitpvp.ench_ap_fill 60
+execute if score @s kitpvp.kit matches 99 if score @s kitpvp.alive matches 1 if entity @s[tag=kitpvp.ench_domain] if score @s kitpvp.ench_ap matches ..2 if score @s kitpvp.ench_ap_fill matches 300.. run function kitpvp:skill/enchanter/fill_ap
