@@ -81,7 +81,7 @@ scoreboard objectives add kitpvp.soul_slime_last dummy "史莱姆魂石快照"
 scoreboard objectives add kitpvp.soul_slime_timer dummy "史莱姆魂石倒计时"
 scoreboard objectives add kitpvp.tep_used minecraft.used:minecraft.spyglass
 scoreboard objectives add kitpvp.tep_last dummy "传送枪使用快照"
-scoreboard objectives add kitpvp.tep_cd dummy "传送枪装填（40 = 2 秒）"
+scoreboard objectives add kitpvp.tep_cd dummy "传送枪装填（20 = 1 秒）"
 scoreboard objectives add kitpvp.tep_life dummy "传送门寿命（400 = 20 秒）"
 scoreboard objectives add kitpvp.tep_ready dummy "穿门后的免疫刻数"
 scoreboard objectives add kitpvp.tep_pid dummy "传送门的配对号（每个玩家一个）"
@@ -812,7 +812,7 @@ scoreboard objectives add kitpvp.li_single_used minecraft.used:minecraft.camel_s
 scoreboard objectives add kitpvp.li_single_last dummy "上一刻的单抽次数"
 scoreboard objectives add kitpvp.li_ten_used minecraft.used:minecraft.panda_spawn_egg
 scoreboard objectives add kitpvp.li_ten_last dummy "上一刻的十连次数"
-scoreboard objectives add kitpvp.li_single_cd dummy "单抽冷却刻数（40 = 2 秒）"
+scoreboard objectives add kitpvp.li_single_cd dummy "单抽冷却刻数（20 = 1 秒）"
 scoreboard objectives add kitpvp.li_ten_cd dummy "十连冷却刻数（100 = 5 秒）"
 scoreboard objectives add kitpvp.ench_hud_t dummy "HUD 标题自检计时（20 刻一次）"
 scoreboard objectives add kitpvp.ench_pending dummy "排队的剑附魔次数（拿剑时补）"
