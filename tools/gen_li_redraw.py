@@ -5,7 +5,7 @@
 规则（用户 2026-11-28 定）：
 - 单抽：受 3 点瞬间伤害；88% 剑与甲各涨 X 点蓄力（X ∈ 0.5/1/1.5/2，均分），
   10% 给 20 点伤害吸收，2% 进入领域（60 秒）。冷却 2 秒。
-- 十连：受 20 点瞬间伤害，然后连抽 10 发。冷却 15 秒。
+- 十连：受 20 点瞬间伤害，然后连抽 10 发。冷却 5 秒。
 - 领域内：速度 II / 急迫 II / 生命回复 I，每 2 秒自动白抽一次（不扣血）。
 
 抽卡用刷怪蛋触发（用户要求用蛋），刷出来的生物当场清掉。
@@ -60,12 +60,12 @@ def build() -> None:
       "execute if score @s kitpvp.li_single_cd matches 40 run damage @s 3 minecraft:magic\n"
       "execute if score @s kitpvp.li_single_cd matches 40 run function kitpvp:skill/li_ench/pull\n")
 
-    ten_pulls = ("execute if score @s kitpvp.li_ten_cd matches 300 run function kitpvp:skill/li_ench/pull\n" * 10)
+    ten_pulls = ("execute if score @s kitpvp.li_ten_cd matches 100 run function kitpvp:skill/li_ench/pull\n" * 10)
     w("ten_draw.mcfunction",
-      "# 十连：冷却 15 秒；20 点瞬间伤害换十次抽卡\n"
+      "# 十连：冷却 5 秒；20 点瞬间伤害换十次抽卡\n"
       "execute if score @s kitpvp.li_ten_cd matches 1.. run title @s actionbar [{\"text\":\"十连冷却：\",\"color\":\"gray\"},{\"score\":{\"name\":\"@s\",\"objective\":\"kitpvp.li_ten_cd\"}},{\"text\":\" 刻\",\"color\":\"gray\"}]\n"
-      "execute if score @s kitpvp.li_ten_cd matches ..0 run scoreboard players set @s kitpvp.li_ten_cd 300\n"
-      "execute if score @s kitpvp.li_ten_cd matches 300 run damage @s 20 minecraft:magic\n"
+      "execute if score @s kitpvp.li_ten_cd matches ..0 run scoreboard players set @s kitpvp.li_ten_cd 100\n"
+      "execute if score @s kitpvp.li_ten_cd matches 100 run damage @s 20 minecraft:magic\n"
       + ten_pulls)
 
     # ---------- 抽卡本体 ----------
@@ -168,7 +168,7 @@ def patch_kit() -> None:
             out.append(
                 'item replace entity @s hotbar.3 with minecraft:%s{KitLiTen:1b,Enchantments:[{id:"minecraft:unbreaking",lvl:1s}],'
                 'display:{Name:\'{"text":"十连","color":"gold","italic":false}\','
-                'Lore:[\'{"text":"右键：受 20 点伤害连抽十次（冷却 15 秒）","color":"gray","italic":false}\']}}' % TEN_EGG)
+                'Lore:[\'{"text":"右键：受 20 点伤害连抽十次（冷却 5 秒）","color":"gray","italic":false}\']}}' % TEN_EGG)
             continue
         out.append(line)
     text = "\n".join(out) + "\n"
