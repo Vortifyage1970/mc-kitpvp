@@ -35,7 +35,7 @@ function kitpvp:skill/enchanter/name_refresh
 
 tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"附魔师","color":"light_purple","bold":true}]
 tellraw @s [{"text":"常态不能蓄力；右键方块展开「坐杀博徒」，20 秒内每次命中抽一张卡","color":"dark_gray"}]
-tellraw @s [{"text":"用「坐杀博徒·入场券」右键开场：60 秒赌场，冷却 60 秒","color":"dark_gray"}]
+tellraw @s [{"text":"《神学大全》拿在主手：移速 -30%、闪烁发光；右键方块开场，冷却 50 秒","color":"dark_gray"}]
 scoreboard players set @s kitpvp.ench_domain_t 0
 scoreboard players set @s kitpvp.ench_domain_cd 0
 scoreboard players set @s kitpvp.ench_domain_ready 0
