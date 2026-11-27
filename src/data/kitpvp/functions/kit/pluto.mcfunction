@@ -19,7 +19,9 @@ scoreboard players operation @s kitpvp.ptid = #ptid kitpvp.game
 scoreboard players set @s kitpvp.parrot_miss 0
 
 function kitpvp:skill/pluto/passive
-function kitpvp:skill/pluto/spawn
+# 鹦鹉**不在这里召唤**：大厅里没有它。开局由 game/start_impl → skill/pluto/enter_map 生成，
+# 全程只有这一个生成点（2026-11-28 改）。大厅里反复"丢了就补"会制造
+# 实体不存在的空窗，观测者看到的就是"鸟突然没了"。
 
 tellraw @s [{"text":"已选择 ","color":"gray"},{"text":"冥王星","color":"dark_blue","bold":true}]
 playsound minecraft:ui.button.click master @s ~ ~ ~ 1 1.2

@@ -3,5 +3,6 @@
 scoreboard players operation #ptid kitpvp.game = @s kitpvp.ptid
 scoreboard players set #pparrot kitpvp.game 0
 execute as @e[type=minecraft:parrot,tag=kitpvp.pluto_parrot] if score @s kitpvp.parrot_owner = #ptid kitpvp.game run scoreboard players set #pparrot kitpvp.game 1
-execute if score #pparrot kitpvp.game matches 0 at @s run function kitpvp:skill/pluto/spawn
+# 只有局中才允许补：大厅里 respawn 只清计数，不生成（唯一生成点是开局 enter_map）
+execute if score #state kitpvp.game matches 1 if score #pparrot kitpvp.game matches 0 at @s run function kitpvp:skill/pluto/spawn
 scoreboard players set @s kitpvp.parrot_miss 0
