@@ -26,6 +26,8 @@ scoreboard players set @s kitpvp.ench_fx 0
 scoreboard players set @s kitpvp.ench_domain_t 0
 scoreboard players set @s kitpvp.ench_domain_cd 0
 scoreboard players set @s kitpvp.ench_domain_ready 0
+scoreboard players set @s kitpvp.ench_domain_last 0
+scoreboard players set @s kitpvp.ench_egg_last 0
 scoreboard players set @s kitpvp.ench_tmp 0
 scoreboard players set @s kitpvp.ench_tmp_kind 0
 tag @s remove kitpvp.ench_domain
