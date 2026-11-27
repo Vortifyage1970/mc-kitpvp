@@ -1,34 +1,34 @@
 # 坐杀博徒：每命中一次抽一张卡（普通 0..88 / 稀有 89..120 / 传说 121..127）
 scoreboard players set #dom_r kitpvp.game 0
-execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
+execute store success score #dom_b kitpvp.game if predicate kitpvp:random/1in2
 execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_r kitpvp.game 1
-execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
+execute store success score #dom_b kitpvp.game if predicate kitpvp:random/1in2
 execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_r kitpvp.game 2
-execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
+execute store success score #dom_b kitpvp.game if predicate kitpvp:random/1in2
 execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_r kitpvp.game 4
-execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
+execute store success score #dom_b kitpvp.game if predicate kitpvp:random/1in2
 execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_r kitpvp.game 8
-execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
+execute store success score #dom_b kitpvp.game if predicate kitpvp:random/1in2
 execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_r kitpvp.game 16
-execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
+execute store success score #dom_b kitpvp.game if predicate kitpvp:random/1in2
 execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_r kitpvp.game 32
-execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
+execute store success score #dom_b kitpvp.game if predicate kitpvp:random/1in2
 execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_r kitpvp.game 64
 
 scoreboard players set #dom_p kitpvp.game 0
-execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
+execute store success score #dom_b kitpvp.game if predicate kitpvp:random/1in2
 execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_p kitpvp.game 1
-execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
+execute store success score #dom_b kitpvp.game if predicate kitpvp:random/1in2
 execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_p kitpvp.game 2
-execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
+execute store success score #dom_b kitpvp.game if predicate kitpvp:random/1in2
 execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_p kitpvp.game 4
-execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
+execute store success score #dom_b kitpvp.game if predicate kitpvp:random/1in2
 execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_p kitpvp.game 8
-execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
+execute store success score #dom_b kitpvp.game if predicate kitpvp:random/1in2
 execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_p kitpvp.game 16
-execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
+execute store success score #dom_b kitpvp.game if predicate kitpvp:random/1in2
 execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_p kitpvp.game 32
-execute store success score #dom_b kitpvp.game run predicate kitpvp:random/1in2
+execute store success score #dom_b kitpvp.game if predicate kitpvp:random/1in2
 execute if score #dom_b kitpvp.game matches 1 run scoreboard players add #dom_p kitpvp.game 64
 
 execute if score #dom_r kitpvp.game matches 0..88 if score #dom_p kitpvp.game matches 0..20 run function kitpvp:skill/li_ench/card/c00_mo
