@@ -47,6 +47,7 @@ scoreboard objectives add kitpvp.soul_archer_last dummy "弓箭手魂石快照"
 scoreboard objectives add kitpvp.arsonist_used minecraft.used:minecraft.splash_potion
 scoreboard objectives add kitpvp.arsonist_last dummy
 scoreboard objectives add kitpvp.arsonist_ammo dummy
+scoreboard objectives add kitpvp.mvp_count dummy "职业战争 MVP 次数（StatTrak，2026-11-28 起统计）"
 scoreboard objectives add kitpvp.fire_timer dummy
 scoreboard objectives add kitpvp.soul_ghost_used minecraft.used:minecraft.vex_spawn_egg
 scoreboard objectives add kitpvp.soul_ghost_last dummy "幽灵魂石快照"
